@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Weapon Components - CENTRALIZED 9mm Magazine System
+  
+  STANDARDIZED AMMO EFFECTS (same for ALL 9mm weapons):
+  - FMJ: Baseline damage, standard behavior
+  - HP (Hollow Point): +10% damage modifier, AmmoSpecialType handles armor reduction
+  - AP (Armor Piercing): -10% damage modifier, AmmoSpecialType handles armor bypass
+  
+  Magazine capacities:
+  - FMJ: Standard capacity
+  - HP: Standard capacity
+  - AP: -2 rounds (harder to feed reliably)
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+  
+    <!-- ==================== GLOCK 17 MAGAZINES (17 rounds) ==================== -->
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G17_CLIP_FMJ</n>
+      <Model />
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="false" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="0" />
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_9MM_FMJ" />
+    </Item>
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G17_CLIP_HP</n>
+      <Model />
+      <LocName>WCT_CLIP_HP</LocName>
+      <LocDesc>WCD_CLIP_HP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="1.100000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="10" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="-5" />
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_9MM_HP" />
+    </Item>
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G17_CLIP_AP</n>
+      <Model />
+      <LocName>WCT_CLIP_AP</LocName>
+      <LocDesc>WCD_CLIP_AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="0.900000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="-10" />
+      <HudSpeed value="0" />
+      <HudCapacity value="-10" />
+      <HudAccuracy value="0" />
+      <HudRange value="5" />
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_9MM_AP" />
+    </Item>
+    
+    <!-- ==================== GLOCK 19 MAGAZINES (15 rounds) ==================== -->
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G19_CLIP_FMJ</n>
+      <Model />
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="false" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="0" />
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_9MM_FMJ" />
+    </Item>
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G19_CLIP_HP</n>
+      <Model />
+      <LocName>WCT_CLIP_HP</LocName>
+      <LocDesc>WCD_CLIP_HP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="1.100000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="10" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="-5" />
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_9MM_HP" />
+    </Item>
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G19_CLIP_AP</n>
+      <Model />
+      <LocName>WCT_CLIP_AP</LocName>
+      <LocDesc>WCD_CLIP_AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="0.900000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="-10" />
+      <HudSpeed value="0" />
+      <HudCapacity value="-10" />
+      <HudAccuracy value="0" />
+      <HudRange value="5" />
+      <ClipSize value="13" />
+      <AmmoInfo ref="AMMO_9MM_AP" />
+    </Item>
+    
+    <!-- ==================== GLOCK 19X/G45 MAGAZINES (17 rounds) ==================== -->
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G19X_CLIP_FMJ</n>
+      <Model />
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="false" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="0" />
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_9MM_FMJ" />
+    </Item>
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G19X_CLIP_HP</n>
+      <Model />
+      <LocName>WCT_CLIP_HP</LocName>
+      <LocDesc>WCD_CLIP_HP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="1.100000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="10" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="-5" />
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_9MM_HP" />
+    </Item>
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G19X_CLIP_AP</n>
+      <Model />
+      <LocName>WCT_CLIP_AP</LocName>
+      <LocDesc>WCD_CLIP_AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="0.900000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="-10" />
+      <HudSpeed value="0" />
+      <HudCapacity value="-10" />
+      <HudAccuracy value="0" />
+      <HudRange value="5" />
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_9MM_AP" />
+    </Item>
+    
+    <!-- ==================== BERETTA M9 MAGAZINES (15 rounds) ==================== -->
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_M9_CLIP_FMJ</n>
+      <Model />
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="false" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="0" />
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_9MM_FMJ" />
+    </Item>
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_M9_CLIP_HP</n>
+      <Model />
+      <LocName>WCT_CLIP_HP</LocName>
+      <LocDesc>WCD_CLIP_HP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="1.100000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="10" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="-5" />
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_9MM_HP" />
+    </Item>
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_M9_CLIP_AP</n>
+      <Model />
+      <LocName>WCT_CLIP_AP</LocName>
+      <LocDesc>WCD_CLIP_AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="0.900000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="-10" />
+      <HudSpeed value="0" />
+      <HudCapacity value="-10" />
+      <HudAccuracy value="0" />
+      <HudRange value="5" />
+      <ClipSize value="13" />
+      <AmmoInfo ref="AMMO_9MM_AP" />
+    </Item>
+    
+    <!-- ==================== BERETTA M9A3 MAGAZINES (17 rounds) ==================== -->
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_M9A3_CLIP_FMJ</n>
+      <Model />
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="false" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="0" />
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_9MM_FMJ" />
+    </Item>
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_M9A3_CLIP_HP</n>
+      <Model />
+      <LocName>WCT_CLIP_HP</LocName>
+      <LocDesc>WCD_CLIP_HP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="1.100000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="10" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="-5" />
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_9MM_HP" />
+    </Item>
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_M9A3_CLIP_AP</n>
+      <Model />
+      <LocName>WCT_CLIP_AP</LocName>
+      <LocDesc>WCD_CLIP_AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="0.900000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="-10" />
+      <HudSpeed value="0" />
+      <HudCapacity value="-10" />
+      <HudAccuracy value="0" />
+      <HudRange value="5" />
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_9MM_AP" />
+    </Item>
+    
+    <!-- ==================== BERETTA PX4 STORM MAGAZINES (17 rounds) ==================== -->
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_PX4_CLIP_FMJ</n>
+      <Model />
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="false" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="0" />
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_9MM_FMJ" />
+    </Item>
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_PX4_CLIP_HP</n>
+      <Model />
+      <LocName>WCT_CLIP_HP</LocName>
+      <LocDesc>WCD_CLIP_HP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="1.100000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="10" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="-5" />
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_9MM_HP" />
+    </Item>
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_PX4_CLIP_AP</n>
+      <Model />
+      <LocName>WCT_CLIP_AP</LocName>
+      <LocDesc>WCD_CLIP_AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="0.900000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="-10" />
+      <HudSpeed value="0" />
+      <HudCapacity value="-10" />
+      <HudAccuracy value="0" />
+      <HudRange value="5" />
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_9MM_AP" />
+    </Item>
+    
+    <!-- ==================== SIG P320 MAGAZINES (17 rounds) ==================== -->
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_P320_CLIP_FMJ</n>
+      <Model />
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="false" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="0" />
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_9MM_FMJ" />
+    </Item>
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_P320_CLIP_HP</n>
+      <Model />
+      <LocName>WCT_CLIP_HP</LocName>
+      <LocDesc>WCD_CLIP_HP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="1.100000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="10" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="-5" />
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_9MM_HP" />
+    </Item>
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_P320_CLIP_AP</n>
+      <Model />
+      <LocName>WCT_CLIP_AP</LocName>
+      <LocDesc>WCD_CLIP_AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="0.900000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="-10" />
+      <HudSpeed value="0" />
+      <HudCapacity value="-10" />
+      <HudAccuracy value="0" />
+      <HudRange value="5" />
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_9MM_AP" />
+    </Item>
+    
+    <!-- ==================== CANIK TP9SF MAGAZINES (18 rounds) ==================== -->
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_TP9SF_CLIP_FMJ</n>
+      <Model />
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="false" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="0" />
+      <ClipSize value="18" />
+      <AmmoInfo ref="AMMO_9MM_FMJ" />
+    </Item>
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_TP9SF_CLIP_HP</n>
+      <Model />
+      <LocName>WCT_CLIP_HP</LocName>
+      <LocDesc>WCD_CLIP_HP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="1.100000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="10" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="-5" />
+      <ClipSize value="18" />
+      <AmmoInfo ref="AMMO_9MM_HP" />
+    </Item>
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_TP9SF_CLIP_AP</n>
+      <Model />
+      <LocName>WCT_CLIP_AP</LocName>
+      <LocDesc>WCD_CLIP_AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="0.900000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="-10" />
+      <HudSpeed value="0" />
+      <HudCapacity value="-10" />
+      <HudAccuracy value="0" />
+      <HudRange value="5" />
+      <ClipSize value="16" />
+      <AmmoInfo ref="AMMO_9MM_AP" />
+    </Item>
+    
+    <!-- ==================== FN 509 MAGAZINES (17 rounds) ==================== -->
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_FN509_CLIP_FMJ</n>
+      <Model />
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="false" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="0" />
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_9MM_FMJ" />
+    </Item>
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_FN509_CLIP_HP</n>
+      <Model />
+      <LocName>WCT_CLIP_HP</LocName>
+      <LocDesc>WCD_CLIP_HP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="1.100000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="10" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="-5" />
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_9MM_HP" />
+    </Item>
+    
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_FN509_CLIP_AP</n>
+      <Model />
+      <LocName>WCT_CLIP_AP</LocName>
+      <LocDesc>WCD_CLIP_AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="0.900000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="-10" />
+      <HudSpeed value="0" />
+      <HudCapacity value="-10" />
+      <HudAccuracy value="0" />
+      <HudRange value="5" />
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_9MM_AP" />
+    </Item>
+    
+    <!-- ==================== COMPACT 9MM (BATCH 1) ==================== -->
+    
+    <!-- Glock 26 (10 rounds) -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G26_CLIP_FMJ</n>
+      <Model /><LocName>WCT_CLIP_FMJ</LocName><LocDesc>WCD_CLIP_FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" /><DamageModifier type="NULL" />
+      <bShownOnWheel value="false" /><CreateObject value="true" />
+      <HudDamage value="0" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="0" />
+      <ClipSize value="10" /><AmmoInfo ref="AMMO_9MM_FMJ" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G26_CLIP_HP</n>
+      <Model /><LocName>WCT_CLIP_HP</LocName><LocDesc>WCD_CLIP_HP</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="1.100000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="10" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="-5" />
+      <ClipSize value="10" /><AmmoInfo ref="AMMO_9MM_HP" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G26_CLIP_AP</n>
+      <Model /><LocName>WCT_CLIP_AP</LocName><LocDesc>WCD_CLIP_AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.900000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-10" /><HudSpeed value="0" /><HudCapacity value="-10" /><HudAccuracy value="0" /><HudRange value="5" />
+      <ClipSize value="8" /><AmmoInfo ref="AMMO_9MM_AP" />
+    </Item>
+    
+    <!-- Glock 43X (10 rounds) -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G43X_CLIP_FMJ</n>
+      <Model /><LocName>WCT_CLIP_FMJ</LocName><LocDesc>WCD_CLIP_FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" /><DamageModifier type="NULL" />
+      <bShownOnWheel value="false" /><CreateObject value="true" />
+      <HudDamage value="0" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="0" />
+      <ClipSize value="10" /><AmmoInfo ref="AMMO_9MM_FMJ" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G43X_CLIP_HP</n>
+      <Model /><LocName>WCT_CLIP_HP</LocName><LocDesc>WCD_CLIP_HP</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="1.100000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="10" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="-5" />
+      <ClipSize value="10" /><AmmoInfo ref="AMMO_9MM_HP" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G43X_CLIP_AP</n>
+      <Model /><LocName>WCT_CLIP_AP</LocName><LocDesc>WCD_CLIP_AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.900000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-10" /><HudSpeed value="0" /><HudCapacity value="-10" /><HudAccuracy value="0" /><HudRange value="5" />
+      <ClipSize value="8" /><AmmoInfo ref="AMMO_9MM_AP" />
+    </Item>
+    
+    <!-- Springfield Hellcat (11 rounds) -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_HELLCAT_CLIP_FMJ</n>
+      <Model /><LocName>WCT_CLIP_FMJ</LocName><LocDesc>WCD_CLIP_FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" /><DamageModifier type="NULL" />
+      <bShownOnWheel value="false" /><CreateObject value="true" />
+      <HudDamage value="0" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="0" />
+      <ClipSize value="11" /><AmmoInfo ref="AMMO_9MM_FMJ" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_HELLCAT_CLIP_HP</n>
+      <Model /><LocName>WCT_CLIP_HP</LocName><LocDesc>WCD_CLIP_HP</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="1.100000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="10" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="-5" />
+      <ClipSize value="11" /><AmmoInfo ref="AMMO_9MM_HP" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_HELLCAT_CLIP_AP</n>
+      <Model /><LocName>WCT_CLIP_AP</LocName><LocDesc>WCD_CLIP_AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.900000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-10" /><HudSpeed value="0" /><HudCapacity value="-10" /><HudAccuracy value="0" /><HudRange value="5" />
+      <ClipSize value="9" /><AmmoInfo ref="AMMO_9MM_AP" />
+    </Item>
+    
+    <!-- Taurus GX4 (11 rounds) -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_GX4_CLIP_FMJ</n>
+      <Model /><LocName>WCT_CLIP_FMJ</LocName><LocDesc>WCD_CLIP_FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" /><DamageModifier type="NULL" />
+      <bShownOnWheel value="false" /><CreateObject value="true" />
+      <HudDamage value="0" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="0" />
+      <ClipSize value="11" /><AmmoInfo ref="AMMO_9MM_FMJ" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_GX4_CLIP_HP</n>
+      <Model /><LocName>WCT_CLIP_HP</LocName><LocDesc>WCD_CLIP_HP</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="1.100000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="10" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="-5" />
+      <ClipSize value="11" /><AmmoInfo ref="AMMO_9MM_HP" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_GX4_CLIP_AP</n>
+      <Model /><LocName>WCT_CLIP_AP</LocName><LocDesc>WCD_CLIP_AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.900000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-10" /><HudSpeed value="0" /><HudCapacity value="-10" /><HudAccuracy value="0" /><HudRange value="5" />
+      <ClipSize value="9" /><AmmoInfo ref="AMMO_9MM_AP" />
+    </Item>
+    
+  </Infos>
+  <n>Centralized 9mm Pistol Components</n>
+</CWeaponComponentInfoBlob>

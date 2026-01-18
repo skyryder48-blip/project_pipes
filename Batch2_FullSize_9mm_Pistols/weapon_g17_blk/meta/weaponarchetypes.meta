@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponModelInfo__InitDataList>
+  <InitDatas>
+    <!-- Glock 17 Blackout - Full-Size 9mm Pistol -->
+    <Item>
+      <modelName>w_pi_g17_blk</modelName>
+      <txdName>w_pi_g17_blk</txdName>
+      <ptfxAssetName>null</ptfxAssetName>
+      <lodDist value="50"/>
+    </Item>
+  </InitDatas>
+</CWeaponModelInfo__InitDataList>

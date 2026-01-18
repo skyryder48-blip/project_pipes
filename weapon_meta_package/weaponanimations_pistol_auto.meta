@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    WEAPONANIMATIONS.META - Full-Auto Pistol Template
+    Uses AP Pistol animation set for faster cycling animations.
+    
+    USAGE: Replace WEAPON_YOURWEAPON with your weapon hash (e.g., WEAPON_G18)
+    
+    Use this template for:
+    - Glock 18
+    - Glock 26 Switch
+    - Glock 19X Switch
+    - Any other full-auto converted pistol
+-->
+<CWeaponAnimationsSets>
+  <WeaponAnimationsSets>
+    <Item key="Default">
+      <WeaponAnimations>
+        <Item key="WEAPON_YOURWEAPON">
+          <!-- Cover movement -->
+          <CoverMovementClipSetHash />
+          <CoverMovementExtraClipSetHash />
+          <CoverAlternateMovementClipSetHash>cover@move@ai@base@1h</CoverAlternateMovementClipSetHash>
+          <CoverWeaponClipSetHash>Cover_Wpn_Pistol</CoverWeaponClipSetHash>
+          
+          <!-- Motion - using AP pistol for auto fire -->
+          <MotionClipSetHash>weapons@pistol@ap_pistol</MotionClipSetHash>
+          <MotionFilterHash>BothArms_filter</MotionFilterHash>
+          <MotionCrouchClipSetHash />
+          <MotionStrafingClipSetHash />
+          <MotionStrafingStealthClipSetHash />
+          <MotionStrafingUpperBodyClipSetHash />
+          
+          <!-- Weapon handling - using AP pistol animations -->
+          <WeaponClipSetHash>weapons@pistol@ap_pistol</WeaponClipSetHash>
+          <WeaponClipSetStreamedHash>weapons@pistol@ap_pistol_str</WeaponClipSetStreamedHash>
+          <WeaponClipSetHashInjured>weapons@pistol@pistol_injured</WeaponClipSetHashInjured>
+          <WeaponClipSetHashStealth>weapons@pistol@pistol@stealth</WeaponClipSetHashStealth>
+          <WeaponClipSetHashHiCover />
+          <AlternativeClipSetWhenBlocked />
+          <ScopeWeaponClipSet />
+          
+          <!-- Aiming -->
+          <AlternateAimingStandingClipSetHash />
+          <AlternateAimingCrouchingClipSetHash />
+          
+          <!-- Firing variations -->
+          <FiringVariationsStandingClipSetHash>combat_fire_variations_pistol</FiringVariationsStandingClipSetHash>
+          <FiringVariationsCrouchingClipSetHash />
+          
+          <!-- Aim turns -->
+          <AimTurnStandingClipSetHash>combat_aim_turns_pistol</AimTurnStandingClipSetHash>
+          <AimTurnCrouchingClipSetHash />
+          
+          <!-- Melee -->
+          <MeleeClipSetHash />
+          <MeleeVariationClipSetHash />
+          <MeleeTauntClipSetHash />
+          <MeleeSupportTauntClipSetHash />
+          <MeleeStealthClipSetHash />
+          
+          <!-- Reactions -->
+          <ShellShockedClipSetHash>reaction@shellshock@unarmed</ShellShockedClipSetHash>
+          
+          <!-- Jump/Fall -->
+          <JumpUpperbodyClipSetHash />
+          <FallUpperbodyClipSetHash />
+          
+          <!-- Transitions -->
+          <FromStrafeTransitionUpperBodyClipSetHash>weapons@pistol@</FromStrafeTransitionUpperBodyClipSetHash>
+          
+          <!-- Swap filters -->
+          <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+          <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+          
+          <!-- Fire rate modifiers - faster for full-auto -->
+          <AnimFireRateModifier value="1.500000" />
+          <AnimBlindFireRateModifier value="1.500000" />
+          <AnimWantingToShootFireRateModifier value="4.000000" />
+          
+          <!-- Network -->
+          <UseFromStrafeUpperBodyAimNetwork value="true" />
+        </Item>
+      </WeaponAnimations>
+    </Item>
+  </WeaponAnimationsSets>
+</CWeaponAnimationsSets>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <Infos>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+          <n>WEAPON_G17</n>
+          <Model>w_pi_g17</Model>
+          <Audio>AUDIO_ITEM_PISTOL</Audio>
+          <Slot>SLOT_PISTOL</Slot>
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FireType>INSTANT_HIT</FireType>
+          <WheelSlot>WHEEL_PISTOL</WheelSlot>
+          <Group>GROUP_PISTOL</Group>
+          <AmmoInfo ref="AMMO_PISTOL" />
+          <AimingInfo ref="PISTOL_2H_BASE_STRAFE" />
+          
+          <!-- ==========================================
+               GLOCK 17 GEN 4 - BASELINE FULL-SIZE 9MM
+               Barrel: 4.49" | Weight: 625g | Capacity: 17+1
+               Muzzle Velocity: 1,145-1,200 fps (349-366 m/s)
+               ========================================== -->
+          
+          <!-- Magazine Capacity -->
+          <ClipSize value="17" />
+          
+          <!-- ==========================================
+               ACCURACY PARAMETERS
+               4.49" barrel, 165mm sight radius = good accuracy
+               ========================================== -->
+          <AccuracySpread value="1.500000" />
+          <AccurateModeAccuracyModifier value="0.500000" />
+          <RunAndGunAccuracyModifier value="2.000000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+          <RecoilAccuracyMax value="1.200000" />
+          <RecoilErrorTime value="0.400000" />
+          <RecoilRecoveryRate value="0.300000" />
+          <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
+          <MinHeadShotDistanceAI value="1.200000" />
+          <MaxHeadShotDistanceAI value="45.000000" />
+          <HeadShotDamageModifierAI value="1.500000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.500000" />
+          <MinHeadShotDistancePlayer value="0.000000" />
+          <MaxHeadShotDistancePlayer value="7.000000" />
+          
+          <!-- ==========================================
+               DAMAGE PARAMETERS
+               9mm Baseline: 34 damage
+               Close (3 shots): 34 × 3 = 102 > 100 HP ✓
+               Far (8 shots): 34 × 0.38 × 8 = 103 > 100 HP ✓
+               ========================================== -->
+          <Damage value="34.000000" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <DamageFallOffRangeMin value="15.000000" />
+          <DamageFallOffRangeMax value="50.000000" />
+          <DamageFallOffModifier value="0.380000" />
+          
+          <!-- ==========================================
+               HEADSHOT PARAMETERS
+               2.90x modifier = 2-shot headshot at all ranges
+               34 × 2.90 = 98.6 damage per headshot
+               ========================================== -->
+          <HeadShotDamageModifierPlayer value="2.900000" />
+          
+          <!-- Limb damage modifiers -->
+          <HitLimbsDamageModifier value="0.500000" />
+          <NetworkHitLimbsDamageModifier value="0.800000" />
+          <LightlyArmouredDamageModifier value="1.000000" />
+          <VehicleDamageModifier value="1.000000" />
+          
+          <!-- Network/PvP modifiers -->
+          <NetworkPlayerDamageModifier value="1.000000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          
+          <!-- ==========================================
+               BULLET VELOCITY
+               9mm from 4.49" barrel: ~355 m/s
+               ========================================== -->
+          <Speed value="355.000000" />
+          
+          <!-- ==========================================
+               RANGE PARAMETERS
+               Effective range ~50m for 9mm pistol
+               ========================================== -->
+          <WeaponRange value="100.000000" />
+          <BulletBendingNearRadius value="0.000000" />
+          <BulletBendingFarRadius value="0.000000" />
+          <BulletBendingZoomedRadius value="0.000000" />
+          
+          <!-- ==========================================
+               FIRE RATE
+               Semi-auto: 0.170s between shots (~350 RPM practical)
+               ========================================== -->
+          <TimeBetweenShots value="0.170000" />
+          
+          <!-- ==========================================
+               RECOIL PARAMETERS
+               625g weight, 9mm = moderate-light recoil
+               ========================================== -->
+          <RecoilShakeAmplitude value="0.200000" />
+          <ExplosionShakeAmplitude value="0.100000" />
+          
+          <!-- ==========================================
+               FORCE/PENETRATION
+               9mm: light penetration, moderate knockback
+               ========================================== -->
+          <Force value="50.000000" />
+          <ForceHitPed value="40.000000" />
+          <ForceHitVehicle value="30.000000" />
+          <ForceHitFlyingHeli value="10.000000" />
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="10.000000" />
+          <ForceFalloffRangeEnd value="30.000000" />
+          <ForceFalloffMin value="0.500000" />
+          <Penetration value="0.150000" />
+          
+          <!-- ==========================================
+               RELOAD PARAMETERS
+               G17: fast reload due to simple mag release
+               ========================================== -->
+          <AnimReloadRate value="1.000000" />
+          <AnimPostReloadRate value="1.000000" />
+          <ReloadTimeMP value="-1.000000" />
+          <ReloadTimeSP value="-1.000000" />
+          
+          <!-- ==========================================
+               AIM/HANDLING PARAMETERS
+               ========================================== -->
+          <AimingPedVar value="0.300000" />
+          <AimProbeLength value="2.000000" />
+          <AimProbeLengthMin value="0.000000" />
+          <AimProbeLengthMax value="2.000000" />
+          <AimOffset x="0.050000" y="0.000000" z="0.000000" />
+          <AimOffsetMin x="0.000000" y="0.000000" z="0.000000" />
+          <AimOffsetMax x="0.100000" y="0.000000" z="0.000000" />
+          <DefaultCameraHash>DEFAULT_AIMING_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_AIMING_CAMERA</CoverCameraHash>
+          <RunAndGunCameraHash>DEFAULT_RUN_AND_GUN_CAMERA</RunAndGunCameraHash>
+          <CinematicShootShakeHash>HAND_SHAKE</CinematicShootShakeHash>
+          <ReticuleHudPosition x="0.000000" y="0.000000" />
+          <ReticuleMinSizeStanding value="0.013000" />
+          <ReticuleMinSizeCrouched value="0.010000" />
+          <ReticuleScale value="0.300000" />
+          <ReticuleStyleHash>Reticule_youwin</ReticuleStyleHash>
+          <FirstPersonReticuleStyleHash />
+          <PickupHash>PICKUP_WEAPON_PISTOL</PickupHash>
+          <MPPickupHash>PICKUP_WEAPON_PISTOL</MPPickupHash>
+          
+          <!-- Display name -->
+          <HumanNameHash>WT_G17</HumanNameHash>
+          
+          <!-- Misc -->
+          <MovementModeConditionalIdle />
+          <WeaponTypeFlags />
+          <StatName>PISTOL</StatName>
+          <KnockdownCount value="0" />
+          <KillshotImpulseScale value="1.000000" />
+          <NmShotTuningSet>Normal</NmShotTuningSet>
+          <TintSpecValues />
+          <FiringPatternAliases />
+          <ReloadUpperBodyFixupExpressionData />
+          <AmmoDiminishingRate value="0" />
+          <AimingBreathingAdditiveWeight value="0.300000" />
+          <FiringBreathingAdditiveWeight value="0.100000" />
+          <StealthAimingBreathingAdditiveWeight value="0.000000" />
+          <StealthFiringBreathingAdditiveWeight value="0.000000" />
+          <AimingLeanAdditiveWeight value="0.300000" />
+          <FiringLeanAdditiveWeight value="0.100000" />
+          <StealthAimingLeanAdditiveWeight value="0.000000" />
+          <StealthFiringLeanAdditiveWeight value="0.000000" />
+          <ExpandPedCapsuleRadius value="0.000000" />
+          <AudioCollisionHash />
+          
+          <!-- HUD Stats -->
+          <HudDamage value="35" />
+          <HudSpeed value="70" />
+          <HudCapacity value="45" />
+          <HudAccuracy value="55" />
+          <HudRange value="35" />
+          
+          <!-- Weapon Flags -->
+          <WeaponFlags>Gun Thrown CarriedInHand TwoHanded AnimReload AnimCrouchFire</WeaponFlags>
+          
+          <!-- ==========================================
+               COMPONENT ATTACHMENT POINTS
+               Magazine slot for FMJ/HP/AP components
+               ========================================== -->
+          <AttachPoints>
+            <Item>
+              <AttachBone>WAPClip</AttachBone>
+              <Components>
+                <Item>
+                  <n>COMPONENT_G17_CLIP_FMJ</n>
+                  <Default value="true" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_G17_CLIP_HP</n>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_G17_CLIP_AP</n>
+                  <Default value="false" />
+                </Item>
+              </Components>
+            </Item>
+          </AttachPoints>
+          
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

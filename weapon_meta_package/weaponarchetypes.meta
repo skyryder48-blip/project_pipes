@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    WEAPONARCHETYPES.META - Universal Boilerplate
+    This file is the SAME for all addon weapons.
+    Empty InitDatas works when textures are embedded in .ytd file.
+    
+    Just copy this file to: meta/weaponarchetypes.meta
+-->
+<CWeaponModelInfo__InitDataList>
+  <InitDatas />
+</CWeaponModelInfo__InitDataList>

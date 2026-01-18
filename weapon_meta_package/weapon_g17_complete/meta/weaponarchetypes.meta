@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    WEAPONARCHETYPES.META - Boilerplate
+    Links weapon model to texture dictionary.
+    Empty InitDatas works when textures are embedded in .ytd file.
+    Same file can be used for all pistols.
+-->
+<CWeaponModelInfo__InitDataList>
+  <InitDatas />
+</CWeaponModelInfo__InitDataList>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CPedModelInfo__PersonalityDataList>
+  <!-- Glock 17 Gen 4 - Full-Size 9mm Pistol Ped Personality -->
+  <MovementModeUnholsterData>
+    <Item><ActionType>UNHOLSTER_UNARMED</ActionType><WeaponHash>WEAPON_G19X_SWITCH</WeaponHash><UnholsterClipHash>unarmed_holster_1h</UnholsterClipHash></Item>
+    <Item><ActionType>UNHOLSTER_1H</ActionType><WeaponHash>WEAPON_G19X_SWITCH</WeaponHash><UnholsterClipHash>1h_holster_1h</UnholsterClipHash></Item>
+    <Item><ActionType>UNHOLSTER_2H_MELEE</ActionType><WeaponHash>WEAPON_G19X_SWITCH</WeaponHash><UnholsterClipHash>2h_holster_1h</UnholsterClipHash></Item>
+    <Item><ActionType>UNHOLSTER_2H</ActionType><WeaponHash>WEAPON_G19X_SWITCH</WeaponHash><UnholsterClipHash>2h_holster_1h</UnholsterClipHash></Item>
+    <Item><ActionType>UNHOLSTER_UNARMED_STEALTH</ActionType><WeaponHash>WEAPON_G19X_SWITCH</WeaponHash><UnholsterClipHash>unarmed_holster_1h</UnholsterClipHash></Item>
+    <Item><ActionType>UNHOLSTER_1H_STEALTH</ActionType><WeaponHash>WEAPON_G19X_SWITCH</WeaponHash><UnholsterClipHash>1h_holster_1h</UnholsterClipHash></Item>
+    <Item><ActionType>UNHOLSTER_2H_MELEE_STEALTH</ActionType><WeaponHash>WEAPON_G19X_SWITCH</WeaponHash><UnholsterClipHash>2h_holster_1h</UnholsterClipHash></Item>
+    <Item><ActionType>UNHOLSTER_2H_STEALTH</ActionType><WeaponHash>WEAPON_G19X_SWITCH</WeaponHash><UnholsterClipHash>2h_holster_1h</UnholsterClipHash></Item>
+  </MovementModeUnholsterData>
+  <MovementModes>
+    <Item><Name>DEFAULT_ACTION</Name><Entries>
+      <Item><WeaponHash>WEAPON_G19X_SWITCH</WeaponHash><MovementClipSetId>move_action@p_m_zero@armed@core</MovementClipSetId><WeaponClipSetId>clipset@anim@move_action@generic@1hupper</WeaponClipSetId><AnimFilter>BothArms_filter</AnimFilter><UseLeftHandIk value="true"/></Item>
+      <Item><WeaponHash>WEAPON_G19X_SWITCH</WeaponHash><MovementClipSetId>move_action@p_m_zero@armed@core</MovementClipSetId><WeaponClipSetId>clipset@anim@move_action@generic@1hupper_stealth</WeaponClipSetId><AnimFilter>BothArms_filter</AnimFilter><UseLeftHandIk value="true"/><bIsStealth value="true"/></Item>
+    </Entries></Item>
+    <Item><Name>MP_FEMALE_ACTION</Name><Entries>
+      <Item><WeaponHash>WEAPON_G19X_SWITCH</WeaponHash><MovementClipSetId>move_action@female@armed@core</MovementClipSetId><WeaponClipSetId>clipset@anim@move_action@generic@1hupper</WeaponClipSetId><AnimFilter>BothArms_filter</AnimFilter><UseLeftHandIk value="true"/></Item>
+      <Item><WeaponHash>WEAPON_G19X_SWITCH</WeaponHash><MovementClipSetId>move_action@female@armed@core</MovementClipSetId><WeaponClipSetId>clipset@anim@move_action@generic@1hupper_stealth</WeaponClipSetId><AnimFilter>BothArms_filter</AnimFilter><UseLeftHandIk value="true"/><bIsStealth value="true"/></Item>
+    </Entries></Item>
+    <Item><Name>MICHAEL_ACTION</Name><Entries>
+      <Item><WeaponHash>WEAPON_G19X_SWITCH</WeaponHash><MovementClipSetId>move_action@p_m_zero@armed@core</MovementClipSetId><WeaponClipSetId>clipset@anim@move_action@generic@1hupper</WeaponClipSetId><AnimFilter>BothArms_filter</AnimFilter><UseLeftHandIk value="false"/></Item>
+      <Item><WeaponHash>WEAPON_G19X_SWITCH</WeaponHash><MovementClipSetId>move_action@p_m_zero@armed@core</MovementClipSetId><WeaponClipSetId>clipset@anim@move_action@generic@1hupper_stealth</WeaponClipSetId><AnimFilter>BothArms_filter</AnimFilter><UseLeftHandIk value="false"/><bIsStealth value="true"/></Item>
+    </Entries></Item>
+    <Item><Name>FRANKLIN_ACTION</Name><Entries>
+      <Item><WeaponHash>WEAPON_G19X_SWITCH</WeaponHash><MovementClipSetId>move_action@p_m_one@armed@core</MovementClipSetId><WeaponClipSetId>clipset@anim@move_action@generic@1hupper</WeaponClipSetId><AnimFilter>BothArms_filter</AnimFilter><UseLeftHandIk value="false"/></Item>
+      <Item><WeaponHash>WEAPON_G19X_SWITCH</WeaponHash><MovementClipSetId>move_action@p_m_one@armed@core</MovementClipSetId><WeaponClipSetId>clipset@anim@move_action@generic@1hupper_stealth</WeaponClipSetId><AnimFilter>BothArms_filter</AnimFilter><UseLeftHandIk value="false"/><bIsStealth value="true"/></Item>
+    </Entries></Item>
+    <Item><Name>TREVOR_ACTION</Name><Entries>
+      <Item><WeaponHash>WEAPON_G19X_SWITCH</WeaponHash><MovementClipSetId>move_action@p_m_two@armed@core</MovementClipSetId><WeaponClipSetId>clipset@anim@move_action@generic@1hupper</WeaponClipSetId><AnimFilter>BothArms_filter</AnimFilter><UseLeftHandIk value="false"/></Item>
+      <Item><WeaponHash>WEAPON_G19X_SWITCH</WeaponHash><MovementClipSetId>move_action@p_m_two@armed@core</MovementClipSetId><WeaponClipSetId>clipset@anim@move_action@generic@1hupper_stealth</WeaponClipSetId><AnimFilter>BothArms_filter</AnimFilter><UseLeftHandIk value="false"/><bIsStealth value="true"/></Item>
+    </Entries></Item>
+  </MovementModes>
+</CPedModelInfo__PersonalityDataList>

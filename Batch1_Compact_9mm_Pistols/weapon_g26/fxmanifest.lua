@@ -11,7 +11,11 @@ client_script 'cl_weaponNames.lua'
 -- Meta files
 files {
     'meta/weapon_g26.meta',
+    'meta/weaponanimations.meta',
+    'meta/pedpersonality.meta',
 }
 
 -- Data file declarations
 data_file 'WEAPONINFO_FILE_PATCH' 'meta/weapon_g26.meta'
+data_file 'WEAPON_ANIMATIONS_FILE' 'meta/weaponanimations.meta'
+data_file 'PED_PERSONALITY_FILE' 'meta/pedpersonality.meta'

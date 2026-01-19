@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Ruger-57
+  Caliber: 5.7x28mm
+  American-made value alternative with exceptional accuracy
+  
+  Real-World Specifications:
+  - Barrel Length: 4.94" (125.5mm) - LONGER than FN
+  - Weight: 24.5 oz (694g) empty - HEAVIER than FN
+  - Capacity: 20+1 rounds
+  - Muzzle Velocity: 1,700-1,850 fps (40gr) - higher than FN
+  - Muzzle Energy: 260-290 ft-lbs
+  - Trigger: Striker-fired, 4.75 lbs - LIGHTER than FN
+  - MSRP: $549 (budget-friendly)
+  
+  Key Differences from FN Five-seveN:
+  - 0.14" longer barrel = 50-100 fps higher velocity
+  - 3.5 oz heavier = better recoil absorption
+  - Lighter trigger = faster aimed fire potential
+  - Superior mechanical accuracy (1.78" vs 2.0" at 25 yds)
+  - 1911-style ambidextrous safety
+  - Steel magazines (more durable)
+  - Better value at 1/3 the price
+  
+  Game Balance:
+  - Damage: 30 (slightly higher due to longer barrel)
+  - Even lower recoil than FN (heavier frame)
+  - Best accuracy of 5.7mm pistols
+  - Slightly slower handling due to weight
+-->
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="106" />
+          <Entry>SLOT_RUGER57</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="166" />
+        <Entry>SLOT_RUGER57</Entry>
+      </Item>
+    </WeaponSlots>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item>
+      <Infos />
+    </Item>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+          <!-- IDENTIFICATION -->
+          <n>WEAPON_RUGER57</n>
+          <Model>w_pi_ruger57</Model>
+          <Audio>AUDIO_ITEM_PISTOL</Audio>
+          <Slot>SLOT_RUGER57</Slot>
+          
+          <!-- DAMAGE CONFIGURATION -->
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          
+          <!-- FIRE TYPE AND CLASSIFICATION -->
+          <FireType>INSTANT_HIT</FireType>
+          <WheelSlot>WHEEL_PISTOL</WheelSlot>
+          <Group>GROUP_PISTOL</Group>
+          
+          <!-- REFERENCES -->
+          <AmmoInfo ref="AMMO_PISTOL" />
+          <AimingInfo ref="YOURFACE_YOURFATE" />
+          <ClipSize value="20" />
+          
+          <!-- ACCURACY PARAMETERS -->
+          <!-- Superior mechanical accuracy - 1.78" groups at 25 yards -->
+          <!-- Best-in-class for 5.7mm pistols -->
+          <AccuracySpread value="0.650000" />
+          <AccurateModeAccuracyModifier value="0.300000" />
+          <RunAndGunAccuracyModifier value="1.900000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+          
+          <!-- RECOIL PARAMETERS -->
+          <!-- Heavier frame (24.5 oz vs 21 oz) absorbs more recoil -->
+          <!-- Even more controllable than the FN -->
+          <RecoilAccuracyMax value="1.300000" />
+          <RecoilErrorTime value="0.320000" />
+          <RecoilRecoveryRate value="0.480000" />
+          <RecoilAccuracyToAllowHeadShotAI value="0.850000" />
+          <MinHeadShotDistanceAI value="1.200000" />
+          <MaxHeadShotDistanceAI value="65.000000" />
+          <HeadShotDamageModifierAI value="1.500000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.850000" />
+          <MinHeadShotDistancePlayer value="1.200000" />
+          <!-- Extended headshot range - best accuracy of 5.7mm pistols -->
+          <MaxHeadShotDistancePlayer value="18.000000" />
+          <HeadShotDamageModifierPlayer value="3.400000" />
+          
+          <!-- DAMAGE PARAMETERS -->
+          <!-- 4.94" barrel = 50-100 fps higher velocity than FN -->
+          <!-- ~260-290 ft-lbs vs 242-268 ft-lbs -->
+          <Damage value="30.000000" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <HitLimbsDamageModifier value="0.800000" />
+          <NetworkHitLimbsDamageModifier value="0.800000" />
+          <LightlyArmouredDamageModifier value="1.000000" />
+          
+          <!-- FORCE PARAMETERS -->
+          <!-- Slightly more force due to higher velocity -->
+          <Force value="195.000000" />
+          <ForceHitPed value="88.000000" />
+          <ForceHitVehicle value="195.000000" />
+          <ForceHitFlyingHeli value="850.000000" />
+          <OverrideForces />
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="22.000000" />
+          <ForceFalloffRangeEnd value="65.000000" />
+          <ForceFalloffMin value="0.300000" />
+          
+          <!-- PROJECTILE SETTINGS -->
+          <ProjectileForce value="0.000000" />
+          <FragImpulse value="38.000000" />
+          <!-- Same high penetration as FN -->
+          <Penetration value="0.400000" />
+          <VerticalLaunchAdjustment value="0.000000" />
+          <DropForwardVelocity value="0.000000" />
+          <!-- Higher velocity from longer barrel: ~550 m/s -->
+          <Speed value="550.000000" />
+          
+          <!-- BATCH SETTINGS -->
+          <BulletsInBatch value="1" />
+          <BatchSpread value="0.000000" />
+          
+          <!-- RELOAD PARAMETERS -->
+          <!-- Steel magazines - slightly slower insertion -->
+          <ReloadTimeMP value="-1.000000" />
+          <ReloadTimeSP value="-1.000000" />
+          <VehicleReloadTime value="0.000000" />
+          <AnimReloadRate value="1.000000" />
+          <BulletsPerAnimLoop value="20" />
+          
+          <!-- FIRE RATE -->
+          <!-- Lighter trigger (4.75 lbs vs 6.2 lbs) = faster aimed fire -->
+          <!-- Clean striker break allows rapid follow-up -->
+          <TimeBetweenShots value="0.140000" />
+          <TimeLeftBetweenShotsWhereShouldFireIsCached value="0.100000" />
+          <SpinUpTime value="0.000000" />
+          <SpinTime value="0.000000" />
+          <SpinDownTime value="0.000000" />
+          <AlternateWaitTime value="-1.000000" />
+          
+          <!-- BULLET BENDING -->
+          <BulletBendingNearRadius value="0.500000" />
+          <BulletBendingFarRadius value="2.000000" />
+          <BulletBendingZoomedRadius value="3.000000" />
+          
+          <!-- EFFECTS -->
+          <Fx>
+            <EffectGroup />
+            <FlashFx>muz_pistol</FlashFx>
+            <FlashFxAlt />
+            <ShellFx>eject_pistol</ShellFx>
+            <TracerFx>bullet_tracer</TracerFx>
+            <PedDamageHash>BulletSmall</PedDamageHash>
+            <TracerFxChanceSP value="1.000000" />
+            <TracerFxChanceMP value="0.500000" />
+            <FlashFxChanceSP value="1.000000" />
+            <FlashFxChanceMP value="1.000000" />
+            <FlashFxAltChance value="0.000000" />
+            <FlashFxScale value="0.900000" />
+            <GroundDisturbFxNameDefault />
+            <GroundDisturbFxNameSand />
+            <GroundDisturbFxNameWater />
+          </Fx>
+          
+          <!-- RUMBLE/HAPTICS -->
+          <!-- Even lighter than FN due to heavier frame absorbing impulse -->
+          <InitialRumbleDuration value="75" />
+          <InitialRumbleIntensity value="0.180000" />
+          <RumbleDuration value="75" />
+          <RumbleIntensity value="0.180000" />
+          <RumbleDamageIntensity value="1.000000" />
+          
+          <!-- NETWORK MODIFIERS -->
+          <NetworkPlayerDamageModifier value="0.850000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          <NetworkHeadShotPlayerDamageModifier value="3.400000" />
+          
+          <!-- RANGE PARAMETERS -->
+          <!-- Longer barrel extends effective range slightly -->
+          <LockOnRange value="100.000000" />
+          <WeaponRange value="130.000000" />
+          <BulletDirectionOffsetInDegrees value="0.000000" />
+          <AiSoundRange value="120.000000" />
+          <AiPotentialBlastEventRange value="0.000000" />
+          
+          <!-- DAMAGE FALLOFF -->
+          <!-- Higher velocity = better range retention -->
+          <!-- Full damage to 35m, drops to 48% at 95m -->
+          <DamageFallOffRangeMin value="35.000000" />
+          <DamageFallOffRangeMax value="95.000000" />
+          <DamageFallOffModifier value="0.480000" />
+          
+          <!-- CAMERA SETTINGS -->
+          <VehicleWeaponHash />
+          <DefaultCameraHash>DEFAULT_PISTOL_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_PISTOL_COVER_CAMERA</CoverCameraHash>
+          <CoverReadyToFireCameraHash>DEFAULT_PISTOL_COVER_CAMERA</CoverReadyToFireCameraHash>
+          <RunAndGunCameraHash>DEFAULT_RUN_AND_GUN_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash />
+          <AlternativeOrScopedCameraHash>DEFAULT_PISTOL_FIRST_PERSON_CAMERA</AlternativeOrScopedCameraHash>
+          <CameraFov value="0.000000" />
+          
+          <!-- FIRST PERSON OFFSETS -->
+          <FirstPersonScopeOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeAttachmentOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeRotationOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeAttachmentRotationOffset x="0.000000" y="0.000000" z="0.000000" />
+          <ZoomFactorForAccurateMode value="1.000000" />
+          
+          <!-- RECOIL SHAKE -->
+          <!-- Lowest recoil of 5.7mm pistols - heavier frame -->
+          <RecoilShakeHash>RECOIL_PISTOL</RecoilShakeHash>
+          <RecoilShakeHashFirstPerson>RECOIL_PISTOL</RecoilShakeHashFirstPerson>
+          <AccuracyOffsetShakeHash>ACCURACY_OFFSET_PISTOL</AccuracyOffsetShakeHash>
+          <MinTimeBetweenRecoilShakes value="75" />
+          <RecoilShakeAmplitude value="0.085000" />
+          <ExplosionShakeAmplitude value="0.000000" />
+          
+          <!-- AIM OFFSETS -->
+          <AimOffsetMin x="0.000000" y="0.500000" z="0.000000" />
+          <AimProbeLengthMin value="0.500000" />
+          <AimOffsetMax x="0.000000" y="0.500000" z="0.000000" />
+          <AimProbeLengthMax value="0.500000" />
+          <TorsoAimOffset x="0.000000" y="0.000000" z="0.000000" />
+          <TorsoCrouchedAimOffset x="0.000000" y="0.000000" z="0.000000" />
+          <LeftHandIkOffset x="0.000000" y="0.000000" z="0.000000" />
+          
+          <!-- RETICULE SETTINGS -->
+          <!-- Tighter reticule reflects superior accuracy -->
+          <ReticuleMinSizeStanding value="0.012000" />
+          <ReticuleMinSizeCrouched value="0.008000" />
+          <ReticuleScale value="0.260000" />
+          <ReticuleStyleHash>RETICULE_PISTOL</ReticuleStyleHash>
+          <FirstPersonReticuleStyleHash />
+          
+          <!-- IDENTIFICATION HASHES -->
+          <PickupHash>PICKUP_WEAPON_RUGER57</PickupHash>
+          <MPPickupHash>PICKUP_WEAPON_RUGER57</MPPickupHash>
+          <HumanNameHash>WT_RUGER57</HumanNameHash>
+          <MovementModeConditionalIdle />
+          <WeaponTypeSet>Small</WeaponTypeSet>
+          <WeaponWheelSlot>Pistol</WeaponWheelSlot>
+          <StatName>PISTOL_STAT</StatName>
+          
+          <!-- PHYSICS -->
+          <KnockdownCount value="0" />
+          <KillshotImpulseScale value="0.850000" />
+          <NmShotTuningSet>StandardPistol</NmShotTuningSet>
+          
+          <!-- ATTACHMENT POINTS -->
+          <AttachPoints>
+            <Item>
+              <AttachBone>WAPClip</AttachBone>
+              <Components>
+                <Item>
+                  <n>COMPONENT_RUGER57_CLIP_01</n>
+                  <Default value="true" />
+                </Item>
+              </Components>
+            </Item>
+          </AttachPoints>
+          
+          <!-- WEAPON FLAGS -->
+          <WeaponFlags>CanBeUsedWithSameMoveClipSet Gun CanLockonOnFoot CanLockonInVehicle CanFreeAim CarriedByPlayer HoldBothHandsInCover AnimReload AnimCrouchFire UsableOnFoot UsableInCover UsableClimbing AllowCloseQuarterKills HasLowCoverReloads HasLowCoverSwaps UseFPSAimIK UseFPSSecondaryMotion TorsoIKForWeaponBlock CenterLeftHandIk Thrown</WeaponFlags>
+          
+          <!-- HUD DISPLAY VALUES -->
+          <HudDamage value="30.000000" />
+          <HudSpeed value="72.000000" />
+          <HudCapacity value="20.000000" />
+          <HudAccuracy value="78.000000" />
+          <HudRange value="70.000000" />
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

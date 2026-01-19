@@ -1,178 +1,208 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CPedModelInfo__PersonalityDataList>
   <!-- Glock 26 Gen 5 - 9mm Subcompact Pistol Ped Personality -->
+  <!-- Format based on FiveM-Addon-Weapon-Tool-Kit -->
   <MovementModeUnholsterData>
     <Item>
-      <ActionType>UNHOLSTER_UNARMED</ActionType>
-      <WeaponHash>WEAPON_G26</WeaponHash>
-      <UnholsterClipHash>unarmed_holster_1h</UnholsterClipHash>
+      <Name>UNHOLSTER_UNARMED</Name>
+      <UnholsterClips>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_G26</Item>
+          </Weapons>
+          <Clip>unarmed_holster_1h</Clip>
+        </Item>
+      </UnholsterClips>
     </Item>
     <Item>
-      <ActionType>UNHOLSTER_1H</ActionType>
-      <WeaponHash>WEAPON_G26</WeaponHash>
-      <UnholsterClipHash>1h_holster_1h</UnholsterClipHash>
+      <Name>UNHOLSTER_1H</Name>
+      <UnholsterClips>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_G26</Item>
+          </Weapons>
+          <Clip>1h_holster_1h</Clip>
+        </Item>
+      </UnholsterClips>
     </Item>
     <Item>
-      <ActionType>UNHOLSTER_2H_MELEE</ActionType>
-      <WeaponHash>WEAPON_G26</WeaponHash>
-      <UnholsterClipHash>2h_holster_1h</UnholsterClipHash>
+      <Name>UNHOLSTER_2H_MELEE</Name>
+      <UnholsterClips>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_G26</Item>
+          </Weapons>
+          <Clip>2h_melee_holster_1h</Clip>
+        </Item>
+      </UnholsterClips>
     </Item>
     <Item>
-      <ActionType>UNHOLSTER_2H</ActionType>
-      <WeaponHash>WEAPON_G26</WeaponHash>
-      <UnholsterClipHash>2h_holster_1h</UnholsterClipHash>
-    </Item>
-    <Item>
-      <ActionType>UNHOLSTER_UNARMED_STEALTH</ActionType>
-      <WeaponHash>WEAPON_G26</WeaponHash>
-      <UnholsterClipHash>unarmed_holster_1h</UnholsterClipHash>
-    </Item>
-    <Item>
-      <ActionType>UNHOLSTER_1H_STEALTH</ActionType>
-      <WeaponHash>WEAPON_G26</WeaponHash>
-      <UnholsterClipHash>1h_holster_1h</UnholsterClipHash>
-    </Item>
-    <Item>
-      <ActionType>UNHOLSTER_2H_MELEE_STEALTH</ActionType>
-      <WeaponHash>WEAPON_G26</WeaponHash>
-      <UnholsterClipHash>2h_holster_1h</UnholsterClipHash>
-    </Item>
-    <Item>
-      <ActionType>UNHOLSTER_2H_STEALTH</ActionType>
-      <WeaponHash>WEAPON_G26</WeaponHash>
-      <UnholsterClipHash>2h_holster_1h</UnholsterClipHash>
+      <Name>UNHOLSTER_2H</Name>
+      <UnholsterClips>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_G26</Item>
+          </Weapons>
+          <Clip>2h_holster_1h</Clip>
+        </Item>
+      </UnholsterClips>
     </Item>
   </MovementModeUnholsterData>
   <MovementModes>
     <Item>
       <Name>DEFAULT_ACTION</Name>
-      <Entries>
+      <MovementModes>
         <Item>
-          <WeaponHash>WEAPON_G26</WeaponHash>
-          <MovementClipSetId>move_action@p_m_zero@armed@core</MovementClipSetId>
-          <WeaponClipSetId>clipset@anim@move_action@generic@1hupper</WeaponClipSetId>
-          <AnimFilter>BothArms_filter</AnimFilter>
-          <UseLeftHandIk value="true"/>
-          <UpperBodyExpressionSetId/>
-          <IdleTransitionClipSetId/>
-          <UnholsterClipId/>
+          <Item>
+            <Weapons>
+              <Item>WEAPON_G26</Item>
+            </Weapons>
+            <ClipSets>
+              <Item>
+                <MovementClipSetId>MOVE_ACTION@P_M_ZERO@ARMED@CORE</MovementClipSetId>
+                <WeaponClipSetId>MOVE_ACTION@P_M_ZERO@ARMED@1H@UPPER</WeaponClipSetId>
+                <WeaponClipFilterId>UpperbodyAndIk_filter</WeaponClipFilterId>
+                <UpperBodyShadowExpressionEnabled value="true"/>
+                <UpperBodyFeatheredLeanEnabled value="true"/>
+                <UseWeaponAnimsForGrip value="false"/>
+                <UseLeftHandIk value="true"/>
+                <IdleTransitionBlendOutTime value="0.50000000"/>
+                <IdleTransitions>
+                  <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
+                </IdleTransitions>
+                <UnholsterClipSetId>MOVE_ACTION@P_M_ZERO@HOLSTER</UnholsterClipSetId>
+                <UnholsterClipData>UNHOLSTER_1H</UnholsterClipData>
+              </Item>
+            </ClipSets>
+          </Item>
         </Item>
-        <Item>
-          <WeaponHash>WEAPON_G26</WeaponHash>
-          <MovementClipSetId>move_action@p_m_zero@armed@core</MovementClipSetId>
-          <WeaponClipSetId>clipset@anim@move_action@generic@1hupper_stealth</WeaponClipSetId>
-          <AnimFilter>BothArms_filter</AnimFilter>
-          <UseLeftHandIk value="true"/>
-          <UpperBodyExpressionSetId/>
-          <IdleTransitionClipSetId/>
-          <UnholsterClipId/>
-          <bIsStealth value="true"/>
-        </Item>
-      </Entries>
+      </MovementModes>
+      <LastBattleEventHighEnergyStartTime value="0.00000000"/>
+      <LastBattleEventHighEnergyEndTime value="5.00000000"/>
     </Item>
     <Item>
       <Name>MP_FEMALE_ACTION</Name>
-      <Entries>
+      <MovementModes>
         <Item>
-          <WeaponHash>WEAPON_G26</WeaponHash>
-          <MovementClipSetId>move_action@female@armed@core</MovementClipSetId>
-          <WeaponClipSetId>clipset@anim@move_action@generic@1hupper</WeaponClipSetId>
-          <AnimFilter>BothArms_filter</AnimFilter>
-          <UseLeftHandIk value="true"/>
-          <UpperBodyExpressionSetId/>
-          <IdleTransitionClipSetId/>
-          <UnholsterClipId/>
+          <Item>
+            <Weapons>
+              <Item>WEAPON_G26</Item>
+            </Weapons>
+            <ClipSets>
+              <Item>
+                <MovementClipSetId>MOVE_ACTION@FEMALE@ARMED@CORE</MovementClipSetId>
+                <WeaponClipSetId>MOVE_ACTION@FEMALE@ARMED@1H@UPPER</WeaponClipSetId>
+                <WeaponClipFilterId>UpperbodyAndIk_filter</WeaponClipFilterId>
+                <UpperBodyShadowExpressionEnabled value="true"/>
+                <UpperBodyFeatheredLeanEnabled value="true"/>
+                <UseWeaponAnimsForGrip value="false"/>
+                <UseLeftHandIk value="true"/>
+                <IdleTransitionBlendOutTime value="0.50000000"/>
+                <IdleTransitions>
+                  <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
+                </IdleTransitions>
+                <UnholsterClipSetId>MOVE_ACTION@FEMALE@HOLSTER</UnholsterClipSetId>
+                <UnholsterClipData>UNHOLSTER_1H</UnholsterClipData>
+              </Item>
+            </ClipSets>
+          </Item>
         </Item>
-        <Item>
-          <WeaponHash>WEAPON_G26</WeaponHash>
-          <MovementClipSetId>move_action@female@armed@core</MovementClipSetId>
-          <WeaponClipSetId>clipset@anim@move_action@generic@1hupper_stealth</WeaponClipSetId>
-          <AnimFilter>BothArms_filter</AnimFilter>
-          <UseLeftHandIk value="true"/>
-          <UpperBodyExpressionSetId/>
-          <IdleTransitionClipSetId/>
-          <UnholsterClipId/>
-          <bIsStealth value="true"/>
-        </Item>
-      </Entries>
+      </MovementModes>
+      <LastBattleEventHighEnergyStartTime value="0.00000000"/>
+      <LastBattleEventHighEnergyEndTime value="5.00000000"/>
     </Item>
     <Item>
       <Name>MICHAEL_ACTION</Name>
-      <Entries>
+      <MovementModes>
         <Item>
-          <WeaponHash>WEAPON_G26</WeaponHash>
-          <MovementClipSetId>move_action@p_m_zero@armed@core</MovementClipSetId>
-          <WeaponClipSetId>clipset@anim@move_action@generic@1hupper</WeaponClipSetId>
-          <AnimFilter>BothArms_filter</AnimFilter>
-          <UseLeftHandIk value="false"/>
-          <UpperBodyExpressionSetId/>
-          <IdleTransitionClipSetId/>
-          <UnholsterClipId/>
+          <Item>
+            <Weapons>
+              <Item>WEAPON_G26</Item>
+            </Weapons>
+            <ClipSets>
+              <Item>
+                <MovementClipSetId>MOVE_ACTION@P_M_ZERO@ARMED@CORE</MovementClipSetId>
+                <WeaponClipSetId>MOVE_ACTION@P_M_ZERO@ARMED@1H@UPPER</WeaponClipSetId>
+                <WeaponClipFilterId>UpperbodyAndIk_filter</WeaponClipFilterId>
+                <UpperBodyShadowExpressionEnabled value="true"/>
+                <UpperBodyFeatheredLeanEnabled value="true"/>
+                <UseWeaponAnimsForGrip value="false"/>
+                <UseLeftHandIk value="false"/>
+                <IdleTransitionBlendOutTime value="0.50000000"/>
+                <IdleTransitions>
+                  <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
+                </IdleTransitions>
+                <UnholsterClipSetId>MOVE_ACTION@P_M_ZERO@HOLSTER</UnholsterClipSetId>
+                <UnholsterClipData>UNHOLSTER_1H</UnholsterClipData>
+              </Item>
+            </ClipSets>
+          </Item>
         </Item>
-        <Item>
-          <WeaponHash>WEAPON_G26</WeaponHash>
-          <MovementClipSetId>move_action@p_m_zero@armed@core</MovementClipSetId>
-          <WeaponClipSetId>clipset@anim@move_action@generic@1hupper_stealth</WeaponClipSetId>
-          <AnimFilter>BothArms_filter</AnimFilter>
-          <UseLeftHandIk value="false"/>
-          <UpperBodyExpressionSetId/>
-          <IdleTransitionClipSetId/>
-          <UnholsterClipId/>
-          <bIsStealth value="true"/>
-        </Item>
-      </Entries>
+      </MovementModes>
+      <LastBattleEventHighEnergyStartTime value="0.00000000"/>
+      <LastBattleEventHighEnergyEndTime value="5.00000000"/>
     </Item>
     <Item>
       <Name>FRANKLIN_ACTION</Name>
-      <Entries>
+      <MovementModes>
         <Item>
-          <WeaponHash>WEAPON_G26</WeaponHash>
-          <MovementClipSetId>move_action@p_m_one@armed@core</MovementClipSetId>
-          <WeaponClipSetId>clipset@anim@move_action@generic@1hupper</WeaponClipSetId>
-          <AnimFilter>BothArms_filter</AnimFilter>
-          <UseLeftHandIk value="false"/>
-          <UpperBodyExpressionSetId/>
-          <IdleTransitionClipSetId/>
-          <UnholsterClipId/>
+          <Item>
+            <Weapons>
+              <Item>WEAPON_G26</Item>
+            </Weapons>
+            <ClipSets>
+              <Item>
+                <MovementClipSetId>MOVE_ACTION@P_M_ONE@ARMED@CORE</MovementClipSetId>
+                <WeaponClipSetId>MOVE_ACTION@P_M_ONE@ARMED@1H@UPPER</WeaponClipSetId>
+                <WeaponClipFilterId>UpperbodyAndIk_filter</WeaponClipFilterId>
+                <UpperBodyShadowExpressionEnabled value="true"/>
+                <UpperBodyFeatheredLeanEnabled value="true"/>
+                <UseWeaponAnimsForGrip value="false"/>
+                <UseLeftHandIk value="false"/>
+                <IdleTransitionBlendOutTime value="0.50000000"/>
+                <IdleTransitions>
+                  <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
+                </IdleTransitions>
+                <UnholsterClipSetId>MOVE_ACTION@P_M_ONE@HOLSTER</UnholsterClipSetId>
+                <UnholsterClipData>UNHOLSTER_1H</UnholsterClipData>
+              </Item>
+            </ClipSets>
+          </Item>
         </Item>
-        <Item>
-          <WeaponHash>WEAPON_G26</WeaponHash>
-          <MovementClipSetId>move_action@p_m_one@armed@core</MovementClipSetId>
-          <WeaponClipSetId>clipset@anim@move_action@generic@1hupper_stealth</WeaponClipSetId>
-          <AnimFilter>BothArms_filter</AnimFilter>
-          <UseLeftHandIk value="false"/>
-          <UpperBodyExpressionSetId/>
-          <IdleTransitionClipSetId/>
-          <UnholsterClipId/>
-          <bIsStealth value="true"/>
-        </Item>
-      </Entries>
+      </MovementModes>
+      <LastBattleEventHighEnergyStartTime value="0.00000000"/>
+      <LastBattleEventHighEnergyEndTime value="5.00000000"/>
     </Item>
     <Item>
       <Name>TREVOR_ACTION</Name>
-      <Entries>
+      <MovementModes>
         <Item>
-          <WeaponHash>WEAPON_G26</WeaponHash>
-          <MovementClipSetId>move_action@p_m_two@armed@core</MovementClipSetId>
-          <WeaponClipSetId>clipset@anim@move_action@generic@1hupper</WeaponClipSetId>
-          <AnimFilter>BothArms_filter</AnimFilter>
-          <UseLeftHandIk value="false"/>
-          <UpperBodyExpressionSetId/>
-          <IdleTransitionClipSetId/>
-          <UnholsterClipId/>
+          <Item>
+            <Weapons>
+              <Item>WEAPON_G26</Item>
+            </Weapons>
+            <ClipSets>
+              <Item>
+                <MovementClipSetId>MOVE_ACTION@P_M_TWO@ARMED@CORE</MovementClipSetId>
+                <WeaponClipSetId>MOVE_ACTION@P_M_TWO@ARMED@1H@UPPER</WeaponClipSetId>
+                <WeaponClipFilterId>UpperbodyAndIk_filter</WeaponClipFilterId>
+                <UpperBodyShadowExpressionEnabled value="true"/>
+                <UpperBodyFeatheredLeanEnabled value="true"/>
+                <UseWeaponAnimsForGrip value="false"/>
+                <UseLeftHandIk value="false"/>
+                <IdleTransitionBlendOutTime value="0.50000000"/>
+                <IdleTransitions>
+                  <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
+                </IdleTransitions>
+                <UnholsterClipSetId>MOVE_ACTION@P_M_TWO@HOLSTER</UnholsterClipSetId>
+                <UnholsterClipData>UNHOLSTER_1H</UnholsterClipData>
+              </Item>
+            </ClipSets>
+          </Item>
         </Item>
-        <Item>
-          <WeaponHash>WEAPON_G26</WeaponHash>
-          <MovementClipSetId>move_action@p_m_two@armed@core</MovementClipSetId>
-          <WeaponClipSetId>clipset@anim@move_action@generic@1hupper_stealth</WeaponClipSetId>
-          <AnimFilter>BothArms_filter</AnimFilter>
-          <UseLeftHandIk value="false"/>
-          <UpperBodyExpressionSetId/>
-          <IdleTransitionClipSetId/>
-          <UnholsterClipId/>
-          <bIsStealth value="true"/>
-        </Item>
-      </Entries>
+      </MovementModes>
+      <LastBattleEventHighEnergyStartTime value="0.00000000"/>
+      <LastBattleEventHighEnergyEndTime value="5.00000000"/>
     </Item>
   </MovementModes>
 </CPedModelInfo__PersonalityDataList>

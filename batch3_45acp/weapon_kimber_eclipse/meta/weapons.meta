@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_KIMBER_ECLIPSE</n>
+      <Model>w_pi_kimber_eclipse</Model>
+      <Audio>AUDIO_PISTOL</Audio>
+      <Slot>SLOT_UNARMED</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURWEAPONWHEEL</WheelSlot>
+      <Group>YOURWEAPONWHEEL</Group>
+      <ClipSize value="8" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+      <AimingInfo ref="YOURWEAPONAIMINGINFO" />
+      
+      <!-- KIMBER ECLIPSE CUSTOM II 1911 -->
+      <!-- 5.0" match-grade barrel, 38 oz steel frame -->
+      <!-- Target-grade features: Meprolight tritium sights, 30 LPI checkering -->
+      <!-- 8+1 capacity with extended magazine -->
+      
+      <!-- Damage: 38 FMJ base (5% reduced from 40) -->
+      <Damage value="38.000000" />
+      
+      <!-- Muzzle velocity: 830-850 fps = ~255 m/s from 5" barrel -->
+      <Speed value="255.000000" />
+      
+      <!-- Force and physics -->
+      <Force value="150.000000" />
+      <ForceHitPed value="120.000000" />
+      <ForceHitVehicle value="80.000000" />
+      <ForceHitFlyingHeli value="50.000000" />
+      
+      <!-- Damage falloff: Full damage to 12m, min damage at 40m -->
+      <DamageFallOffRangeMin value="12.000000" />
+      <DamageFallOffRangeMax value="40.000000" />
+      <DamageFallOffModifier value="0.360000" />
+      
+      <!-- Headshot: 2.90x multiplier -->
+      <HeadShotDamageModifierPlayer value="2.900000" />
+      <MaxHeadShotDistancePlayer value="8.000000" />
+      
+      <!-- Limb damage modifiers -->
+      <HitLimbsDamageModifier value="0.500000" />
+      <NetworkHitLimbsDamageModifier value="0.800000" />
+      <LightlyArmouredDamageModifier value="1.000000" />
+      <NetworkPlayerDamageModifier value="1.000000" />
+      
+      <!-- Penetration: .45 ACP moderate penetration -->
+      <Penetration value="0.200000" />
+      
+      <!-- Weapon range -->
+      <WeaponRange value="85.000000" />
+      
+      <!-- Fire rate: Semi-auto, ~290 RPM - slightly faster due to better trigger -->
+      <TimeBetweenShots value="0.207000" />
+      
+      <!-- Recoil: 1.15x multiplier - checkered front strap improves grip -->
+      <!-- 30 LPI checkering provides more consistent grip purchase -->
+      <RecoilShakeAmplitude value="0.258000" />
+      <RecoilShakeFrequency value="0.800000" />
+      <RecoilShakeHash value="RECOIL_PISTOL" />
+      
+      <!-- Accuracy: Target-grade features, tritium 3-dot sights -->
+      <!-- Slightly better than standard Custom II -->
+      <AccuracySpread value="0.780000" />
+      <AccurateModeAccuracyModifier value="0.320000" />
+      <RunAndGunAccuracyModifier value="0.850000" />
+      
+      <!-- Recovery: Polished breech face, improved feeding -->
+      <RecoilAccuracyMax value="2.100000" />
+      <RecoilErrorTime value="0.340000" />
+      <RecoilRecoveryRate value="1.080000" />
+      
+      <!-- Reload times -->
+      <ReloadTimeModifier value="1.000000" />
+      
+      <!-- Weapon flags -->
+      <Flags>AllowRandomMuzzleFx FirstPersonScope MuzzleFlash CanBeWashedOff</Flags>
+      
+      <!-- HUD and UI -->
+      <HudDamage value="2.200000" />
+      <HudSpeed value="1.800000" />
+      <HudCapacity value="1.000000" />
+      <HudAccuracy value="2.500000" />
+      <HudRange value="1.600000" />
+      
+      <HumanNameHash>WT_KIMBER_ECLIPSE</HumanNameHash>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

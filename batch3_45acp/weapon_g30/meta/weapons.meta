@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_G30</n>
+      <Model>w_pi_g30</Model>
+      <Audio>AUDIO_PISTOL</Audio>
+      <Slot>SLOT_UNARMED</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURWEAPONWHEEL</WheelSlot>
+      <Group>YOURWEAPONWHEEL</Group>
+      <ClipSize value="10" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+      <AimingInfo ref="YOURWEAPONAIMINGINFO" />
+      
+      <!-- GLOCK 30 GEN 4 / 30S -->
+      <!-- 3.78" barrel, 23.81 oz polymer frame -->
+      <!-- Subcompact concealment pistol with significant trade-offs -->
+      <!-- Highest recoil, lowest accuracy among .45s -->
+      
+      <!-- Damage: 36 FMJ base - REDUCED due to velocity loss -->
+      <!-- 45-50 fps slower than full-size = ~11% energy loss -->
+      <Damage value="36.000000" />
+      
+      <!-- Muzzle velocity: 780-810 fps = ~240 m/s from 3.78" barrel -->
+      <!-- Significant velocity loss from short barrel -->
+      <Speed value="240.000000" />
+      
+      <!-- Force and physics - slightly reduced -->
+      <Force value="140.000000" />
+      <ForceHitPed value="110.000000" />
+      <ForceHitVehicle value="75.000000" />
+      <ForceHitFlyingHeli value="45.000000" />
+      
+      <!-- Damage falloff: Starts earlier, ends sooner -->
+      <!-- Reduced effective range due to velocity loss -->
+      <DamageFallOffRangeMin value="8.000000" />
+      <DamageFallOffRangeMax value="30.000000" />
+      <DamageFallOffModifier value="0.340000" />
+      
+      <!-- Headshot: 2.90x multiplier -->
+      <HeadShotDamageModifierPlayer value="2.900000" />
+      <MaxHeadShotDistancePlayer value="7.000000" />
+      
+      <!-- Limb damage modifiers -->
+      <HitLimbsDamageModifier value="0.500000" />
+      <NetworkHitLimbsDamageModifier value="0.800000" />
+      <LightlyArmouredDamageModifier value="1.000000" />
+      <NetworkPlayerDamageModifier value="1.000000" />
+      
+      <!-- Penetration: .45 ACP moderate penetration -->
+      <Penetration value="0.180000" />
+      
+      <!-- Weapon range - reduced -->
+      <WeaponRange value="65.000000" />
+      
+      <!-- Fire rate: Semi-auto, ~220 RPM - harder to control -->
+      <!-- Snappy recoil slows practical fire rate -->
+      <TimeBetweenShots value="0.273000" />
+      
+      <!-- Recoil: 1.50x multiplier - HIGHEST in class -->
+      <!-- 23.81 oz + short barrel = severe muzzle flip -->
+      <!-- Calculated recoil energy 10.18 ft-lbs (37% higher than G21) -->
+      <RecoilShakeAmplitude value="0.345000" />
+      <RecoilShakeFrequency value="0.700000" />
+      <RecoilShakeHash value="RECOIL_PISTOL" />
+      
+      <!-- Accuracy: 6.1" sight radius, snappy recoil -->
+      <!-- Worst accuracy among .45s due to short sight radius -->
+      <AccuracySpread value="1.400000" />
+      <AccurateModeAccuracyModifier value="0.480000" />
+      <RunAndGunAccuracyModifier value="0.750000" />
+      
+      <!-- Recovery: Slowest recovery, difficult follow-up shots -->
+      <RecoilAccuracyMax value="2.900000" />
+      <RecoilErrorTime value="0.480000" />
+      <RecoilRecoveryRate value="0.820000" />
+      
+      <!-- Reload times: Smaller mag, similar speed -->
+      <ReloadTimeModifier value="0.980000" />
+      
+      <!-- Weapon flags -->
+      <Flags>AllowRandomMuzzleFx FirstPersonScope MuzzleFlash CanBeWashedOff</Flags>
+      
+      <!-- HUD and UI -->
+      <HudDamage value="2.000000" />
+      <HudSpeed value="2.200000" />
+      <HudCapacity value="1.200000" />
+      <HudAccuracy value="1.400000" />
+      <HudRange value="1.200000" />
+      
+      <HumanNameHash>WT_G30</HumanNameHash>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <Infos>
+    <Item type="CWeaponInfo">
+      <Name>WEAPON_M45A1</Name>
+      <Model>w_pi_m45a1</Model>
+      <Audio>AUDIO_PISTOL</Audio>
+      <Slot>SLOT_UNARMED</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURWEAPONWHEEL</WheelSlot>
+      <Group>YOURWEAPONWHEEL</Group>
+      <ClipSize value="8" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+      <AimingInfo ref="YOURWEAPONAIMINGINFO" />
+      
+      <!-- COLT M45A1 CQBP - MARSOC MILITARY 1911 -->
+      <!-- 5.0" National Match barrel, 40 oz steel frame -->
+      <!-- Premium military-spec accuracy, lowest recoil among .45s -->
+      
+      <!-- Damage: 38 FMJ base (5% reduced from 40) -->
+      <!-- 3 shots close, 7 shots at range to kill (100 HP) -->
+      <Damage value="38.000000" />
+      
+      <!-- Muzzle velocity: 830-850 fps = ~255 m/s from 5" barrel -->
+      <Speed value="255.000000" />
+      
+      <!-- Force and physics -->
+      <Force value="150.000000" />
+      <ForceHitPed value="120.000000" />
+      <ForceHitVehicle value="80.000000" />
+      <ForceHitFlyingHeli value="50.000000" />
+      
+      <!-- Damage falloff: Full damage to 12m, min damage at 40m -->
+      <DamageFallOffRangeMin value="12.000000" />
+      <DamageFallOffRangeMax value="40.000000" />
+      <DamageFallOffModifier value="0.360000" />
+      
+      <!-- Headshot: 2.90x multiplier, 1-shot kill close, 2+ at range -->
+      <HeadShotDamageModifierPlayer value="2.900000" />
+      <MaxHeadShotDistancePlayer value="8.000000" />
+      
+      <!-- Limb damage modifiers -->
+      <HitLimbsDamageModifier value="0.500000" />
+      <NetworkHitLimbsDamageModifier value="0.800000" />
+      <LightlyArmouredDamageModifier value="1.000000" />
+      <NetworkPlayerDamageModifier value="1.000000" />
+      
+      <!-- Penetration: .45 ACP moderate penetration -->
+      <Penetration value="0.200000" />
+      
+      <!-- Weapon range -->
+      <WeaponRange value="85.000000" />
+      
+      <!-- Fire rate: Semi-auto, ~280 RPM practical -->
+      <!-- TimeBetweenShots = 60/280 = 0.214 -->
+      <TimeBetweenShots value="0.214000" />
+      
+      <!-- Recoil: 1.15x multiplier - steel frame absorbs recoil well -->
+      <!-- Heavy 40 oz frame provides excellent control -->
+      <RecoilShakeAmplitude value="0.265000" />
+      <RecoilShakeFrequency value="0.800000" />
+      <RecoilShakeHash value="RECOIL_PISTOL" />
+      
+      <!-- Accuracy: Military match-grade barrel, 6.8" sight radius -->
+      <!-- 1.48" groups at 25 yards - exceptional accuracy -->
+      <AccuracySpread value="0.800000" />
+      <AccurateModeAccuracyModifier value="0.350000" />
+      <RunAndGunAccuracyModifier value="0.850000" />
+      
+      <!-- Recovery: Steel frame, dual recoil spring -->
+      <RecoilAccuracyMax value="2.200000" />
+      <RecoilErrorTime value="0.350000" />
+      <RecoilRecoveryRate value="1.050000" />
+      
+      <!-- Reload times: Standard 1911 magazine -->
+      <ReloadTimeModifier value="1.000000" />
+      
+      <!-- Weapon flags -->
+      <Flags>AllowRandomMuzzleFx FirstPersonScope MuzzleFlash CanBeWashedOff</Flags>
+      
+      <!-- HUD and UI -->
+      <HudDamage value="2.200000" />
+      <HudSpeed value="1.800000" />
+      <HudCapacity value="1.000000" />
+      <HudAccuracy value="2.400000" />
+      <HudRange value="1.600000" />
+      
+      <HumanNameHash>WT_M45A1</HumanNameHash>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

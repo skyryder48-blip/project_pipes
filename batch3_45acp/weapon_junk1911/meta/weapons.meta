@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_JUNK1911</n>
+      <Model>w_pi_junk1911</Model>
+      <Audio>AUDIO_PISTOL</Audio>
+      <Slot>SLOT_UNARMED</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURWEAPONWHEEL</WheelSlot>
+      <Group>YOURWEAPONWHEEL</Group>
+      <ClipSize value="7" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+      <AimingInfo ref="YOURWEAPONAIMINGINFO" />
+      
+      <!-- JUNK 1911 - WORN/DEGRADED PISTOL -->
+      <!-- Decades of abuse, neglected maintenance -->
+      <!-- Pitted barrel, worn rifling, loose tolerances -->
+      <!-- Weak springs, corroded internals -->
+      
+      <!-- ========== LORE/ROLEPLAY NOTES ========== -->
+      <!-- - Worn rifling causes keyholing at distance -->
+      <!-- - Weak recoil spring increases felt recoil -->
+      <!-- - Loose slide-to-frame fit = accuracy loss -->
+      <!-- - Pitted barrel reduces bullet seal = velocity loss -->
+      <!-- - Worn sear creates unpredictable trigger -->
+      <!-- ========================================= -->
+      
+      <!-- Damage: 34 FMJ base - REDUCED 10.5% from quality -->
+      <!-- Equivalent to 9mm performance despite .45 caliber -->
+      <!-- Poor gas seal, keyholing reduces energy transfer -->
+      <Damage value="34.000000" />
+      
+      <!-- Muzzle velocity: ~670 fps = ~220 m/s -->
+      <!-- 10% reduction from pitted barrel, poor gas seal -->
+      <Speed value="220.000000" />
+      
+      <!-- Force and physics - reduced -->
+      <Force value="130.000000" />
+      <ForceHitPed value="100.000000" />
+      <ForceHitVehicle value="65.000000" />
+      <ForceHitFlyingHeli value="40.000000" />
+      
+      <!-- Damage falloff: Severe - starts early, ends soon -->
+      <!-- Keyholing bullets lose energy rapidly -->
+      <DamageFallOffRangeMin value="8.000000" />
+      <DamageFallOffRangeMax value="25.000000" />
+      <DamageFallOffModifier value="0.320000" />
+      
+      <!-- Headshot: 2.60x multiplier - REDUCED -->
+      <!-- Inconsistent bullet tumbling reduces precision lethality -->
+      <HeadShotDamageModifierPlayer value="2.600000" />
+      <MaxHeadShotDistancePlayer value="6.000000" />
+      
+      <!-- Limb damage modifiers -->
+      <HitLimbsDamageModifier value="0.500000" />
+      <NetworkHitLimbsDamageModifier value="0.800000" />
+      <LightlyArmouredDamageModifier value="1.000000" />
+      <NetworkPlayerDamageModifier value="1.000000" />
+      
+      <!-- Penetration: Reduced - tumbling bullets penetrate poorly -->
+      <Penetration value="0.140000" />
+      
+      <!-- Weapon range - severely reduced -->
+      <WeaponRange value="55.000000" />
+      
+      <!-- Fire rate: Semi-auto, ~200 RPM - slower cycling -->
+      <!-- Weak recoil spring, potential feeding issues -->
+      <TimeBetweenShots value="0.300000" />
+      
+      <!-- Recoil: 1.40x multiplier - INCREASED -->
+      <!-- Weak recoil spring doesn't properly dampen cycling -->
+      <!-- Loose tolerances create unpredictable movement -->
+      <RecoilShakeAmplitude value="0.322000" />
+      <RecoilShakeFrequency value="0.650000" />
+      <RecoilShakeHash value="RECOIL_PISTOL" />
+      
+      <!-- Accuracy: VERY LOW - worst in class -->
+      <!-- Worn rifling, loose tolerances, unpredictable trigger -->
+      <!-- +175% accuracy spread from quality 1911 -->
+      <AccuracySpread value="2.200000" />
+      <AccurateModeAccuracyModifier value="0.650000" />
+      <RunAndGunAccuracyModifier value="0.600000" />
+      
+      <!-- Recovery: Slowest recovery due to weak springs -->
+      <RecoilAccuracyMax value="3.200000" />
+      <RecoilErrorTime value="0.550000" />
+      <RecoilRecoveryRate value="0.750000" />
+      
+      <!-- Reload times: Worn magazine catch, potential issues -->
+      <ReloadTimeModifier value="1.150000" />
+      
+      <!-- Weapon flags -->
+      <Flags>AllowRandomMuzzleFx FirstPersonScope MuzzleFlash CanBeWashedOff</Flags>
+      
+      <!-- HUD and UI - reflects degraded state -->
+      <HudDamage value="1.800000" />
+      <HudSpeed value="1.400000" />
+      <HudCapacity value="0.900000" />
+      <HudAccuracy value="0.800000" />
+      <HudRange value="0.900000" />
+      
+      <HumanNameHash>WT_JUNK1911</HumanNameHash>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

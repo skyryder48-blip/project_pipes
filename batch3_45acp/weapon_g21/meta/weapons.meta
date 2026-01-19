@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_G21</n>
+      <Model>w_pi_g21</Model>
+      <Audio>AUDIO_PISTOL</Audio>
+      <Slot>SLOT_UNARMED</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURWEAPONWHEEL</WheelSlot>
+      <Group>YOURWEAPONWHEEL</Group>
+      <ClipSize value="13" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+      <AimingInfo ref="YOURWEAPONAIMINGINFO" />
+      
+      <!-- GLOCK 21 GEN 4 -->
+      <!-- 4.61" barrel, 26.28 oz polymer frame -->
+      <!-- High capacity (13+1) but more recoil than steel 1911s -->
+      <!-- 22-degree grip angle, dual recoil spring -->
+      
+      <!-- Damage: 38 FMJ base - same as 5" 1911s due to fast-burning powder -->
+      <Damage value="38.000000" />
+      
+      <!-- Muzzle velocity: 830-855 fps = ~258 m/s from 4.61" barrel -->
+      <!-- .45 ACP achieves near-complete combustion even in shorter barrels -->
+      <Speed value="258.000000" />
+      
+      <!-- Force and physics -->
+      <Force value="150.000000" />
+      <ForceHitPed value="120.000000" />
+      <ForceHitVehicle value="80.000000" />
+      <ForceHitFlyingHeli value="50.000000" />
+      
+      <!-- Damage falloff: Full damage to 12m, min damage at 38m -->
+      <!-- Slightly shorter effective range than 1911s -->
+      <DamageFallOffRangeMin value="12.000000" />
+      <DamageFallOffRangeMax value="38.000000" />
+      <DamageFallOffModifier value="0.360000" />
+      
+      <!-- Headshot: 2.90x multiplier -->
+      <HeadShotDamageModifierPlayer value="2.900000" />
+      <MaxHeadShotDistancePlayer value="8.000000" />
+      
+      <!-- Limb damage modifiers -->
+      <HitLimbsDamageModifier value="0.500000" />
+      <NetworkHitLimbsDamageModifier value="0.800000" />
+      <LightlyArmouredDamageModifier value="1.000000" />
+      <NetworkPlayerDamageModifier value="1.000000" />
+      
+      <!-- Penetration: .45 ACP moderate penetration -->
+      <Penetration value="0.200000" />
+      
+      <!-- Weapon range -->
+      <WeaponRange value="80.000000" />
+      
+      <!-- Fire rate: Semi-auto, ~250 RPM - Safe Action trigger slower reset -->
+      <!-- 0.25" trigger reset vs 0.1" on 1911 -->
+      <TimeBetweenShots value="0.240000" />
+      
+      <!-- Recoil: 1.35x multiplier - polymer frame, lighter weight -->
+      <!-- 26.28 oz vs 40 oz steel frame = significantly more felt recoil -->
+      <!-- "Rolling" recoil sensation with heavier slide -->
+      <RecoilShakeAmplitude value="0.310000" />
+      <RecoilShakeFrequency value="0.750000" />
+      <RecoilShakeHash value="RECOIL_PISTOL" />
+      
+      <!-- Accuracy: 6.77" sight radius, polymer frame flex -->
+      <!-- Good but not match-grade -->
+      <AccuracySpread value="1.100000" />
+      <AccurateModeAccuracyModifier value="0.400000" />
+      <RunAndGunAccuracyModifier value="0.800000" />
+      
+      <!-- Recovery: Dual recoil spring helps, but lighter frame hurts -->
+      <RecoilAccuracyMax value="2.500000" />
+      <RecoilErrorTime value="0.400000" />
+      <RecoilRecoveryRate value="0.920000" />
+      
+      <!-- Reload times: Faster due to larger magwell -->
+      <ReloadTimeModifier value="0.950000" />
+      
+      <!-- Weapon flags -->
+      <Flags>AllowRandomMuzzleFx FirstPersonScope MuzzleFlash CanBeWashedOff</Flags>
+      
+      <!-- HUD and UI -->
+      <HudDamage value="2.200000" />
+      <HudSpeed value="2.000000" />
+      <HudCapacity value="1.600000" />
+      <HudAccuracy value="1.900000" />
+      <HudRange value="1.500000" />
+      
+      <HumanNameHash>WT_G21</HumanNameHash>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

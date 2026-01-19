@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_G41</n>
+      <Model>w_pi_g41</Model>
+      <Audio>AUDIO_PISTOL</Audio>
+      <Slot>SLOT_UNARMED</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURWEAPONWHEEL</WheelSlot>
+      <Group>YOURWEAPONWHEEL</Group>
+      <ClipSize value="13" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+      <AimingInfo ref="YOURWEAPONAIMINGINFO" />
+      
+      <!-- GLOCK 41 GEN 4 MOS -->
+      <!-- 5.31" barrel (longslide), 23.63 oz polymer frame -->
+      <!-- Competition-optimized: longest sight radius, highest velocity -->
+      <!-- Narrower 1.0" slide for better handling -->
+      
+      <!-- Damage: 38 FMJ base - velocity bonus from long barrel -->
+      <Damage value="38.000000" />
+      
+      <!-- Muzzle velocity: 875-900 fps = ~270 m/s from 5.31" barrel -->
+      <!-- Highest velocity among .45 ACP pistols -->
+      <Speed value="270.000000" />
+      
+      <!-- Force and physics -->
+      <Force value="155.000000" />
+      <ForceHitPed value="125.000000" />
+      <ForceHitVehicle value="85.000000" />
+      <ForceHitFlyingHeli value="52.000000" />
+      
+      <!-- Damage falloff: Extended range due to higher velocity -->
+      <DamageFallOffRangeMin value="14.000000" />
+      <DamageFallOffRangeMax value="45.000000" />
+      <DamageFallOffModifier value="0.380000" />
+      
+      <!-- Headshot: 2.90x multiplier -->
+      <HeadShotDamageModifierPlayer value="2.900000" />
+      <MaxHeadShotDistancePlayer value="9.000000" />
+      
+      <!-- Limb damage modifiers -->
+      <HitLimbsDamageModifier value="0.500000" />
+      <NetworkHitLimbsDamageModifier value="0.800000" />
+      <LightlyArmouredDamageModifier value="1.000000" />
+      <NetworkPlayerDamageModifier value="1.000000" />
+      
+      <!-- Penetration: .45 ACP moderate penetration -->
+      <Penetration value="0.220000" />
+      
+      <!-- Weapon range - extended -->
+      <WeaponRange value="95.000000" />
+      
+      <!-- Fire rate: Semi-auto, ~265 RPM - competition-tuned -->
+      <!-- Better trigger than standard Glocks -->
+      <TimeBetweenShots value="0.226000" />
+      
+      <!-- Recoil: 1.25x multiplier - improved over G21 -->
+      <!-- Better weight distribution, longer slide dwell time -->
+      <!-- Narrower slide reduces perceived recoil -->
+      <RecoilShakeAmplitude value="0.288000" />
+      <RecoilShakeFrequency value="0.780000" />
+      <RecoilShakeHash value="RECOIL_PISTOL" />
+      
+      <!-- Accuracy: Best Glock accuracy - 7.64" sight radius -->
+      <!-- 13% improvement over G21 sight radius -->
+      <AccuracySpread value="0.920000" />
+      <AccurateModeAccuracyModifier value="0.360000" />
+      <RunAndGunAccuracyModifier value="0.820000" />
+      
+      <!-- Recovery: Good recovery due to balanced weight -->
+      <RecoilAccuracyMax value="2.300000" />
+      <RecoilErrorTime value="0.370000" />
+      <RecoilRecoveryRate value="0.980000" />
+      
+      <!-- Reload times -->
+      <ReloadTimeModifier value="0.950000" />
+      
+      <!-- Weapon flags -->
+      <Flags>AllowRandomMuzzleFx FirstPersonScope MuzzleFlash CanBeWashedOff</Flags>
+      
+      <!-- HUD and UI -->
+      <HudDamage value="2.200000" />
+      <HudSpeed value="1.900000" />
+      <HudCapacity value="1.600000" />
+      <HudAccuracy value="2.200000" />
+      <HudRange value="1.800000" />
+      
+      <HumanNameHash>WT_G41</HumanNameHash>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

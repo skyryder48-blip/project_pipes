@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  .500 S&W Magnum Ammunition Definitions - CENTRALIZED
+  Used by .500 S&W Magnum revolvers (Batch 6: S&W Model 500)
+
+  THE MOST POWERFUL PRODUCTION HANDGUN CARTRIDGE
+  Equals .308 Winchester / .30-06 Springfield rifle performance
+
+  ENHANCED BALLISTIC RESEARCH VALUES (9mm = 34 base damage reference):
+  4" Barrel: FMJ 160 dmg, 0.90 pen, 1650 fps | JHP 192 dmg (+20%), 0.75 pen
+  6.5" Barrel: FMJ 185 dmg, 0.90 pen, 1850 fps | JHP 222 dmg (+20%), 0.75 pen
+  8.375" Barrel (baseline): FMJ 200 dmg, 0.90 pen, 1975 fps | JHP 240 dmg (+20%), 0.75 pen
+  10.5" Barrel: FMJ 215 dmg, 0.90 pen, 2000 fps | JHP 258 dmg (+20%), 0.75 pen
+
+  Energy: 4" = 2,200 ft-lbs, 6.5" = 2,600 ft-lbs, 8.375" = 3,032 ft-lbs, 10.5" = 3,200 ft-lbs
+  Hard Cast 700gr: 5-6 FEET penetration through muscle/bone
+
+  EXTREME CHARACTERISTICS:
+  - 60,000 PSI chamber pressure
+  - Recoil: 25-64 ft-lbs (3x .44 Magnum)
+  - Fire rate: 40-60 RPM (extremely slow recovery)
+  - X-Frame construction required (5-round capacity)
+
+  Load this resource BEFORE any .500 S&W weapon resources in server.cfg:
+    ensure ammo_system_standalone
+    ensure weapon_model500
+    ...
+-->
+<CWeaponInfoBlob>
+  <Infos>
+    <Item>
+      <Infos>
+        <!-- ==================== .500 S&W MAGNUM FMJ (Standard) ==================== -->
+        <!-- 8.375" baseline: 200 damage, 0.90 penetration, 1975 fps -->
+        <!-- Extreme penetration (32"+); dangerous game performance -->
+        <!-- 350gr XTP achieves 3,032 ft-lbs - rifle territory -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_500SW_FMJ</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="30" />
+          <AmmoMax50 value="30" />
+          <AmmoMax100 value="30" />
+          <AmmoMaxMP value="30" />
+          <AmmoMax50MP value="30" />
+          <AmmoMax100MP value="30" />
+          <AmmoFlags />
+          <AmmoSpecialType>None</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="1.500000" />
+          <PedRicochetTolerance value="1.500000" />
+          <VehicleRicochetTolerance value="1.500000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== .500 S&W MAGNUM JHP (Jacketed Hollow Point) ==================== -->
+        <!-- 8.375" baseline: 240 damage (+20%), 0.75 penetration, 1975 fps -->
+        <!-- 350gr XTP JHP: 19.5" gel penetration, massive energy transfer -->
+        <!-- Hornady 300gr FTX: 2,868 ft-lbs at 8.375" barrel -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_500SW_JHP</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="20" />
+          <AmmoMax50 value="20" />
+          <AmmoMax100 value="20" />
+          <AmmoMaxMP value="20" />
+          <AmmoMax50MP value="20" />
+          <AmmoMax100MP value="20" />
+          <AmmoFlags />
+          <AmmoSpecialType>HollowPoint</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="0.750000" />
+          <PedRicochetTolerance value="0.750000" />
+          <VehicleRicochetTolerance value="0.600000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+  <n>.500 S&W Magnum Ammunition Types</n>
+</CWeaponInfoBlob>

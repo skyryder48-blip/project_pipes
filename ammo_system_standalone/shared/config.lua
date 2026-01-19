@@ -63,34 +63,137 @@ Config.AmmoTypes = {
         },
     },
 
-    -- ==================== FUTURE CALIBERS ====================
-    -- Uncomment and configure when adding new calibers
-
-    --[[
+    -- ==================== .45 ACP AMMUNITION ====================
+    -- Batch 3: Full-Size .45 ACP Pistols (1911s and Glocks)
+    -- Base damage: 38 (FMJ), 44 (JHP +15.8%)
     ['.45acp'] = {
         ['fmj'] = {
             item = 'ammo_45acp_fmj',
             label = '.45 ACP FMJ',
             componentSuffix = '_CLIP_FMJ',
             ammoInfo = 'AMMO_45ACP_FMJ',
-            description = 'Heavy .45 caliber full metal jacket.',
+            description = 'Heavy .45 caliber full metal jacket. 38 base damage, 0.20 penetration.',
         },
-        ['hp'] = {
-            item = 'ammo_45acp_hp',
-            label = '.45 ACP Hollow Point',
-            componentSuffix = '_CLIP_HP',
-            ammoInfo = 'AMMO_45ACP_HP',
-            description = 'Devastating expansion. +15% damage to unarmored.',
-        },
-        ['ap'] = {
-            item = 'ammo_45acp_ap',
-            label = '.45 ACP Armor Piercing',
-            componentSuffix = '_CLIP_AP',
-            ammoInfo = 'AMMO_45ACP_AP',
-            description = 'Hardened core penetrator rounds.',
+        ['jhp'] = {
+            item = 'ammo_45acp_jhp',
+            label = '.45 ACP JHP',
+            componentSuffix = '_CLIP_JHP',
+            ammoInfo = 'AMMO_45ACP_JHP',
+            description = 'Jacketed hollow point. +15.8% damage (44), reduced armor effectiveness.',
         },
     },
 
+    -- ==================== .40 S&W AMMUNITION ====================
+    -- Batch 4: .40 S&W Pistols (G22 Gen 4/5, Glock Demon)
+    -- Enhanced Ballistics: FMJ 41 dmg, JHP 49 (+20%)
+    -- "Snappy" recoil - 25% higher than 9mm, 18-33% more energy
+    ['.40sw'] = {
+        ['fmj'] = {
+            item = 'ammo_40sw_fmj',
+            label = '.40 S&W FMJ',
+            componentSuffix = '_CLIP_FMJ',
+            ammoInfo = 'AMMO_40SW_FMJ',
+            description = '.40 S&W full metal jacket. 41 damage, 0.72 penetration. 990 fps, ~420 ft-lbs.',
+        },
+        ['jhp'] = {
+            item = 'ammo_40sw_jhp',
+            label = '.40 S&W JHP',
+            componentSuffix = '_CLIP_JHP',
+            ammoInfo = 'AMMO_40SW_JHP',
+            description = 'Jacketed hollow point. 49 damage (+20%), 0.55 penetration. Federal HST expansion.',
+        },
+    },
+
+    -- ==================== .357 MAGNUM AMMUNITION ====================
+    -- Batch 5: .357 Magnum Revolvers (King Cobra variants, Python)
+    -- Enhanced Ballistics - BARREL DEPENDENT:
+    -- 6" barrel: FMJ 58, JHP 70 (+20%) | 4" barrel: FMJ 49, JHP 59 | 2" barrel: compromised
+    ['.357mag'] = {
+        ['fmj'] = {
+            item = 'ammo_357mag_fmj',
+            label = '.357 Magnum FMJ',
+            componentSuffix = '_CLIP_FMJ',
+            ammoInfo = 'AMMO_357MAG_FMJ',
+            description = '.357 Magnum full metal jacket. 49-58 damage (barrel), 0.82-0.90 penetration. 1400-1650 fps.',
+        },
+        ['jhp'] = {
+            item = 'ammo_357mag_jhp',
+            label = '.357 Magnum JHP',
+            componentSuffix = '_CLIP_JHP',
+            ammoInfo = 'AMMO_357MAG_JHP',
+            description = '.357 Magnum JHP. 59-70 damage (+20%), legendary "man-stopper" from 4"+ barrels.',
+        },
+    },
+
+    -- ==================== .38 SPECIAL AMMUNITION ====================
+    -- Batch 5: .38 Special Revolver (S&W Model 15)
+    -- Enhanced Ballistics - WARNING: Only 57% of 9mm energy
+    -- FMJ: 20 damage (200 ft-lbs), JHP +P: 27 damage (+35%)
+    ['.38spl'] = {
+        ['fmj'] = {
+            item = 'ammo_38spl_fmj',
+            label = '.38 Special FMJ',
+            componentSuffix = '_CLIP_FMJ',
+            ammoInfo = 'AMMO_38SPL_FMJ',
+            description = '.38 Special full metal jacket. 20 damage, 0.65 penetration. 755 fps, classic police round.',
+        },
+        ['jhp'] = {
+            item = 'ammo_38spl_jhp',
+            label = '.38 Special +P JHP',
+            componentSuffix = '_CLIP_JHP',
+            ammoInfo = 'AMMO_38SPL_JHP',
+            description = '.38 Special +P JHP. 27 damage (+35%), 0.50 penetration. Short barrel expansion unreliable.',
+        },
+    },
+
+    -- ==================== .44 MAGNUM AMMUNITION ====================
+    -- Batch 6: .44 Magnum Revolvers (S&W Model 29, Taurus Raging Bull)
+    -- Enhanced Ballistics - BARREL DEPENDENT:
+    -- 4" barrel: FMJ 82, JHP 98 | 6.5" barrel: FMJ 100, JHP 120 | 8.375" barrel: FMJ 115, JHP 138
+    -- The "Dirty Harry" cartridge - 65-80% more energy than .357 Magnum
+    ['.44mag'] = {
+        ['fmj'] = {
+            item = 'ammo_44mag_fmj',
+            label = '.44 Magnum FMJ',
+            componentSuffix = '_CLIP_FMJ',
+            ammoInfo = 'AMMO_44MAG_FMJ',
+            description = '.44 Magnum FMJ. 82-115 damage (barrel), 0.85 penetration. OVERKILL for defense - 20-30" gel.',
+        },
+        ['jhp'] = {
+            item = 'ammo_44mag_jhp',
+            label = '.44 Magnum JHP',
+            componentSuffix = '_CLIP_JHP',
+            ammoInfo = 'AMMO_44MAG_JHP',
+            description = '.44 Magnum JHP. 98-138 damage (+20%), 0.70 penetration. Devastating terminal performance.',
+        },
+    },
+
+    -- ==================== .500 S&W MAGNUM AMMUNITION ====================
+    -- Batch 6: .500 S&W Revolver (S&W Model 500)
+    -- THE MOST POWERFUL PRODUCTION HANDGUN CARTRIDGE
+    -- Equals .308 Winchester / .30-06 Springfield rifle performance
+    -- 4" barrel: 160 dmg | 6.5" barrel: 185 dmg | 8.375" barrel: 200 dmg | 10.5" barrel: 215 dmg
+    ['.500sw'] = {
+        ['fmj'] = {
+            item = 'ammo_500sw_fmj',
+            label = '.500 S&W FMJ',
+            componentSuffix = '_CLIP_FMJ',
+            ammoInfo = 'AMMO_500SW_FMJ',
+            description = '.500 S&W FMJ. 160-215 damage, 0.90 penetration. RIFLE-LEVEL POWER - 3,032 ft-lbs @ 8.375".',
+        },
+        ['jhp'] = {
+            item = 'ammo_500sw_jhp',
+            label = '.500 S&W JHP',
+            componentSuffix = '_CLIP_JHP',
+            ammoInfo = 'AMMO_500SW_JHP',
+            description = '.500 S&W JHP. 192-258 damage (+20%), 0.75 penetration. Extreme recoil - 3x .44 Magnum.',
+        },
+    },
+
+    -- ==================== FUTURE CALIBERS ====================
+    -- Uncomment and configure when adding new calibers
+
+    --[[
     ['12ga'] = {
         ['buckshot'] = {
             item = 'ammo_12ga_buckshot',
@@ -128,5 +231,10 @@ Config.AmmoTypes = {
 Config.DefaultAmmoType = {
     ['9mm'] = 'fmj',
     ['.45acp'] = 'fmj',
+    ['.40sw'] = 'fmj',
+    ['.357mag'] = 'fmj',
+    ['.38spl'] = 'fmj',
+    ['.44mag'] = 'fmj',
+    ['.500sw'] = 'fmj',
     ['12ga'] = 'buckshot',
 }

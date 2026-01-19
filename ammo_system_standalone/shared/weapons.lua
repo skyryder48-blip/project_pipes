@@ -162,23 +162,127 @@ Config.Weapons = {
     },
 
     -- ======================================================================
-    -- FUTURE WEAPONS (uncomment when adding)
+    -- BATCH 3: .45 ACP PISTOLS
     -- ======================================================================
 
-    --[[
-    -- .45 ACP Pistols
-    [`WEAPON_GLOCK21`] = {
+    -- Colt M45A1 CQBP - Military 1911 (8 rounds)
+    [`WEAPON_M45A1`] = {
+        caliber = '.45acp',
+        componentBase = 'COMPONENT_M45A1',
+        clipSize = 8,
+    },
+
+    -- Glock 21 Gen 4 - Full-Size .45 (13 rounds)
+    [`WEAPON_G21`] = {
         caliber = '.45acp',
         componentBase = 'COMPONENT_G21',
         clipSize = 13,
     },
 
-    [`WEAPON_1911`] = {
+    -- Glock 30 Gen 4 - Subcompact .45 (10 rounds)
+    [`WEAPON_G30`] = {
         caliber = '.45acp',
-        componentBase = 'COMPONENT_1911',
+        componentBase = 'COMPONENT_G30',
+        clipSize = 10,
+    },
+
+    -- Glock 41 Gen 4 MOS - Competition .45 (13 rounds)
+    [`WEAPON_G41`] = {
+        caliber = '.45acp',
+        componentBase = 'COMPONENT_G41',
+        clipSize = 13,
+    },
+
+    -- Kimber Custom II 1911 - Premium .45 (7 rounds)
+    [`WEAPON_KIMBER1911`] = {
+        caliber = '.45acp',
+        componentBase = 'COMPONENT_KIMBER1911',
         clipSize = 7,
     },
 
+    -- Kimber Eclipse Custom II - Target 1911 (8 rounds)
+    [`WEAPON_KIMBER_ECLIPSE`] = {
+        caliber = '.45acp',
+        componentBase = 'COMPONENT_KIMBER_ECLIPSE',
+        clipSize = 8,
+    },
+
+    -- Junk 1911 - Degraded .45 (7 rounds)
+    [`WEAPON_JUNK1911`] = {
+        caliber = '.45acp',
+        componentBase = 'COMPONENT_JUNK1911',
+        clipSize = 7,
+    },
+
+    -- ======================================================================
+    -- BATCH 4: .40 S&W PISTOLS
+    -- ======================================================================
+
+    -- Glock 22 Gen 4 - Law Enforcement Standard (15 rounds)
+    [`WEAPON_G22_GEN4`] = {
+        caliber = '.40sw',
+        componentBase = 'COMPONENT_G22_GEN4',
+        clipSize = 15,
+    },
+
+    -- Glock 22 Gen 5 - Enhanced Duty Pistol (15 rounds)
+    [`WEAPON_G22_GEN5`] = {
+        caliber = '.40sw',
+        componentBase = 'COMPONENT_G22_GEN5',
+        clipSize = 15,
+    },
+
+    -- Glock Demon - Full-Auto Street Weapon (13 rounds)
+    [`WEAPON_GLOCK_DEMON`] = {
+        caliber = '.40sw',
+        componentBase = 'COMPONENT_GLOCK_DEMON',
+        clipSize = 13,
+    },
+
+    -- ======================================================================
+    -- BATCH 5: .357 MAGNUM & .38 SPECIAL REVOLVERS
+    -- ======================================================================
+
+    -- Colt King Cobra - .357 Magnum (6 rounds, 4.25" barrel)
+    [`WEAPON_KINGCOBRA`] = {
+        caliber = '.357mag',
+        componentBase = 'COMPONENT_KINGCOBRA',
+        clipSize = 6,
+    },
+
+    -- Colt King Cobra Snub - .357 Magnum (6 rounds, 2" barrel)
+    [`WEAPON_KINGCOBRA_SNUB`] = {
+        caliber = '.357mag',
+        componentBase = 'COMPONENT_KINGCOBRA_SNUB',
+        clipSize = 6,
+    },
+
+    -- Colt King Cobra Target - .357 Magnum (6 rounds, 3" barrel)
+    [`WEAPON_KINGCOBRA_TARGET`] = {
+        caliber = '.357mag',
+        componentBase = 'COMPONENT_KINGCOBRA_TARGET',
+        clipSize = 6,
+    },
+
+    -- Colt Python - .357 Magnum (6 rounds, 6" barrel) - Premium Revolver
+    [`WEAPON_PYTHON`] = {
+        caliber = '.357mag',
+        componentBase = 'COMPONENT_PYTHON',
+        clipSize = 6,
+    },
+
+    -- S&W Model 15 "Combat Masterpiece" - .38 Special (6 rounds, 4" barrel)
+    [`WEAPON_SW_MODEL15`] = {
+        caliber = '.38spl',
+        componentBase = 'COMPONENT_SW_MODEL15',
+        clipSize = 6,
+    },
+
+    -- ======================================================================
+    -- FUTURE WEAPONS (uncomment when adding)
+    -- ======================================================================
+
+    --[[
     -- 12 Gauge Shotguns
     [`WEAPON_MOSSBERG590`] = {
         caliber = '12ga',

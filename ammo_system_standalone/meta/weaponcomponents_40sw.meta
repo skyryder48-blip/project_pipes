@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  .40 S&W Weapon Components - Magazine Definitions
+  Used by ALL .40 S&W pistols (Batch 4)
+
+  Component Naming Convention:
+  COMPONENT_[WEAPON]_CLIP_[AMMOTYPE]
+
+  Ammo Types:
+  - FMJ: Standard full metal jacket (36 damage)
+  - JHP: Jacketed hollow point (+16.7% damage = 42)
+
+  Weapons:
+  - G22_GEN4 (Glock 22 Gen 4) - 15 rounds
+  - G22_GEN5 (Glock 22 Gen 5) - 15 rounds
+  - GLOCK_DEMON (Full-Auto) - 13 rounds
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+    <!-- ================================================================== -->
+    <!-- GLOCK 22 GEN 4 - Law Enforcement Standard (15 rounds)              -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G22_GEN4_CLIP_FMJ</n>
+      <Model>w_pi_g22_gen4_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_40FMJ</LocDesc>
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_40SW_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G22_GEN4_CLIP_JHP</n>
+      <Model>w_pi_g22_gen4_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_40JHP</LocDesc>
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_40SW_JHP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- GLOCK 22 GEN 5 - Enhanced Duty Pistol (15 rounds)                  -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G22_GEN5_CLIP_FMJ</n>
+      <Model>w_pi_g22_gen5_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_40FMJ</LocDesc>
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_40SW_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G22_GEN5_CLIP_JHP</n>
+      <Model>w_pi_g22_gen5_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_40JHP</LocDesc>
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_40SW_JHP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- GLOCK DEMON - Full-Auto Street Weapon (13 rounds)                  -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_GLOCK_DEMON_CLIP_FMJ</n>
+      <Model>w_pi_glock_demon_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_40FMJ</LocDesc>
+      <ClipSize value="13" />
+      <AmmoInfo ref="AMMO_40SW_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_GLOCK_DEMON_CLIP_JHP</n>
+      <Model>w_pi_glock_demon_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_40JHP</LocDesc>
+      <ClipSize value="13" />
+      <AmmoInfo ref="AMMO_40SW_JHP" />
+    </Item>
+
+  </Infos>
+</CWeaponComponentInfoBlob>

@@ -14,8 +14,14 @@ client_script 'cl_weaponNames.lua'
 
 -- Meta files
 files {
-    'meta/weapons.meta',
+    'meta/weapon_sw_model15.meta',
+    'meta/weaponarchetypes.meta',
+    'meta/weaponanimations.meta',
+    'meta/pedpersonality.meta',
 }
 
 -- Data file declarations for addon weapons
-data_file 'WEAPONINFO_FILE' 'meta/weapons.meta'
+data_file 'WEAPONINFO_FILE' 'meta/weapon_sw_model15.meta'
+data_file 'WEAPON_ANIMATIONS_FILE' 'meta/weaponanimations.meta'
+data_file 'WEAPONARCHETYPES_FILE' 'meta/weaponarchetypes.meta'
+data_file 'PED_PERSONALITY_FILE' 'meta/pedpersonality.meta'

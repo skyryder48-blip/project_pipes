@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  .38 Special Weapon Components - Speedloader Definitions
+  Used by .38 Special revolvers (Batch 5)
+
+  Component Naming Convention:
+  COMPONENT_[WEAPON]_CLIP_[AMMOTYPE]
+
+  Ammo Types:
+  - FMJ: Standard full metal jacket (32 damage)
+  - JHP: Jacketed hollow point (+15.6% damage = 37)
+
+  Weapons (6-round capacity):
+  - SW_MODEL15 (S&W Model 15 "Combat Masterpiece") - 4" barrel
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+    <!-- ================================================================== -->
+    <!-- S&W MODEL 15 "COMBAT MASTERPIECE" - .38 Special (6 rounds)         -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SW_MODEL15_CLIP_FMJ</n>
+      <Model>w_pi_sw_model15_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_38FMJ</LocDesc>
+      <ClipSize value="6" />
+      <AmmoInfo ref="AMMO_38SPL_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SW_MODEL15_CLIP_JHP</n>
+      <Model>w_pi_sw_model15_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_38JHP</LocDesc>
+      <ClipSize value="6" />
+      <AmmoInfo ref="AMMO_38SPL_JHP" />
+    </Item>
+
+  </Infos>
+  <n>.38 Special Speedloader Components</n>
+</CWeaponComponentInfoBlob>

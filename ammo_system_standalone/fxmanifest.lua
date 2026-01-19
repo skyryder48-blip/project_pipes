@@ -25,7 +25,13 @@ version '1.0.0'
 
     SUPPORTED CALIBERS:
     - 9mm (Pistols): FMJ, HP, AP
-    - Future: .45 ACP, 5.56 NATO, 7.62x39, 12 Gauge, etc.
+    - .45 ACP (Pistols): FMJ, JHP
+    - .40 S&W (Pistols): FMJ, JHP
+    - .357 Magnum (Revolvers): FMJ, JHP
+    - .38 Special (Revolvers): FMJ, JHP
+    - .44 Magnum (Revolvers): FMJ, JHP - "Dirty Harry" cartridge
+    - .500 S&W Magnum (Revolvers): FMJ, JHP - Most powerful production handgun
+    - Future: 5.56 NATO, 7.62x39, 12 Gauge, etc.
 
     AMMO EFFECTS:
     - FMJ: Baseline damage, standard penetration
@@ -51,18 +57,54 @@ server_scripts {
 
 -- Meta files for ammunition definitions and components
 files {
+    -- 9mm Ammunition
     'meta/ammo_9mm.meta',
     'meta/weaponcomponents_9mm.meta',
+    -- .45 ACP Ammunition
+    'meta/ammo_45acp.meta',
+    'meta/weaponcomponents_45acp.meta',
+    -- .40 S&W Ammunition
+    'meta/ammo_40sw.meta',
+    'meta/weaponcomponents_40sw.meta',
+    -- .357 Magnum Ammunition
+    'meta/ammo_357mag.meta',
+    'meta/weaponcomponents_357mag.meta',
+    -- .38 Special Ammunition
+    'meta/ammo_38spl.meta',
+    'meta/weaponcomponents_38spl.meta',
+    -- .44 Magnum Ammunition
+    'meta/ammo_44mag.meta',
+    'meta/weaponcomponents_44mag.meta',
+    -- .500 S&W Magnum Ammunition
+    'meta/ammo_500sw.meta',
+    'meta/weaponcomponents_500sw.meta',
     -- Future calibers:
-    -- 'meta/ammo_45acp.meta',
-    -- 'meta/weaponcomponents_45acp.meta',
     -- 'meta/ammo_12ga.meta',
     -- 'meta/weaponcomponents_12ga.meta',
 }
 
 -- Data file declarations
+-- 9mm
 data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_9mm.meta'
 data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_9mm.meta'
+-- .45 ACP
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_45acp.meta'
+data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_45acp.meta'
+-- .40 S&W
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_40sw.meta'
+data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_40sw.meta'
+-- .357 Magnum
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_357mag.meta'
+data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_357mag.meta'
+-- .38 Special
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_38spl.meta'
+data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_38spl.meta'
+-- .44 Magnum
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_44mag.meta'
+data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_44mag.meta'
+-- .500 S&W Magnum
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_500sw.meta'
+data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_500sw.meta'
 -- Future calibers:
--- data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_45acp.meta'
--- data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_45acp.meta'
+-- data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_12ga.meta'
+-- data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_12ga.meta'

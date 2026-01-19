@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    WEAPONANIMATIONS.META - Glock 30 Gen 4
+    Semi-Auto Pistol Animation Set
+    Based on FiveM-Addon-Weapon-Tool-Kit
+-->
+<CWeaponAnimationsSets>
+  <WeaponAnimationsSets>
+    <Item key="Default">
+      <WeaponAnimations>
+        <Item key="WEAPON_G30">
+          <!-- Cover movement -->
+          <CoverMovementClipSetHash />
+          <CoverMovementExtraClipSetHash />
+          <CoverAlternateMovementClipSetHash>cover@move@ai@base@1h</CoverAlternateMovementClipSetHash>
+          <CoverWeaponClipSetHash>Cover_Wpn_Pistol</CoverWeaponClipSetHash>
+
+          <!-- Motion -->
+          <MotionClipSetHash>weapons@pistol@pistol</MotionClipSetHash>
+          <MotionFilterHash>BothArms_filter</MotionFilterHash>
+          <MotionCrouchClipSetHash />
+          <MotionStrafingClipSetHash />
+          <MotionStrafingStealthClipSetHash />
+          <MotionStrafingUpperBodyClipSetHash />
+
+          <!-- Weapon handling -->
+          <WeaponClipSetHash>weapons@pistol@pistol</WeaponClipSetHash>
+          <WeaponClipSetStreamedHash>weapons@pistol@pistol_str</WeaponClipSetStreamedHash>
+          <WeaponClipSetHashInjured>weapons@pistol@pistol_injured</WeaponClipSetHashInjured>
+          <WeaponClipSetHashStealth>weapons@pistol@pistol@stealth</WeaponClipSetHashStealth>
+          <WeaponClipSetHashHiCover />
+          <AlternativeClipSetWhenBlocked />
+          <ScopeWeaponClipSet />
+
+          <!-- Aiming -->
+          <AlternateAimingStandingClipSetHash />
+          <AlternateAimingCrouchingClipSetHash />
+
+          <!-- Firing variations -->
+          <FiringVariationsStandingClipSetHash>combat_fire_variations_pistol</FiringVariationsStandingClipSetHash>
+          <FiringVariationsCrouchingClipSetHash />
+
+          <!-- Aim turns -->
+          <AimTurnStandingClipSetHash>combat_aim_turns_pistol</AimTurnStandingClipSetHash>
+          <AimTurnCrouchingClipSetHash />
+
+          <!-- Melee -->
+          <MeleeClipSetHash />
+          <MeleeVariationClipSetHash />
+          <MeleeTauntClipSetHash />
+          <MeleeSupportTauntClipSetHash />
+          <MeleeStealthClipSetHash />
+
+          <!-- Reactions -->
+          <ShellShockedClipSetHash>reaction@shellshock@unarmed</ShellShockedClipSetHash>
+
+          <!-- Jump/Fall -->
+          <JumpUpperbodyClipSetHash />
+          <FallUpperbodyClipSetHash />
+
+          <!-- Transitions -->
+          <FromStrafeTransitionUpperBodyClipSetHash>weapons@pistol@</FromStrafeTransitionUpperBodyClipSetHash>
+
+          <!-- Swap filters -->
+          <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+          <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+
+          <!-- Fire rate modifiers -->
+          <AnimFireRateModifier value="1.000000" />
+          <AnimBlindFireRateModifier value="1.000000" />
+          <AnimWantingToShootFireRateModifier value="3.000000" />
+
+          <!-- Network -->
+          <UseFromStrafeUpperBodyAimNetwork value="true" />
+        </Item>
+      </WeaponAnimations>
+    </Item>
+  </WeaponAnimationsSets>
+</CWeaponAnimationsSets>

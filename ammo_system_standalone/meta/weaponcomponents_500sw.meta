@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  .500 S&W Magnum Weapon Components - Speedloader Definitions
+  Used by .500 S&W Magnum revolvers (Batch 6)
+
+  Component Naming Convention:
+  COMPONENT_[WEAPON]_CLIP_[AMMOTYPE]
+
+  Ammo Types:
+  - FMJ: Standard full metal jacket (200 damage @ 8.375")
+  - JHP: Jacketed hollow point (+20% damage = 240 @ 8.375")
+
+  Weapons:
+  - MODEL500 (S&W Model 500) - X-Frame, 5-round capacity
+    The most powerful production revolver
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+    <!-- ================================================================== -->
+    <!-- S&W MODEL 500 - X-Frame .500 S&W Magnum (5 rounds)                 -->
+    <!-- The most powerful production handgun cartridge                     -->
+    <!-- Equals .308 Winchester / .30-06 Springfield performance            -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MODEL500_CLIP_FMJ</n>
+      <Model>w_pi_model500_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_500FMJ</LocDesc>
+      <ClipSize value="5" />
+      <AmmoInfo ref="AMMO_500SW_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MODEL500_CLIP_JHP</n>
+      <Model>w_pi_model500_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_500JHP</LocDesc>
+      <ClipSize value="5" />
+      <AmmoInfo ref="AMMO_500SW_JHP" />
+    </Item>
+
+  </Infos>
+  <n>.500 S&W Magnum Speedloader Components</n>
+</CWeaponComponentInfoBlob>

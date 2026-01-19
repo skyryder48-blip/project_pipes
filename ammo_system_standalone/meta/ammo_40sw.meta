@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  .40 S&W Ammunition Definitions - CENTRALIZED
+  Used by ALL .40 S&W pistols (Batch 4: G22 Gen 4/5, Glock Demon)
+
+  ENHANCED BALLISTIC RESEARCH VALUES (9mm = 34 base damage reference):
+  - FMJ (Standard): 41 base damage (~420 ft-lbs), 0.72 penetration
+    25-32" gel penetration, 990 fps velocity, 0.65 armor effectiveness
+  - JHP (Jacketed Hollow Point): 49 damage (+20%), 0.55 penetration
+    14-18" FBI gel standard, 970 fps, Federal HST 0.72" expansion
+
+  .40 S&W Characteristics:
+  - 35,000 PSI chamber pressure (higher than .45 ACP's 21,000 PSI)
+  - "Snappy" recoil - 25% higher felt recoil than 9mm
+  - 18-33% more muzzle energy than 9mm Luger
+  - Effective range: 50m (FMJ), 45m (JHP)
+
+  Load this resource BEFORE any .40 S&W weapon resources in server.cfg:
+    ensure ammo_system_standalone
+    ensure weapon_g22_gen4
+    ensure weapon_g22_gen5
+    ensure weapon_glock_demon
+-->
+<CWeaponInfoBlob>
+  <Infos>
+    <Item>
+      <Infos>
+        <!-- ==================== .40 S&W FMJ (Standard) ==================== -->
+        <!-- 41 base damage, 0.72 penetration, 990 fps, 0.65 armor effectiveness -->
+        <!-- Over-penetrates gel (25-32"); good barrier performance -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_40SW_FMJ</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="200" />
+          <AmmoMax50 value="200" />
+          <AmmoMax100 value="200" />
+          <AmmoMaxMP value="200" />
+          <AmmoMax50MP value="200" />
+          <AmmoMax100MP value="200" />
+          <AmmoFlags />
+          <AmmoSpecialType>None</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="1.100000" />
+          <PedRicochetTolerance value="1.100000" />
+          <VehicleRicochetTolerance value="1.100000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== .40 S&W JHP (Jacketed Hollow Point) ==================== -->
+        <!-- 49 damage (+20%), 0.55 penetration, 970 fps, 0.40 armor effectiveness -->
+        <!-- Federal HST 180gr: 0.72" expansion, 14.5-18.5" penetration -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_40SW_JHP</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="150" />
+          <AmmoMax50 value="150" />
+          <AmmoMax100 value="150" />
+          <AmmoMaxMP value="150" />
+          <AmmoMax50MP value="150" />
+          <AmmoMax100MP value="150" />
+          <AmmoFlags />
+          <AmmoSpecialType>HollowPoint</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="0.550000" />
+          <PedRicochetTolerance value="0.550000" />
+          <VehicleRicochetTolerance value="0.400000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+  <n>.40 S&W Ammunition Types</n>
+</CWeaponInfoBlob>

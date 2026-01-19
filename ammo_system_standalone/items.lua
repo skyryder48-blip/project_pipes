@@ -47,36 +47,151 @@ return {
     },
 
     -- ============================================
-    -- .45 ACP AMMUNITION (Future)
+    -- .45 ACP AMMUNITION (Batch 3)
     -- ============================================
     ['ammo_45acp_fmj'] = {
         label = '.45 ACP FMJ',
-        weight = 15,
+        weight = 25,  -- 25g per round (heavier than 9mm)
         stack = true,
         close = true,
-        description = 'Standard .45 ACP full metal jacket ammunition. Heavy hitting rounds.',
+        description = 'Standard .45 ACP full metal jacket. 38 base damage, 0.20 penetration. Reliable feeding, over-penetration risk.',
         client = {
             image = 'ammo_45acp_fmj.png'
         }
     },
-    ['ammo_45acp_hp'] = {
-        label = '.45 ACP Hollow Point',
-        weight = 15,
+    ['ammo_45acp_jhp'] = {
+        label = '.45 ACP JHP',
+        weight = 25,
         stack = true,
         close = true,
-        description = '.45 ACP hollow point ammunition. Massive expansion for devastating soft tissue damage.',
+        description = '.45 ACP jacketed hollow point. +15.8% damage (44), 0.12 penetration. Expansion: 0.85-0.95". Premium defensive ammunition.',
         client = {
-            image = 'ammo_45acp_hp.png'
+            image = 'ammo_45acp_jhp.png'
         }
     },
-    ['ammo_45acp_ap'] = {
-        label = '.45 ACP Armor Piercing',
+
+    -- ============================================
+    -- .40 S&W AMMUNITION (Batch 4) - Enhanced Ballistics
+    -- ============================================
+    ['ammo_40sw_fmj'] = {
+        label = '.40 S&W FMJ',
+        weight = 18,  -- 18g per round (between 9mm and .45)
+        stack = true,
+        close = true,
+        description = '.40 S&W full metal jacket. 41 damage (~420 ft-lbs), 0.72 penetration. 990 fps, 25-32" gel penetration. "Snappy" recoil - 25% higher than 9mm.',
+        client = {
+            image = 'ammo_40sw_fmj.png'
+        }
+    },
+    ['ammo_40sw_jhp'] = {
+        label = '.40 S&W JHP',
         weight = 18,
         stack = true,
         close = true,
-        description = '.45 ACP armor piercing ammunition. Hardened core penetrator rounds.',
+        description = '.40 S&W jacketed hollow point. 49 damage (+20%), 0.55 penetration. Federal HST 180gr: 0.72" expansion, 14.5-18.5" FBI gel standard.',
         client = {
-            image = 'ammo_45acp_ap.png'
+            image = 'ammo_40sw_jhp.png'
+        }
+    },
+
+    -- ============================================
+    -- .357 MAGNUM AMMUNITION (Batch 5) - Enhanced Ballistics
+    -- Barrel-dependent: 6"=58/70 dmg, 4"=49/59 dmg, 2"=40/35 dmg
+    -- ============================================
+    ['ammo_357mag_fmj'] = {
+        label = '.357 Magnum FMJ',
+        weight = 22,  -- 22g per round (heavy magnum round)
+        stack = true,
+        close = true,
+        description = '.357 Magnum full metal jacket. 49-58 damage (barrel-dependent), 0.82-0.90 penetration. 1400-1650 fps. Devastating power - 545-710 ft-lbs energy.',
+        client = {
+            image = 'ammo_357mag_fmj.png'
+        }
+    },
+    ['ammo_357mag_jhp'] = {
+        label = '.357 Magnum JHP',
+        weight = 22,
+        stack = true,
+        close = true,
+        description = '.357 Magnum JHP. 59-70 damage (+20%), 0.52-0.55 penetration. The legendary 125gr "man-stopper" - 96% one-shot rating from 4"+ barrels.',
+        client = {
+            image = 'ammo_357mag_jhp.png'
+        }
+    },
+
+    -- ============================================
+    -- .38 SPECIAL AMMUNITION (Batch 5) - Enhanced Ballistics
+    -- WARNING: Only 57% of 9mm energy (200 vs 350 ft-lbs)
+    -- ============================================
+    ['ammo_38spl_fmj'] = {
+        label = '.38 Special FMJ',
+        weight = 14,  -- 14g per round (lighter than .357)
+        stack = true,
+        close = true,
+        description = '.38 Special full metal jacket. 20 base damage (200 ft-lbs), 0.65 penetration. 755 fps. Classic 158gr police load - light recoil, controlled penetration.',
+        client = {
+            image = 'ammo_38spl_fmj.png'
+        }
+    },
+    ['ammo_38spl_jhp'] = {
+        label = '.38 Special +P JHP',
+        weight = 14,
+        stack = true,
+        close = true,
+        description = '.38 Special +P JHP. 27 damage (+35%), 0.50 penetration. WARNING: Most JHP fails from short barrels. Federal HST Micro recommended.',
+        client = {
+            image = 'ammo_38spl_jhp.png'
+        }
+    },
+
+    -- ============================================
+    -- .44 MAGNUM AMMUNITION (Batch 6) - Enhanced Ballistics
+    -- The "Dirty Harry" cartridge - 65-80% more energy than .357 Magnum
+    -- ============================================
+    ['ammo_44mag_fmj'] = {
+        label = '.44 Magnum FMJ',
+        weight = 28,  -- 28g per round (heavy magnum)
+        stack = true,
+        close = true,
+        description = '.44 Magnum full metal jacket. 82-115 damage (barrel-dependent), 0.85 penetration. 1050-1500 fps. OVERKILL for defense - 20-30" gel penetration.',
+        client = {
+            image = 'ammo_44mag_fmj.png'
+        }
+    },
+    ['ammo_44mag_jhp'] = {
+        label = '.44 Magnum JHP',
+        weight = 28,
+        stack = true,
+        close = true,
+        description = '.44 Magnum JHP. 98-138 damage (+20%), 0.70 penetration. Hornady 240gr XTP: 0.628" expansion, 25" penetration. Devastating terminal performance.',
+        client = {
+            image = 'ammo_44mag_jhp.png'
+        }
+    },
+
+    -- ============================================
+    -- .500 S&W MAGNUM AMMUNITION (Batch 6) - Enhanced Ballistics
+    -- THE MOST POWERFUL PRODUCTION HANDGUN CARTRIDGE
+    -- Equals .308 Winchester / .30-06 Springfield rifle performance
+    -- ============================================
+    ['ammo_500sw_fmj'] = {
+        label = '.500 S&W FMJ',
+        weight = 45,  -- 45g per round (massive cartridge)
+        stack = true,
+        close = true,
+        description = '.500 S&W FMJ. 160-215 damage (barrel-dependent), 0.90 penetration. RIFLE-LEVEL POWER - 3,032 ft-lbs @ 8.375". 700gr hard cast: 5-6 FEET penetration.',
+        client = {
+            image = 'ammo_500sw_fmj.png'
+        }
+    },
+    ['ammo_500sw_jhp'] = {
+        label = '.500 S&W JHP',
+        weight = 45,
+        stack = true,
+        close = true,
+        description = '.500 S&W JHP. 192-258 damage (+20%), 0.75 penetration. 350gr XTP: 19.5" gel. EXTREME RECOIL - 3x .44 Magnum. Fire rate: 40-60 RPM max.',
+        client = {
+            image = 'ammo_500sw_jhp.png'
         }
     },
 

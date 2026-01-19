@@ -1,7 +1,7 @@
 --[[
     FN Five-seveN - 5.7x28mm
     Batch 7: 5.7x28mm Pistols
-    
+
     The original high-velocity PDW pistol
     4.8" barrel, polymer frame, 20+1 capacity
     Minimal recoil, flat trajectory, premium quality
@@ -17,7 +17,13 @@ version '1.0.0'
 client_script 'cl_weaponNames.lua'
 
 files {
-    'meta/weapons.meta'
+    'meta/weapon_fn57.meta',
+    'meta/weaponarchetypes.meta',
+    'meta/weaponanimations.meta',
+    'meta/pedpersonality.meta',
 }
 
-data_file 'WEAPONINFO_FILE' 'meta/weapons.meta'
+data_file 'WEAPONINFO_FILE' 'meta/weapon_fn57.meta'
+data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'
+data_file 'WEAPON_ANIMATIONS_FILE' 'meta/weaponanimations.meta'
+data_file 'PED_PERSONALITY_FILE' 'meta/pedpersonality.meta'

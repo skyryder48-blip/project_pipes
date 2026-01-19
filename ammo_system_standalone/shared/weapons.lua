@@ -314,6 +314,26 @@ Config.Weapons = {
     },
 
     -- ======================================================================
+    -- BATCH 7: 5.7x28mm PDW PISTOLS
+    -- ======================================================================
+
+    -- FN Five-seveN - Premium 5.7x28mm (20 rounds, 4.8" barrel)
+    -- Original PDW pistol, lightweight polymer frame, fast handling
+    [`WEAPON_FN57`] = {
+        caliber = '5.7x28',
+        componentBase = 'COMPONENT_FIVESEVEN',
+        clipSize = 20,
+    },
+
+    -- Ruger-57 - Value 5.7x28mm (20 rounds, 4.94" barrel)
+    -- American alternative, heavier frame, superior accuracy
+    [`WEAPON_RUGER57`] = {
+        caliber = '5.7x28',
+        componentBase = 'COMPONENT_RUGER57',
+        clipSize = 20,
+    },
+
+    -- ======================================================================
     -- FUTURE WEAPONS (uncomment when adding)
     -- ======================================================================
 

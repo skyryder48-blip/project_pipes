@@ -1,5 +1,8 @@
--- fxmanifest.lua
--- Walther P88 9mm - Batch 9 Pocket Pistols (9mm Service Pistol)
+--[[
+    Walther P88 9mm - Batch 2 Full-Size 9mm (organized in Batch 9)
+    1980s German engineering - best accuracy of any 9mm
+    34 damage, 16 rounds, 4.0" barrel
+]]
 
 fx_version 'cerulean'
 game 'gta5'
@@ -8,15 +11,17 @@ author 'Weapon Meta Project'
 description 'Walther P88 9mm - Premium German Service Pistol'
 version '1.0.0'
 
--- Client script for weapon display name
 client_script 'cl_weaponNames.lua'
 
--- Stream assets (models/textures)
 files {
-    'stream/*.ydr',
-    'stream/*.ytd',
-    'meta/weapons.meta'
+    'meta/weapon_waltherp88.meta',
+    'meta/weaponarchetypes.meta',
+    'meta/weaponanimations.meta',
+    'meta/pedpersonality.meta',
+    'stream/*'
 }
 
--- Data file declarations for addon weapon
-data_file 'WEAPONINFO_FILE' 'meta/weapons.meta'
+data_file 'WEAPONINFO_FILE' 'meta/weapon_waltherp88.meta'
+data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'
+data_file 'WEAPON_ANIMATIONS_FILE' 'meta/weaponanimations.meta'
+data_file 'PED_PERSONALITY_FILE' 'meta/pedpersonality.meta'

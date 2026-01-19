@@ -122,6 +122,14 @@ Config.Weapons = {
         clipSize = 17,
     },
 
+    -- Walther P88 - Premium German 9mm (16 rounds, 4.0" barrel)
+    -- Best accuracy of any 9mm, heavy frame absorbs recoil
+    [`WEAPON_WALTHERP88`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_WALTHERP88',
+        clipSize = 16,
+    },
+
     -- ======================================================================
     -- BATCH 1: COMPACT 9mm PISTOLS
     -- ======================================================================

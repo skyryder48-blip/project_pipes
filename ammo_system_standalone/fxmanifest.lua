@@ -25,7 +25,8 @@ version '1.0.0'
 
     SUPPORTED CALIBERS:
     - 9mm (Pistols): FMJ, HP, AP
-    - Future: .45 ACP, 5.56 NATO, 7.62x39, 12 Gauge, etc.
+    - .45 ACP (Pistols): FMJ, JHP
+    - Future: 5.56 NATO, 7.62x39, 12 Gauge, etc.
 
     AMMO EFFECTS:
     - FMJ: Baseline damage, standard penetration
@@ -51,18 +52,24 @@ server_scripts {
 
 -- Meta files for ammunition definitions and components
 files {
+    -- 9mm Ammunition
     'meta/ammo_9mm.meta',
     'meta/weaponcomponents_9mm.meta',
+    -- .45 ACP Ammunition
+    'meta/ammo_45acp.meta',
+    'meta/weaponcomponents_45acp.meta',
     -- Future calibers:
-    -- 'meta/ammo_45acp.meta',
-    -- 'meta/weaponcomponents_45acp.meta',
     -- 'meta/ammo_12ga.meta',
     -- 'meta/weaponcomponents_12ga.meta',
 }
 
 -- Data file declarations
+-- 9mm
 data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_9mm.meta'
 data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_9mm.meta'
+-- .45 ACP
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_45acp.meta'
+data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_45acp.meta'
 -- Future calibers:
--- data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_45acp.meta'
--- data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_45acp.meta'
+-- data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_12ga.meta'
+-- data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_12ga.meta'

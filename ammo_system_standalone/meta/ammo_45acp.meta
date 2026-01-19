@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  .45 ACP Ammunition Definitions - CENTRALIZED
+  Used by ALL .45 ACP pistols (Batch 3: 1911s and Glocks)
+
+  STANDARDIZED AMMO EFFECTS:
+  - FMJ (Standard): Baseline damage (38), 0.20 penetration, reliable feeding
+  - JHP (Jacketed Hollow Point): +15.8% damage (44), 0.12 penetration, enhanced stopping power
+
+  Load this resource BEFORE any .45 ACP weapon resources in server.cfg:
+    ensure ammo_system_standalone
+    ensure weapon_m45a1
+    ensure weapon_g21
+    ensure weapon_kimber1911
+    ...
+-->
+<CWeaponInfoBlob>
+  <Infos>
+    <Item>
+      <Infos>
+        <!-- ==================== .45 ACP FMJ (Standard) ==================== -->
+        <!-- Base damage: 38, Penetration: 0.20, Standard performance -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_45ACP_FMJ</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="200" />
+          <AmmoMax50 value="200" />
+          <AmmoMax100 value="200" />
+          <AmmoMaxMP value="200" />
+          <AmmoMax50MP value="200" />
+          <AmmoMax100MP value="200" />
+          <AmmoFlags />
+          <AmmoSpecialType>None</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="1.000000" />
+          <PedRicochetTolerance value="1.000000" />
+          <VehicleRicochetTolerance value="1.000000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== .45 ACP JHP (Jacketed Hollow Point) ==================== -->
+        <!-- +15.8% damage (44), reduced penetration, enhanced stopping power -->
+        <!-- Expansion: 0.85-0.95", ideal for self-defense -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_45ACP_JHP</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="150" />
+          <AmmoMax50 value="150" />
+          <AmmoMax100 value="150" />
+          <AmmoMaxMP value="150" />
+          <AmmoMax50MP value="150" />
+          <AmmoMax100MP value="150" />
+          <AmmoFlags />
+          <AmmoSpecialType>HollowPoint</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="0.500000" />
+          <PedRicochetTolerance value="0.500000" />
+          <VehicleRicochetTolerance value="0.300000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+  <n>.45 ACP Ammunition Types</n>
+</CWeaponInfoBlob>

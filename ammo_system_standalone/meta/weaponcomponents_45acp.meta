@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  .45 ACP Weapon Components - Magazine Definitions
+  Used by ALL .45 ACP pistols (Batch 3)
+
+  Component Naming Convention:
+  COMPONENT_[WEAPON]_CLIP_[AMMOTYPE]
+
+  Ammo Types:
+  - FMJ: Standard full metal jacket (38 damage)
+  - JHP: Jacketed hollow point (+15.8% damage = 44)
+
+  Weapons:
+  - M45A1 (Colt M45A1 CQBP) - 8 rounds
+  - G21 (Glock 21 Gen 4) - 13 rounds
+  - G30 (Glock 30 Gen 4) - 10 rounds
+  - G41 (Glock 41 Gen 4 MOS) - 13 rounds
+  - KIMBER1911 (Kimber Custom II) - 7 rounds
+  - KIMBER_ECLIPSE (Kimber Eclipse Custom II) - 8 rounds
+  - JUNK1911 (Degraded 1911) - 7 rounds
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+    <!-- ================================================================== -->
+    <!-- COLT M45A1 CQBP - Military 1911 (8 rounds)                         -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_M45A1_CLIP_FMJ</n>
+      <Model>w_pi_m45a1_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_45FMJ</LocDesc>
+      <ClipSize value="8" />
+      <AmmoInfo ref="AMMO_45ACP_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_M45A1_CLIP_JHP</n>
+      <Model>w_pi_m45a1_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_45JHP</LocDesc>
+      <ClipSize value="8" />
+      <AmmoInfo ref="AMMO_45ACP_JHP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- GLOCK 21 GEN 4 - Full-Size .45 (13 rounds)                         -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G21_CLIP_FMJ</n>
+      <Model>w_pi_g21_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_45FMJ</LocDesc>
+      <ClipSize value="13" />
+      <AmmoInfo ref="AMMO_45ACP_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G21_CLIP_JHP</n>
+      <Model>w_pi_g21_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_45JHP</LocDesc>
+      <ClipSize value="13" />
+      <AmmoInfo ref="AMMO_45ACP_JHP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- GLOCK 30 GEN 4 - Subcompact .45 (10 rounds)                        -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G30_CLIP_FMJ</n>
+      <Model>w_pi_g30_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_45FMJ</LocDesc>
+      <ClipSize value="10" />
+      <AmmoInfo ref="AMMO_45ACP_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G30_CLIP_JHP</n>
+      <Model>w_pi_g30_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_45JHP</LocDesc>
+      <ClipSize value="10" />
+      <AmmoInfo ref="AMMO_45ACP_JHP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- GLOCK 41 GEN 4 MOS - Competition .45 (13 rounds)                   -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G41_CLIP_FMJ</n>
+      <Model>w_pi_g41_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_45FMJ</LocDesc>
+      <ClipSize value="13" />
+      <AmmoInfo ref="AMMO_45ACP_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G41_CLIP_JHP</n>
+      <Model>w_pi_g41_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_45JHP</LocDesc>
+      <ClipSize value="13" />
+      <AmmoInfo ref="AMMO_45ACP_JHP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- KIMBER CUSTOM II 1911 - Premium .45 (7 rounds)                     -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_KIMBER1911_CLIP_FMJ</n>
+      <Model>w_pi_kimber1911_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_45FMJ</LocDesc>
+      <ClipSize value="7" />
+      <AmmoInfo ref="AMMO_45ACP_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_KIMBER1911_CLIP_JHP</n>
+      <Model>w_pi_kimber1911_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_45JHP</LocDesc>
+      <ClipSize value="7" />
+      <AmmoInfo ref="AMMO_45ACP_JHP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- KIMBER ECLIPSE CUSTOM II - Target 1911 (8 rounds)                  -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_KIMBER_ECLIPSE_CLIP_FMJ</n>
+      <Model>w_pi_kimber_eclipse_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_45FMJ</LocDesc>
+      <ClipSize value="8" />
+      <AmmoInfo ref="AMMO_45ACP_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_KIMBER_ECLIPSE_CLIP_JHP</n>
+      <Model>w_pi_kimber_eclipse_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_45JHP</LocDesc>
+      <ClipSize value="8" />
+      <AmmoInfo ref="AMMO_45ACP_JHP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- JUNK 1911 - Degraded .45 (7 rounds)                                -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_JUNK1911_CLIP_FMJ</n>
+      <Model>w_pi_junk1911_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_45FMJ</LocDesc>
+      <ClipSize value="7" />
+      <AmmoInfo ref="AMMO_45ACP_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_JUNK1911_CLIP_JHP</n>
+      <Model>w_pi_junk1911_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_45JHP</LocDesc>
+      <ClipSize value="7" />
+      <AmmoInfo ref="AMMO_45ACP_JHP" />
+    </Item>
+
+  </Infos>
+</CWeaponComponentInfoBlob>

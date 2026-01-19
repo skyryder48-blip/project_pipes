@@ -47,36 +47,26 @@ return {
     },
 
     -- ============================================
-    -- .45 ACP AMMUNITION (Future)
+    -- .45 ACP AMMUNITION (Batch 3)
     -- ============================================
     ['ammo_45acp_fmj'] = {
         label = '.45 ACP FMJ',
-        weight = 15,
+        weight = 25,  -- 25g per round (heavier than 9mm)
         stack = true,
         close = true,
-        description = 'Standard .45 ACP full metal jacket ammunition. Heavy hitting rounds.',
+        description = 'Standard .45 ACP full metal jacket. 38 base damage, 0.20 penetration. Reliable feeding, over-penetration risk.',
         client = {
             image = 'ammo_45acp_fmj.png'
         }
     },
-    ['ammo_45acp_hp'] = {
-        label = '.45 ACP Hollow Point',
-        weight = 15,
+    ['ammo_45acp_jhp'] = {
+        label = '.45 ACP JHP',
+        weight = 25,
         stack = true,
         close = true,
-        description = '.45 ACP hollow point ammunition. Massive expansion for devastating soft tissue damage.',
+        description = '.45 ACP jacketed hollow point. +15.8% damage (44), 0.12 penetration. Expansion: 0.85-0.95". Premium defensive ammunition.',
         client = {
-            image = 'ammo_45acp_hp.png'
-        }
-    },
-    ['ammo_45acp_ap'] = {
-        label = '.45 ACP Armor Piercing',
-        weight = 18,
-        stack = true,
-        close = true,
-        description = '.45 ACP armor piercing ammunition. Hardened core penetrator rounds.',
-        client = {
-            image = 'ammo_45acp_ap.png'
+            image = 'ammo_45acp_jhp.png'
         }
     },
 

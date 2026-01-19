@@ -162,23 +162,63 @@ Config.Weapons = {
     },
 
     -- ======================================================================
-    -- FUTURE WEAPONS (uncomment when adding)
+    -- BATCH 3: .45 ACP PISTOLS
     -- ======================================================================
 
-    --[[
-    -- .45 ACP Pistols
-    [`WEAPON_GLOCK21`] = {
+    -- Colt M45A1 CQBP - Military 1911 (8 rounds)
+    [`WEAPON_M45A1`] = {
+        caliber = '.45acp',
+        componentBase = 'COMPONENT_M45A1',
+        clipSize = 8,
+    },
+
+    -- Glock 21 Gen 4 - Full-Size .45 (13 rounds)
+    [`WEAPON_G21`] = {
         caliber = '.45acp',
         componentBase = 'COMPONENT_G21',
         clipSize = 13,
     },
 
-    [`WEAPON_1911`] = {
+    -- Glock 30 Gen 4 - Subcompact .45 (10 rounds)
+    [`WEAPON_G30`] = {
         caliber = '.45acp',
-        componentBase = 'COMPONENT_1911',
+        componentBase = 'COMPONENT_G30',
+        clipSize = 10,
+    },
+
+    -- Glock 41 Gen 4 MOS - Competition .45 (13 rounds)
+    [`WEAPON_G41`] = {
+        caliber = '.45acp',
+        componentBase = 'COMPONENT_G41',
+        clipSize = 13,
+    },
+
+    -- Kimber Custom II 1911 - Premium .45 (7 rounds)
+    [`WEAPON_KIMBER1911`] = {
+        caliber = '.45acp',
+        componentBase = 'COMPONENT_KIMBER1911',
         clipSize = 7,
     },
 
+    -- Kimber Eclipse Custom II - Target 1911 (8 rounds)
+    [`WEAPON_KIMBER_ECLIPSE`] = {
+        caliber = '.45acp',
+        componentBase = 'COMPONENT_KIMBER_ECLIPSE',
+        clipSize = 8,
+    },
+
+    -- Junk 1911 - Degraded .45 (7 rounds)
+    [`WEAPON_JUNK1911`] = {
+        caliber = '.45acp',
+        componentBase = 'COMPONENT_JUNK1911',
+        clipSize = 7,
+    },
+
+    -- ======================================================================
+    -- FUTURE WEAPONS (uncomment when adding)
+    -- ======================================================================
+
+    --[[
     -- 12 Gauge Shotguns
     [`WEAPON_MOSSBERG590`] = {
         caliber = '12ga',

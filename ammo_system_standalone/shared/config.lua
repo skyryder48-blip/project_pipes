@@ -63,34 +63,30 @@ Config.AmmoTypes = {
         },
     },
 
-    -- ==================== FUTURE CALIBERS ====================
-    -- Uncomment and configure when adding new calibers
-
-    --[[
+    -- ==================== .45 ACP AMMUNITION ====================
+    -- Batch 3: Full-Size .45 ACP Pistols (1911s and Glocks)
+    -- Base damage: 38 (FMJ), 44 (JHP +15.8%)
     ['.45acp'] = {
         ['fmj'] = {
             item = 'ammo_45acp_fmj',
             label = '.45 ACP FMJ',
             componentSuffix = '_CLIP_FMJ',
             ammoInfo = 'AMMO_45ACP_FMJ',
-            description = 'Heavy .45 caliber full metal jacket.',
+            description = 'Heavy .45 caliber full metal jacket. 38 base damage, 0.20 penetration.',
         },
-        ['hp'] = {
-            item = 'ammo_45acp_hp',
-            label = '.45 ACP Hollow Point',
-            componentSuffix = '_CLIP_HP',
-            ammoInfo = 'AMMO_45ACP_HP',
-            description = 'Devastating expansion. +15% damage to unarmored.',
-        },
-        ['ap'] = {
-            item = 'ammo_45acp_ap',
-            label = '.45 ACP Armor Piercing',
-            componentSuffix = '_CLIP_AP',
-            ammoInfo = 'AMMO_45ACP_AP',
-            description = 'Hardened core penetrator rounds.',
+        ['jhp'] = {
+            item = 'ammo_45acp_jhp',
+            label = '.45 ACP JHP',
+            componentSuffix = '_CLIP_JHP',
+            ammoInfo = 'AMMO_45ACP_JHP',
+            description = 'Jacketed hollow point. +15.8% damage (44), reduced armor effectiveness.',
         },
     },
 
+    -- ==================== FUTURE CALIBERS ====================
+    -- Uncomment and configure when adding new calibers
+
+    --[[
     ['12ga'] = {
         ['buckshot'] = {
             item = 'ammo_12ga_buckshot',

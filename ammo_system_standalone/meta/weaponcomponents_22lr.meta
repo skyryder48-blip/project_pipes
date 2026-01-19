@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  .22 LR Weapon Components - Magazine Definitions
+  Used by ALL .22 LR rimfire pistols
+
+  Component Naming Convention:
+  COMPONENT_[WEAPON]_CLIP_[AMMOTYPE]
+
+  Ammo Types:
+  - FMJ: CCI Mini-Mag standard - baseline damage
+  - JHP: CCI Velocitor high velocity - +20% damage
+
+  Weapons:
+  - P22 (Walther P22 Standard) - 10 rounds, 14 damage
+  - SIGP22 (Walther P22 Budget) - 10 rounds, 12 damage
+  - FN502 (FN 502 Tactical) - 15 rounds, 15 damage
+  - PMR30 (Kel-Tec PMR-30) - 30 rounds, 20 damage (.22 WMR equivalent)
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+    <!-- ================================================================== -->
+    <!-- WALTHER P22 STANDARD - 10-round .22 LR (14 damage)                 -->
+    <!-- Standard 3.42" barrel variant                                       -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_P22_CLIP_FMJ</n>
+      <Model>w_pi_p22_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_22FMJ</LocDesc>
+      <ClipSize value="10" />
+      <AmmoInfo ref="AMMO_22LR_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_P22_CLIP_JHP</n>
+      <Model>w_pi_p22_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_22JHP</LocDesc>
+      <ClipSize value="10" />
+      <AmmoInfo ref="AMMO_22LR_JHP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- SIG P22 (WALTHER P22 BUDGET) - 10-round .22 LR (12 damage)         -->
+    <!-- Budget variant, slightly lower performance                          -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SIGP22_CLIP_FMJ</n>
+      <Model>w_pi_sig_p22_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_22FMJ</LocDesc>
+      <ClipSize value="10" />
+      <AmmoInfo ref="AMMO_22LR_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SIGP22_CLIP_JHP</n>
+      <Model>w_pi_sig_p22_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_22JHP</LocDesc>
+      <ClipSize value="10" />
+      <AmmoInfo ref="AMMO_22LR_JHP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- FN 502 TACTICAL - 15-round .22 LR (15 damage)                      -->
+    <!-- Premium optics-ready, longest barrel (4.6")                         -->
+    <!-- Best accuracy in .22 LR category                                    -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_FN502_CLIP_FMJ</n>
+      <Model>w_pi_fn502_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_22FMJ</LocDesc>
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_22LR_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_FN502_CLIP_JHP</n>
+      <Model>w_pi_fn502_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_22JHP</LocDesc>
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_22LR_JHP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- KEL-TEC PMR-30 - 30-round .22 WMR equivalent (20 damage)           -->
+    <!-- Highest capacity, .22 WMR ballistics (1.6x .22 LR energy)          -->
+    <!-- Ultra-light frame, significant muzzle flash                         -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_PMR30_CLIP_FMJ</n>
+      <Model>w_pi_pmr30_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_22FMJ</LocDesc>
+      <ClipSize value="30" />
+      <AmmoInfo ref="AMMO_22LR_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_PMR30_CLIP_JHP</n>
+      <Model>w_pi_pmr30_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_22JHP</LocDesc>
+      <ClipSize value="30" />
+      <AmmoInfo ref="AMMO_22LR_JHP" />
+    </Item>
+
+  </Infos>
+  <n>.22 LR Magazine Components</n>
+</CWeaponComponentInfoBlob>

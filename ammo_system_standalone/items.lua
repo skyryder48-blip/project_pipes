@@ -232,6 +232,33 @@ return {
     },
 
     -- ============================================
+    -- .22 LR AMMUNITION (Batch 8 - Rimfire Pistols)
+    -- LOWEST POWER handgun cartridge: 80-115 ft-lbs
+    -- Minimal recoil, high capacity, suppressor-friendly
+    -- PMR-30 uses .22 WMR ballistics but same ammo system
+    -- ============================================
+    ['ammo_22lr_fmj'] = {
+        label = '.22 LR FMJ',
+        weight = 3,  -- 3g per round (very light rimfire)
+        stack = true,
+        close = true,
+        description = '.22 LR CCI Mini-Mag 40gr. 12-15 damage, 0.50 penetration. ~1,000 fps from pistol barrel. Reliable cycling, suppressor-friendly.',
+        client = {
+            image = 'ammo_22lr_fmj.png'
+        }
+    },
+    ['ammo_22lr_jhp'] = {
+        label = '.22 LR JHP',
+        weight = 3,
+        stack = true,
+        close = true,
+        description = '.22 LR CCI Velocitor 40gr HP. +20% damage, 0.35 penetration. ~1,100 fps. WARNING: Hollow points rarely expand from pistol barrels.',
+        client = {
+            image = 'ammo_22lr_jhp.png'
+        }
+    },
+
+    -- ============================================
     -- 12 GAUGE SHOTGUN AMMUNITION (Future)
     -- ============================================
     ['ammo_12ga_buckshot'] = {

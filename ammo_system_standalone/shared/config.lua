@@ -218,6 +218,28 @@ Config.AmmoTypes = {
         },
     },
 
+    -- ==================== .22 LR AMMUNITION ====================
+    -- Batch 8: Rimfire Pistols (P22, SIG P22, FN 502, PMR-30)
+    -- LOWEST POWER handgun cartridge: 80-115 ft-lbs from pistol barrels
+    -- Minimal recoil, high capacity, high headshot multipliers compensate
+    -- PMR-30 uses .22 WMR ballistics (160 ft-lbs) but same ammo system
+    ['.22lr'] = {
+        ['fmj'] = {
+            item = 'ammo_22lr_fmj',
+            label = '.22 LR FMJ',
+            componentSuffix = '_CLIP_FMJ',
+            ammoInfo = 'AMMO_22LR_FMJ',
+            description = '.22 LR CCI Mini-Mag. 12-15 damage, 0.50 penetration. ~1,000 fps, suppressor-friendly.',
+        },
+        ['jhp'] = {
+            item = 'ammo_22lr_jhp',
+            label = '.22 LR JHP',
+            componentSuffix = '_CLIP_JHP',
+            ammoInfo = 'AMMO_22LR_JHP',
+            description = '.22 LR CCI Velocitor. +20% damage, 0.35 penetration. HP rarely expands from short barrels.',
+        },
+    },
+
     -- ==================== FUTURE CALIBERS ====================
     -- Uncomment and configure when adding new calibers
 
@@ -265,5 +287,6 @@ Config.DefaultAmmoType = {
     ['.44mag'] = 'fmj',
     ['.500sw'] = 'fmj',
     ['5.7x28'] = 'fmj',
+    ['.22lr'] = 'fmj',
     ['12ga'] = 'buckshot',
 }

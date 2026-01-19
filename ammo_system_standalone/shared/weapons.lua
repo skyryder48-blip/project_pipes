@@ -334,6 +334,44 @@ Config.Weapons = {
     },
 
     -- ======================================================================
+    -- BATCH 8: .22 LR RIMFIRE PISTOLS
+    -- Lowest power handgun cartridge: 80-115 ft-lbs from pistol barrels
+    -- Compensated by: Minimal recoil, high capacity, high headshot multipliers
+    -- ======================================================================
+
+    -- Walther P22 Standard - Budget Trainer (10 rounds, 3.42" barrel)
+    -- DA/SA operation, zinc slide, entry-level rimfire
+    [`WEAPON_P22`] = {
+        caliber = '.22lr',
+        componentBase = 'COMPONENT_P22',
+        clipSize = 10,
+    },
+
+    -- SIG P22 (Walther P22 Budget) - Entry Trainer (10 rounds, 3.42" barrel)
+    -- Budget variant with slightly lower performance
+    [`WEAPON_SIGP22`] = {
+        caliber = '.22lr',
+        componentBase = 'COMPONENT_SIGP22',
+        clipSize = 10,
+    },
+
+    -- FN 502 Tactical - Premium Precision (15 rounds, 4.6" barrel)
+    -- Best accuracy in .22 LR, optics-ready, threaded barrel
+    [`WEAPON_FN502`] = {
+        caliber = '.22lr',
+        componentBase = 'COMPONENT_FN502',
+        clipSize = 15,
+    },
+
+    -- Kel-Tec PMR-30 - High-Capacity Magnum (30 rounds, 4.3" barrel)
+    -- .22 WMR ballistics (160 ft-lbs), ultra-light, significant muzzle flash
+    [`WEAPON_PMR30`] = {
+        caliber = '.22lr',
+        componentBase = 'COMPONENT_PMR30',
+        clipSize = 30,
+    },
+
+    -- ======================================================================
     -- FUTURE WEAPONS (uncomment when adding)
     -- ======================================================================
 

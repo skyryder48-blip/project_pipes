@@ -145,6 +145,57 @@ return {
     },
 
     -- ============================================
+    -- .44 MAGNUM AMMUNITION (Batch 6) - Enhanced Ballistics
+    -- The "Dirty Harry" cartridge - 65-80% more energy than .357 Magnum
+    -- ============================================
+    ['ammo_44mag_fmj'] = {
+        label = '.44 Magnum FMJ',
+        weight = 28,  -- 28g per round (heavy magnum)
+        stack = true,
+        close = true,
+        description = '.44 Magnum full metal jacket. 82-115 damage (barrel-dependent), 0.85 penetration. 1050-1500 fps. OVERKILL for defense - 20-30" gel penetration.',
+        client = {
+            image = 'ammo_44mag_fmj.png'
+        }
+    },
+    ['ammo_44mag_jhp'] = {
+        label = '.44 Magnum JHP',
+        weight = 28,
+        stack = true,
+        close = true,
+        description = '.44 Magnum JHP. 98-138 damage (+20%), 0.70 penetration. Hornady 240gr XTP: 0.628" expansion, 25" penetration. Devastating terminal performance.',
+        client = {
+            image = 'ammo_44mag_jhp.png'
+        }
+    },
+
+    -- ============================================
+    -- .500 S&W MAGNUM AMMUNITION (Batch 6) - Enhanced Ballistics
+    -- THE MOST POWERFUL PRODUCTION HANDGUN CARTRIDGE
+    -- Equals .308 Winchester / .30-06 Springfield rifle performance
+    -- ============================================
+    ['ammo_500sw_fmj'] = {
+        label = '.500 S&W FMJ',
+        weight = 45,  -- 45g per round (massive cartridge)
+        stack = true,
+        close = true,
+        description = '.500 S&W FMJ. 160-215 damage (barrel-dependent), 0.90 penetration. RIFLE-LEVEL POWER - 3,032 ft-lbs @ 8.375". 700gr hard cast: 5-6 FEET penetration.',
+        client = {
+            image = 'ammo_500sw_fmj.png'
+        }
+    },
+    ['ammo_500sw_jhp'] = {
+        label = '.500 S&W JHP',
+        weight = 45,
+        stack = true,
+        close = true,
+        description = '.500 S&W JHP. 192-258 damage (+20%), 0.75 penetration. 350gr XTP: 19.5" gel. EXTREME RECOIL - 3x .44 Magnum. Fire rate: 40-60 RPM max.',
+        client = {
+            image = 'ammo_500sw_jhp.png'
+        }
+    },
+
+    -- ============================================
     -- 12 GAUGE SHOTGUN AMMUNITION (Future)
     -- ============================================
     ['ammo_12ga_buckshot'] = {

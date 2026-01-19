@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  .44 Remington Magnum Weapon Components - Speedloader Definitions
+  Used by ALL .44 Magnum revolvers (Batch 6)
+
+  Component Naming Convention:
+  COMPONENT_[WEAPON]_CLIP_[AMMOTYPE]
+
+  Ammo Types:
+  - FMJ: Standard full metal jacket (100 damage @ 6.5")
+  - JHP: Jacketed hollow point (+20% damage = 120 @ 6.5")
+
+  Weapons (all 6-round capacity):
+  - MODEL29 (S&W Model 29) - "Dirty Harry" revolver
+  - RAGINGBULL (Taurus Raging Bull) - Heavy-frame ported revolver
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+    <!-- ================================================================== -->
+    <!-- S&W MODEL 29 - Classic .44 Magnum (6 rounds)                       -->
+    <!-- The "Dirty Harry" revolver - introduced December 15, 1955          -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MODEL29_CLIP_FMJ</n>
+      <Model>w_pi_model29_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_44FMJ</LocDesc>
+      <ClipSize value="6" />
+      <AmmoInfo ref="AMMO_44MAG_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MODEL29_CLIP_JHP</n>
+      <Model>w_pi_model29_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_44JHP</LocDesc>
+      <ClipSize value="6" />
+      <AmmoInfo ref="AMMO_44MAG_JHP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- TAURUS RAGING BULL - Heavy-Frame .44 Magnum (6 rounds)             -->
+    <!-- Factory ported barrel, 6-15 oz heavier than Model 29               -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_RAGINGBULL_CLIP_FMJ</n>
+      <Model>w_pi_ragingbull_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_44FMJ</LocDesc>
+      <ClipSize value="6" />
+      <AmmoInfo ref="AMMO_44MAG_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_RAGINGBULL_CLIP_JHP</n>
+      <Model>w_pi_ragingbull_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_44JHP</LocDesc>
+      <ClipSize value="6" />
+      <AmmoInfo ref="AMMO_44MAG_JHP" />
+    </Item>
+
+  </Infos>
+  <n>.44 Magnum Speedloader Components</n>
+</CWeaponComponentInfoBlob>

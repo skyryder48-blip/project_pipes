@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  .44 Remington Magnum Ammunition Definitions - CENTRALIZED
+  Used by ALL .44 Magnum revolvers (Batch 6: S&W Model 29, Taurus Raging Bull)
+
+  ENHANCED BALLISTIC RESEARCH VALUES (9mm = 34 base damage reference):
+  The "Dirty Harry" cartridge - 65-80% more energy than .357 Magnum
+
+  4" Barrel: FMJ 82 dmg, 0.85 pen, 1251 fps | JHP 98 dmg (+20%), 0.70 pen
+  6.5" Barrel (baseline): FMJ 100 dmg, 0.85 pen, 1350 fps | JHP 120 dmg (+20%), 0.70 pen
+  8.375" Barrel: FMJ 115 dmg, 0.85 pen, 1497 fps | JHP 138 dmg (+20%), 0.70 pen
+
+  Energy: 4" = 833 ft-lbs, 6.5" = 1,050 ft-lbs, 8.375" = 1,200 ft-lbs
+  WARNING: OVERKILL for self-defense - 20-30" gel penetration (exceeds FBI 12-18" standard)
+  Recoil: 18.5 ft-lbs (60% more than .357 Magnum)
+
+  Load this resource BEFORE any .44 Magnum weapon resources in server.cfg:
+    ensure ammo_system_standalone
+    ensure weapon_model29
+    ensure weapon_ragingbull
+    ...
+-->
+<CWeaponInfoBlob>
+  <Infos>
+    <Item>
+      <Infos>
+        <!-- ==================== .44 MAGNUM FMJ (Standard) ==================== -->
+        <!-- 6.5" baseline: 100 damage, 0.85 penetration, 1350 fps -->
+        <!-- Extreme penetration (25"+); hunting/barrier performance -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_44MAG_FMJ</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="72" />
+          <AmmoMax50 value="72" />
+          <AmmoMax100 value="72" />
+          <AmmoMaxMP value="72" />
+          <AmmoMax50MP value="72" />
+          <AmmoMax100MP value="72" />
+          <AmmoFlags />
+          <AmmoSpecialType>None</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="1.350000" />
+          <PedRicochetTolerance value="1.350000" />
+          <VehicleRicochetTolerance value="1.350000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== .44 MAGNUM JHP (Jacketed Hollow Point) ==================== -->
+        <!-- 6.5" baseline: 120 damage (+20%), 0.70 penetration, 1350 fps -->
+        <!-- Hornady 240gr XTP: 0.628" expansion, 25" penetration, 95% weight retention -->
+        <!-- Federal Hydra-Shok 240gr: 18-24" penetration, devastating terminal performance -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_44MAG_JHP</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="48" />
+          <AmmoMax50 value="48" />
+          <AmmoMax100 value="48" />
+          <AmmoMaxMP value="48" />
+          <AmmoMax50MP value="48" />
+          <AmmoMax100MP value="48" />
+          <AmmoFlags />
+          <AmmoSpecialType>HollowPoint</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="0.700000" />
+          <PedRicochetTolerance value="0.700000" />
+          <VehicleRicochetTolerance value="0.550000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+  <n>.44 Magnum Ammunition Types</n>
+</CWeaponInfoBlob>

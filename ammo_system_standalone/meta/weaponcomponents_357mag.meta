@@ -106,6 +106,30 @@
       <AmmoInfo ref="AMMO_357MAG_JHP" />
     </Item>
 
+    <!-- ================================================================== -->
+    <!-- S&W 657 - Stainless N-Frame (6 rounds)                             -->
+    <!-- Uses .357 Magnum ammo with .41 Magnum-level ballistics             -->
+    <!-- The "Police .44" that never was - bridges .357 and .44 Magnum      -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SW657_CLIP_FMJ</n>
+      <Model>w_pi_sw657_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_357FMJ</LocDesc>
+      <ClipSize value="6" />
+      <AmmoInfo ref="AMMO_357MAG_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SW657_CLIP_JHP</n>
+      <Model>w_pi_sw657_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_357JHP</LocDesc>
+      <ClipSize value="6" />
+      <AmmoInfo ref="AMMO_357MAG_JHP" />
+    </Item>
+
   </Infos>
   <n>.357 Magnum Speedloader Components</n>
 </CWeaponComponentInfoBlob>

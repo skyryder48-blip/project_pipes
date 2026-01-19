@@ -29,6 +29,8 @@ version '1.0.0'
     - .40 S&W (Pistols): FMJ, JHP
     - .357 Magnum (Revolvers): FMJ, JHP
     - .38 Special (Revolvers): FMJ, JHP
+    - .44 Magnum (Revolvers): FMJ, JHP - "Dirty Harry" cartridge
+    - .500 S&W Magnum (Revolvers): FMJ, JHP - Most powerful production handgun
     - Future: 5.56 NATO, 7.62x39, 12 Gauge, etc.
 
     AMMO EFFECTS:
@@ -70,6 +72,12 @@ files {
     -- .38 Special Ammunition
     'meta/ammo_38spl.meta',
     'meta/weaponcomponents_38spl.meta',
+    -- .44 Magnum Ammunition
+    'meta/ammo_44mag.meta',
+    'meta/weaponcomponents_44mag.meta',
+    -- .500 S&W Magnum Ammunition
+    'meta/ammo_500sw.meta',
+    'meta/weaponcomponents_500sw.meta',
     -- Future calibers:
     -- 'meta/ammo_12ga.meta',
     -- 'meta/weaponcomponents_12ga.meta',
@@ -91,6 +99,12 @@ data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_357mag.meta'
 -- .38 Special
 data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_38spl.meta'
 data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_38spl.meta'
+-- .44 Magnum
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_44mag.meta'
+data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_44mag.meta'
+-- .500 S&W Magnum
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_500sw.meta'
+data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_500sw.meta'
 -- Future calibers:
 -- data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_12ga.meta'
 -- data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_12ga.meta'

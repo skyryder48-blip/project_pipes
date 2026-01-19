@@ -146,6 +146,50 @@ Config.AmmoTypes = {
         },
     },
 
+    -- ==================== .44 MAGNUM AMMUNITION ====================
+    -- Batch 6: .44 Magnum Revolvers (S&W Model 29, Taurus Raging Bull)
+    -- Enhanced Ballistics - BARREL DEPENDENT:
+    -- 4" barrel: FMJ 82, JHP 98 | 6.5" barrel: FMJ 100, JHP 120 | 8.375" barrel: FMJ 115, JHP 138
+    -- The "Dirty Harry" cartridge - 65-80% more energy than .357 Magnum
+    ['.44mag'] = {
+        ['fmj'] = {
+            item = 'ammo_44mag_fmj',
+            label = '.44 Magnum FMJ',
+            componentSuffix = '_CLIP_FMJ',
+            ammoInfo = 'AMMO_44MAG_FMJ',
+            description = '.44 Magnum FMJ. 82-115 damage (barrel), 0.85 penetration. OVERKILL for defense - 20-30" gel.',
+        },
+        ['jhp'] = {
+            item = 'ammo_44mag_jhp',
+            label = '.44 Magnum JHP',
+            componentSuffix = '_CLIP_JHP',
+            ammoInfo = 'AMMO_44MAG_JHP',
+            description = '.44 Magnum JHP. 98-138 damage (+20%), 0.70 penetration. Devastating terminal performance.',
+        },
+    },
+
+    -- ==================== .500 S&W MAGNUM AMMUNITION ====================
+    -- Batch 6: .500 S&W Revolver (S&W Model 500)
+    -- THE MOST POWERFUL PRODUCTION HANDGUN CARTRIDGE
+    -- Equals .308 Winchester / .30-06 Springfield rifle performance
+    -- 4" barrel: 160 dmg | 6.5" barrel: 185 dmg | 8.375" barrel: 200 dmg | 10.5" barrel: 215 dmg
+    ['.500sw'] = {
+        ['fmj'] = {
+            item = 'ammo_500sw_fmj',
+            label = '.500 S&W FMJ',
+            componentSuffix = '_CLIP_FMJ',
+            ammoInfo = 'AMMO_500SW_FMJ',
+            description = '.500 S&W FMJ. 160-215 damage, 0.90 penetration. RIFLE-LEVEL POWER - 3,032 ft-lbs @ 8.375".',
+        },
+        ['jhp'] = {
+            item = 'ammo_500sw_jhp',
+            label = '.500 S&W JHP',
+            componentSuffix = '_CLIP_JHP',
+            ammoInfo = 'AMMO_500SW_JHP',
+            description = '.500 S&W JHP. 192-258 damage (+20%), 0.75 penetration. Extreme recoil - 3x .44 Magnum.',
+        },
+    },
+
     -- ==================== FUTURE CALIBERS ====================
     -- Uncomment and configure when adding new calibers
 
@@ -190,5 +234,7 @@ Config.DefaultAmmoType = {
     ['.40sw'] = 'fmj',
     ['.357mag'] = 'fmj',
     ['.38spl'] = 'fmj',
+    ['.44mag'] = 'fmj',
+    ['.500sw'] = 'fmj',
     ['12ga'] = 'buckshot',
 }

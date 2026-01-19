@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_G22_GEN5</n>
+      <Model>w_pi_g22_gen5</Model>
+      <Audio>AUDIO_PISTOL</Audio>
+      <Slot>SLOT_UNARMED</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURWEAPONWHEEL</WheelSlot>
+      <Group>YOURWEAPONWHEEL</Group>
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+      <AimingInfo ref="YOURWEAPONAIMINGINFO" />
+      
+      <!-- GLOCK 22 GEN 5 -->
+      <!-- 4.49" GMB (Glock Marksman Barrel), 22.75 oz polymer frame -->
+      <!-- .40 S&W - Updated 5th generation with enhanced features -->
+      <!-- Improved trigger, nDLC finish, flared magwell -->
+      <!-- No finger grooves, ambidextrous controls -->
+      
+      <!-- Damage: 36 - Between 9mm (34) and .45 ACP (38) -->
+      <Damage value="36.000000" />
+      
+      <!-- Muzzle velocity: 1,050-1,150 fps (165gr) = ~320 m/s -->
+      <Speed value="320.000000" />
+      
+      <!-- Force and physics -->
+      <Force value="145.000000" />
+      <ForceHitPed value="115.000000" />
+      <ForceHitVehicle value="78.000000" />
+      <ForceHitFlyingHeli value="48.000000" />
+      
+      <!-- Damage falloff: Full damage to 12m, min damage at 42m -->
+      <DamageFallOffRangeMin value="12.000000" />
+      <DamageFallOffRangeMax value="42.000000" />
+      <DamageFallOffModifier value="0.370000" />
+      
+      <!-- Headshot: 2.90x multiplier -->
+      <HeadShotDamageModifierPlayer value="2.900000" />
+      <MaxHeadShotDistancePlayer value="8.000000" />
+      
+      <!-- Limb damage modifiers -->
+      <HitLimbsDamageModifier value="0.500000" />
+      <NetworkHitLimbsDamageModifier value="0.800000" />
+      <LightlyArmouredDamageModifier value="1.000000" />
+      <NetworkPlayerDamageModifier value="1.000000" />
+      
+      <!-- Penetration: .40 S&W moderate-high penetration -->
+      <Penetration value="0.220000" />
+      
+      <!-- Weapon range -->
+      <WeaponRange value="90.000000" />
+      
+      <!-- Fire rate: Semi-auto, ~260 RPM - improved trigger -->
+      <!-- Gen 5 trigger has shorter reset, lighter pull -->
+      <TimeBetweenShots value="0.231000" />
+      
+      <!-- Recoil: Still snappy but slightly improved -->
+      <!-- Same dual recoil spring as Gen 4 -->
+      <RecoilShakeAmplitude value="0.290000" />
+      <RecoilShakeFrequency value="0.720000" />
+      <RecoilShakeHash value="RECOIL_PISTOL" />
+      
+      <!-- Accuracy: IMPROVED - Glock Marksman Barrel -->
+      <!-- Enhanced polygonal rifling, tighter tolerances -->
+      <!-- Measurably better accuracy than Gen 4 -->
+      <AccuracySpread value="0.950000" />
+      <AccurateModeAccuracyModifier value="0.350000" />
+      <RunAndGunAccuracyModifier value="0.800000" />
+      
+      <!-- Recovery: Slightly better trigger control -->
+      <RecoilAccuracyMax value="2.350000" />
+      <RecoilErrorTime value="0.400000" />
+      <RecoilRecoveryRate value="0.920000" />
+      
+      <!-- Reload times: Flared magwell = faster reloads -->
+      <ReloadTimeModifier value="0.900000" />
+      
+      <!-- Weapon flags -->
+      <Flags>AllowRandomMuzzleFx FirstPersonScope MuzzleFlash CanBeWashedOff</Flags>
+      
+      <!-- HUD and UI -->
+      <HudDamage value="2.100000" />
+      <HudSpeed value="2.100000" />
+      <HudCapacity value="1.800000" />
+      <HudAccuracy value="2.100000" />
+      <HudRange value="1.700000" />
+      
+      <HumanNameHash>WT_G22_GEN5</HumanNameHash>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

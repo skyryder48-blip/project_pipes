@@ -1,0 +1,71 @@
+PHASE 1: PISTOLS (Batches 1-12)
+
+Batch 1: Compact 9mm ✅ COMPLETED
+WeaponReal-World ReferenceStatusGlock 26 Gen 5Glock 26✅ DoneGlock 26 SwitchGlock 26 w/ auto sear✅ DoneGlock 43xGlock 43X✅ DoneSpringfield HellcatSpringfield Hellcat✅ DoneTaurus GX4Taurus GX4✅ Done
+
+Batch 2: Full-Size 9mm ✅ COMPLETED
+WeaponReal-World ReferenceStatusGlock 17 Gen 4Glock 17 Gen 4✅ DoneGlock 17 Gen 5Glock 17 Gen 5✅ DoneGlock 17 BlackoutGlock 17 (suppressor ready)✅ DoneGlock Gen 5Glock 17 Gen 5✅ DoneGlock 19 Gen 4Glock 19 Gen 4✅ DoneGlock 19xGlock 19X✅ DoneGlock 19xdGlock 19X (variant)✅ DoneGlock 19x SwitchGlock 19X w/ auto sear✅ DoneGlock 45Glock 45✅ DoneGlock 45 TanGlock 45 (FDE)✅ DoneGlock 34 Taran Tact.Glock 34 TTI Combat Master✅ DoneBeretta M9Beretta 92FS / M9✅ DoneBeretta Grey M9A3Beretta M9A3✅ DoneCanik TP9SFCanik TP9SF✅ DoneFN 509FN 509✅ Done
+
+Batch 3: .45 ACP Pistols 🔄 IN PROGRESS
+WeaponReal-World ReferenceStatusColt M45A1Colt M45A1 CQBPPendingKimber 1911Kimber Custom IIPendingKimber 1922 EclipseKimber Eclipse Custom IIPendingGlock 21Glock 21 Gen 4PendingGlock 30Glock 30SPendingGlock 41Glock 41 Gen 4PendingSpecial - 1911 ScrapWorn 1911 GovernmentPending
+
+Batch 4: .40 S&W Pistols ⏳ QUEUED
+WeaponReal-World ReferenceStatusGlock 22Glock 22 Gen 4PendingGlock 22 Gen 4Glock 22 Gen 4PendingGlock 22sGlock 22 (variant)PendingGlock DemonGlock 22 customPending
+
+Batch 5: .357 Magnum Revolvers ⏳ QUEUED
+WeaponReal-World ReferenceStatusColt King CobraColt King Cobra 4"PendingColt King Cobra Snub .357Colt King Cobra Carry 2"PendingColt King Cobra .357Colt King Cobra 6"PendingColt PythonColt Python 6"PendingSW Model 15S&W Model 15 Combat MasterpiecePending
+
+Batch 6: .44/.500 Magnum Revolvers ⏳ QUEUED
+WeaponReal-World ReferenceStatusSW Model 29S&W Model 29 (.44 Mag)PendingSW 657S&W Model 657 (.41 Mag)PendingTaurus Raging BullTaurus Raging Bull .44 MagPendingSW 500S&W Model 500PendingSmith Wesson 50 MagS&W Model 500Pending
+
+Batch 7: 5.7x28mm Pistols ⏳ QUEUED
+WeaponReal-World ReferenceStatusFN 57FN Five-seveNPendingRuger 5.7Ruger-57Pending
+
+Batch 8: .22 LR Pistols ⏳ QUEUED
+WeaponReal-World ReferenceStatusSig P22SIG Sauer P22 (Walther)PendingFN 502FN 502 TacticalPendingKeltec PMR30Kel-Tec PMR-30 (.22 WMR)Pending
+
+Batch 9: .25 ACP / .32 ACP / .380 ACP ⏳ QUEUED
+WeaponReal-World ReferenceCaliberStatusColt Junior 25ACPColt Junior.25 ACPPendingWalther PPKWalther PPK.380 ACPPendingSig P238SIG Sauer P238.380 ACPPendingWalther P88Walther P889mmPending
+
+Batch 10: 10mm Pistols ⏳ QUEUED
+WeaponReal-World ReferenceStatusGlock 20sGlock 20 Gen 4Pending
+
+Batch 11: Misc Full-Size 9mm ⏳ QUEUED
+WeaponReal-World ReferenceStatusSig P226SIG Sauer P226PendingSig P226 MK25SIG Sauer P226 MK25 (Navy)PendingSig P210 TargetSIG Sauer P210 TargetPendingSig P220SIG Sauer P220 (.45 ACP)PendingSig P229SIG Sauer P229PendingSig P320SIG Sauer P320PendingBeretta PX4 StormBeretta Px4 StormPendingPSA DaggerPalmetto State Armory DaggerPendingRuger SR9Ruger SR9PendingUDP 9Angstadt Arms UDP-9PendingBlue ARPAR-style pistol (9mm)Pending
+
+PHASE 2: RIFLES (Batches 12-16)
+
+Batch 12: 5.56/.223 Rifles ⏳ QUEUED
+WeaponReal-World ReferenceStatusM16Colt M16A4PendingPSA AR-15Palmetto State AR-15PendingDesert AR-15AR-15 (FDE/Desert)PendingRed AUGSteyr AUG A3PendingCZ BRENCZ BREN 2PendingRAM 7 KnightTavor CTAR-21 / IWI variantPending
+
+Batch 13: 7.62x39mm Rifles ⏳ QUEUED
+WeaponReal-World ReferenceStatusMini AK47Draco / Mini AKPendingMK47CMMG Mk47 MutantPending
+
+Batch 14: 7.62x51mm / .308 Rifles ⏳ QUEUED
+WeaponReal-World ReferenceStatusSig SpearSIG MCX Spear (6.8x51mm)PendingSig MCX300SIG MCX .300 BLKPending
+
+PHASE 3: SMGS (Batches 15-17)
+
+Batch 15: 9mm SMGs ⏳ QUEUED
+WeaponReal-World ReferenceStatusMicro MP5H&K MP5KPendingSig MPXSIG MPXPendingCZ Scorpion EvoCZ Scorpion EVO 3PendingTec-9Intratec TEC-9PendingMPA30MasterPiece Arms MPA30PendingRAM 9 DesertAR-9 variantPendingKeltec Sub 2000Kel-Tec SUB-2000Pending
+
+Batch 16: .45 ACP SMGs ⏳ QUEUED
+WeaponReal-World ReferenceStatusMAC-10Ingram MAC-10PendingMAC-4A1MAC variantPending
+
+Batch 17: AR Pistols ⏳ QUEUED
+WeaponReal-World ReferenceStatusAR-Pistol w/ BumpstockAR-15 PistolPending
+
+PHASE 4: SHOTGUNS (Batch 18)
+
+Batch 18: 12 Gauge Shotguns ⏳ QUEUED
+WeaponReal-World ReferenceStatusRemington 870Remington 870 ExpressPendingMossberg 500Mossberg 500PendingModel 680Remington 870 PolicePendingMini ShottyMossberg ShockwavePendingBeretta 1301Beretta 1301 TacticalPendingBrowning Auto 5Browning Auto-5Pending
+
+PHASE 5: SNIPER RIFLES (Batch 19)
+
+Batch 19: Bolt-Action Snipers ⏳ QUEUED
+WeaponReal-World ReferenceStatusRemington M24Remington M24 SWSPendingRemington 700Remington Model 700PendingSauer 101J.P. Sauer & Sohn 101PendingVictus XMRCadex Defence Victus XMRPending
+
+PHASE 6: SPECIAL WEAPONS (Batch 20)
+
+Batch 20: Special / Unique Weapons ⏳ QUEUED
+WeaponReal-World ReferenceStatusSpecial - Dart GunTranquilizer GunPendingSpecial - Double Action RevolverGeneric DA RevolverPending

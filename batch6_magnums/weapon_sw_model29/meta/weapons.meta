@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Smith & Wesson Model 29 - 6.5" Barrel
+  Caliber: .44 Remington Magnum
+  The iconic "Dirty Harry" revolver - most powerful handgun in the world (1971)
+  
+  Real-World Specifications:
+  - Barrel Length: 6.5"
+  - Weight: 47.7 oz (1,352g)
+  - Capacity: 6 rounds
+  - Muzzle Velocity: 1,283-1,350 fps (240gr)
+  - Muzzle Energy: 1,000-1,100 ft-lbs
+  - Trigger: 4-5 lbs SA / 11-13 lbs DA
+  - Frame: N-Frame carbon steel
+  - Sight Radius: 8.0"
+  
+  Game Balance:
+  - Damage: 100 (2 shots close, 3-4 at range)
+  - High recoil, slow fire rate
+  - Excellent accuracy due to long barrel and sight radius
+-->
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="115" />
+          <Entry>SLOT_SWMODEL29</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="175" />
+        <Entry>SLOT_SWMODEL29</Entry>
+      </Item>
+    </WeaponSlots>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item>
+      <Infos />
+    </Item>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+          <!-- IDENTIFICATION -->
+          <Name>WEAPON_SWMODEL29</Name>
+          <Model>w_pi_sw_model29</Model>
+          <Audio>AUDIO_ITEM_REVOLVER</Audio>
+          <Slot>SLOT_SWMODEL29</Slot>
+          
+          <!-- DAMAGE CONFIGURATION -->
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          
+          <!-- FIRE TYPE AND CLASSIFICATION -->
+          <FireType>INSTANT_HIT</FireType>
+          <WheelSlot>WHEEL_PISTOL</WheelSlot>
+          <Group>GROUP_PISTOL</Group>
+          
+          <!-- REFERENCES -->
+          <AmmoInfo ref="AMMO_PISTOL" />
+          <AimingInfo ref="YOURFACE_YOURFATE" />
+          <ClipSize value="6" />
+          
+          <!-- ACCURACY PARAMETERS -->
+          <!-- Long 6.5" barrel + 8" sight radius = excellent precision -->
+          <AccuracySpread value="0.550000" />
+          <AccurateModeAccuracyModifier value="0.400000" />
+          <RunAndGunAccuracyModifier value="2.200000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+          
+          <!-- RECOIL PARAMETERS -->
+          <!-- Heavy .44 Mag recoil, but N-frame weight helps -->
+          <RecoilAccuracyMax value="2.400000" />
+          <RecoilErrorTime value="0.550000" />
+          <RecoilRecoveryRate value="0.280000" />
+          <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
+          <MinHeadShotDistanceAI value="1.200000" />
+          <MaxHeadShotDistanceAI value="45.000000" />
+          <HeadShotDamageModifierAI value="1.500000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.650000" />
+          <MinHeadShotDistancePlayer value="1.200000" />
+          <MaxHeadShotDistancePlayer value="20.000000" />
+          <HeadShotDamageModifierPlayer value="2.000000" />
+          
+          <!-- DAMAGE PARAMETERS -->
+          <!-- .44 Magnum 240gr @ 1,350 fps = ~1,000 ft-lbs -->
+          <!-- 2 shots close range, 3-4 at distance -->
+          <Damage value="100.000000" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <HitLimbsDamageModifier value="0.750000" />
+          <NetworkHitLimbsDamageModifier value="0.750000" />
+          <LightlyArmouredDamageModifier value="1.000000" />
+          
+          <!-- FORCE PARAMETERS -->
+          <!-- Massive impact force from heavy magnum bullet -->
+          <Force value="800.000000" />
+          <ForceHitPed value="350.000000" />
+          <ForceHitVehicle value="800.000000" />
+          <ForceHitFlyingHeli value="2000.000000" />
+          <OverrideForces />
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="15.000000" />
+          <ForceFalloffRangeEnd value="60.000000" />
+          <ForceFalloffMin value="0.350000" />
+          
+          <!-- PROJECTILE SETTINGS -->
+          <ProjectileForce value="0.000000" />
+          <FragImpulse value="80.000000" />
+          <Penetration value="0.700000" />
+          <VerticalLaunchAdjustment value="0.000000" />
+          <DropForwardVelocity value="0.000000" />
+          <Speed value="410.000000" />
+          
+          <!-- BATCH SETTINGS -->
+          <BulletsInBatch value="1" />
+          <BatchSpread value="0.000000" />
+          
+          <!-- RELOAD PARAMETERS -->
+          <!-- Revolver reload - cylinder swing out, speedloader -->
+          <ReloadTimeMP value="-1.000000" />
+          <ReloadTimeSP value="-1.000000" />
+          <VehicleReloadTime value="0.000000" />
+          <AnimReloadRate value="0.850000" />
+          <BulletsPerAnimLoop value="6" />
+          
+          <!-- FIRE RATE -->
+          <!-- DA/SA revolver - deliberate shots, ~92 RPM max -->
+          <TimeBetweenShots value="0.650000" />
+          <TimeLeftBetweenShotsWhereShouldFireIsCached value="0.100000" />
+          <SpinUpTime value="0.000000" />
+          <SpinTime value="0.000000" />
+          <SpinDownTime value="0.000000" />
+          <AlternateWaitTime value="-1.000000" />
+          
+          <!-- BULLET BENDING -->
+          <BulletBendingNearRadius value="0.500000" />
+          <BulletBendingFarRadius value="2.000000" />
+          <BulletBendingZoomedRadius value="3.000000" />
+          
+          <!-- EFFECTS -->
+          <Fx>
+            <EffectGroup />
+            <FlashFx>muz_pistol_large</FlashFx>
+            <FlashFxAlt />
+            <ShellFx />
+            <TracerFx>bullet_tracer</TracerFx>
+            <PedDamageHash>BulletLarge</PedDamageHash>
+            <TracerFxChanceSP value="1.000000" />
+            <TracerFxChanceMP value="0.500000" />
+            <FlashFxChanceSP value="1.000000" />
+            <FlashFxChanceMP value="1.000000" />
+            <FlashFxAltChance value="0.000000" />
+            <FlashFxScale value="1.400000" />
+            <GroundDisturbFxNameDefault />
+            <GroundDisturbFxNameSand />
+            <GroundDisturbFxNameWater />
+          </Fx>
+          
+          <!-- RUMBLE/HAPTICS -->
+          <InitialRumbleDuration value="180" />
+          <InitialRumbleIntensity value="0.700000" />
+          <RumbleDuration value="180" />
+          <RumbleIntensity value="0.700000" />
+          <RumbleDamageIntensity value="1.000000" />
+          
+          <!-- NETWORK MODIFIERS -->
+          <NetworkPlayerDamageModifier value="0.850000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          <NetworkHeadShotPlayerDamageModifier value="2.000000" />
+          
+          <!-- RANGE PARAMETERS -->
+          <!-- .44 Mag effective to 100 yards, maximum 175 yards -->
+          <LockOnRange value="100.000000" />
+          <WeaponRange value="175.000000" />
+          <BulletDirectionOffsetInDegrees value="0.000000" />
+          <AiSoundRange value="200.000000" />
+          <AiPotentialBlastEventRange value="0.000000" />
+          
+          <!-- DAMAGE FALLOFF -->
+          <!-- Full damage to 60m, then drops to 40% at 120m -->
+          <DamageFallOffRangeMin value="60.000000" />
+          <DamageFallOffRangeMax value="120.000000" />
+          <DamageFallOffModifier value="0.400000" />
+          
+          <!-- CAMERA SETTINGS -->
+          <VehicleWeaponHash />
+          <DefaultCameraHash>DEFAULT_PISTOL_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_PISTOL_COVER_CAMERA</CoverCameraHash>
+          <CoverReadyToFireCameraHash>DEFAULT_PISTOL_COVER_CAMERA</CoverReadyToFireCameraHash>
+          <RunAndGunCameraHash>DEFAULT_RUN_AND_GUN_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash />
+          <AlternativeOrScopedCameraHash>DEFAULT_PISTOL_FIRST_PERSON_CAMERA</AlternativeOrScopedCameraHash>
+          <CameraFov value="0.000000" />
+          
+          <!-- FIRST PERSON OFFSETS -->
+          <FirstPersonScopeOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeAttachmentOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeRotationOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeAttachmentRotationOffset x="0.000000" y="0.000000" z="0.000000" />
+          <ZoomFactorForAccurateMode value="1.000000" />
+          
+          <!-- RECOIL SHAKE -->
+          <!-- Heavy magnum recoil - 1.4x baseline .357 -->
+          <RecoilShakeHash>RECOIL_PISTOL</RecoilShakeHash>
+          <RecoilShakeHashFirstPerson>RECOIL_PISTOL</RecoilShakeHashFirstPerson>
+          <AccuracyOffsetShakeHash>ACCURACY_OFFSET_PISTOL</AccuracyOffsetShakeHash>
+          <MinTimeBetweenRecoilShakes value="150" />
+          <RecoilShakeAmplitude value="0.560000" />
+          <ExplosionShakeAmplitude value="0.000000" />
+          
+          <!-- AIM OFFSETS -->
+          <AimOffsetMin x="0.000000" y="0.500000" z="0.000000" />
+          <AimProbeLengthMin value="0.500000" />
+          <AimOffsetMax x="0.000000" y="0.500000" z="0.000000" />
+          <AimProbeLengthMax value="0.500000" />
+          <TorsoAimOffset x="0.000000" y="0.000000" z="0.000000" />
+          <TorsoCrouchedAimOffset x="0.000000" y="0.000000" z="0.000000" />
+          <LeftHandIkOffset x="0.000000" y="0.000000" z="0.000000" />
+          
+          <!-- RETICULE SETTINGS -->
+          <ReticuleMinSizeStanding value="0.018000" />
+          <ReticuleMinSizeCrouched value="0.014000" />
+          <ReticuleScale value="0.350000" />
+          <ReticuleStyleHash>RETICULE_PISTOL</ReticuleStyleHash>
+          <FirstPersonReticuleStyleHash />
+          
+          <!-- IDENTIFICATION HASHES -->
+          <PickupHash>PICKUP_WEAPON_SWMODEL29</PickupHash>
+          <MPPickupHash>PICKUP_WEAPON_SWMODEL29</MPPickupHash>
+          <HumanNameHash>WT_SWMODEL29</HumanNameHash>
+          <MovementModeConditionalIdle />
+          <WeaponTypeSet>Small</WeaponTypeSet>
+          <WeaponWheelSlot>Pistol</WeaponWheelSlot>
+          <StatName>PISTOL_STAT</StatName>
+          
+          <!-- PHYSICS -->
+          <KnockdownCount value="0" />
+          <KillshotImpulseScale value="1.200000" />
+          <NmShotTuningSet>StandardPistol</NmShotTuningSet>
+          
+          <!-- ATTACHMENT POINTS -->
+          <AttachPoints>
+            <Item>
+              <AttachBone>WAPClip</AttachBone>
+              <Components>
+                <Item>
+                  <Name>COMPONENT_SWMODEL29_CLIP_01</Name>
+                  <Default value="true" />
+                </Item>
+              </Components>
+            </Item>
+          </AttachPoints>
+          
+          <!-- WEAPON FLAGS -->
+          <WeaponFlags>CanBeUsedWithSameMoveClipSet Gun CanLockonOnFoot CanLockonInVehicle CanFreeAim CarriedByPlayer HoldBothHandsInCover AnimReload AnimCrouchFire UsableOnFoot UsableInCover UsableClimbing AllowCloseQuarterKills HasLowCoverReloads HasLowCoverSwaps UseFPSAimIK UseFPSSecondaryMotion TorsoIKForWeaponBlock CenterLeftHandIk Thrown Revolver</WeaponFlags>
+          
+          <!-- HUD DISPLAY VALUES -->
+          <HudDamage value="100.000000" />
+          <HudSpeed value="40.000000" />
+          <HudCapacity value="6.000000" />
+          <HudAccuracy value="70.000000" />
+          <HudRange value="60.000000" />
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

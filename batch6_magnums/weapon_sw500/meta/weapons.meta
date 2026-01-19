@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Smith & Wesson Model 500 - 6.5" Barrel
+  Caliber: .500 S&W Magnum
+  THE MOST POWERFUL PRODUCTION REVOLVER IN THE WORLD
+  
+  Real-World Specifications (350gr XTP Hunting Loads):
+  - Barrel Length: 6.5" with compensator
+  - Weight: 60.7 oz (1,720g) - X-Frame
+  - Capacity: 5 rounds
+  - Muzzle Velocity: 1,600-1,750 fps (350gr XTP)
+  - Muzzle Energy: 2,200-2,800 ft-lbs
+  - Recoil Energy: 39.9-45 ft-lbs (3x .44 Magnum)
+  - Frame: X-Frame stainless steel
+  - Compensator: Dual-port muzzle brake
+  - Grips: Hogue Sorbothane rubber
+  
+  Terminal Performance:
+  - Gel penetration: 19.5"
+  - Expansion: 0.514"
+  - Energy equivalent to .308 Winchester rifle
+  
+  Game Balance:
+  - Damage: 185 (approaching one-shot territory)
+  - EXTREME recoil - slowest fire rate of all handguns
+  - 5-round capacity
+  - Requires deliberate, aimed fire
+-->
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="117" />
+          <Entry>SLOT_SW500</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="177" />
+        <Entry>SLOT_SW500</Entry>
+      </Item>
+    </WeaponSlots>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item>
+      <Infos />
+    </Item>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+          <!-- IDENTIFICATION -->
+          <n>WEAPON_SW500</n>
+          <Model>w_pi_sw_500</Model>
+          <Audio>AUDIO_ITEM_REVOLVER_MK2</Audio>
+          <Slot>SLOT_SW500</Slot>
+          
+          <!-- DAMAGE CONFIGURATION -->
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          
+          <!-- FIRE TYPE AND CLASSIFICATION -->
+          <FireType>INSTANT_HIT</FireType>
+          <WheelSlot>WHEEL_PISTOL</WheelSlot>
+          <Group>GROUP_PISTOL</Group>
+          
+          <!-- REFERENCES -->
+          <AmmoInfo ref="AMMO_PISTOL" />
+          <AimingInfo ref="YOURFACE_YOURFATE" />
+          <ClipSize value="5" />
+          
+          <!-- ACCURACY PARAMETERS -->
+          <!-- Heavy recoil makes accurate follow-up difficult -->
+          <!-- But single aimed shots are precise due to weight -->
+          <AccuracySpread value="0.700000" />
+          <AccurateModeAccuracyModifier value="0.380000" />
+          <RunAndGunAccuracyModifier value="2.800000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+          
+          <!-- RECOIL PARAMETERS -->
+          <!-- EXTREME: 39.9-45 ft-lbs recoil energy -->
+          <!-- 3x .44 Magnum, 2.2-2.5x .357 baseline -->
+          <!-- Recovery between shots is SLOW -->
+          <RecoilAccuracyMax value="3.200000" />
+          <RecoilErrorTime value="0.750000" />
+          <RecoilRecoveryRate value="0.180000" />
+          <RecoilAccuracyToAllowHeadShotAI value="0.550000" />
+          <MinHeadShotDistanceAI value="1.200000" />
+          <MaxHeadShotDistanceAI value="40.000000" />
+          <HeadShotDamageModifierAI value="1.500000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.550000" />
+          <MinHeadShotDistancePlayer value="1.200000" />
+          <MaxHeadShotDistancePlayer value="25.000000" />
+          <HeadShotDamageModifierPlayer value="1.500000" />
+          
+          <!-- DAMAGE PARAMETERS -->
+          <!-- .500 S&W 350gr XTP @ 1,700 fps = ~2,600 ft-lbs -->
+          <!-- Energy equivalent to .308 Winchester rifle -->
+          <!-- Near one-shot potential at close range -->
+          <Damage value="185.000000" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <HitLimbsDamageModifier value="0.700000" />
+          <NetworkHitLimbsDamageModifier value="0.700000" />
+          <LightlyArmouredDamageModifier value="1.000000" />
+          
+          <!-- FORCE PARAMETERS -->
+          <!-- MASSIVE impact - can knock down targets -->
+          <Force value="1200.000000" />
+          <ForceHitPed value="500.000000" />
+          <ForceHitVehicle value="1200.000000" />
+          <ForceHitFlyingHeli value="3000.000000" />
+          <OverrideForces />
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="20.000000" />
+          <ForceFalloffRangeEnd value="80.000000" />
+          <ForceFalloffMin value="0.400000" />
+          
+          <!-- PROJECTILE SETTINGS -->
+          <ProjectileForce value="0.000000" />
+          <FragImpulse value="120.000000" />
+          <Penetration value="0.900000" />
+          <VerticalLaunchAdjustment value="0.000000" />
+          <DropForwardVelocity value="0.000000" />
+          <Speed value="530.000000" />
+          
+          <!-- BATCH SETTINGS -->
+          <BulletsInBatch value="1" />
+          <BatchSpread value="0.000000" />
+          
+          <!-- RELOAD PARAMETERS -->
+          <!-- Heavy revolver, slower reload -->
+          <ReloadTimeMP value="-1.000000" />
+          <ReloadTimeSP value="-1.000000" />
+          <VehicleReloadTime value="0.000000" />
+          <AnimReloadRate value="0.750000" />
+          <BulletsPerAnimLoop value="5" />
+          
+          <!-- FIRE RATE -->
+          <!-- SLOWEST HANDGUN - 40-60 RPM max -->
+          <!-- Shooters describe needing to "reset" between shots -->
+          <TimeBetweenShots value="1.200000" />
+          <TimeLeftBetweenShotsWhereShouldFireIsCached value="0.100000" />
+          <SpinUpTime value="0.000000" />
+          <SpinTime value="0.000000" />
+          <SpinDownTime value="0.000000" />
+          <AlternateWaitTime value="-1.000000" />
+          
+          <!-- BULLET BENDING -->
+          <BulletBendingNearRadius value="0.500000" />
+          <BulletBendingFarRadius value="2.000000" />
+          <BulletBendingZoomedRadius value="3.000000" />
+          
+          <!-- EFFECTS -->
+          <!-- Massive muzzle flash and report -->
+          <Fx>
+            <EffectGroup />
+            <FlashFx>muz_pistol_large</FlashFx>
+            <FlashFxAlt />
+            <ShellFx />
+            <TracerFx>bullet_tracer</TracerFx>
+            <PedDamageHash>BulletLarge</PedDamageHash>
+            <TracerFxChanceSP value="1.000000" />
+            <TracerFxChanceMP value="0.500000" />
+            <FlashFxChanceSP value="1.000000" />
+            <FlashFxChanceMP value="1.000000" />
+            <FlashFxAltChance value="0.000000" />
+            <FlashFxScale value="1.800000" />
+            <GroundDisturbFxNameDefault />
+            <GroundDisturbFxNameSand />
+            <GroundDisturbFxNameWater />
+          </Fx>
+          
+          <!-- RUMBLE/HAPTICS -->
+          <!-- EXTREME rumble - you FEEL this gun -->
+          <InitialRumbleDuration value="250" />
+          <InitialRumbleIntensity value="0.950000" />
+          <RumbleDuration value="250" />
+          <RumbleIntensity value="0.950000" />
+          <RumbleDamageIntensity value="1.000000" />
+          
+          <!-- NETWORK MODIFIERS -->
+          <NetworkPlayerDamageModifier value="0.800000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          <NetworkHeadShotPlayerDamageModifier value="1.500000" />
+          
+          <!-- RANGE PARAMETERS -->
+          <!-- .500 S&W effective to 150+ yards for hunting -->
+          <LockOnRange value="100.000000" />
+          <WeaponRange value="200.000000" />
+          <BulletDirectionOffsetInDegrees value="0.000000" />
+          <AiSoundRange value="280.000000" />
+          <AiPotentialBlastEventRange value="0.000000" />
+          
+          <!-- DAMAGE FALLOFF -->
+          <!-- Full damage to 75m, drops to 45% at 150m -->
+          <!-- Maintains lethality at extended ranges -->
+          <DamageFallOffRangeMin value="75.000000" />
+          <DamageFallOffRangeMax value="150.000000" />
+          <DamageFallOffModifier value="0.450000" />
+          
+          <!-- CAMERA SETTINGS -->
+          <VehicleWeaponHash />
+          <DefaultCameraHash>DEFAULT_PISTOL_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_PISTOL_COVER_CAMERA</CoverCameraHash>
+          <CoverReadyToFireCameraHash>DEFAULT_PISTOL_COVER_CAMERA</CoverReadyToFireCameraHash>
+          <RunAndGunCameraHash>DEFAULT_RUN_AND_GUN_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash />
+          <AlternativeOrScopedCameraHash>DEFAULT_PISTOL_FIRST_PERSON_CAMERA</AlternativeOrScopedCameraHash>
+          <CameraFov value="0.000000" />
+          
+          <!-- FIRST PERSON OFFSETS -->
+          <FirstPersonScopeOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeAttachmentOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeRotationOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeAttachmentRotationOffset x="0.000000" y="0.000000" z="0.000000" />
+          <ZoomFactorForAccurateMode value="1.000000" />
+          
+          <!-- RECOIL SHAKE -->
+          <!-- EXTREME: 2.2x .357 baseline -->
+          <!-- Massive muzzle flip despite compensator -->
+          <RecoilShakeHash>RECOIL_PISTOL</RecoilShakeHash>
+          <RecoilShakeHashFirstPerson>RECOIL_PISTOL</RecoilShakeHashFirstPerson>
+          <AccuracyOffsetShakeHash>ACCURACY_OFFSET_PISTOL</AccuracyOffsetShakeHash>
+          <MinTimeBetweenRecoilShakes value="200" />
+          <RecoilShakeAmplitude value="0.950000" />
+          <ExplosionShakeAmplitude value="0.000000" />
+          
+          <!-- AIM OFFSETS -->
+          <AimOffsetMin x="0.000000" y="0.500000" z="0.000000" />
+          <AimProbeLengthMin value="0.500000" />
+          <AimOffsetMax x="0.000000" y="0.500000" z="0.000000" />
+          <AimProbeLengthMax value="0.500000" />
+          <TorsoAimOffset x="0.000000" y="0.000000" z="0.000000" />
+          <TorsoCrouchedAimOffset x="0.000000" y="0.000000" z="0.000000" />
+          <LeftHandIkOffset x="0.000000" y="0.000000" z="0.000000" />
+          
+          <!-- RETICULE SETTINGS -->
+          <ReticuleMinSizeStanding value="0.022000" />
+          <ReticuleMinSizeCrouched value="0.016000" />
+          <ReticuleScale value="0.400000" />
+          <ReticuleStyleHash>RETICULE_PISTOL</ReticuleStyleHash>
+          <FirstPersonReticuleStyleHash />
+          
+          <!-- IDENTIFICATION HASHES -->
+          <PickupHash>PICKUP_WEAPON_SW500</PickupHash>
+          <MPPickupHash>PICKUP_WEAPON_SW500</MPPickupHash>
+          <HumanNameHash>WT_SW500</HumanNameHash>
+          <MovementModeConditionalIdle />
+          <WeaponTypeSet>Small</WeaponTypeSet>
+          <WeaponWheelSlot>Pistol</WeaponWheelSlot>
+          <StatName>PISTOL_STAT</StatName>
+          
+          <!-- PHYSICS -->
+          <KnockdownCount value="0" />
+          <KillshotImpulseScale value="1.500000" />
+          <NmShotTuningSet>StandardPistol</NmShotTuningSet>
+          
+          <!-- ATTACHMENT POINTS -->
+          <AttachPoints>
+            <Item>
+              <AttachBone>WAPClip</AttachBone>
+              <Components>
+                <Item>
+                  <n>COMPONENT_SW500_CLIP_01</n>
+                  <Default value="true" />
+                </Item>
+              </Components>
+            </Item>
+          </AttachPoints>
+          
+          <!-- WEAPON FLAGS -->
+          <WeaponFlags>CanBeUsedWithSameMoveClipSet Gun CanLockonOnFoot CanLockonInVehicle CanFreeAim CarriedByPlayer HoldBothHandsInCover AnimReload AnimCrouchFire UsableOnFoot UsableInCover UsableClimbing AllowCloseQuarterKills HasLowCoverReloads HasLowCoverSwaps UseFPSAimIK UseFPSSecondaryMotion TorsoIKForWeaponBlock CenterLeftHandIk Thrown Revolver</WeaponFlags>
+          
+          <!-- HUD DISPLAY VALUES -->
+          <HudDamage value="185.000000" />
+          <HudSpeed value="25.000000" />
+          <HudCapacity value="5.000000" />
+          <HudAccuracy value="55.000000" />
+          <HudRange value="75.000000" />
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

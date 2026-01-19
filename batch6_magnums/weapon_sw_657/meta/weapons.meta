@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Smith & Wesson 657 - 6" Barrel
+  Caliber: .41 Remington Magnum (configured to fire .357 ammo)
+  The "forgotten magnum" - ballistic sweet spot between .357 and .44
+  
+  Real-World Specifications (.41 Mag +P Service Loads):
+  - Barrel Length: 6"
+  - Weight: 48-52 oz (1,361-1,474g) stainless
+  - Capacity: 6 rounds
+  - Muzzle Velocity: 1,300-1,400 fps (210gr +P)
+  - Muzzle Energy: 850-1,050 ft-lbs
+  - Trigger: 3-5 lbs SA / 10-12 lbs DA
+  - Frame: N-Frame stainless steel
+  - Status: Discontinued (1986-2005)
+  
+  Game Balance:
+  - Configured with .41 Mag handling characteristics
+  - Uses .357 Magnum ammunition for inventory simplicity
+  - Less recoil than .44 Mag, more than .357
+  - Excellent accuracy - considered most accurate N-frame
+-->
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="114" />
+          <Entry>SLOT_SW657</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="174" />
+        <Entry>SLOT_SW657</Entry>
+      </Item>
+    </WeaponSlots>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item>
+      <Infos />
+    </Item>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+          <!-- IDENTIFICATION -->
+          <n>WEAPON_SW657</n>
+          <Model>w_pi_sw_657</Model>
+          <Audio>AUDIO_ITEM_REVOLVER</Audio>
+          <Slot>SLOT_SW657</Slot>
+          
+          <!-- DAMAGE CONFIGURATION -->
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          
+          <!-- FIRE TYPE AND CLASSIFICATION -->
+          <FireType>INSTANT_HIT</FireType>
+          <WheelSlot>WHEEL_PISTOL</WheelSlot>
+          <Group>GROUP_PISTOL</Group>
+          
+          <!-- REFERENCES - Uses .357 Magnum ammo -->
+          <AmmoInfo ref="AMMO_PISTOL" />
+          <AimingInfo ref="YOURFACE_YOURFATE" />
+          <ClipSize value="6" />
+          
+          <!-- ACCURACY PARAMETERS -->
+          <!-- Renowned as most accurate N-frame revolver -->
+          <!-- Optimal bore-to-frame proportions for .41 caliber -->
+          <AccuracySpread value="0.500000" />
+          <AccurateModeAccuracyModifier value="0.350000" />
+          <RunAndGunAccuracyModifier value="2.000000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+          
+          <!-- RECOIL PARAMETERS -->
+          <!-- .41 Mag = 20-30% less recoil than .44 Mag -->
+          <!-- 14-16 ft-lbs recoil energy vs 18.5 ft-lbs for .44 -->
+          <RecoilAccuracyMax value="2.000000" />
+          <RecoilErrorTime value="0.480000" />
+          <RecoilRecoveryRate value="0.320000" />
+          <RecoilAccuracyToAllowHeadShotAI value="0.700000" />
+          <MinHeadShotDistanceAI value="1.200000" />
+          <MaxHeadShotDistanceAI value="50.000000" />
+          <HeadShotDamageModifierAI value="1.500000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.700000" />
+          <MinHeadShotDistancePlayer value="1.200000" />
+          <MaxHeadShotDistancePlayer value="18.000000" />
+          <HeadShotDamageModifierPlayer value="2.200000" />
+          
+          <!-- DAMAGE PARAMETERS -->
+          <!-- .41 Mag +P: 850-1,050 ft-lbs (25-40% more than .357) -->
+          <!-- Positioned between .357 (60) and .44 (100) -->
+          <!-- Base damage from shared .357 ammo resource -->
+          <Damage value="68.000000" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <HitLimbsDamageModifier value="0.750000" />
+          <NetworkHitLimbsDamageModifier value="0.750000" />
+          <LightlyArmouredDamageModifier value="1.000000" />
+          
+          <!-- FORCE PARAMETERS -->
+          <!-- Strong but not as brutal as .44 Mag -->
+          <Force value="650.000000" />
+          <ForceHitPed value="280.000000" />
+          <ForceHitVehicle value="650.000000" />
+          <ForceHitFlyingHeli value="1800.000000" />
+          <OverrideForces />
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="15.000000" />
+          <ForceFalloffRangeEnd value="55.000000" />
+          <ForceFalloffMin value="0.350000" />
+          
+          <!-- PROJECTILE SETTINGS -->
+          <ProjectileForce value="0.000000" />
+          <FragImpulse value="65.000000" />
+          <Penetration value="0.650000" />
+          <VerticalLaunchAdjustment value="0.000000" />
+          <DropForwardVelocity value="0.000000" />
+          <Speed value="440.000000" />
+          
+          <!-- BATCH SETTINGS -->
+          <BulletsInBatch value="1" />
+          <BatchSpread value="0.000000" />
+          
+          <!-- RELOAD PARAMETERS -->
+          <ReloadTimeMP value="-1.000000" />
+          <ReloadTimeSP value="-1.000000" />
+          <VehicleReloadTime value="0.000000" />
+          <AnimReloadRate value="0.900000" />
+          <BulletsPerAnimLoop value="6" />
+          
+          <!-- FIRE RATE -->
+          <!-- Lighter recoil allows faster follow-up, ~120 RPM -->
+          <TimeBetweenShots value="0.500000" />
+          <TimeLeftBetweenShotsWhereShouldFireIsCached value="0.100000" />
+          <SpinUpTime value="0.000000" />
+          <SpinTime value="0.000000" />
+          <SpinDownTime value="0.000000" />
+          <AlternateWaitTime value="-1.000000" />
+          
+          <!-- BULLET BENDING -->
+          <BulletBendingNearRadius value="0.500000" />
+          <BulletBendingFarRadius value="2.000000" />
+          <BulletBendingZoomedRadius value="3.000000" />
+          
+          <!-- EFFECTS -->
+          <Fx>
+            <EffectGroup />
+            <FlashFx>muz_pistol_large</FlashFx>
+            <FlashFxAlt />
+            <ShellFx />
+            <TracerFx>bullet_tracer</TracerFx>
+            <PedDamageHash>BulletLarge</PedDamageHash>
+            <TracerFxChanceSP value="1.000000" />
+            <TracerFxChanceMP value="0.500000" />
+            <FlashFxChanceSP value="1.000000" />
+            <FlashFxChanceMP value="1.000000" />
+            <FlashFxAltChance value="0.000000" />
+            <FlashFxScale value="1.300000" />
+            <GroundDisturbFxNameDefault />
+            <GroundDisturbFxNameSand />
+            <GroundDisturbFxNameWater />
+          </Fx>
+          
+          <!-- RUMBLE/HAPTICS -->
+          <InitialRumbleDuration value="150" />
+          <InitialRumbleIntensity value="0.550000" />
+          <RumbleDuration value="150" />
+          <RumbleIntensity value="0.550000" />
+          <RumbleDamageIntensity value="1.000000" />
+          
+          <!-- NETWORK MODIFIERS -->
+          <NetworkPlayerDamageModifier value="0.850000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          <NetworkHeadShotPlayerDamageModifier value="2.200000" />
+          
+          <!-- RANGE PARAMETERS -->
+          <!-- Effective to 75 yards, maximum 150 yards -->
+          <LockOnRange value="100.000000" />
+          <WeaponRange value="150.000000" />
+          <BulletDirectionOffsetInDegrees value="0.000000" />
+          <AiSoundRange value="180.000000" />
+          <AiPotentialBlastEventRange value="0.000000" />
+          
+          <!-- DAMAGE FALLOFF -->
+          <!-- Full damage to 50m, drops to 35% at 100m -->
+          <DamageFallOffRangeMin value="50.000000" />
+          <DamageFallOffRangeMax value="100.000000" />
+          <DamageFallOffModifier value="0.350000" />
+          
+          <!-- CAMERA SETTINGS -->
+          <VehicleWeaponHash />
+          <DefaultCameraHash>DEFAULT_PISTOL_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_PISTOL_COVER_CAMERA</CoverCameraHash>
+          <CoverReadyToFireCameraHash>DEFAULT_PISTOL_COVER_CAMERA</CoverReadyToFireCameraHash>
+          <RunAndGunCameraHash>DEFAULT_RUN_AND_GUN_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash />
+          <AlternativeOrScopedCameraHash>DEFAULT_PISTOL_FIRST_PERSON_CAMERA</AlternativeOrScopedCameraHash>
+          <CameraFov value="0.000000" />
+          
+          <!-- FIRST PERSON OFFSETS -->
+          <FirstPersonScopeOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeAttachmentOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeRotationOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeAttachmentRotationOffset x="0.000000" y="0.000000" z="0.000000" />
+          <ZoomFactorForAccurateMode value="1.000000" />
+          
+          <!-- RECOIL SHAKE -->
+          <!-- 1.2x .357 baseline - manageable but authoritative -->
+          <RecoilShakeHash>RECOIL_PISTOL</RecoilShakeHash>
+          <RecoilShakeHashFirstPerson>RECOIL_PISTOL</RecoilShakeHashFirstPerson>
+          <AccuracyOffsetShakeHash>ACCURACY_OFFSET_PISTOL</AccuracyOffsetShakeHash>
+          <MinTimeBetweenRecoilShakes value="120" />
+          <RecoilShakeAmplitude value="0.420000" />
+          <ExplosionShakeAmplitude value="0.000000" />
+          
+          <!-- AIM OFFSETS -->
+          <AimOffsetMin x="0.000000" y="0.500000" z="0.000000" />
+          <AimProbeLengthMin value="0.500000" />
+          <AimOffsetMax x="0.000000" y="0.500000" z="0.000000" />
+          <AimProbeLengthMax value="0.500000" />
+          <TorsoAimOffset x="0.000000" y="0.000000" z="0.000000" />
+          <TorsoCrouchedAimOffset x="0.000000" y="0.000000" z="0.000000" />
+          <LeftHandIkOffset x="0.000000" y="0.000000" z="0.000000" />
+          
+          <!-- RETICULE SETTINGS -->
+          <ReticuleMinSizeStanding value="0.016000" />
+          <ReticuleMinSizeCrouched value="0.012000" />
+          <ReticuleScale value="0.320000" />
+          <ReticuleStyleHash>RETICULE_PISTOL</ReticuleStyleHash>
+          <FirstPersonReticuleStyleHash />
+          
+          <!-- IDENTIFICATION HASHES -->
+          <PickupHash>PICKUP_WEAPON_SW657</PickupHash>
+          <MPPickupHash>PICKUP_WEAPON_SW657</MPPickupHash>
+          <HumanNameHash>WT_SW657</HumanNameHash>
+          <MovementModeConditionalIdle />
+          <WeaponTypeSet>Small</WeaponTypeSet>
+          <WeaponWheelSlot>Pistol</WeaponWheelSlot>
+          <StatName>PISTOL_STAT</StatName>
+          
+          <!-- PHYSICS -->
+          <KnockdownCount value="0" />
+          <KillshotImpulseScale value="1.100000" />
+          <NmShotTuningSet>StandardPistol</NmShotTuningSet>
+          
+          <!-- ATTACHMENT POINTS -->
+          <AttachPoints>
+            <Item>
+              <AttachBone>WAPClip</AttachBone>
+              <Components>
+                <Item>
+                  <n>COMPONENT_SW657_CLIP_01</n>
+                  <Default value="true" />
+                </Item>
+              </Components>
+            </Item>
+          </AttachPoints>
+          
+          <!-- WEAPON FLAGS -->
+          <WeaponFlags>CanBeUsedWithSameMoveClipSet Gun CanLockonOnFoot CanLockonInVehicle CanFreeAim CarriedByPlayer HoldBothHandsInCover AnimReload AnimCrouchFire UsableOnFoot UsableInCover UsableClimbing AllowCloseQuarterKills HasLowCoverReloads HasLowCoverSwaps UseFPSAimIK UseFPSSecondaryMotion TorsoIKForWeaponBlock CenterLeftHandIk Thrown Revolver</WeaponFlags>
+          
+          <!-- HUD DISPLAY VALUES -->
+          <HudDamage value="68.000000" />
+          <HudSpeed value="45.000000" />
+          <HudCapacity value="6.000000" />
+          <HudAccuracy value="75.000000" />
+          <HudRange value="55.000000" />
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

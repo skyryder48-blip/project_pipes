@@ -104,6 +104,48 @@ Config.AmmoTypes = {
         },
     },
 
+    -- ==================== .357 MAGNUM AMMUNITION ====================
+    -- Batch 5: .357 Magnum Revolvers (King Cobra variants, Python)
+    -- High-powered revolver cartridge with devastating per-shot damage
+    -- Base damage: 54 (FMJ), 62 (JHP +15%)
+    ['.357mag'] = {
+        ['fmj'] = {
+            item = 'ammo_357mag_fmj',
+            label = '.357 Magnum FMJ',
+            componentSuffix = '_CLIP_FMJ',
+            ammoInfo = 'AMMO_357MAG_FMJ',
+            description = '.357 Magnum full metal jacket. 54 base damage, 0.28 penetration. High velocity, deep penetration.',
+        },
+        ['jhp'] = {
+            item = 'ammo_357mag_jhp',
+            label = '.357 Magnum JHP',
+            componentSuffix = '_CLIP_JHP',
+            ammoInfo = 'AMMO_357MAG_JHP',
+            description = '.357 Magnum jacketed hollow point. +15% damage (62), devastating stopping power.',
+        },
+    },
+
+    -- ==================== .38 SPECIAL AMMUNITION ====================
+    -- Batch 5: .38 Special Revolver (S&W Model 15)
+    -- Classic police revolver cartridge, lower power than .357 Magnum
+    -- Base damage: 32 (FMJ), 37 (JHP +15.6%)
+    ['.38spl'] = {
+        ['fmj'] = {
+            item = 'ammo_38spl_fmj',
+            label = '.38 Special FMJ',
+            componentSuffix = '_CLIP_FMJ',
+            ammoInfo = 'AMMO_38SPL_FMJ',
+            description = '.38 Special full metal jacket. 32 base damage, light recoil. Classic police round.',
+        },
+        ['jhp'] = {
+            item = 'ammo_38spl_jhp',
+            label = '.38 Special JHP',
+            componentSuffix = '_CLIP_JHP',
+            ammoInfo = 'AMMO_38SPL_JHP',
+            description = '.38 Special jacketed hollow point. +15.6% damage (37), improved stopping power.',
+        },
+    },
+
     -- ==================== FUTURE CALIBERS ====================
     -- Uncomment and configure when adding new calibers
 
@@ -146,5 +188,7 @@ Config.DefaultAmmoType = {
     ['9mm'] = 'fmj',
     ['.45acp'] = 'fmj',
     ['.40sw'] = 'fmj',
+    ['.357mag'] = 'fmj',
+    ['.38spl'] = 'fmj',
     ['12ga'] = 'buckshot',
 }

@@ -240,6 +240,45 @@ Config.Weapons = {
     },
 
     -- ======================================================================
+    -- BATCH 5: .357 MAGNUM & .38 SPECIAL REVOLVERS
+    -- ======================================================================
+
+    -- Colt King Cobra - .357 Magnum (6 rounds, 4.25" barrel)
+    [`WEAPON_KINGCOBRA`] = {
+        caliber = '.357mag',
+        componentBase = 'COMPONENT_KINGCOBRA',
+        clipSize = 6,
+    },
+
+    -- Colt King Cobra Snub - .357 Magnum (6 rounds, 2" barrel)
+    [`WEAPON_KINGCOBRA_SNUB`] = {
+        caliber = '.357mag',
+        componentBase = 'COMPONENT_KINGCOBRA_SNUB',
+        clipSize = 6,
+    },
+
+    -- Colt King Cobra Target - .357 Magnum (6 rounds, 3" barrel)
+    [`WEAPON_KINGCOBRA_TARGET`] = {
+        caliber = '.357mag',
+        componentBase = 'COMPONENT_KINGCOBRA_TARGET',
+        clipSize = 6,
+    },
+
+    -- Colt Python - .357 Magnum (6 rounds, 6" barrel) - Premium Revolver
+    [`WEAPON_PYTHON`] = {
+        caliber = '.357mag',
+        componentBase = 'COMPONENT_PYTHON',
+        clipSize = 6,
+    },
+
+    -- S&W Model 15 "Combat Masterpiece" - .38 Special (6 rounds, 4" barrel)
+    [`WEAPON_SW_MODEL15`] = {
+        caliber = '.38spl',
+        componentBase = 'COMPONENT_SW_MODEL15',
+        clipSize = 6,
+    },
+
+    -- ======================================================================
     -- FUTURE WEAPONS (uncomment when adding)
     -- ======================================================================
 

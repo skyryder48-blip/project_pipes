@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  .357 Magnum Weapon Components - Speedloader Definitions
+  Used by ALL .357 Magnum revolvers (Batch 5)
+
+  Component Naming Convention:
+  COMPONENT_[WEAPON]_CLIP_[AMMOTYPE]
+
+  Ammo Types:
+  - FMJ: Standard full metal jacket (54 damage)
+  - JHP: Jacketed hollow point (+15% damage = 62)
+
+  Weapons (all 6-round capacity):
+  - KINGCOBRA (Colt King Cobra) - 4.25" barrel
+  - KINGCOBRA_SNUB (King Cobra Snub) - 2" barrel
+  - KINGCOBRA_TARGET (King Cobra Target) - 3" barrel
+  - PYTHON (Colt Python) - 6" barrel
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+    <!-- ================================================================== -->
+    <!-- COLT KING COBRA - Standard .357 Magnum (6 rounds, 4.25" barrel)    -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_KINGCOBRA_CLIP_FMJ</n>
+      <Model>w_pi_kingcobra_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_357FMJ</LocDesc>
+      <ClipSize value="6" />
+      <AmmoInfo ref="AMMO_357MAG_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_KINGCOBRA_CLIP_JHP</n>
+      <Model>w_pi_kingcobra_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_357JHP</LocDesc>
+      <ClipSize value="6" />
+      <AmmoInfo ref="AMMO_357MAG_JHP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- COLT KING COBRA SNUB - Compact .357 Magnum (6 rounds, 2" barrel)   -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_KINGCOBRA_SNUB_CLIP_FMJ</n>
+      <Model>w_pi_kingcobra_snub_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_357FMJ</LocDesc>
+      <ClipSize value="6" />
+      <AmmoInfo ref="AMMO_357MAG_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_KINGCOBRA_SNUB_CLIP_JHP</n>
+      <Model>w_pi_kingcobra_snub_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_357JHP</LocDesc>
+      <ClipSize value="6" />
+      <AmmoInfo ref="AMMO_357MAG_JHP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- COLT KING COBRA TARGET - Target .357 Magnum (6 rounds, 3" barrel)  -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_KINGCOBRA_TARGET_CLIP_FMJ</n>
+      <Model>w_pi_kingcobra_target_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_357FMJ</LocDesc>
+      <ClipSize value="6" />
+      <AmmoInfo ref="AMMO_357MAG_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_KINGCOBRA_TARGET_CLIP_JHP</n>
+      <Model>w_pi_kingcobra_target_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_357JHP</LocDesc>
+      <ClipSize value="6" />
+      <AmmoInfo ref="AMMO_357MAG_JHP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- COLT PYTHON - Premium .357 Magnum (6 rounds, 6" barrel)            -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_PYTHON_CLIP_FMJ</n>
+      <Model>w_pi_python_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_357FMJ</LocDesc>
+      <ClipSize value="6" />
+      <AmmoInfo ref="AMMO_357MAG_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_PYTHON_CLIP_JHP</n>
+      <Model>w_pi_python_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_357JHP</LocDesc>
+      <ClipSize value="6" />
+      <AmmoInfo ref="AMMO_357MAG_JHP" />
+    </Item>
+
+  </Infos>
+  <n>.357 Magnum Speedloader Components</n>
+</CWeaponComponentInfoBlob>

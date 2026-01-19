@@ -95,6 +95,54 @@ return {
     },
 
     -- ============================================
+    -- .357 MAGNUM AMMUNITION (Batch 5)
+    -- ============================================
+    ['ammo_357mag_fmj'] = {
+        label = '.357 Magnum FMJ',
+        weight = 22,  -- 22g per round (heavy magnum round)
+        stack = true,
+        close = true,
+        description = '.357 Magnum full metal jacket. 54 base damage, 0.28 penetration. High velocity, deep penetration, devastating power.',
+        client = {
+            image = 'ammo_357mag_fmj.png'
+        }
+    },
+    ['ammo_357mag_jhp'] = {
+        label = '.357 Magnum JHP',
+        weight = 22,
+        stack = true,
+        close = true,
+        description = '.357 Magnum jacketed hollow point. +15% damage (62), 0.18 penetration. Premium hunting/defensive load.',
+        client = {
+            image = 'ammo_357mag_jhp.png'
+        }
+    },
+
+    -- ============================================
+    -- .38 SPECIAL AMMUNITION (Batch 5)
+    -- ============================================
+    ['ammo_38spl_fmj'] = {
+        label = '.38 Special FMJ',
+        weight = 14,  -- 14g per round (lighter than .357)
+        stack = true,
+        close = true,
+        description = '.38 Special full metal jacket. 32 base damage, 0.15 penetration. Light recoil, classic police round.',
+        client = {
+            image = 'ammo_38spl_fmj.png'
+        }
+    },
+    ['ammo_38spl_jhp'] = {
+        label = '.38 Special JHP',
+        weight = 14,
+        stack = true,
+        close = true,
+        description = '.38 Special jacketed hollow point. +15.6% damage (37), 0.10 penetration. Modern defensive load.',
+        client = {
+            image = 'ammo_38spl_jhp.png'
+        }
+    },
+
+    -- ============================================
     -- 12 GAUGE SHOTGUN AMMUNITION (Future)
     -- ============================================
     ['ammo_12ga_buckshot'] = {

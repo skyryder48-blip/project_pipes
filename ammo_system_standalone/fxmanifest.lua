@@ -27,6 +27,8 @@ version '1.0.0'
     - 9mm (Pistols): FMJ, HP, AP
     - .45 ACP (Pistols): FMJ, JHP
     - .40 S&W (Pistols): FMJ, JHP
+    - .357 Magnum (Revolvers): FMJ, JHP
+    - .38 Special (Revolvers): FMJ, JHP
     - Future: 5.56 NATO, 7.62x39, 12 Gauge, etc.
 
     AMMO EFFECTS:
@@ -62,6 +64,12 @@ files {
     -- .40 S&W Ammunition
     'meta/ammo_40sw.meta',
     'meta/weaponcomponents_40sw.meta',
+    -- .357 Magnum Ammunition
+    'meta/ammo_357mag.meta',
+    'meta/weaponcomponents_357mag.meta',
+    -- .38 Special Ammunition
+    'meta/ammo_38spl.meta',
+    'meta/weaponcomponents_38spl.meta',
     -- Future calibers:
     -- 'meta/ammo_12ga.meta',
     -- 'meta/weaponcomponents_12ga.meta',
@@ -77,6 +85,12 @@ data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_45acp.meta'
 -- .40 S&W
 data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_40sw.meta'
 data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_40sw.meta'
+-- .357 Magnum
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_357mag.meta'
+data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_357mag.meta'
+-- .38 Special
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_38spl.meta'
+data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_38spl.meta'
 -- Future calibers:
 -- data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_12ga.meta'
 -- data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_12ga.meta'

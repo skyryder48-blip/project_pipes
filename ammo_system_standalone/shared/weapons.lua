@@ -122,6 +122,14 @@ Config.Weapons = {
         clipSize = 17,
     },
 
+    -- Walther P88 - Premium German 9mm (16 rounds, 4.0" barrel)
+    -- Best accuracy of any 9mm, heavy frame absorbs recoil
+    [`WEAPON_WALTHERP88`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_WALTHERP88',
+        clipSize = 16,
+    },
+
     -- ======================================================================
     -- BATCH 1: COMPACT 9mm PISTOLS
     -- ======================================================================
@@ -276,6 +284,113 @@ Config.Weapons = {
         caliber = '.38spl',
         componentBase = 'COMPONENT_SW_MODEL15',
         clipSize = 6,
+    },
+
+    -- ======================================================================
+    -- BATCH 6: .44 MAGNUM & .500 S&W MAGNUM REVOLVERS
+    -- ======================================================================
+
+    -- S&W Model 29 "Dirty Harry" - .44 Magnum (6 rounds, 6.5" barrel)
+    [`WEAPON_SWMODEL29`] = {
+        caliber = '.44mag',
+        componentBase = 'COMPONENT_SWMODEL29',
+        clipSize = 6,
+    },
+
+    -- Taurus Raging Bull - .44 Magnum Ported (6 rounds, 6.5" barrel)
+    -- Factory porting reduces recoil, slightly lower velocity
+    [`WEAPON_RAGINGBULL`] = {
+        caliber = '.44mag',
+        componentBase = 'COMPONENT_RAGINGBULL',
+        clipSize = 6,
+    },
+
+    -- S&W 657 - .41 Magnum (uses .357 ammo, 6 rounds, 6" barrel)
+    -- The "forgotten magnum" - .41 Mag ballistics, .357 Mag ammo system
+    [`WEAPON_SW657`] = {
+        caliber = '.357mag',
+        componentBase = 'COMPONENT_SW657',
+        clipSize = 6,
+    },
+
+    -- S&W Model 500 - .500 S&W Magnum (5 rounds, 6.5" barrel)
+    -- THE MOST POWERFUL PRODUCTION REVOLVER - rifle-equivalent energy
+    [`WEAPON_SW500`] = {
+        caliber = '.500sw',
+        componentBase = 'COMPONENT_SW500',
+        clipSize = 5,
+    },
+
+    -- ======================================================================
+    -- BATCH 7: 5.7x28mm PDW PISTOLS
+    -- ======================================================================
+
+    -- FN Five-seveN - Premium 5.7x28mm (20 rounds, 4.8" barrel)
+    -- Original PDW pistol, lightweight polymer frame, fast handling
+    [`WEAPON_FN57`] = {
+        caliber = '5.7x28',
+        componentBase = 'COMPONENT_FIVESEVEN',
+        clipSize = 20,
+    },
+
+    -- Ruger-57 - Value 5.7x28mm (20 rounds, 4.94" barrel)
+    -- American alternative, heavier frame, superior accuracy
+    [`WEAPON_RUGER57`] = {
+        caliber = '5.7x28',
+        componentBase = 'COMPONENT_RUGER57',
+        clipSize = 20,
+    },
+
+    -- ======================================================================
+    -- BATCH 8: .22 LR RIMFIRE PISTOLS
+    -- Lowest power handgun cartridge: 80-115 ft-lbs from pistol barrels
+    -- Compensated by: Minimal recoil, high capacity, high headshot multipliers
+    -- ======================================================================
+
+    -- Walther P22 Standard - Budget Trainer (10 rounds, 3.42" barrel)
+    -- DA/SA operation, zinc slide, entry-level rimfire
+    [`WEAPON_P22`] = {
+        caliber = '.22lr',
+        componentBase = 'COMPONENT_P22',
+        clipSize = 10,
+    },
+
+    -- SIG P22 (Walther P22 Budget) - Entry Trainer (10 rounds, 3.42" barrel)
+    -- Budget variant with slightly lower performance
+    [`WEAPON_SIGP22`] = {
+        caliber = '.22lr',
+        componentBase = 'COMPONENT_SIGP22',
+        clipSize = 10,
+    },
+
+    -- FN 502 Tactical - Premium Precision (15 rounds, 4.6" barrel)
+    -- Best accuracy in .22 LR, optics-ready, threaded barrel
+    [`WEAPON_FN502`] = {
+        caliber = '.22lr',
+        componentBase = 'COMPONENT_FN502',
+        clipSize = 15,
+    },
+
+    -- Kel-Tec PMR-30 - High-Capacity Magnum (30 rounds, 4.3" barrel)
+    -- .22 WMR ballistics (160 ft-lbs), ultra-light, significant muzzle flash
+    [`WEAPON_PMR30`] = {
+        caliber = '.22lr',
+        componentBase = 'COMPONENT_PMR30',
+        clipSize = 30,
+    },
+
+    -- ======================================================================
+    -- BATCH 10: 10mm AUTO PISTOLS
+    -- DUAL PERSONALITY: FBI-spec (~400 ft-lbs) vs Full-power (~650 ft-lbs)
+    -- 15+1 capacity semi-auto platform with magnum-class power
+    -- ======================================================================
+
+    -- Glock 20 Gen 4 - Full-Size 10mm (16 rounds, 4.61" barrel)
+    -- .357 Magnum energy with semi-auto capacity and reload speed
+    [`WEAPON_GLOCK20`] = {
+        caliber = '10mm',
+        componentBase = 'COMPONENT_GLOCK20',
+        clipSize = 16,
     },
 
     -- ======================================================================

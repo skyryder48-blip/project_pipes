@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  5.7x28mm Ammunition Definitions - CENTRALIZED
+  Used by ALL 5.7x28mm pistols (FN Five-seveN, Ruger-57)
+
+  HIGH-VELOCITY PDW CARTRIDGE (9mm = 45 FMJ base damage reference):
+  30% less recoil than 9mm, 20-round capacity, rifle-like velocity (1,650-2,200 fps)
+
+  DAMAGE RATIONALE:
+  5.7x28mm delivers 240-290 ft-lbs energy (60-70% of 9mm's 350-450 ft-lbs)
+  Compensated by: High velocity, 20+ round capacity, flat trajectory, faster follow-ups
+
+  FMJ (Civilian - SS197SR V-MAX): 28 dmg, 0.70 pen, 1,700 fps
+    - 40gr V-MAX hunting/sporting load, 12-15" penetration
+    - Fragmenting design, moderate barrier performance
+
+  JHP (Defense - Speer Gold Dot): 35 dmg (+25%), 0.55 pen, 1,800 fps
+    - 40gr Gold Dot, 12-20" penetration, 0.29-0.34" expansion
+    - BEST defensive choice, controlled expansion
+
+  AP (Restricted - SS190): 30 dmg, 0.96 pen, 2,100 fps
+    - 31gr steel penetrator, 315 ft-lbs energy
+    - DEFEATS Level IIIA soft armor from pistol
+    - Military/LE restricted, lighter bullet = less tissue damage
+
+  Load this resource BEFORE any 5.7x28mm weapon resources in server.cfg:
+    ensure ammo_system_standalone
+    ensure weapon_fiveseven
+    ensure weapon_ruger57
+    ...
+-->
+<CWeaponInfoBlob>
+  <Infos>
+    <Item>
+      <Infos>
+        <!-- ==================== 5.7x28mm FMJ (Civilian V-MAX) ==================== -->
+        <!-- SS197SR 40gr V-MAX: 1,700 fps, 250 ft-lbs, 12-15" penetration -->
+        <!-- 28 damage, 0.70 penetration - Primary sporting/hunting load -->
+        <!-- Fragmenting polymer tip design, meets FBI 12" minimum -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_57X28_FMJ</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="120" />
+          <AmmoMax50 value="120" />
+          <AmmoMax100 value="120" />
+          <AmmoMaxMP value="120" />
+          <AmmoMax50MP value="120" />
+          <AmmoMax100MP value="120" />
+          <AmmoFlags />
+          <AmmoSpecialType>None</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="0.700000" />
+          <PedRicochetTolerance value="0.700000" />
+          <VehicleRicochetTolerance value="0.800000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== 5.7x28mm JHP (Speer Gold Dot Defense) ==================== -->
+        <!-- Speer Gold Dot 40gr: 1,800 fps, 288 ft-lbs, 12-20" penetration -->
+        <!-- 35 damage (+25%), 0.55 penetration - BEST defensive choice -->
+        <!-- 0.29-0.34" expansion, consistent penetration through barriers -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_57X28_JHP</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="80" />
+          <AmmoMax50 value="80" />
+          <AmmoMax100 value="80" />
+          <AmmoMaxMP value="80" />
+          <AmmoMax50MP value="80" />
+          <AmmoMax100MP value="80" />
+          <AmmoFlags />
+          <AmmoSpecialType>HollowPoint</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="0.550000" />
+          <PedRicochetTolerance value="0.550000" />
+          <VehicleRicochetTolerance value="0.450000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== 5.7x28mm AP (SS190 Armor Piercing) ==================== -->
+        <!-- SS190 31gr Steel Penetrator: 2,100 fps, 315 ft-lbs -->
+        <!-- 30 damage, 0.96 penetration - DEFEATS Level IIIA soft armor -->
+        <!-- MILITARY/LE RESTRICTED - Black tip identification -->
+        <!-- Lighter bullet = less tissue damage but extreme penetration -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_57X28_AP</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="60" />
+          <AmmoMax50 value="60" />
+          <AmmoMax100 value="60" />
+          <AmmoMaxMP value="60" />
+          <AmmoMax50MP value="60" />
+          <AmmoMax100MP value="60" />
+          <AmmoFlags />
+          <AmmoSpecialType>ArmorPiercing</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="0.960000" />
+          <PedRicochetTolerance value="0.960000" />
+          <VehicleRicochetTolerance value="0.920000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+  <n>5.7x28mm Ammunition Types</n>
+</CWeaponInfoBlob>

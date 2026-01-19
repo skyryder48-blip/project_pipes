@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  .22 LR Ammunition Definitions - CENTRALIZED
+  Used by ALL .22 LR rimfire pistols (Walther P22, SIG P22, FN 502, PMR-30)
+
+  RIMFIRE CARTRIDGE - LOWEST POWER HANDGUN ROUND:
+  Pistol barrels (3-5") produce 200-400 fps LESS than advertised rifle specs
+  Actual energy: 80-115 ft-lbs from pistol barrels (compare: 9mm = 350-400 ft-lbs)
+
+  TERMINAL BALLISTICS NOTE:
+  - Hollow points RARELY expand from pistol-length barrels
+  - Penetration rather than expansion drives terminal effect
+  - High headshot multipliers compensate for low base damage
+
+  FMJ (Standard - CCI Mini-Mag): 12-15 dmg base, 0.50 pen, ~1,000 fps
+    - 40gr round nose/solid, 12-15" gel penetration
+    - Reliable cycling in semi-autos
+    - Good for suppressor use
+
+  JHP (High Velocity - CCI Velocitor): +20% dmg, 0.35 pen, ~1,100 fps
+    - 40gr HP, 15-16" penetration but MINIMAL expansion from short barrels
+    - Lucky Gunner testing: CCI Velocitor = 0" expansion, 15.58" penetration
+    - Higher energy compensates, reduced barrier performance
+
+  PMR-30 NOTE: Uses .22 WMR ballistics (~160 ft-lbs) but same ammo system
+  for gameplay simplicity. Damage differentiation in weapon stats.
+
+  Load this resource BEFORE any .22 LR weapon resources in server.cfg:
+    ensure ammo_system_standalone
+    ensure weapon_p22
+    ensure weapon_sig_p22
+    ensure weapon_fn502
+    ensure weapon_pmr30
+    ...
+-->
+<CWeaponInfoBlob>
+  <Infos>
+    <Item>
+      <Infos>
+        <!-- ==================== .22 LR FMJ (CCI Mini-Mag Standard) ==================== -->
+        <!-- CCI Mini-Mag 40gr: ~1,000 fps from 4" barrel, 90 ft-lbs -->
+        <!-- 12-15 damage baseline, 0.50 penetration -->
+        <!-- Good for suppressor use, reliable cycling -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_22LR_FMJ</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="200" />
+          <AmmoMax50 value="200" />
+          <AmmoMax100 value="200" />
+          <AmmoMaxMP value="200" />
+          <AmmoMax50MP value="200" />
+          <AmmoMax100MP value="200" />
+          <AmmoFlags />
+          <AmmoSpecialType>None</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="0.500000" />
+          <PedRicochetTolerance value="0.500000" />
+          <VehicleRicochetTolerance value="0.400000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== .22 LR JHP (CCI Velocitor High Velocity) ==================== -->
+        <!-- CCI Velocitor 40gr: ~1,100 fps from 4" barrel, 111 ft-lbs -->
+        <!-- +20% damage, 0.35 penetration - hollow points DON'T expand from pistols -->
+        <!-- Lucky Gunner: 15.58" penetration, 0" expansion through denim -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_22LR_JHP</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="150" />
+          <AmmoMax50 value="150" />
+          <AmmoMax100 value="150" />
+          <AmmoMaxMP value="150" />
+          <AmmoMax50MP value="150" />
+          <AmmoMax100MP value="150" />
+          <AmmoFlags />
+          <AmmoSpecialType>HollowPoint</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="0.350000" />
+          <PedRicochetTolerance value="0.350000" />
+          <VehicleRicochetTolerance value="0.250000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+  <n>.22 LR Ammunition Types</n>
+</CWeaponInfoBlob>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  10mm Auto Weapon Components - Magazine Definitions
+  Used by ALL 10mm Auto pistols
+
+  Component Naming Convention:
+  COMPONENT_[WEAPON]_CLIP_[AMMOTYPE]
+
+  Ammo Types:
+  - FBI: FBI Service load (180gr @ 1,000 fps) - 42 damage baseline
+  - FULLPOWER: Full power JHP (180gr @ 1,300 fps) - 52 damage (+24%)
+  - BEAR: Bear Defense hard cast (220gr @ 1,200 fps) - 50 damage, max penetration
+
+  Weapons:
+  - GLOCK20 (Glock 20 Gen 4) - 16 rounds (15+1), full-size 10mm
+  - Future: Glock 29 (10+1), Glock 40 MOS (15+1)
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+    <!-- ================================================================== -->
+    <!-- GLOCK 20 GEN 4 - Full-Size 10mm Auto (16 rounds)                   -->
+    <!-- 4.61" barrel, large frame, dual captive recoil spring              -->
+    <!-- Premium for woods carry, hunting, bear defense                      -->
+    <!-- ================================================================== -->
+
+    <!-- FBI Service - Standard 180gr @ 1,000 fps (~400 ft-lbs) -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_GLOCK20_CLIP_FBI</n>
+      <Model />
+      <LocName>WCT_CLIP_FBI</LocName>
+      <LocDesc>WCD_CLIP_10FBI</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="false" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="0" />
+      <ClipSize value="16" />
+      <AmmoInfo ref="AMMO_10MM_FBI" />
+    </Item>
+
+    <!-- Full Power - Premium 180gr @ 1,300 fps (~650 ft-lbs) -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_GLOCK20_CLIP_FULLPOWER</n>
+      <Model />
+      <LocName>WCT_CLIP_FULLPOWER</LocName>
+      <LocDesc>WCD_CLIP_10FP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="1.240000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="24" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="-5" />
+      <HudRange value="5" />
+      <ClipSize value="16" />
+      <AmmoInfo ref="AMMO_10MM_FULLPOWER" />
+    </Item>
+
+    <!-- Bear Defense - Hard Cast 220gr @ 1,200 fps (~700 ft-lbs) -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_GLOCK20_CLIP_BEAR</n>
+      <Model />
+      <LocName>WCT_CLIP_BEAR</LocName>
+      <LocDesc>WCD_CLIP_10BEAR</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="1.190000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="19" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="-10" />
+      <HudRange value="10" />
+      <ClipSize value="16" />
+      <AmmoInfo ref="AMMO_10MM_BEAR" />
+    </Item>
+
+  </Infos>
+  <n>10mm Auto Magazine Components</n>
+</CWeaponComponentInfoBlob>

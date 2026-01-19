@@ -1,7 +1,7 @@
 --[[
     Smith & Wesson Model 500 - .500 S&W Magnum
     Batch 6: Large Caliber Magnum Revolvers
-    
+
     THE MOST POWERFUL PRODUCTION REVOLVER
     6.5" barrel with compensator, X-Frame, 5-round capacity
     350gr XTP hunting loads - rifle-equivalent energy
@@ -17,7 +17,13 @@ version '1.0.0'
 client_script 'cl_weaponNames.lua'
 
 files {
-    'meta/weapons.meta'
+    'meta/weapon_sw500.meta',
+    'meta/weaponarchetypes.meta',
+    'meta/weaponanimations.meta',
+    'meta/pedpersonality.meta',
 }
 
-data_file 'WEAPONINFO_FILE' 'meta/weapons.meta'
+data_file 'WEAPONINFO_FILE' 'meta/weapon_sw500.meta'
+data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'
+data_file 'WEAPON_ANIMATIONS_FILE' 'meta/weaponanimations.meta'
+data_file 'PED_PERSONALITY_FILE' 'meta/pedpersonality.meta'

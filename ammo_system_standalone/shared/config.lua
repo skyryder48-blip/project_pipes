@@ -190,6 +190,85 @@ Config.AmmoTypes = {
         },
     },
 
+    -- ==================== 5.7x28mm AMMUNITION ====================
+    -- PDW Caliber: FN Five-seveN, Ruger-57
+    -- High velocity (1,650-2,200 fps), low recoil (30% less than 9mm)
+    -- 20-round standard capacity, flat trajectory, 60-70% of 9mm energy
+    ['5.7x28'] = {
+        ['fmj'] = {
+            item = 'ammo_57x28_fmj',
+            label = '5.7x28mm FMJ',
+            componentSuffix = '_CLIP_FMJ',
+            ammoInfo = 'AMMO_57X28_FMJ',
+            description = '5.7x28mm V-MAX. 28 damage, 0.70 penetration. 1,700 fps, civilian hunting/sporting load.',
+        },
+        ['jhp'] = {
+            item = 'ammo_57x28_jhp',
+            label = '5.7x28mm JHP',
+            componentSuffix = '_CLIP_JHP',
+            ammoInfo = 'AMMO_57X28_JHP',
+            description = '5.7x28mm Gold Dot. 35 damage (+25%), 0.55 penetration. BEST defensive choice - controlled expansion.',
+        },
+        ['ap'] = {
+            item = 'ammo_57x28_ap',
+            label = '5.7x28mm AP',
+            componentSuffix = '_CLIP_AP',
+            ammoInfo = 'AMMO_57X28_AP',
+            description = '5.7x28mm SS190 AP. 30 damage, 0.96 penetration. DEFEATS Level IIIA armor. Military/LE restricted.',
+        },
+    },
+
+    -- ==================== 10mm AUTO AMMUNITION ====================
+    -- Batch 10: Full-Power 10mm Pistols (Glock 20)
+    -- DUAL PERSONALITY: FBI-spec (~400 ft-lbs) vs Full-power (~650 ft-lbs)
+    -- FBI-spec = .40 S&W equivalent, Full-power = .357 Magnum equivalent
+    -- 15+1 capacity in semi-auto platform with magnum-class power
+    ['10mm'] = {
+        ['fbi'] = {
+            item = 'ammo_10mm_fbi',
+            label = '10mm FBI Service',
+            componentSuffix = '_CLIP_FBI',
+            ammoInfo = 'AMMO_10MM_FBI',
+            description = '10mm FBI-spec 180gr @ 1,000 fps. 42 damage, 0.72 penetration. = .40 S&W ballistics.',
+        },
+        ['fullpower'] = {
+            item = 'ammo_10mm_fullpower',
+            label = '10mm Full Power',
+            componentSuffix = '_CLIP_FULLPOWER',
+            ammoInfo = 'AMMO_10MM_FULLPOWER',
+            description = '10mm Full Power 180gr @ 1,300 fps. 52 damage (+24%), 0.65 penetration. = .357 Magnum.',
+        },
+        ['bear'] = {
+            item = 'ammo_10mm_bear',
+            label = '10mm Bear Defense',
+            componentSuffix = '_CLIP_BEAR',
+            ammoInfo = 'AMMO_10MM_BEAR',
+            description = '10mm Hard Cast 220gr @ 1,200 fps. 50 damage, 0.95 penetration. 32"+ gel penetration.',
+        },
+    },
+
+    -- ==================== .22 LR AMMUNITION ====================
+    -- Batch 8: Rimfire Pistols (P22, SIG P22, FN 502, PMR-30)
+    -- LOWEST POWER handgun cartridge: 80-115 ft-lbs from pistol barrels
+    -- Minimal recoil, high capacity, high headshot multipliers compensate
+    -- PMR-30 uses .22 WMR ballistics (160 ft-lbs) but same ammo system
+    ['.22lr'] = {
+        ['fmj'] = {
+            item = 'ammo_22lr_fmj',
+            label = '.22 LR FMJ',
+            componentSuffix = '_CLIP_FMJ',
+            ammoInfo = 'AMMO_22LR_FMJ',
+            description = '.22 LR CCI Mini-Mag. 12-15 damage, 0.50 penetration. ~1,000 fps, suppressor-friendly.',
+        },
+        ['jhp'] = {
+            item = 'ammo_22lr_jhp',
+            label = '.22 LR JHP',
+            componentSuffix = '_CLIP_JHP',
+            ammoInfo = 'AMMO_22LR_JHP',
+            description = '.22 LR CCI Velocitor. +20% damage, 0.35 penetration. HP rarely expands from short barrels.',
+        },
+    },
+
     -- ==================== FUTURE CALIBERS ====================
     -- Uncomment and configure when adding new calibers
 
@@ -236,5 +315,8 @@ Config.DefaultAmmoType = {
     ['.38spl'] = 'fmj',
     ['.44mag'] = 'fmj',
     ['.500sw'] = 'fmj',
+    ['5.7x28'] = 'fmj',
+    ['10mm'] = 'fbi',
+    ['.22lr'] = 'fmj',
     ['12ga'] = 'buckshot',
 }

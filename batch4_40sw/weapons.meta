@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_G22_GEN4</n>
+      <Model>w_pi_g22_gen4</Model>
+      <Audio>AUDIO_PISTOL</Audio>
+      <Slot>SLOT_UNARMED</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURWEAPONWHEEL</WheelSlot>
+      <Group>YOURWEAPONWHEEL</Group>
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+      <AimingInfo ref="YOURWEAPONAIMINGINFO" />
+      
+      <!-- GLOCK 22 GEN 4 -->
+      <!-- 4.49" barrel, 22.75 oz polymer frame -->
+      <!-- .40 S&W - The law enforcement standard (65-70% market share) -->
+      <!-- Dual recoil spring system, interchangeable backstraps -->
+      <!-- Known for "snappy" recoil characteristic -->
+      
+      <!-- Damage: 36 - Between 9mm (34) and .45 ACP (38) -->
+      <!-- .40 S&W delivers 28% more energy than 9mm -->
+      <!-- 3 shots close, 7 shots at range to kill (100 HP) -->
+      <Damage value="36.000000" />
+      
+      <!-- Muzzle velocity: 1,050-1,150 fps (165gr) = ~320 m/s -->
+      <!-- Higher velocity than .45 ACP due to 35,000 psi pressure -->
+      <Speed value="320.000000" />
+      
+      <!-- Force and physics -->
+      <Force value="145.000000" />
+      <ForceHitPed value="115.000000" />
+      <ForceHitVehicle value="78.000000" />
+      <ForceHitFlyingHeli value="48.000000" />
+      
+      <!-- Damage falloff: Full damage to 12m, min damage at 42m -->
+      <!-- Better velocity retention than .45 ACP -->
+      <DamageFallOffRangeMin value="12.000000" />
+      <DamageFallOffRangeMax value="42.000000" />
+      <DamageFallOffModifier value="0.370000" />
+      
+      <!-- Headshot: 2.90x multiplier -->
+      <HeadShotDamageModifierPlayer value="2.900000" />
+      <MaxHeadShotDistancePlayer value="8.000000" />
+      
+      <!-- Limb damage modifiers -->
+      <HitLimbsDamageModifier value="0.500000" />
+      <NetworkHitLimbsDamageModifier value="0.800000" />
+      <LightlyArmouredDamageModifier value="1.000000" />
+      <NetworkPlayerDamageModifier value="1.000000" />
+      
+      <!-- Penetration: .40 S&W moderate-high penetration -->
+      <!-- High pressure creates good barrier penetration -->
+      <Penetration value="0.220000" />
+      
+      <!-- Weapon range -->
+      <WeaponRange value="90.000000" />
+      
+      <!-- Fire rate: Semi-auto, ~240 RPM practical -->
+      <!-- Snappy recoil slows split times vs 9mm -->
+      <TimeBetweenShots value="0.250000" />
+      
+      <!-- Recoil: SNAPPY - Higher than 9mm, sharper than .45 -->
+      <!-- 35,000 psi creates abrupt pressure spike -->
+      <!-- 25-40% more felt recoil than equivalent 9mm -->
+      <RecoilShakeAmplitude value="0.295000" />
+      <RecoilShakeFrequency value="0.720000" />
+      <RecoilShakeHash value="RECOIL_PISTOL" />
+      
+      <!-- Accuracy: Good duty pistol accuracy -->
+      <!-- 6.50" sight radius, polymer frame flex -->
+      <AccuracySpread value="1.050000" />
+      <AccurateModeAccuracyModifier value="0.380000" />
+      <RunAndGunAccuracyModifier value="0.780000" />
+      
+      <!-- Recovery: Dual recoil spring helps tame snap -->
+      <!-- Still slower recovery than 9mm due to sharper impulse -->
+      <RecoilAccuracyMax value="2.400000" />
+      <RecoilErrorTime value="0.420000" />
+      <RecoilRecoveryRate value="0.900000" />
+      
+      <!-- Reload times -->
+      <ReloadTimeModifier value="0.950000" />
+      
+      <!-- Weapon flags -->
+      <Flags>AllowRandomMuzzleFx FirstPersonScope MuzzleFlash CanBeWashedOff</Flags>
+      
+      <!-- HUD and UI -->
+      <HudDamage value="2.100000" />
+      <HudSpeed value="2.100000" />
+      <HudCapacity value="1.800000" />
+      <HudAccuracy value="1.900000" />
+      <HudRange value="1.700000" />
+      
+      <HumanNameHash>WT_G22_GEN4</HumanNameHash>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

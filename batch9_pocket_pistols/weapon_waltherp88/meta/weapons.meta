@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    WALTHER P88 (9mm Luger)
+    =======================
+    1980s German engineering excess - premium accuracy, commercial failure
+    
+    Real-World Specs:
+    - Barrel: 4"
+    - Weight: 31.5 oz empty (38+ oz loaded)
+    - Capacity: 15+1
+    - Muzzle Velocity: 1,100-1,200 fps (115gr), 950-1,000 fps (147gr)
+    - Muzzle Energy: 350-400 ft-lbs
+    - DA/SA Trigger: 10-12 lb DA, 4.5-5 lb SA
+    - Production: 1987-1996 (~10,000 units)
+    - Value: $1,000-1,500 (collectors)
+    
+    Ballistic Notes:
+    - Full 9mm performance from 4" barrel
+    - Developed for US Army XM9 trials
+    - Frame cracking after 7,000 rounds led to rejection
+    - Exceptional accuracy due to fixed barrel lockup
+    - Cost 1,800 DM (2x competitors)
+    
+    Game Balance:
+    - Damage: 34 (standard 9mm baseline)
+    - 3 shots close, 8 at range
+    - Best accuracy of 9mm pistols (premium gun)
+    - Higher recoil recovery (heavier frame)
+    - Standard 9mm baseline for server
+-->
+<CWeaponInfoBlob>
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_WALTHERP88</n>
+      <Model>w_pi_waltherp88</Model>
+      <Audio>AUDIO_PISTOL</Audio>
+      <Slot>SLOT_UNARMED</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURWEAPON</WheelSlot>
+      <Group>YOURWEAPON</Group>
+      <MovementModeConditionalIdle>1</MovementModeConditionalIdle>
+      <AmmoInfo ref="AMMO_PISTOL" />
+      <AimingInfo ref="YOURWEAPON" />
+      <ClipSize value="16" />
+      <AccuracySpread value="0.90" />
+      <AccurateModeAccuracyModifier value="0.25" />
+      <RunAndGunAccuracyModifier value="0.50" />
+      
+      <!-- DAMAGE: 9mm = 350-400 ft-lbs = baseline 34 -->
+      <!-- 34 damage = 3 body shots close, 8 at range -->
+      <Damage value="34.000000" />
+      <DamageType>BULLET</DamageType>
+      <DamageFallOffRangeMin value="15.000000" />
+      <DamageFallOffRangeMax value="50.000000" />
+      <DamageFallOffModifier value="0.380000" />
+      
+      <!-- HEADSHOTS: 1 shot point blank, 2+ from 7+ units -->
+      <!-- 34 × 3.0 = 102 damage -->
+      <HeadShotDamageModifierPlayer value="3.000000" />
+      <HeadShotDamageModifierAI value="5.000000" />
+      <MinHeadShotDistancePlayer value="0.000000" />
+      <MaxHeadShotDistancePlayer value="7.000000" />
+      
+      <!-- LIMB DAMAGE -->
+      <HitLimbsDamageModifier value="0.500000" />
+      <NetworkHitLimbsDamageModifier value="0.800000" />
+      <NetworkPlayerDamageModifier value="1.000000" />
+      <NetworkPedDamageModifier value="1.000000" />
+      
+      <!-- VELOCITY: ~365 m/s standard 9mm from 4" barrel -->
+      <Speed value="365.000000" />
+      <BulletsInBatch value="1" />
+      <BatchSpread value="0.000000" />
+      <WeaponRange value="100.000000" />
+      
+      <!-- FIRE RATE: DA/SA, ~200 RPM practical -->
+      <!-- Excellent SA trigger (4.5-5 lb) allows rapid accurate fire -->
+      <TimeBetweenShots value="0.300000" />
+      <ForceShootOnGround value="false" />
+      <BulletInPeriod value="1" />
+      
+      <!-- RECOIL: Low-moderate - heavy frame (31.5 oz) absorbs well -->
+      <!-- Premium gun with excellent controllability -->
+      <RecoilShakeAmplitude value="0.180000" />
+      <RecoilShakeFrequency value="0.000000" />
+      <RecoilShakeRumbleDuration value="350.000000" />
+      <RecoilErrorTime value="0.200000" />
+      <RecoilRecoveryTime value="0.140000" />
+      <RecoilAccuracyMax value="1.400000" />
+      <RecoilMagnitude value="0.190000" />
+      <RecoilRecoveryRate value="1.300000" />
+      <RecoilEnduranceTime value="0.550000" />
+      
+      <!-- PENETRATION: Standard 9mm -->
+      <Penetration value="0.150000" />
+      <ArmorPenetration value="0.150000" />
+      
+      <!-- PHYSICS FORCE -->
+      <Force value="50.000000" />
+      <ForceHitPed value="40.000000" />
+      <ForceOnPlayer value="35.000000" />
+      <ForceMaxStrengthMult value="1.200000" />
+      <ForceFalloffRangeStart value="10.000000" />
+      <ForceFalloffRangeEnd value="45.000000" />
+      <ForceFalloffMin value="0.500000" />
+      
+      <!-- HANDLING -->
+      <AnimStyle>Pistol</AnimStyle>
+      <HumanNameHash>WT_WALTHERP88</HumanNameHash>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

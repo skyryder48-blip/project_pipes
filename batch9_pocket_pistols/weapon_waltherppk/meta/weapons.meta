@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    WALTHER PPK (.380 ACP)
+    ======================
+    Cinema's most iconic concealment pistol - "delivery like a brick through plate glass"
+    
+    Real-World Specs:
+    - Barrel: 3.3"
+    - Weight: 19 oz empty
+    - Capacity: 6+1 (.380 ACP)
+    - Muzzle Velocity: 880-950 fps (90gr)
+    - Muzzle Energy: 170-220 ft-lbs
+    - DA/SA Trigger: 13.4 lb DA, 6.1 lb SA
+    - Production: 1931-present
+    - MSRP: $969 (current Fort Smith)
+    
+    Ballistic Notes:
+    - .380 ACP = minimum recommended defensive caliber
+    - ~60% of 9mm energy
+    - FBI gel: 13-14" penetration with quality JHP
+    - Straight blowback = more felt recoil than locked breech
+    - Notorious for slide bite on older models
+    
+    Game Balance:
+    - Damage: 20 (60% of 9mm baseline)
+    - 5 shots close, 10 at range
+    - Heavy first DA pull reflected in accuracy
+    - Higher recoil than P238 (blowback vs locked breech)
+-->
+<CWeaponInfoBlob>
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_WALTHERPPK</n>
+      <Model>w_pi_waltherppk</Model>
+      <Audio>AUDIO_PISTOL</Audio>
+      <Slot>SLOT_UNARMED</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURWEAPON</WheelSlot>
+      <Group>YOURWEAPON</Group>
+      <MovementModeConditionalIdle>1</MovementModeConditionalIdle>
+      <AmmoInfo ref="AMMO_PISTOL" />
+      <AimingInfo ref="YOURWEAPON" />
+      <ClipSize value="7" />
+      <AccuracySpread value="1.40" />
+      <AccurateModeAccuracyModifier value="0.40" />
+      <RunAndGunAccuracyModifier value="0.60" />
+      
+      <!-- DAMAGE: .380 ACP = ~190 ft-lbs = 60% of 9mm -->
+      <!-- 20 damage = 5 body shots close, 10 at range -->
+      <Damage value="20.000000" />
+      <DamageType>BULLET</DamageType>
+      <DamageFallOffRangeMin value="8.000000" />
+      <DamageFallOffRangeMax value="35.000000" />
+      <DamageFallOffModifier value="0.500000" />
+      
+      <!-- HEADSHOTS: 1 shot point blank, 2 from 5+ units -->
+      <!-- 20 × 5.5 = 110 damage -->
+      <HeadShotDamageModifierPlayer value="5.500000" />
+      <HeadShotDamageModifierAI value="7.000000" />
+      <MinHeadShotDistancePlayer value="0.000000" />
+      <MaxHeadShotDistancePlayer value="5.000000" />
+      
+      <!-- LIMB DAMAGE -->
+      <HitLimbsDamageModifier value="0.500000" />
+      <NetworkHitLimbsDamageModifier value="0.800000" />
+      <NetworkPlayerDamageModifier value="1.000000" />
+      <NetworkPedDamageModifier value="1.000000" />
+      
+      <!-- VELOCITY: ~290 m/s from 3.3" barrel -->
+      <Speed value="290.000000" />
+      <BulletsInBatch value="1" />
+      <BatchSpread value="0.000000" />
+      <WeaponRange value="70.000000" />
+      
+      <!-- FIRE RATE: DA/SA, ~160 RPM practical -->
+      <!-- Heavy DA pull (13.4 lb) limits rapid accurate fire -->
+      <TimeBetweenShots value="0.375000" />
+      <ForceShootOnGround value="false" />
+      <BulletInPeriod value="1" />
+      
+      <!-- RECOIL: Moderate - straight blowback at 19 oz -->
+      <!-- More felt recoil than heavier or locked-breech guns -->
+      <RecoilShakeAmplitude value="0.180000" />
+      <RecoilShakeFrequency value="0.000000" />
+      <RecoilShakeRumbleDuration value="350.000000" />
+      <RecoilErrorTime value="0.200000" />
+      <RecoilRecoveryTime value="0.150000" />
+      <RecoilAccuracyMax value="1.500000" />
+      <RecoilMagnitude value="0.200000" />
+      <RecoilRecoveryRate value="1.200000" />
+      <RecoilEnduranceTime value="0.500000" />
+      
+      <!-- PENETRATION: Low - .380 ACP marginal penetration -->
+      <Penetration value="0.100000" />
+      <ArmorPenetration value="0.100000" />
+      
+      <!-- PHYSICS FORCE -->
+      <Force value="35.000000" />
+      <ForceHitPed value="25.000000" />
+      <ForceOnPlayer value="20.000000" />
+      <ForceMaxStrengthMult value="1.000000" />
+      <ForceFalloffRangeStart value="5.000000" />
+      <ForceFalloffRangeEnd value="30.000000" />
+      <ForceFalloffMin value="0.500000" />
+      
+      <!-- HANDLING -->
+      <AnimStyle>Pistol</AnimStyle>
+      <HumanNameHash>WT_WALTHERPPK</HumanNameHash>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

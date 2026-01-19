@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    COLT JUNIOR (.25 ACP)
+    =====================
+    Deep concealment "gentleman's gun" - marginal terminal performance
+    
+    Real-World Specs:
+    - Barrel: 2.25"
+    - Weight: 12-13 oz empty
+    - Capacity: 6+1
+    - Muzzle Velocity: 753-780 fps (50gr FMJ)
+    - Muzzle Energy: 63-65 ft-lbs
+    - Production: 1958-1973 (~160,000 units)
+    
+    Ballistic Notes:
+    - .25 ACP operates at 1/5 the energy of 9mm
+    - FBI gel: 11-12" penetration, no expansion
+    - 35% failure to incapacitate rate (highest of any caliber)
+    - Essentially a "better than nothing" caliber
+    
+    Game Balance:
+    - Damage: 8 (1/5 of 9mm baseline)
+    - Very short effective range
+    - Minimal recoil (easy follow-up shots)
+    - High headshot multiplier to compensate for weak body shots
+-->
+<CWeaponInfoBlob>
+  <Infos>
+    <Item type="CWeaponInfo">
+      <Name>WEAPON_COLTJUNIOR</Name>
+      <Model>w_pi_coltjunior</Model>
+      <Audio>AUDIO_PISTOL</Audio>
+      <Slot>SLOT_UNARMED</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURWEAPON</WheelSlot>
+      <Group>YOURWEAPON</Group>
+      <MovementModeConditionalIdle>1</MovementModeConditionalIdle>
+      <AmmoInfo ref="AMMO_PISTOL" />
+      <AimingInfo ref="YOURWEAPON" />
+      <ClipSize value="7" />
+      <AccuracySpread value="2.20" />
+      <AccurateModeAccuracyModifier value="0.35" />
+      <RunAndGunAccuracyModifier value="0.55" />
+      
+      <!-- DAMAGE: .25 ACP = ~65 ft-lbs = 1/5 of 9mm -->
+      <!-- 8 damage = 13 body shots close, 26+ at range -->
+      <Damage value="8.000000" />
+      <DamageType>BULLET</DamageType>
+      <DamageFallOffRangeMin value="5.000000" />
+      <DamageFallOffRangeMax value="25.000000" />
+      <DamageFallOffModifier value="0.500000" />
+      
+      <!-- HEADSHOTS: High multiplier to make headshots viable -->
+      <!-- 8 × 8.0 = 64 damage, needs 2 headshots even close -->
+      <HeadShotDamageModifierPlayer value="8.000000" />
+      <HeadShotDamageModifierAI value="10.000000" />
+      <MinHeadShotDistancePlayer value="0.000000" />
+      <MaxHeadShotDistancePlayer value="4.000000" />
+      
+      <!-- LIMB DAMAGE -->
+      <HitLimbsDamageModifier value="0.500000" />
+      <NetworkHitLimbsDamageModifier value="0.800000" />
+      <NetworkPlayerDamageModifier value="1.000000" />
+      <NetworkPedDamageModifier value="1.000000" />
+      
+      <!-- VELOCITY: ~240 m/s from 2.25" barrel -->
+      <Speed value="240.000000" />
+      <BulletsInBatch value="1" />
+      <BatchSpread value="0.000000" />
+      <WeaponRange value="50.000000" />
+      
+      <!-- FIRE RATE: SA only, ~200 RPM practical -->
+      <TimeBetweenShots value="0.300000" />
+      <ForceShootOnGround value="false" />
+      <BulletInPeriod value="1" />
+      
+      <!-- RECOIL: Negligible - .25 ACP has almost no felt recoil -->
+      <RecoilShakeAmplitude value="0.030000" />
+      <RecoilShakeFrequency value="0.000000" />
+      <RecoilShakeRumbleDuration value="250.000000" />
+      <RecoilErrorTime value="0.150000" />
+      <RecoilRecoveryTime value="0.100000" />
+      <RecoilAccuracyMax value="1.200000" />
+      <RecoilMagnitude value="0.080000" />
+      <RecoilRecoveryRate value="1.500000" />
+      <RecoilEnduranceTime value="0.400000" />
+      
+      <!-- PENETRATION: Minimal - FMJ may penetrate but won't expand -->
+      <Penetration value="0.050000" />
+      <ArmorPenetration value="0.050000" />
+      
+      <!-- PHYSICS FORCE: Very light projectile -->
+      <Force value="15.000000" />
+      <ForceHitPed value="10.000000" />
+      <ForceOnPlayer value="8.000000" />
+      <ForceMaxStrengthMult value="0.800000" />
+      <ForceFalloffRangeStart value="3.000000" />
+      <ForceFalloffRangeEnd value="18.000000" />
+      <ForceFalloffMin value="0.400000" />
+      
+      <!-- HANDLING -->
+      <AnimStyle>Pistol</AnimStyle>
+      <HumanNameHash>WT_COLTJUNIOR</HumanNameHash>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

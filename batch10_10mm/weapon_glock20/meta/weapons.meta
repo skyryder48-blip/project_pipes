@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    GLOCK 20 GEN 4 (10mm Auto)
+    ==========================
+    Full-power 10mm semi-automatic - .357 Magnum energy with 15+1 capacity
+    
+    Real-World Specs:
+    - Barrel: 4.61"
+    - Weight: 27.51 oz empty, 39.54 oz loaded
+    - Capacity: 15+1
+    - Trigger: ~5.5 lbs (Safe Action)
+    - Muzzle Velocity: 1,200-1,300 fps (180gr full-power)
+    - Muzzle Energy: 575-680 ft-lbs (full-power loads)
+    - MSRP: ~$550-660 (street price)
+    
+    Ballistic Notes:
+    - 10mm has dual personality: FBI-spec (~400 ft-lbs) vs full-power (~650 ft-lbs)
+    - Full-power 10mm matches .357 Magnum from 4" barrel
+    - Recoil ~44% higher than .45 ACP (11.4 vs 7.9 ft-lbs recoil energy)
+    - FBI adopted then abandoned due to S&W 1076 issues and grip size
+    - Led directly to .40 S&W development (FBI-spec 10mm in shorter case)
+    
+    Game Balance (Full-Power Configuration):
+    - Damage: 50 (between .40 S&W at 36 and .357 Mag at 56)
+    - 2 shots close, 5 at range
+    - High recoil penalty balances high damage
+    - Best semi-auto stopping power outside of magnums
+-->
+<CWeaponInfoBlob>
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_GLOCK20</n>
+      <Model>w_pi_glock20</Model>
+      <Audio>AUDIO_PISTOL</Audio>
+      <Slot>SLOT_UNARMED</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURWEAPON</WheelSlot>
+      <Group>YOURWEAPON</Group>
+      <MovementModeConditionalIdle>1</MovementModeConditionalIdle>
+      <AmmoInfo ref="AMMO_PISTOL" />
+      <AimingInfo ref="YOURWEAPON" />
+      <ClipSize value="16" />
+      <AccuracySpread value="1.20" />
+      <AccurateModeAccuracyModifier value="0.30" />
+      <RunAndGunAccuracyModifier value="0.55" />
+      
+      <!-- DAMAGE: 10mm Full-Power = ~625 ft-lbs = ~1.85x 9mm -->
+      <!-- 50 damage = 2 body shots close, 5 at range -->
+      <Damage value="50.000000" />
+      <DamageType>BULLET</DamageType>
+      <DamageFallOffRangeMin value="18.000000" />
+      <DamageFallOffRangeMax value="60.000000" />
+      <DamageFallOffModifier value="0.400000" />
+      
+      <!-- HEADSHOTS: 1 shot at any practical range -->
+      <!-- 50 × 2.2 = 110 damage -->
+      <HeadShotDamageModifierPlayer value="2.200000" />
+      <HeadShotDamageModifierAI value="4.000000" />
+      <MinHeadShotDistancePlayer value="0.000000" />
+      <MaxHeadShotDistancePlayer value="12.000000" />
+      
+      <!-- LIMB DAMAGE -->
+      <HitLimbsDamageModifier value="0.500000" />
+      <NetworkHitLimbsDamageModifier value="0.800000" />
+      <NetworkPlayerDamageModifier value="1.000000" />
+      <NetworkPedDamageModifier value="1.000000" />
+      
+      <!-- VELOCITY: ~400 m/s (1,300 fps full-power from 4.61" barrel) -->
+      <Speed value="400.000000" />
+      <BulletsInBatch value="1" />
+      <BatchSpread value="0.000000" />
+      <WeaponRange value="120.000000" />
+      
+      <!-- FIRE RATE: Semi-auto, ~180 RPM practical -->
+      <!-- Recoil management limits follow-up speed -->
+      <TimeBetweenShots value="0.333000" />
+      <ForceShootOnGround value="false" />
+      <BulletInPeriod value="1" />
+      
+      <!-- RECOIL: Heavy - 10mm has ~44% more recoil than .45 ACP -->
+      <!-- "Snappy" impulse rather than .45's "push" -->
+      <RecoilShakeAmplitude value="0.350000" />
+      <RecoilShakeFrequency value="0.000000" />
+      <RecoilShakeRumbleDuration value="450.000000" />
+      <RecoilErrorTime value="0.280000" />
+      <RecoilRecoveryTime value="0.200000" />
+      <RecoilAccuracyMax value="1.800000" />
+      <RecoilMagnitude value="0.380000" />
+      <RecoilRecoveryRate value="1.000000" />
+      <RecoilEnduranceTime value="0.650000" />
+      
+      <!-- PENETRATION: High - 10mm known for barrier penetration -->
+      <!-- Hard cast loads penetrate 32"+ in gel -->
+      <Penetration value="0.280000" />
+      <ArmorPenetration value="0.250000" />
+      
+      <!-- PHYSICS FORCE: Heavy projectile at high velocity -->
+      <Force value="75.000000" />
+      <ForceHitPed value="60.000000" />
+      <ForceOnPlayer value="50.000000" />
+      <ForceMaxStrengthMult value="1.400000" />
+      <ForceFalloffRangeStart value="12.000000" />
+      <ForceFalloffRangeEnd value="55.000000" />
+      <ForceFalloffMin value="0.500000" />
+      
+      <!-- HANDLING -->
+      <AnimStyle>Pistol</AnimStyle>
+      <HumanNameHash>WT_GLOCK20</HumanNameHash>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

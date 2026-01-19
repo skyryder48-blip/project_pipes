@@ -10,15 +10,15 @@
   5.7x28mm delivers 240-290 ft-lbs energy (60-70% of 9mm's 350-450 ft-lbs)
   Compensated by: High velocity, 20+ round capacity, flat trajectory, faster follow-ups
 
-  FMJ (Civilian - SS197SR V-MAX): 35 dmg, 0.65 pen, 1,700 fps
+  FMJ (Civilian - SS197SR V-MAX): 28 dmg, 0.70 pen, 1,700 fps
     - 40gr V-MAX hunting/sporting load, 12-15" penetration
     - Fragmenting design, moderate barrier performance
 
-  JHP (Defense - Speer Gold Dot): 42 dmg (+20%), 0.50 pen, 1,800 fps
+  JHP (Defense - Speer Gold Dot): 35 dmg (+25%), 0.55 pen, 1,800 fps
     - 40gr Gold Dot, 12-20" penetration, 0.29-0.34" expansion
     - BEST defensive choice, controlled expansion
 
-  AP (Restricted - SS190): 32 dmg, 0.95 pen, 2,100 fps
+  AP (Restricted - SS190): 30 dmg, 0.96 pen, 2,100 fps
     - 31gr steel penetrator, 315 ft-lbs energy
     - DEFEATS Level IIIA soft armor from pistol
     - Military/LE restricted, lighter bullet = less tissue damage
@@ -35,8 +35,8 @@
       <Infos>
         <!-- ==================== 5.7x28mm FMJ (Civilian V-MAX) ==================== -->
         <!-- SS197SR 40gr V-MAX: 1,700 fps, 250 ft-lbs, 12-15" penetration -->
-        <!-- Primary sporting/hunting load - fragmenting polymer tip design -->
-        <!-- Meets FBI 12" minimum, moderate barrier penetration -->
+        <!-- 28 damage, 0.70 penetration - Primary sporting/hunting load -->
+        <!-- Fragmenting polymer tip design, meets FBI 12" minimum -->
         <Item type="CAmmoInfo">
           <n>AMMO_57X28_FMJ</n>
           <Model />
@@ -61,9 +61,9 @@
           <TimeToReachTarget value="0.000000" />
           <Damping value="0.000000" />
           <GravityFactor value="1.000000" />
-          <RicochetTolerance value="0.650000" />
-          <PedRicochetTolerance value="0.650000" />
-          <VehicleRicochetTolerance value="0.750000" />
+          <RicochetTolerance value="0.700000" />
+          <PedRicochetTolerance value="0.700000" />
+          <VehicleRicochetTolerance value="0.800000" />
           <Explosion>
             <Default>DONTCARE</Default>
             <HitCar>DONTCARE</HitCar>
@@ -105,7 +105,7 @@
 
         <!-- ==================== 5.7x28mm JHP (Speer Gold Dot Defense) ==================== -->
         <!-- Speer Gold Dot 40gr: 1,800 fps, 288 ft-lbs, 12-20" penetration -->
-        <!-- BEST defensive choice - only civilian load with controlled expansion -->
+        <!-- 35 damage (+25%), 0.55 penetration - BEST defensive choice -->
         <!-- 0.29-0.34" expansion, consistent penetration through barriers -->
         <Item type="CAmmoInfo">
           <n>AMMO_57X28_JHP</n>
@@ -131,9 +131,9 @@
           <TimeToReachTarget value="0.000000" />
           <Damping value="0.000000" />
           <GravityFactor value="1.000000" />
-          <RicochetTolerance value="0.500000" />
-          <PedRicochetTolerance value="0.500000" />
-          <VehicleRicochetTolerance value="0.400000" />
+          <RicochetTolerance value="0.550000" />
+          <PedRicochetTolerance value="0.550000" />
+          <VehicleRicochetTolerance value="0.450000" />
           <Explosion>
             <Default>DONTCARE</Default>
             <HitCar>DONTCARE</HitCar>
@@ -175,9 +175,9 @@
 
         <!-- ==================== 5.7x28mm AP (SS190 Armor Piercing) ==================== -->
         <!-- SS190 31gr Steel Penetrator: 2,100 fps, 315 ft-lbs -->
-        <!-- MILITARY/LE RESTRICTED - Defeats Level IIIA soft armor from pistol -->
+        <!-- 30 damage, 0.96 penetration - DEFEATS Level IIIA soft armor -->
+        <!-- MILITARY/LE RESTRICTED - Black tip identification -->
         <!-- Lighter bullet = less tissue damage but extreme penetration -->
-        <!-- Black tip identification, illegal for civilian possession -->
         <Item type="CAmmoInfo">
           <n>AMMO_57X28_AP</n>
           <Model />
@@ -202,9 +202,9 @@
           <TimeToReachTarget value="0.000000" />
           <Damping value="0.000000" />
           <GravityFactor value="1.000000" />
-          <RicochetTolerance value="0.950000" />
-          <PedRicochetTolerance value="0.950000" />
-          <VehicleRicochetTolerance value="0.900000" />
+          <RicochetTolerance value="0.960000" />
+          <PedRicochetTolerance value="0.960000" />
+          <VehicleRicochetTolerance value="0.920000" />
           <Explosion>
             <Default>DONTCARE</Default>
             <HitCar>DONTCARE</HitCar>

@@ -205,7 +205,7 @@ return {
         weight = 8,  -- 8g per round (lightweight PDW cartridge)
         stack = true,
         close = true,
-        description = '5.7x28mm V-MAX (SS197SR). 35 damage, 0.65 penetration. 1,700 fps, 250 ft-lbs. Civilian hunting/sporting load - fragmenting polymer tip.',
+        description = '5.7x28mm V-MAX (SS197SR). 28 damage, 0.70 penetration. 1,700 fps, 250 ft-lbs. Civilian hunting/sporting load - fragmenting polymer tip.',
         client = {
             image = 'ammo_57x28_fmj.png'
         }
@@ -215,7 +215,7 @@ return {
         weight = 8,
         stack = true,
         close = true,
-        description = '5.7x28mm Speer Gold Dot. 42 damage (+20%), 0.50 penetration. 1,800 fps, 288 ft-lbs. BEST defensive choice - controlled expansion, 12-20" gel.',
+        description = '5.7x28mm Speer Gold Dot. 35 damage (+25%), 0.55 penetration. 1,800 fps, 288 ft-lbs. BEST defensive choice - controlled expansion, 12-20" gel.',
         client = {
             image = 'ammo_57x28_jhp.png'
         }
@@ -225,7 +225,7 @@ return {
         weight = 6,  -- 6g (lighter 31gr bullet)
         stack = true,
         close = true,
-        description = '5.7x28mm SS190 AP. 32 damage, 0.95 penetration. 2,100 fps, 315 ft-lbs. DEFEATS Level IIIA armor. Military/LE RESTRICTED - black tip.',
+        description = '5.7x28mm SS190 AP. 30 damage, 0.96 penetration. 2,100 fps, 315 ft-lbs. DEFEATS Level IIIA armor. Military/LE RESTRICTED - black tip.',
         client = {
             image = 'ammo_57x28_ap.png'
         }

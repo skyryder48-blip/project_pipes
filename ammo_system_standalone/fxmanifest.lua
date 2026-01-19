@@ -33,6 +33,7 @@ version '1.0.0'
     - .500 S&W Magnum (Revolvers): FMJ, JHP - Most powerful production handgun
     - 5.7x28mm (PDW): FMJ, JHP, AP - High velocity, low recoil, armor defeat
     - .22 LR (Rimfire): FMJ, JHP - Lowest power, high capacity, suppressor-friendly
+    - 10mm Auto: FBI Service, Full Power, Bear Defense - Dual personality magnum-class
     - Future: 5.56 NATO, 7.62x39, 12 Gauge, etc.
 
     AMMO EFFECTS:
@@ -86,6 +87,9 @@ files {
     -- .22 LR Ammunition (Rimfire)
     'meta/ammo_22lr.meta',
     'meta/weaponcomponents_22lr.meta',
+    -- 10mm Auto Ammunition
+    'meta/ammo_10mm.meta',
+    'meta/weaponcomponents_10mm.meta',
     -- Future calibers:
     -- 'meta/ammo_12ga.meta',
     -- 'meta/weaponcomponents_12ga.meta',
@@ -119,6 +123,9 @@ data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_57x28.meta'
 -- .22 LR (Rimfire)
 data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_22lr.meta'
 data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_22lr.meta'
+-- 10mm Auto
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_10mm.meta'
+data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_10mm.meta'
 -- Future calibers:
 -- data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_12ga.meta'
 -- data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_12ga.meta'

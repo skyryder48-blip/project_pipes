@@ -232,6 +232,43 @@ return {
     },
 
     -- ============================================
+    -- 10mm AUTO AMMUNITION (Batch 10 - Full-Power 10mm)
+    -- DUAL PERSONALITY: FBI-spec (~400 ft-lbs) vs Full-power (~650 ft-lbs)
+    -- FBI-spec = .40 S&W equivalent, Full-power = .357 Magnum equivalent
+    -- 15+1 capacity semi-auto with magnum-class power
+    -- ============================================
+    ['ammo_10mm_fbi'] = {
+        label = '10mm FBI Service',
+        weight = 20,  -- 20g per round (heavy semi-auto cartridge)
+        stack = true,
+        close = true,
+        description = '10mm FBI-spec 180gr @ 1,000 fps. 42 damage, 0.72 penetration. ~400 ft-lbs - matches .40 S&W. Federal Hydra-Shok standard defensive load.',
+        client = {
+            image = 'ammo_10mm_fbi.png'
+        }
+    },
+    ['ammo_10mm_fullpower'] = {
+        label = '10mm Full Power',
+        weight = 20,
+        stack = true,
+        close = true,
+        description = '10mm Full Power 180gr @ 1,300 fps. 52 damage (+24%), 0.65 penetration. ~650 ft-lbs - equals .357 Magnum. Underwood/Buffalo Bore premium.',
+        client = {
+            image = 'ammo_10mm_fullpower.png'
+        }
+    },
+    ['ammo_10mm_bear'] = {
+        label = '10mm Bear Defense',
+        weight = 25,  -- 25g (heavier 220gr hard cast)
+        stack = true,
+        close = true,
+        description = '10mm Hard Cast 220gr @ 1,200 fps. 50 damage, 0.95 penetration. ~700 ft-lbs, 32"+ gel penetration. Denmark issues G20 for polar bears.',
+        client = {
+            image = 'ammo_10mm_bear.png'
+        }
+    },
+
+    -- ============================================
     -- .22 LR AMMUNITION (Batch 8 - Rimfire Pistols)
     -- LOWEST POWER handgun cartridge: 80-115 ft-lbs
     -- Minimal recoil, high capacity, suppressor-friendly

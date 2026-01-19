@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  10mm Auto Ammunition System
+  ===========================
+
+  10mm has DUAL PERSONALITY:
+  - FBI-spec (~400 ft-lbs) = .40 S&W equivalent
+  - Full-power (~650 ft-lbs) = .357 Magnum equivalent
+
+  Three Load Types:
+  - FBI Service: 180gr @ 1,000 fps, ~400 ft-lbs - Standard defensive load
+  - Full Power: 180gr @ 1,300 fps, ~650 ft-lbs - Premium defense/hunting
+  - Bear Defense: 220gr Hard Cast @ 1,200 fps, ~700 ft-lbs - Maximum penetration
+
+  Reference Calibers:
+  - .40 S&W: 41 damage, 0.72 penetration
+  - .357 Magnum: 49-58 damage, 0.82-0.90 penetration
+  - 10mm spans both ranges depending on loading
+-->
+<CAmmoInfoBlob>
+  <Infos>
+    <!-- ================================================================ -->
+    <!-- FBI SERVICE ROUND - Standard Defensive Load                      -->
+    <!-- 180gr @ ~1,000 fps = ~400 ft-lbs (matches .40 S&W)              -->
+    <!-- Federal Hydra-Shok, Winchester USA - conservative loading        -->
+    <!-- FBI abandoned 10mm not for recoil but S&W 1076 issues           -->
+    <!-- ================================================================ -->
+    <Item type="CAmmoInfo">
+      <n>AMMO_10MM_FBI</n>
+      <AmmoMax value="9999" />
+      <AmmoMax50 value="9999" />
+      <AmmoMax100 value="9999" />
+      <AmmoMaxMP value="9999" />
+      <AmmoMax50MP value="9999" />
+      <AmmoMax100MP value="9999" />
+      <PickupDefault value="30" />
+      <PickupModelHash>w_am_case</PickupModelHash>
+      <Flags>InstantHit</Flags>
+      <AmmoSpecialType>None</AmmoSpecialType>
+      <RicochetTolerance value="0.720000" />
+      <Speed value="305.000000" />
+      <TracerFxProb value="0.0" />
+      <TracerFxChanProb value="0.0" />
+      <MuzzleFlashFx>muz_pistol</MuzzleFlashFx>
+      <ShellFx>eject_pistol</ShellFx>
+    </Item>
+
+    <!-- ================================================================ -->
+    <!-- FULL POWER ROUND - Premium Defense/Hunting Load                  -->
+    <!-- 180gr @ ~1,300 fps = ~650 ft-lbs (matches .357 Magnum)          -->
+    <!-- Underwood, Buffalo Bore, DoubleTap - "true" 10mm performance    -->
+    <!-- What makes 10mm special - magnum power in semi-auto platform    -->
+    <!-- ================================================================ -->
+    <Item type="CAmmoInfo">
+      <n>AMMO_10MM_FULLPOWER</n>
+      <AmmoMax value="9999" />
+      <AmmoMax50 value="9999" />
+      <AmmoMax100 value="9999" />
+      <AmmoMaxMP value="9999" />
+      <AmmoMax50MP value="9999" />
+      <AmmoMax100MP value="9999" />
+      <PickupDefault value="30" />
+      <PickupModelHash>w_am_case</PickupModelHash>
+      <Flags>InstantHit</Flags>
+      <AmmoSpecialType>HollowPoint</AmmoSpecialType>
+      <RicochetTolerance value="0.650000" />
+      <Speed value="400.000000" />
+      <TracerFxProb value="0.0" />
+      <TracerFxChanProb value="0.0" />
+      <MuzzleFlashFx>muz_pistol</MuzzleFlashFx>
+      <ShellFx>eject_pistol</ShellFx>
+    </Item>
+
+    <!-- ================================================================ -->
+    <!-- BEAR DEFENSE ROUND - Maximum Penetration Hard Cast              -->
+    <!-- 220gr Hard Cast @ 1,200 fps = ~700 ft-lbs                       -->
+    <!-- Buffalo Bore, Underwood - 32"+ penetration in gel               -->
+    <!-- Denmark's Sirius Sledge Patrol issues G20 for polar bears       -->
+    <!-- Does NOT expand - penetration is the defense mechanism          -->
+    <!-- ================================================================ -->
+    <Item type="CAmmoInfo">
+      <n>AMMO_10MM_BEAR</n>
+      <AmmoMax value="9999" />
+      <AmmoMax50 value="9999" />
+      <AmmoMax100 value="9999" />
+      <AmmoMaxMP value="9999" />
+      <AmmoMax50MP value="9999" />
+      <AmmoMax100MP value="9999" />
+      <PickupDefault value="30" />
+      <PickupModelHash>w_am_case</PickupModelHash>
+      <Flags>InstantHit</Flags>
+      <AmmoSpecialType>ArmorPiercing</AmmoSpecialType>
+      <RicochetTolerance value="0.950000" />
+      <Speed value="365.000000" />
+      <TracerFxProb value="0.0" />
+      <TracerFxChanProb value="0.0" />
+      <MuzzleFlashFx>muz_pistol</MuzzleFlashFx>
+      <ShellFx>eject_pistol</ShellFx>
+    </Item>
+
+  </Infos>
+</CAmmoInfoBlob>

@@ -380,6 +380,20 @@ Config.Weapons = {
     },
 
     -- ======================================================================
+    -- BATCH 10: 10mm AUTO PISTOLS
+    -- DUAL PERSONALITY: FBI-spec (~400 ft-lbs) vs Full-power (~650 ft-lbs)
+    -- 15+1 capacity semi-auto platform with magnum-class power
+    -- ======================================================================
+
+    -- Glock 20 Gen 4 - Full-Size 10mm (16 rounds, 4.61" barrel)
+    -- .357 Magnum energy with semi-auto capacity and reload speed
+    [`WEAPON_GLOCK20`] = {
+        caliber = '10mm',
+        componentBase = 'COMPONENT_GLOCK20',
+        clipSize = 16,
+    },
+
+    -- ======================================================================
     -- FUTURE WEAPONS (uncomment when adding)
     -- ======================================================================
 

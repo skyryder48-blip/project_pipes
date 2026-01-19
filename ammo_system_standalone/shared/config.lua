@@ -218,6 +218,35 @@ Config.AmmoTypes = {
         },
     },
 
+    -- ==================== 10mm AUTO AMMUNITION ====================
+    -- Batch 10: Full-Power 10mm Pistols (Glock 20)
+    -- DUAL PERSONALITY: FBI-spec (~400 ft-lbs) vs Full-power (~650 ft-lbs)
+    -- FBI-spec = .40 S&W equivalent, Full-power = .357 Magnum equivalent
+    -- 15+1 capacity in semi-auto platform with magnum-class power
+    ['10mm'] = {
+        ['fbi'] = {
+            item = 'ammo_10mm_fbi',
+            label = '10mm FBI Service',
+            componentSuffix = '_CLIP_FBI',
+            ammoInfo = 'AMMO_10MM_FBI',
+            description = '10mm FBI-spec 180gr @ 1,000 fps. 42 damage, 0.72 penetration. = .40 S&W ballistics.',
+        },
+        ['fullpower'] = {
+            item = 'ammo_10mm_fullpower',
+            label = '10mm Full Power',
+            componentSuffix = '_CLIP_FULLPOWER',
+            ammoInfo = 'AMMO_10MM_FULLPOWER',
+            description = '10mm Full Power 180gr @ 1,300 fps. 52 damage (+24%), 0.65 penetration. = .357 Magnum.',
+        },
+        ['bear'] = {
+            item = 'ammo_10mm_bear',
+            label = '10mm Bear Defense',
+            componentSuffix = '_CLIP_BEAR',
+            ammoInfo = 'AMMO_10MM_BEAR',
+            description = '10mm Hard Cast 220gr @ 1,200 fps. 50 damage, 0.95 penetration. 32"+ gel penetration.',
+        },
+    },
+
     -- ==================== .22 LR AMMUNITION ====================
     -- Batch 8: Rimfire Pistols (P22, SIG P22, FN 502, PMR-30)
     -- LOWEST POWER handgun cartridge: 80-115 ft-lbs from pistol barrels
@@ -287,6 +316,7 @@ Config.DefaultAmmoType = {
     ['.44mag'] = 'fmj',
     ['.500sw'] = 'fmj',
     ['5.7x28'] = 'fmj',
+    ['10mm'] = 'fbi',
     ['.22lr'] = 'fmj',
     ['12ga'] = 'buckshot',
 }

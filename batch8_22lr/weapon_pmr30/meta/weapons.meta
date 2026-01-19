@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Kel-Tec PMR-30
+  Caliber: .22 LR (configured with .22 WMR characteristics)
+  Ultra-light high-capacity rimfire with magnum-level performance
+  
+  Real-World Specifications (.22 WMR characteristics applied):
+  - Barrel Length: 4.3"
+  - Weight: 14 oz (397g) empty - ULTRA LIGHT
+  - Capacity: 30+1 rounds - HIGHEST IN CLASS
+  - Muzzle Velocity: ~1,350 fps (equivalent to .22 WMR)
+  - Muzzle Energy: 150-165 ft-lbs (magnum level)
+  - Trigger: SAO, 3-5 lbs
+  - Construction: Zytel polymer frame, aluminum core
+  - MSRP: $480
+  
+  Characteristics:
+  - .22 WMR ballistic performance (1.6x .22 LR energy)
+  - 30-round capacity dominates category
+  - Ultra-light weight
+  - SIGNIFICANT muzzle flash (unburned powder)
+  - More recoil than standard .22 LR
+  - Fiber optic sights
+  
+  Game Balance:
+  - Damage: 20 (highest - magnum characteristics)
+  - 30-round capacity (massive advantage)
+  - Lightest weight = fastest handling
+  - Larger muzzle flash effect
+  - Slightly more recoil than .22 LR pistols
+  - Best overall rimfire combat choice
+-->
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="92" />
+          <Entry>SLOT_PMR30</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="152" />
+        <Entry>SLOT_PMR30</Entry>
+      </Item>
+    </WeaponSlots>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item>
+      <Infos />
+    </Item>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+          <!-- IDENTIFICATION -->
+          <n>WEAPON_PMR30</n>
+          <Model>w_pi_pmr30</Model>
+          <Audio>AUDIO_ITEM_PISTOL</Audio>
+          <Slot>SLOT_PMR30</Slot>
+          
+          <!-- DAMAGE CONFIGURATION -->
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          
+          <!-- FIRE TYPE AND CLASSIFICATION -->
+          <FireType>INSTANT_HIT</FireType>
+          <WheelSlot>WHEEL_PISTOL</WheelSlot>
+          <Group>GROUP_PISTOL</Group>
+          
+          <!-- REFERENCES -->
+          <AmmoInfo ref="AMMO_PISTOL" />
+          <AimingInfo ref="YOURFACE_YOURFATE" />
+          <ClipSize value="30" />
+          
+          <!-- ACCURACY PARAMETERS -->
+          <!-- Fiber optic sights, 4.3" barrel - good but not best -->
+          <!-- Ultra-light weight = slight movement penalty -->
+          <AccuracySpread value="1.000000" />
+          <AccurateModeAccuracyModifier value="0.420000" />
+          <RunAndGunAccuracyModifier value="1.550000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+          
+          <!-- RECOIL PARAMETERS -->
+          <!-- .22 WMR characteristics = more recoil than .22 LR -->
+          <!-- Ultra-light frame (14 oz) increases felt recoil -->
+          <!-- Still manageable but noticeably more than P22/FN502 -->
+          <RecoilAccuracyMax value="1.350000" />
+          <RecoilErrorTime value="0.300000" />
+          <RecoilRecoveryRate value="0.550000" />
+          <RecoilAccuracyToAllowHeadShotAI value="0.880000" />
+          <MinHeadShotDistanceAI value="1.200000" />
+          <MaxHeadShotDistanceAI value="45.000000" />
+          <HeadShotDamageModifierAI value="1.500000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.880000" />
+          <MinHeadShotDistancePlayer value="1.200000" />
+          <!-- Good headshot range - magnum velocity helps -->
+          <MaxHeadShotDistancePlayer value="10.000000" />
+          <!-- Slightly lower headshot modifier - higher base damage -->
+          <HeadShotDamageModifierPlayer value="4.200000" />
+          
+          <!-- DAMAGE PARAMETERS -->
+          <!-- .22 WMR equivalent: 40gr @ 1,350 fps = ~160 ft-lbs -->
+          <!-- 1.6x energy of .22 LR from pistol barrel -->
+          <!-- Highest damage in rimfire category -->
+          <Damage value="20.000000" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <HitLimbsDamageModifier value="0.800000" />
+          <NetworkHitLimbsDamageModifier value="0.800000" />
+          <LightlyArmouredDamageModifier value="1.000000" />
+          
+          <!-- FORCE PARAMETERS -->
+          <!-- Higher force than .22 LR - magnum velocity -->
+          <Force value="80.000000" />
+          <ForceHitPed value="40.000000" />
+          <ForceHitVehicle value="80.000000" />
+          <ForceHitFlyingHeli value="350.000000" />
+          <OverrideForces />
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="12.000000" />
+          <ForceFalloffRangeEnd value="45.000000" />
+          <ForceFalloffMin value="0.280000" />
+          
+          <!-- PROJECTILE SETTINGS -->
+          <ProjectileForce value="0.000000" />
+          <FragImpulse value="22.000000" />
+          <!-- Better penetration than .22 LR - higher velocity -->
+          <Penetration value="0.100000" />
+          <VerticalLaunchAdjustment value="0.000000" />
+          <DropForwardVelocity value="0.000000" />
+          <!-- .22 WMR velocity: ~410 m/s from 4.3" barrel -->
+          <Speed value="410.000000" />
+          
+          <!-- BATCH SETTINGS -->
+          <BulletsInBatch value="1" />
+          <BatchSpread value="0.000000" />
+          
+          <!-- RELOAD PARAMETERS -->
+          <!-- Large 30-round magazine takes slightly longer -->
+          <ReloadTimeMP value="-1.000000" />
+          <ReloadTimeSP value="-1.000000" />
+          <VehicleReloadTime value="0.000000" />
+          <AnimReloadRate value="0.950000" />
+          <BulletsPerAnimLoop value="30" />
+          
+          <!-- FIRE RATE -->
+          <!-- SAO trigger, very fast practical rate -->
+          <!-- ~300 RPM - fastest in rimfire category -->
+          <TimeBetweenShots value="0.120000" />
+          <TimeLeftBetweenShotsWhereShouldFireIsCached value="0.100000" />
+          <SpinUpTime value="0.000000" />
+          <SpinTime value="0.000000" />
+          <SpinDownTime value="0.000000" />
+          <AlternateWaitTime value="-1.000000" />
+          
+          <!-- BULLET BENDING -->
+          <BulletBendingNearRadius value="0.500000" />
+          <BulletBendingFarRadius value="2.000000" />
+          <BulletBendingZoomedRadius value="3.000000" />
+          
+          <!-- EFFECTS -->
+          <!-- SIGNIFICANT muzzle flash - unburned rifle powder -->
+          <!-- Distinctive "fireball" effect from short barrel -->
+          <Fx>
+            <EffectGroup />
+            <FlashFx>muz_pistol</FlashFx>
+            <FlashFxAlt />
+            <ShellFx>eject_pistol</ShellFx>
+            <TracerFx>bullet_tracer</TracerFx>
+            <PedDamageHash>BulletSmall</PedDamageHash>
+            <TracerFxChanceSP value="1.000000" />
+            <TracerFxChanceMP value="0.500000" />
+            <FlashFxChanceSP value="1.000000" />
+            <FlashFxChanceMP value="1.000000" />
+            <FlashFxAltChance value="0.000000" />
+            <!-- Large flash scale - .22 WMR fireball effect -->
+            <FlashFxScale value="0.950000" />
+            <GroundDisturbFxNameDefault />
+            <GroundDisturbFxNameSand />
+            <GroundDisturbFxNameWater />
+          </Fx>
+          
+          <!-- RUMBLE/HAPTICS -->
+          <!-- More recoil than .22 LR - magnum + light frame -->
+          <InitialRumbleDuration value="55" />
+          <InitialRumbleIntensity value="0.120000" />
+          <RumbleDuration value="55" />
+          <RumbleIntensity value="0.120000" />
+          <RumbleDamageIntensity value="1.000000" />
+          
+          <!-- NETWORK MODIFIERS -->
+          <NetworkPlayerDamageModifier value="0.850000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          <NetworkHeadShotPlayerDamageModifier value="4.200000" />
+          
+          <!-- RANGE PARAMETERS -->
+          <!-- Better range than .22 LR - higher velocity -->
+          <LockOnRange value="60.000000" />
+          <WeaponRange value="80.000000" />
+          <BulletDirectionOffsetInDegrees value="0.000000" />
+          <!-- Louder report than .22 LR -->
+          <AiSoundRange value="80.000000" />
+          <AiPotentialBlastEventRange value="0.000000" />
+          
+          <!-- DAMAGE FALLOFF -->
+          <!-- Better range retention - higher velocity -->
+          <!-- Full damage to 15m, drops to 40% at 55m -->
+          <DamageFallOffRangeMin value="15.000000" />
+          <DamageFallOffRangeMax value="55.000000" />
+          <DamageFallOffModifier value="0.400000" />
+          
+          <!-- CAMERA SETTINGS -->
+          <VehicleWeaponHash />
+          <DefaultCameraHash>DEFAULT_PISTOL_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_PISTOL_COVER_CAMERA</CoverCameraHash>
+          <CoverReadyToFireCameraHash>DEFAULT_PISTOL_COVER_CAMERA</CoverReadyToFireCameraHash>
+          <RunAndGunCameraHash>DEFAULT_RUN_AND_GUN_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash />
+          <AlternativeOrScopedCameraHash>DEFAULT_PISTOL_FIRST_PERSON_CAMERA</AlternativeOrScopedCameraHash>
+          <CameraFov value="0.000000" />
+          
+          <!-- FIRST PERSON OFFSETS -->
+          <FirstPersonScopeOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeAttachmentOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeRotationOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeAttachmentRotationOffset x="0.000000" y="0.000000" z="0.000000" />
+          <ZoomFactorForAccurateMode value="1.000000" />
+          
+          <!-- RECOIL SHAKE -->
+          <!-- More shake than .22 LR - magnum + ultra-light frame -->
+          <RecoilShakeHash>RECOIL_PISTOL</RecoilShakeHash>
+          <RecoilShakeHashFirstPerson>RECOIL_PISTOL</RecoilShakeHashFirstPerson>
+          <AccuracyOffsetShakeHash>ACCURACY_OFFSET_PISTOL</AccuracyOffsetShakeHash>
+          <MinTimeBetweenRecoilShakes value="55" />
+          <RecoilShakeAmplitude value="0.095000" />
+          <ExplosionShakeAmplitude value="0.000000" />
+          
+          <!-- AIM OFFSETS -->
+          <AimOffsetMin x="0.000000" y="0.500000" z="0.000000" />
+          <AimProbeLengthMin value="0.500000" />
+          <AimOffsetMax x="0.000000" y="0.500000" z="0.000000" />
+          <AimProbeLengthMax value="0.500000" />
+          <TorsoAimOffset x="0.000000" y="0.000000" z="0.000000" />
+          <TorsoCrouchedAimOffset x="0.000000" y="0.000000" z="0.000000" />
+          <LeftHandIkOffset x="0.000000" y="0.000000" z="0.000000" />
+          
+          <!-- RETICULE SETTINGS -->
+          <!-- Medium reticule - good fiber optics but more recoil -->
+          <ReticuleMinSizeStanding value="0.015000" />
+          <ReticuleMinSizeCrouched value="0.011000" />
+          <ReticuleScale value="0.290000" />
+          <ReticuleStyleHash>RETICULE_PISTOL</ReticuleStyleHash>
+          <FirstPersonReticuleStyleHash />
+          
+          <!-- IDENTIFICATION HASHES -->
+          <PickupHash>PICKUP_WEAPON_PMR30</PickupHash>
+          <MPPickupHash>PICKUP_WEAPON_PMR30</MPPickupHash>
+          <HumanNameHash>WT_PMR30</HumanNameHash>
+          <MovementModeConditionalIdle />
+          <WeaponTypeSet>Small</WeaponTypeSet>
+          <WeaponWheelSlot>Pistol</WeaponWheelSlot>
+          <StatName>PISTOL_STAT</StatName>
+          
+          <!-- PHYSICS -->
+          <KnockdownCount value="0" />
+          <KillshotImpulseScale value="0.650000" />
+          <NmShotTuningSet>StandardPistol</NmShotTuningSet>
+          
+          <!-- ATTACHMENT POINTS -->
+          <AttachPoints>
+            <Item>
+              <AttachBone>WAPClip</AttachBone>
+              <Components>
+                <Item>
+                  <n>COMPONENT_PMR30_CLIP_01</n>
+                  <Default value="true" />
+                </Item>
+              </Components>
+            </Item>
+          </AttachPoints>
+          
+          <!-- WEAPON FLAGS -->
+          <WeaponFlags>CanBeUsedWithSameMoveClipSet Gun CanLockonOnFoot CanLockonInVehicle CanFreeAim CarriedByPlayer HoldBothHandsInCover AnimReload AnimCrouchFire UsableOnFoot UsableInCover UsableClimbing AllowCloseQuarterKills HasLowCoverReloads HasLowCoverSwaps UseFPSAimIK UseFPSSecondaryMotion TorsoIKForWeaponBlock CenterLeftHandIk Thrown</WeaponFlags>
+          
+          <!-- HUD DISPLAY VALUES -->
+          <HudDamage value="20.000000" />
+          <HudSpeed value="85.000000" />
+          <HudCapacity value="30.000000" />
+          <HudAccuracy value="58.000000" />
+          <HudRange value="42.000000" />
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

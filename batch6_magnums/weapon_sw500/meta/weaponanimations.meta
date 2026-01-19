@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    WEAPONANIMATIONS.META - Smith & Wesson Model 500 .500 S&W Magnum
+    Heavy Revolver Animation Set
+    THE MOST POWERFUL PRODUCTION REVOLVER
+-->
+<CWeaponAnimationsSets>
+  <WeaponAnimationsSets>
+    <Item key="Default">
+      <WeaponAnimations>
+        <Item key="WEAPON_SW500">
+          <!-- Cover movement -->
+          <CoverMovementClipSetHash />
+          <CoverMovementExtraClipSetHash />
+          <CoverAlternateMovementClipSetHash>cover@move@ai@base@1h</CoverAlternateMovementClipSetHash>
+          <CoverWeaponClipSetHash>Cover_Wpn_Revolver</CoverWeaponClipSetHash>
+
+          <!-- Motion -->
+          <MotionClipSetHash>weapons@pistol@revolver</MotionClipSetHash>
+          <MotionFilterHash>BothArms_filter</MotionFilterHash>
+          <MotionCrouchClipSetHash />
+          <MotionStrafingClipSetHash />
+          <MotionStrafingStealthClipSetHash />
+          <MotionStrafingUpperBodyClipSetHash />
+
+          <!-- Weapon handling -->
+          <WeaponClipSetHash>weapons@pistol@revolver</WeaponClipSetHash>
+          <WeaponClipSetStreamedHash>weapons@pistol@revolver_str</WeaponClipSetStreamedHash>
+          <WeaponClipSetHashInjured>weapons@pistol@revolver_injured</WeaponClipSetHashInjured>
+          <WeaponClipSetHashStealth>weapons@pistol@revolver@stealth</WeaponClipSetHashStealth>
+          <WeaponClipSetHashHiCover />
+          <AlternativeClipSetWhenBlocked />
+          <ScopeWeaponClipSet />
+
+          <!-- Aiming -->
+          <AlternateAimingStandingClipSetHash />
+          <AlternateAimingCrouchingClipSetHash />
+
+          <!-- Firing variations -->
+          <FiringVariationsStandingClipSetHash>combat_fire_variations_revolver</FiringVariationsStandingClipSetHash>
+          <FiringVariationsCrouchingClipSetHash />
+
+          <!-- Aim turns -->
+          <AimTurnStandingClipSetHash>combat_aim_turns_revolver</AimTurnStandingClipSetHash>
+          <AimTurnCrouchingClipSetHash />
+
+          <!-- Melee -->
+          <MeleeClipSetHash />
+          <MeleeVariationClipSetHash />
+          <MeleeTauntClipSetHash />
+          <MeleeSupportTauntClipSetHash />
+          <MeleeStealthClipSetHash />
+
+          <!-- Reactions -->
+          <ShellShockedClipSetHash>reaction@shellshock@unarmed</ShellShockedClipSetHash>
+
+          <!-- Jump/Fall -->
+          <JumpUpperbodyClipSetHash />
+          <FallUpperbodyClipSetHash />
+
+          <!-- Transitions -->
+          <FromStrafeTransitionUpperBodyClipSetHash>weapons@pistol@</FromStrafeTransitionUpperBodyClipSetHash>
+
+          <!-- Swap filters -->
+          <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+          <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+
+          <!-- Fire rate modifiers -->
+          <AnimFireRateModifier value="1.000000" />
+          <AnimBlindFireRateModifier value="1.000000" />
+          <AnimWantingToShootFireRateModifier value="3.000000" />
+
+          <!-- Network -->
+          <UseFromStrafeUpperBodyAimNetwork value="true" />
+        </Item>
+      </WeaponAnimations>
+    </Item>
+  </WeaponAnimationsSets>
+</CWeaponAnimationsSets>

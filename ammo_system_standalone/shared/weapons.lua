@@ -279,6 +279,41 @@ Config.Weapons = {
     },
 
     -- ======================================================================
+    -- BATCH 6: .44 MAGNUM & .500 S&W MAGNUM REVOLVERS
+    -- ======================================================================
+
+    -- S&W Model 29 "Dirty Harry" - .44 Magnum (6 rounds, 6.5" barrel)
+    [`WEAPON_SWMODEL29`] = {
+        caliber = '.44mag',
+        componentBase = 'COMPONENT_SWMODEL29',
+        clipSize = 6,
+    },
+
+    -- Taurus Raging Bull - .44 Magnum Ported (6 rounds, 6.5" barrel)
+    -- Factory porting reduces recoil, slightly lower velocity
+    [`WEAPON_RAGINGBULL`] = {
+        caliber = '.44mag',
+        componentBase = 'COMPONENT_RAGINGBULL',
+        clipSize = 6,
+    },
+
+    -- S&W 657 - .41 Magnum (uses .357 ammo, 6 rounds, 6" barrel)
+    -- The "forgotten magnum" - .41 Mag ballistics, .357 Mag ammo system
+    [`WEAPON_SW657`] = {
+        caliber = '.357mag',
+        componentBase = 'COMPONENT_SW657',
+        clipSize = 6,
+    },
+
+    -- S&W Model 500 - .500 S&W Magnum (5 rounds, 6.5" barrel)
+    -- THE MOST POWERFUL PRODUCTION REVOLVER - rifle-equivalent energy
+    [`WEAPON_SW500`] = {
+        caliber = '.500sw',
+        componentBase = 'COMPONENT_SW500',
+        clipSize = 5,
+    },
+
+    -- ======================================================================
     -- FUTURE WEAPONS (uncomment when adding)
     -- ======================================================================
 

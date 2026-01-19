@@ -2,7 +2,7 @@
 <CWeaponInfoBlob>
   <Infos>
     <Item type="CWeaponInfo">
-      <Name>WEAPON_M45A1</Name>
+      <n>WEAPON_M45A1</n>
       <Model>w_pi_m45a1</Model>
       <Audio>AUDIO_PISTOL</Audio>
       <Slot>SLOT_UNARMED</Slot>

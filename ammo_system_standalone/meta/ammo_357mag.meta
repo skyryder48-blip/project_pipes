@@ -3,9 +3,15 @@
   .357 Magnum Ammunition Definitions - CENTRALIZED
   Used by ALL .357 Magnum revolvers (Batch 5: King Cobra variants, Python)
 
-  STANDARDIZED AMMO EFFECTS:
-  - FMJ (Standard): Baseline damage (54), 0.28 penetration, high velocity
-  - JHP (Jacketed Hollow Point): +15% damage (62), 0.18 penetration, devastating stopping power
+  ENHANCED BALLISTIC RESEARCH VALUES (9mm = 34 base damage reference):
+  BARREL LENGTH DRAMATICALLY AFFECTS PERFORMANCE (40-45% velocity loss from 6" to 2")
+
+  6" Barrel (Python): FMJ 58 dmg, 0.90 pen, 1650 fps | JHP 70 dmg (+20%), 0.55 pen
+  4" Barrel (King Cobra): FMJ 49 dmg, 0.82 pen, 1400 fps | JHP 59 dmg (+20%), 0.52 pen
+  2" Barrel (Snubnose): FMJ ~40 dmg, 0.65 pen, 1050 fps | JHP 35 dmg (+15%), 0.48 pen
+
+  The legendary 125gr JHP reputation (96% one-shot stop) applies to 4"+ barrels only.
+  Energy: 6" = 710 ft-lbs, 4" = 545 ft-lbs, 2" = 305 ft-lbs (compromised)
 
   Load this resource BEFORE any .357 Magnum weapon resources in server.cfg:
     ensure ammo_system_standalone
@@ -18,7 +24,8 @@
     <Item>
       <Infos>
         <!-- ==================== .357 MAGNUM FMJ (Standard) ==================== -->
-        <!-- Base damage: 54, Penetration: 0.28, High velocity round -->
+        <!-- 4" baseline: 49 damage, 0.82 penetration, 1400 fps, 0.62 armor effectiveness -->
+        <!-- Deep penetration; high velocity magnum performance (545 ft-lbs @ 4") -->
         <Item type="CAmmoInfo">
           <n>AMMO_357MAG_FMJ</n>
           <Model />
@@ -86,8 +93,9 @@
         </Item>
 
         <!-- ==================== .357 MAGNUM JHP (Jacketed Hollow Point) ==================== -->
-        <!-- +15% damage (62), reduced penetration, devastating stopping power -->
-        <!-- Premium hunting/defensive ammunition -->
+        <!-- 4" baseline: 59 damage (+20%), 0.52 penetration, 1350 fps, 0.42 armor effectiveness -->
+        <!-- Federal 130gr Hydra-Shok: 0.67" expansion, 13.3" penetration -->
+        <!-- The legendary "man-stopper" - devastating stopping power from 4"+ barrels -->
         <Item type="CAmmoInfo">
           <n>AMMO_357MAG_JHP</n>
           <Model />
@@ -112,9 +120,9 @@
           <TimeToReachTarget value="0.000000" />
           <Damping value="0.000000" />
           <GravityFactor value="1.000000" />
-          <RicochetTolerance value="0.400000" />
-          <PedRicochetTolerance value="0.400000" />
-          <VehicleRicochetTolerance value="0.250000" />
+          <RicochetTolerance value="0.520000" />
+          <PedRicochetTolerance value="0.520000" />
+          <VehicleRicochetTolerance value="0.420000" />
           <Explosion>
             <Default>DONTCARE</Default>
             <HitCar>DONTCARE</HitCar>

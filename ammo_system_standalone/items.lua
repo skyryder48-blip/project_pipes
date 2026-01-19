@@ -71,14 +71,14 @@ return {
     },
 
     -- ============================================
-    -- .40 S&W AMMUNITION (Batch 4)
+    -- .40 S&W AMMUNITION (Batch 4) - Enhanced Ballistics
     -- ============================================
     ['ammo_40sw_fmj'] = {
         label = '.40 S&W FMJ',
         weight = 18,  -- 18g per round (between 9mm and .45)
         stack = true,
         close = true,
-        description = '.40 S&W full metal jacket. 36 base damage, 0.22 penetration. "Snappy" recoil, good penetration.',
+        description = '.40 S&W full metal jacket. 41 damage (~420 ft-lbs), 0.72 penetration. 990 fps, 25-32" gel penetration. "Snappy" recoil - 25% higher than 9mm.',
         client = {
             image = 'ammo_40sw_fmj.png'
         }
@@ -88,21 +88,22 @@ return {
         weight = 18,
         stack = true,
         close = true,
-        description = '.40 S&W jacketed hollow point. +16.7% damage (42), 0.14 penetration. Enhanced stopping power.',
+        description = '.40 S&W jacketed hollow point. 49 damage (+20%), 0.55 penetration. Federal HST 180gr: 0.72" expansion, 14.5-18.5" FBI gel standard.',
         client = {
             image = 'ammo_40sw_jhp.png'
         }
     },
 
     -- ============================================
-    -- .357 MAGNUM AMMUNITION (Batch 5)
+    -- .357 MAGNUM AMMUNITION (Batch 5) - Enhanced Ballistics
+    -- Barrel-dependent: 6"=58/70 dmg, 4"=49/59 dmg, 2"=40/35 dmg
     -- ============================================
     ['ammo_357mag_fmj'] = {
         label = '.357 Magnum FMJ',
         weight = 22,  -- 22g per round (heavy magnum round)
         stack = true,
         close = true,
-        description = '.357 Magnum full metal jacket. 54 base damage, 0.28 penetration. High velocity, deep penetration, devastating power.',
+        description = '.357 Magnum full metal jacket. 49-58 damage (barrel-dependent), 0.82-0.90 penetration. 1400-1650 fps. Devastating power - 545-710 ft-lbs energy.',
         client = {
             image = 'ammo_357mag_fmj.png'
         }
@@ -112,31 +113,32 @@ return {
         weight = 22,
         stack = true,
         close = true,
-        description = '.357 Magnum jacketed hollow point. +15% damage (62), 0.18 penetration. Premium hunting/defensive load.',
+        description = '.357 Magnum JHP. 59-70 damage (+20%), 0.52-0.55 penetration. The legendary 125gr "man-stopper" - 96% one-shot rating from 4"+ barrels.',
         client = {
             image = 'ammo_357mag_jhp.png'
         }
     },
 
     -- ============================================
-    -- .38 SPECIAL AMMUNITION (Batch 5)
+    -- .38 SPECIAL AMMUNITION (Batch 5) - Enhanced Ballistics
+    -- WARNING: Only 57% of 9mm energy (200 vs 350 ft-lbs)
     -- ============================================
     ['ammo_38spl_fmj'] = {
         label = '.38 Special FMJ',
         weight = 14,  -- 14g per round (lighter than .357)
         stack = true,
         close = true,
-        description = '.38 Special full metal jacket. 32 base damage, 0.15 penetration. Light recoil, classic police round.',
+        description = '.38 Special full metal jacket. 20 base damage (200 ft-lbs), 0.65 penetration. 755 fps. Classic 158gr police load - light recoil, controlled penetration.',
         client = {
             image = 'ammo_38spl_fmj.png'
         }
     },
     ['ammo_38spl_jhp'] = {
-        label = '.38 Special JHP',
+        label = '.38 Special +P JHP',
         weight = 14,
         stack = true,
         close = true,
-        description = '.38 Special jacketed hollow point. +15.6% damage (37), 0.10 penetration. Modern defensive load.',
+        description = '.38 Special +P JHP. 27 damage (+35%), 0.50 penetration. WARNING: Most JHP fails from short barrels. Federal HST Micro recommended.',
         client = {
             image = 'ammo_38spl_jhp.png'
         }

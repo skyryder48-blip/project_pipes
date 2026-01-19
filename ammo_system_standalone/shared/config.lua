@@ -85,64 +85,64 @@ Config.AmmoTypes = {
 
     -- ==================== .40 S&W AMMUNITION ====================
     -- Batch 4: .40 S&W Pistols (G22 Gen 4/5, Glock Demon)
-    -- Base damage: 36 (FMJ), 42 (JHP +16.7%)
-    -- "Snappy" recoil - between 9mm and .45 ACP
+    -- Enhanced Ballistics: FMJ 41 dmg, JHP 49 (+20%)
+    -- "Snappy" recoil - 25% higher than 9mm, 18-33% more energy
     ['.40sw'] = {
         ['fmj'] = {
             item = 'ammo_40sw_fmj',
             label = '.40 S&W FMJ',
             componentSuffix = '_CLIP_FMJ',
             ammoInfo = 'AMMO_40SW_FMJ',
-            description = '.40 S&W full metal jacket. 36 base damage, good penetration.',
+            description = '.40 S&W full metal jacket. 41 damage, 0.72 penetration. 990 fps, ~420 ft-lbs.',
         },
         ['jhp'] = {
             item = 'ammo_40sw_jhp',
             label = '.40 S&W JHP',
             componentSuffix = '_CLIP_JHP',
             ammoInfo = 'AMMO_40SW_JHP',
-            description = 'Jacketed hollow point. +16.7% damage (42), reduced penetration.',
+            description = 'Jacketed hollow point. 49 damage (+20%), 0.55 penetration. Federal HST expansion.',
         },
     },
 
     -- ==================== .357 MAGNUM AMMUNITION ====================
     -- Batch 5: .357 Magnum Revolvers (King Cobra variants, Python)
-    -- High-powered revolver cartridge with devastating per-shot damage
-    -- Base damage: 54 (FMJ), 62 (JHP +15%)
+    -- Enhanced Ballistics - BARREL DEPENDENT:
+    -- 6" barrel: FMJ 58, JHP 70 (+20%) | 4" barrel: FMJ 49, JHP 59 | 2" barrel: compromised
     ['.357mag'] = {
         ['fmj'] = {
             item = 'ammo_357mag_fmj',
             label = '.357 Magnum FMJ',
             componentSuffix = '_CLIP_FMJ',
             ammoInfo = 'AMMO_357MAG_FMJ',
-            description = '.357 Magnum full metal jacket. 54 base damage, 0.28 penetration. High velocity, deep penetration.',
+            description = '.357 Magnum full metal jacket. 49-58 damage (barrel), 0.82-0.90 penetration. 1400-1650 fps.',
         },
         ['jhp'] = {
             item = 'ammo_357mag_jhp',
             label = '.357 Magnum JHP',
             componentSuffix = '_CLIP_JHP',
             ammoInfo = 'AMMO_357MAG_JHP',
-            description = '.357 Magnum jacketed hollow point. +15% damage (62), devastating stopping power.',
+            description = '.357 Magnum JHP. 59-70 damage (+20%), legendary "man-stopper" from 4"+ barrels.',
         },
     },
 
     -- ==================== .38 SPECIAL AMMUNITION ====================
     -- Batch 5: .38 Special Revolver (S&W Model 15)
-    -- Classic police revolver cartridge, lower power than .357 Magnum
-    -- Base damage: 32 (FMJ), 37 (JHP +15.6%)
+    -- Enhanced Ballistics - WARNING: Only 57% of 9mm energy
+    -- FMJ: 20 damage (200 ft-lbs), JHP +P: 27 damage (+35%)
     ['.38spl'] = {
         ['fmj'] = {
             item = 'ammo_38spl_fmj',
             label = '.38 Special FMJ',
             componentSuffix = '_CLIP_FMJ',
             ammoInfo = 'AMMO_38SPL_FMJ',
-            description = '.38 Special full metal jacket. 32 base damage, light recoil. Classic police round.',
+            description = '.38 Special full metal jacket. 20 damage, 0.65 penetration. 755 fps, classic police round.',
         },
         ['jhp'] = {
             item = 'ammo_38spl_jhp',
-            label = '.38 Special JHP',
+            label = '.38 Special +P JHP',
             componentSuffix = '_CLIP_JHP',
             ammoInfo = 'AMMO_38SPL_JHP',
-            description = '.38 Special jacketed hollow point. +15.6% damage (37), improved stopping power.',
+            description = '.38 Special +P JHP. 27 damage (+35%), 0.50 penetration. Short barrel expansion unreliable.',
         },
     },
 

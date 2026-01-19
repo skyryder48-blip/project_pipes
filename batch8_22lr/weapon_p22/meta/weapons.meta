@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Walther P22 (Standard 3.42" Barrel)
+  Caliber: .22 LR
+  Budget-friendly rimfire trainer with DA/SA operation
+  
+  Real-World Specifications:
+  - Barrel Length: 3.42"
+  - Weight: 16 oz (454g) empty - very light
+  - Capacity: 10+1 rounds
+  - Muzzle Velocity: ~967 fps (CCI Mini-Mag)
+  - Muzzle Energy: 85-100 ft-lbs
+  - Trigger: DA/SA - 11-12 lbs DA / 4-5 lbs SA
+  - Construction: Zinc alloy slide, polymer frame
+  - MSRP: $329 (budget)
+  
+  Characteristics:
+  - Entry-level rimfire platform
+  - DA/SA for training with heavier first pull
+  - Sensitive to ammunition quality
+  - Ideal suppressor host
+  - Minimal recoil
+  
+  Game Balance:
+  - Damage: 14 (lowest - short barrel, standard .22 LR)
+  - 10-round capacity
+  - Very low recoil
+  - High headshot multiplier compensates for low damage
+  - Shortest effective range
+-->
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="90" />
+          <Entry>SLOT_P22</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="150" />
+        <Entry>SLOT_P22</Entry>
+      </Item>
+    </WeaponSlots>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item>
+      <Infos />
+    </Item>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+          <!-- IDENTIFICATION -->
+          <n>WEAPON_P22</n>
+          <Model>w_pi_p22</Model>
+          <Audio>AUDIO_ITEM_PISTOL</Audio>
+          <Slot>SLOT_P22</Slot>
+          
+          <!-- DAMAGE CONFIGURATION -->
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          
+          <!-- FIRE TYPE AND CLASSIFICATION -->
+          <FireType>INSTANT_HIT</FireType>
+          <WheelSlot>WHEEL_PISTOL</WheelSlot>
+          <Group>GROUP_PISTOL</Group>
+          
+          <!-- REFERENCES -->
+          <AmmoInfo ref="AMMO_PISTOL" />
+          <AimingInfo ref="YOURFACE_YOURFATE" />
+          <ClipSize value="10" />
+          
+          <!-- ACCURACY PARAMETERS -->
+          <!-- Short 3.42" barrel and short sight radius = less precision -->
+          <AccuracySpread value="1.200000" />
+          <AccurateModeAccuracyModifier value="0.450000" />
+          <RunAndGunAccuracyModifier value="1.600000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+          
+          <!-- RECOIL PARAMETERS -->
+          <!-- .22 LR = minimal recoil, essentially a training pistol -->
+          <RecoilAccuracyMax value="1.100000" />
+          <RecoilErrorTime value="0.250000" />
+          <RecoilRecoveryRate value="0.600000" />
+          <RecoilAccuracyToAllowHeadShotAI value="0.900000" />
+          <MinHeadShotDistanceAI value="1.200000" />
+          <MaxHeadShotDistanceAI value="35.000000" />
+          <HeadShotDamageModifierAI value="1.500000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.900000" />
+          <MinHeadShotDistancePlayer value="1.200000" />
+          <!-- Limited headshot range - short barrel -->
+          <MaxHeadShotDistancePlayer value="5.000000" />
+          <!-- Very high headshot modifier compensates for low base damage -->
+          <HeadShotDamageModifierPlayer value="5.000000" />
+          
+          <!-- DAMAGE PARAMETERS -->
+          <!-- .22 LR 40gr @ 967 fps from 3.42" barrel = ~85 ft-lbs -->
+          <!-- Lowest damage tier - training/suppressed work -->
+          <Damage value="14.000000" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <HitLimbsDamageModifier value="0.850000" />
+          <NetworkHitLimbsDamageModifier value="0.850000" />
+          <LightlyArmouredDamageModifier value="1.000000" />
+          
+          <!-- FORCE PARAMETERS -->
+          <!-- Minimal impact force - tiny projectile -->
+          <Force value="50.000000" />
+          <ForceHitPed value="25.000000" />
+          <ForceHitVehicle value="50.000000" />
+          <ForceHitFlyingHeli value="200.000000" />
+          <OverrideForces />
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="8.000000" />
+          <ForceFalloffRangeEnd value="25.000000" />
+          <ForceFalloffMin value="0.200000" />
+          
+          <!-- PROJECTILE SETTINGS -->
+          <ProjectileForce value="0.000000" />
+          <FragImpulse value="15.000000" />
+          <!-- Low penetration - small, slow projectile -->
+          <Penetration value="0.050000" />
+          <VerticalLaunchAdjustment value="0.000000" />
+          <DropForwardVelocity value="0.000000" />
+          <!-- .22 LR velocity: ~295 m/s from short barrel -->
+          <Speed value="295.000000" />
+          
+          <!-- BATCH SETTINGS -->
+          <BulletsInBatch value="1" />
+          <BatchSpread value="0.000000" />
+          
+          <!-- RELOAD PARAMETERS -->
+          <!-- Small 10-round magazine, quick reload -->
+          <ReloadTimeMP value="-1.000000" />
+          <ReloadTimeSP value="-1.000000" />
+          <VehicleReloadTime value="0.000000" />
+          <AnimReloadRate value="1.100000" />
+          <BulletsPerAnimLoop value="10" />
+          
+          <!-- FIRE RATE -->
+          <!-- DA/SA - first shot slower (DA), subsequent faster (SA) -->
+          <!-- Averaging ~200 RPM practical -->
+          <TimeBetweenShots value="0.150000" />
+          <TimeLeftBetweenShotsWhereShouldFireIsCached value="0.100000" />
+          <SpinUpTime value="0.000000" />
+          <SpinTime value="0.000000" />
+          <SpinDownTime value="0.000000" />
+          <AlternateWaitTime value="-1.000000" />
+          
+          <!-- BULLET BENDING -->
+          <BulletBendingNearRadius value="0.500000" />
+          <BulletBendingFarRadius value="2.000000" />
+          <BulletBendingZoomedRadius value="3.000000" />
+          
+          <!-- EFFECTS -->
+          <!-- Small muzzle flash, quiet report -->
+          <Fx>
+            <EffectGroup />
+            <FlashFx>muz_pistol</FlashFx>
+            <FlashFxAlt />
+            <ShellFx>eject_pistol</ShellFx>
+            <TracerFx>bullet_tracer_small</TracerFx>
+            <PedDamageHash>BulletSmall</PedDamageHash>
+            <TracerFxChanceSP value="1.000000" />
+            <TracerFxChanceMP value="0.500000" />
+            <FlashFxChanceSP value="1.000000" />
+            <FlashFxChanceMP value="1.000000" />
+            <FlashFxAltChance value="0.000000" />
+            <FlashFxScale value="0.500000" />
+            <GroundDisturbFxNameDefault />
+            <GroundDisturbFxNameSand />
+            <GroundDisturbFxNameWater />
+          </Fx>
+          
+          <!-- RUMBLE/HAPTICS -->
+          <!-- Barely perceptible recoil -->
+          <InitialRumbleDuration value="40" />
+          <InitialRumbleIntensity value="0.080000" />
+          <RumbleDuration value="40" />
+          <RumbleIntensity value="0.080000" />
+          <RumbleDamageIntensity value="1.000000" />
+          
+          <!-- NETWORK MODIFIERS -->
+          <NetworkPlayerDamageModifier value="0.850000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          <NetworkHeadShotPlayerDamageModifier value="5.000000" />
+          
+          <!-- RANGE PARAMETERS -->
+          <!-- .22 LR effective to ~50 yards max from pistol -->
+          <LockOnRange value="50.000000" />
+          <WeaponRange value="60.000000" />
+          <BulletDirectionOffsetInDegrees value="0.000000" />
+          <AiSoundRange value="60.000000" />
+          <AiPotentialBlastEventRange value="0.000000" />
+          
+          <!-- DAMAGE FALLOFF -->
+          <!-- Rapid energy loss - light bullet slows quickly -->
+          <!-- Full damage to 10m, drops to 30% at 40m -->
+          <DamageFallOffRangeMin value="10.000000" />
+          <DamageFallOffRangeMax value="40.000000" />
+          <DamageFallOffModifier value="0.300000" />
+          
+          <!-- CAMERA SETTINGS -->
+          <VehicleWeaponHash />
+          <DefaultCameraHash>DEFAULT_PISTOL_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_PISTOL_COVER_CAMERA</CoverCameraHash>
+          <CoverReadyToFireCameraHash>DEFAULT_PISTOL_COVER_CAMERA</CoverReadyToFireCameraHash>
+          <RunAndGunCameraHash>DEFAULT_RUN_AND_GUN_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash />
+          <AlternativeOrScopedCameraHash>DEFAULT_PISTOL_FIRST_PERSON_CAMERA</AlternativeOrScopedCameraHash>
+          <CameraFov value="0.000000" />
+          
+          <!-- FIRST PERSON OFFSETS -->
+          <FirstPersonScopeOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeAttachmentOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeRotationOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeAttachmentRotationOffset x="0.000000" y="0.000000" z="0.000000" />
+          <ZoomFactorForAccurateMode value="1.000000" />
+          
+          <!-- RECOIL SHAKE -->
+          <!-- Minimal - training pistol feel -->
+          <RecoilShakeHash>RECOIL_PISTOL</RecoilShakeHash>
+          <RecoilShakeHashFirstPerson>RECOIL_PISTOL</RecoilShakeHashFirstPerson>
+          <AccuracyOffsetShakeHash>ACCURACY_OFFSET_PISTOL</AccuracyOffsetShakeHash>
+          <MinTimeBetweenRecoilShakes value="60" />
+          <RecoilShakeAmplitude value="0.060000" />
+          <ExplosionShakeAmplitude value="0.000000" />
+          
+          <!-- AIM OFFSETS -->
+          <AimOffsetMin x="0.000000" y="0.500000" z="0.000000" />
+          <AimProbeLengthMin value="0.500000" />
+          <AimOffsetMax x="0.000000" y="0.500000" z="0.000000" />
+          <AimProbeLengthMax value="0.500000" />
+          <TorsoAimOffset x="0.000000" y="0.000000" z="0.000000" />
+          <TorsoCrouchedAimOffset x="0.000000" y="0.000000" z="0.000000" />
+          <LeftHandIkOffset x="0.000000" y="0.000000" z="0.000000" />
+          
+          <!-- RETICULE SETTINGS -->
+          <ReticuleMinSizeStanding value="0.016000" />
+          <ReticuleMinSizeCrouched value="0.012000" />
+          <ReticuleScale value="0.300000" />
+          <ReticuleStyleHash>RETICULE_PISTOL</ReticuleStyleHash>
+          <FirstPersonReticuleStyleHash />
+          
+          <!-- IDENTIFICATION HASHES -->
+          <PickupHash>PICKUP_WEAPON_P22</PickupHash>
+          <MPPickupHash>PICKUP_WEAPON_P22</MPPickupHash>
+          <HumanNameHash>WT_P22</HumanNameHash>
+          <MovementModeConditionalIdle />
+          <WeaponTypeSet>Small</WeaponTypeSet>
+          <WeaponWheelSlot>Pistol</WeaponWheelSlot>
+          <StatName>PISTOL_STAT</StatName>
+          
+          <!-- PHYSICS -->
+          <KnockdownCount value="0" />
+          <KillshotImpulseScale value="0.500000" />
+          <NmShotTuningSet>StandardPistol</NmShotTuningSet>
+          
+          <!-- ATTACHMENT POINTS -->
+          <AttachPoints>
+            <Item>
+              <AttachBone>WAPClip</AttachBone>
+              <Components>
+                <Item>
+                  <n>COMPONENT_P22_CLIP_01</n>
+                  <Default value="true" />
+                </Item>
+              </Components>
+            </Item>
+          </AttachPoints>
+          
+          <!-- WEAPON FLAGS -->
+          <WeaponFlags>CanBeUsedWithSameMoveClipSet Gun CanLockonOnFoot CanLockonInVehicle CanFreeAim CarriedByPlayer HoldBothHandsInCover AnimReload AnimCrouchFire UsableOnFoot UsableInCover UsableClimbing AllowCloseQuarterKills HasLowCoverReloads HasLowCoverSwaps UseFPSAimIK UseFPSSecondaryMotion TorsoIKForWeaponBlock CenterLeftHandIk Thrown</WeaponFlags>
+          
+          <!-- HUD DISPLAY VALUES -->
+          <HudDamage value="14.000000" />
+          <HudSpeed value="80.000000" />
+          <HudCapacity value="10.000000" />
+          <HudAccuracy value="55.000000" />
+          <HudRange value="30.000000" />
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

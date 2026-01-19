@@ -201,14 +201,22 @@
           <KillshotImpulseScale value="1.000000" />
           <NmShotTuningSet>normal</NmShotTuningSet>
           
-          <!-- Attach Points for potential components -->
+                    <!-- Attach Points: Configured for FMJ, HP, and AP magazines -->
           <AttachPoints>
             <Item>
               <AttachBone>WAPClip</AttachBone>
               <Components>
                 <Item>
-                  <n>COMPONENT_G43X_CLIP_01</n>
+                  <n>COMPONENT_G43X_CLIP_FMJ</n>
                   <Default value="true" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_G43X_CLIP_HP</n>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_G43X_CLIP_AP</n>
+                  <Default value="false" />
                 </Item>
               </Components>
             </Item>

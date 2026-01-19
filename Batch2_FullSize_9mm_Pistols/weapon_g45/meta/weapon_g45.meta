@@ -201,15 +201,15 @@
               <AttachBone>WAPClip</AttachBone>
               <Components>
                 <Item>
-                  <n>COMPONENT_G19X_CLIP_FMJ</n>
+                  <n>COMPONENT_G45_CLIP_FMJ</n>
                   <Default value="true" />
                 </Item>
                 <Item>
-                  <n>COMPONENT_G19X_CLIP_HP</n>
+                  <n>COMPONENT_G45_CLIP_HP</n>
                   <Default value="false" />
                 </Item>
                 <Item>
-                  <n>COMPONENT_G19X_CLIP_AP</n>
+                  <n>COMPONENT_G45_CLIP_AP</n>
                   <Default value="false" />
                 </Item>
               </Components>

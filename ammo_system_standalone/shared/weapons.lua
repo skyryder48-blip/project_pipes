@@ -215,6 +215,31 @@ Config.Weapons = {
     },
 
     -- ======================================================================
+    -- BATCH 4: .40 S&W PISTOLS
+    -- ======================================================================
+
+    -- Glock 22 Gen 4 - Law Enforcement Standard (15 rounds)
+    [`WEAPON_G22_GEN4`] = {
+        caliber = '.40sw',
+        componentBase = 'COMPONENT_G22_GEN4',
+        clipSize = 15,
+    },
+
+    -- Glock 22 Gen 5 - Enhanced Duty Pistol (15 rounds)
+    [`WEAPON_G22_GEN5`] = {
+        caliber = '.40sw',
+        componentBase = 'COMPONENT_G22_GEN5',
+        clipSize = 15,
+    },
+
+    -- Glock Demon - Full-Auto Street Weapon (13 rounds)
+    [`WEAPON_GLOCK_DEMON`] = {
+        caliber = '.40sw',
+        componentBase = 'COMPONENT_GLOCK_DEMON',
+        clipSize = 13,
+    },
+
+    -- ======================================================================
     -- FUTURE WEAPONS (uncomment when adding)
     -- ======================================================================
 

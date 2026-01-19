@@ -71,6 +71,30 @@ return {
     },
 
     -- ============================================
+    -- .40 S&W AMMUNITION (Batch 4)
+    -- ============================================
+    ['ammo_40sw_fmj'] = {
+        label = '.40 S&W FMJ',
+        weight = 18,  -- 18g per round (between 9mm and .45)
+        stack = true,
+        close = true,
+        description = '.40 S&W full metal jacket. 36 base damage, 0.22 penetration. "Snappy" recoil, good penetration.',
+        client = {
+            image = 'ammo_40sw_fmj.png'
+        }
+    },
+    ['ammo_40sw_jhp'] = {
+        label = '.40 S&W JHP',
+        weight = 18,
+        stack = true,
+        close = true,
+        description = '.40 S&W jacketed hollow point. +16.7% damage (42), 0.14 penetration. Enhanced stopping power.',
+        client = {
+            image = 'ammo_40sw_jhp.png'
+        }
+    },
+
+    -- ============================================
     -- 12 GAUGE SHOTGUN AMMUNITION (Future)
     -- ============================================
     ['ammo_12ga_buckshot'] = {

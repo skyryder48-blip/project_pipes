@@ -83,6 +83,27 @@ Config.AmmoTypes = {
         },
     },
 
+    -- ==================== .40 S&W AMMUNITION ====================
+    -- Batch 4: .40 S&W Pistols (G22 Gen 4/5, Glock Demon)
+    -- Base damage: 36 (FMJ), 42 (JHP +16.7%)
+    -- "Snappy" recoil - between 9mm and .45 ACP
+    ['.40sw'] = {
+        ['fmj'] = {
+            item = 'ammo_40sw_fmj',
+            label = '.40 S&W FMJ',
+            componentSuffix = '_CLIP_FMJ',
+            ammoInfo = 'AMMO_40SW_FMJ',
+            description = '.40 S&W full metal jacket. 36 base damage, good penetration.',
+        },
+        ['jhp'] = {
+            item = 'ammo_40sw_jhp',
+            label = '.40 S&W JHP',
+            componentSuffix = '_CLIP_JHP',
+            ammoInfo = 'AMMO_40SW_JHP',
+            description = 'Jacketed hollow point. +16.7% damage (42), reduced penetration.',
+        },
+    },
+
     -- ==================== FUTURE CALIBERS ====================
     -- Uncomment and configure when adding new calibers
 
@@ -124,5 +145,6 @@ Config.AmmoTypes = {
 Config.DefaultAmmoType = {
     ['9mm'] = 'fmj',
     ['.45acp'] = 'fmj',
+    ['.40sw'] = 'fmj',
     ['12ga'] = 'buckshot',
 }

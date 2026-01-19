@@ -190,6 +190,34 @@ Config.AmmoTypes = {
         },
     },
 
+    -- ==================== 5.7x28mm AMMUNITION ====================
+    -- PDW Caliber: FN Five-seveN, Ruger-57
+    -- High velocity (1,650-2,200 fps), low recoil (30% less than 9mm)
+    -- 20-round standard capacity, flat trajectory, 60-70% of 9mm energy
+    ['5.7x28'] = {
+        ['fmj'] = {
+            item = 'ammo_57x28_fmj',
+            label = '5.7x28mm FMJ',
+            componentSuffix = '_CLIP_FMJ',
+            ammoInfo = 'AMMO_57X28_FMJ',
+            description = '5.7x28mm V-MAX. 35 damage, 0.65 penetration. 1,700 fps, civilian hunting/sporting load.',
+        },
+        ['jhp'] = {
+            item = 'ammo_57x28_jhp',
+            label = '5.7x28mm JHP',
+            componentSuffix = '_CLIP_JHP',
+            ammoInfo = 'AMMO_57X28_JHP',
+            description = '5.7x28mm Gold Dot. 42 damage (+20%), 0.50 penetration. BEST defensive choice - controlled expansion.',
+        },
+        ['ap'] = {
+            item = 'ammo_57x28_ap',
+            label = '5.7x28mm AP',
+            componentSuffix = '_CLIP_AP',
+            ammoInfo = 'AMMO_57X28_AP',
+            description = '5.7x28mm SS190 AP. 32 damage, 0.95 penetration. DEFEATS Level IIIA armor. Military/LE restricted.',
+        },
+    },
+
     -- ==================== FUTURE CALIBERS ====================
     -- Uncomment and configure when adding new calibers
 
@@ -236,5 +264,6 @@ Config.DefaultAmmoType = {
     ['.38spl'] = 'fmj',
     ['.44mag'] = 'fmj',
     ['.500sw'] = 'fmj',
+    ['5.7x28'] = 'fmj',
     ['12ga'] = 'buckshot',
 }

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  5.7x28mm Weapon Components - Magazine Definitions
+  Used by ALL 5.7x28mm pistols
+
+  Component Naming Convention:
+  COMPONENT_[WEAPON]_CLIP_[AMMOTYPE]
+
+  Ammo Types:
+  - FMJ: Civilian V-MAX (SS197SR) - 35 damage baseline
+  - JHP: Speer Gold Dot defense - 42 damage (+20%)
+  - AP: SS190 armor piercing - 32 damage, defeats soft armor
+
+  Weapons (all 20-round standard capacity):
+  - FIVESEVEN (FN Five-seveN MK2/MK3) - Original PDW pistol
+  - RUGER57 (Ruger-57) - Budget alternative, slightly longer barrel
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+    <!-- ================================================================== -->
+    <!-- FN FIVE-SEVEN - Original 5.7x28mm Pistol (20 rounds)               -->
+    <!-- Introduced 1998, 4.8" barrel, delayed blowback, polymer frame      -->
+    <!-- MK2 Standard and MK3 MRD variants                                  -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_FIVESEVEN_CLIP_FMJ</n>
+      <Model>w_pi_fiveseven_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_57FMJ</LocDesc>
+      <ClipSize value="20" />
+      <AmmoInfo ref="AMMO_57X28_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_FIVESEVEN_CLIP_JHP</n>
+      <Model>w_pi_fiveseven_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_57JHP</LocDesc>
+      <ClipSize value="20" />
+      <AmmoInfo ref="AMMO_57X28_JHP" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_FIVESEVEN_CLIP_AP</n>
+      <Model>w_pi_fiveseven_mag1</Model>
+      <LocName>WCT_CLIP_AP</LocName>
+      <LocDesc>WCD_CLIP_57AP</LocDesc>
+      <ClipSize value="20" />
+      <AmmoInfo ref="AMMO_57X28_AP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- RUGER-57 - Budget 5.7x28mm Alternative (20 rounds)                 -->
+    <!-- Introduced 2020, 4.94" barrel, 1911-style safety                   -->
+    <!-- Slightly higher velocity due to longer barrel                       -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_RUGER57_CLIP_FMJ</n>
+      <Model>w_pi_ruger57_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_57FMJ</LocDesc>
+      <ClipSize value="20" />
+      <AmmoInfo ref="AMMO_57X28_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_RUGER57_CLIP_JHP</n>
+      <Model>w_pi_ruger57_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_57JHP</LocDesc>
+      <ClipSize value="20" />
+      <AmmoInfo ref="AMMO_57X28_JHP" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_RUGER57_CLIP_AP</n>
+      <Model>w_pi_ruger57_mag1</Model>
+      <LocName>WCT_CLIP_AP</LocName>
+      <LocDesc>WCD_CLIP_57AP</LocDesc>
+      <ClipSize value="20" />
+      <AmmoInfo ref="AMMO_57X28_AP" />
+    </Item>
+
+  </Infos>
+  <n>5.7x28mm Magazine Components</n>
+</CWeaponComponentInfoBlob>

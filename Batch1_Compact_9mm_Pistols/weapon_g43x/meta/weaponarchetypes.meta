@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponModelInfo__InitDataList>
+  <InitDatas>
+    <!-- Glock 43X - 9mm Subcompact Pistol -->
+    <Item>
+      <modelName>w_pi_g43x</modelName>
+      <txdName>w_pi_g43x</txdName>
+      <ptfxAssetName>null</ptfxAssetName>
+      <lodDist value="50"/>
+    </Item>
+  </InitDatas>
+</CWeaponModelInfo__InitDataList>

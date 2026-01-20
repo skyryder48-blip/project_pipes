@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  WEAPON_MK47 - PED Personality Meta
+  Defines NPC holster/unholster behavior for 2H weapons (rifles)
+-->
+<CPedModelInfo__PersonalityDataList>
+  <MovementModeUnholsterData>
+    <Item>
+      <Name>UNHOLSTER_2H</Name>
+      <UnholsterClips>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_MK47</Item>
+          </Weapons>
+          <Clip>2h_holster_2h</Clip>
+        </Item>
+      </UnholsterClips>
+    </Item>
+    <Item>
+      <Name>UNHOLSTER_2H_STEALTH</Name>
+      <UnholsterClips>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_MK47</Item>
+          </Weapons>
+          <Clip>2h_holster_2h</Clip>
+        </Item>
+      </UnholsterClips>
+    </Item>
+  </MovementModeUnholsterData>
+  <MovementModes>
+    <Item>
+      <Name>DEFAULT_ACTION</Name>
+      <MovementModeItems>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_MK47</Item>
+          </Weapons>
+          <MovementMode>armed</MovementMode>
+        </Item>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_MK47</Item>
+          </Weapons>
+          <MovementMode>stealth_armed</MovementMode>
+        </Item>
+      </MovementModeItems>
+    </Item>
+    <Item>
+      <Name>MP_FEMALE_ACTION</Name>
+      <MovementModeItems>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_MK47</Item>
+          </Weapons>
+          <MovementMode>armed</MovementMode>
+        </Item>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_MK47</Item>
+          </Weapons>
+          <MovementMode>stealth_armed</MovementMode>
+        </Item>
+      </MovementModeItems>
+    </Item>
+  </MovementModes>
+</CPedModelInfo__PersonalityDataList>

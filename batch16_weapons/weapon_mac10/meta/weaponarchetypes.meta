@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponModelInfo__InitDataList>
+  <InitDatas>
+    <Item>
+      <Model>w_sb_mac10</Model>
+      <Texture>W_SB_MAC10</Texture>
+      <Archetype>W_SB_MAC10</Archetype>
+      <Audio>AUDIO_SMG</Audio>
+      <SlotPosition />
+      <SlotRotation />
+      <SlotPosition_YOURSLOT />
+      <SlotRotation_YOURSLOT />
+      <Vfx />
+      <AnimOverride />
+      <CanPickUp value="true" />
+    </Item>
+  </InitDatas>
+</CWeaponModelInfo__InitDataList>

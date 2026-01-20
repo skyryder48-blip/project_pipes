@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   .45 ACP Weapon Components - Magazine Definitions
-  Used by ALL .45 ACP pistols (Batch 3)
+  Used by ALL .45 ACP weapons (Batch 3 pistols + Batch 16 SMGs)
 
   Component Naming Convention:
   COMPONENT_[WEAPON]_CLIP_[AMMOTYPE]
@@ -9,8 +9,11 @@
   Ammo Types:
   - FMJ: Standard full metal jacket (38 damage)
   - JHP: Jacketed hollow point (+15.8% damage = 44)
+  - PLUSP: Overpressure (+8% damage = 41)
+  - SUBSONIC: Match-grade subsonic (-5% damage = 36, quietest)
 
   Weapons:
+  Batch 3 (Pistols):
   - M45A1 (Colt M45A1 CQBP) - 8 rounds
   - G21 (Glock 21 Gen 4) - 13 rounds
   - G30 (Glock 30 Gen 4) - 10 rounds
@@ -19,6 +22,10 @@
   - KIMBER_ECLIPSE (Kimber Eclipse Custom II) - 8 rounds
   - JUNK1911 (Degraded 1911) - 7 rounds
   - SIGP220 (SIG Sauer P220) - 8 rounds
+
+  Batch 16 (SMGs):
+  - MAC10 (Ingram MAC-10) - 30 rounds
+  - MAC4A1 (Lage MAX-10/45 mk2) - 30 rounds
 -->
 <CWeaponComponentInfoBlob>
   <Infos>
@@ -196,6 +203,90 @@
       <LocDesc>WCD_CLIP_45JHP</LocDesc>
       <ClipSize value="8" />
       <AmmoInfo ref="AMMO_45ACP_JHP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- BATCH 16: .45 ACP SMG PLATFORMS                                    -->
+    <!-- ================================================================== -->
+
+    <!-- ================================================================== -->
+    <!-- INGRAM MAC-10 - Classic Machine Pistol (30 rounds, 1,100 RPM)      -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MAC10_CLIP_FMJ</n>
+      <Model /><LocName>WCT_CLIP_FMJ</LocName><LocDesc>WCD_CLIP_45FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" /><DamageModifier type="NULL" />
+      <bShownOnWheel value="false" /><CreateObject value="true" />
+      <HudDamage value="0" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="0" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_45ACP_FMJ" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MAC10_CLIP_JHP</n>
+      <Model /><LocName>WCT_CLIP_JHP</LocName><LocDesc>WCD_CLIP_45JHP</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="1.158000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="15" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="-10" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_45ACP_JHP" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MAC10_CLIP_PLUSP</n>
+      <Model /><LocName>WCT_CLIP_PLUSP</LocName><LocDesc>WCD_CLIP_45PLUSP</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="1.080000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="8" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="-5" /><HudRange value="5" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_45ACP_PLUSP" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MAC10_CLIP_SUBSONIC</n>
+      <Model /><LocName>WCT_CLIP_SUB</LocName><LocDesc>WCD_CLIP_45SUB</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.950000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-5" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="5" /><HudRange value="0" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_45ACP_SUBSONIC" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- MAC-4A1 - Modernized Tactical SMG (30 rounds, 650 RPM)             -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MAC4A1_CLIP_FMJ</n>
+      <Model /><LocName>WCT_CLIP_FMJ</LocName><LocDesc>WCD_CLIP_45FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" /><DamageModifier type="NULL" />
+      <bShownOnWheel value="false" /><CreateObject value="true" />
+      <HudDamage value="0" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="0" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_45ACP_FMJ" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MAC4A1_CLIP_JHP</n>
+      <Model /><LocName>WCT_CLIP_JHP</LocName><LocDesc>WCD_CLIP_45JHP</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="1.158000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="15" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="-10" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_45ACP_JHP" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MAC4A1_CLIP_PLUSP</n>
+      <Model /><LocName>WCT_CLIP_PLUSP</LocName><LocDesc>WCD_CLIP_45PLUSP</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="1.080000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="8" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="-5" /><HudRange value="5" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_45ACP_PLUSP" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MAC4A1_CLIP_SUBSONIC</n>
+      <Model /><LocName>WCT_CLIP_SUB</LocName><LocDesc>WCD_CLIP_45SUB</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.950000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-5" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="5" /><HudRange value="0" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_45ACP_SUBSONIC" />
     </Item>
 
   </Infos>

@@ -553,6 +553,26 @@ Config.Weapons = {
     },
 
     -- ======================================================================
+    -- BATCH 16: .45 ACP SMG PLATFORMS (MAC variants)
+    -- ======================================================================
+
+    -- Ingram MAC-10 - Classic Machine Pistol (30 rounds, 5.75" barrel, 1,100 RPM)
+    -- Extreme fire rate, poor accuracy, devastating in CQB
+    [`WEAPON_MAC10`] = {
+        caliber = '.45acp',
+        componentBase = 'COMPONENT_MAC10',
+        clipSize = 30,
+    },
+
+    -- MAC-4A1 - Modernized Tactical SMG (30 rounds, 9" barrel, 650 RPM)
+    -- Lage MAX-10/45 mk2 slow-fire upper, controlled and accurate
+    [`WEAPON_MAC4A1`] = {
+        caliber = '.45acp',
+        componentBase = 'COMPONENT_MAC4A1',
+        clipSize = 30,
+    },
+
+    -- ======================================================================
     -- FUTURE WEAPONS (uncomment when adding)
     -- ======================================================================
 

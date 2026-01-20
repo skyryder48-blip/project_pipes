@@ -19,6 +19,13 @@ local lastToggleTime = 0
 local isTriggerHeld = false
 local shotsFiredThisTrigger = 0
 
+-- Mode display names
+local modeNames = {
+    SEMI = 'Semi-Auto',
+    BURST = 'Burst',
+    FULL = 'Full-Auto',
+}
+
 -- ============================================================================
 -- UTILITY FUNCTIONS
 -- ============================================================================
@@ -63,7 +70,6 @@ end
 local function CycleFireMode(ped, weaponHash)
     local modes = GetEffectiveModes(ped, weaponHash)
     if #modes <= 1 then
-        -- Only one mode available, can't cycle
         return false
     end
 
@@ -86,10 +92,21 @@ local function CycleFireMode(ped, weaponHash)
     return true
 end
 
--- Play mode change sound
+-- Play mode change sound (subtle click)
 local function PlayModeChangeSound()
     if not Config.PlaySound then return end
-    PlaySoundFrontend(-1, 'NAV_UP_DOWN', 'HUD_FRONTEND_DEFAULT_SOUNDSET', true)
+    PlaySoundFrontend(-1, 'WEAPON_PURCHASE', 'HUD_AMMO_SHOP_SOUNDSET', true)
+end
+
+-- Show brief notification
+local function ShowModeNotification(weaponHash)
+    local config = Config.Weapons[weaponHash]
+    local modeName = modeNames[currentMode] or currentMode
+
+    -- Brief, subtle notification
+    BeginTextCommandThefeedPost('STRING')
+    AddTextComponentSubstringPlayerName(modeName)
+    EndTextCommandThefeedPostTicker(false, false)
 end
 
 -- ============================================================================
@@ -98,24 +115,17 @@ end
 
 -- Handle semi-automatic fire
 local function HandleSemiAuto(ped, weaponHash)
-    local currentTime = GetGameTimer()
-
-    -- Check if trigger is being held
-    if IsControlPressed(0, 24) then -- INPUT_ATTACK
+    if IsControlPressed(0, 24) then
         if not isTriggerHeld then
-            -- First press - allow shot
             isTriggerHeld = true
             shotsFiredThisTrigger = 0
         end
 
-        -- Only allow one shot per trigger pull
         if shotsFiredThisTrigger > 0 then
-            -- Block additional shots
-            DisableControlAction(0, 24, true)  -- Disable attack
-            DisableControlAction(0, 257, true) -- Disable attack 2
+            DisableControlAction(0, 24, true)
+            DisableControlAction(0, 257, true)
         end
     else
-        -- Trigger released
         isTriggerHeld = false
         shotsFiredThisTrigger = 0
     end
@@ -126,9 +136,8 @@ local function HandleBurstFire(ped, weaponHash)
     local currentTime = GetGameTimer()
     local burstCount = GetBurstCount(weaponHash)
 
-    if IsControlPressed(0, 24) then -- INPUT_ATTACK
+    if IsControlPressed(0, 24) then
         if not isTriggerHeld then
-            -- First press - start new burst
             isTriggerHeld = true
             isInBurst = true
             burstShotsRemaining = burstCount
@@ -137,47 +146,37 @@ local function HandleBurstFire(ped, weaponHash)
 
         if isInBurst then
             if burstShotsRemaining > 0 then
-                -- Allow shots within burst
                 if shotsFiredThisTrigger >= burstCount then
-                    -- Burst complete, block firing
                     DisableControlAction(0, 24, true)
                     DisableControlAction(0, 257, true)
                     isInBurst = false
-
-                    -- Start burst delay
                     lastShotTime = currentTime
                 end
             else
-                -- Burst complete, check delay
                 if currentTime - lastShotTime < Config.BurstDelay then
                     DisableControlAction(0, 24, true)
                     DisableControlAction(0, 257, true)
                 end
             end
         else
-            -- Check if burst delay has passed
             if currentTime - lastShotTime < Config.BurstDelay then
                 DisableControlAction(0, 24, true)
                 DisableControlAction(0, 257, true)
             else
-                -- Allow new burst
                 isInBurst = true
                 burstShotsRemaining = burstCount
                 shotsFiredThisTrigger = 0
             end
         end
     else
-        -- Trigger released
         isTriggerHeld = false
         isInBurst = false
         burstShotsRemaining = 0
     end
 end
 
--- Handle full-automatic fire (no restrictions)
+-- Handle full-automatic fire
 local function HandleFullAuto(ped, weaponHash)
-    -- Full auto has no fire control restrictions
-    -- Weapon fires at its natural rate
     isTriggerHeld = IsControlPressed(0, 24)
 end
 
@@ -187,9 +186,7 @@ local function TrackShotsFired(ped, weaponHash)
     local _, currentAmmo = GetAmmoInClip(ped, weaponHash)
 
     if currentAmmo < lastAmmoCount then
-        -- Shot was fired
         shotsFiredThisTrigger = shotsFiredThisTrigger + 1
-
         if isInBurst then
             burstShotsRemaining = burstShotsRemaining - 1
         end
@@ -238,13 +235,11 @@ Citizen.CreateThread(function()
             end
         end
 
-        -- Check if this weapon has fire control
+        -- Apply fire control if weapon is configured
         local config = Config.Weapons[weaponHash]
         if config then
-            -- Track shots for burst/semi modes
             TrackShotsFired(ped, weaponHash)
 
-            -- Apply fire mode control
             if currentMode == 'SEMI' then
                 HandleSemiAuto(ped, weaponHash)
             elseif currentMode == 'BURST' then
@@ -267,11 +262,9 @@ Citizen.CreateThread(function()
         local ped = PlayerPedId()
         local weaponHash = GetSelectedPedWeapon(ped)
 
-        -- Check for toggle key press
         if IsControlJustPressed(0, Config.ToggleKeyCode) then
             local currentTime = GetGameTimer()
 
-            -- Debounce
             if currentTime - lastToggleTime > 200 then
                 lastToggleTime = currentTime
 
@@ -282,19 +275,14 @@ Citizen.CreateThread(function()
                     if #modes > 1 then
                         if CycleFireMode(ped, weaponHash) then
                             PlayModeChangeSound()
+                            ShowModeNotification(weaponHash)
 
                             -- Reset fire control state
                             isTriggerHeld = false
                             isInBurst = false
                             burstShotsRemaining = 0
                             shotsFiredThisTrigger = 0
-
-                            -- Trigger HUD update event
-                            TriggerEvent('selectivefire:modeChanged', currentMode, weaponHash)
                         end
-                    else
-                        -- Notify player weapon doesn't have select fire
-                        TriggerEvent('selectivefire:noSelectFire', weaponHash)
                     end
                 end
             end
@@ -306,27 +294,21 @@ end)
 -- EXPORTS
 -- ============================================================================
 
--- Export current fire mode
 exports('GetCurrentFireMode', function()
     return currentMode
 end)
 
--- Export current weapon
 exports('GetCurrentWeapon', function()
     return currentWeapon
 end)
 
--- Export to check if weapon has select fire
 exports('HasSelectFire', function(weaponHash)
     weaponHash = weaponHash or currentWeapon
     local config = Config.Weapons[weaponHash]
     if not config then return false end
-
-    local modes = GetEffectiveModes(PlayerPedId(), weaponHash)
-    return #modes > 1
+    return #GetEffectiveModes(PlayerPedId(), weaponHash) > 1
 end)
 
--- Export to set fire mode programmatically
 exports('SetFireMode', function(mode)
     local ped = PlayerPedId()
     local weaponHash = GetSelectedPedWeapon(ped)
@@ -338,36 +320,12 @@ exports('SetFireMode', function(mode)
             if Config.RememberMode then
                 weaponModes[weaponHash] = currentMode
             end
-            TriggerEvent('selectivefire:modeChanged', currentMode, weaponHash)
             return true
         end
     end
-
     return false
 end)
 
--- Export available modes for current weapon
 exports('GetAvailableModes', function()
-    local ped = PlayerPedId()
-    return GetEffectiveModes(ped, currentWeapon)
-end)
-
--- ============================================================================
--- EVENTS
--- ============================================================================
-
--- Event when mode changes (for HUD and other systems)
-RegisterNetEvent('selectivefire:modeChanged')
-AddEventHandler('selectivefire:modeChanged', function(mode, weaponHash)
-    -- Other scripts can listen to this event
-end)
-
--- Event when player tries to toggle on non-select-fire weapon
-RegisterNetEvent('selectivefire:noSelectFire')
-AddEventHandler('selectivefire:noSelectFire', function(weaponHash)
-    -- Could show notification here
-    -- For now, just a subtle audio cue
-    if Config.PlaySound then
-        PlaySoundFrontend(-1, 'ERROR', 'HUD_FRONTEND_DEFAULT_SOUNDSET', true)
-    end
+    return GetEffectiveModes(PlayerPedId(), currentWeapon)
 end)

@@ -27,13 +27,9 @@ Config = {}
 
 Config.ToggleKey = 'B'              -- Key to cycle fire modes
 Config.ToggleKeyCode = 29           -- Control code for 'B' (INPUT_SPECIAL_ABILITY)
-Config.ShowHUD = true               -- Show fire mode indicator on screen
-Config.HUDPosition = {              -- HUD position (percentage of screen)
-    x = 0.93,                        -- Right side
-    y = 0.85,                        -- Lower portion
-}
-Config.PlaySound = true             -- Play sound on mode change
+Config.PlaySound = true             -- Play subtle sound on mode change
 Config.RememberMode = true          -- Remember last selected mode per weapon
+Config.NotificationDuration = 2000  -- Brief notification duration (ms)
 
 -- Fire rate timing (milliseconds between shots)
 Config.FireRates = {

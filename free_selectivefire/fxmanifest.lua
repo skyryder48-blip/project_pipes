@@ -6,7 +6,7 @@
     - Semi-automatic, burst, and full-automatic fire modes
     - Per-weapon configuration based on real-world equivalents
     - Modification support (Glock switches, bump stocks, etc.)
-    - Visual HUD indicator for current fire mode
+    - Subtle notification on mode change
     - Configurable toggle key
 ]]
 
@@ -23,8 +23,4 @@ shared_scripts {
 
 client_scripts {
     'client/cl_firecontrol.lua',
-    'client/cl_hud.lua',
 }
-
--- Dependencies (optional - uncomment if using with ammo system)
--- dependency 'ammo_system_standalone'

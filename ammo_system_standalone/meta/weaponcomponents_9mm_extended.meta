@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  9mm EXTENDED MAGAZINE Components
+  =================================
+
+  This file defines extended capacity magazines for 9mm weapons.
+  Works in conjunction with the magazine item system.
+
+  NAMING CONVENTION:
+  - Standard:  COMPONENT_{WEAPON}_CLIP_{AMMO}      (e.g., COMPONENT_G26_CLIP_FMJ)
+  - Extended:  COMPONENT_{WEAPON}_EXTCLIP_{AMMO}   (e.g., COMPONENT_G26_EXTCLIP_FMJ)
+  - Drum:      COMPONENT_{WEAPON}_DRUM_{AMMO}      (e.g., COMPONENT_G26_DRUM_FMJ)
+
+  CAPACITY REFERENCE (Glock 26):
+  - Standard: 10 rounds
+  - Extended: 33 rounds (stick magazine)
+  - Drum: 50 rounds
+
+  For each ammo type (FMJ, HP, AP), we need all three capacity variants.
+  Total per weapon: 3 ammo types × 3 capacities = 9 components
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+
+    <!-- ================================================================== -->
+    <!-- GLOCK 26 - EXTENDED MAGAZINES (33 rounds)                          -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G26_EXTCLIP_FMJ</n>
+      <Model>w_pi_glock_mag2</Model>
+      <LocName>WCT_CLIP_EXT_FMJ</LocName>
+      <LocDesc>WCD_CLIP_EXT_FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="CWeaponAccuracyModifier">
+        <AccuracyModifier value="0.950000" />
+      </AccuracyModifier>
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="-5" />
+      <HudCapacity value="70" />
+      <HudAccuracy value="-5" />
+      <HudRange value="0" />
+      <ClipSize value="33" />
+      <AmmoInfo ref="AMMO_9MM_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G26_EXTCLIP_HP</n>
+      <Model>w_pi_glock_mag2</Model>
+      <LocName>WCT_CLIP_EXT_HP</LocName>
+      <LocDesc>WCD_CLIP_EXT_HP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="CWeaponAccuracyModifier">
+        <AccuracyModifier value="0.950000" />
+      </AccuracyModifier>
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="1.100000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="10" />
+      <HudSpeed value="-5" />
+      <HudCapacity value="70" />
+      <HudAccuracy value="-5" />
+      <HudRange value="-5" />
+      <ClipSize value="33" />
+      <AmmoInfo ref="AMMO_9MM_HP" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G26_EXTCLIP_AP</n>
+      <Model>w_pi_glock_mag2</Model>
+      <LocName>WCT_CLIP_EXT_AP</LocName>
+      <LocDesc>WCD_CLIP_EXT_AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="CWeaponAccuracyModifier">
+        <AccuracyModifier value="0.950000" />
+      </AccuracyModifier>
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="0.900000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="-10" />
+      <HudSpeed value="-5" />
+      <HudCapacity value="65" />
+      <HudAccuracy value="-5" />
+      <HudRange value="5" />
+      <ClipSize value="31" />
+      <AmmoInfo ref="AMMO_9MM_AP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- GLOCK 26 - DRUM MAGAZINES (50 rounds)                              -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G26_DRUM_FMJ</n>
+      <Model>w_pi_glock_drum</Model>
+      <LocName>WCT_CLIP_DRUM_FMJ</LocName>
+      <LocDesc>WCD_CLIP_DRUM_FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="CWeaponAccuracyModifier">
+        <AccuracyModifier value="0.900000" />
+      </AccuracyModifier>
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="-15" />
+      <HudCapacity value="100" />
+      <HudAccuracy value="-10" />
+      <HudRange value="0" />
+      <ClipSize value="50" />
+      <AmmoInfo ref="AMMO_9MM_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G26_DRUM_HP</n>
+      <Model>w_pi_glock_drum</Model>
+      <LocName>WCT_CLIP_DRUM_HP</LocName>
+      <LocDesc>WCD_CLIP_DRUM_HP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="CWeaponAccuracyModifier">
+        <AccuracyModifier value="0.900000" />
+      </AccuracyModifier>
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="1.100000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="10" />
+      <HudSpeed value="-15" />
+      <HudCapacity value="100" />
+      <HudAccuracy value="-10" />
+      <HudRange value="-5" />
+      <ClipSize value="50" />
+      <AmmoInfo ref="AMMO_9MM_HP" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G26_DRUM_AP</n>
+      <Model>w_pi_glock_drum</Model>
+      <LocName>WCT_CLIP_DRUM_AP</LocName>
+      <LocDesc>WCD_CLIP_DRUM_AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="CWeaponAccuracyModifier">
+        <AccuracyModifier value="0.900000" />
+      </AccuracyModifier>
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="0.900000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="-10" />
+      <HudSpeed value="-15" />
+      <HudCapacity value="95" />
+      <HudAccuracy value="-10" />
+      <HudRange value="5" />
+      <ClipSize value="48" />
+      <AmmoInfo ref="AMMO_9MM_AP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- GLOCK 17/19/45 - EXTENDED MAGAZINES (33 rounds)                    -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G17_EXTCLIP_FMJ</n>
+      <Model>w_pi_glock_mag2</Model>
+      <LocName>WCT_CLIP_EXT_FMJ</LocName>
+      <LocDesc>WCD_CLIP_EXT_FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="CWeaponAccuracyModifier">
+        <AccuracyModifier value="0.950000" />
+      </AccuracyModifier>
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="-5" />
+      <HudCapacity value="50" />
+      <HudAccuracy value="-5" />
+      <HudRange value="0" />
+      <ClipSize value="33" />
+      <AmmoInfo ref="AMMO_9MM_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G17_EXTCLIP_HP</n>
+      <Model>w_pi_glock_mag2</Model>
+      <LocName>WCT_CLIP_EXT_HP</LocName>
+      <LocDesc>WCD_CLIP_EXT_HP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="CWeaponAccuracyModifier">
+        <AccuracyModifier value="0.950000" />
+      </AccuracyModifier>
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="1.100000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="10" />
+      <HudSpeed value="-5" />
+      <HudCapacity value="50" />
+      <HudAccuracy value="-5" />
+      <HudRange value="-5" />
+      <ClipSize value="33" />
+      <AmmoInfo ref="AMMO_9MM_HP" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G17_EXTCLIP_AP</n>
+      <Model>w_pi_glock_mag2</Model>
+      <LocName>WCT_CLIP_EXT_AP</LocName>
+      <LocDesc>WCD_CLIP_EXT_AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="CWeaponAccuracyModifier">
+        <AccuracyModifier value="0.950000" />
+      </AccuracyModifier>
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="0.900000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="-10" />
+      <HudSpeed value="-5" />
+      <HudCapacity value="45" />
+      <HudAccuracy value="-5" />
+      <HudRange value="5" />
+      <ClipSize value="31" />
+      <AmmoInfo ref="AMMO_9MM_AP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- GLOCK 17/19/45 - DRUM MAGAZINES (50 rounds)                        -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G17_DRUM_FMJ</n>
+      <Model>w_pi_glock_drum</Model>
+      <LocName>WCT_CLIP_DRUM_FMJ</LocName>
+      <LocDesc>WCD_CLIP_DRUM_FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="CWeaponAccuracyModifier">
+        <AccuracyModifier value="0.900000" />
+      </AccuracyModifier>
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="-15" />
+      <HudCapacity value="100" />
+      <HudAccuracy value="-10" />
+      <HudRange value="0" />
+      <ClipSize value="50" />
+      <AmmoInfo ref="AMMO_9MM_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G17_DRUM_HP</n>
+      <Model>w_pi_glock_drum</Model>
+      <LocName>WCT_CLIP_DRUM_HP</LocName>
+      <LocDesc>WCD_CLIP_DRUM_HP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="CWeaponAccuracyModifier">
+        <AccuracyModifier value="0.900000" />
+      </AccuracyModifier>
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="1.100000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="10" />
+      <HudSpeed value="-15" />
+      <HudCapacity value="100" />
+      <HudAccuracy value="-10" />
+      <HudRange value="-5" />
+      <ClipSize value="50" />
+      <AmmoInfo ref="AMMO_9MM_HP" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_G17_DRUM_AP</n>
+      <Model>w_pi_glock_drum</Model>
+      <LocName>WCT_CLIP_DRUM_AP</LocName>
+      <LocDesc>WCD_CLIP_DRUM_AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone>
+      <AccuracyModifier type="CWeaponAccuracyModifier">
+        <AccuracyModifier value="0.900000" />
+      </AccuracyModifier>
+      <DamageModifier type="CWeaponDamageModifier">
+        <DamageModifier value="0.900000" />
+      </DamageModifier>
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="-10" />
+      <HudSpeed value="-15" />
+      <HudCapacity value="95" />
+      <HudAccuracy value="-10" />
+      <HudRange value="5" />
+      <ClipSize value="48" />
+      <AmmoInfo ref="AMMO_9MM_AP" />
+    </Item>
+
+  </Infos>
+  <n>9mm Extended Magazine Components</n>
+</CWeaponComponentInfoBlob>

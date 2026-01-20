@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_MK47</n>
+      <Model>w_ar_mk47</Model>
+      <Audio>AUDIO_ASSAULT_RIFLE</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="30" />
+      <AccuracySpread value="0.95" />
+      <AccurateModeAccuracyModifier value="0.15" />
+      <RunAndGunAccuracyModifier value="0.52" />
+      <RunAndGunAccuracyMaxModifier value="0.28" />
+      <RecoilAccuracyMax value="2.00" />
+      <RecoilErrorTime value="0.42" />
+      <RecoilRecoveryRate value="0.50" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.48" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="45.0" />
+      <HeadShotDamageModifierPlayer value="2.5" />
+      <HeadShotDamageModifierAI value="4.0" />
+      
+      <!-- ================================================
+           CMMG MK47 MUTANT - 16" PRECISION HYBRID RIFLE
+           ================================================
+           Real-world specifications:
+           - Barrel: 16.1" 4140CM nitride
+           - Weight: 7.0 lbs unloaded
+           - Overall length: 33" (collapsed)
+           - Muzzle velocity: 2,350 fps (7.62x39mm)
+           - Operating system: Direct impingement
+           - Accuracy: 1.0-1.5 MOA (sub-2 MOA documented)
+           - Magazine: Standard AK magazines compatible
+           - MSRP: $1,949
+           
+           Game balance notes:
+           - BEST ACCURACY for 7.62x39 platform
+           - AR-15 ergonomics with AK firepower
+           - Moderate recoil (muzzle brake + buffer)
+           - Full 7.62x39 damage potential
+           - Premium tier rifle
+           - 3 shots close range, 6-7 at max range
+      -->
+      
+      <!-- 16.1" barrel = 100% damage (48 base for 7.62x39) -->
+      <Damage value="48.0" />
+      <DamageFallOffRangeMin value="65.0" />
+      <DamageFallOffRangeMax value="180.0" />
+      <DamageFallOffModifier value="0.35" />
+      
+      <!-- 7.62x39 velocity: 2,350 fps = ~715 m/s -->
+      <Speed value="715.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="150.0" />
+      <ForceHitPed value="130.0" />
+      <ForceHitVehicle value="70.0" />
+      <ForceHitFlyingHeli value="50.0" />
+      <OverrideForces />
+      
+      <!-- 7.62x39 excellent barrier penetration -->
+      <Penetration value="0.55" />
+      <ArmorPenetration value="0.38" />
+      
+      <!-- Moderate recoil - muzzle brake + buffer system -->
+      <RecoilShakeAmplitude value="0.28" />
+      <RecoilShakeFrequency value="0.52" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- Semi-auto civilian - ~150-180 practical RPM -->
+      <TimeBetweenShots value="0.095" />
+      <AnimReloadRate value="1.0" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.40" />
+      <AimingTimeFromSprinting value="0.52" />
+      
+      <!-- Good effective range for 7.62x39 -->
+      <WeaponRange value="350.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.09" />
+      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_MK47</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

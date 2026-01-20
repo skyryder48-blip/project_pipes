@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_MINI_AK47</n>
+      <Model>w_ar_mini_ak47</Model>
+      <Audio>AUDIO_ASSAULT_RIFLE</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="30" />
+      <AccuracySpread value="2.20" />
+      <AccurateModeAccuracyModifier value="0.45" />
+      <RunAndGunAccuracyModifier value="0.70" />
+      <RunAndGunAccuracyMaxModifier value="0.50" />
+      <RecoilAccuracyMax value="3.50" />
+      <RecoilErrorTime value="0.55" />
+      <RecoilRecoveryRate value="0.35" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.65" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="25.0" />
+      <HeadShotDamageModifierPlayer value="2.5" />
+      <HeadShotDamageModifierAI value="4.0" />
+      
+      <!-- ================================================
+           MICRO DRACO - 6.25" COMPACT AK PISTOL
+           ================================================
+           Real-world specifications:
+           - Barrel: 6.25" (shortest Draco variant)
+           - Weight: 4.85 lbs (lightest AK platform)
+           - Overall length: 14.5"
+           - Muzzle velocity: ~1,900 fps (7.62x39mm)
+           - Operating system: Long-stroke gas piston
+           - Accuracy: 6+ MOA (very poor - short sight radius)
+           - Origin: Romanian Cugir Arms Factory
+           
+           Game balance notes:
+           - HIGHEST RECOIL in batch - "fire breathing dragon"
+           - Massive muzzle flash and concussion
+           - Poor accuracy due to 6" sight radius
+           - Fast handling due to compact size
+           - 7.62x39 maintains effectiveness from short barrel
+           - 3 shots close range, 7-8 at max range
+      -->
+      
+      <!-- 6.25" barrel = 92% of 16" damage (45 from 48 base) -->
+      <Damage value="45.0" />
+      <DamageFallOffRangeMin value="40.0" />
+      <DamageFallOffRangeMax value="120.0" />
+      <DamageFallOffModifier value="0.32" />
+      
+      <!-- 7.62x39 velocity: 1,900 fps = ~580 m/s -->
+      <Speed value="580.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="140.0" />
+      <ForceHitPed value="120.0" />
+      <ForceHitVehicle value="65.0" />
+      <ForceHitFlyingHeli value="45.0" />
+      <OverrideForces />
+      
+      <!-- 7.62x39 good barrier penetration -->
+      <Penetration value="0.50" />
+      <ArmorPenetration value="0.35" />
+      
+      <!-- EXTREME RECOIL - short gas system, no stock, light weight -->
+      <RecoilShakeAmplitude value="0.42" />
+      <RecoilShakeFrequency value="0.70" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- ~600 RPM cyclic -->
+      <TimeBetweenShots value="0.100" />
+      <AnimReloadRate value="0.95" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.25" />
+      <AimingTimeFromSprinting value="0.32" />
+      
+      <!-- Short effective range due to accuracy limitations -->
+      <WeaponRange value="150.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.25" />
+      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_MINI_AK47</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_CZ_BREN</n>
+      <Model>w_ar_cz_bren</Model>
+      <Audio>AUDIO_ASSAULT_RIFLE</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="30" />
+      <AccuracySpread value="1.00" />
+      <AccurateModeAccuracyModifier value="0.17" />
+      <RunAndGunAccuracyModifier value="0.52" />
+      <RunAndGunAccuracyMaxModifier value="0.28" />
+      <RecoilAccuracyMax value="1.75" />
+      <RecoilErrorTime value="0.38" />
+      <RecoilRecoveryRate value="0.60" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.44" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="38.0" />
+      <HeadShotDamageModifierPlayer value="2.5" />
+      <HeadShotDamageModifierAI value="4.0" />
+      
+      <!-- ================================================
+           CZ BREN 2 - CZECH MODULAR 14" RIFLE
+           ================================================
+           Real-world specifications:
+           - Barrel: 14" (standard military config)
+           - Weight: 5.86 lbs empty (lightest of batch)
+           - Overall length: 35.6" extended, 25.8" folded
+           - Muzzle velocity: 2,800-2,900 fps (M193)
+           - Rate of fire: 850 RPM (highest of batch)
+           - Short-stroke gas piston
+           - Folding stock, modular caliber conversion
+           - Czech Army standard issue (replaced CZ 805)
+           
+           Game balance notes:
+           - HIGHEST FIRE RATE: 850 RPM cyclic
+           - LOWEST RECOIL: "Competition-tuned" piston
+           - 14" barrel = 90% damage of 20"
+           - Excellent handling due to light weight
+           - 3 shots close range, 7 at max range
+      -->
+      
+      <!-- 14" barrel = 90% damage (38 from 42 base) -->
+      <Damage value="38.0" />
+      <DamageFallOffRangeMin value="60.0" />
+      <DamageFallOffRangeMax value="180.0" />
+      <DamageFallOffModifier value="0.35" />
+      
+      <!-- 5.56 NATO velocity: 2,850 fps = ~870 m/s -->
+      <Speed value="870.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="105.0" />
+      <ForceHitPed value="88.0" />
+      <ForceHitVehicle value="42.0" />
+      <ForceHitFlyingHeli value="30.0" />
+      <OverrideForces />
+      
+      <Penetration value="0.36" />
+      <ArmorPenetration value="0.26" />
+      
+      <!-- LOWEST RECOIL - competition-tuned piston -->
+      <RecoilShakeAmplitude value="0.16" />
+      <RecoilShakeFrequency value="0.40" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- HIGHEST FIRE RATE: 850 RPM -->
+      <TimeBetweenShots value="0.070" />
+      <AnimReloadRate value="1.05" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.32" />
+      <AimingTimeFromSprinting value="0.42" />
+      
+      <WeaponRange value="400.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.10" />
+      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_CZ_BREN</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

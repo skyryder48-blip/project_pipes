@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_RAM7KNIGHT</n>
+      <Model>w_ar_ram7knight</Model>
+      <Audio>AUDIO_ASSAULT_RIFLE</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="30" />
+      <AccuracySpread value="1.05" />
+      <AccurateModeAccuracyModifier value="0.18" />
+      <RunAndGunAccuracyModifier value="0.52" />
+      <RunAndGunAccuracyMaxModifier value="0.28" />
+      <RecoilAccuracyMax value="1.85" />
+      <RecoilErrorTime value="0.40" />
+      <RecoilRecoveryRate value="0.55" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.45" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="44.0" />
+      <HeadShotDamageModifierPlayer value="2.5" />
+      <HeadShotDamageModifierAI value="4.0" />
+      
+      <!-- ================================================
+           IWI TAVOR (RAM 7 KNIGHT) - ISRAELI 16.5" BULLPUP
+           ================================================
+           Real-world specifications:
+           - Barrel: 16.5" (civilian SAR/X95 variant)
+           - Weight: 7.9 lbs (SAR), 7.0 lbs (X95)
+           - Overall length: 26-26.125"
+           - Muzzle velocity: ~3,000-3,050 fps (M193)
+           - Rate of fire: 750-900 RPM
+           - Long-stroke gas piston (AK-style reliability)
+           - IDF standard issue since 2006
+           - Battle-proven: Operation Cast Lead 2008-2009
+           
+           Game balance notes:
+           - COMBAT PROVEN: Extreme reliability
+           - 16.5" barrel = 95% damage of 20"
+           - Bullpup compact handling advantage
+           - Long-stroke = slightly more recoil than AUG
+           - 3 shots close range, 6-7 at max range
+      -->
+      
+      <!-- 16.5" barrel = 95% damage (40 from 42 base) -->
+      <Damage value="40.0" />
+      <DamageFallOffRangeMin value="70.0" />
+      <DamageFallOffRangeMax value="220.0" />
+      <DamageFallOffModifier value="0.37" />
+      
+      <!-- 5.56 NATO velocity: 3,025 fps = ~922 m/s -->
+      <Speed value="922.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="115.0" />
+      <ForceHitPed value="95.0" />
+      <ForceHitVehicle value="47.0" />
+      <ForceHitFlyingHeli value="33.0" />
+      <OverrideForces />
+      
+      <Penetration value="0.38" />
+      <ArmorPenetration value="0.28" />
+      
+      <!-- Long-stroke piston = slightly more recoil than short-stroke -->
+      <RecoilShakeAmplitude value="0.21" />
+      <RecoilShakeFrequency value="0.46" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- 750-900 RPM -->
+      <TimeBetweenShots value="0.078" />
+      <AnimReloadRate value="1.0" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.33" />
+      <AimingTimeFromSprinting value="0.43" />
+      
+      <WeaponRange value="500.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.10" />
+      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_RAM7KNIGHT</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

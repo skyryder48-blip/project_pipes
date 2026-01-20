@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_M16</n>
+      <Model>w_ar_m16</Model>
+      <Audio>AUDIO_ASSAULT_RIFLE</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="30" />
+      <AccuracySpread value="0.80" />
+      <AccurateModeAccuracyModifier value="0.15" />
+      <RunAndGunAccuracyModifier value="0.55" />
+      <RunAndGunAccuracyMaxModifier value="0.30" />
+      <RecoilAccuracyMax value="1.80" />
+      <RecoilErrorTime value="0.40" />
+      <RecoilRecoveryRate value="0.55" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.45" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="50.0" />
+      <HeadShotDamageModifierPlayer value="2.5" />
+      <HeadShotDamageModifierAI value="4.0" />
+      
+      <!-- ================================================
+           COLT M16A4 - BENCHMARK 20" MILITARY RIFLE
+           ================================================
+           Real-world specifications:
+           - Barrel: 20" cold hammer-forged, rifle-length gas
+           - Weight: 7.5 lbs empty, 8.79 lbs loaded
+           - Overall length: 39.63"
+           - Muzzle velocity: 3,200-3,280 fps (M193)
+           - Rate of fire: 700-950 RPM cyclic (3-round burst)
+           - Effective range: 550m point / 800m area
+           - Sight radius: 19.75" (longest of all platforms)
+           - Direct impingement gas system
+           
+           Game balance notes:
+           - BENCHMARK: Full 5.56 NATO performance
+           - Best accuracy due to longest sight radius
+           - Rifle-length gas = smoothest recoil
+           - 3 shots close range, 6-7 at max range
+      -->
+      
+      <!-- 20" barrel = 100% damage (42 baseline) -->
+      <Damage value="42.0" />
+      <DamageFallOffRangeMin value="80.0" />
+      <DamageFallOffRangeMax value="250.0" />
+      <DamageFallOffModifier value="0.38" />
+      
+      <!-- 5.56 NATO velocity: 3,250 fps = ~990 m/s -->
+      <Speed value="990.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="120.0" />
+      <ForceHitPed value="100.0" />
+      <ForceHitVehicle value="50.0" />
+      <ForceHitFlyingHeli value="35.0" />
+      <OverrideForces />
+      
+      <!-- 5.56 NATO moderate penetration -->
+      <Penetration value="0.40" />
+      <ArmorPenetration value="0.30" />
+      
+      <!-- Rifle-length DI = smooth recoil -->
+      <RecoilShakeAmplitude value="0.20" />
+      <RecoilShakeFrequency value="0.45" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- ~800 RPM average -->
+      <TimeBetweenShots value="0.075" />
+      <AnimReloadRate value="1.0" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.45" />
+      <AimingTimeFromSprinting value="0.60" />
+      
+      <!-- Longest effective range -->
+      <WeaponRange value="600.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.08" />
+      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_M16</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

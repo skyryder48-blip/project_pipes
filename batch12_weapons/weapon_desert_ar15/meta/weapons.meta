@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_DESERT_AR15</n>
+      <Model>w_ar_desert_ar15</Model>
+      <Audio>AUDIO_ASSAULT_RIFLE</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="30" />
+      <AccuracySpread value="1.05" />
+      <AccurateModeAccuracyModifier value="0.18" />
+      <RunAndGunAccuracyModifier value="0.55" />
+      <RunAndGunAccuracyMaxModifier value="0.30" />
+      <RecoilAccuracyMax value="1.90" />
+      <RecoilErrorTime value="0.40" />
+      <RecoilRecoveryRate value="0.52" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.46" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="42.0" />
+      <HeadShotDamageModifierPlayer value="2.5" />
+      <HeadShotDamageModifierAI value="4.0" />
+      
+      <!-- ================================================
+           DESERT AR-15 - MID-TIER FDE 16" RIFLE
+           ================================================
+           Real-world specifications:
+           - Barrel: 16" mid-length gas system
+           - Weight: 6.8-7.0 lbs empty
+           - Overall length: 32-34"
+           - Muzzle velocity: 2,968-3,100 fps (M193)
+           - Flat Dark Earth/Desert Tan finish
+           - Accuracy: 2-2.5 MOA (better quality)
+           - Price: $800-1,200 (mid-tier quality)
+           
+           Game balance notes:
+           - MID-TIER: Better accuracy/recoil than PSA
+           - 16" barrel = 93% damage of 20"
+           - Mid-length gas = smoother than carbine
+           - Semi-auto civilian variant
+           - 3 shots close range, 7 at max range
+      -->
+      
+      <!-- 16" barrel = 93% damage (39 from 42 base) -->
+      <Damage value="39.0" />
+      <DamageFallOffRangeMin value="68.0" />
+      <DamageFallOffRangeMax value="210.0" />
+      <DamageFallOffModifier value="0.37" />
+      
+      <!-- 5.56 NATO velocity: 3,000 fps = ~915 m/s -->
+      <Speed value="915.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="110.0" />
+      <ForceHitPed value="92.0" />
+      <ForceHitVehicle value="45.0" />
+      <ForceHitFlyingHeli value="32.0" />
+      <OverrideForces />
+      
+      <Penetration value="0.38" />
+      <ArmorPenetration value="0.28" />
+      
+      <!-- Mid-tier quality = better recoil control -->
+      <RecoilShakeAmplitude value="0.23" />
+      <RecoilShakeFrequency value="0.48" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- Semi-auto, slightly better trigger -->
+      <TimeBetweenShots value="0.095" />
+      <AnimReloadRate value="1.0" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.36" />
+      <AimingTimeFromSprinting value="0.48" />
+      
+      <WeaponRange value="460.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.10" />
+      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_DESERT_AR15</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

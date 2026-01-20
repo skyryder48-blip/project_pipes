@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_RED_AUG</n>
+      <Model>w_ar_red_aug</Model>
+      <Audio>AUDIO_ASSAULT_RIFLE</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="30" />
+      <AccuracySpread value="0.90" />
+      <AccurateModeAccuracyModifier value="0.16" />
+      <RunAndGunAccuracyModifier value="0.50" />
+      <RunAndGunAccuracyMaxModifier value="0.26" />
+      <RecoilAccuracyMax value="1.70" />
+      <RecoilErrorTime value="0.38" />
+      <RecoilRecoveryRate value="0.58" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.42" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="48.0" />
+      <HeadShotDamageModifierPlayer value="2.5" />
+      <HeadShotDamageModifierAI value="4.0" />
+      
+      <!-- ================================================
+           STEYR AUG A3 (RED AUG) - AUSTRIAN 20" BULLPUP
+           ================================================
+           Real-world specifications:
+           - Barrel: 20" in bullpup configuration
+           - Weight: 7.9 lbs empty, 9.0 lbs loaded
+           - Overall length: 31.1" (8.4" shorter than M16!)
+           - Muzzle velocity: 3,200-3,250 fps (M193)
+           - Rate of fire: 680-750 RPM
+           - Short-stroke gas piston system
+           - Integrated 1.5x/3x Swarovski optic
+           - Stock trigger: 9-10 lbs (heavy linkage)
+           
+           Game balance notes:
+           - BULLPUP: 20" ballistics in compact package
+           - Excellent handling (compact) with full power
+           - Low recoil (piston + bullpup balance)
+           - Slower fire rate due to heavy trigger
+           - 3 shots close range, 6-7 at max range
+      -->
+      
+      <!-- 20" barrel = 100% damage (42 baseline) -->
+      <Damage value="42.0" />
+      <DamageFallOffRangeMin value="78.0" />
+      <DamageFallOffRangeMax value="245.0" />
+      <DamageFallOffModifier value="0.38" />
+      
+      <!-- 5.56 NATO velocity: 3,250 fps = ~990 m/s -->
+      <Speed value="990.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="120.0" />
+      <ForceHitPed value="100.0" />
+      <ForceHitVehicle value="50.0" />
+      <ForceHitFlyingHeli value="35.0" />
+      <OverrideForces />
+      
+      <Penetration value="0.40" />
+      <ArmorPenetration value="0.30" />
+      
+      <!-- Bullpup balance + short-stroke = minimal muzzle rise -->
+      <RecoilShakeAmplitude value="0.18" />
+      <RecoilShakeFrequency value="0.42" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- 680-750 RPM, heavy trigger -->
+      <TimeBetweenShots value="0.085" />
+      <AnimReloadRate value="0.95" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.32" />
+      <AimingTimeFromSprinting value="0.42" />
+      
+      <!-- Full 20" effective range -->
+      <WeaponRange value="580.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.09" />
+      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_RED_AUG</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

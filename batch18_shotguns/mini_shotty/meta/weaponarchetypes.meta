@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponModelInfo__InitDataList>
+  <InitDatas>
+    <Item>
+      <n>w_sg_minishotty</n>
+      <Model>w_sg_minishotty</Model>
+      <Audio>AUDIO_ITEM_SAWNOFFSHOTGUN</Audio>
+      <Slot>YOURSLOT</Slot>
+      <WeaponFlags>WF_FIREARM, WF_GUN, WF_PED_GUN_2_HANDED, WF_WEAPON, WF_LOUDWEAPON</WeaponFlags>
+    </Item>
+  </InitDatas>
+</CWeaponModelInfo__InitDataList>

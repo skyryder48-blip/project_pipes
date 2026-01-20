@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="288" />
+          <Entry>SLOT_MINISHOTTY</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="288" />
+          <Entry>SLOT_MINISHOTTY</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="146" />
+        <Entry>SLOT_MINISHOTTY</Entry>
+      </Item>
+    </WeaponSlots>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos>
+    <Item type="CAimingInfo">
+      <n>RIFLE_LO_MINISHOTTY_STRAFE</n>
+      <HeadingLimit value="90.000000" />
+      <SweepPitchMin value="-50.000000" />
+      <SweepPitchMax value="60.000000" />
+    </Item>
+  </AimingInfos>
+  <Infos>
+    <Item>
+      <Infos />
+    </Item>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+          <!-- ================================================================
+               MINI SHOTTY - ILLEGAL SAWN-OFF PISTOL GRIP 12-GAUGE
+               ================================================================
+               Real-World Specifications:
+               - Caliber: 12 gauge (00 buckshot - 9 pellets)
+               - Barrel: 10-12" (illegally shortened)
+               - Capacity: 3+1 (shortened tube)
+               - Weight: 4.5-5.0 lbs
+               - Chamber: 2-3/4" only (3" too violent)
+               - Action: Pump (single hand operation difficult)
+               - Muzzle Velocity: 1,050-1,150 fps (severe velocity loss)
+               - Effective Range: 10-12m buckshot maximum
+               
+               Ballistic Notes:
+               - ILLEGAL Short Barreled Shotgun (SBS) - felony weapon
+               - No stock = brutal felt recoil, wrist injury risk
+               - Pistol grip forces hip-fire only operation
+               - Eye-level aiming extremely dangerous (receiver to face)
+               - Massive pattern expansion due to short barrel
+               - 250+ fps velocity loss from 18" baseline
+               - Shortened magazine tube reduces capacity
+               - Concealable under coat - criminal favorite
+               - One-hand operation nearly impossible due to recoil
+               - Pattern spreads 1.5-2x faster than full-length guns
+               ================================================================ -->
+          <n>WEAPON_MINISHOTTY</n>
+          <Model>w_sg_minishotty</Model>
+          <Audio>AUDIO_ITEM_SAWNOFFSHOTGUN</Audio>
+          <Slot>SLOT_MINISHOTTY</Slot>
+          <HumanNameHash>WT_MINISHOTTY</HumanNameHash>
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FireType>INSTANT_HIT</FireType>
+          <WheelSlot>WHEEL_SHOTGUN</WheelSlot>
+          <Group>GROUP_SHOTGUN</Group>
+          <AmmoInfo ref="AMMO_SHOTGUN" />
+          <AimingInfo ref="RIFLE_LO_MINISHOTTY_STRAFE" />
+          
+          <!-- Magazine: 3+1 capacity (shortened tube) -->
+          <ClipSize value="4" />
+          
+          <!-- Accuracy: 50% base - hip-fire only, massive spread -->
+          <AccuracySpread value="4.500000" />
+          <AccurateModeAccuracyModifier value="0.850000" />
+          <RunAndGunAccuracyModifier value="1.500000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+          <RecoilAccuracyMax value="2.000000" />
+          <RecoilErrorTime value="0.200000" />
+          <RecoilRecoveryRate value="0.550000" />
+          
+          <!-- Headshot Parameters - very limited due to spread -->
+          <RecoilAccuracyToAllowHeadShotAI value="1000.000000" />
+          <MinHeadShotDistanceAI value="1000.000000" />
+          <MaxHeadShotDistanceAI value="1000.000000" />
+          <HeadShotDamageModifierAI value="1000.000000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.350000" />
+          <MinHeadShotDistancePlayer value="0.000000" />
+          <MaxHeadShotDistancePlayer value="8.000000" />
+          <HeadShotDamageModifierPlayer value="1.500000" />
+          
+          <!-- Damage: 38 per pellet × 9 pellets = 342 max point-blank -->
+          <!-- Lower per-pellet damage due to velocity loss from short barrel -->
+          <Damage value="38.000000" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <HitLimbsDamageModifier value="0.650000" />
+          <NetworkHitLimbsDamageModifier value="0.800000" />
+          <LightlyArmouredDamageModifier value="0.500000" />
+          
+          <!-- Physics Forces - high knockback at close range -->
+          <Force value="200.000000" />
+          <ForceHitPed value="110.000000" />
+          <ForceHitVehicle value="350.000000" />
+          <ForceHitFlyingHeli value="130.000000" />
+          <OverrideForces>
+            <Item>
+              <BoneTag>BONETAG_HEAD</BoneTag>
+              <ForceFront value="45.000000" />
+              <ForceBack value="35.000000" />
+            </Item>
+            <Item>
+              <BoneTag>BONETAG_NECK</BoneTag>
+              <ForceFront value="65.000000" />
+              <ForceBack value="35.000000" />
+            </Item>
+            <Item>
+              <BoneTag>BONETAG_R_CLAVICLE</BoneTag>
+              <ForceFront value="35.000000" />
+              <ForceBack value="35.000000" />
+            </Item>
+            <Item>
+              <BoneTag>BONETAG_L_CLAVICLE</BoneTag>
+              <ForceFront value="35.000000" />
+              <ForceBack value="35.000000" />
+            </Item>
+          </OverrideForces>
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="0.000000" />
+          <ForceFalloffRangeEnd value="25.000000" />
+          <ForceFalloffMin value="1.000000" />
+          <ProjectileForce value="0.000000" />
+          <FragImpulse value="480.000000" />
+          
+          <!-- Penetration: Very low - velocity too reduced -->
+          <Penetration value="0.080000" />
+          <VerticalLaunchAdjustment value="0.000000" />
+          <DropForwardVelocity value="0.000000" />
+          
+          <!-- Buckshot velocity: 1,050 fps = 320 m/s (severe loss) -->
+          <Speed value="320.000000" />
+          
+          <!-- 9 pellets with extreme spread -->
+          <BulletsInBatch value="9" />
+          <BatchSpread value="0.095000" />
+          
+          <!-- Reload: 0.7s per shell, awkward with pistol grip -->
+          <ReloadTimeMP value="-1.000000" />
+          <ReloadTimeSP value="-1.000000" />
+          
+          <!-- Fire Rate: 40 RPM base = 1.5s between shots -->
+          <!-- Brutal recoil requires recovery time -->
+          <TimeBetweenShots value="1.500000" />
+          
+          <!-- Damage Falloff: Full damage 0-5m, minimum at 15m -->
+          <!-- Extremely rapid falloff - useless beyond close range -->
+          <DamageFallOffRangeMin value="5.000000" />
+          <DamageFallOffRangeMax value="15.000000" />
+          <DamageFallOffModifier value="0.120000" />
+          
+          <!-- Network Damage -->
+          <NetworkPlayerDamageModifier value="1.000000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          <NetworkHeadShotPlayerDamageModifier value="1.000000" />
+          <LockOnRange value="0.000000" />
+          <WeaponRange value="35.000000" />
+          
+          <!-- Recoil: 98/100 - no stock, brutal impulse to wrist/arm -->
+          <BulletDirectionOffsetInDegrees value="3.500000" />
+          <RecoilShakeAmplitude value="0.980000" />
+          <RecoilShakeFrequency value="0.000000" />
+          <RecoilShakeRollMagnitude value="0.550000" />
+          <RecoilShakeDuration value="0.750000" />
+          
+          <AiSoundRange value="140.000000" />
+          <AimingMod1 value="0.500000" />
+          <AimingModTime1 value="0.400000" />
+          <AimingMod2 value="0.300000" />
+          <AimingModTime2 value="0.600000" />
+          
+          <Flags>WF_GUN, WF_BULLETSPREAD, WF_PROJECTILE_DIRECTION_RANDOM, WF_NO_SHOOTING_BERSERK, WF_PED_GUN_2_HANDED, WF_WEAPON, WF_LOUDWEAPON, WF_TAKE_ARM_L_LONG_GUN_IMMEDIATE_DAMAGE_REACTIONS, WF_PERFECT_ACCURACY_NOT_SUPPORTED, WF_MAKE_PED_BACKUP, WF_SUPPRESS_SECONDARY_ACCURACY_SP, WF_PUMP_ACTION_FIRE, WF_SLOW_PROJECTILE, WF_NO_AIM_BLUR</Flags>
+          
+          <AltWheelSlot>WHEEL_UNARMED</AltWheelSlot>
+          <PickupGlowAsset />
+          <PickupTextRep />
+          <ModelHashKey>w_sg_minishotty</ModelHashKey>
+          <DefaultCameraHash>DEFAULT_FOLLOW_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_FOLLOW_CAMERA</CoverCameraHash>
+          <RunAndGunCameraHash>DEFAULT_FOLLOW_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash>DEFAULT_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+          <AimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </AimOffset>
+          <FirstPersonAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonAimOffset>
+          <FirstPersonScopeOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonScopeOffset>
+          <CrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </CrouchAimOffset>
+          <FirstPersonCrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonCrouchAimOffset>
+          <ZoomFactorForAccurateMode value="1.000000" />
+          <ReticuleMinSizeStanding value="0.000000" />
+          <ReticuleMinSizeDucked value="0.000000" />
+          <ReticuleScale value="0.800000" />
+          <IronSightCameraZoomFactor value="1.000000" />
+          <WeaponSoundBoneTag />
+          <Hud>
+            <FlashColor value="0xFFFFFFFF" />
+            <ScrollSelect>true</ScrollSelect>
+          </Hud>
+          <AmmoPickup>
+            <AmmoType>AMMO_SHOTGUN</AmmoType>
+            <Amount value="4" />
+          </AmmoPickup>
+          <AmmoPickup2>
+            <AmmoType>AMMO_SHOTGUN</AmmoType>
+            <Amount value="6" />
+          </AmmoPickup2>
+          <FireFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.200000" />
+            <EffectName>muz_smg_fp</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </FireFx>
+          <MuzzleFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.300000" />
+            <EffectName>muz_shotgun</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </MuzzleFx>
+          <ShellFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>weap_sh_shotgun</EffectName>
+            <FxBone>Gun_Shell</FxBone>
+          </ShellFx>
+          <TracerFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>proj_tracer</EffectName>
+            <FxBone />
+          </TracerFx>
+          <FlashFxLightEnabled value="true" />
+          <FlashFxLightCastsShadows value="false" />
+          <FlashFxLightOffsetDistance value="3.500000" />
+          <FlashFxLightRGBAMax value="0xFFFFE4C9" />
+          <FlashFxLightIntensityMax value="2.500000" />
+          <FlashFxLightFallOffMax value="12.000000" />
+          <FlashFxFadeOutTime value="0.080000" />
+          <FlashFxAltBone />
+          <ReloadUpperBodyFixupExpression>YOURNAME/YOURFOLDER</ReloadUpperBodyFixupExpression>
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

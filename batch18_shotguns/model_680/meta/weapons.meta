@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="287" />
+          <Entry>SLOT_MODEL680</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="287" />
+          <Entry>SLOT_MODEL680</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="145" />
+        <Entry>SLOT_MODEL680</Entry>
+      </Item>
+    </WeaponSlots>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos>
+    <Item type="CAimingInfo">
+      <n>RIFLE_LO_M680_STRAFE</n>
+      <HeadingLimit value="60.000000" />
+      <SweepPitchMin value="-77.500000" />
+      <SweepPitchMax value="47.500000" />
+    </Item>
+  </AimingInfos>
+  <Infos>
+    <Item>
+      <Infos />
+    </Item>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+          <!-- ================================================================
+               MODEL 680 - 12-GAUGE BASIC PUMP-ACTION SHOTGUN
+               ================================================================
+               Real-World Specifications:
+               - Caliber: 12 gauge (00 buckshot - 8 pellets)
+               - Barrel: 18-20" standard
+               - Capacity: 4+1 (basic tube)
+               - Weight: 6.5-7.0 lbs
+               - Chamber: 3" (2-3/4" and 3" shells)
+               - Action: Pump (single action bar)
+               - Muzzle Velocity: 1,150-1,250 fps (00 buck)
+               - Effective Range: 32m buckshot / 70m slug
+               
+               Ballistic Notes:
+               - Entry-level/budget pump shotgun design
+               - Single action bar (prone to binding if not straight-stroked)
+               - Basic blued steel finish
+               - Standard wood or synthetic furniture
+               - Wider patterns than premium shotguns
+               - 8-pellet loads common in budget ammunition
+               - Slower cycling due to action design
+               - Lower price point than 870/500 series
+               ================================================================ -->
+          <n>WEAPON_MODEL680</n>
+          <Model>w_sg_model680</Model>
+          <Audio>AUDIO_ITEM_PUMPSHOTGUN</Audio>
+          <Slot>SLOT_MODEL680</Slot>
+          <HumanNameHash>WT_MODEL680</HumanNameHash>
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FireType>INSTANT_HIT</FireType>
+          <WheelSlot>WHEEL_SHOTGUN</WheelSlot>
+          <Group>GROUP_SHOTGUN</Group>
+          <AmmoInfo ref="AMMO_SHOTGUN" />
+          <AimingInfo ref="RIFLE_LO_M680_STRAFE" />
+          
+          <!-- Magazine: 4+1 capacity -->
+          <ClipSize value="5" />
+          
+          <!-- Accuracy: 82% base - budget pump, wider patterns -->
+          <AccuracySpread value="3.100000" />
+          <AccurateModeAccuracyModifier value="0.550000" />
+          <RunAndGunAccuracyModifier value="2.400000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+          <RecoilAccuracyMax value="1.300000" />
+          <RecoilErrorTime value="0.000000" />
+          <RecoilRecoveryRate value="0.800000" />
+          
+          <!-- Headshot Parameters -->
+          <RecoilAccuracyToAllowHeadShotAI value="1000.000000" />
+          <MinHeadShotDistanceAI value="1000.000000" />
+          <MaxHeadShotDistanceAI value="1000.000000" />
+          <HeadShotDamageModifierAI value="1000.000000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.220000" />
+          <MinHeadShotDistancePlayer value="0.000000" />
+          <MaxHeadShotDistancePlayer value="22.000000" />
+          <HeadShotDamageModifierPlayer value="1.700000" />
+          
+          <!-- Damage: 40 per pellet × 8 pellets = 320 max close range -->
+          <!-- Lowest damage - budget shotgun with 8-pellet loads -->
+          <Damage value="40.000000" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <HitLimbsDamageModifier value="0.680000" />
+          <NetworkHitLimbsDamageModifier value="0.820000" />
+          <LightlyArmouredDamageModifier value="0.550000" />
+          
+          <!-- Physics Forces -->
+          <Force value="170.000000" />
+          <ForceHitPed value="88.000000" />
+          <ForceHitVehicle value="380.000000" />
+          <ForceHitFlyingHeli value="140.000000" />
+          <OverrideForces>
+            <Item>
+              <BoneTag>BONETAG_HEAD</BoneTag>
+              <ForceFront value="32.000000" />
+              <ForceBack value="25.000000" />
+            </Item>
+            <Item>
+              <BoneTag>BONETAG_NECK</BoneTag>
+              <ForceFront value="50.000000" />
+              <ForceBack value="25.000000" />
+            </Item>
+            <Item>
+              <BoneTag>BONETAG_R_CLAVICLE</BoneTag>
+              <ForceFront value="25.000000" />
+              <ForceBack value="25.000000" />
+            </Item>
+            <Item>
+              <BoneTag>BONETAG_L_CLAVICLE</BoneTag>
+              <ForceFront value="25.000000" />
+              <ForceBack value="25.000000" />
+            </Item>
+          </OverrideForces>
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="0.000000" />
+          <ForceFalloffRangeEnd value="45.000000" />
+          <ForceFalloffMin value="1.000000" />
+          <ProjectileForce value="0.000000" />
+          <FragImpulse value="520.000000" />
+          
+          <!-- Penetration: Lowest for budget shotgun -->
+          <Penetration value="0.100000" />
+          <VerticalLaunchAdjustment value="0.000000" />
+          <DropForwardVelocity value="0.000000" />
+          
+          <!-- Buckshot velocity: 1,150 fps = 350 m/s (lower power loads) -->
+          <Speed value="350.000000" />
+          
+          <!-- 8 pellets with wider spread -->
+          <BulletsInBatch value="8" />
+          <BatchSpread value="0.065000" />
+          
+          <!-- Reload: 0.65s per shell, slower action -->
+          <ReloadTimeMP value="-1.000000" />
+          <ReloadTimeSP value="-1.000000" />
+          
+          <!-- Fire Rate: 50 RPM base = 1.2s between shots -->
+          <!-- Single action bar is slower to cycle -->
+          <TimeBetweenShots value="1.200000" />
+          
+          <!-- Damage Falloff: Full damage to 8m, minimum at 32m -->
+          <DamageFallOffRangeMin value="8.000000" />
+          <DamageFallOffRangeMax value="32.000000" />
+          <DamageFallOffModifier value="0.160000" />
+          
+          <!-- Network Damage -->
+          <NetworkPlayerDamageModifier value="1.000000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          <NetworkHeadShotPlayerDamageModifier value="1.000000" />
+          <LockOnRange value="0.000000" />
+          <WeaponRange value="55.000000" />
+          
+          <!-- Recoil: 78/100 - full impulse, no ergonomic improvements -->
+          <BulletDirectionOffsetInDegrees value="0.000000" />
+          <RecoilShakeAmplitude value="0.780000" />
+          <RecoilShakeFrequency value="0.000000" />
+          <RecoilShakeRollMagnitude value="0.380000" />
+          <RecoilShakeDuration value="0.580000" />
+          
+          <AiSoundRange value="150.000000" />
+          <AimingMod1 value="0.620000" />
+          <AimingModTime1 value="0.320000" />
+          <AimingMod2 value="0.380000" />
+          <AimingModTime2 value="0.480000" />
+          
+          <Flags>WF_GUN, WF_GUN_2_HANDED, WF_BULLETSPREAD, WF_PROJECTILE_DIRECTION_RANDOM, WF_NO_SHOOTING_BERSERK, WF_PED_GUN_2_HANDED, WF_WEAPON, WF_LOUDWEAPON, WF_TAKE_ARM_L_LONG_GUN_IMMEDIATE_DAMAGE_REACTIONS, WF_PERFECT_ACCURACY_NOT_SUPPORTED, WF_MAKE_PED_BACKUP, WF_DEFAULT_SCOPE_ON, WF_SUPPRESS_SECONDARY_ACCURACY_SP, WF_PUMP_ACTION_FIRE, WF_SLOW_PROJECTILE</Flags>
+          
+          <AltWheelSlot>WHEEL_UNARMED</AltWheelSlot>
+          <PickupGlowAsset />
+          <PickupTextRep />
+          <ModelHashKey>w_sg_model680</ModelHashKey>
+          <DefaultCameraHash>DEFAULT_FOLLOW_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_FOLLOW_CAMERA</CoverCameraHash>
+          <RunAndGunCameraHash>DEFAULT_FOLLOW_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash>DEFAULT_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+          <AimOffset>
+            <X value="0.010000" />
+            <Y value="0.020000" />
+            <Z value="-0.015000" />
+          </AimOffset>
+          <FirstPersonAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonAimOffset>
+          <FirstPersonScopeOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonScopeOffset>
+          <CrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </CrouchAimOffset>
+          <FirstPersonCrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonCrouchAimOffset>
+          <ZoomFactorForAccurateMode value="1.000000" />
+          <ReticuleMinSizeStanding value="0.000000" />
+          <ReticuleMinSizeDucked value="0.000000" />
+          <ReticuleScale value="0.500000" />
+          <IronSightCameraZoomFactor value="1.000000" />
+          <WeaponSoundBoneTag />
+          <Hud>
+            <FlashColor value="0xFFFFFFFF" />
+            <ScrollSelect>true</ScrollSelect>
+          </Hud>
+          <AmmoPickup>
+            <AmmoType>AMMO_SHOTGUN</AmmoType>
+            <Amount value="4" />
+          </AmmoPickup>
+          <AmmoPickup2>
+            <AmmoType>AMMO_SHOTGUN</AmmoType>
+            <Amount value="6" />
+          </AmmoPickup2>
+          <FireFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>muz_smg_fp</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </FireFx>
+          <MuzzleFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>muz_shotgun</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </MuzzleFx>
+          <ShellFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>weap_sh_shotgun</EffectName>
+            <FxBone>Gun_Shell</FxBone>
+          </ShellFx>
+          <TracerFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>proj_tracer</EffectName>
+            <FxBone />
+          </TracerFx>
+          <FlashFxLightEnabled value="true" />
+          <FlashFxLightCastsShadows value="false" />
+          <FlashFxLightOffsetDistance value="4.000000" />
+          <FlashFxLightRGBAMax value="0xFFFFE4C9" />
+          <FlashFxLightIntensityMax value="2.000000" />
+          <FlashFxLightFallOffMax value="10.000000" />
+          <FlashFxFadeOutTime value="0.070000" />
+          <FlashFxAltBone />
+          <ReloadUpperBodyFixupExpression>YOURNAME/YOURFOLDER</ReloadUpperBodyFixupExpression>
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

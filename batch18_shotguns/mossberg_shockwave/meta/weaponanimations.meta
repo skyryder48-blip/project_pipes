@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Mossberg 590 Shockwave - Animation Configuration
+  Based on WEAPON_SAWNOFFSHOTGUN (stockless platform)
+  Hip-fire focused - limited ADS capability
+-->
+<CWeaponAnimationsSets>
+  <WeaponAnimationsSets>
+    <Item>
+      <WeaponName>WEAPON_SHOCKWAVE</WeaponName>
+      <MovementSet>move_m@generic_2h</MovementSet>
+      <CoverSet>Cover_Wpn_SawnOff</CoverSet>
+      <FirstPersonCore>core</FirstPersonCore>
+      <FirstPersonOverlays>
+        <Item>YOURNAME/YOURFOLDER/first_person</Item>
+      </FirstPersonOverlays>
+      <ActionSet>WeaponActions_SawnOffShotgun</ActionSet>
+      <ActionUpperSet>WeaponActionsUpper_SawnOffShotgun</ActionUpperSet>
+      <PartialSets>
+        <Item>UpperActions_SawnOffShotgun</Item>
+        <Item>UpperFacials_Weapon_Generic</Item>
+      </PartialSets>
+    </Item>
+  </WeaponAnimationsSets>
+</CWeaponAnimationsSets>

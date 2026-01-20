@@ -645,6 +645,22 @@ Config.Weapons = {
         componentBase = 'COMPONENT_BROWNINGAUTO5',
         clipSize = 5,
     },
+
+    -- Beretta 1301 Tactical - Fast Semi-Auto (8 rounds, 18.5" barrel)
+    -- Competition-grade gas system, 140 RPM, fastest follow-up shots
+    [`WEAPON_BERETTA1301`] = {
+        caliber = '12ga',
+        componentBase = 'COMPONENT_BERETTA1301',
+        clipSize = 8,
+    },
+
+    -- Mossberg 590 Shockwave - Stockless "Firearm" (6 rounds, 14.375" barrel)
+    -- Bird's head grip, hip-fire only, devastating CQB, legal loophole
+    [`WEAPON_SHOCKWAVE`] = {
+        caliber = '12ga',
+        componentBase = 'COMPONENT_SHOCKWAVE',
+        clipSize = 6,
+    },
 }
 
 -- Helper function to get weapon info

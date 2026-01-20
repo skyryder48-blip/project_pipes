@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   12 GAUGE SHOTGUN Weapon Components - Magazine Definitions
-  Batch 18 Shotguns: Mini Shotty, Model 680, Remington 870, Mossberg 500, Browning Auto-5
+  Batch 18 Shotguns: Mini Shotty, Model 680, Remington 870, Mossberg 500, Browning Auto-5,
+                     Beretta 1301 Tactical, Mossberg Shockwave
 
   SHOTGUN AMMO SYSTEM - 8 TYPES WITH UNIQUE BALLISTICS:
   ============================================================
@@ -398,6 +399,158 @@
       <bShownOnWheel value="true" /><CreateObject value="true" />
       <HudDamage value="-50" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="20" /><HudRange value="-80" />
       <ClipSize value="5" /><AmmoInfo ref="AMMO_12G_BREACH" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- BERETTA 1301 TACTICAL - Fast Semi-Auto (8 rounds)                  -->
+    <!-- Default: 00 Buck - professional high-speed combat                  -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_BERETTA1301_CLIP_00BUCK</n>
+      <Model /><LocName>WCT_CLIP_00BUCK</LocName><LocDesc>WCD_CLIP_00BUCK</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" /><DamageModifier type="NULL" />
+      <bShownOnWheel value="false" /><CreateObject value="true" />
+      <HudDamage value="0" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="0" />
+      <ClipSize value="8" /><AmmoInfo ref="AMMO_12G_00BUCK" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_BERETTA1301_CLIP_1BUCK</n>
+      <Model /><LocName>WCT_CLIP_1BUCK</LocName><LocDesc>WCD_CLIP_1BUCK</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.950000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-5" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="-10" /><HudRange value="-5" />
+      <ClipSize value="8" /><AmmoInfo ref="AMMO_12G_1BUCK" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_BERETTA1301_CLIP_SLUG</n>
+      <Model /><LocName>WCT_CLIP_SLUG</LocName><LocDesc>WCD_CLIP_SLUG</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" /><DamageModifier type="NULL" />
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="0" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="30" /><HudRange value="50" />
+      <ClipSize value="8" /><AmmoInfo ref="AMMO_12G_SLUG" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_BERETTA1301_CLIP_BIRDSHOT</n>
+      <Model /><LocName>WCT_CLIP_BIRDSHOT</LocName><LocDesc>WCD_CLIP_BIRDSHOT</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.850000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-15" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="-20" /><HudRange value="-30" />
+      <ClipSize value="8" /><AmmoInfo ref="AMMO_12G_BIRDSHOT" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_BERETTA1301_CLIP_PEPPERBALL</n>
+      <Model /><LocName>WCT_CLIP_PEPPER</LocName><LocDesc>WCD_CLIP_PEPPER</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.500000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-50" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="-20" />
+      <ClipSize value="8" /><AmmoInfo ref="AMMO_12G_PEPPERBALL" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_BERETTA1301_CLIP_DRAGONSBREATH</n>
+      <Model /><LocName>WCT_CLIP_DRAGON</LocName><LocDesc>WCD_CLIP_DRAGON</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.900000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-10" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="-15" /><HudRange value="-20" />
+      <ClipSize value="8" /><AmmoInfo ref="AMMO_12G_DRAGONSBREATH" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_BERETTA1301_CLIP_BEANBAG</n>
+      <Model /><LocName>WCT_CLIP_BEANBAG</LocName><LocDesc>WCD_CLIP_BEANBAG</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.100000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-90" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="-10" /><HudRange value="-30" />
+      <ClipSize value="8" /><AmmoInfo ref="AMMO_12G_BEANBAG" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_BERETTA1301_CLIP_BREACH</n>
+      <Model /><LocName>WCT_CLIP_BREACH</LocName><LocDesc>WCD_CLIP_BREACH</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.500000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-50" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="20" /><HudRange value="-80" />
+      <ClipSize value="8" /><AmmoInfo ref="AMMO_12G_BREACH" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- MOSSBERG SHOCKWAVE - Stockless "Firearm" (6 rounds)                -->
+    <!-- Default: 00 Buck - close-range defensive                           -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SHOCKWAVE_CLIP_00BUCK</n>
+      <Model /><LocName>WCT_CLIP_00BUCK</LocName><LocDesc>WCD_CLIP_00BUCK</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" /><DamageModifier type="NULL" />
+      <bShownOnWheel value="false" /><CreateObject value="true" />
+      <HudDamage value="0" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="0" />
+      <ClipSize value="6" /><AmmoInfo ref="AMMO_12G_00BUCK" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SHOCKWAVE_CLIP_1BUCK</n>
+      <Model /><LocName>WCT_CLIP_1BUCK</LocName><LocDesc>WCD_CLIP_1BUCK</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.950000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-5" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="-10" /><HudRange value="-5" />
+      <ClipSize value="6" /><AmmoInfo ref="AMMO_12G_1BUCK" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SHOCKWAVE_CLIP_SLUG</n>
+      <Model /><LocName>WCT_CLIP_SLUG</LocName><LocDesc>WCD_CLIP_SLUG</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" /><DamageModifier type="NULL" />
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="0" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="30" /><HudRange value="50" />
+      <ClipSize value="6" /><AmmoInfo ref="AMMO_12G_SLUG" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SHOCKWAVE_CLIP_BIRDSHOT</n>
+      <Model /><LocName>WCT_CLIP_BIRDSHOT</LocName><LocDesc>WCD_CLIP_BIRDSHOT</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.850000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-15" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="-20" /><HudRange value="-30" />
+      <ClipSize value="6" /><AmmoInfo ref="AMMO_12G_BIRDSHOT" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SHOCKWAVE_CLIP_PEPPERBALL</n>
+      <Model /><LocName>WCT_CLIP_PEPPER</LocName><LocDesc>WCD_CLIP_PEPPER</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.500000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-50" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="-20" />
+      <ClipSize value="6" /><AmmoInfo ref="AMMO_12G_PEPPERBALL" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SHOCKWAVE_CLIP_DRAGONSBREATH</n>
+      <Model /><LocName>WCT_CLIP_DRAGON</LocName><LocDesc>WCD_CLIP_DRAGON</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.900000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-10" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="-15" /><HudRange value="-20" />
+      <ClipSize value="6" /><AmmoInfo ref="AMMO_12G_DRAGONSBREATH" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SHOCKWAVE_CLIP_BEANBAG</n>
+      <Model /><LocName>WCT_CLIP_BEANBAG</LocName><LocDesc>WCD_CLIP_BEANBAG</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.100000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-90" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="-10" /><HudRange value="-30" />
+      <ClipSize value="6" /><AmmoInfo ref="AMMO_12G_BEANBAG" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SHOCKWAVE_CLIP_BREACH</n>
+      <Model /><LocName>WCT_CLIP_BREACH</LocName><LocDesc>WCD_CLIP_BREACH</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.500000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-50" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="20" /><HudRange value="-80" />
+      <ClipSize value="6" /><AmmoInfo ref="AMMO_12G_BREACH" />
     </Item>
 
   </Infos>

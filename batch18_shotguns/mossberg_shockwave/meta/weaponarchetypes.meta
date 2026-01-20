@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponModelInfo__InitDataList>
+  <InitDatas>
+    <Item>
+      <Name>w_sg_shockwave</Name>
+      <Model>w_sg_shockwave</Model>
+      <Audio>AUDIO_ITEM_SAWNOFFSHOTGUN</Audio>
+      <Slot>SLOT_SHOCKWAVE</Slot>
+      <DLC>mpassault</DLC>
+    </Item>
+  </InitDatas>
+</CWeaponModelInfo__InitDataList>

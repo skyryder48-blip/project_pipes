@@ -18,6 +18,7 @@
   - KIMBER1911 (Kimber Custom II) - 7 rounds
   - KIMBER_ECLIPSE (Kimber Eclipse Custom II) - 8 rounds
   - JUNK1911 (Degraded 1911) - 7 rounds
+  - SIGP220 (SIG Sauer P220) - 8 rounds
 -->
 <CWeaponComponentInfoBlob>
   <Infos>
@@ -172,6 +173,28 @@
       <LocName>WCT_CLIP_JHP</LocName>
       <LocDesc>WCD_CLIP_45JHP</LocDesc>
       <ClipSize value="7" />
+      <AmmoInfo ref="AMMO_45ACP_JHP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- SIG SAUER P220 - Classic .45 ACP (8 rounds)                        -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SIGP220_CLIP_FMJ</n>
+      <Model>w_pi_sigp220_mag1</Model>
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_45FMJ</LocDesc>
+      <ClipSize value="8" />
+      <AmmoInfo ref="AMMO_45ACP_FMJ" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SIGP220_CLIP_JHP</n>
+      <Model>w_pi_sigp220_mag1</Model>
+      <LocName>WCT_CLIP_JHP</LocName>
+      <LocDesc>WCD_CLIP_45JHP</LocDesc>
+      <ClipSize value="8" />
       <AmmoInfo ref="AMMO_45ACP_JHP" />
     </Item>
 

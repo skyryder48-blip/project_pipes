@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_ARP_BUMPSTOCK</n>
+      <Model>w_ar_arp_bumpstock</Model>
+      <Audio>AUDIO_CARBINERIFLE</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="30" />
+      <AccuracySpread value="3.20" />
+      <AccurateModeAccuracyModifier value="0.55" />
+      <RunAndGunAccuracyModifier value="0.82" />
+      <RunAndGunAccuracyMaxModifier value="0.65" />
+      <RecoilAccuracyMax value="4.50" />
+      <RecoilErrorTime value="0.60" />
+      <RecoilRecoveryRate value="0.30" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.72" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="25.0" />
+      <HeadShotDamageModifierPlayer value="2.5" />
+      <HeadShotDamageModifierAI value="4.0" />
+      
+      <!-- ================================================
+           7.5" AR PISTOL WITH BUMPSTOCK - FULL-AUTO CHAOS
+           ================================================
+           Real-world specifications:
+           - Caliber: 5.56x45mm NATO
+           - Barrel: 7.5" (190mm), pistol-length gas
+           - Weight: ~5.0 lbs
+           - Overall length: ~24" with brace
+           - Muzzle velocity: ~2,100 fps (M855)
+           - Muzzle energy: ~607 ft-lbs
+           - Operating system: Direct impingement
+           - Fire control: BUMP FIRE (~600-700 RPM)
+           - Magazine: 30 round STANAG
+           
+           Game balance notes:
+           - ULTRA-SHORT BARREL = severely degraded ballistics
+           - 500+ fps BELOW fragmentation threshold
+           - Bump stock = simulated full-auto fire
+           - TERRIBLE ACCURACY (bump fire inherently inaccurate)
+           - EXTREME muzzle flash ("flashbang effect")
+           - SEVERE recoil and muzzle climb
+           - ~52% energy of 16" rifle = 25 damage
+           - Pure spray weapon - CQB only
+           - 4 shots close range, 12+ at range (if you hit)
+      -->
+      
+      <!-- 7.5" barrel = 25 damage (52% of 42 baseline) -->
+      <Damage value="25.0" />
+      <DamageFallOffRangeMin value="20.0" />
+      <DamageFallOffRangeMax value="70.0" />
+      <DamageFallOffModifier value="0.28" />
+      
+      <!-- 5.56 velocity from 7.5": ~2,100 fps = ~640 m/s -->
+      <Speed value="640.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="82.0" />
+      <ForceHitPed value="72.0" />
+      <ForceHitVehicle value="45.0" />
+      <ForceHitFlyingHeli value="35.0" />
+      <OverrideForces />
+      
+      <!-- 5.56 penetration, reduced due to low velocity -->
+      <Penetration value="0.35" />
+      <ArmorPenetration value="0.28" />
+      
+      <!-- EXTREME RECOIL - bump fire + ultra-short + over-gassed -->
+      <RecoilShakeAmplitude value="0.42" />
+      <RecoilShakeFrequency value="0.65" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- Bump fire ~650 RPM = 0.092s between shots -->
+      <TimeBetweenShots value="0.092" />
+      <AnimReloadRate value="0.95" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.26" />
+      <AimingTimeFromSprinting value="0.35" />
+      
+      <!-- Very limited effective range -->
+      <WeaponRange value="90.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.40" />
+      <!-- AUTOMATIC - Bump stock simulates full-auto -->
+      <WeaponFlags>Gun Automatic AnimReload AnimCrouchFire TwoHanded LongWeapon ApplyBulletForce</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_ARP_BUMPSTOCK</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

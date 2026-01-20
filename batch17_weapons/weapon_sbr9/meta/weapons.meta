@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_SBR9</n>
+      <Model>w_ar_sbr9</Model>
+      <Audio>AUDIO_CARBINERIFLE</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="30" />
+      <AccuracySpread value="1.55" />
+      <AccurateModeAccuracyModifier value="0.25" />
+      <RunAndGunAccuracyModifier value="0.60" />
+      <RunAndGunAccuracyMaxModifier value="0.40" />
+      <RecoilAccuracyMax value="2.60" />
+      <RecoilErrorTime value="0.48" />
+      <RecoilRecoveryRate value="0.45" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.55" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="48.0" />
+      <HeadShotDamageModifierPlayer value="2.8" />
+      <HeadShotDamageModifierAI value="4.0" />
+      
+      <!-- ================================================
+           9" SBR - ILLEGAL CIVILIAN CUSTOM BUILD
+           ================================================
+           Custom specifications:
+           - Caliber: 5.56x45mm NATO
+           - Barrel: 9" custom, match-grade, 1:7 twist
+           - Weight: ~5.5 lbs (lightweight build)
+           - Overall length: ~26" (illegal SBR config)
+           - Muzzle velocity: ~2,350 fps (M855)
+           - Muzzle energy: ~760 ft-lbs
+           - Operating system: DI, tuned adjustable gas
+           - Fire control: Semi-automatic
+           - Magazine: 30 round STANAG
+           
+           Game balance notes:
+           - ILLEGAL BUILD - unregistered SBR
+           - Custom tuned adjustable gas block
+           - Quality match barrel for improved accuracy
+           - Between 7.5" and 10.3" performance
+           - Below fragmentation threshold
+           - ~65% energy of 16" rifle = 29 damage
+           - Custom tuning = slightly better recoil control
+           - High muzzle flash (but less than 7.5")
+           - Street-built "hot rod" aesthetic
+           - 4 shots close range, 11 at max range
+      -->
+      
+      <!-- 9" custom barrel = 29 damage (custom quality bonus) -->
+      <Damage value="29.0" />
+      <DamageFallOffRangeMin value="30.0" />
+      <DamageFallOffRangeMax value="95.0" />
+      <DamageFallOffModifier value="0.30" />
+      
+      <!-- 5.56 velocity from 9": ~2,350 fps = ~716 m/s -->
+      <Speed value="716.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="88.0" />
+      <ForceHitPed value="78.0" />
+      <ForceHitVehicle value="50.0" />
+      <ForceHitFlyingHeli value="40.0" />
+      <OverrideForces />
+      
+      <!-- 5.56 penetration, moderate -->
+      <Penetration value="0.38" />
+      <ArmorPenetration value="0.32" />
+      
+      <!-- HIGH RECOIL - short barrel, but custom tuned gas -->
+      <RecoilShakeAmplitude value="0.30" />
+      <RecoilShakeFrequency value="0.55" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- Semi-auto, quality trigger -->
+      <TimeBetweenShots value="0.095" />
+      <AnimReloadRate value="1.0" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.28" />
+      <AimingTimeFromSprinting value="0.38" />
+      
+      <!-- Moderate effective range -->
+      <WeaponRange value="125.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.20" />
+      <!-- Semi-auto -->
+      <WeaponFlags>Gun AnimReload AnimCrouchFire TwoHanded LongWeapon ApplyBulletForce</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_SBR9</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

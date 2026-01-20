@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  6.8x51mm (.277 Fury) Weapon Components - Magazine Definitions
+  Used by NGSW platforms (Batch 14)
+
+  Component Naming Convention:
+  COMPONENT_[WEAPON]_CLIP_[AMMOTYPE]
+
+  Ammo Types:
+  - MILSPEC: M1186 Ball - Standard military (52 damage)
+  - AP: XM1185 Armor Piercing (-12% damage, +150% pen)
+
+  Weapons:
+  - SIG_SPEAR (SIG MCX SPEAR / XM7) - 20 rounds
+  - M7 (XM7 Variant) - 20 rounds
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+    <!-- ================================================================== -->
+    <!-- SIG MCX SPEAR (XM7) - US Army NGSW Rifle (20 rounds)              -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SIG_SPEAR_CLIP_MILSPEC</n>
+      <Model>w_ar_sig_spear_mag1</Model>
+      <LocName>WCT_CLIP_MILSPEC</LocName>
+      <LocDesc>WCD_CLIP_68MILSPEC</LocDesc>
+      <ClipSize value="20" />
+      <AmmoInfo ref="AMMO_68X51_MILSPEC" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SIG_SPEAR_CLIP_AP</n>
+      <Model>w_ar_sig_spear_mag1</Model>
+      <LocName>WCT_CLIP_AP</LocName>
+      <LocDesc>WCD_CLIP_68AP</LocDesc>
+      <ClipSize value="18" />
+      <AmmoInfo ref="AMMO_68X51_AP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- M7 (XM7 Variant) - NGSW Standard Issue (20 rounds)                -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_M7_CLIP_MILSPEC</n>
+      <Model>w_ar_m7_mag1</Model>
+      <LocName>WCT_CLIP_MILSPEC</LocName>
+      <LocDesc>WCD_CLIP_68MILSPEC</LocDesc>
+      <ClipSize value="20" />
+      <AmmoInfo ref="AMMO_68X51_MILSPEC" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_M7_CLIP_AP</n>
+      <Model>w_ar_m7_mag1</Model>
+      <LocName>WCT_CLIP_AP</LocName>
+      <LocDesc>WCD_CLIP_68AP</LocDesc>
+      <ClipSize value="18" />
+      <AmmoInfo ref="AMMO_68X51_AP" />
+    </Item>
+
+  </Infos>
+</CWeaponComponentInfoBlob>

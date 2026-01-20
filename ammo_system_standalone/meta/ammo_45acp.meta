@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   .45 ACP Ammunition Definitions - CENTRALIZED
-  Used by ALL .45 ACP pistols (Batch 3: 1911s and Glocks)
+  Used by ALL .45 ACP weapons (Batch 3: 1911s and Glocks, Batch 16: MAC-10 and MAC-4A1)
 
   STANDARDIZED AMMO EFFECTS:
   - FMJ (Standard): Baseline damage (38), 0.20 penetration, reliable feeding
   - JHP (Jacketed Hollow Point): +15.8% damage (44), 0.12 penetration, enhanced stopping power
+  - +P (Overpressure): +8% damage, 0.24 penetration, higher velocity
+  - Subsonic Match: -5% damage, 0.18 penetration, quietest suppressed
+
+  .45 ACP is inherently subsonic (~830-920 fps), making it ideal for suppressor use.
 
   Load this resource BEFORE any .45 ACP weapon resources in server.cfg:
     ensure ammo_system_standalone
     ensure weapon_m45a1
     ensure weapon_g21
-    ensure weapon_kimber1911
+    ensure weapon_mac10
+    ensure weapon_mac4a1
     ...
 -->
 <CWeaponInfoBlob>
@@ -116,6 +121,144 @@
           <RicochetTolerance value="0.500000" />
           <PedRicochetTolerance value="0.500000" />
           <VehicleRicochetTolerance value="0.300000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== .45 ACP +P (Overpressure) ==================== -->
+        <!-- +8% damage (41), enhanced penetration (0.24), higher velocity -->
+        <!-- Higher pressure loading for improved performance, more recoil -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_45ACP_PLUSP</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="150" />
+          <AmmoMax50 value="150" />
+          <AmmoMax100 value="150" />
+          <AmmoMaxMP value="150" />
+          <AmmoMax50MP value="150" />
+          <AmmoMax100MP value="150" />
+          <AmmoFlags />
+          <AmmoSpecialType>ArmorPiercing</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="1.200000" />
+          <PedRicochetTolerance value="1.200000" />
+          <VehicleRicochetTolerance value="1.200000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== .45 ACP Subsonic Match ==================== -->
+        <!-- -5% damage (36), quietest suppressed operation, match-grade accuracy -->
+        <!-- Optimized for stealth - "Hollywood quiet" with suppressor -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_45ACP_SUBSONIC</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="150" />
+          <AmmoMax50 value="150" />
+          <AmmoMax100 value="150" />
+          <AmmoMaxMP value="150" />
+          <AmmoMax50MP value="150" />
+          <AmmoMax100MP value="150" />
+          <AmmoFlags />
+          <AmmoSpecialType>None</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="0.800000" />
+          <PedRicochetTolerance value="0.800000" />
+          <VehicleRicochetTolerance value="0.800000" />
           <Explosion>
             <Default>DONTCARE</Default>
             <HitCar>DONTCARE</HitCar>

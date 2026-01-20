@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  .300 Blackout (7.62x35mm) Ammunition Definitions
+  Optimized for suppressed operation
+
+  Ammo Types:
+  - SUBSONIC: 220gr OTM - Quiet, heavy bullet (1050fps, below sound barrier)
+  - HUNTING: 110gr V-MAX - Supersonic expanding (2350fps, max terminal effect)
+
+  Damage Baseline: 38 (Subsonic), 45 (Hunting)
+  MCX300 is suppressed by default - subsonic is standard load
+-->
+<CAmmoInfoBlob>
+  <Infos>
+    <!-- ================================================================== -->
+    <!-- .300 BLK SUBSONIC - 220gr OTM (Standard Suppressed Load)          -->
+    <!-- Below speed of sound, optimized for quiet operation                -->
+    <!-- ================================================================== -->
+    <Item type="CAmmoInfo">
+      <Name>AMMO_300BLK_SUBSONIC</Name>
+      <AmmoType>AMMO_RIFLE</AmmoType>
+      <DamageType>BULLET</DamageType>
+      <Damage value="38.00" />
+      <Speed value="1050.00" />
+      <LifeTime value="1200.00" />
+      <FromVehicleLifeTime value="1200.00" />
+      <AmmoSpecialType>NONE</AmmoSpecialType>
+      <AmmoFlags>Penetrate ImpactOnContact Shooting</AmmoFlags>
+      <PenetrationThickness value="0.20" />
+      <PenetrationDamageMod value="0.90" />
+      <DamageOverDistanceLerp value="0.25" />
+      <DistanceAtMaxDamageMultiplier value="50.00" />
+      <MaxDamageMultiplier value="1.00" />
+      <DistanceAtMinDamageMultiplier value="200.00" />
+      <MinDamageMultiplier value="0.50" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- .300 BLK HUNTING - 110gr V-MAX (Supersonic Expanding)             -->
+    <!-- High velocity expanding round for maximum terminal effect          -->
+    <!-- ================================================================== -->
+    <Item type="CAmmoInfo">
+      <Name>AMMO_300BLK_HUNTING</Name>
+      <AmmoType>AMMO_RIFLE</AmmoType>
+      <DamageType>BULLET</DamageType>
+      <Damage value="45.00" />
+      <Speed value="2350.00" />
+      <LifeTime value="1400.00" />
+      <FromVehicleLifeTime value="1400.00" />
+      <AmmoSpecialType>HollowPoint</AmmoSpecialType>
+      <AmmoFlags>Penetrate ImpactOnContact Shooting</AmmoFlags>
+      <PenetrationThickness value="0.10" />
+      <PenetrationDamageMod value="0.75" />
+      <DamageOverDistanceLerp value="0.18" />
+      <DistanceAtMaxDamageMultiplier value="75.00" />
+      <MaxDamageMultiplier value="1.15" />
+      <DistanceAtMinDamageMultiplier value="300.00" />
+      <MinDamageMultiplier value="0.60" />
+    </Item>
+  </Infos>
+</CAmmoInfoBlob>

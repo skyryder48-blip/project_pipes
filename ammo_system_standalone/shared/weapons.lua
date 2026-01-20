@@ -475,17 +475,192 @@ Config.Weapons = {
     },
 
     -- ======================================================================
-    -- FUTURE WEAPONS (uncomment when adding)
+    -- BATCH 14: 6.8x51mm & .300 BLACKOUT RIFLES
     -- ======================================================================
 
-    --[[
-    -- 12 Gauge Shotguns
-    [`WEAPON_MOSSBERG590`] = {
+    -- SIG MCX SPEAR - 6.8x51mm NGSW Rifle (20 rounds, 13" barrel)
+    [`WEAPON_SIG_SPEAR`] = {
+        caliber = '6.8x51',
+        componentBase = 'COMPONENT_SIG_SPEAR',
+        clipSize = 20,
+    },
+
+    -- XM7 - 6.8x51mm NGSW Rifle (20 rounds, 13" barrel)
+    [`WEAPON_M7`] = {
+        caliber = '6.8x51',
+        componentBase = 'COMPONENT_M7',
+        clipSize = 20,
+    },
+
+    -- SIG MCX .300 BLK - Integrally Suppressed (30 rounds, 9" barrel)
+    [`WEAPON_MCX300`] = {
+        caliber = '.300blk',
+        componentBase = 'COMPONENT_MCX300',
+        clipSize = 30,
+    },
+
+    -- ======================================================================
+    -- BATCH 15: 9mm SMG PLATFORMS
+    -- ======================================================================
+
+    -- H&K MP5K - Compact Roller-Delayed SMG (30 rounds, 4.53" barrel)
+    [`WEAPON_MICRO_MP5`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_MICRO_MP5',
+        clipSize = 30,
+    },
+
+    -- SIG MPX - Gas-Piston SMG (30 rounds, 4.5" barrel)
+    [`WEAPON_SIG_MPX`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_SIG_MPX',
+        clipSize = 30,
+    },
+
+    -- CZ Scorpion EVO 3 - High-RPM Blowback SMG (30 rounds, 7.72" barrel)
+    [`WEAPON_SCORPION`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_SCORPION',
+        clipSize = 30,
+    },
+
+    -- AR-9 Platform (RAM 9 Desert) - Precision 9mm PCC (33 rounds, 8" barrel)
+    [`WEAPON_RAM9_DESERT`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_RAM9_DESERT',
+        clipSize = 33,
+    },
+
+    -- Intratec TEC-9 - Budget Machine Pistol (32 rounds, 5" barrel)
+    [`WEAPON_TEC9`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_TEC9',
+        clipSize = 32,
+    },
+
+    -- Masterpiece Arms MPA30 - Improved MAC-Style PDW (30 rounds, 5.5" barrel)
+    [`WEAPON_MPA30`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_MPA30',
+        clipSize = 30,
+    },
+
+    -- Kel-Tec SUB-2000 - Folding 9mm Carbine (33 rounds, 16.25" barrel)
+    [`WEAPON_SUB2000`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_SUB2000',
+        clipSize = 33,
+    },
+
+    -- ======================================================================
+    -- BATCH 16: .45 ACP SMG PLATFORMS (MAC variants)
+    -- ======================================================================
+
+    -- Ingram MAC-10 - Classic Machine Pistol (30 rounds, 5.75" barrel, 1,100 RPM)
+    -- Extreme fire rate, poor accuracy, devastating in CQB
+    [`WEAPON_MAC10`] = {
+        caliber = '.45acp',
+        componentBase = 'COMPONENT_MAC10',
+        clipSize = 30,
+    },
+
+    -- MAC-4A1 - Modernized Tactical SMG (30 rounds, 9" barrel, 650 RPM)
+    -- Lage MAX-10/45 mk2 slow-fire upper, controlled and accurate
+    [`WEAPON_MAC4A1`] = {
+        caliber = '.45acp',
+        componentBase = 'COMPONENT_MAC4A1',
+        clipSize = 30,
+    },
+
+    -- ======================================================================
+    -- BATCH 17: 5.56 NATO AR PISTOLS / SHORT BARREL RIFLES
+    -- ======================================================================
+
+    -- Mk18 CQBR - Military 10.3" Close Quarters Battle Receiver (30 rounds)
+    -- SOCOM minimum barrel length, professional CQB platform
+    [`WEAPON_MK18`] = {
+        caliber = '5.56',
+        componentBase = 'COMPONENT_MK18',
+        clipSize = 30,
+    },
+
+    -- 7.5" AR Pistol with Bumpstock - Full-Auto Chaos (30 rounds)
+    -- Extreme muzzle flash, uncontrollable spray, devastating at point-blank
+    [`WEAPON_ARP_BUMPSTOCK`] = {
+        caliber = '5.56',
+        componentBase = 'COMPONENT_ARP_BUMPSTOCK',
+        clipSize = 30,
+    },
+
+    -- 9" SBR Custom Build - Illegal Street Rifle (30 rounds)
+    -- Unregistered NFA item, custom tuned, criminal roleplay
+    [`WEAPON_SBR9`] = {
+        caliber = '5.56',
+        componentBase = 'COMPONENT_SBR9',
+        clipSize = 30,
+    },
+
+    -- ======================================================================
+    -- BATCH 18: 12 GAUGE SHOTGUNS
+    -- Multi-pellet damage modeling with severe damage falloff beyond effective range
+    -- 8 ammo types: 00 Buck, #1 Buck, Slug, Birdshot, Pepperball, Dragon's Breath, Beanbag, Breach
+    -- ======================================================================
+
+    -- Mini Shotty - Illegal Sawn-Off (4 rounds, 10-12" barrel)
+    -- Devastating close range, useless beyond 15m, hip-fire only
+    [`WEAPON_MINISHOTTY`] = {
         caliber = '12ga',
-        componentBase = 'COMPONENT_M590',
+        componentBase = 'COMPONENT_MINISHOTTY',
+        clipSize = 4,
+    },
+
+    -- Model 680 - Budget Pump (5 rounds, 18" barrel)
+    -- Entry-level shotgun, widest spread, prone to binding
+    [`WEAPON_MODEL680`] = {
+        caliber = '12ga',
+        componentBase = 'COMPONENT_MODEL680',
+        clipSize = 5,
+    },
+
+    -- Remington 870 Express - Standard Pump (5 rounds, 18" barrel)
+    -- Most-produced pump shotgun (13M+ units), dual action bars
+    [`WEAPON_REMINGTON870`] = {
+        caliber = '12ga',
+        componentBase = 'COMPONENT_REMINGTON870',
+        clipSize = 5,
+    },
+
+    -- Mossberg 500 - MIL-SPEC Pump (6 rounds, 18" barrel)
+    -- Military-certified MIL-SPEC 3443E, tang-mounted safety
+    [`WEAPON_MOSSBERG500`] = {
+        caliber = '12ga',
+        componentBase = 'COMPONENT_MOSSBERG500',
+        clipSize = 6,
+    },
+
+    -- Browning Auto-5 - Classic Semi-Auto (5 rounds, 18-20" barrel)
+    -- John Browning's 1898 long-recoil design, lowest recoil, double fire rate
+    [`WEAPON_BROWNINGAUTO5`] = {
+        caliber = '12ga',
+        componentBase = 'COMPONENT_BROWNINGAUTO5',
+        clipSize = 5,
+    },
+
+    -- Beretta 1301 Tactical - Fast Semi-Auto (8 rounds, 18.5" barrel)
+    -- Competition-grade gas system, 140 RPM, fastest follow-up shots
+    [`WEAPON_BERETTA1301`] = {
+        caliber = '12ga',
+        componentBase = 'COMPONENT_BERETTA1301',
         clipSize = 8,
     },
-    ]]
+
+    -- Mossberg 590 Shockwave - Stockless "Firearm" (6 rounds, 14.375" barrel)
+    -- Bird's head grip, hip-fire only, devastating CQB, legal loophole
+    [`WEAPON_SHOCKWAVE`] = {
+        caliber = '12ga',
+        componentBase = 'COMPONENT_SHOCKWAVE',
+        clipSize = 6,
+    },
 }
 
 -- Helper function to get weapon info

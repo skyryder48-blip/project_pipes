@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CPedModelInfo__PersonalityDataList>
+  <MovementModeUnholsterData>
+    <Item>
+      <Name>UNHOLSTER_2H</Name>
+      <UnholsterClips>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_RAM9_DESERT</Item>
+          </Weapons>
+          <Clip>2h_holster_2h</Clip>
+        </Item>
+      </UnholsterClips>
+    </Item>
+  </MovementModeUnholsterData>
+  <MovementModes>
+    <Item>
+      <Name>DEFAULT_ACTION</Name>
+      <MovementModeItems>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_RAM9_DESERT</Item>
+          </Weapons>
+          <MovementMode>armed</MovementMode>
+        </Item>
+      </MovementModeItems>
+    </Item>
+  </MovementModes>
+</CPedModelInfo__PersonalityDataList>

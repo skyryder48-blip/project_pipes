@@ -269,44 +269,141 @@ Config.AmmoTypes = {
         },
     },
 
-    -- ==================== FUTURE CALIBERS ====================
-    -- Uncomment and configure when adding new calibers
-
-    --[[
+    -- ==================== 12 GAUGE SHOTGUN AMMUNITION ====================
+    -- Batch 18: 12 Gauge Shotguns
+    -- UNIQUE MECHANICS: BulletsInBatch (pellet count), BatchSpread (cone angle)
+    -- Damage is PER PELLET - total damage = pellets × damage × hit percentage
+    -- 8 ammo types: Combat loads (4) + Specialty loads (4)
     ['12ga'] = {
-        ['buckshot'] = {
-            item = 'ammo_12ga_buckshot',
+        -- COMBAT LOADS --
+        ['00buck'] = {
+            item = 'ammo_12ga_00buck',
             label = '12ga 00 Buckshot',
-            componentSuffix = '_CLIP_BUCK',
-            ammoInfo = 'AMMO_12GA_BUCKSHOT',
-            description = '8 pellets per shell. Standard defensive load.',
+            componentSuffix = '_CLIP_00BUCK',
+            ammoInfo = 'AMMO_12G_00BUCK',
+            description = '8 pellets @ 22 dmg each = 176 max. Standard combat load, 30m effective range.',
+        },
+        ['1buck'] = {
+            item = 'ammo_12ga_1buck',
+            label = '12ga #1 Buckshot',
+            componentSuffix = '_CLIP_1BUCK',
+            ammoInfo = 'AMMO_12G_1BUCK',
+            description = '12 pellets @ 14 dmg each = 168 max. More pellets, HollowPoint behavior, 25m range.',
         },
         ['slug'] = {
             item = 'ammo_12ga_slug',
             label = '12ga Slug',
             componentSuffix = '_CLIP_SLUG',
-            ammoInfo = 'AMMO_12GA_SLUG',
-            description = 'Single heavy projectile. Extended range.',
+            ammoInfo = 'AMMO_12G_SLUG',
+            description = 'Single 120 dmg projectile. Precision accuracy, 80m effective range, FMJ penetration.',
         },
         ['birdshot'] = {
             item = 'ammo_12ga_birdshot',
             label = '12ga Birdshot',
-            componentSuffix = '_CLIP_BIRD',
-            ammoInfo = 'AMMO_12GA_BIRDSHOT',
-            description = 'Many small pellets. Wide spread, close range.',
+            componentSuffix = '_CLIP_BIRDSHOT',
+            ammoInfo = 'AMMO_12G_BIRDSHOT',
+            description = '19 pellets @ 8 dmg each = 152 max. Wide spread, crowd control, 20m range.',
         },
-        ['dragon'] = {
-            item = 'ammo_12ga_dragon',
+
+        -- SPECIALTY LOADS --
+        ['pepperball'] = {
+            item = 'ammo_12ga_pepperball',
+            label = '12ga Pepperball',
+            componentSuffix = '_CLIP_PEPPERBALL',
+            ammoInfo = 'AMMO_12G_PEPPERBALL',
+            description = '6 irritant pellets. Causes coughing + vision blur effects. Requires client script.',
+        },
+        ['dragonsbreath'] = {
+            item = 'ammo_12ga_dragonsbreath',
             label = '12ga Dragon\'s Breath',
-            componentSuffix = '_CLIP_DRAGON',
-            ammoInfo = 'AMMO_12GA_DRAGON',
-            description = 'Incendiary rounds. Sets targets on fire.',
+            componentSuffix = '_CLIP_DRAGONSBREATH',
+            ammoInfo = 'AMMO_12G_DRAGONSBREATH',
+            description = '8 incendiary pellets. Magnesium fire trail, ignites targets on hit, 25m range.',
+        },
+        ['beanbag'] = {
+            item = 'ammo_12ga_beanbag',
+            label = '12ga Beanbag',
+            componentSuffix = '_CLIP_BEANBAG',
+            ammoInfo = 'AMMO_12G_BEANBAG',
+            description = 'Less-lethal fabric round. 8 damage only, causes ragdoll knockback effect.',
+        },
+        ['breach'] = {
+            item = 'ammo_12ga_breach',
+            label = '12ga Breaching',
+            componentSuffix = '_CLIP_BREACH',
+            ammoInfo = 'AMMO_12G_BREACH',
+            description = 'Frangible slug for door locks/hinges. High env damage, 3m effective range, no ricochet.',
         },
     },
-    ]]
+
+    -- ==================== 5.56 NATO AMMUNITION ====================
+    -- Batch 17: 5.56 NATO AR Pistols / SBRs (Mk18, ARP Bumpstock, SBR9)
+    -- STANDARDIZED 3-TYPE SYSTEM matching 9mm pattern
+    ['5.56'] = {
+        ['fmj'] = {
+            item = 'ammo_556_fmj',
+            label = '5.56 NATO FMJ',
+            componentSuffix = '_CLIP_FMJ',
+            ammoInfo = 'AMMO_556_FMJ',
+            description = '5.56 M193 ball ammunition. Baseline damage, standard penetration.',
+        },
+        ['sp'] = {
+            item = 'ammo_556_sp',
+            label = '5.56 NATO Soft Point',
+            componentSuffix = '_CLIP_SP',
+            ammoInfo = 'AMMO_556_SP',
+            description = '5.56 soft point. +10% damage, civilian defense/hunting, reduced penetration.',
+        },
+        ['ap'] = {
+            item = 'ammo_556_ap',
+            label = '5.56 NATO AP',
+            componentSuffix = '_CLIP_AP',
+            ammoInfo = 'AMMO_556_AP',
+            description = '5.56 armor piercing. -10% damage, enhanced barrier penetration.',
+        },
+    },
+
+    -- ==================== 6.8x51mm AMMUNITION ====================
+    -- Batch 14: NGSW Rifles (SIG SPEAR, XM7)
+    ['6.8x51'] = {
+        ['fmj'] = {
+            item = 'ammo_68x51_fmj',
+            label = '6.8x51mm FMJ',
+            componentSuffix = '_CLIP_FMJ',
+            ammoInfo = 'AMMO_68X51_FMJ',
+            description = '6.8x51mm ball. NGSW standard issue, defeats Level IV armor.',
+        },
+        ['ap'] = {
+            item = 'ammo_68x51_ap',
+            label = '6.8x51mm AP',
+            componentSuffix = '_CLIP_AP',
+            ammoInfo = 'AMMO_68X51_AP',
+            description = '6.8x51mm armor piercing. Maximum penetration for hardened targets.',
+        },
+    },
+
+    -- ==================== .300 BLACKOUT AMMUNITION ====================
+    -- Batch 14: .300 BLK Rifles (MCX 300)
+    ['.300blk'] = {
+        ['supersonic'] = {
+            item = 'ammo_300blk_super',
+            label = '.300 BLK Supersonic',
+            componentSuffix = '_CLIP_SUPER',
+            ammoInfo = 'AMMO_300BLK_SUPER',
+            description = '.300 BLK 110gr @ 2,350 fps. Standard supersonic, 7.62x39 equivalent.',
+        },
+        ['subsonic'] = {
+            item = 'ammo_300blk_sub',
+            label = '.300 BLK Subsonic',
+            componentSuffix = '_CLIP_SUB',
+            ammoInfo = 'AMMO_300BLK_SUB',
+            description = '.300 BLK 220gr @ 1,010 fps. Suppressor-optimized, reduced velocity/range.',
+        },
+    },
 }
 
 -- Default ammo type for each caliber (used when weapon is first equipped)
+-- NOTE: 12ga default will be set PER-WEAPON during batch 18 review
 Config.DefaultAmmoType = {
     ['9mm'] = 'fmj',
     ['.45acp'] = 'fmj',
@@ -318,5 +415,8 @@ Config.DefaultAmmoType = {
     ['5.7x28'] = 'fmj',
     ['10mm'] = 'fbi',
     ['.22lr'] = 'fmj',
-    ['12ga'] = 'buckshot',
+    ['5.56'] = 'fmj',
+    ['6.8x51'] = 'fmj',
+    ['.300blk'] = 'supersonic',
+    ['12ga'] = '00buck',  -- Will be tuned per-weapon in batch 18
 }

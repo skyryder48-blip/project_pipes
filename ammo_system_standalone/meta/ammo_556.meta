@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  5.56x45mm NATO Ammunition Definitions - CENTRALIZED
+  Used by ALL 5.56 NATO weapons (Batch 17 AR pistols/SBRs)
+
+  STANDARDIZED AMMO EFFECTS (matching 9mm pattern):
+  - FMJ (Standard): Baseline damage, standard penetration
+  - SP (Soft Point): +10% damage, reduced penetration, civilian defense/hunting
+  - AP (Armor Piercing): -10% damage, enhanced penetration, barrier defeat
+
+  Load this resource BEFORE any 5.56 NATO weapon resources in server.cfg:
+    ensure ammo_system_standalone
+    ensure weapon_mk18
+    ensure weapon_arp_bumpstock
+    ensure weapon_sbr9
+    ...
+-->
+<CWeaponInfoBlob>
+  <Infos>
+    <Item>
+      <Infos>
+        <!-- ==================== 5.56 FMJ (Full Metal Jacket) ==================== -->
+        <!-- Standard military ball ammunition, baseline performance -->
+        <!-- 1.0x damage, standard penetration -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_556_FMJ</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="210" />
+          <AmmoMax50 value="210" />
+          <AmmoMax100 value="210" />
+          <AmmoMaxMP value="210" />
+          <AmmoMax50MP value="210" />
+          <AmmoMax100MP value="210" />
+          <AmmoFlags />
+          <AmmoSpecialType>None</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="1.200000" />
+          <PedRicochetTolerance value="1.200000" />
+          <VehicleRicochetTolerance value="1.200000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== 5.56 SP (Soft Point) ==================== -->
+        <!-- Civilian defense/hunting, terminal expansion -->
+        <!-- +10% damage, reduced penetration -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_556_SP</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="150" />
+          <AmmoMax50 value="150" />
+          <AmmoMax100 value="150" />
+          <AmmoMaxMP value="150" />
+          <AmmoMax50MP value="150" />
+          <AmmoMax100MP value="150" />
+          <AmmoFlags />
+          <AmmoSpecialType>HollowPoint</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="0.800000" />
+          <PedRicochetTolerance value="0.800000" />
+          <VehicleRicochetTolerance value="0.600000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== 5.56 AP (Armor Piercing) ==================== -->
+        <!-- Enhanced penetration for barriers and armor -->
+        <!-- -10% damage, best armor penetration -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_556_AP</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="120" />
+          <AmmoMax50 value="120" />
+          <AmmoMax100 value="120" />
+          <AmmoMaxMP value="120" />
+          <AmmoMax50MP value="120" />
+          <AmmoMax100MP value="120" />
+          <AmmoFlags />
+          <AmmoSpecialType>ArmorPiercing</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="1.500000" />
+          <PedRicochetTolerance value="1.500000" />
+          <VehicleRicochetTolerance value="1.500000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+  <n>5.56x45mm NATO Ammunition Types</n>
+</CWeaponInfoBlob>

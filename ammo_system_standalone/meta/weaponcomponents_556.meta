@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  5.56x45mm NATO Weapon Components - Magazine Definitions
+  Used by ALL 5.56 NATO weapons (Batch 17 AR pistols/SBRs)
+
+  STANDARDIZED 3-TYPE SYSTEM (matching 9mm pattern):
+  - FMJ (Full Metal Jacket): Baseline damage, standard penetration
+  - SP (Soft Point): +10% damage, civilian defense/hunting
+  - AP (Armor Piercing): -10% damage, enhanced penetration
+
+  Batch 17 Weapons (30 round STANAG magazines):
+  - MK18 (Mk18 CQBR) - Military 10.3" CQB
+  - ARP_BUMPSTOCK (7.5" AR Pistol) - Full-auto chaos
+  - SBR9 (9" Custom SBR) - Illegal street build
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+
+    <!-- ================================================================== -->
+    <!-- MK18 CQBR - Military 10.3" CQB Receiver (30 rounds)                -->
+    <!-- ================================================================== -->
+
+    <!-- FMJ - Standard military ball ammunition, baseline -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MK18_CLIP_FMJ</n>
+      <Model /><LocName>WCT_CLIP_FMJ</LocName><LocDesc>WCD_CLIP_556FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" /><DamageModifier type="NULL" />
+      <bShownOnWheel value="false" /><CreateObject value="true" />
+      <HudDamage value="0" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="0" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_FMJ" />
+    </Item>
+
+    <!-- SP - Soft Point, civilian defense/hunting, +10% damage -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MK18_CLIP_SP</n>
+      <Model /><LocName>WCT_CLIP_SP</LocName><LocDesc>WCD_CLIP_556SP</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="1.100000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="10" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="-10" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_SP" />
+    </Item>
+
+    <!-- AP - Armor Piercing, barrier defeat, -10% damage -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MK18_CLIP_AP</n>
+      <Model /><LocName>WCT_CLIP_AP</LocName><LocDesc>WCD_CLIP_556AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.900000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-10" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="15" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_AP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- 7.5" AR PISTOL BUMPSTOCK - Full-Auto Chaos (30 rounds)             -->
+    <!-- ================================================================== -->
+
+    <!-- FMJ - Standard military ball ammunition, baseline -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_ARP_BUMPSTOCK_CLIP_FMJ</n>
+      <Model /><LocName>WCT_CLIP_FMJ</LocName><LocDesc>WCD_CLIP_556FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" /><DamageModifier type="NULL" />
+      <bShownOnWheel value="false" /><CreateObject value="true" />
+      <HudDamage value="0" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="0" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_FMJ" />
+    </Item>
+
+    <!-- SP - Soft Point, civilian defense/hunting, +10% damage -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_ARP_BUMPSTOCK_CLIP_SP</n>
+      <Model /><LocName>WCT_CLIP_SP</LocName><LocDesc>WCD_CLIP_556SP</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="1.100000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="10" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="-10" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_SP" />
+    </Item>
+
+    <!-- AP - Armor Piercing, barrier defeat, -10% damage -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_ARP_BUMPSTOCK_CLIP_AP</n>
+      <Model /><LocName>WCT_CLIP_AP</LocName><LocDesc>WCD_CLIP_556AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.900000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-10" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="15" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_AP" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- 9" SBR CUSTOM BUILD - Illegal Street Rifle (30 rounds)             -->
+    <!-- ================================================================== -->
+
+    <!-- FMJ - Standard military ball ammunition, baseline -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SBR9_CLIP_FMJ</n>
+      <Model /><LocName>WCT_CLIP_FMJ</LocName><LocDesc>WCD_CLIP_556FMJ</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" /><DamageModifier type="NULL" />
+      <bShownOnWheel value="false" /><CreateObject value="true" />
+      <HudDamage value="0" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="0" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_FMJ" />
+    </Item>
+
+    <!-- SP - Soft Point, civilian defense/hunting, +10% damage -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SBR9_CLIP_SP</n>
+      <Model /><LocName>WCT_CLIP_SP</LocName><LocDesc>WCD_CLIP_556SP</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="1.100000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="10" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="-10" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_SP" />
+    </Item>
+
+    <!-- AP - Armor Piercing, barrier defeat, -10% damage -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SBR9_CLIP_AP</n>
+      <Model /><LocName>WCT_CLIP_AP</LocName><LocDesc>WCD_CLIP_556AP</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.900000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-10" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="15" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_AP" />
+    </Item>
+
+  </Infos>
+  <n>5.56 NATO Weapon Components</n>
+</CWeaponComponentInfoBlob>

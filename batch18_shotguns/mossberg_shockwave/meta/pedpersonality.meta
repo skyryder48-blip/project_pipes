@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Mossberg 590 Shockwave - NPC Weapon Behavior
+  Based on WEAPON_SAWNOFFSHOTGUN
+  Stockless compact firearm
+-->
+<CPedModelInfo__PersonalityDataList>
+  <MovementModeUnholsterData>
+    <Item>
+      <Name>UNHOLSTER_2H</Name>
+      <UnholsterClips>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_SHOCKWAVE</Item>
+          </Weapons>
+          <Clip>2h_holster_2h</Clip>
+        </Item>
+      </UnholsterClips>
+    </Item>
+  </MovementModeUnholsterData>
+</CPedModelInfo__PersonalityDataList>

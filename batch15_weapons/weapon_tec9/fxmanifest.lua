@@ -1,15 +1,17 @@
 fx_version 'cerulean'
 game 'gta5'
 
-name 'weapon_tec9'
-description 'Intratec TEC-9 - Budget Machine Pistol - 9x19mm'
 author 'Custom Weapons Project'
+description 'WEAPON_TEC9 - 9mm SMG Platform'
 version '1.0.0'
 
 files {
-    'meta/weapons.meta'
+    'meta/*.meta',
 }
 
-data_file 'WEAPONINFO_FILE' 'meta/weapons.meta'
+data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'
+data_file 'WEAPON_ANIMATIONS_FILE' 'meta/weaponanimations.meta'
+data_file 'PED_PERSONALITY_FILE' 'meta/pedpersonality.meta'
+data_file 'WEAPONINFO_FILE' 'meta/weapon_tec9.meta'
 
 client_script 'cl_weaponNames.lua'

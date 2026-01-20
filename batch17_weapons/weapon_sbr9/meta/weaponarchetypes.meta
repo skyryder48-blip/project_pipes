@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponModelInfo__InitDataList>
+  <InitDatas>
+    <Item>
+      <Model>w_ar_sbr9</Model>
+      <Texture>W_AR_SBR9</Texture>
+      <Archetype>W_AR_SBR9</Archetype>
+      <Audio>AUDIO_RIFLE</Audio>
+      <SlotPosition />
+      <SlotRotation />
+      <SlotPosition_YOURSLOT />
+      <SlotRotation_YOURSLOT />
+      <Vfx />
+      <AnimOverride />
+      <CanPickUp value="true" />
+    </Item>
+  </InitDatas>
+</CWeaponModelInfo__InitDataList>

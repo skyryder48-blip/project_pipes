@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponAnimations>
+  <ClipSets>
+    <Item>
+      <Actions>YOURSLOT</Actions>
+      <AnimSet>move_strafe@first_person@generic</AnimSet>
+    </Item>
+    <Item>
+      <Actions>YOURSLOT</Actions>
+      <AnimSet>move_strafe@stealth</AnimSet>
+    </Item>
+    <Item>
+      <Actions>YOURSLOT</Actions>
+      <AnimSet>move_strafe@stealth@rifle</AnimSet>
+    </Item>
+    <Item>
+      <Actions>YOURSLOT</Actions>
+      <AnimSet>weapons@rifle@hi@carbine_mk2</AnimSet>
+    </Item>
+    <Item>
+      <Actions>YOURSLOT</Actions>
+      <AnimSet>weapons@rifle@hi@carbine_mk2@drunk</AnimSet>
+    </Item>
+  </ClipSets>
+  <Animations>
+    <Item>
+      <ClipSet>weapons@rifle@hi@carbine_mk2</ClipSet>
+      <Action>YOURSLOT</Action>
+      <Anim>fire</Anim>
+      <Type>Fire</Type>
+    </Item>
+    <Item>
+      <ClipSet>weapons@rifle@hi@carbine_mk2</ClipSet>
+      <Action>YOURSLOT</Action>
+      <Anim>reload_quick</Anim>
+      <Type>Reload</Type>
+    </Item>
+  </Animations>
+  <CoverAnimationBlend>Cover_Wpn_Hi</CoverAnimationBlend>
+</CWeaponAnimations>

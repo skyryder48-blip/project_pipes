@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  6.8x51mm (.277 Fury) Ammunition Definitions
+  Next-Generation Squad Weapon (NGSW) Caliber
+
+  Ammo Types:
+  - MILSPEC: M1186 Ball - Standard military load (135gr, 3000fps)
+  - AP: XM1185 Armor Piercing - Tungsten penetrator core
+
+  Damage Baseline: 52 (high-pressure hybrid case, superior terminal performance)
+-->
+<CAmmoInfoBlob>
+  <Infos>
+    <!-- ================================================================== -->
+    <!-- 6.8x51mm M1186 MILSPEC - Standard Military Ball                    -->
+    <!-- High-pressure hybrid case, optimized for NGSW platforms            -->
+    <!-- ================================================================== -->
+    <Item type="CAmmoInfo">
+      <Name>AMMO_68X51_MILSPEC</Name>
+      <AmmoType>AMMO_RIFLE</AmmoType>
+      <DamageType>BULLET</DamageType>
+      <Damage value="52.00" />
+      <Speed value="3000.00" />
+      <LifeTime value="1500.00" />
+      <FromVehicleLifeTime value="1500.00" />
+      <AmmoSpecialType>NONE</AmmoSpecialType>
+      <AmmoFlags>Penetrate ImpactOnContact Shooting</AmmoFlags>
+      <PenetrationThickness value="0.30" />
+      <PenetrationDamageMod value="1.00" />
+      <DamageOverDistanceLerp value="0.15" />
+      <DistanceAtMaxDamageMultiplier value="100.00" />
+      <MaxDamageMultiplier value="1.00" />
+      <DistanceAtMinDamageMultiplier value="400.00" />
+      <MinDamageMultiplier value="0.65" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- 6.8x51mm XM1185 AP - Armor Piercing (Tungsten Core)               -->
+    <!-- Optimized for defeating Level IV body armor                        -->
+    <!-- ================================================================== -->
+    <Item type="CAmmoInfo">
+      <Name>AMMO_68X51_AP</Name>
+      <AmmoType>AMMO_RIFLE</AmmoType>
+      <DamageType>BULLET</DamageType>
+      <Damage value="46.00" />
+      <Speed value="3000.00" />
+      <LifeTime value="1500.00" />
+      <FromVehicleLifeTime value="1500.00" />
+      <AmmoSpecialType>ArmorPiercing</AmmoSpecialType>
+      <AmmoFlags>Penetrate ImpactOnContact Shooting</AmmoFlags>
+      <PenetrationThickness value="0.75" />
+      <PenetrationDamageMod value="1.50" />
+      <DamageOverDistanceLerp value="0.15" />
+      <DistanceAtMaxDamageMultiplier value="100.00" />
+      <MaxDamageMultiplier value="1.00" />
+      <DistanceAtMinDamageMultiplier value="400.00" />
+      <MinDamageMultiplier value="0.70" />
+    </Item>
+  </Infos>
+</CAmmoInfoBlob>

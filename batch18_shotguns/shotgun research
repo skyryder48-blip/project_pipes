@@ -1,0 +1,303 @@
+# Batch 18: 12-Gauge Shotgun Platforms for FiveM Weapon Meta
+
+Six 12-gauge shotgun platforms form the foundation of realistic shotgun combat in FiveM: three pump-action designs (Remington 870 Express, Mossberg 500, and Remington 870 Police) and three semi-automatic platforms (Mossberg Shockwave, Beretta 1301 Tactical, and Browning Auto-5). The critical implementation insight is that **shotguns are devastatingly effective within 25 yards but suffer severe damage falloff beyond 40 yards**—making range-based pellet spread modeling essential for authentic gameplay. Standard 00 buckshot delivers 9 pellets at **1,200-1,325 fps**, with each pellet carrying approximately **200 ft-lbs of energy**—comparable to a .380 ACP handgun round—for a total payload energy of **1,550-1,890 ft-lbs** at the muzzle.
+
+---
+
+## 12-gauge ballistics create distinct combat dynamics
+
+The **.729-inch bore diameter** of 12-gauge shotguns accommodates three shell lengths: 2-3/4" standard, 3" magnum, and 3-1/2" super magnum. Chamber pressure specifications max at **11,500 PSI** for standard shells and **14,000 PSI** for 3-1/2" magnums. These pressures drive buckshot velocities between 1,145 fps (low-recoil tactical loads) and 1,325 fps (full-power loads).
+
+**00 buckshot specifications** define the standard combat load: 9 pellets of .33" diameter, each weighing **54 grains**, for a total payload of approximately 1.1 oz. The outdated "1 inch per yard" spread rule has been superseded by modern testing—quality ammunition like Federal FliteControl patterns at **0.4-0.5 inches per yard**, while budget loads spread at 1+ inch per yard. At 10 yards, expect **5-8 inch patterns** with standard ammunition; at 25 yards, patterns expand to **15-20 inches** with conventional loads.
+
+| Distance | Standard 00 Buck | FliteControl Wad | Expected Hits (9 pellets) |
+|----------|------------------|------------------|---------------------------|
+| 5 yards | 4-5" | 2-3" | 9/9 |
+| 10 yards | 8-10" | 4-6" | 9/9 |
+| 15 yards | 10-15" | 6-8" | 8-9/9 |
+| 25 yards | 15-20" | 8-10" | 5-7/9 |
+| 40 yards | 27-33" | 12-15" | 2-4/9 |
+
+**Slug ammunition** transforms shotguns into short-range rifles. Foster slugs (1 oz, **437 grains**) exit 18-inch barrels at **1,500-1,650 fps** with **2,200-2,650 ft-lbs** of muzzle energy. Brenneke K.O. slugs achieve **2,645 ft-lbs** while heavy 3" magnums reach **3,800 ft-lbs**. Effective slug range extends to **75-100 yards** with smoothbore barrels, delivering 4-6 inch groups at 50 yards.
+
+---
+
+## Barrel length affects velocity less than expected
+
+Testing data reveals that shotgun velocity loss per inch is **non-linear and surprisingly minimal** above 12 inches. From 30" to 18", velocity drops only **55 fps**. The critical threshold occurs below 12"—cutting from 12" to 7" sacrifices an additional **250 fps**.
+
+| Barrel Length | Velocity (% of 18") | Platform Example |
+|---------------|---------------------|------------------|
+| 14" | 95-97% | Mossberg Shockwave |
+| 18" | 100% (baseline) | Standard tactical |
+| 20" | 101% | Field/combat |
+| 28" | 103-105% | Hunting/sport |
+
+**Choke effects** matter significantly at distance. Cylinder bore (no constriction) delivers **25-40% pattern density** at 40 yards, while Full choke achieves **65-70%**. Most tactical shotguns ship with Improved Cylinder choke, optimal for **20-30 yard engagement distances**.
+
+---
+
+## Remington 870 Express dominates the budget pump category
+
+The Remington 870 Express represents the **most-produced pump shotgun in history**—over **13 million units** since 1950. Its steel billet receiver, dual action bars, and 4+1 capacity established the modern pump-action template.
+
+| Specification | Remington 870 Express |
+|---------------|----------------------|
+| Barrel options | 18", 20", 26", 28" |
+| Overall length | 38.5" (18" barrel) to 48.5" |
+| Weight | 7.0-7.5 lbs |
+| Capacity | 4+1 (6+1 with extension) |
+| Chamber | 3" (accepts 2-3/4" and 3") |
+| Receiver | Machined steel billet |
+| Trigger pull | ~5.5 lbs |
+| Price | $400-600 new |
+
+The Express line uses **MIM (metal injection molded) extractors** and matte blue finish—adequate for recreational use but criticized by professionals. Common issues include rough action requiring break-in and susceptibility to rust in humid conditions. **Cycling time** for trained shooters ranges **0.3-0.5 seconds** between shots, with elite competitors achieving **0.25-second splits**.
+
+The dual action bar system prevents the binding issues that plagued single-bar designs, making the 870 nearly immune to short-stroking when operated correctly. The **cross-bolt safety** in the trigger guard favors right-handed shooters—a design choice that contrasts with Mossberg's ambidextrous tang safety.
+
+---
+
+## Mossberg 500 earned MIL-SPEC certification
+
+The Mossberg 500 series achieved what Remington never attempted—**MIL-SPEC 3443E certification** requiring 3,000+ rounds of full-power buckshot with no more than 2 malfunctions. While Remington claims their 870 would pass (they simply never submitted it), the Mossberg 590A1 remains the **only pump shotgun with documented military testing compliance**.
+
+| Specification | Mossberg 500/590 |
+|---------------|------------------|
+| Barrel options | 18.5", 20", 24", 28" |
+| Weight | 5.5-7.5 lbs |
+| Capacity | 5+1, 6+1, 8+1 |
+| Receiver | Forged aluminum alloy |
+| Safety | Tang-mounted (ambidextrous) |
+| Trigger pull | 5-8.5 lbs |
+| Price | $350-500 new |
+
+The **tang-mounted safety** operates identically for left and right-handed shooters—push forward to fire, pull back for safe. This design advantage makes the Mossberg the default recommendation for defensive shotguns. The 590A1 military variant adds **heavy-walled barrel** (resists denting against steel doors), **metal trigger guard and safety**, and **Parkerized finish** for corrosion resistance.
+
+**Key design differences from Remington 870**: dual extractors (vs. single), screw-in ejector (user-serviceable vs. pinned), skeletonized shell lifter (easier malfunction clearing), and aluminum receiver (lighter but adequate strength). The 500's barrel attachment prevents magazine extensions on standard models—the 590 series uses a threaded magazine cap that accommodates extensions.
+
+---
+
+## Remington 870 Police delivers professional-grade reliability
+
+The 870 Police (870P) transforms the budget Express platform into a **professional-grade duty weapon** through enhanced components and dedicated assembly procedures.
+
+| Feature | Express | Police |
+|---------|---------|--------|
+| Extractor | MIM ($7.50) | Forged steel ($14) |
+| Finish | Matte blue | Parkerized |
+| Sear spring | Standard (4-5 lb trigger) | Heavy-duty (5-8 lb) |
+| Magazine spring | Standard | Extended heavy-duty |
+| Assembly | Production line | 23-station quality check |
+| Recoil pad | Rubber | R3 (30% reduction) |
+| Price | $400-600 | $600-900 |
+
+The **forged steel extractor** eliminates the primary failure mode of Express models. Parkerized finish provides superior corrosion resistance for harsh environments. Police models ship without the controversial "J-lock" internal safety that plagued Express models.
+
+**Wilson Combat/Scattergun Technologies upgrades** represent the gold standard: deburred action bars, +2 magazine extension, Trak-Lock ghost ring sights, SureFire tactical forend, and Armor-Tuff thermal-cured finish. Complete TR-870 conversions cost **$1,300+** and transform the 870 into a professional-grade tactical platform.
+
+---
+
+## Mossberg Shockwave exploits a legal classification loophole
+
+The Mossberg Shockwave occupies a unique regulatory niche—classified as a **"firearm" rather than "shotgun"** under the Gun Control Act because it was never manufactured with a shoulder stock. The 14.375" barrel combined with the Raptor bird's head grip achieves **26.37" overall length**, exceeding the 26" threshold for concealment classification.
+
+| Specification | Mossberg 590 Shockwave |
+|---------------|------------------------|
+| Barrel | 14.375" (cylinder bore) |
+| Overall length | 26.37" |
+| Weight | 5.25-5.5 lbs |
+| Capacity | 5+1 (4+1 with 3" shells) |
+| Chamber | 3" |
+| Legal status | "Firearm" (not shotgun/AOW/SBS) |
+| Price | $592-750 |
+
+**Handling characteristics** differ dramatically from stocked shotguns. The **Raptor grip** positions the shooter's hand below bore axis, directing recoil downward into the web of the hand rather than straight back. The **strapped forend** prevents the support hand from sliding toward the muzzle during recoil. Hip-firing is the primary technique—**eye-level aiming is dangerous** as recoil can drive the receiver into the shooter's face.
+
+Pattern testing reveals manageable performance: Hornady #4 buck achieves **1.75" groups at 7 yards**, while Federal 00 buck spreads to **5.25"**. At 25 yards, patterns expand to **19"+**, limiting practical engagement distance to **15 yards maximum**. Velocity loss from the 14" barrel is minimal—approximately **40-50 fps** compared to 18" barrels.
+
+**Game implementation** should apply significant accuracy penalties (40%+ reduction), eliminate precision aiming capability, and restrict effective range to 15 yards for buckshot.
+
+---
+
+## Beretta 1301 Tactical cycles faster than any competitor
+
+The Beretta 1301 Tactical revolutionized semi-automatic shotgun performance through the **BLINK gas system**—claiming **36% faster cycling** than competitors. Independent testing confirms split times as low as **0.13-0.17 seconds** between aimed shots.
+
+| Specification | Beretta 1301 Tactical |
+|---------------|----------------------|
+| Barrel | 18.5" |
+| Overall length | 37.8" |
+| Weight | 6.35-6.7 lbs |
+| Capacity | 5+1 (7+1 with extension) |
+| Chamber | 3" |
+| Operating system | Gas (BLINK) |
+| Trigger pull | ~5 lbs |
+| MSRP | $1,400-1,900 |
+
+The BLINK system positions the **gas piston outside the magazine tube** (annular configuration), allowing longer magazine capacity while maintaining reliable cycling. A **self-cleaning piston** with elastic scraper band removes fouling during operation. The system automatically regulates gas pressure across ammunition types—from light 7/8 oz birdshot to 3" magnum slugs.
+
+**Practical fire rate** approaches **450-500 RPM theoretical**, though human trigger speed becomes the limiting factor before mechanical limitations. The 1301 has displaced Benelli as the **dominant 3-gun competition platform**. Law enforcement adoption includes the **Federal Law Enforcement Training Center** and Alabama Department of Public Safety (657 units).
+
+Compared to the Benelli M4: the 1301 weighs **1.5-2 lbs less**, cycles faster, costs $400-600 less, and reliably cycles light loads without break-in. However, **felt recoil is notably higher**—multiple reviews note recoil "equal to or greater than a pump gun" due to aggressive gas timing that prioritizes speed over comfort.
+
+---
+
+## Browning Auto-5 pioneered semi-automatic shotgun design
+
+John Browning's Auto-5 (1902-1998) was the **first successful semi-automatic shotgun**, introducing the revolutionary **long-recoil operating system**. Over **2.7 million units** were produced across 96 years.
+
+| Specification | Browning Auto-5 (Original) |
+|---------------|---------------------------|
+| Barrel options | 20", 24", 26", 28", 30", 32" |
+| Weight | 7.5-9 lbs |
+| Capacity | 4+1 |
+| Operating system | Long-recoil |
+| Chamber | 2-3/4" (3" magnum versions) |
+| Receiver | Steel ("humpback" profile) |
+
+The **long-recoil system** operates fundamentally differently from modern designs: upon firing, the **barrel and bolt recoil together** the entire length of the shell (3-4 inches). At full rearward travel, the bolt catches while the barrel returns forward, extracting the spent shell. When the barrel reaches full forward position, it releases the bolt to chamber a fresh round.
+
+This system requires **friction ring adjustment** for different ammunition—heavy loads need more friction to prevent internal battering, while light loads need less friction to ensure cycling. Three positions accommodate target loads, field loads, and magnum ammunition. The distinctive "humpback" receiver profile accommodates the recoiling barrel mechanism.
+
+**Cycling speed is slower than modern gas/inertia guns** due to heavier reciprocating mass (~0.018-0.020 seconds), but the system earned legendary reliability across military service in WWI, WWII, Korea, and Vietnam. British SAS extensively used Auto-5s during the Malayan Emergency.
+
+The **2012 modern A5 reintroduction** abandons long-recoil for Browning's Kinematic Drive (inertia system similar to Benelli), reducing weight to **6.75-7 lbs** while eliminating friction ring adjustment.
+
+---
+
+## Fire rate differentiation drives platform balance
+
+Pump-action cycling depends entirely on operator speed, while semi-automatics are limited only by mechanical cycle time and human trigger speed.
+
+| Platform Type | Untrained | Trained | Elite |
+|---------------|-----------|---------|-------|
+| Pump-action | 40 RPM | 70 RPM | 100 RPM |
+| Semi-auto (gas) | 80 RPM | 150 RPM | 250 RPM |
+| Semi-auto (inertia/long-recoil) | 70 RPM | 140 RPM | 220 RPM |
+
+**Pump cycling times**: average shooter 0.8-1.2 seconds, trained shooter 0.5-0.8 seconds, elite competitor 0.4-0.5 seconds. **Short-stroking**—failing to complete the full pump stroke—causes the most common pump-action malfunction and should increase with stress, fatigue, or rapid fire attempts.
+
+**12-gauge recoil energy** varies dramatically by load:
+
+| Load Type | Recoil Energy (7.5 lb gun) |
+|-----------|---------------------------|
+| Light target (1 oz @ 1180 fps) | 17.3 ft-lbs |
+| Standard buckshot | 23-32 ft-lbs |
+| Magnum loads | 45-54 ft-lbs |
+| 3.5" turkey/goose | 60-80 ft-lbs |
+
+Gas-operated semi-autos reduce felt recoil by **20-30%** by spreading the impulse over longer duration. Inertia systems provide **10-15%** reduction. Pump-actions deliver full recoil impulse.
+
+---
+
+## Recommended weapon meta values by platform
+
+### Remington 870 Express (Budget Pump)
+```
+Damage per pellet: 42
+Pellet count: 9
+Slug damage: 240
+Fire rate: 55 RPM (base), 85 RPM (skilled)
+Effective range: 35m (buckshot), 75m (slug)
+Accuracy: 85%
+Recoil: 75/100
+Reload: 0.6s per shell
+Magazine: 4+1 (6+1 extended)
+Weight class: Medium
+```
+
+### Mossberg 500 (Military-Spec Pump)
+```
+Damage per pellet: 44
+Pellet count: 9
+Slug damage: 245
+Fire rate: 58 RPM (base), 90 RPM (skilled)
+Effective range: 38m (buckshot), 80m (slug)
+Accuracy: 88%
+Recoil: 72/100
+Reload: 0.55s per shell
+Magazine: 5+1 (8+1 extended)
+Weight class: Medium
+```
+
+### Remington 870 Police (Upgraded Pump)
+```
+Damage per pellet: 45
+Pellet count: 9
+Slug damage: 250
+Fire rate: 60 RPM (base), 95 RPM (skilled)
+Effective range: 40m (buckshot), 85m (slug)
+Accuracy: 90%
+Recoil: 68/100 (R3 pad)
+Reload: 0.5s per shell
+Magazine: 4+1 (7+1 extended)
+Weight class: Medium
+```
+
+### Mossberg Shockwave (Stockless Compact)
+```
+Damage per pellet: 40
+Pellet count: 9
+Slug damage: 220
+Fire rate: 45 RPM (base), 70 RPM (skilled)
+Effective range: 15m (buckshot), 40m (slug)
+Accuracy: 55% (hip-fire only)
+Recoil: 95/100
+Reload: 0.65s per shell
+Magazine: 5+1
+Weight class: Light
+Special: Cannot ADS, +50% spread
+```
+
+### Beretta 1301 Tactical (Fast Semi-Auto)
+```
+Damage per pellet: 44
+Pellet count: 9
+Slug damage: 248
+Fire rate: 140 RPM (base), 220 RPM (skilled)
+Effective range: 38m (buckshot), 85m (slug)
+Accuracy: 88%
+Recoil: 55/100 (gas system)
+Reload: 0.55s per shell
+Magazine: 5+1 (7+1 extended)
+Weight class: Light-Medium
+```
+
+### Browning Auto-5 (Classic Semi-Auto)
+```
+Damage per pellet: 45
+Pellet count: 9
+Slug damage: 255
+Fire rate: 110 RPM (base), 180 RPM (skilled)
+Effective range: 40m (buckshot), 85m (slug)
+Accuracy: 87%
+Recoil: 60/100 (long-recoil)
+Reload: 0.6s per shell
+Magazine: 4+1
+Weight class: Heavy
+```
+
+---
+
+## Multi-projectile damage model implementation
+
+Buckshot requires **per-pellet hit calculation** rather than single-projectile damage. For each of 9 pellets:
+
+1. **Calculate pattern center**: Apply base accuracy deviation from aim point
+2. **Determine spread radius**: Base spread × (distance/10) × choke modifier
+3. **Randomize pellet position**: Each pellet falls randomly within spread circle
+4. **Check hit registration**: Is pellet within target hitbox?
+5. **Apply damage**: ~40-50 damage per pellet hitting vital zones
+
+**Expected damage by range** (all pellets on target):
+
+| Range | Pellets Hitting | Buckshot Damage | Slug Damage |
+|-------|-----------------|-----------------|-------------|
+| 5m | 9/9 | 360-405 | 240-255 |
+| 15m | 8-9/9 | 320-405 | 230-245 |
+| 25m | 5-7/9 | 200-315 | 215-235 |
+| 40m | 2-4/9 | 80-180 | 190-210 |
+| 60m | 0-2/9 | 0-90 | 160-180 |
+
+Shotguns should deliver **one-shot-kill potential within 15 meters** when most pellets connect, but suffer severe effectiveness degradation beyond **40 meters**—creating clear role definition against rifles and SMGs. Magazine capacity limitations (4-8 rounds) and long individual reload times (0.5-0.6 seconds per shell) provide balancing vulnerabilities during extended engagements.

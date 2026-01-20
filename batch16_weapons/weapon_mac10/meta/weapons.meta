@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_MAC10</n>
+      <Model>w_sb_mac10</Model>
+      <Audio>AUDIO_SMG</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="30" />
+      <AccuracySpread value="2.80" />
+      <AccurateModeAccuracyModifier value="0.50" />
+      <RunAndGunAccuracyModifier value="0.78" />
+      <RunAndGunAccuracyMaxModifier value="0.60" />
+      <RecoilAccuracyMax value="4.20" />
+      <RecoilErrorTime value="0.58" />
+      <RecoilRecoveryRate value="0.32" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.75" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="20.0" />
+      <HeadShotDamageModifierPlayer value="2.5" />
+      <HeadShotDamageModifierAI value="4.0" />
+      
+      <!-- ================================================
+           INGRAM MAC-10 - CLASSIC .45 ACP MACHINE PISTOL
+           ================================================
+           Real-world specifications:
+           - Caliber: .45 ACP
+           - Barrel: 5.75" (146mm)
+           - Weight: 6.26 lbs empty
+           - Overall length: 11.6" collapsed / 21.6" extended
+           - Muzzle velocity: ~890 fps (230gr)
+           - Muzzle energy: ~405 ft-lbs
+           - Operating system: Open-bolt blowback
+           - Fire control: Full-auto only (original)
+           - Rate of fire: ~1,090 RPM (EXTREMELY HIGH)
+           - Magazine: 30 round
+           - Origin: Gordon Ingram / MAC (1964)
+           
+           Game balance notes:
+           - HIGHEST FIRE RATE SMG (~1,100 RPM)
+           - WORST CONTROLLABILITY - severe muzzle climb
+           - Empties 30-round magazine in 1.65 seconds!
+           - "Spray and pray" - devastating CQB, useless at range
+           - Crude fixed sights, minimal sight radius
+           - Subsonic .45 ACP = suppressor-ready
+           - Criminal/action movie aesthetic
+           - 3 shots close range, 10+ at max range (if you hit)
+      -->
+      
+      <!-- 5.75" barrel .45 ACP = 40 damage -->
+      <Damage value="40.0" />
+      <DamageFallOffRangeMin value="18.0" />
+      <DamageFallOffRangeMax value="55.0" />
+      <DamageFallOffModifier value="0.25" />
+      
+      <!-- .45 ACP velocity from 5.75": ~890 fps = ~271 m/s -->
+      <Speed value="271.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="85.0" />
+      <ForceHitPed value="75.0" />
+      <ForceHitVehicle value="40.0" />
+      <ForceHitFlyingHeli value="28.0" />
+      <OverrideForces />
+      
+      <!-- .45 ACP moderate penetration -->
+      <Penetration value="0.28" />
+      <ArmorPenetration value="0.20" />
+      
+      <!-- EXTREME RECOIL - high RPM + .45 ACP + light weight -->
+      <RecoilShakeAmplitude value="0.38" />
+      <RecoilShakeFrequency value="0.62" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- ~1,100 RPM = 0.0545s between shots (FASTEST SMG!) -->
+      <TimeBetweenShots value="0.055" />
+      <AnimReloadRate value="0.95" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.26" />
+      <AimingTimeFromSprinting value="0.34" />
+      
+      <!-- Very limited effective range - accuracy issues -->
+      <WeaponRange value="70.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.38" />
+      <!-- AUTOMATIC - Full-auto -->
+      <WeaponFlags>Gun Automatic AnimReload AnimCrouchFire TwoHanded ApplyBulletForce</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_MAC10</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

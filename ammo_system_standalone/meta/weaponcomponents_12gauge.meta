@@ -98,14 +98,14 @@
 
     <!-- ================================================================== -->
     <!-- MODEL 680 - Budget Pump (5 rounds)                                 -->
-    <!-- Default: 00 Buck - standard combat                                 -->
+    <!-- Default: BEANBAG - Less-lethal home defense / crowd control        -->
     <!-- ================================================================== -->
 
     <Item type="CWeaponComponentClipInfo">
       <n>COMPONENT_MODEL680_CLIP_00BUCK</n>
       <Model /><LocName>WCT_CLIP_00BUCK</LocName><LocDesc>WCD_CLIP_00BUCK</LocDesc>
       <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" /><DamageModifier type="NULL" />
-      <bShownOnWheel value="false" /><CreateObject value="true" />
+      <bShownOnWheel value="true" /><CreateObject value="true" />
       <HudDamage value="0" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="0" />
       <ClipSize value="5" /><AmmoInfo ref="AMMO_12G_00BUCK" />
     </Item>
@@ -158,7 +158,7 @@
       <Model /><LocName>WCT_CLIP_BEANBAG</LocName><LocDesc>WCD_CLIP_BEANBAG</LocDesc>
       <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
       <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.100000" /></DamageModifier>
-      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <bShownOnWheel value="false" /><CreateObject value="true" />
       <HudDamage value="-90" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="-10" /><HudRange value="-30" />
       <ClipSize value="5" /><AmmoInfo ref="AMMO_12G_BEANBAG" />
     </Item>

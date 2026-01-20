@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_RAM9_DESERT</n>
+      <Model>w_sb_ram9_desert</Model>
+      <Audio>AUDIO_SMG</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="33" />
+      <AccuracySpread value="1.05" />
+      <AccurateModeAccuracyModifier value="0.15" />
+      <RunAndGunAccuracyModifier value="0.50" />
+      <RunAndGunAccuracyMaxModifier value="0.28" />
+      <RecoilAccuracyMax value="2.00" />
+      <RecoilErrorTime value="0.40" />
+      <RecoilRecoveryRate value="0.52" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.48" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="42.0" />
+      <HeadShotDamageModifierPlayer value="2.5" />
+      <HeadShotDamageModifierAI value="4.0" />
+      
+      <!-- ================================================
+           AR-9 PLATFORM (RAM 9 DESERT) - PRECISION 9MM PCC
+           ================================================
+           Real-world specifications:
+           - Caliber: 9x19mm Parabellum
+           - Barrel: 8" (typical AR-9 SBR/pistol)
+           - Weight: 5.2 lbs empty
+           - Overall length: ~28"
+           - Muzzle velocity: ~1,230-1,250 fps
+           - Operating system: Direct blowback
+           - Fire control: Semi-automatic only (civilian)
+           - Magazine: 33 round Glock-pattern
+           - Price: $500-1,500 depending on tier
+           
+           Game balance notes:
+           - BEST ACCURACY in batch (AR platform)
+           - Familiar AR-15 controls
+           - Longer sight radius, stable platform
+           - Free-floated handguard potential
+           - Moderate recoil (blowback, heavier bolt)
+           - Highly customizable
+           - Semi-auto only
+           - 3 shots close range, 7 at max range
+      -->
+      
+      <!-- 8" barrel = 43 damage -->
+      <Damage value="43.0" />
+      <DamageFallOffRangeMin value="40.0" />
+      <DamageFallOffRangeMax value="110.0" />
+      <DamageFallOffModifier value="0.34" />
+      
+      <!-- 9mm velocity from 8": ~1,234 fps = ~376 m/s -->
+      <Speed value="376.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="70.0" />
+      <ForceHitPed value="60.0" />
+      <ForceHitVehicle value="32.0" />
+      <ForceHitFlyingHeli value="22.0" />
+      <OverrideForces />
+      
+      <!-- 9mm standard penetration -->
+      <Penetration value="0.27" />
+      <ArmorPenetration value="0.19" />
+      
+      <!-- MODERATE RECOIL - blowback but stable platform -->
+      <RecoilShakeAmplitude value="0.18" />
+      <RecoilShakeFrequency value="0.45" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- Semi-auto only -->
+      <TimeBetweenShots value="0.095" />
+      <AnimReloadRate value="1.0" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.32" />
+      <AimingTimeFromSprinting value="0.42" />
+      
+      <!-- Good effective range - accuracy advantage -->
+      <WeaponRange value="140.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.10" />
+      <!-- Semi-auto only -->
+      <WeaponFlags>Gun AnimReload AnimCrouchFire TwoHanded LongWeapon ApplyBulletForce</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_RAM9_DESERT</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_SUB2000</n>
+      <Model>w_sb_sub2000</Model>
+      <Audio>AUDIO_SMG</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="33" />
+      <AccuracySpread value="1.25" />
+      <AccurateModeAccuracyModifier value="0.18" />
+      <RunAndGunAccuracyModifier value="0.55" />
+      <RunAndGunAccuracyMaxModifier value="0.32" />
+      <RecoilAccuracyMax value="2.20" />
+      <RecoilErrorTime value="0.42" />
+      <RecoilRecoveryRate value="0.48" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.50" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="45.0" />
+      <HeadShotDamageModifierPlayer value="2.5" />
+      <HeadShotDamageModifierAI value="4.0" />
+      
+      <!-- ================================================
+           KEL-TEC SUB-2000 - FOLDING 9MM CARBINE
+           ================================================
+           Real-world specifications:
+           - Caliber: 9x19mm Parabellum
+           - Barrel: 16.25" (carbine length)
+           - Weight: 4.25 lbs empty (LIGHTEST!)
+           - Overall length: 30.5" / FOLDED: 16.25" x 7"
+           - Muzzle velocity: ~1,270-1,317 fps (highest)
+           - Operating system: Simple blowback
+           - Fire control: Semi-automatic only
+           - Magazine: Glock/S&W/Beretta compatible
+           - MSRP: $578-621 (budget tier)
+           
+           Game balance notes:
+           - FOLDS IN HALF for transport/concealment
+           - Highest velocity (16.25" barrel)
+           - LIGHTEST weight in batch
+           - Heavy trigger (9.5 lbs factory)
+           - Shares magazines with sidearm
+           - Budget construction
+           - Semi-auto only
+           - DAMAGE REDUCED 12% for balance
+           - 3 shots close range, 7 at max range
+      -->
+      
+      <!-- 16.25" barrel = 47 base, REDUCED 12% = 41 damage -->
+      <Damage value="41.0" />
+      <DamageFallOffRangeMin value="50.0" />
+      <DamageFallOffRangeMax value="140.0" />
+      <DamageFallOffModifier value="0.36" />
+      
+      <!-- 9mm velocity from 16.25": ~1,295 fps = ~395 m/s -->
+      <Speed value="395.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="72.0" />
+      <ForceHitPed value="62.0" />
+      <ForceHitVehicle value="34.0" />
+      <ForceHitFlyingHeli value="24.0" />
+      <OverrideForces />
+      
+      <!-- 9mm standard penetration -->
+      <Penetration value="0.28" />
+      <ArmorPenetration value="0.20" />
+      
+      <!-- MODERATE-HIGH RECOIL - blowback, light weight -->
+      <RecoilShakeAmplitude value="0.22" />
+      <RecoilShakeFrequency value="0.48" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- Semi-auto only, heavy trigger -->
+      <TimeBetweenShots value="0.105" />
+      <AnimReloadRate value="0.95" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.34" />
+      <AimingTimeFromSprinting value="0.45" />
+      
+      <!-- Extended effective range - carbine barrel -->
+      <WeaponRange value="175.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.12" />
+      <!-- Semi-auto only -->
+      <WeaponFlags>Gun AnimReload AnimCrouchFire TwoHanded LongWeapon ApplyBulletForce</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_SUB2000</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

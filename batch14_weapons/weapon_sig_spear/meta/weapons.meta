@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_SIG_SPEAR</n>
+      <Model>w_ar_sig_spear</Model>
+      <Audio>AUDIO_ASSAULT_RIFLE</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="20" />
+      <AccuracySpread value="0.85" />
+      <AccurateModeAccuracyModifier value="0.12" />
+      <RunAndGunAccuracyModifier value="0.55" />
+      <RunAndGunAccuracyMaxModifier value="0.30" />
+      <RecoilAccuracyMax value="2.20" />
+      <RecoilErrorTime value="0.45" />
+      <RecoilRecoveryRate value="0.48" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.50" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="55.0" />
+      <HeadShotDamageModifierPlayer value="2.5" />
+      <HeadShotDamageModifierAI value="4.0" />
+      
+      <!-- ================================================
+           SIG MCX SPEAR - CIVILIAN 16" SEMI-AUTO RIFLE
+           ================================================
+           Real-world specifications:
+           - Caliber: 6.8x51mm / .277 SIG Fury
+           - Barrel: 16" (civilian legal length)
+           - Weight: 9.2 lbs empty
+           - Overall length: 38.3" extended / 28.1" folded
+           - Muzzle velocity: 3,000 fps (135gr hybrid)
+           - Muzzle energy: 2,697 ft-lbs
+           - Operating system: Short-stroke gas piston
+           - Fire control: Semi-automatic only
+           - MSRP: $7,999
+           
+           Game balance notes:
+           - HIGHEST DAMAGE rifle caliber (6.8x51mm)
+           - 80,000 PSI chamber pressure - exceeds all others
+           - Semi-auto only = controlled, accurate fire
+           - High recoil due to powerful cartridge
+           - Armor-defeating capability (Level IV)
+           - 2-3 shots close range, 5-6 at max range
+      -->
+      
+      <!-- 16" barrel = 100% damage (57 base for 6.8x51mm) -->
+      <Damage value="57.0" />
+      <DamageFallOffRangeMin value="90.0" />
+      <DamageFallOffRangeMax value="280.0" />
+      <DamageFallOffModifier value="0.40" />
+      
+      <!-- 6.8x51mm velocity: 3,000 fps = ~915 m/s -->
+      <Speed value="915.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="180.0" />
+      <ForceHitPed value="160.0" />
+      <ForceHitVehicle value="90.0" />
+      <ForceHitFlyingHeli value="65.0" />
+      <OverrideForces />
+      
+      <!-- 6.8x51mm EXCELLENT armor penetration - defeats Level IV -->
+      <Penetration value="0.70" />
+      <ArmorPenetration value="0.65" />
+      
+      <!-- High recoil - powerful cartridge, semi-auto helps control -->
+      <RecoilShakeAmplitude value="0.32" />
+      <RecoilShakeFrequency value="0.55" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- Semi-auto only - controlled fire rate -->
+      <TimeBetweenShots value="0.120" />
+      <AnimReloadRate value="1.0" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.42" />
+      <AimingTimeFromSprinting value="0.55" />
+      
+      <!-- Extended effective range - flat trajectory -->
+      <WeaponRange value="450.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.08" />
+      <WeaponFlags>Gun AnimReload AnimCrouchFire TwoHanded LongWeapon ApplyBulletForce</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_SIG_SPEAR</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

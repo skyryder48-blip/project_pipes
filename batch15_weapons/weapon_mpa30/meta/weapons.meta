@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_MPA30</n>
+      <Model>w_sb_mpa30</Model>
+      <Audio>AUDIO_SMG</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="30" />
+      <AccuracySpread value="1.65" />
+      <AccurateModeAccuracyModifier value="0.28" />
+      <RunAndGunAccuracyModifier value="0.62" />
+      <RunAndGunAccuracyMaxModifier value="0.40" />
+      <RecoilAccuracyMax value="2.60" />
+      <RecoilErrorTime value="0.45" />
+      <RecoilRecoveryRate value="0.42" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.55" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="28.0" />
+      <HeadShotDamageModifierPlayer value="2.5" />
+      <HeadShotDamageModifierAI value="4.0" />
+      
+      <!-- ================================================
+           MASTERPIECE ARMS MPA30 - IMPROVED MAC-STYLE PDW
+           ================================================
+           Real-world specifications:
+           - Caliber: 9x19mm Parabellum
+           - Barrel: 5.5" (threaded)
+           - Weight: 3.44 lbs (55 oz) empty
+           - Overall length: ~12"
+           - Muzzle velocity: ~1,175-1,200 fps
+           - Operating system: Blowback
+           - Fire control: Semi-automatic only
+           - Magazine: 30+1 round proprietary
+           - MSRP: $540-750
+           
+           Game balance notes:
+           - "The company that fixed the MAC-10"
+           - CNC machined aluminum (vs stamped steel)
+           - Better accuracy than TEC-9
+           - Adjustable sights (vs fixed crude)
+           - Proper trigger with disconnect
+           - Accessory-ready (rails, threaded)
+           - Semi-auto only
+           - 3 shots close range, 8 at max range
+      -->
+      
+      <!-- 5.5" barrel = 37 damage -->
+      <Damage value="37.0" />
+      <DamageFallOffRangeMin value="22.0" />
+      <DamageFallOffRangeMax value="65.0" />
+      <DamageFallOffModifier value="0.32" />
+      
+      <!-- 9mm velocity from 5.5": ~1,188 fps = ~362 m/s -->
+      <Speed value="362.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="62.0" />
+      <ForceHitPed value="52.0" />
+      <ForceHitVehicle value="26.0" />
+      <ForceHitFlyingHeli value="16.0" />
+      <OverrideForces />
+      
+      <!-- 9mm standard penetration -->
+      <Penetration value="0.25" />
+      <ArmorPenetration value="0.17" />
+      
+      <!-- MODERATE RECOIL - improved over TEC-9 -->
+      <RecoilShakeAmplitude value="0.22" />
+      <RecoilShakeFrequency value="0.50" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- Semi-auto only -->
+      <TimeBetweenShots value="0.100" />
+      <AnimReloadRate value="0.95" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.30" />
+      <AimingTimeFromSprinting value="0.40" />
+      
+      <!-- Moderate effective range -->
+      <WeaponRange value="75.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.18" />
+      <!-- Semi-auto only -->
+      <WeaponFlags>Gun AnimReload AnimCrouchFire TwoHanded ApplyBulletForce</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_MPA30</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

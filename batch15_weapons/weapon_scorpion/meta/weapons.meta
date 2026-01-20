@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_SCORPION</n>
+      <Model>w_sb_scorpion</Model>
+      <Audio>AUDIO_SMG</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="30" />
+      <AccuracySpread value="1.35" />
+      <AccurateModeAccuracyModifier value="0.20" />
+      <RunAndGunAccuracyModifier value="0.58" />
+      <RunAndGunAccuracyMaxModifier value="0.35" />
+      <RecoilAccuracyMax value="2.40" />
+      <RecoilErrorTime value="0.42" />
+      <RecoilRecoveryRate value="0.48" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.52" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="38.0" />
+      <HeadShotDamageModifierPlayer value="2.5" />
+      <HeadShotDamageModifierAI value="4.0" />
+      
+      <!-- ================================================
+           CZ SCORPION EVO 3 - HIGH-RPM BLOWBACK SMG
+           ================================================
+           Real-world specifications:
+           - Caliber: 9x19mm Parabellum
+           - Barrel: 7.72" (S1 pistol variant)
+           - Weight: 5.0 lbs empty
+           - Overall length: 16.35" / 26.1" extended
+           - Muzzle velocity: ~1,180-1,234 fps
+           - Operating system: Simple blowback
+           - Fire control: Safe-Semi-Full (1,150 RPM!)
+           - Magazine: 20/30 round proprietary
+           - MSRP: $850-1,000
+           - Origin: Czech Republic
+           
+           Game balance notes:
+           - HIGHEST FIRE RATE in batch (1,150 RPM)
+           - Longer barrel = more damage than compact SMGs
+           - Moderate recoil (blowback, not delayed)
+           - Budget-friendly price point
+           - Needs trigger upgrade (heavy factory pull)
+           - 3 shots close range, 7 at max range
+      -->
+      
+      <!-- 7.72" barrel = 42 damage (longer barrel advantage) -->
+      <Damage value="42.0" />
+      <DamageFallOffRangeMin value="35.0" />
+      <DamageFallOffRangeMax value="95.0" />
+      <DamageFallOffModifier value="0.32" />
+      
+      <!-- 9mm velocity from 7.72": ~1,207 fps = ~368 m/s -->
+      <Speed value="368.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="68.0" />
+      <ForceHitPed value="58.0" />
+      <ForceHitVehicle value="30.0" />
+      <ForceHitFlyingHeli value="20.0" />
+      <OverrideForces />
+      
+      <!-- 9mm standard penetration -->
+      <Penetration value="0.26" />
+      <ArmorPenetration value="0.19" />
+      
+      <!-- MODERATE RECOIL - simple blowback, high cyclic rate -->
+      <RecoilShakeAmplitude value="0.20" />
+      <RecoilShakeFrequency value="0.48" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- 1,150 RPM = 0.052s between shots (FASTEST!) -->
+      <TimeBetweenShots value="0.052" />
+      <AnimReloadRate value="1.0" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.30" />
+      <AimingTimeFromSprinting value="0.38" />
+      
+      <!-- Good effective range - longer barrel -->
+      <WeaponRange value="120.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.14" />
+      <!-- AUTOMATIC - Full-auto capable -->
+      <WeaponFlags>Gun Automatic AnimReload AnimCrouchFire TwoHanded ApplyBulletForce</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_SCORPION</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

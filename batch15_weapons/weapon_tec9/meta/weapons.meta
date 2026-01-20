@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_TEC9</n>
+      <Model>w_sb_tec9</Model>
+      <Audio>AUDIO_SMG</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="32" />
+      <AccuracySpread value="2.80" />
+      <AccurateModeAccuracyModifier value="0.45" />
+      <RunAndGunAccuracyModifier value="0.75" />
+      <RunAndGunAccuracyMaxModifier value="0.55" />
+      <RecoilAccuracyMax value="3.80" />
+      <RecoilErrorTime value="0.55" />
+      <RecoilRecoveryRate value="0.35" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.70" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="18.0" />
+      <HeadShotDamageModifierPlayer value="2.5" />
+      <HeadShotDamageModifierAI value="4.0" />
+      
+      <!-- ================================================
+           INTRATEC TEC-9 - NOTORIOUS BUDGET MACHINE PISTOL
+           ================================================
+           Real-world specifications:
+           - Caliber: 9x19mm Parabellum
+           - Barrel: 5" (threaded)
+           - Weight: 3.1 lbs empty
+           - Overall length: 12.5"
+           - Muzzle velocity: ~1,181 fps
+           - Operating system: Closed-bolt blowback
+           - Fire control: Semi-automatic only (civilian)
+           - Magazine: 20/32/50 round
+           - Historical price: $150-350 (budget tier)
+           
+           Game balance notes:
+           - WORST ACCURACY in batch (notorious)
+           - Shallow rifling, crude sights
+           - High recoil from light weight + blowback
+           - Unreliable feeding (especially with HP)
+           - Large magazine capacity
+           - Semi-auto only (civilian version)
+           - Spray and pray weapon
+           - 3 shots close range, 9+ at max range
+      -->
+      
+      <!-- 5" barrel, but poor quality = only 36 damage -->
+      <Damage value="36.0" />
+      <DamageFallOffRangeMin value="18.0" />
+      <DamageFallOffRangeMax value="55.0" />
+      <DamageFallOffModifier value="0.28" />
+      
+      <!-- 9mm velocity from 5": ~1,181 fps = ~360 m/s -->
+      <Speed value="360.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="60.0" />
+      <ForceHitPed value="50.0" />
+      <ForceHitVehicle value="25.0" />
+      <ForceHitFlyingHeli value="15.0" />
+      <OverrideForces />
+      
+      <!-- 9mm standard penetration -->
+      <Penetration value="0.24" />
+      <ArmorPenetration value="0.16" />
+      
+      <!-- HIGH RECOIL - light weight, crude design -->
+      <RecoilShakeAmplitude value="0.28" />
+      <RecoilShakeFrequency value="0.55" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- Semi-auto only - fast trigger spam possible -->
+      <TimeBetweenShots value="0.095" />
+      <AnimReloadRate value="0.90" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.32" />
+      <AimingTimeFromSprinting value="0.42" />
+      
+      <!-- Very limited effective range - poor accuracy -->
+      <WeaponRange value="60.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.35" />
+      <!-- Semi-auto only -->
+      <WeaponFlags>Gun AnimReload AnimCrouchFire TwoHanded ApplyBulletForce</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_TEC9</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

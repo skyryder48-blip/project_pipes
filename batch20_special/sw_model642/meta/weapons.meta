@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="403" />
+          <Entry>SLOT_SWMODEL642</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="403" />
+          <Entry>SLOT_SWMODEL642</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="203" />
+        <Entry>SLOT_SWMODEL642</Entry>
+      </Item>
+    </WeaponSlots>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos>
+    <Item type="CAimingInfo">
+      <n>YOURWEAPON_YOURWEAPON_YOURWEAPON</n>
+      <HeadingLimit value="90.000000" />
+      <SweepPitchMin value="-45.000000" />
+      <SweepPitchMax value="45.000000" />
+    </Item>
+  </AimingInfos>
+  <Infos>
+    <Item>
+      <Infos />
+    </Item>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+          <!-- ================================================================
+               SMITH & WESSON MODEL 642 AIRWEIGHT
+               ================================================================
+               Real-World Specifications:
+               - Caliber: .38 Special +P
+               - Barrel: 1.875" (snub-nose)
+               - Overall Length: 6.31"
+               - Weight: 14.6 oz (414g) - aluminum alloy frame
+               - Cylinder Capacity: 5 rounds
+               - Action: DAO (Double-Action Only)
+               - Trigger Pull: 11.8 lbs
+               - Frame: Aluminum alloy J-frame
+               - Cylinder: Stainless steel
+               - Finish: Matte silver/stainless
+               - Sights: Fixed integral ramp/notch
+               - MSRP: $449-$519
+               
+               Ballistic Performance (.38 Special +P, 125gr JHP):
+               - Muzzle Velocity: ~910 fps from 1.875" barrel
+               - Muzzle Energy: ~230 ft-lbs
+               - Energy vs 9mm: 64% of baseline (360 ft-lbs)
+               
+               Notes:
+               - S&W's best-selling J-frame revolver
+               - Identical to 442 except stainless finish
+               - Superior corrosion resistance
+               - Silver front sight (harder to acquire vs light targets)
+               ================================================================ -->
+          <n>WEAPON_SWMODEL642</n>
+          <Model>w_pi_swmodel642</Model>
+          <Audio>AUDIO_ITEM_REVOLVER</Audio>
+          <Slot>SLOT_SWMODEL642</Slot>
+          <HumanNameHash>WT_SWMODEL642</HumanNameHash>
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FireType>INSTANT_HIT</FireType>
+          <WheelSlot>WHEEL_PISTOL</WheelSlot>
+          <Group>GROUP_PISTOL</Group>
+          <AmmoInfo ref="AMMO_PISTOL" />
+          <AimingInfo ref="YOURWEAPON_YOURWEAPON_YOURWEAPON" />
+          
+          <!-- Magazine: 5-shot cylinder -->
+          <ClipSize value="5" />
+          
+          <!-- Accuracy: Snub-nose limitations, DAO trigger -->
+          <AccuracySpread value="0.380000" />
+          <AccurateModeAccuracyModifier value="0.350000" />
+          <RunAndGunAccuracyModifier value="3.800000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+          <RecoilAccuracyMax value="1.350000" />
+          <RecoilErrorTime value="0.250000" />
+          <RecoilRecoveryRate value="0.420000" />
+          
+          <!-- Headshot Parameters - limited range -->
+          <RecoilAccuracyToAllowHeadShotAI value="0.700000" />
+          <MinHeadShotDistanceAI value="3.000000" />
+          <MaxHeadShotDistanceAI value="35.000000" />
+          <HeadShotDamageModifierAI value="2.600000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.300000" />
+          <MinHeadShotDistancePlayer value="0.000000" />
+          <MaxHeadShotDistancePlayer value="35.000000" />
+          <HeadShotDamageModifierPlayer value="2.200000" />
+          
+          <!-- Damage: 22 - Snub-nose +P performance -->
+          <Damage value="22.000000" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <HitLimbsDamageModifier value="0.550000" />
+          <NetworkHitLimbsDamageModifier value="0.720000" />
+          <LightlyArmouredDamageModifier value="0.600000" />
+          
+          <!-- Physics Forces - reduced velocity -->
+          <Force value="95.000000" />
+          <ForceHitPed value="52.000000" />
+          <ForceHitVehicle value="160.000000" />
+          <ForceHitFlyingHeli value="95.000000" />
+          <OverrideForces />
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="0.000000" />
+          <ForceFalloffRangeEnd value="25.000000" />
+          <ForceFalloffMin value="0.400000" />
+          <ProjectileForce value="0.000000" />
+          <FragImpulse value="200.000000" />
+          
+          <!-- Penetration: Lower due to velocity loss -->
+          <Penetration value="0.280000" />
+          <VerticalLaunchAdjustment value="0.000000" />
+          <DropForwardVelocity value="0.000000" />
+          
+          <!-- Velocity: ~910 fps = 277 m/s -->
+          <Speed value="277.000000" />
+          
+          <!-- Single projectile -->
+          <BulletsInBatch value="1" />
+          <BatchSpread value="0.000000" />
+          
+          <!-- Reload timing -->
+          <ReloadTimeMP value="2.900000" />
+          <ReloadTimeSP value="2.900000" />
+          
+          <!-- Fire Rate: DAO only, 0.50s between shots -->
+          <TimeBetweenShots value="0.500000" />
+          
+          <!-- Damage Falloff: Full to 10m, minimum at 35m -->
+          <DamageFallOffRangeMin value="10.000000" />
+          <DamageFallOffRangeMax value="35.000000" />
+          <DamageFallOffModifier value="0.600000" />
+          
+          <!-- Network Damage -->
+          <NetworkPlayerDamageModifier value="1.000000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          <NetworkHeadShotPlayerDamageModifier value="1.000000" />
+          <LockOnRange value="0.000000" />
+          <WeaponRange value="40.000000" />
+          
+          <!-- Recoil: Lightweight frame = snappy recoil -->
+          <BulletDirectionOffsetInDegrees value="0.000000" />
+          <RecoilShakeAmplitude value="0.380000" />
+          <RecoilShakeFrequency value="0.000000" />
+          <RecoilShakeRollMagnitude value="0.260000" />
+          <RecoilShakeDuration value="0.300000" />
+          
+          <AiSoundRange value="100.000000" />
+          <AimingMod1 value="0.580000" />
+          <AimingModTime1 value="0.220000" />
+          <AimingMod2 value="0.350000" />
+          <AimingModTime2 value="0.380000" />
+          
+          <Flags>WF_GUN, WF_NO_SHOOTING_BERSERK, WF_WEAPON, WF_LOUDWEAPON, WF_TAKE_ARM_L_HAND_DAMAGE_REACTIONS, WF_MAKE_PED_BACKUP</Flags>
+          
+          <AltWheelSlot>WHEEL_UNARMED</AltWheelSlot>
+          <PickupGlowAsset />
+          <PickupTextRep />
+          <ModelHashKey>w_pi_swmodel642</ModelHashKey>
+          <DefaultCameraHash>DEFAULT_FOLLOW_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_FOLLOW_CAMERA</CoverCameraHash>
+          <RunAndGunCameraHash>DEFAULT_FOLLOW_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash>DEFAULT_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+          <AimOffset>
+            <X value="0.000000" />
+            <Y value="0.008000" />
+            <Z value="0.000000" />
+          </AimOffset>
+          <FirstPersonAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonAimOffset>
+          <FirstPersonScopeOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonScopeOffset>
+          <CrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </CrouchAimOffset>
+          <FirstPersonCrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonCrouchAimOffset>
+          <ZoomFactorForAccurateMode value="1.000000" />
+          <ReticuleMinSizeStanding value="0.000000" />
+          <ReticuleMinSizeDucked value="0.000000" />
+          <ReticuleScale value="0.450000" />
+          <IronSightCameraZoomFactor value="1.000000" />
+          <WeaponSoundBoneTag />
+          <Hud>
+            <FlashColor value="0xFFFFFFFF" />
+            <ScrollSelect>true</ScrollSelect>
+          </Hud>
+          <AmmoPickup>
+            <AmmoType>AMMO_PISTOL</AmmoType>
+            <Amount value="5" />
+          </AmmoPickup>
+          <AmmoPickup2>
+            <AmmoType>AMMO_PISTOL</AmmoType>
+            <Amount value="10" />
+          </AmmoPickup2>
+          <FireFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>muz_pistol_fp</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </FireFx>
+          <MuzzleFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.400000" />
+            <EffectName>muz_pistol</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </MuzzleFx>
+          <ShellFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName />
+            <FxBone />
+          </ShellFx>
+          <TracerFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>proj_tracer</EffectName>
+            <FxBone />
+          </TracerFx>
+          <FlashFxLightEnabled value="true" />
+          <FlashFxLightCastsShadows value="false" />
+          <FlashFxLightOffsetDistance value="2.500000" />
+          <FlashFxLightRGBAMax value="0xFFFFE4C9" />
+          <FlashFxLightIntensityMax value="1.400000" />
+          <FlashFxLightFallOffMax value="4.500000" />
+          <FlashFxFadeOutTime value="0.035000" />
+          <FlashFxAltBone />
+          <ReloadUpperBodyFixupExpression>YOURNAME/YOURFOLDER</ReloadUpperBodyFixupExpression>
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

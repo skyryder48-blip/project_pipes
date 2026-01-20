@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="301" />
+          <Entry>SLOT_REMINGTON700</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="301" />
+          <Entry>SLOT_REMINGTON700</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="151" />
+        <Entry>SLOT_REMINGTON700</Entry>
+      </Item>
+    </WeaponSlots>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos>
+    <Item type="CAimingInfo">
+      <n>YOURWEAPON_YOURWEAPON_YOURWEAPON</n>
+      <HeadingLimit value="90.000000" />
+      <SweepPitchMin value="-45.000000" />
+      <SweepPitchMax value="45.000000" />
+    </Item>
+  </AimingInfos>
+  <Infos>
+    <Item>
+      <Infos />
+    </Item>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+          <!-- ================================================================
+               REMINGTON 700 - CIVILIAN BOLT-ACTION RIFLE
+               ================================================================
+               Real-World Specifications:
+               - Caliber: .308 Winchester (also .30-06, .270, etc.)
+               - Barrel: 22-24" carbon steel or stainless
+               - Overall Length: 41.5-44.5" (varies by model)
+               - Weight: 6.5-8.5 lbs (model dependent)
+               - Magazine: 4+1 internal box
+               - Action: Bolt-action, short or long action
+               - Accuracy: 1.0 MOA (production), 0.5 MOA (5R model)
+               - Effective Range: 750m
+               - Trigger: X-Mark Pro, 3.5-4.0 lbs
+               
+               Ballistic Performance (.308 Win, 168gr):
+               - Muzzle Velocity: 2,650 fps (807 m/s)
+               - Muzzle Energy: 2,620 ft-lbs
+               - Energy @ 300m: 1,750 ft-lbs (67% retained)
+               
+               Model Variants:
+               - ADL Synthetic: Budget entry ($450-500)
+               - SPS: Mid-range tactical ($550-700)
+               - 5R Gen 2: Premium precision ($1,100-1,400)
+               - 700P Police: LE variant ($950-1,100)
+               ================================================================ -->
+          <n>WEAPON_REMINGTON700</n>
+          <Model>w_sr_remington700</Model>
+          <Audio>AUDIO_ITEM_SNIPERRIFLE</Audio>
+          <Slot>SLOT_REMINGTON700</Slot>
+          <HumanNameHash>WT_REMINGTON700</HumanNameHash>
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FireType>INSTANT_HIT</FireType>
+          <WheelSlot>WHEEL_SNIPERRIFLE</WheelSlot>
+          <Group>GROUP_SNIPERRIFLE</Group>
+          <AmmoInfo ref="AMMO_SNIPER" />
+          <AimingInfo ref="YOURWEAPON_YOURWEAPON_YOURWEAPON" />
+          
+          <!-- Magazine: 4+1 internal box -->
+          <ClipSize value="4" />
+          
+          <!-- Accuracy: Civilian grade, slightly less precise -->
+          <AccuracySpread value="0.120000" />
+          <AccurateModeAccuracyModifier value="0.180000" />
+          <RunAndGunAccuracyModifier value="4.200000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+          <RecoilAccuracyMax value="0.850000" />
+          <RecoilErrorTime value="0.300000" />
+          <RecoilRecoveryRate value="0.450000" />
+          
+          <!-- Headshot Parameters -->
+          <RecoilAccuracyToAllowHeadShotAI value="0.550000" />
+          <MinHeadShotDistanceAI value="5.000000" />
+          <MaxHeadShotDistanceAI value="450.000000" />
+          <HeadShotDamageModifierAI value="2.400000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.180000" />
+          <MinHeadShotDistancePlayer value="0.000000" />
+          <MaxHeadShotDistancePlayer value="450.000000" />
+          <HeadShotDamageModifierPlayer value="2.100000" />
+          
+          <!-- Damage: 78 - Civilian version, 2 shot kills -->
+          <Damage value="78.000000" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <HitLimbsDamageModifier value="0.620000" />
+          <NetworkHitLimbsDamageModifier value="0.780000" />
+          <LightlyArmouredDamageModifier value="0.800000" />
+          
+          <!-- Physics Forces -->
+          <Force value="320.000000" />
+          <ForceHitPed value="165.000000" />
+          <ForceHitVehicle value="550.000000" />
+          <ForceHitFlyingHeli value="320.000000" />
+          <OverrideForces />
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="0.000000" />
+          <ForceFalloffRangeEnd value="450.000000" />
+          <ForceFalloffMin value="0.400000" />
+          <ProjectileForce value="0.000000" />
+          <FragImpulse value="750.000000" />
+          
+          <!-- Penetration: Good for .308 -->
+          <Penetration value="0.600000" />
+          <VerticalLaunchAdjustment value="0.000000" />
+          <DropForwardVelocity value="0.000000" />
+          
+          <!-- Velocity: 2,650 fps = 807 m/s -->
+          <Speed value="807.000000" />
+          
+          <!-- Single projectile -->
+          <BulletsInBatch value="1" />
+          <BatchSpread value="0.000000" />
+          
+          <!-- Reload timing -->
+          <ReloadTimeMP value="3.000000" />
+          <ReloadTimeSP value="3.000000" />
+          
+          <!-- Fire Rate: Bolt-action, 1.1s cycle (lighter rifle) -->
+          <TimeBetweenShots value="1.100000" />
+          
+          <!-- Damage Falloff: Full to 80m, minimum at 750m -->
+          <DamageFallOffRangeMin value="80.000000" />
+          <DamageFallOffRangeMax value="750.000000" />
+          <DamageFallOffModifier value="0.380000" />
+          
+          <!-- Network Damage -->
+          <NetworkPlayerDamageModifier value="1.000000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          <NetworkHeadShotPlayerDamageModifier value="1.000000" />
+          <LockOnRange value="0.000000" />
+          <WeaponRange value="750.000000" />
+          
+          <!-- Recoil: More felt recoil, lighter rifle -->
+          <BulletDirectionOffsetInDegrees value="0.000000" />
+          <RecoilShakeAmplitude value="0.380000" />
+          <RecoilShakeFrequency value="0.000000" />
+          <RecoilShakeRollMagnitude value="0.220000" />
+          <RecoilShakeDuration value="0.380000" />
+          
+          <AiSoundRange value="280.000000" />
+          <AimingMod1 value="0.520000" />
+          <AimingModTime1 value="0.320000" />
+          <AimingMod2 value="0.220000" />
+          <AimingModTime2 value="0.480000" />
+          
+          <Flags>WF_GUN, WF_GUN_2_HANDED, WF_NO_SHOOTING_BERSERK, WF_PED_GUN_2_HANDED, WF_WEAPON, WF_LOUDWEAPON, WF_TAKE_ARM_L_LONG_GUN_IMMEDIATE_DAMAGE_REACTIONS, WF_MAKE_PED_BACKUP, WF_DEFAULT_SCOPE_ON</Flags>
+          
+          <AltWheelSlot>WHEEL_UNARMED</AltWheelSlot>
+          <PickupGlowAsset />
+          <PickupTextRep />
+          <ModelHashKey>w_sr_remington700</ModelHashKey>
+          <DefaultCameraHash>DEFAULT_FOLLOW_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_FOLLOW_CAMERA</CoverCameraHash>
+          <RunAndGunCameraHash>DEFAULT_FOLLOW_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash>DEFAULT_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+          <AimOffset>
+            <X value="0.000000" />
+            <Y value="0.020000" />
+            <Z value="0.000000" />
+          </AimOffset>
+          <FirstPersonAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonAimOffset>
+          <FirstPersonScopeOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonScopeOffset>
+          <CrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </CrouchAimOffset>
+          <FirstPersonCrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonCrouchAimOffset>
+          <ZoomFactorForAccurateMode value="1.000000" />
+          <ReticuleMinSizeStanding value="0.000000" />
+          <ReticuleMinSizeDucked value="0.000000" />
+          <ReticuleScale value="0.350000" />
+          <IronSightCameraZoomFactor value="1.000000" />
+          <WeaponSoundBoneTag />
+          <Hud>
+            <FlashColor value="0xFFFFFFFF" />
+            <ScrollSelect>true</ScrollSelect>
+          </Hud>
+          <AmmoPickup>
+            <AmmoType>AMMO_SNIPER</AmmoType>
+            <Amount value="5" />
+          </AmmoPickup>
+          <AmmoPickup2>
+            <AmmoType>AMMO_SNIPER</AmmoType>
+            <Amount value="10" />
+          </AmmoPickup2>
+          <FireFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>muz_assault_rifle_fp</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </FireFx>
+          <MuzzleFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>muz_assault_rifle</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </MuzzleFx>
+          <ShellFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>weap_sh_ar</EffectName>
+            <FxBone>Gun_Shell</FxBone>
+          </ShellFx>
+          <TracerFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>proj_tracer</EffectName>
+            <FxBone />
+          </TracerFx>
+          <FlashFxLightEnabled value="true" />
+          <FlashFxLightCastsShadows value="false" />
+          <FlashFxLightOffsetDistance value="5.000000" />
+          <FlashFxLightRGBAMax value="0xFFFFE4C9" />
+          <FlashFxLightIntensityMax value="1.500000" />
+          <FlashFxLightFallOffMax value="8.000000" />
+          <FlashFxFadeOutTime value="0.050000" />
+          <FlashFxAltBone />
+          <ReloadUpperBodyFixupExpression>YOURNAME/YOURFOLDER</ReloadUpperBodyFixupExpression>
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

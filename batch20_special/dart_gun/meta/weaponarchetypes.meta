@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponModelInfo__InitDataList>
+  <InitDatas>
+    <Item>
+      <n>w_pi_dartgun</n>
+      <Model>w_pi_dartgun</Model>
+      <Audio>AUDIO_ITEM_STUNGUN</Audio>
+      <Slot>YOURSLOT</Slot>
+      <WeaponFlags>WF_FIREARM, WF_GUN, WF_WEAPON</WeaponFlags>
+    </Item>
+  </InitDatas>
+</CWeaponModelInfo__InitDataList>

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="307" />
+          <Entry>SLOT_BARRETTM107A1</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="307" />
+          <Entry>SLOT_BARRETTM107A1</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="157" />
+        <Entry>SLOT_BARRETTM107A1</Entry>
+      </Item>
+    </WeaponSlots>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos>
+    <Item type="CAimingInfo">
+      <n>YOURWEAPON_YOURWEAPON_YOURWEAPON</n>
+      <HeadingLimit value="90.000000" />
+      <SweepPitchMin value="-45.000000" />
+      <SweepPitchMax value="45.000000" />
+    </Item>
+  </AimingInfos>
+  <Infos>
+    <Item>
+      <Infos />
+    </Item>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+          <!-- ================================================================
+               BARRETT M107A1 - UPGRADED .50 BMG ANTI-MATERIEL RIFLE
+               ================================================================
+               Real-World Specifications:
+               - Caliber: .50 BMG (12.7×99mm NATO)
+               - Barrel: 29" (20" CQ option)
+               - Overall Length: 57" (48" with 20" barrel)
+               - Weight: 28.7 lbs (4-5 lbs lighter than M82A1)
+               - Magazine: 10 rounds, detachable box
+               - Action: Short-recoil operated, semi-automatic
+               - Accuracy: 1.0-1.5 MOA (improved over M82A1)
+               - Effective Range: 1,830m (official)
+               - Rate of Fire: 45-50 RPM cyclic
+               
+               M107A1 Improvements Over M82A1:
+               - 4-5 lb weight reduction (aluminum upper receiver)
+               - Hydraulic buffer system for smoother recoil
+               - Fully chrome-lined bore (vs chamber-only)
+               - Suppressor-ready for Barrett QDL system
+               - Improved 1.0-1.5 MOA accuracy (vs 1.5-2.0)
+               - Titanium barrel key
+               - Monopod-capable buttstock
+               
+               Ballistic Performance (.50 BMG, 750gr):
+               - Muzzle Velocity: 2,815 fps (858 m/s)
+               - Muzzle Energy: 13,200 ft-lbs
+               - Energy @ 1,000m: 6,700 ft-lbs (51% retained)
+               ================================================================ -->
+          <n>WEAPON_BARRETTM107A1</n>
+          <Model>w_sr_barrettm107a1</Model>
+          <Audio>AUDIO_ITEM_HEAVYSNIPER</Audio>
+          <Slot>SLOT_BARRETTM107A1</Slot>
+          <HumanNameHash>WT_BARRETTM107A1</HumanNameHash>
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FireType>INSTANT_HIT</FireType>
+          <WheelSlot>WHEEL_SNIPERRIFLE</WheelSlot>
+          <Group>GROUP_SNIPERRIFLE</Group>
+          <AmmoInfo ref="AMMO_SNIPER_REMOTE" />
+          <AimingInfo ref="YOURWEAPON_YOURWEAPON_YOURWEAPON" />
+          
+          <!-- Magazine: 10 rounds -->
+          <ClipSize value="10" />
+          
+          <!-- Accuracy: Improved over M82A1 -->
+          <AccuracySpread value="0.100000" />
+          <AccurateModeAccuracyModifier value="0.130000" />
+          <RunAndGunAccuracyModifier value="6.200000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+          <RecoilAccuracyMax value="1.300000" />
+          <RecoilErrorTime value="0.450000" />
+          <RecoilRecoveryRate value="0.320000" />
+          
+          <!-- Headshot Parameters - improved accuracy -->
+          <RecoilAccuracyToAllowHeadShotAI value="0.420000" />
+          <MinHeadShotDistanceAI value="5.000000" />
+          <MaxHeadShotDistanceAI value="850.000000" />
+          <HeadShotDamageModifierAI value="1.850000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.120000" />
+          <MinHeadShotDistancePlayer value="0.000000" />
+          <MaxHeadShotDistancePlayer value="850.000000" />
+          <HeadShotDamageModifierPlayer value="1.450000" />
+          
+          <!-- Damage: 150 - Same power as M82A1 -->
+          <Damage value="150.000000" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <HitLimbsDamageModifier value="0.780000" />
+          <NetworkHitLimbsDamageModifier value="0.880000" />
+          <LightlyArmouredDamageModifier value="1.400000" />
+          
+          <!-- Physics Forces - same devastating impact -->
+          <Force value="900.000000" />
+          <ForceHitPed value="500.000000" />
+          <ForceHitVehicle value="1850.000000" />
+          <ForceHitFlyingHeli value="920.000000" />
+          <OverrideForces />
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="0.000000" />
+          <ForceFalloffRangeEnd value="1250.000000" />
+          <ForceFalloffMin value="0.550000" />
+          <ProjectileForce value="0.000000" />
+          <FragImpulse value="2500.000000" />
+          
+          <!-- Penetration: Maximum - anti-materiel -->
+          <Penetration value="1.000000" />
+          <VerticalLaunchAdjustment value="0.000000" />
+          <DropForwardVelocity value="0.000000" />
+          
+          <!-- Velocity: 2,815 fps = 858 m/s -->
+          <Speed value="858.000000" />
+          
+          <!-- Single projectile -->
+          <BulletsInBatch value="1" />
+          <BatchSpread value="0.000000" />
+          
+          <!-- Reload timing - slightly faster handling -->
+          <ReloadTimeMP value="3.800000" />
+          <ReloadTimeSP value="3.800000" />
+          
+          <!-- Fire Rate: Smoother hydraulic buffer, 0.75s -->
+          <TimeBetweenShots value="0.750000" />
+          
+          <!-- Damage Falloff: Full to 420m, minimum at 1800m -->
+          <DamageFallOffRangeMin value="420.000000" />
+          <DamageFallOffRangeMax value="1800.000000" />
+          <DamageFallOffModifier value="0.620000" />
+          
+          <!-- Network Damage -->
+          <NetworkPlayerDamageModifier value="1.000000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          <NetworkHeadShotPlayerDamageModifier value="1.000000" />
+          <LockOnRange value="0.000000" />
+          <WeaponRange value="1800.000000" />
+          
+          <!-- Recoil: Improved hydraulic buffer system -->
+          <BulletDirectionOffsetInDegrees value="0.000000" />
+          <RecoilShakeAmplitude value="0.700000" />
+          <RecoilShakeFrequency value="0.000000" />
+          <RecoilShakeRollMagnitude value="0.420000" />
+          <RecoilShakeDuration value="0.550000" />
+          
+          <AiSoundRange value="550.000000" />
+          <AimingMod1 value="0.400000" />
+          <AimingModTime1 value="0.450000" />
+          <AimingMod2 value="0.150000" />
+          <AimingModTime2 value="0.650000" />
+          
+          <Flags>WF_GUN, WF_GUN_2_HANDED, WF_NO_SHOOTING_BERSERK, WF_PED_GUN_2_HANDED, WF_WEAPON, WF_LOUDWEAPON, WF_TAKE_ARM_L_LONG_GUN_IMMEDIATE_DAMAGE_REACTIONS, WF_MAKE_PED_BACKUP, WF_DEFAULT_SCOPE_ON, WF_VEHICLE_DISABLED</Flags>
+          
+          <AltWheelSlot>WHEEL_UNARMED</AltWheelSlot>
+          <PickupGlowAsset />
+          <PickupTextRep />
+          <ModelHashKey>w_sr_barrettm107a1</ModelHashKey>
+          <DefaultCameraHash>DEFAULT_FOLLOW_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_FOLLOW_CAMERA</CoverCameraHash>
+          <RunAndGunCameraHash>DEFAULT_FOLLOW_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash>DEFAULT_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+          <AimOffset>
+            <X value="0.000000" />
+            <Y value="0.025000" />
+            <Z value="0.000000" />
+          </AimOffset>
+          <FirstPersonAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonAimOffset>
+          <FirstPersonScopeOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonScopeOffset>
+          <CrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </CrouchAimOffset>
+          <FirstPersonCrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonCrouchAimOffset>
+          <ZoomFactorForAccurateMode value="1.000000" />
+          <ReticuleMinSizeStanding value="0.000000" />
+          <ReticuleMinSizeDucked value="0.000000" />
+          <ReticuleScale value="0.260000" />
+          <IronSightCameraZoomFactor value="1.000000" />
+          <WeaponSoundBoneTag />
+          <Hud>
+            <FlashColor value="0xFFFFFFFF" />
+            <ScrollSelect>true</ScrollSelect>
+          </Hud>
+          <AmmoPickup>
+            <AmmoType>AMMO_SNIPER_REMOTE</AmmoType>
+            <Amount value="5" />
+          </AmmoPickup>
+          <AmmoPickup2>
+            <AmmoType>AMMO_SNIPER_REMOTE</AmmoType>
+            <Amount value="10" />
+          </AmmoPickup2>
+          <FireFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.800000" />
+            <EffectName>muz_assault_rifle_fp</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </FireFx>
+          <MuzzleFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.800000" />
+            <EffectName>muz_assault_rifle</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </MuzzleFx>
+          <ShellFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.800000" />
+            <EffectName>weap_sh_ar</EffectName>
+            <FxBone>Gun_Shell</FxBone>
+          </ShellFx>
+          <TracerFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.500000" />
+            <EffectName>proj_tracer_50cal</EffectName>
+            <FxBone />
+          </TracerFx>
+          <FlashFxLightEnabled value="true" />
+          <FlashFxLightCastsShadows value="false" />
+          <FlashFxLightOffsetDistance value="7.000000" />
+          <FlashFxLightRGBAMax value="0xFFFFE4C9" />
+          <FlashFxLightIntensityMax value="3.000000" />
+          <FlashFxLightFallOffMax value="15.000000" />
+          <FlashFxFadeOutTime value="0.100000" />
+          <FlashFxAltBone />
+          <ReloadUpperBodyFixupExpression>YOURNAME/YOURFOLDER</ReloadUpperBodyFixupExpression>
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

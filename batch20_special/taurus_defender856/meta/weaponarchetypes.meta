@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponModelInfo__InitDataList>
+  <InitDatas>
+    <Item>
+      <n>w_pi_taurus856</n>
+      <Model>w_pi_taurus856</Model>
+      <Audio>AUDIO_ITEM_REVOLVER</Audio>
+      <Slot>YOURSLOT</Slot>
+      <WeaponFlags>WF_FIREARM, WF_GUN, WF_WEAPON, WF_LOUDWEAPON</WeaponFlags>
+    </Item>
+  </InitDatas>
+</CWeaponModelInfo__InitDataList>

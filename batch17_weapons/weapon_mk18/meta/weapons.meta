@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_MK18</n>
+      <Model>w_ar_mk18</Model>
+      <Audio>AUDIO_CARBINERIFLE</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="30" />
+      <AccuracySpread value="1.40" />
+      <AccurateModeAccuracyModifier value="0.22" />
+      <RunAndGunAccuracyModifier value="0.58" />
+      <RunAndGunAccuracyMaxModifier value="0.38" />
+      <RecoilAccuracyMax value="2.40" />
+      <RecoilErrorTime value="0.45" />
+      <RecoilRecoveryRate value="0.48" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.52" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="55.0" />
+      <HeadShotDamageModifierPlayer value="2.8" />
+      <HeadShotDamageModifierAI value="4.0" />
+      
+      <!-- ================================================
+           MK18 CQBR - MILITARY 10.3" CLOSE QUARTERS BATTLE RECEIVER
+           ================================================
+           Real-world specifications:
+           - Caliber: 5.56x45mm NATO
+           - Barrel: 10.3" (262mm), 1:7 twist, chrome-lined
+           - Weight: 5.9-6.5 lbs depending on config
+           - Overall length: 26.75" (stock collapsed)
+           - Muzzle velocity: ~2,489-2,550 fps (M855)
+           - Muzzle energy: ~854 ft-lbs
+           - Operating system: Direct impingement, carbine gas
+           - Fire control: Semi-automatic (civilian clone)
+           - Magazine: 30 round STANAG
+           - Origin: Naval Surface Warfare Center Crane
+           
+           Game balance notes:
+           - SOCOM minimum barrel length for 5.56
+           - Used by Navy SEALs, MARSOC, Army SF
+           - Below 2,700 fps fragmentation threshold
+           - ~74% energy of 16" rifle = 32 damage
+           - High muzzle flash (unburned powder)
+           - Increased recoil vs full rifles
+           - Excellent for CQB, limited at range
+           - 4 shots close range, 10 at max range
+      -->
+      
+      <!-- 10.3" barrel = 32 damage (74% of 42 baseline) -->
+      <Damage value="32.0" />
+      <DamageFallOffRangeMin value="35.0" />
+      <DamageFallOffRangeMax value="110.0" />
+      <DamageFallOffModifier value="0.32" />
+      
+      <!-- 5.56 velocity from 10.3": ~2,520 fps = ~768 m/s -->
+      <Speed value="768.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="95.0" />
+      <ForceHitPed value="85.0" />
+      <ForceHitVehicle value="55.0" />
+      <ForceHitFlyingHeli value="45.0" />
+      <OverrideForces />
+      
+      <!-- 5.56 good penetration, slightly reduced from rifle -->
+      <Penetration value="0.42" />
+      <ArmorPenetration value="0.35" />
+      
+      <!-- ELEVATED RECOIL - over-gassed short barrel, violent cycling -->
+      <RecoilShakeAmplitude value="0.26" />
+      <RecoilShakeFrequency value="0.52" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- Semi-auto, practical ~180-240 RPM -->
+      <TimeBetweenShots value="0.100" />
+      <AnimReloadRate value="1.0" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.30" />
+      <AimingTimeFromSprinting value="0.40" />
+      
+      <!-- Reduced effective range vs full rifle -->
+      <WeaponRange value="145.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.18" />
+      <!-- Semi-auto only (civilian clone) -->
+      <WeaponFlags>Gun AnimReload AnimCrouchFire TwoHanded LongWeapon ApplyBulletForce</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_MK18</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

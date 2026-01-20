@@ -222,6 +222,13 @@ Config.Weapons = {
         clipSize = 7,
     },
 
+    -- SIG Sauer P220 - Classic .45 ACP (8 rounds, 4.4" barrel)
+    [`WEAPON_SIGP220`] = {
+        caliber = '.45acp',
+        componentBase = 'COMPONENT_SIGP220',
+        clipSize = 8,
+    },
+
     -- ======================================================================
     -- BATCH 4: .40 S&W PISTOLS
     -- ======================================================================
@@ -377,6 +384,80 @@ Config.Weapons = {
         caliber = '.22lr',
         componentBase = 'COMPONENT_PMR30',
         clipSize = 30,
+    },
+
+    -- ======================================================================
+    -- BATCH 11: MISC FULL-SIZE 9mm & AR-9 PLATFORMS
+    -- ======================================================================
+
+    -- SIG Sauer P226 - Classic Combat Pistol (15 rounds, 4.4" barrel)
+    [`WEAPON_SIGP226`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_SIGP226',
+        clipSize = 15,
+    },
+
+    -- SIG Sauer P226 MK25 - Navy SEAL Sidearm (15 rounds, 4.4" barrel)
+    [`WEAPON_SIGP226MK25`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_SIGP226MK25',
+        clipSize = 15,
+    },
+
+    -- SIG Sauer P210 Target - Swiss Precision (8 rounds, 5.0" barrel)
+    [`WEAPON_SIGP210`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_SIGP210',
+        clipSize = 8,
+    },
+
+    -- SIG Sauer P229 - Compact Federal Agency (15 rounds, 3.9" barrel)
+    [`WEAPON_SIGP229`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_SIGP229',
+        clipSize = 15,
+    },
+
+    -- SIG Sauer P320 (Batch 11) - Modular Military (17 rounds, 4.7" barrel)
+    [`WEAPON_SIGP320`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_SIGP320_B11',
+        clipSize = 17,
+    },
+
+    -- Beretta PX4 Storm (Batch 11) - Rotating Barrel (17 rounds, 4.0" barrel)
+    [`WEAPON_PX4STORM`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_PX4STORM',
+        clipSize = 17,
+    },
+
+    -- PSA Dagger - Budget Glock Clone (15 rounds, 3.9" barrel)
+    [`WEAPON_PSADAGGER`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_PSADAGGER',
+        clipSize = 15,
+    },
+
+    -- Ruger SR9 - Slim-Grip Striker-Fired (17 rounds, 4.14" barrel)
+    [`WEAPON_RUGERSR9`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_RUGERSR9',
+        clipSize = 17,
+    },
+
+    -- Angstadt Arms UDP-9 - Premium AR-9 Pistol (17 rounds, 6.0" barrel)
+    [`WEAPON_UDP9`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_UDP9',
+        clipSize = 17,
+    },
+
+    -- Blue ARP - Budget AR-9 Platform (17 rounds, 4-6" barrel)
+    [`WEAPON_BLUEARP`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_BLUEARP',
+        clipSize = 17,
     },
 
     -- ======================================================================

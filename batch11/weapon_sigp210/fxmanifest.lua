@@ -1,18 +1,17 @@
--- fxmanifest.lua
 fx_version 'cerulean'
 game 'gta5'
 
-author 'Weapon Meta Project'
-description 'SIG Sauer P210 Target - Swiss Precision Target Pistol'
+author 'Weapon Developer'
+description 'WEAPON_SIGP210 - Custom Pistol Addon'
 version '1.0.0'
 
--- Client script for weapon name registration
-client_script 'cl_weaponNames.lua'
-
--- Meta files for weapon configuration
 files {
-    'meta/weapons.meta'
+    'meta/*.meta',
 }
 
--- Data file declarations for addon weapons
-data_file 'WEAPONINFO_FILE' 'meta/weapons.meta'
+data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'
+data_file 'WEAPON_ANIMATIONS_FILE' 'meta/weaponanimations.meta'
+data_file 'PED_PERSONALITY_FILE' 'meta/pedpersonality.meta'
+data_file 'WEAPONINFO_FILE' 'meta/weapon_sigp210.meta'
+
+client_script 'cl_weaponNames.lua'

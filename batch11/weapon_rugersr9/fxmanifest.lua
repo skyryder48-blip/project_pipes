@@ -1,18 +1,17 @@
--- fxmanifest.lua
 fx_version 'cerulean'
 game 'gta5'
 
-author 'Weapon Meta Project'
-description 'Ruger SR9 - Slim-Grip Striker-Fired Pistol (Discontinued)'
+author 'Weapon Developer'
+description 'WEAPON_RUGERSR9 - Custom Pistol Addon'
 version '1.0.0'
 
--- Client script for weapon name registration
-client_script 'cl_weaponNames.lua'
-
--- Meta files for weapon configuration
 files {
-    'meta/weapons.meta'
+    'meta/*.meta',
 }
 
--- Data file declarations for addon weapons
-data_file 'WEAPONINFO_FILE' 'meta/weapons.meta'
+data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'
+data_file 'WEAPON_ANIMATIONS_FILE' 'meta/weaponanimations.meta'
+data_file 'PED_PERSONALITY_FILE' 'meta/pedpersonality.meta'
+data_file 'WEAPONINFO_FILE' 'meta/weapon_rugersr9.meta'
+
+client_script 'cl_weaponNames.lua'

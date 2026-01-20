@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Mini Shotty - Illegal Sawn-Off Shotgun Animations
+  Based on WEAPON_SAWNOFFSHOTGUN animation set
+  Hip-fire focused, compact animations
+-->
+<CWeaponAnimations>
+  <ClipSets>
+    <Item>
+      <Actions>SLOT_MINISHOTTY</Actions>
+      <AnimSet>move_strafe@first_person@generic</AnimSet>
+    </Item>
+    <Item>
+      <Actions>SLOT_MINISHOTTY</Actions>
+      <AnimSet>move_strafe@stealth</AnimSet>
+    </Item>
+    <Item>
+      <Actions>SLOT_MINISHOTTY</Actions>
+      <AnimSet>weapons@shotgun@sawnoff</AnimSet>
+    </Item>
+    <Item>
+      <Actions>SLOT_MINISHOTTY</Actions>
+      <AnimSet>weapons@shotgun@sawnoff@drunk</AnimSet>
+    </Item>
+  </ClipSets>
+  <Animations>
+    <Item>
+      <ClipSet>weapons@shotgun@sawnoff</ClipSet>
+      <Action>SLOT_MINISHOTTY</Action>
+      <Anim>fire</Anim>
+      <Type>Fire</Type>
+    </Item>
+    <Item>
+      <ClipSet>weapons@shotgun@sawnoff</ClipSet>
+      <Action>SLOT_MINISHOTTY</Action>
+      <Anim>reload_shell_start</Anim>
+      <Type>Reload</Type>
+    </Item>
+  </Animations>
+  <CoverAnimationBlend>Cover_Wpn_SawnOff</CoverAnimationBlend>
+</CWeaponAnimations>

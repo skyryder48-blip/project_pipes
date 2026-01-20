@@ -601,17 +601,50 @@ Config.Weapons = {
     },
 
     -- ======================================================================
-    -- FUTURE WEAPONS (uncomment when adding)
+    -- BATCH 18: 12 GAUGE SHOTGUNS
+    -- Multi-pellet damage modeling with severe damage falloff beyond effective range
+    -- 8 ammo types: 00 Buck, #1 Buck, Slug, Birdshot, Pepperball, Dragon's Breath, Beanbag, Breach
     -- ======================================================================
 
-    --[[
-    -- 12 Gauge Shotguns
-    [`WEAPON_MOSSBERG590`] = {
+    -- Mini Shotty - Illegal Sawn-Off (4 rounds, 10-12" barrel)
+    -- Devastating close range, useless beyond 15m, hip-fire only
+    [`WEAPON_MINISHOTTY`] = {
         caliber = '12ga',
-        componentBase = 'COMPONENT_M590',
-        clipSize = 8,
+        componentBase = 'COMPONENT_MINISHOTTY',
+        clipSize = 4,
     },
-    ]]
+
+    -- Model 680 - Budget Pump (5 rounds, 18" barrel)
+    -- Entry-level shotgun, widest spread, prone to binding
+    [`WEAPON_MODEL680`] = {
+        caliber = '12ga',
+        componentBase = 'COMPONENT_MODEL680',
+        clipSize = 5,
+    },
+
+    -- Remington 870 Express - Standard Pump (5 rounds, 18" barrel)
+    -- Most-produced pump shotgun (13M+ units), dual action bars
+    [`WEAPON_REMINGTON870`] = {
+        caliber = '12ga',
+        componentBase = 'COMPONENT_REMINGTON870',
+        clipSize = 5,
+    },
+
+    -- Mossberg 500 - MIL-SPEC Pump (6 rounds, 18" barrel)
+    -- Military-certified MIL-SPEC 3443E, tang-mounted safety
+    [`WEAPON_MOSSBERG500`] = {
+        caliber = '12ga',
+        componentBase = 'COMPONENT_MOSSBERG500',
+        clipSize = 6,
+    },
+
+    -- Browning Auto-5 - Classic Semi-Auto (5 rounds, 18-20" barrel)
+    -- John Browning's 1898 long-recoil design, lowest recoil, double fire rate
+    [`WEAPON_BROWNINGAUTO5`] = {
+        caliber = '12ga',
+        componentBase = 'COMPONENT_BROWNINGAUTO5',
+        clipSize = 5,
+    },
 }
 
 -- Helper function to get weapon info

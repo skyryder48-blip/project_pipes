@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Remington 870 Express - Pump Action Shotgun Animations
+  Based on WEAPON_PUMPSHOTGUN animation set
+-->
+<CWeaponAnimations>
+  <ClipSets>
+    <Item>
+      <Actions>SLOT_REMINGTON870</Actions>
+      <AnimSet>move_strafe@first_person@generic</AnimSet>
+    </Item>
+    <Item>
+      <Actions>SLOT_REMINGTON870</Actions>
+      <AnimSet>move_strafe@stealth</AnimSet>
+    </Item>
+    <Item>
+      <Actions>SLOT_REMINGTON870</Actions>
+      <AnimSet>move_strafe@stealth@rifle</AnimSet>
+    </Item>
+    <Item>
+      <Actions>SLOT_REMINGTON870</Actions>
+      <AnimSet>weapons@shotgun@pump_action_sh</AnimSet>
+    </Item>
+    <Item>
+      <Actions>SLOT_REMINGTON870</Actions>
+      <AnimSet>weapons@shotgun@pump_action_sh@drunk</AnimSet>
+    </Item>
+  </ClipSets>
+  <Animations>
+    <Item>
+      <ClipSet>weapons@shotgun@pump_action_sh</ClipSet>
+      <Action>SLOT_REMINGTON870</Action>
+      <Anim>fire</Anim>
+      <Type>Fire</Type>
+    </Item>
+    <Item>
+      <ClipSet>weapons@shotgun@pump_action_sh</ClipSet>
+      <Action>SLOT_REMINGTON870</Action>
+      <Anim>reload_shell_start</Anim>
+      <Type>Reload</Type>
+    </Item>
+  </Animations>
+  <CoverAnimationBlend>Cover_Wpn_Shotgun</CoverAnimationBlend>
+</CWeaponAnimations>

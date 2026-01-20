@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Browning Auto-5 - Semi-Automatic Shotgun Animations
+  Based on WEAPON_ASSAULTSHOTGUN animation set
+  Classic long-recoil action, no pump cycling
+-->
+<CWeaponAnimations>
+  <ClipSets>
+    <Item>
+      <Actions>SLOT_BROWNINGAUTO5</Actions>
+      <AnimSet>move_strafe@first_person@generic</AnimSet>
+    </Item>
+    <Item>
+      <Actions>SLOT_BROWNINGAUTO5</Actions>
+      <AnimSet>move_strafe@stealth</AnimSet>
+    </Item>
+    <Item>
+      <Actions>SLOT_BROWNINGAUTO5</Actions>
+      <AnimSet>move_strafe@stealth@rifle</AnimSet>
+    </Item>
+    <Item>
+      <Actions>SLOT_BROWNINGAUTO5</Actions>
+      <AnimSet>weapons@shotgun@assault_sh</AnimSet>
+    </Item>
+    <Item>
+      <Actions>SLOT_BROWNINGAUTO5</Actions>
+      <AnimSet>weapons@shotgun@assault_sh@drunk</AnimSet>
+    </Item>
+  </ClipSets>
+  <Animations>
+    <Item>
+      <ClipSet>weapons@shotgun@assault_sh</ClipSet>
+      <Action>SLOT_BROWNINGAUTO5</Action>
+      <Anim>fire</Anim>
+      <Type>Fire</Type>
+    </Item>
+    <Item>
+      <ClipSet>weapons@shotgun@assault_sh</ClipSet>
+      <Action>SLOT_BROWNINGAUTO5</Action>
+      <Anim>reload_shell_start</Anim>
+      <Type>Reload</Type>
+    </Item>
+  </Animations>
+  <CoverAnimationBlend>Cover_Wpn_Shotgun</CoverAnimationBlend>
+</CWeaponAnimations>

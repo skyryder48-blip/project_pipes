@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  .300 Blackout Weapon Components - Magazine Definitions
+  Used by suppressed .300 BLK platforms (Batch 14)
+
+  Component Naming Convention:
+  COMPONENT_[WEAPON]_CLIP_[AMMOTYPE]
+
+  Ammo Types:
+  - SUBSONIC: 220gr OTM - Quiet suppressed load (38 damage)
+  - HUNTING: 110gr V-MAX - Supersonic expanding (+18% damage)
+
+  Weapons:
+  - MCX300 (SIG MCX .300 BLK) - 30 rounds (suppressed by default)
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+    <!-- ================================================================== -->
+    <!-- SIG MCX .300 BLACKOUT - Integrally Suppressed (30 rounds)         -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MCX300_CLIP_SUBSONIC</n>
+      <Model>w_ar_mcx300_mag1</Model>
+      <LocName>WCT_CLIP_SUBSONIC</LocName>
+      <LocDesc>WCD_CLIP_300SUB</LocDesc>
+      <ClipSize value="30" />
+      <AmmoInfo ref="AMMO_300BLK_SUBSONIC" />
+    </Item>
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MCX300_CLIP_HUNTING</n>
+      <Model>w_ar_mcx300_mag1</Model>
+      <LocName>WCT_CLIP_HUNTING</LocName>
+      <LocDesc>WCD_CLIP_300HUNT</LocDesc>
+      <ClipSize value="30" />
+      <AmmoInfo ref="AMMO_300BLK_HUNTING" />
+    </Item>
+
+  </Infos>
+</CWeaponComponentInfoBlob>

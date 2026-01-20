@@ -475,6 +475,84 @@ Config.Weapons = {
     },
 
     -- ======================================================================
+    -- BATCH 14: 6.8x51mm & .300 BLACKOUT RIFLES
+    -- ======================================================================
+
+    -- SIG MCX SPEAR - 6.8x51mm NGSW Rifle (20 rounds, 13" barrel)
+    [`WEAPON_SIG_SPEAR`] = {
+        caliber = '6.8x51',
+        componentBase = 'COMPONENT_SIG_SPEAR',
+        clipSize = 20,
+    },
+
+    -- XM7 - 6.8x51mm NGSW Rifle (20 rounds, 13" barrel)
+    [`WEAPON_M7`] = {
+        caliber = '6.8x51',
+        componentBase = 'COMPONENT_M7',
+        clipSize = 20,
+    },
+
+    -- SIG MCX .300 BLK - Integrally Suppressed (30 rounds, 9" barrel)
+    [`WEAPON_MCX300`] = {
+        caliber = '.300blk',
+        componentBase = 'COMPONENT_MCX300',
+        clipSize = 30,
+    },
+
+    -- ======================================================================
+    -- BATCH 15: 9mm SMG PLATFORMS
+    -- ======================================================================
+
+    -- H&K MP5K - Compact Roller-Delayed SMG (30 rounds, 4.53" barrel)
+    [`WEAPON_MICRO_MP5`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_MICRO_MP5',
+        clipSize = 30,
+    },
+
+    -- SIG MPX - Gas-Piston SMG (30 rounds, 4.5" barrel)
+    [`WEAPON_SIG_MPX`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_SIG_MPX',
+        clipSize = 30,
+    },
+
+    -- CZ Scorpion EVO 3 - High-RPM Blowback SMG (30 rounds, 7.72" barrel)
+    [`WEAPON_SCORPION`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_SCORPION',
+        clipSize = 30,
+    },
+
+    -- AR-9 Platform (RAM 9 Desert) - Precision 9mm PCC (33 rounds, 8" barrel)
+    [`WEAPON_RAM9_DESERT`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_RAM9_DESERT',
+        clipSize = 33,
+    },
+
+    -- Intratec TEC-9 - Budget Machine Pistol (32 rounds, 5" barrel)
+    [`WEAPON_TEC9`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_TEC9',
+        clipSize = 32,
+    },
+
+    -- Masterpiece Arms MPA30 - Improved MAC-Style PDW (30 rounds, 5.5" barrel)
+    [`WEAPON_MPA30`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_MPA30',
+        clipSize = 30,
+    },
+
+    -- Kel-Tec SUB-2000 - Folding 9mm Carbine (33 rounds, 16.25" barrel)
+    [`WEAPON_SUB2000`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_SUB2000',
+        clipSize = 33,
+    },
+
+    -- ======================================================================
     -- FUTURE WEAPONS (uncomment when adding)
     -- ======================================================================
 

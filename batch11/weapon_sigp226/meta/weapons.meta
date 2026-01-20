@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <Name>WEAPON_SIGP226</Name>
+      <Model>w_pi_sigp226</Model>
+      <Audio>AUDIO_PISTOL</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="15" />
+      <AccuracySpread value="1.20" />
+      <AccurateModeAccuracyModifier value="0.30" />
+      <RunAndGunAccuracyModifier value="0.70" />
+      <RunAndGunAccuracyMaxModifier value="0.40" />
+      <RecoilAccuracyMax value="2.00" />
+      <RecoilErrorTime value="0.45" />
+      <RecoilRecoveryRate value="0.50" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.50" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="7.0" />
+      <HeadShotDamageModifierPlayer value="3.0" />
+      <HeadShotDamageModifierAI value="5.0" />
+      
+      <!-- SIG P226 - Full-size 9mm DA/SA Service Pistol
+           Real-world specs: 4.4" barrel, 34 oz, 1,100-1,150 fps
+           DA/SA trigger: 10 lbs DA, 4.4 lbs SA
+           Classic combat pistol design, all-metal construction
+           Excellent accuracy from long sight radius (6.3")
+      -->
+      
+      <Damage value="35.0" />
+      <DamageFallOffRangeMin value="16.0" />
+      <DamageFallOffRangeMax value="52.0" />
+      <DamageFallOffModifier value="0.38" />
+      
+      <!-- Velocity: 4.4" barrel = ~350 m/s -->
+      <Speed value="350.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="50.0" />
+      <ForceHitPed value="45.0" />
+      <ForceHitVehicle value="20.0" />
+      <ForceHitFlyingHeli value="15.0" />
+      <OverrideForces />
+      
+      <!-- 9mm moderate penetration -->
+      <Penetration value="0.15" />
+      <ArmorPenetration value="0.10" />
+      
+      <!-- Heavy metal frame reduces recoil -->
+      <RecoilShakeAmplitude value="0.18" />
+      <RecoilShakeFrequency value="0.50" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- DA/SA trigger - moderate fire rate -->
+      <TimeBetweenShots value="0.160" />
+      <AnimReloadRate value="1.0" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.35" />
+      <AimingTimeFromSprinting value="0.45" />
+      
+      <WeaponRange value="100.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.2" />
+      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_SIGP226</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

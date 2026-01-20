@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_SIGP210</n>
+      <Model>w_pi_sigp210</Model>
+      <Audio>AUDIO_PISTOL</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="8" />
+      <AccuracySpread value="0.70" />
+      <AccurateModeAccuracyModifier value="0.20" />
+      <RunAndGunAccuracyModifier value="0.75" />
+      <RunAndGunAccuracyMaxModifier value="0.45" />
+      <RecoilAccuracyMax value="1.50" />
+      <RecoilErrorTime value="0.35" />
+      <RecoilRecoveryRate value="0.60" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.40" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="10.0" />
+      <HeadShotDamageModifierPlayer value="3.2" />
+      <HeadShotDamageModifierAI value="5.0" />
+      
+      <!-- SIG P210 Target - Swiss Precision Target Pistol
+           Real-world specs: 5.0" barrel, 36.9 oz (heaviest), 1,150 fps
+           SAO trigger: 3.5 lbs - TARGET GRADE
+           Slide rides INSIDE frame = extreme accuracy (sub-2" at 50m)
+           Single-stack 8+1 capacity, all stainless steel
+           PREMIUM PRECISION PLATFORM - best accuracy, slowest handling
+      -->
+      
+      <Damage value="36.0" />
+      <DamageFallOffRangeMin value="20.0" />
+      <DamageFallOffRangeMax value="60.0" />
+      <DamageFallOffModifier value="0.40" />
+      
+      <!-- Velocity: 5.0" barrel = ~358 m/s -->
+      <Speed value="358.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="52.0" />
+      <ForceHitPed value="46.0" />
+      <ForceHitVehicle value="20.0" />
+      <ForceHitFlyingHeli value="15.0" />
+      <OverrideForces />
+      
+      <Penetration value="0.16" />
+      <ArmorPenetration value="0.10" />
+      
+      <!-- Heavy weight (36.9 oz) + target design = lowest recoil -->
+      <RecoilShakeAmplitude value="0.14" />
+      <RecoilShakeFrequency value="0.42" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- SAO target trigger = potentially fast but deliberate -->
+      <TimeBetweenShots value="0.175" />
+      <AnimReloadRate value="0.95" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.40" />
+      <AimingTimeFromSprinting value="0.52" />
+      
+      <WeaponRange value="120.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.10" />
+      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_SIGP210</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

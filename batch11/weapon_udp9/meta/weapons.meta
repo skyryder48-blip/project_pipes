@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_UDP9</n>
+      <Model>w_ar_udp9</Model>
+      <Audio>AUDIO_SMG</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="17" />
+      <AccuracySpread value="0.90" />
+      <AccurateModeAccuracyModifier value="0.22" />
+      <RunAndGunAccuracyModifier value="0.65" />
+      <RunAndGunAccuracyMaxModifier value="0.35" />
+      <RecoilAccuracyMax value="1.80" />
+      <RecoilErrorTime value="0.40" />
+      <RecoilRecoveryRate value="0.55" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.45" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="12.0" />
+      <HeadShotDamageModifierPlayer value="2.8" />
+      <HeadShotDamageModifierAI value="4.5" />
+      
+      <!-- Angstadt Arms UDP-9 - Premium AR-9 Pistol Platform
+           Real-world specs: 6.0" barrel, sub-5 lbs, 1,188-1,400 fps
+           AR-15 platform with Glock magazine compatibility
+           7075-T6 billet aluminum upper/lower
+           Direct blowback operation
+           SB Tactical SBA3 stabilizing brace
+           PDW-STYLE = Extended range, better accuracy than pistols
+           
+           VELOCITY ADVANTAGE: +70-100 fps over 4" pistol barrels
+           EFFECTIVE RANGE: Double typical pistol distance
+           CAPACITY: 17/33 rounds (Glock mags)
+      -->
+      
+      <!-- Higher damage from increased velocity -->
+      <Damage value="37.0" />
+      <DamageFallOffRangeMin value="25.0" />
+      <DamageFallOffRangeMax value="75.0" />
+      <DamageFallOffModifier value="0.42" />
+      
+      <!-- Velocity: 6.0" barrel = ~390 m/s -->
+      <Speed value="390.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="55.0" />
+      <ForceHitPed value="48.0" />
+      <ForceHitVehicle value="22.0" />
+      <ForceHitFlyingHeli value="16.0" />
+      <OverrideForces />
+      
+      <!-- Slightly better penetration from higher velocity -->
+      <Penetration value="0.18" />
+      <ArmorPenetration value="0.12" />
+      
+      <!-- AR platform with brace = stable, but direct blowback recoil -->
+      <RecoilShakeAmplitude value="0.16" />
+      <RecoilShakeFrequency value="0.48" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- Semi-auto, AR trigger -->
+      <TimeBetweenShots value="0.145" />
+      <AnimReloadRate value="1.1" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.38" />
+      <AimingTimeFromSprinting value="0.50" />
+      
+      <WeaponRange value="150.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.12" />
+      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_UDP9</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

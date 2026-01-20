@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_SIGP226MK25</n>
+      <Model>w_pi_sigp226mk25</Model>
+      <Audio>AUDIO_PISTOL</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="15" />
+      <AccuracySpread value="1.15" />
+      <AccurateModeAccuracyModifier value="0.28" />
+      <RunAndGunAccuracyModifier value="0.70" />
+      <RunAndGunAccuracyMaxModifier value="0.40" />
+      <RecoilAccuracyMax value="1.90" />
+      <RecoilErrorTime value="0.42" />
+      <RecoilRecoveryRate value="0.52" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.50" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="7.0" />
+      <HeadShotDamageModifierPlayer value="3.0" />
+      <HeadShotDamageModifierAI value="5.0" />
+      
+      <!-- SIG P226 MK25 - Official Navy SEAL Sidearm
+           Real-world specs: 4.4" barrel, 34 oz, 1,100-1,150 fps
+           Phosphate-coated internals, chrome-lined barrel
+           30,000+ round service life, maritime durability
+           PREMIUM VARIANT - slightly better accuracy due to mil-spec quality
+      -->
+      
+      <Damage value="35.0" />
+      <DamageFallOffRangeMin value="17.0" />
+      <DamageFallOffRangeMax value="54.0" />
+      <DamageFallOffModifier value="0.39" />
+      
+      <!-- Same velocity as P226: 4.4" barrel -->
+      <Speed value="350.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="50.0" />
+      <ForceHitPed value="45.0" />
+      <ForceHitVehicle value="20.0" />
+      <ForceHitFlyingHeli value="15.0" />
+      <OverrideForces />
+      
+      <Penetration value="0.15" />
+      <ArmorPenetration value="0.10" />
+      
+      <!-- Premium mil-spec = slightly improved recoil control -->
+      <RecoilShakeAmplitude value="0.17" />
+      <RecoilShakeFrequency value="0.48" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <TimeBetweenShots value="0.155" />
+      <AnimReloadRate value="1.0" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.34" />
+      <AimingTimeFromSprinting value="0.44" />
+      
+      <WeaponRange value="100.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.18" />
+      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_SIGP226MK25</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

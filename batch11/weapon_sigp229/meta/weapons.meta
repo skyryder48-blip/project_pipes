@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_SIGP229</n>
+      <Model>w_pi_sigp229</Model>
+      <Audio>AUDIO_PISTOL</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="15" />
+      <AccuracySpread value="1.30" />
+      <AccurateModeAccuracyModifier value="0.32" />
+      <RunAndGunAccuracyModifier value="0.72" />
+      <RunAndGunAccuracyMaxModifier value="0.42" />
+      <RecoilAccuracyMax value="2.10" />
+      <RecoilErrorTime value="0.46" />
+      <RecoilRecoveryRate value="0.48" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.52" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="7.0" />
+      <HeadShotDamageModifierPlayer value="3.0" />
+      <HeadShotDamageModifierAI value="5.0" />
+      
+      <!-- SIG P229 - Compact 9mm Federal Agency Pistol
+           Real-world specs: 3.9" barrel, 32 oz, 1,075-1,100 fps
+           DA/SA trigger: ~10 lbs DA, ~4.4 lbs SA
+           Milled stainless slide, designed for high-pressure cartridges
+           Secret Service, DHS, ICE, Coast Guard sidearm
+           COMPACT VARIANT - shorter barrel = 50-75 fps velocity loss
+      -->
+      
+      <Damage value="34.0" />
+      <DamageFallOffRangeMin value="14.0" />
+      <DamageFallOffRangeMax value="48.0" />
+      <DamageFallOffModifier value="0.37" />
+      
+      <!-- Velocity: 3.9" barrel = ~338 m/s (reduced from P226) -->
+      <Speed value="338.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="48.0" />
+      <ForceHitPed value="44.0" />
+      <ForceHitVehicle value="18.0" />
+      <ForceHitFlyingHeli value="14.0" />
+      <OverrideForces />
+      
+      <Penetration value="0.15" />
+      <ArmorPenetration value="0.10" />
+      
+      <!-- Heavy milled slide = good recoil control despite compact size -->
+      <RecoilShakeAmplitude value="0.20" />
+      <RecoilShakeFrequency value="0.52" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <TimeBetweenShots value="0.165" />
+      <AnimReloadRate value="1.0" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.33" />
+      <AimingTimeFromSprinting value="0.43" />
+      
+      <WeaponRange value="95.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.22" />
+      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_SIGP229</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

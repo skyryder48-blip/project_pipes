@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_SIGP220</n>
+      <Model>w_pi_sigp220</Model>
+      <Audio>AUDIO_PISTOL</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="8" />
+      <AccuracySpread value="1.40" />
+      <AccurateModeAccuracyModifier value="0.35" />
+      <RunAndGunAccuracyModifier value="0.68" />
+      <RunAndGunAccuracyMaxModifier value="0.38" />
+      <RecoilAccuracyMax value="2.30" />
+      <RecoilErrorTime value="0.50" />
+      <RecoilRecoveryRate value="0.45" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.55" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="7.0" />
+      <HeadShotDamageModifierPlayer value="2.8" />
+      <HeadShotDamageModifierAI value="4.5" />
+      
+      <!-- SIG P220 - Classic .45 ACP DA/SA Pistol
+           Real-world specs: 4.4" barrel, 30.4 oz, 810-850 fps (.45 ACP)
+           DA/SA trigger: ~10 lbs DA, ~4.4 lbs SA
+           Single-stack .45 ACP, 8+1 capacity
+           Pioneer of SIG's modern pistol line (1975)
+           CALIBER: .45 ACP - Higher damage than 9mm, lower velocity
+      -->
+      
+      <!-- .45 ACP damage baseline: 38 -->
+      <Damage value="38.0" />
+      <DamageFallOffRangeMin value="12.0" />
+      <DamageFallOffRangeMax value="42.0" />
+      <DamageFallOffModifier value="0.36" />
+      
+      <!-- .45 ACP Velocity: 230gr at ~260 m/s -->
+      <Speed value="260.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <!-- .45 ACP has more stopping power/force -->
+      <Force value="65.0" />
+      <ForceHitPed value="55.0" />
+      <ForceHitVehicle value="25.0" />
+      <ForceHitFlyingHeli value="18.0" />
+      <OverrideForces />
+      
+      <!-- .45 ACP moderate penetration -->
+      <Penetration value="0.18" />
+      <ArmorPenetration value="0.08" />
+      
+      <!-- .45 ACP has more recoil than 9mm, but aluminum frame helps -->
+      <RecoilShakeAmplitude value="0.25" />
+      <RecoilShakeFrequency value="0.55" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- DA/SA trigger, .45 has slightly slower rate -->
+      <TimeBetweenShots value="0.180" />
+      <AnimReloadRate value="1.0" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.36" />
+      <AimingTimeFromSprinting value="0.46" />
+      
+      <WeaponRange value="80.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.25" />
+      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_SIGP220</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

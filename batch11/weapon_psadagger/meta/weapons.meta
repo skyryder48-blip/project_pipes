@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_PSADAGGER</n>
+      <Model>w_pi_psadagger</Model>
+      <Audio>AUDIO_PISTOL</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="15" />
+      <AccuracySpread value="1.45" />
+      <AccurateModeAccuracyModifier value="0.35" />
+      <RunAndGunAccuracyModifier value="0.70" />
+      <RunAndGunAccuracyMaxModifier value="0.40" />
+      <RecoilAccuracyMax value="2.20" />
+      <RecoilErrorTime value="0.48" />
+      <RecoilRecoveryRate value="0.46" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.55" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="7.0" />
+      <HeadShotDamageModifierPlayer value="3.0" />
+      <HeadShotDamageModifierAI value="5.0" />
+      
+      <!-- PSA Dagger - Budget Glock 19 Gen 3 Clone
+           Real-world specs: 3.9" barrel, 22.4 oz (LIGHTEST), 1,100-1,150 fps
+           Striker-fired trigger: 5.5-6.5 lbs
+           Full Glock 9mm magazine compatibility
+           $239-299 MSRP - Budget tier pricing
+           LIGHTEST WEIGHT = fastest handling, but less recoil control
+           Steel sights and stainless guide rod = upgrades over Glock
+      -->
+      
+      <Damage value="34.0" />
+      <DamageFallOffRangeMin value="14.0" />
+      <DamageFallOffRangeMax value="48.0" />
+      <DamageFallOffModifier value="0.37" />
+      
+      <!-- Velocity: 3.9" barrel = ~340 m/s -->
+      <Speed value="340.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="48.0" />
+      <ForceHitPed value="42.0" />
+      <ForceHitVehicle value="18.0" />
+      <ForceHitFlyingHeli value="14.0" />
+      <OverrideForces />
+      
+      <Penetration value="0.15" />
+      <ArmorPenetration value="0.10" />
+      
+      <!-- LIGHTEST = more felt recoil -->
+      <RecoilShakeAmplitude value="0.24" />
+      <RecoilShakeFrequency value="0.55" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <!-- Standard striker trigger -->
+      <TimeBetweenShots value="0.165" />
+      <AnimReloadRate value="1.05" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.28" />
+      <AimingTimeFromSprinting value="0.38" />
+      
+      <WeaponRange value="95.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.25" />
+      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_PSADAGGER</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

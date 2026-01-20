@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <Item key="YOURSLOT">YOURSLOT</Item>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
+  <Infos>
+    <Item type="CWeaponInfo">
+      <n>WEAPON_PX4STORM</n>
+      <Model>w_pi_px4storm</Model>
+      <Audio>AUDIO_PISTOL</Audio>
+      <Slot>YOURSLOT</Slot>
+      <DamageType>BULLET</DamageType>
+      <FireType>INSTANT_HIT</FireType>
+      <WheelSlot>YOURSLOT</WheelSlot>
+      <Group>YOURGROUP</Group>
+      <ClipSize value="17" />
+      <AccuracySpread value="1.15" />
+      <AccurateModeAccuracyModifier value="0.28" />
+      <RunAndGunAccuracyModifier value="0.74" />
+      <RunAndGunAccuracyMaxModifier value="0.44" />
+      <RecoilAccuracyMax value="1.80" />
+      <RecoilErrorTime value="0.40" />
+      <RecoilRecoveryRate value="0.55" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.48" />
+      <MinHeadShotDistancePlayer value="0.0" />
+      <MaxHeadShotDistancePlayer value="7.0" />
+      <HeadShotDamageModifierPlayer value="3.0" />
+      <HeadShotDamageModifierAI value="5.0" />
+      
+      <!-- Beretta PX4 Storm - Rotating Barrel DA/SA Pistol
+           Real-world specs: 4.0" barrel, 27.7 oz, 1,100-1,180 fps
+           DA/SA trigger system
+           UNIQUE: Rotating barrel locking system
+           - Barrel rotates 30-45 degrees during cycling
+           - Energy distributed radially = REDUCED RECOIL
+           - No vertical tilting = theoretical accuracy improvement
+           LIMITATION: Suppressors loosen after 4-5 shots
+           NO SUPPRESSOR COMPATIBILITY
+      -->
+      
+      <Damage value="34.5" />
+      <DamageFallOffRangeMin value="15.0" />
+      <DamageFallOffRangeMax value="50.0" />
+      <DamageFallOffModifier value="0.38" />
+      
+      <!-- Velocity: 4.0" barrel = ~345 m/s -->
+      <Speed value="345.0" />
+      <BulletsInBatch value="1" />
+      <BulletBatchSpread value="0.0" />
+      
+      <Force value="50.0" />
+      <ForceHitPed value="44.0" />
+      <ForceHitVehicle value="18.0" />
+      <ForceHitFlyingHeli value="14.0" />
+      <OverrideForces />
+      
+      <Penetration value="0.15" />
+      <ArmorPenetration value="0.10" />
+      
+      <!-- ROTATING BARREL BONUS: Significantly reduced recoil -->
+      <RecoilShakeAmplitude value="0.15" />
+      <RecoilShakeFrequency value="0.45" />
+      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      
+      <NetworkHitLimbsDamageModifier value="0.80" />
+      <NetworkPlayerDamageModifier value="1.0" />
+      <HitLimbsDamageModifier value="0.50" />
+      
+      <TimeBetweenShots value="0.160" />
+      <AnimReloadRate value="1.0" />
+      <AnimPostSpecialFireRate value="1.0" />
+      <AimingTime value="0.32" />
+      <AimingTimeFromSprinting value="0.42" />
+      
+      <WeaponRange value="100.0" />
+      
+      <BulletDirectionOffsetInDegrees value="0.18" />
+      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <Recoil />
+      <FireAnimTime value="0.10" />
+      <RecoilAimOffsetInterpolation />
+      
+      <HumanNameHash>WT_PX4STORM</HumanNameHash>
+      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

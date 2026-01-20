@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  5.56x45mm NATO Weapon Components - Magazine Definitions
+  Used by ALL 5.56 NATO weapons (Batch 17 AR pistols/SBRs)
+
+  Component Naming Convention:
+  COMPONENT_[WEAPON]_CLIP_[AMMOTYPE]
+
+  Ammo Types:
+  - M193: 55gr FMJ, baseline damage, highest velocity
+  - M855: 62gr SS109, steel penetrator, barrier blind
+  - MK262: 77gr OTM, +10% damage, match accuracy
+  - M855A1: 62gr EPR, +5% damage, best armor penetration
+
+  Batch 17 Weapons (30 round STANAG magazines):
+  - MK18 (Mk18 CQBR) - Military 10.3" CQB
+  - ARP_BUMPSTOCK (7.5" AR Pistol) - Full-auto chaos
+  - SBR9 (9" Custom SBR) - Illegal street build
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+
+    <!-- ================================================================== -->
+    <!-- MK18 CQBR - Military 10.3" CQB Receiver (30 rounds)                -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MK18_CLIP_M193</n>
+      <Model /><LocName>WCT_CLIP_M193</LocName><LocDesc>WCD_CLIP_556M193</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" /><DamageModifier type="NULL" />
+      <bShownOnWheel value="false" /><CreateObject value="true" />
+      <HudDamage value="0" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="0" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_M193" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MK18_CLIP_M855</n>
+      <Model /><LocName>WCT_CLIP_M855</LocName><LocDesc>WCD_CLIP_556M855</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.950000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-5" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="10" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_M855" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MK18_CLIP_MK262</n>
+      <Model /><LocName>WCT_CLIP_MK262</LocName><LocDesc>WCD_CLIP_556MK262</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="1.100000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="10" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="10" /><HudRange value="-5" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_MK262" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_MK18_CLIP_M855A1</n>
+      <Model /><LocName>WCT_CLIP_M855A1</LocName><LocDesc>WCD_CLIP_556M855A1</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="1.050000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="5" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="15" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_M855A1" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- 7.5" AR PISTOL BUMPSTOCK - Full-Auto Chaos (30 rounds)             -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_ARP_BUMPSTOCK_CLIP_M193</n>
+      <Model /><LocName>WCT_CLIP_M193</LocName><LocDesc>WCD_CLIP_556M193</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" /><DamageModifier type="NULL" />
+      <bShownOnWheel value="false" /><CreateObject value="true" />
+      <HudDamage value="0" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="0" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_M193" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_ARP_BUMPSTOCK_CLIP_M855</n>
+      <Model /><LocName>WCT_CLIP_M855</LocName><LocDesc>WCD_CLIP_556M855</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.950000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-5" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="10" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_M855" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_ARP_BUMPSTOCK_CLIP_MK262</n>
+      <Model /><LocName>WCT_CLIP_MK262</LocName><LocDesc>WCD_CLIP_556MK262</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="1.100000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="10" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="10" /><HudRange value="-5" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_MK262" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_ARP_BUMPSTOCK_CLIP_M855A1</n>
+      <Model /><LocName>WCT_CLIP_M855A1</LocName><LocDesc>WCD_CLIP_556M855A1</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="1.050000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="5" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="15" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_M855A1" />
+    </Item>
+
+    <!-- ================================================================== -->
+    <!-- 9" SBR CUSTOM BUILD - Illegal Street Rifle (30 rounds)             -->
+    <!-- ================================================================== -->
+
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SBR9_CLIP_M193</n>
+      <Model /><LocName>WCT_CLIP_M193</LocName><LocDesc>WCD_CLIP_556M193</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" /><DamageModifier type="NULL" />
+      <bShownOnWheel value="false" /><CreateObject value="true" />
+      <HudDamage value="0" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="0" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_M193" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SBR9_CLIP_M855</n>
+      <Model /><LocName>WCT_CLIP_M855</LocName><LocDesc>WCD_CLIP_556M855</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.950000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-5" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="10" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_M855" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SBR9_CLIP_MK262</n>
+      <Model /><LocName>WCT_CLIP_MK262</LocName><LocDesc>WCD_CLIP_556MK262</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="1.100000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="10" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="10" /><HudRange value="-5" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_MK262" />
+    </Item>
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_SBR9_CLIP_M855A1</n>
+      <Model /><LocName>WCT_CLIP_M855A1</LocName><LocDesc>WCD_CLIP_556M855A1</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="1.050000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="5" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="15" />
+      <ClipSize value="30" /><AmmoInfo ref="AMMO_556_M855A1" />
+    </Item>
+
+  </Infos>
+  <n>5.56 NATO Weapon Components</n>
+</CWeaponComponentInfoBlob>

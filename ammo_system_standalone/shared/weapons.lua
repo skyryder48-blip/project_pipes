@@ -573,6 +573,34 @@ Config.Weapons = {
     },
 
     -- ======================================================================
+    -- BATCH 17: 5.56 NATO AR PISTOLS / SHORT BARREL RIFLES
+    -- ======================================================================
+
+    -- Mk18 CQBR - Military 10.3" Close Quarters Battle Receiver (30 rounds)
+    -- SOCOM minimum barrel length, professional CQB platform
+    [`WEAPON_MK18`] = {
+        caliber = '5.56',
+        componentBase = 'COMPONENT_MK18',
+        clipSize = 30,
+    },
+
+    -- 7.5" AR Pistol with Bumpstock - Full-Auto Chaos (30 rounds)
+    -- Extreme muzzle flash, uncontrollable spray, devastating at point-blank
+    [`WEAPON_ARP_BUMPSTOCK`] = {
+        caliber = '5.56',
+        componentBase = 'COMPONENT_ARP_BUMPSTOCK',
+        clipSize = 30,
+    },
+
+    -- 9" SBR Custom Build - Illegal Street Rifle (30 rounds)
+    -- Unregistered NFA item, custom tuned, criminal roleplay
+    [`WEAPON_SBR9`] = {
+        caliber = '5.56',
+        componentBase = 'COMPONENT_SBR9',
+        clipSize = 30,
+    },
+
+    -- ======================================================================
     -- FUTURE WEAPONS (uncomment when adding)
     -- ======================================================================
 

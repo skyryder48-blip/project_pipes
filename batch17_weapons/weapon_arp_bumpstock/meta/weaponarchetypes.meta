@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponModelInfo__InitDataList>
+  <InitDatas>
+    <Item>
+      <Model>w_ar_arp_bumpstock</Model>
+      <Texture>W_AR_ARP_BUMPSTOCK</Texture>
+      <Archetype>W_AR_ARP_BUMPSTOCK</Archetype>
+      <Audio>AUDIO_RIFLE</Audio>
+      <SlotPosition />
+      <SlotRotation />
+      <SlotPosition_YOURSLOT />
+      <SlotRotation_YOURSLOT />
+      <Vfx />
+      <AnimOverride />
+      <CanPickUp value="true" />
+    </Item>
+  </InitDatas>
+</CWeaponModelInfo__InitDataList>

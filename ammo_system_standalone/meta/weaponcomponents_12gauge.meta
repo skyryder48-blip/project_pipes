@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  12 GAUGE SHOTGUN Weapon Components - Magazine Definitions
+  Used by ALL 12 gauge shotgun weapons (Batch 18)
+
+  SHOTGUN AMMO SYSTEM - 8 TYPES WITH UNIQUE BALLISTICS:
+  ============================================================
+
+  AMMO TYPE SPECIFICATIONS (to be set in weapon_*.meta per weapon):
+
+  | Ammo Type     | Pellets | Damage/Pellet | Spread | Range   | Special Behavior           |
+  |---------------|---------|---------------|--------|---------|----------------------------|
+  | 00 Buck       | 8       | 22            | 0.040  | 30m     | Baseline, standard combat  |
+  | #1 Buck       | 12      | 14            | 0.050  | 25m     | More pellets, HollowPoint  |
+  | Slug          | 1       | 120           | 0.000  | 80m     | Precision, FMJ penetration |
+  | Birdshot      | 19      | 8             | 0.060  | 20m     | Crowd control, wide spread |
+  | Pepperball    | 6       | 5             | 0.045  | 15m     | Vision+cough effects*      |
+  | Dragon'sBreath| 8       | 18            | 0.050  | 25m     | Incendiary fire effects    |
+  | Beanbag       | 1       | 8             | 0.000  | 20m     | Ragdoll, Force=500         |
+  | Breach        | 1       | 40            | 0.000  | 3m      | High env damage, frangible |
+
+  * Pepperball effects require client script: pepperball_effects.lua
+
+  DAMAGE MODIFIERS (applied via component):
+  - 00 Buck: 1.0x (baseline)
+  - #1 Buck: 0.95x (slightly less per pellet, more pellets)
+  - Slug: 1.0x (balanced for single projectile)
+  - Birdshot: 0.85x (reduced individual pellet damage)
+  - Pepperball: 0.5x (low damage, effect-focused)
+  - Dragon's Breath: 0.9x (fire damage supplements)
+  - Beanbag: 0.1x (minimal damage, max knockback)
+  - Breach: 0.5x ped / 5.0x environment
+
+  TEMPLATE: Copy this block for each new shotgun, replace [WEAPON] with weapon name
+  ============================================================
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+
+    <!-- ================================================================== -->
+    <!-- TEMPLATE SHOTGUN - Replace [WEAPON] with actual weapon name        -->
+    <!-- Default ammo will be set per-weapon during batch 18 review         -->
+    <!-- ================================================================== -->
+
+    <!-- 00 BUCKSHOT - Standard combat load, 8 pellets -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_[WEAPON]_CLIP_00BUCK</n>
+      <Model /><LocName>WCT_CLIP_00BUCK</LocName><LocDesc>WCD_CLIP_00BUCK</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" /><DamageModifier type="NULL" />
+      <bShownOnWheel value="false" /><CreateObject value="true" />
+      <HudDamage value="0" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="0" />
+      <ClipSize value="8" /><AmmoInfo ref="AMMO_12G_00BUCK" />
+    </Item>
+
+    <!-- #1 BUCKSHOT - Defense load, 12 pellets, HollowPoint -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_[WEAPON]_CLIP_1BUCK</n>
+      <Model /><LocName>WCT_CLIP_1BUCK</LocName><LocDesc>WCD_CLIP_1BUCK</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.950000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-5" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="-10" /><HudRange value="-5" />
+      <ClipSize value="8" /><AmmoInfo ref="AMMO_12G_1BUCK" />
+    </Item>
+
+    <!-- SLUG - Single projectile, precision, extended range -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_[WEAPON]_CLIP_SLUG</n>
+      <Model /><LocName>WCT_CLIP_SLUG</LocName><LocDesc>WCD_CLIP_SLUG</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" /><DamageModifier type="NULL" />
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="0" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="30" /><HudRange value="50" />
+      <ClipSize value="8" /><AmmoInfo ref="AMMO_12G_SLUG" />
+    </Item>
+
+    <!-- BIRDSHOT - 19 pellets, wide spread, crowd control -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_[WEAPON]_CLIP_BIRDSHOT</n>
+      <Model /><LocName>WCT_CLIP_BIRDSHOT</LocName><LocDesc>WCD_CLIP_BIRDSHOT</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.850000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-15" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="-20" /><HudRange value="-30" />
+      <ClipSize value="8" /><AmmoInfo ref="AMMO_12G_BIRDSHOT" />
+    </Item>
+
+    <!-- PEPPERBALL - Irritant rounds, vision + cough effects -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_[WEAPON]_CLIP_PEPPERBALL</n>
+      <Model /><LocName>WCT_CLIP_PEPPER</LocName><LocDesc>WCD_CLIP_PEPPER</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.500000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-50" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="0" /><HudRange value="-20" />
+      <ClipSize value="8" /><AmmoInfo ref="AMMO_12G_PEPPERBALL" />
+    </Item>
+
+    <!-- DRAGON'S BREATH - Incendiary magnesium, fire effects -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_[WEAPON]_CLIP_DRAGONSBREATH</n>
+      <Model /><LocName>WCT_CLIP_DRAGON</LocName><LocDesc>WCD_CLIP_DRAGON</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.900000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-10" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="-15" /><HudRange value="-20" />
+      <ClipSize value="8" /><AmmoInfo ref="AMMO_12G_DRAGONSBREATH" />
+    </Item>
+
+    <!-- BEANBAG - Less-lethal, ragdoll knockback, 8 damage -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_[WEAPON]_CLIP_BEANBAG</n>
+      <Model /><LocName>WCT_CLIP_BEANBAG</LocName><LocDesc>WCD_CLIP_BEANBAG</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.100000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-90" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="-10" /><HudRange value="-30" />
+      <ClipSize value="8" /><AmmoInfo ref="AMMO_12G_BEANBAG" />
+    </Item>
+
+    <!-- BREACH - Frangible slug, high env damage, 3m range -->
+    <Item type="CWeaponComponentClipInfo">
+      <n>COMPONENT_[WEAPON]_CLIP_BREACH</n>
+      <Model /><LocName>WCT_CLIP_BREACH</LocName><LocDesc>WCD_CLIP_BREACH</LocDesc>
+      <AttachBone>WAPClip</AttachBone><AccuracyModifier type="NULL" />
+      <DamageModifier type="CWeaponDamageModifier"><DamageModifier value="0.500000" /></DamageModifier>
+      <bShownOnWheel value="true" /><CreateObject value="true" />
+      <HudDamage value="-50" /><HudSpeed value="0" /><HudCapacity value="0" /><HudAccuracy value="20" /><HudRange value="-80" />
+      <ClipSize value="8" /><AmmoInfo ref="AMMO_12G_BREACH" />
+    </Item>
+
+  </Infos>
+  <n>12 Gauge Shotgun Weapon Components (TEMPLATE)</n>
+</CWeaponComponentInfoBlob>

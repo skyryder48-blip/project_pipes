@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  12 GAUGE SHOTGUN Ammunition Definitions - CENTRALIZED
+  Used by ALL 12 gauge shotgun weapons (Batch 18)
+
+  SHOTGUN AMMO SYSTEM - 8 TYPES:
+  ============================================================
+  LETHAL COMBAT LOADS:
+  - 00BUCK: Standard 00 buckshot, 8 pellets, baseline (default for combat shotguns)
+  - 1BUCK: #1 buckshot, 12 pellets, defense/hunting (HollowPoint behavior)
+  - SLUG: Single projectile, precision, extended range
+  - BIRDSHOT: 19 small pellets, wide spread, short range, crowd suppression
+
+  SPECIALTY LOADS:
+  - PEPPERBALL: Irritant rounds, coughing + vision effects (requires client script)
+  - DRAGONSBREATH: Incendiary magnesium, fire effects on impact
+  - BEANBAG: Less-lethal, ragdoll knockback, 8 damage only
+  - BREACH: Frangible slug, high environment damage, 3m effective range
+
+  SHOTGUN-SPECIFIC PARAMETERS (set per-weapon, not in ammo):
+  - BulletsInBatch: Number of pellets per shot
+  - BatchSpread: Cone angle for pellet dispersion (radians)
+  - Damage: Per-pellet damage (total = damage × pellets that hit)
+
+  Load this resource BEFORE any 12 gauge weapon resources in server.cfg:
+    ensure ammo_system_standalone
+    ensure weapon_mossberg590
+    ensure weapon_remington870
+    ...
+-->
+<CWeaponInfoBlob>
+  <Infos>
+    <Item>
+      <Infos>
+
+        <!-- ==================== 00 BUCKSHOT (Standard) ==================== -->
+        <!-- Standard 00 buck, 8 pellets @ 22 damage each = 176 max -->
+        <!-- Baseline combat load for tactical/pump shotguns -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_12G_00BUCK</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="48" />
+          <AmmoMax50 value="48" />
+          <AmmoMax100 value="48" />
+          <AmmoMaxMP value="48" />
+          <AmmoMax50MP value="48" />
+          <AmmoMax100MP value="48" />
+          <AmmoFlags />
+          <AmmoSpecialType>None</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="1.000000" />
+          <PedRicochetTolerance value="1.000000" />
+          <VehicleRicochetTolerance value="1.000000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== #1 BUCKSHOT (Defense) ==================== -->
+        <!-- #1 buck, 12 pellets @ 14 damage each = 168 max -->
+        <!-- More pellets, wider pattern, defense/hunting optimized -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_12G_1BUCK</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="36" />
+          <AmmoMax50 value="36" />
+          <AmmoMax100 value="36" />
+          <AmmoMaxMP value="36" />
+          <AmmoMax50MP value="36" />
+          <AmmoMax100MP value="36" />
+          <AmmoFlags />
+          <AmmoSpecialType>HollowPoint</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="0.600000" />
+          <PedRicochetTolerance value="0.600000" />
+          <VehicleRicochetTolerance value="0.400000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== SLUG (Precision) ==================== -->
+        <!-- Single projectile @ 120 damage, extended range -->
+        <!-- Zero spread, high penetration, vehicle damage bonus -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_12G_SLUG</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="24" />
+          <AmmoMax50 value="24" />
+          <AmmoMax100 value="24" />
+          <AmmoMaxMP value="24" />
+          <AmmoMax50MP value="24" />
+          <AmmoMax100MP value="24" />
+          <AmmoFlags />
+          <AmmoSpecialType>FMJ</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="1.500000" />
+          <PedRicochetTolerance value="1.500000" />
+          <VehicleRicochetTolerance value="1.500000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== BIRDSHOT (Crowd Control) ==================== -->
+        <!-- 19 small pellets @ 8 damage each = 152 max -->
+        <!-- Wide spread, short range, area suppression -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_12G_BIRDSHOT</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="48" />
+          <AmmoMax50 value="48" />
+          <AmmoMax100 value="48" />
+          <AmmoMaxMP value="48" />
+          <AmmoMax50MP value="48" />
+          <AmmoMax100MP value="48" />
+          <AmmoFlags />
+          <AmmoSpecialType>None</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.200000" />
+          <RicochetTolerance value="0.500000" />
+          <PedRicochetTolerance value="0.500000" />
+          <VehicleRicochetTolerance value="0.300000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== PEPPERBALL (Irritant) ==================== -->
+        <!-- Chemical irritant rounds, 6 pellets @ 5 damage each -->
+        <!-- REQUIRES CLIENT SCRIPT for coughing + vision effects -->
+        <!-- See: ammo_system_standalone/client/pepperball_effects.lua -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_12G_PEPPERBALL</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="24" />
+          <AmmoMax50 value="24" />
+          <AmmoMax100 value="24" />
+          <AmmoMaxMP value="24" />
+          <AmmoMax50MP value="24" />
+          <AmmoMax100MP value="24" />
+          <AmmoFlags />
+          <AmmoSpecialType>None</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.500000" />
+          <RicochetTolerance value="0.200000" />
+          <PedRicochetTolerance value="0.200000" />
+          <VehicleRicochetTolerance value="0.100000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="255.000000" y="200.000000" z="0.000000" />
+          <LightIntensity value="0.500000" />
+          <LightRange value="2.000000" />
+          <LightFalloffExp value="1.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.500000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== DRAGON'S BREATH (Incendiary) ==================== -->
+        <!-- Magnesium incendiary, 8 pellets with fire effects -->
+        <!-- Sets targets on fire, visible flame trail -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_12G_DRAGONSBREATH</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="12" />
+          <AmmoMax50 value="12" />
+          <AmmoMax100 value="12" />
+          <AmmoMaxMP value="12" />
+          <AmmoMax50MP value="12" />
+          <AmmoMax100MP value="12" />
+          <AmmoFlags />
+          <AmmoSpecialType>Incendiary</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="0.350000" />
+          <FromVehicleLifeTime value="0.350000" />
+          <LifeTimeAfterImpact value="0.100000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.100000" />
+          <GravityFactor value="1.800000" />
+          <RicochetTolerance value="0.300000" />
+          <PedRicochetTolerance value="0.300000" />
+          <VehicleRicochetTolerance value="0.300000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx>weap_xs_vehicle_weapon_dvrgn_b</TrailFx>
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.150000" />
+          <PrimedFx />
+          <DisturbFxDefault>weap_molotov_ground_flames</DisturbFxDefault>
+          <DisturbFxSand>weap_molotov_ground_flames</DisturbFxSand>
+          <DisturbFxWater />
+          <DisturbFxDirt>weap_molotov_ground_flames</DisturbFxDirt>
+          <DisturbFxFoliage>weap_molotov_ground_flames</DisturbFxFoliage>
+          <DisturbFxProbeDist value="0.500000" />
+          <DisturbFxScale value="0.750000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="true" />
+          <LightBone />
+          <LightColour x="255.000000" y="150.000000" z="50.000000" />
+          <LightIntensity value="2.000000" />
+          <LightRange value="8.000000" />
+          <LightFalloffExp value="1.500000" />
+          <LightFrequency value="0.100000" />
+          <LightPower value="1.500000" />
+          <CoronaSize value="0.150000" />
+          <CoronaIntensity value="1.000000" />
+          <CoronaZBias value="0.100000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== BEANBAG (Less-Lethal) ==================== -->
+        <!-- Fabric bag with shot, ragdoll knockback, 8 damage only -->
+        <!-- High Force value for knockback effect -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_12G_BEANBAG</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="24" />
+          <AmmoMax50 value="24" />
+          <AmmoMax100 value="24" />
+          <AmmoMaxMP value="24" />
+          <AmmoMax50MP value="24" />
+          <AmmoMax100MP value="24" />
+          <AmmoFlags />
+          <AmmoSpecialType>None</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="2.000000" />
+          <RicochetTolerance value="0.000000" />
+          <PedRicochetTolerance value="0.000000" />
+          <VehicleRicochetTolerance value="0.000000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== BREACH (Door Breaching) ==================== -->
+        <!-- Frangible slug, high environment damage, 3m effective range -->
+        <!-- Single projectile, designed for locks/hinges, minimal ricochet -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_12G_BREACH</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="12" />
+          <AmmoMax50 value="12" />
+          <AmmoMax100 value="12" />
+          <AmmoMaxMP value="12" />
+          <AmmoMax50MP value="12" />
+          <AmmoMax100MP value="12" />
+          <AmmoFlags />
+          <AmmoSpecialType>None</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="0.000000" />
+          <PedRicochetTolerance value="0.000000" />
+          <VehicleRicochetTolerance value="0.000000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+      </Infos>
+    </Item>
+  </Infos>
+  <n>12 Gauge Shotgun Ammunition Types</n>
+</CWeaponInfoBlob>

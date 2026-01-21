@@ -12,7 +12,7 @@
       <CoverSet>Cover_Wpn_SawnOff</CoverSet>
       <FirstPersonCore>core</FirstPersonCore>
       <FirstPersonOverlays>
-        <Item>YOURNAME/YOURFOLDER/first_person</Item>
+        <Item>first_person@sawnoffshotgun</Item>
       </FirstPersonOverlays>
       <ActionSet>WeaponActions_SawnOffShotgun</ActionSet>
       <ActionUpperSet>WeaponActionsUpper_SawnOffShotgun</ActionUpperSet>

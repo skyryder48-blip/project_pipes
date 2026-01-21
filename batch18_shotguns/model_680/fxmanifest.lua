@@ -2,16 +2,16 @@
 -- MODEL 680 - 12-GAUGE BASIC PUMP-ACTION SHOTGUN
 -- ================================================================
 -- FiveM Resource Manifest
--- 
+--
 -- Weapon: Model 680
 -- Category: Pump-Action Shotgun (Budget)
 -- Caliber: 12 Gauge (00 Buckshot)
--- 
+--
 -- Installation:
 -- 1. Place this folder in your server's resources directory
 -- 2. Add 'ensure model_680' to your server.cfg
 -- 3. Restart server or use 'refresh' + 'ensure model_680'
--- 
+--
 -- Note: Weapon resource should load BEFORE ox_inventory
 -- ================================================================
 
@@ -29,6 +29,8 @@ client_script 'cl_weaponNames.lua'
 files {
     'meta/weapons.meta',
     'meta/weaponarchetypes.meta',
+    'meta/weaponanimations.meta',
+    'meta/pedpersonality.meta',
 }
 
 -- Data file declarations for addon weapons

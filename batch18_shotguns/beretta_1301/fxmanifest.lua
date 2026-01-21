@@ -1,16 +1,16 @@
 -- ================================================================
--- MINI SHOTTY - ILLEGAL SAWN-OFF PISTOL GRIP 12-GAUGE
+-- BERETTA 1301 TACTICAL - 12-GAUGE SEMI-AUTOMATIC SHOTGUN
 -- ================================================================
 -- FiveM Resource Manifest
 --
--- Weapon: Mini Shotty (Sawn-Off)
--- Category: Illegal Short Barreled Shotgun (SBS)
+-- Weapon: Beretta 1301 Tactical
+-- Category: Semi-Automatic Shotgun (Gas-Operated)
 -- Caliber: 12 Gauge (00 Buckshot)
 --
 -- Installation:
 -- 1. Place this folder in your server's resources directory
--- 2. Add 'ensure mini_shotty' to your server.cfg
--- 3. Restart server or use 'refresh' + 'ensure mini_shotty'
+-- 2. Add 'ensure beretta_1301' to your server.cfg
+-- 3. Restart server or use 'refresh' + 'ensure beretta_1301'
 --
 -- Note: Weapon resource should load BEFORE ox_inventory
 -- ================================================================
@@ -19,7 +19,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'Weapon Meta Development Project'
-description 'Mini Shotty - Illegal Sawn-Off Pistol Grip 12-Gauge with Realistic Buckshot Ballistics'
+description 'Beretta 1301 Tactical - 12-Gauge Semi-Automatic Shotgun with BLINK Gas System'
 version '1.0.0'
 
 -- Client script for weapon display name

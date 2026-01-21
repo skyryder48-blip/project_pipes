@@ -29,6 +29,8 @@ client_script 'cl_weaponNames.lua'
 files {
     'meta/weapons.meta',
     'meta/weaponarchetypes.meta',
+    'meta/weaponanimations.meta',
+    'meta/pedpersonality.meta',
 }
 
 -- Data file declarations for addon weapons

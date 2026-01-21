@@ -2,16 +2,16 @@
 -- MOSSBERG 500 - 12-GAUGE MIL-SPEC PUMP-ACTION SHOTGUN
 -- ================================================================
 -- FiveM Resource Manifest
--- 
+--
 -- Weapon: Mossberg 500
 -- Category: Pump-Action Shotgun (MIL-SPEC)
 -- Caliber: 12 Gauge (00 Buckshot)
--- 
+--
 -- Installation:
 -- 1. Place this folder in your server's resources directory
 -- 2. Add 'ensure mossberg_500' to your server.cfg
 -- 3. Restart server or use 'refresh' + 'ensure mossberg_500'
--- 
+--
 -- Note: Weapon resource should load BEFORE ox_inventory
 -- ================================================================
 
@@ -29,6 +29,8 @@ client_script 'cl_weaponNames.lua'
 files {
     'meta/weapons.meta',
     'meta/weaponarchetypes.meta',
+    'meta/weaponanimations.meta',
+    'meta/pedpersonality.meta',
 }
 
 -- Data file declarations for addon weapons

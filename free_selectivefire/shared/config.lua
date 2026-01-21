@@ -35,11 +35,9 @@ Config = {}
 -- GENERAL SETTINGS
 -- ============================================================================
 
-Config.ToggleKey = 'B'              -- Key to cycle fire modes
-Config.ToggleKeyCode = 29           -- Control code for 'B' (INPUT_SPECIAL_ABILITY)
+Config.ToggleKey = 'B'              -- Default key to cycle fire modes (ox_lib keybind)
 Config.PlaySound = true             -- Play subtle sound on mode change
 Config.RememberMode = true          -- Remember last selected mode per weapon
-Config.NotificationDuration = 2000  -- Brief notification duration (ms)
 
 -- Fire rate timing (milliseconds between shots)
 Config.FireRates = {

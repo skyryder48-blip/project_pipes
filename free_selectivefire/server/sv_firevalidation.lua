@@ -1,14 +1,14 @@
 --[[
-    SELECTIVE FIRE SYSTEM - SERVER VALIDATION (Optimized)
+    SELECTIVE FIRE SYSTEM - SERVER VALIDATION
+    Integrated with ox_inventory and ox_lib
 
-    Lightweight server-side fire rate validation.
-    Uses event-driven architecture with minimal memory footprint.
+    Features:
+    - Lightweight fire rate validation
+    - Death/respawn state reset
+    - Character switch cleanup
+    - Event-driven architecture
 
-    Performance characteristics:
-    - No polling/ticks - purely event-driven
-    - O(1) lookups using hash tables
-    - Limited memory: only tracks active players with weapons
-    - Automatic cleanup on player disconnect
+    Performance: Purely event-driven, no ticks
 ]]
 
 -- ============================================================================
@@ -16,38 +16,39 @@
 -- ============================================================================
 
 local ValidationConfig = {
-    -- Minimum time between shots for semi-auto (ms)
-    SemiAutoMinInterval = 180,      -- Slightly lower than client (200ms) for latency
+    -- Fire rate thresholds (ms)
+    SemiAutoMinInterval = 180,
+    BurstMaxShots = 4,
+    BurstWindow = 400,
 
-    -- Burst validation
-    BurstMaxShots = 4,              -- Allow 4 to account for timing variance
-    BurstWindow = 400,              -- Window to count burst shots (ms)
+    -- Violation handling
+    ViolationThreshold = 5,
+    ViolationDecay = 15000,
 
-    -- Anomaly thresholds
-    ViolationThreshold = 5,         -- Violations before logging
-    ViolationDecay = 15000,         -- Reset violations after this time (ms)
-
-    -- Feature toggles
+    -- Features
     EnableValidation = true,
     EnableLogging = true,
-    EnableKick = false,             -- Set true only for strict enforcement
+    EnableKick = false,
     KickThreshold = 15,
+
+    -- Cleanup
+    ResetOnDeath = true,             -- Reset violations on death
+    ResetOnCharacterSwitch = true,   -- Full wipe on character switch
 }
 
 -- ============================================================================
--- PLAYER STATE (Minimal Memory)
+-- PLAYER STATE
 -- ============================================================================
 
 local playerStates = {}
 
--- Lightweight state structure
 local function GetState(source)
     if not playerStates[source] then
         playerStates[source] = {
             mode = 'SEMI',
             weapon = nil,
             lastShot = 0,
-            recentShots = {},       -- Circular buffer of last 5 shot times
+            recentShots = {},
             shotIndex = 1,
             violations = 0,
             lastViolation = 0,
@@ -56,13 +57,21 @@ local function GetState(source)
     return playerStates[source]
 end
 
--- Cleanup on disconnect
-AddEventHandler('playerDropped', function()
+local function ClearState(source)
     playerStates[source] = nil
-end)
+end
+
+local function ResetViolations(source)
+    local state = playerStates[source]
+    if state then
+        state.violations = 0
+        state.recentShots = {}
+        state.shotIndex = 1
+    end
+end
 
 -- ============================================================================
--- VALIDATION LOGIC (Optimized)
+-- VALIDATION LOGIC
 -- ============================================================================
 
 local function ValidateShot(source, mode)
@@ -83,7 +92,6 @@ local function ValidateShot(source, mode)
     local isValid = true
 
     if mode == 'SEMI' then
-        -- Check interval from previous shot
         local prevIndex = state.shotIndex - 2
         if prevIndex < 1 then prevIndex = prevIndex + 5 end
         local prevShot = state.recentShots[prevIndex]
@@ -93,7 +101,6 @@ local function ValidateShot(source, mode)
         end
 
     elseif mode == 'BURST' then
-        -- Count shots in burst window
         local count = 0
         for i = 1, 5 do
             local t = state.recentShots[i]
@@ -105,9 +112,7 @@ local function ValidateShot(source, mode)
             isValid = false
         end
     end
-    -- FULL mode: no restrictions
 
-    -- Handle violation
     if not isValid then
         state.violations = state.violations + 1
         state.lastViolation = now
@@ -115,7 +120,7 @@ local function ValidateShot(source, mode)
         if state.violations >= ValidationConfig.ViolationThreshold then
             if ValidationConfig.EnableLogging then
                 local name = GetPlayerName(source) or 'Unknown'
-                print(('[SelectiveFire] WARN: %s (%d) - Rapid fire detected (mode: %s, violations: %d)'):format(
+                print(('[SelectiveFire] WARN: %s (%d) - Rapid fire (mode: %s, violations: %d)'):format(
                     name, source, mode, state.violations
                 ))
             end
@@ -131,14 +136,13 @@ local function ValidateShot(source, mode)
 end
 
 -- ============================================================================
--- EVENT HANDLERS
+-- FIRE MODE EVENTS
 -- ============================================================================
 
 RegisterNetEvent('selectivefire:modeChanged', function(weaponHash, mode)
     local state = GetState(source)
     state.mode = mode
     state.weapon = weaponHash
-    -- Clear shot history on mode change
     state.recentShots = {}
     state.shotIndex = 1
 end)
@@ -148,7 +152,53 @@ RegisterNetEvent('selectivefire:shotFired', function(weaponHash, mode)
 end)
 
 -- ============================================================================
--- ADMIN COMMANDS (Console only)
+-- DEATH / RESPAWN CLEANUP
+-- ============================================================================
+
+RegisterNetEvent('selectivefire:playerDied', function()
+    if ValidationConfig.ResetOnDeath then
+        ResetViolations(source)
+    end
+end)
+
+RegisterNetEvent('selectivefire:playerRespawned', function()
+    -- State already reset on death, just log if needed
+end)
+
+-- ============================================================================
+-- CHARACTER SWITCH / LOGOUT CLEANUP
+-- ============================================================================
+
+RegisterNetEvent('selectivefire:characterUnloaded', function()
+    if ValidationConfig.ResetOnCharacterSwitch then
+        ClearState(source)
+    end
+end)
+
+-- Qbox/QBCore server-side events
+RegisterNetEvent('QBCore:Server:OnPlayerUnload', function(source)
+    if ValidationConfig.ResetOnCharacterSwitch then
+        ClearState(source)
+    end
+end)
+
+-- ox_core server-side events
+RegisterNetEvent('ox:playerLogout', function(source)
+    if ValidationConfig.ResetOnCharacterSwitch then
+        ClearState(source)
+    end
+end)
+
+-- ============================================================================
+-- PLAYER DISCONNECT
+-- ============================================================================
+
+AddEventHandler('playerDropped', function()
+    ClearState(source)
+end)
+
+-- ============================================================================
+-- ADMIN COMMANDS
 -- ============================================================================
 
 RegisterCommand('sf_check', function(src, args)
@@ -175,10 +225,19 @@ RegisterCommand('sf_reset', function(src, args)
     if src ~= 0 then return end
 
     local target = tonumber(args[1])
-    if target and playerStates[target] then
-        playerStates[target].violations = 0
-        playerStates[target].recentShots = {}
-        print('Reset state for player ' .. target)
+    if target then
+        ResetViolations(target)
+        print('Reset violations for player ' .. target)
+    end
+end, true)
+
+RegisterCommand('sf_clear', function(src, args)
+    if src ~= 0 then return end
+
+    local target = tonumber(args[1])
+    if target then
+        ClearState(target)
+        print('Cleared all state for player ' .. target)
     end
 end, true)
 
@@ -192,11 +251,18 @@ exports('GetViolations', function(playerId)
 end)
 
 exports('ResetViolations', function(playerId)
-    if playerStates[playerId] then
-        playerStates[playerId].violations = 0
-        return true
-    end
-    return false
+    ResetViolations(playerId)
+    return true
+end)
+
+exports('ClearState', function(playerId)
+    ClearState(playerId)
+    return true
+end)
+
+exports('GetPlayerFireMode', function(playerId)
+    local state = playerStates[playerId]
+    return state and state.mode or nil
 end)
 
 -- ============================================================================
@@ -204,6 +270,5 @@ end)
 -- ============================================================================
 
 if ValidationConfig.EnableValidation then
-    print('[SelectiveFire] Server validation active (logging: ' ..
-        (ValidationConfig.EnableLogging and 'on' or 'off') .. ')')
+    print('[SelectiveFire] Server validation active')
 end

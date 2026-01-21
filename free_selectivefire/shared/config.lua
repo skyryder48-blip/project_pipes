@@ -147,6 +147,178 @@ Config.Weapons = {
     },
 
     -- ========================================================================
+    -- BATCH 15/16: 9mm SMGs
+    -- ========================================================================
+
+    [`WEAPON_MICRO_MP5`] = {
+        name = 'H&K MP5K',
+        selectFire = true,
+        modes = {'SEMI', 'BURST', 'FULL'},
+        defaultMode = 'SEMI',
+        burstCount = 3,
+        description = 'H&K MP5K - Semi/Burst/Full (Navy trigger group)',
+    },
+
+    [`WEAPON_SIG_MPX`] = {
+        name = 'SIG MPX',
+        selectFire = true,
+        modes = {'SEMI', 'FULL'},
+        defaultMode = 'SEMI',
+        description = 'SIG MPX - Semi/Full select fire',
+    },
+
+    [`WEAPON_SCORPION`] = {
+        name = 'CZ Scorpion EVO 3',
+        selectFire = true,
+        modes = {'SEMI', 'FULL'},
+        defaultMode = 'SEMI',
+        description = 'CZ Scorpion EVO 3 - Semi/Full select fire',
+    },
+
+    [`WEAPON_TEC9`] = {
+        name = 'TEC-9',
+        selectFire = false,          -- Originally semi-only
+        modes = {'SEMI'},
+        defaultMode = 'SEMI',
+        modifiable = true,
+        modificationComponent = 'COMPONENT_TEC9_SWITCH',
+        modesWhenModified = {'SEMI', 'FULL'},
+        description = 'TEC-9 - Semi-only, convertible to full-auto',
+    },
+
+    [`WEAPON_MPA30`] = {
+        name = 'MPA30T',
+        selectFire = true,
+        modes = {'SEMI', 'FULL'},
+        defaultMode = 'SEMI',
+        description = 'MasterPiece Arms MPA30T - Semi/Full select fire',
+    },
+
+    [`WEAPON_SUB2000`] = {
+        name = 'Kel-Tec SUB-2000',
+        selectFire = false,          -- Civilian semi-only
+        modes = {'SEMI'},
+        defaultMode = 'SEMI',
+        description = 'Kel-Tec SUB-2000 - Semi-only (civilian carbine)',
+    },
+
+    [`WEAPON_RAM9_DESERT`] = {
+        name = 'RAM-9',
+        selectFire = true,
+        modes = {'SEMI', 'FULL'},
+        defaultMode = 'SEMI',
+        description = 'RAM-9 - Semi/Full select fire',
+    },
+
+    -- ========================================================================
+    -- BATCH 16: .45 ACP SMGs (MAC Platform)
+    -- ========================================================================
+
+    [`WEAPON_MAC10`] = {
+        name = 'MAC-10',
+        selectFire = true,
+        modes = {'FULL'},            -- Open-bolt, full-auto only
+        defaultMode = 'FULL',
+        description = 'Ingram MAC-10 - Full-auto only (open-bolt)',
+    },
+
+    [`WEAPON_MAC4A1`] = {
+        name = 'MAC-4A1',
+        selectFire = true,
+        modes = {'SEMI', 'FULL'},
+        defaultMode = 'FULL',
+        description = 'Modernized MAC - Semi/Full select fire',
+    },
+
+    -- ========================================================================
+    -- BATCH 17: 5.56 NATO AR PISTOLS/SBRs
+    -- ========================================================================
+
+    [`WEAPON_MK18`] = {
+        name = 'Daniel Defense MK18',
+        selectFire = true,
+        modes = {'SEMI', 'FULL'},
+        defaultMode = 'SEMI',
+        description = 'DD MK18 CQBR - Semi/Full select fire',
+    },
+
+    [`WEAPON_ARP_BUMPSTOCK`] = {
+        name = 'AR Pistol',
+        selectFire = false,
+        modes = {'SEMI'},
+        defaultMode = 'SEMI',
+        modifiable = true,
+        modificationComponent = 'COMPONENT_ARP_BUMPSTOCK',
+        modesWhenModified = {'SEMI', 'FULL'},
+        description = 'AR Pistol - Semi-only, bump stock capable',
+    },
+
+    [`WEAPON_SBR9`] = {
+        name = 'SBR-9',
+        selectFire = true,
+        modes = {'SEMI', 'FULL'},
+        defaultMode = 'SEMI',
+        description = '9mm AR SBR - Semi/Full select fire',
+    },
+
+    [`WEAPON_MCX300`] = {
+        name = 'SIG MCX .300 BLK',
+        selectFire = true,
+        modes = {'SEMI', 'FULL'},
+        defaultMode = 'SEMI',
+        description = 'SIG MCX .300 Blackout - Semi/Full select fire',
+    },
+
+    -- ========================================================================
+    -- BATCH 19: PRECISION RIFLES (Semi-Auto Only)
+    -- ========================================================================
+
+    [`WEAPON_SIG550`] = {
+        name = 'SIG 550 (Stgw 90)',
+        selectFire = true,
+        modes = {'SEMI', 'BURST', 'FULL'},
+        defaultMode = 'SEMI',
+        burstCount = 3,
+        description = 'Swiss Army rifle - Semi/Burst/Full (military)',
+    },
+
+    [`WEAPON_BARRETTM82A1`] = {
+        name = 'Barrett M82A1',
+        selectFire = false,
+        modes = {'SEMI'},
+        defaultMode = 'SEMI',
+        description = 'Barrett M82A1 .50 BMG - Semi-auto anti-materiel',
+    },
+
+    [`WEAPON_BARRETTM107A1`] = {
+        name = 'Barrett M107A1',
+        selectFire = false,
+        modes = {'SEMI'},
+        defaultMode = 'SEMI',
+        description = 'Barrett M107A1 .50 BMG - Semi-auto anti-materiel',
+    },
+
+    [`WEAPON_NEMOWATCHMAN`] = {
+        name = 'NEMO Omen Watchman',
+        selectFire = false,
+        modes = {'SEMI'},
+        defaultMode = 'SEMI',
+        description = 'NEMO Watchman .300 WM - Semi-auto precision',
+    },
+
+    -- ========================================================================
+    -- PISTOLS - FACTORY FULL-AUTO
+    -- ========================================================================
+
+    [`WEAPON_G18`] = {
+        name = 'Glock 18',
+        selectFire = true,
+        modes = {'SEMI', 'FULL'},
+        defaultMode = 'FULL',
+        description = 'Glock 18 - Factory select-fire machine pistol',
+    },
+
+    -- ========================================================================
     -- PISTOLS - MODIFIABLE (Glock Switches)
     -- These are semi-auto only unless modified with a switch
     -- ========================================================================
@@ -257,6 +429,43 @@ Config.Weapons = {
         description = 'Glock 45 - Semi-only, switch capable',
     },
 
+    [`WEAPON_G45_TAN`] = {
+        name = 'Glock 45 (FDE)',
+        selectFire = false,
+        modes = {'SEMI'},
+        defaultMode = 'SEMI',
+        modifiable = true,
+        modificationComponent = 'COMPONENT_G45_TAN_SWITCH',
+        modesWhenModified = {'SEMI', 'FULL'},
+        description = 'Glock 45 FDE - Semi-only, switch capable',
+    },
+
+    [`WEAPON_G19XD`] = {
+        name = 'Glock 19X (Desert)',
+        selectFire = false,
+        modes = {'SEMI'},
+        defaultMode = 'SEMI',
+        modifiable = true,
+        modificationComponent = 'COMPONENT_G19XD_SWITCH',
+        modesWhenModified = {'SEMI', 'FULL'},
+        description = 'Glock 19X Desert - Semi-only, switch capable',
+    },
+
+    -- ========================================================================
+    -- 10mm AUTO PISTOLS
+    -- ========================================================================
+
+    [`WEAPON_GLOCK20`] = {
+        name = 'Glock 20',
+        selectFire = false,
+        modes = {'SEMI'},
+        defaultMode = 'SEMI',
+        modifiable = true,
+        modificationComponent = 'COMPONENT_G20_SWITCH',
+        modesWhenModified = {'SEMI', 'FULL'},
+        description = 'Glock 20 10mm - Semi-only, switch capable',
+    },
+
     -- ========================================================================
     -- SMGs - Native Full-Auto with Select Fire
     -- ========================================================================
@@ -282,19 +491,28 @@ Config.Weapons = {
 -- ============================================================================
 
 Config.ModificationComponents = {
-    -- Glock Switches (auto sears)
+    -- Glock Switches (auto sears) - 9mm
     'COMPONENT_G17_SWITCH',
     'COMPONENT_G17_BLK_SWITCH',
     'COMPONENT_G17_GEN5_SWITCH',
     'COMPONENT_G19_SWITCH',
     'COMPONENT_G19X_SWITCH',
+    'COMPONENT_G19XD_SWITCH',
     'COMPONENT_G26_SWITCH',
     'COMPONENT_G43X_SWITCH',
     'COMPONENT_G45_SWITCH',
+    'COMPONENT_G45_TAN_SWITCH',
+
+    -- Glock Switches (auto sears) - 10mm
+    'COMPONENT_G20_SWITCH',
+
+    -- SMG Switches
+    'COMPONENT_TEC9_SWITCH',
 
     -- Bump Stocks (for rifles)
     'COMPONENT_PSA_AR15_BUMPSTOCK',
     'COMPONENT_DESERT_AR15_BUMPSTOCK',
+    'COMPONENT_ARP_BUMPSTOCK',
 
     -- Future modifications can be added here
     -- 'COMPONENT_BINARY_TRIGGER',

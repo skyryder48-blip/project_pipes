@@ -671,6 +671,168 @@ Config.Weapons = {
         componentBase = 'COMPONENT_SHOCKWAVE',
         clipSize = 6,
     },
+
+    -- ======================================================================
+    -- BATCH 13: 7.62x39mm AK-PLATFORM RIFLES
+    -- Soviet intermediate cartridge: +14% damage vs 5.56 NATO
+    -- Superior short-barrel performance, excellent barrier penetration
+    -- ======================================================================
+
+    -- Micro Draco - Ultra-Compact AK Pistol (30 rounds, 6.25" barrel)
+    -- "Fire-breathing dragon" - massive muzzle flash, extreme recoil
+    -- Fastest ADS of any rifle, worst accuracy, devastating CQB
+    [`WEAPON_MINI_AK47`] = {
+        caliber = '7.62x39',
+        componentBase = 'COMPONENT_MINI_AK47',
+        clipSize = 30,
+    },
+
+    -- CMMG Mk47 Mutant - Precision AK/AR Hybrid (30 rounds, 16.1" barrel)
+    -- AR ergonomics + AK magazine compatibility, sub-2 MOA accuracy
+    -- Best 7.62x39 platform - moderate recoil, excellent accuracy
+    [`WEAPON_MK47`] = {
+        caliber = '7.62x39',
+        componentBase = 'COMPONENT_MK47',
+        clipSize = 30,
+    },
+
+    -- ======================================================================
+    -- BATCH 19: PRECISION RIFLES & ANTI-MATERIEL PLATFORMS
+    -- Four caliber tiers: 5.56 → .308 → .300 WM → .50 BMG
+    -- Energy range: 1,300 ft-lbs to 13,200 ft-lbs (10x spread)
+    -- ======================================================================
+
+    -- SIG 550 (Stgw 90) - Swiss Assault Rifle (20 rounds, 20.8" barrel)
+    -- Swiss military standard since 1990, exceptional 0.72 MOA accuracy
+    [`WEAPON_SIG550`] = {
+        caliber = '5.56',
+        componentBase = 'COMPONENT_SIG550',
+        clipSize = 20,
+    },
+
+    -- Remington 700 - Civilian Bolt-Action (4 rounds, 22-24" barrel)
+    -- America's most popular bolt-action, 1.0 MOA production accuracy
+    [`WEAPON_REMINGTON700`] = {
+        caliber = '7.62x51',
+        componentBase = 'COMPONENT_REMINGTON700',
+        clipSize = 4,
+    },
+
+    -- Sauer 101 - German Precision Rifle (5 rounds, 22" barrel)
+    -- J.P. Sauer & Sohn since 1751, sub-MOA factory guarantee
+    -- 60° bolt throw = fastest .308 bolt cycle
+    [`WEAPON_SAUER101`] = {
+        caliber = '7.62x51',
+        componentBase = 'COMPONENT_SAUER101',
+        clipSize = 5,
+    },
+
+    -- Remington M24 SWS - Military Sniper (5 rounds, 24" barrel)
+    -- U.S. Army sniper rifle 1988-2014, ≤0.35 MOA machine rest
+    [`WEAPON_REMINGTONM24`] = {
+        caliber = '7.62x51',
+        componentBase = 'COMPONENT_REMINGTONM24',
+        clipSize = 5,
+    },
+
+    -- NEMO Omen Watchman - .300 WM Semi-Auto (14 rounds, 24" barrel)
+    -- World's first reliable .300 WM AR, 0.5-1.0 MOA
+    -- HIGH CAPACITY magnum platform - 14 rounds of .300 Win Mag
+    [`WEAPON_NEMOWATCHMAN`] = {
+        caliber = '.300wm',
+        componentBase = 'COMPONENT_NEMOWATCHMAN',
+        clipSize = 14,
+    },
+
+    -- Victus XMR - .50 BMG Precision Bolt (5 rounds, 27" barrel)
+    -- Sub-MOA with match ammo, 30-33 lbs, extreme range precision
+    [`WEAPON_VICTUSXMR`] = {
+        caliber = '.50bmg',
+        componentBase = 'COMPONENT_VICTUSXMR',
+        clipSize = 5,
+    },
+
+    -- Barrett M82A1 - .50 BMG Semi-Auto Original (10 rounds, 29" barrel)
+    -- Original Barrett .50 cal, short-recoil semi-auto, 1.5-2.0 MOA
+    -- Anti-materiel capability: 9" concrete penetration
+    [`WEAPON_BARRETTM82A1`] = {
+        caliber = '.50bmg',
+        componentBase = 'COMPONENT_BARRETTM82A1',
+        clipSize = 10,
+    },
+
+    -- Barrett M107A1 - .50 BMG Semi-Auto Upgraded (10 rounds, 29" barrel)
+    -- Improved M82A1: lighter (28.7 lbs), better accuracy (1.0-1.5 MOA)
+    -- Hydraulic buffer, suppressor-ready, best overall .50 platform
+    [`WEAPON_BARRETTM107A1`] = {
+        caliber = '.50bmg',
+        componentBase = 'COMPONENT_BARRETTM107A1',
+        clipSize = 10,
+    },
+
+    -- ======================================================================
+    -- BATCH 20: .38 SPECIAL REVOLVERS & TRANQUILIZER DART GUN
+    -- .38 Special +P: 64-93% of 9mm energy depending on barrel
+    -- Final batch - concealed carry and non-lethal options
+    -- ======================================================================
+
+    -- S&W Model 60 - Premium 3" J-Frame (5 rounds, 3.0" barrel)
+    -- First all-stainless revolver (1965), DA/SA, adjustable sights
+    [`WEAPON_SWMODEL60`] = {
+        caliber = '.38spl',
+        componentBase = 'COMPONENT_SWMODEL60',
+        clipSize = 5,
+    },
+
+    -- S&W Model 10 - Police Service Revolver (6 rounds, 4.0" barrel)
+    -- Most produced S&W (6M+ units), K-frame, maximum .38 performance
+    [`WEAPON_SWMODEL10`] = {
+        caliber = '.38spl',
+        componentBase = 'COMPONENT_SWMODEL10',
+        clipSize = 6,
+    },
+
+    -- S&W Model 442 Airweight - Black DAO Snub (5 rounds, 1.875" barrel)
+    -- "Centennial" internal hammer, 14.7 oz, deep concealment
+    [`WEAPON_SWMODEL442`] = {
+        caliber = '.38spl',
+        componentBase = 'COMPONENT_SWMODEL442',
+        clipSize = 5,
+    },
+
+    -- S&W Model 642 Airweight - Stainless DAO Snub (5 rounds, 1.875" barrel)
+    -- S&W's best-selling J-frame, 14.6 oz, matte silver finish
+    [`WEAPON_SWMODEL642`] = {
+        caliber = '.38spl',
+        componentBase = 'COMPONENT_SWMODEL642',
+        clipSize = 5,
+    },
+
+    -- Ruger LCR - Modern Polymer Snub (5 rounds, 1.87" barrel)
+    -- Revolutionary 2009 design, LIGHTEST in class (13.5 oz)
+    -- Friction-reducing cam trigger feels lighter than it is
+    [`WEAPON_RUGERLCR`] = {
+        caliber = '.38spl',
+        componentBase = 'COMPONENT_RUGERLCR',
+        clipSize = 5,
+    },
+
+    -- Taurus Defender 856 - Budget 6-Shot (6 rounds, 3.0" barrel)
+    -- Value alternative with extra capacity, tritium sights standard
+    [`WEAPON_TAURUS856`] = {
+        caliber = '.38spl',
+        componentBase = 'COMPONENT_TAURUS856',
+        clipSize = 6,
+    },
+
+    -- Tranquilizer Dart Gun - Non-Lethal Special Weapon (3 darts)
+    -- 30-second incapacitation: stumble → ragdoll → freeze
+    -- Very quiet (15m AI detection), slow projectile (76 m/s)
+    [`WEAPON_DARTGUN`] = {
+        caliber = 'dart',
+        componentBase = 'COMPONENT_DARTGUN',
+        clipSize = 3,
+    },
 }
 
 -- Helper function to get weapon info

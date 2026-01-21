@@ -400,6 +400,124 @@ Config.AmmoTypes = {
             description = '.300 BLK 220gr @ 1,010 fps. Suppressor-optimized, reduced velocity/range.',
         },
     },
+
+    -- ==================== 7.62x39mm AMMUNITION ====================
+    -- Batch 13: AK-Platform Rifles (Micro Draco, CMMG Mk47 Mutant)
+    -- Soviet intermediate cartridge: 123gr @ 2,350 fps = 1,508 ft-lbs
+    -- +14% more damage than 5.56 NATO, superior short-barrel performance
+    ['7.62x39'] = {
+        ['fmj'] = {
+            item = 'ammo_762x39_fmj',
+            label = '7.62x39mm FMJ',
+            componentSuffix = '_CLIP_FMJ',
+            ammoInfo = 'AMMO_762X39_FMJ',
+            description = '7.62x39 M43/M67 ball. 48 damage baseline, 0.38 penetration. Soviet standard issue.',
+        },
+        ['sp'] = {
+            item = 'ammo_762x39_sp',
+            label = '7.62x39mm Soft Point',
+            componentSuffix = '_CLIP_SP',
+            ammoInfo = 'AMMO_762X39_SP',
+            description = '7.62x39 expanding hunting load. +15% soft tissue damage, -40% barrier penetration.',
+        },
+        ['ap'] = {
+            item = 'ammo_762x39_ap',
+            label = '7.62x39mm AP',
+            componentSuffix = '_CLIP_AP',
+            ammoInfo = 'AMMO_762X39_AP',
+            description = '7.62x39 7N23 BP armor piercing. -10% damage, +50% vs armor. Tool steel penetrator.',
+        },
+    },
+
+    -- ==================== 7.62x51mm NATO / .308 WINCHESTER ====================
+    -- Batch 19: Precision Rifles (Remington 700, Sauer 101, Remington M24)
+    -- Full-power battle rifle cartridge: 147gr @ 2,800 fps = 2,627 ft-lbs
+    -- 74% more energy than 7.62x39, NATO standard sniper/DMR round
+    ['7.62x51'] = {
+        ['fmj'] = {
+            item = 'ammo_308_fmj',
+            label = '7.62 NATO FMJ',
+            componentSuffix = '_CLIP_FMJ',
+            ammoInfo = 'AMMO_762X51_FMJ',
+            description = '7.62 NATO M80 ball. 147gr @ 2,800 fps, 2,627 ft-lbs. Standard military issue.',
+        },
+        ['match'] = {
+            item = 'ammo_308_match',
+            label = '7.62 NATO Match',
+            componentSuffix = '_CLIP_MATCH',
+            ammoInfo = 'AMMO_762X51_MATCH',
+            description = '7.62 NATO Sierra MatchKing 168gr HPBT. +5% damage, sub-MOA precision.',
+        },
+        ['ap'] = {
+            item = 'ammo_308_ap',
+            label = '7.62 NATO AP',
+            componentSuffix = '_CLIP_AP',
+            ammoInfo = 'AMMO_762X51_AP',
+            description = '7.62 NATO M993 tungsten AP. -5% damage, defeats Level III+ armor.',
+        },
+    },
+
+    -- ==================== .300 WINCHESTER MAGNUM ====================
+    -- Batch 19: Long-Range Precision (NEMO Omen Watchman)
+    -- Magnum hunting/sniper cartridge: 180gr @ 2,960 fps = 3,700 ft-lbs
+    -- 40% more energy than .308, 1000+ yard effective range
+    ['.300wm'] = {
+        ['fmj'] = {
+            item = 'ammo_300wm_fmj',
+            label = '.300 Win Mag FMJ',
+            componentSuffix = '_CLIP_FMJ',
+            ammoInfo = 'AMMO_300WM_FMJ',
+            description = '.300 Win Mag 180gr hunting load. 3,700 ft-lbs, long-range big game standard.',
+        },
+        ['match'] = {
+            item = 'ammo_300wm_match',
+            label = '.300 Win Mag Match',
+            componentSuffix = '_CLIP_MATCH',
+            ammoInfo = 'AMMO_300WM_MATCH',
+            description = '.300 Win Mag 190gr Sierra MK. +3% damage, competition precision load.',
+        },
+    },
+
+    -- ==================== .50 BMG (12.7x99mm NATO) ====================
+    -- Batch 19: Anti-Materiel Rifles (Barrett M82A1, M107A1, Victus XMR)
+    -- THE MOST POWERFUL conventional small arms cartridge
+    -- 647gr @ 2,910 fps = 13,200 ft-lbs (36x 9mm energy)
+    ['.50bmg'] = {
+        ['ball'] = {
+            item = 'ammo_50bmg_ball',
+            label = '.50 BMG Ball',
+            componentSuffix = '_CLIP_BALL',
+            ammoInfo = 'AMMO_50BMG_BALL',
+            description = '.50 BMG M33 ball. 647gr @ 2,910 fps, 13,200 ft-lbs. Anti-personnel baseline.',
+        },
+        ['api'] = {
+            item = 'ammo_50bmg_api',
+            label = '.50 BMG API',
+            componentSuffix = '_CLIP_API',
+            ammoInfo = 'AMMO_50BMG_API',
+            description = '.50 BMG M8 Armor Piercing Incendiary. -5% damage, ignites on armor impact.',
+        },
+        ['boom'] = {
+            item = 'ammo_50bmg_boom',
+            label = '.50 BMG BOOM',
+            componentSuffix = '_CLIP_BOOM',
+            ammoInfo = 'AMMO_50BMG_BOOM',
+            description = '.50 BMG explosive multipurpose. +10% damage, DEVASTATING vs vehicles. Penetrate→fragment→explode.',
+        },
+    },
+
+    -- ==================== TRANQUILIZER DART ====================
+    -- Batch 20: Dart Gun (Special Non-Lethal)
+    -- Unique incapacitation system - not ballistic ammunition
+    ['dart'] = {
+        ['tranq'] = {
+            item = 'ammo_dart_tranq',
+            label = 'Tranquilizer Dart',
+            componentSuffix = '_CLIP_TRANQ',
+            ammoInfo = 'AMMO_DART_TRANQ',
+            description = 'Sedative dart. 2 damage, 30-second incapacitation (stumble→ragdoll→freeze).',
+        },
+    },
 }
 
 -- Default ammo type for each caliber (used when weapon is first equipped)
@@ -418,5 +536,10 @@ Config.DefaultAmmoType = {
     ['5.56'] = 'fmj',
     ['6.8x51'] = 'fmj',
     ['.300blk'] = 'supersonic',
-    ['12ga'] = '00buck',  -- Will be tuned per-weapon in batch 18
+    ['12ga'] = '00buck',
+    ['7.62x39'] = 'fmj',    -- Batch 13: AK platforms
+    ['7.62x51'] = 'fmj',    -- Batch 19: Precision rifles
+    ['.300wm'] = 'fmj',     -- Batch 19: NEMO Watchman
+    ['.50bmg'] = 'ball',    -- Batch 19: Anti-materiel rifles
+    ['dart'] = 'tranq',     -- Batch 20: Dart gun
 }

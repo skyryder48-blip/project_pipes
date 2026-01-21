@@ -324,30 +324,8 @@ RegisterNetEvent('ammo:magazineEquipped', function(data)
     })
 end)
 
---[[
-    Remove all clip components from weapon (before applying new one)
-]]
-function RemoveAllClipComponents(weaponHash)
-    local ped = PlayerPedId()
-    local weaponInfo = Config.Weapons[weaponHash]
-    if not weaponInfo then return end
-
-    local caliber = weaponInfo.caliber
-    local ammoTypes = Config.AmmoTypes[caliber]
-    if not ammoTypes then return end
-
-    -- Remove all possible clip components for this weapon
-    for ammoType, _ in pairs(ammoTypes) do
-        -- Try standard, extended, and drum variants
-        for _, suffix in ipairs({ '_CLIP_', '_EXTCLIP_', '_DRUM_' }) do
-            local componentName = weaponInfo.componentBase .. suffix .. string.upper(ammoType)
-            local componentHash = GetHashKey(componentName)
-            if HasPedGotWeaponComponent(ped, weaponHash, componentHash) then
-                RemoveWeaponComponentFromPed(ped, weaponHash, componentHash)
-            end
-        end
-    end
-end
+-- NOTE: RemoveAllClipComponents is now defined in cl_ammo.lua and exported
+-- This file uses the shared function from cl_ammo.lua
 
 -- ============================================================================
 -- COMBAT RELOAD MANAGEMENT
@@ -573,9 +551,19 @@ end)
 -- ============================================================================
 
 --[[
-    When player switches weapons, restore equipped magazine state
+    When weapon is converted (e.g., G26 → G26_SWITCH), transfer magazine state
 ]]
-RegisterNetEvent('ammo:weaponSwitched', function(newWeapon)
+RegisterNetEvent('ammo:weaponConverted', function(data)
+    local oldWeapon = data.oldWeapon
+    local newWeapon = data.newWeapon
+
+    -- Transfer magazine state from old weapon to new weapon
+    if equippedMagazines[oldWeapon] then
+        equippedMagazines[newWeapon] = equippedMagazines[oldWeapon]
+        equippedMagazines[oldWeapon] = nil
+    end
+
+    -- Apply component to new weapon if magazine was equipped
     if equippedMagazines[newWeapon] then
         local magData = equippedMagazines[newWeapon]
         local componentName = GetMagazineComponentName(newWeapon, magData.item, magData.ammoType)
@@ -584,10 +572,8 @@ RegisterNetEvent('ammo:weaponSwitched', function(newWeapon)
             local componentHash = GetHashKey(componentName)
             local ped = PlayerPedId()
 
-            if not HasPedGotWeaponComponent(ped, newWeapon, componentHash) then
-                GiveWeaponComponentToPed(ped, newWeapon, componentHash)
-            end
-
+            RemoveAllClipComponents(newWeapon)
+            GiveWeaponComponentToPed(ped, newWeapon, componentHash)
             SetPedAmmo(ped, newWeapon, magData.count)
         end
     end

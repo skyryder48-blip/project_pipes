@@ -2,11 +2,11 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <n>w_pi_rugerlcr</n>
-      <Model>w_pi_rugerlcr</Model>
+      <n>w_pi_lcr</n>
+      <Model>w_pi_lcr</Model>
       <Audio>AUDIO_ITEM_REVOLVER</Audio>
-      <Slot>YOURSLOT</Slot>
-      <WeaponFlags>WF_FIREARM, WF_GUN, WF_WEAPON, WF_LOUDWEAPON</WeaponFlags>
+      <Slot>SLOT_RUGERLCR</Slot>
+      <WeaponFlags>WF_FIREARM, WF_GUN, WF_WEAPON, WF_LOUDWEAPON, WF_TAKE_ARM_L_HAND_DAMAGE_REACTIONS, WF_MAKE_PED_BACKUP</WeaponFlags>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

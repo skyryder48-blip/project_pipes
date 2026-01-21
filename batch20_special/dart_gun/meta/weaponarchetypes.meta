@@ -5,8 +5,8 @@
       <n>w_pi_dartgun</n>
       <Model>w_pi_dartgun</Model>
       <Audio>AUDIO_ITEM_STUNGUN</Audio>
-      <Slot>YOURSLOT</Slot>
-      <WeaponFlags>WF_FIREARM, WF_GUN, WF_WEAPON</WeaponFlags>
+      <Slot>SLOT_DARTGUN</Slot>
+      <WeaponFlags>WF_FIREARM, WF_GUN, WF_WEAPON, WF_TAKE_ARM_L_HAND_DAMAGE_REACTIONS</WeaponFlags>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

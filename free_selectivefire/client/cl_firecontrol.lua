@@ -3,6 +3,11 @@
 
     Core logic for managing weapon fire modes.
     Handles semi-auto, burst, and full-auto fire control.
+
+    Performance optimizations:
+    - Cached PlayerPedId() for reduced native calls
+    - Conditional waiting based on weapon state
+    - Efficient vehicle detection
 ]]
 
 -- ============================================================================
@@ -19,6 +24,16 @@ local lastToggleTime = 0
 local isTriggerHeld = false
 local shotsFiredThisTrigger = 0
 
+-- Performance: Cached values
+local cachedPed = nil
+local pedCacheTime = 0
+local PED_CACHE_INTERVAL = 500       -- Refresh ped every 500ms
+
+-- Vehicle state tracking
+local isInVehicle = false
+local vehicleCheckTime = 0
+local VEHICLE_CHECK_INTERVAL = 250   -- Check vehicle status every 250ms
+
 -- Mode display names
 local modeNames = {
     SEMI = 'Semi-Auto',
@@ -29,6 +44,26 @@ local modeNames = {
 -- ============================================================================
 -- UTILITY FUNCTIONS
 -- ============================================================================
+
+-- Get cached player ped (refreshed periodically)
+local function GetCachedPed()
+    local currentTime = GetGameTimer()
+    if not cachedPed or (currentTime - pedCacheTime) > PED_CACHE_INTERVAL then
+        cachedPed = PlayerPedId()
+        pedCacheTime = currentTime
+    end
+    return cachedPed
+end
+
+-- Check if player is in vehicle (cached)
+local function CheckIsInVehicle(ped)
+    local currentTime = GetGameTimer()
+    if (currentTime - vehicleCheckTime) > VEHICLE_CHECK_INTERVAL then
+        isInVehicle = IsPedInAnyVehicle(ped, false)
+        vehicleCheckTime = currentTime
+    end
+    return isInVehicle
+end
 
 -- Check if player has a specific weapon component
 local function HasWeaponComponent(ped, weaponHash, componentHash)
@@ -88,6 +123,9 @@ local function CycleFireMode(ped, weaponHash)
     if Config.RememberMode then
         weaponModes[weaponHash] = currentMode
     end
+
+    -- Send to server for validation tracking
+    TriggerServerEvent('selectivefire:modeChanged', weaponHash, currentMode)
 
     return true
 end
@@ -175,7 +213,7 @@ local function HandleBurstFire(ped, weaponHash)
     end
 end
 
--- Handle full-automatic fire
+-- Handle full-automatic fire (no restrictions)
 local function HandleFullAuto(ped, weaponHash)
     isTriggerHeld = IsControlPressed(0, 24)
 end
@@ -190,6 +228,8 @@ local function TrackShotsFired(ped, weaponHash)
         if isInBurst then
             burstShotsRemaining = burstShotsRemaining - 1
         end
+        -- Notify server of shot for validation
+        TriggerServerEvent('selectivefire:shotFired', weaponHash, currentMode)
     end
 
     lastAmmoCount = currentAmmo
@@ -201,10 +241,9 @@ end
 
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(0)
-
-        local ped = PlayerPedId()
+        local ped = GetCachedPed()
         local weaponHash = GetSelectedPedWeapon(ped)
+        local config = Config.Weapons[weaponHash]
 
         -- Check if weapon changed
         if weaponHash ~= currentWeapon then
@@ -235,18 +274,33 @@ Citizen.CreateThread(function()
             end
         end
 
-        -- Apply fire control if weapon is configured
-        local config = Config.Weapons[weaponHash]
+        -- Only process fire control if we have a configured weapon
         if config then
-            TrackShotsFired(ped, weaponHash)
+            -- Check if in vehicle - allow normal weapon use (no fire mode control)
+            local inVehicle = CheckIsInVehicle(ped)
 
-            if currentMode == 'SEMI' then
-                HandleSemiAuto(ped, weaponHash)
-            elseif currentMode == 'BURST' then
-                HandleBurstFire(ped, weaponHash)
-            elseif currentMode == 'FULL' then
-                HandleFullAuto(ped, weaponHash)
+            if inVehicle then
+                -- In vehicle: weapons work normally (GTA default behavior)
+                -- Just track state, don't apply fire control restrictions
+                isTriggerHeld = IsControlPressed(0, 24)
+                Citizen.Wait(100)  -- Reduced tick rate in vehicles
+            else
+                -- On foot: apply fire control based on current mode
+                TrackShotsFired(ped, weaponHash)
+
+                if currentMode == 'SEMI' then
+                    HandleSemiAuto(ped, weaponHash)
+                elseif currentMode == 'BURST' then
+                    HandleBurstFire(ped, weaponHash)
+                elseif currentMode == 'FULL' then
+                    HandleFullAuto(ped, weaponHash)
+                end
+
+                Citizen.Wait(0)  -- Full speed for fire control
             end
+        else
+            -- No configured weapon - wait longer to save resources
+            Citizen.Wait(200)
         end
     end
 end)
@@ -257,19 +311,18 @@ end)
 
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(0)
-
-        local ped = PlayerPedId()
+        local ped = GetCachedPed()
         local weaponHash = GetSelectedPedWeapon(ped)
+        local config = Config.Weapons[weaponHash]
 
-        if IsControlJustPressed(0, Config.ToggleKeyCode) then
-            local currentTime = GetGameTimer()
+        -- Only check toggle key if we have a configured weapon
+        if config then
+            if IsControlJustPressed(0, Config.ToggleKeyCode) then
+                local currentTime = GetGameTimer()
 
-            if currentTime - lastToggleTime > 200 then
-                lastToggleTime = currentTime
+                if currentTime - lastToggleTime > 200 then
+                    lastToggleTime = currentTime
 
-                local config = Config.Weapons[weaponHash]
-                if config then
                     local modes = GetEffectiveModes(ped, weaponHash)
 
                     if #modes > 1 then
@@ -286,6 +339,9 @@ Citizen.CreateThread(function()
                     end
                 end
             end
+            Citizen.Wait(0)  -- Fast response for toggle key
+        else
+            Citizen.Wait(200)  -- Slow tick when no weapon
         end
     end
 end)
@@ -306,11 +362,11 @@ exports('HasSelectFire', function(weaponHash)
     weaponHash = weaponHash or currentWeapon
     local config = Config.Weapons[weaponHash]
     if not config then return false end
-    return #GetEffectiveModes(PlayerPedId(), weaponHash) > 1
+    return #GetEffectiveModes(GetCachedPed(), weaponHash) > 1
 end)
 
 exports('SetFireMode', function(mode)
-    local ped = PlayerPedId()
+    local ped = GetCachedPed()
     local weaponHash = GetSelectedPedWeapon(ped)
     local modes = GetEffectiveModes(ped, weaponHash)
 
@@ -320,6 +376,7 @@ exports('SetFireMode', function(mode)
             if Config.RememberMode then
                 weaponModes[weaponHash] = currentMode
             end
+            TriggerServerEvent('selectivefire:modeChanged', weaponHash, currentMode)
             return true
         end
     end
@@ -327,5 +384,9 @@ exports('SetFireMode', function(mode)
 end)
 
 exports('GetAvailableModes', function()
-    return GetEffectiveModes(PlayerPedId(), currentWeapon)
+    return GetEffectiveModes(GetCachedPed(), currentWeapon)
+end)
+
+exports('IsInVehicle', function()
+    return isInVehicle
 end)

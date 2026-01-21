@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    UNIVERSAL MODIFICATION COMPONENTS
+
+    These components enable fire mode modifications across multiple weapons.
+    A single inventory item can be attached to any compatible weapon in its category.
+
+    COMPONENT_GLOCK_SWITCH - Universal Glock auto sear (works on all 9mm/10mm Glocks)
+    COMPONENT_AR15_BUMPSTOCK - Universal bump stock (works on all AR-15 platform rifles)
+    COMPONENT_SMG_SWITCH - Universal SMG conversion (works on compatible SMGs)
+-->
+
+<CWeaponComponentInfoBlob>
+    <Infos>
+        <!-- ================================================================
+             GLOCK SWITCH (Universal Auto Sear)
+             Compatible with: G17, G17 Gen5, G17 BLK, G19, G19X, G19XD,
+                              G26, G43X, G45, G45 TAN, G20 (10mm)
+             ================================================================ -->
+        <Item type="CWeaponComponentInfo">
+            <Name>COMPONENT_GLOCK_SWITCH</Name>
+            <Model>w_ar_glock_switch</Model>
+            <LocName>WT_GLOCK_SWITCH</LocName>
+            <LocDesc>WTD_GLOCK_SWITCH</LocDesc>
+            <Type>Addon</Type>
+            <Category>CMOD_ADDON</Category>
+            <ClipSize value="0" />
+            <IsDefault value="false" />
+            <DisplayOrder value="99" />
+            <CreateObject value="true" />
+            <ApplyWeaponTint value="true" />
+            <ShopStat1 type="NULL" />
+            <ShopStat2 type="NULL" />
+            <ShopStat3 type="NULL" />
+        </Item>
+
+        <!-- ================================================================
+             AR-15 BUMP STOCK (Universal)
+             Compatible with: PSA AR-15, Desert AR-15, ARP (AR Pistol),
+                              MK18, SBR-9, and other AR-15 platform weapons
+             ================================================================ -->
+        <Item type="CWeaponComponentInfo">
+            <Name>COMPONENT_AR15_BUMPSTOCK</Name>
+            <Model>w_ar_bumpstock</Model>
+            <LocName>WT_AR15_BUMPSTOCK</LocName>
+            <LocDesc>WTD_AR15_BUMPSTOCK</LocDesc>
+            <Type>Addon</Type>
+            <Category>CMOD_ADDON</Category>
+            <ClipSize value="0" />
+            <IsDefault value="false" />
+            <DisplayOrder value="99" />
+            <CreateObject value="true" />
+            <ApplyWeaponTint value="true" />
+            <ShopStat1 type="NULL" />
+            <ShopStat2 type="NULL" />
+            <ShopStat3 type="NULL" />
+        </Item>
+
+        <!-- ================================================================
+             SMG SWITCH (Universal SMG Auto Conversion)
+             Compatible with: TEC-9, MAC platform, and other convertible SMGs
+             ================================================================ -->
+        <Item type="CWeaponComponentInfo">
+            <Name>COMPONENT_SMG_SWITCH</Name>
+            <Model>w_ar_smg_switch</Model>
+            <LocName>WT_SMG_SWITCH</LocName>
+            <LocDesc>WTD_SMG_SWITCH</LocDesc>
+            <Type>Addon</Type>
+            <Category>CMOD_ADDON</Category>
+            <ClipSize value="0" />
+            <IsDefault value="false" />
+            <DisplayOrder value="99" />
+            <CreateObject value="true" />
+            <ApplyWeaponTint value="true" />
+            <ShopStat1 type="NULL" />
+            <ShopStat2 type="NULL" />
+            <ShopStat3 type="NULL" />
+        </Item>
+
+        <!-- ================================================================
+             AK BUMPSTOCK (Universal AK Platform)
+             Compatible with: Mini AK47 (Draco), MK47, and other AK platforms
+             ================================================================ -->
+        <Item type="CWeaponComponentInfo">
+            <Name>COMPONENT_AK_BUMPSTOCK</Name>
+            <Model>w_ar_ak_bumpstock</Model>
+            <LocName>WT_AK_BUMPSTOCK</LocName>
+            <LocDesc>WTD_AK_BUMPSTOCK</LocDesc>
+            <Type>Addon</Type>
+            <Category>CMOD_ADDON</Category>
+            <ClipSize value="0" />
+            <IsDefault value="false" />
+            <DisplayOrder value="99" />
+            <CreateObject value="true" />
+            <ApplyWeaponTint value="true" />
+            <ShopStat1 type="NULL" />
+            <ShopStat2 type="NULL" />
+            <ShopStat3 type="NULL" />
+        </Item>
+    </Infos>
+</CWeaponComponentInfoBlob>

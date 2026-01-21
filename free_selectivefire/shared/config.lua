@@ -17,6 +17,16 @@
     - modifiable: boolean - Can be modified to add fire modes
     - modificationComponent: string - Component that enables modification
     - modesWhenModified: table - Fire modes available when modified
+
+    UNIVERSAL COMPONENTS:
+    This system uses universal modification components that work across
+    multiple compatible weapons. A single inventory item can modify any
+    weapon in its compatibility group:
+
+    - COMPONENT_GLOCK_SWITCH: Works on all Glock pistols (9mm and 10mm)
+    - COMPONENT_AR15_BUMPSTOCK: Works on all AR-15 platform rifles
+    - COMPONENT_SMG_SWITCH: Works on convertible SMGs (TEC-9, etc.)
+    - COMPONENT_AK_BUMPSTOCK: Works on AK platform rifles
 ]]
 
 Config = {}
@@ -40,6 +50,60 @@ Config.FireRates = {
 
 Config.BurstDelay = 350             -- Delay after burst before next burst (ms)
 Config.DefaultBurstCount = 3        -- Default rounds per burst
+
+-- ============================================================================
+-- UNIVERSAL MODIFICATION COMPONENTS
+-- Define groups of weapons that can share the same modification component
+-- ============================================================================
+
+Config.UniversalComponents = {
+    -- Glock Switch - works on all Glock pistols
+    GLOCK_SWITCH = {
+        componentName = 'COMPONENT_GLOCK_SWITCH',
+        compatibleWeapons = {
+            'WEAPON_G17',
+            'WEAPON_G17_BLK',
+            'WEAPON_G17_GEN5',
+            'WEAPON_G19',
+            'WEAPON_G19X',
+            'WEAPON_G19XD',
+            'WEAPON_G26',
+            'WEAPON_G43X',
+            'WEAPON_G45',
+            'WEAPON_G45_TAN',
+            'WEAPON_GLOCK20',  -- 10mm Glock
+        },
+    },
+
+    -- AR-15 Bump Stock - works on all AR-15 platform rifles
+    AR15_BUMPSTOCK = {
+        componentName = 'COMPONENT_AR15_BUMPSTOCK',
+        compatibleWeapons = {
+            'WEAPON_PSA_AR15',
+            'WEAPON_DESERT_AR15',
+            'WEAPON_ARP_BUMPSTOCK',
+            'WEAPON_MK18',
+            'WEAPON_SBR9',
+        },
+    },
+
+    -- SMG Switch - works on convertible SMGs
+    SMG_SWITCH = {
+        componentName = 'COMPONENT_SMG_SWITCH',
+        compatibleWeapons = {
+            'WEAPON_TEC9',
+        },
+    },
+
+    -- AK Bump Stock - works on AK platform rifles
+    AK_BUMPSTOCK = {
+        componentName = 'COMPONENT_AK_BUMPSTOCK',
+        compatibleWeapons = {
+            'WEAPON_MINI_AK47',
+            'WEAPON_MK47',
+        },
+    },
+}
 
 -- ============================================================================
 -- WEAPON DEFINITIONS
@@ -86,7 +150,7 @@ Config.Weapons = {
         modes = {'SEMI'},
         defaultMode = 'SEMI',
         modifiable = true,
-        modificationComponent = 'COMPONENT_PSA_AR15_BUMPSTOCK',
+        modificationComponent = 'COMPONENT_AR15_BUMPSTOCK',
         modesWhenModified = {'SEMI', 'FULL'},
         description = 'PSA PA-15 - Semi-only (civilian), bump stock capable',
     },
@@ -97,7 +161,7 @@ Config.Weapons = {
         modes = {'SEMI'},
         defaultMode = 'SEMI',
         modifiable = true,
-        modificationComponent = 'COMPONENT_DESERT_AR15_BUMPSTOCK',
+        modificationComponent = 'COMPONENT_AR15_BUMPSTOCK',
         modesWhenModified = {'SEMI', 'FULL'},
         description = 'FDE AR-15 - Semi-only (civilian), bump stock capable',
     },
@@ -135,6 +199,9 @@ Config.Weapons = {
         selectFire = true,
         modes = {'SEMI', 'FULL'},
         defaultMode = 'FULL',
+        modifiable = true,
+        modificationComponent = 'COMPONENT_AK_BUMPSTOCK',
+        modesWhenModified = {'SEMI', 'FULL'},
         description = 'Micro Draco AK Pistol - Semi/Full select fire',
     },
 
@@ -143,6 +210,9 @@ Config.Weapons = {
         selectFire = true,
         modes = {'SEMI', 'FULL'},
         defaultMode = 'SEMI',
+        modifiable = true,
+        modificationComponent = 'COMPONENT_AK_BUMPSTOCK',
+        modesWhenModified = {'SEMI', 'FULL'},
         description = 'CMMG Mk47 Mutant - Semi/Full select fire',
     },
 
@@ -181,7 +251,7 @@ Config.Weapons = {
         modes = {'SEMI'},
         defaultMode = 'SEMI',
         modifiable = true,
-        modificationComponent = 'COMPONENT_TEC9_SWITCH',
+        modificationComponent = 'COMPONENT_SMG_SWITCH',
         modesWhenModified = {'SEMI', 'FULL'},
         description = 'TEC-9 - Semi-only, convertible to full-auto',
     },
@@ -239,6 +309,9 @@ Config.Weapons = {
         selectFire = true,
         modes = {'SEMI', 'FULL'},
         defaultMode = 'SEMI',
+        modifiable = true,
+        modificationComponent = 'COMPONENT_AR15_BUMPSTOCK',
+        modesWhenModified = {'SEMI', 'FULL'},
         description = 'DD MK18 CQBR - Semi/Full select fire',
     },
 
@@ -248,7 +321,7 @@ Config.Weapons = {
         modes = {'SEMI'},
         defaultMode = 'SEMI',
         modifiable = true,
-        modificationComponent = 'COMPONENT_ARP_BUMPSTOCK',
+        modificationComponent = 'COMPONENT_AR15_BUMPSTOCK',
         modesWhenModified = {'SEMI', 'FULL'},
         description = 'AR Pistol - Semi-only, bump stock capable',
     },
@@ -258,6 +331,9 @@ Config.Weapons = {
         selectFire = true,
         modes = {'SEMI', 'FULL'},
         defaultMode = 'SEMI',
+        modifiable = true,
+        modificationComponent = 'COMPONENT_AR15_BUMPSTOCK',
+        modesWhenModified = {'SEMI', 'FULL'},
         description = '9mm AR SBR - Semi/Full select fire',
     },
 
@@ -319,8 +395,8 @@ Config.Weapons = {
     },
 
     -- ========================================================================
-    -- PISTOLS - MODIFIABLE (Glock Switches)
-    -- These are semi-auto only unless modified with a switch
+    -- PISTOLS - MODIFIABLE (Universal Glock Switch)
+    -- All Glocks use COMPONENT_GLOCK_SWITCH - one item works on any Glock
     -- ========================================================================
 
     -- Batch 1: Compact 9mm
@@ -330,7 +406,7 @@ Config.Weapons = {
         modes = {'SEMI'},
         defaultMode = 'SEMI',
         modifiable = true,
-        modificationComponent = 'COMPONENT_G26_SWITCH',
+        modificationComponent = 'COMPONENT_GLOCK_SWITCH',
         modesWhenModified = {'SEMI', 'FULL'},
         description = 'Glock 26 - Semi-only, switch capable',
     },
@@ -349,7 +425,7 @@ Config.Weapons = {
         modes = {'SEMI'},
         defaultMode = 'SEMI',
         modifiable = true,
-        modificationComponent = 'COMPONENT_G43X_SWITCH',
+        modificationComponent = 'COMPONENT_GLOCK_SWITCH',
         modesWhenModified = {'SEMI', 'FULL'},
         description = 'Glock 43X - Semi-only, switch capable',
     },
@@ -361,7 +437,7 @@ Config.Weapons = {
         modes = {'SEMI'},
         defaultMode = 'SEMI',
         modifiable = true,
-        modificationComponent = 'COMPONENT_G17_SWITCH',
+        modificationComponent = 'COMPONENT_GLOCK_SWITCH',
         modesWhenModified = {'SEMI', 'FULL'},
         description = 'Glock 17 - Semi-only, switch capable',
     },
@@ -372,7 +448,7 @@ Config.Weapons = {
         modes = {'SEMI'},
         defaultMode = 'SEMI',
         modifiable = true,
-        modificationComponent = 'COMPONENT_G17_BLK_SWITCH',
+        modificationComponent = 'COMPONENT_GLOCK_SWITCH',
         modesWhenModified = {'SEMI', 'FULL'},
         description = 'Glock 17 Blackout - Semi-only, switch capable',
     },
@@ -383,7 +459,7 @@ Config.Weapons = {
         modes = {'SEMI'},
         defaultMode = 'SEMI',
         modifiable = true,
-        modificationComponent = 'COMPONENT_G17_GEN5_SWITCH',
+        modificationComponent = 'COMPONENT_GLOCK_SWITCH',
         modesWhenModified = {'SEMI', 'FULL'},
         description = 'Glock 17 Gen5 - Semi-only, switch capable',
     },
@@ -394,7 +470,7 @@ Config.Weapons = {
         modes = {'SEMI'},
         defaultMode = 'SEMI',
         modifiable = true,
-        modificationComponent = 'COMPONENT_G19_SWITCH',
+        modificationComponent = 'COMPONENT_GLOCK_SWITCH',
         modesWhenModified = {'SEMI', 'FULL'},
         description = 'Glock 19 - Semi-only, switch capable',
     },
@@ -405,7 +481,7 @@ Config.Weapons = {
         modes = {'SEMI'},
         defaultMode = 'SEMI',
         modifiable = true,
-        modificationComponent = 'COMPONENT_G19X_SWITCH',
+        modificationComponent = 'COMPONENT_GLOCK_SWITCH',
         modesWhenModified = {'SEMI', 'FULL'},
         description = 'Glock 19X - Semi-only, switch capable',
     },
@@ -424,7 +500,7 @@ Config.Weapons = {
         modes = {'SEMI'},
         defaultMode = 'SEMI',
         modifiable = true,
-        modificationComponent = 'COMPONENT_G45_SWITCH',
+        modificationComponent = 'COMPONENT_GLOCK_SWITCH',
         modesWhenModified = {'SEMI', 'FULL'},
         description = 'Glock 45 - Semi-only, switch capable',
     },
@@ -435,7 +511,7 @@ Config.Weapons = {
         modes = {'SEMI'},
         defaultMode = 'SEMI',
         modifiable = true,
-        modificationComponent = 'COMPONENT_G45_TAN_SWITCH',
+        modificationComponent = 'COMPONENT_GLOCK_SWITCH',
         modesWhenModified = {'SEMI', 'FULL'},
         description = 'Glock 45 FDE - Semi-only, switch capable',
     },
@@ -446,13 +522,13 @@ Config.Weapons = {
         modes = {'SEMI'},
         defaultMode = 'SEMI',
         modifiable = true,
-        modificationComponent = 'COMPONENT_G19XD_SWITCH',
+        modificationComponent = 'COMPONENT_GLOCK_SWITCH',
         modesWhenModified = {'SEMI', 'FULL'},
         description = 'Glock 19X Desert - Semi-only, switch capable',
     },
 
     -- ========================================================================
-    -- 10mm AUTO PISTOLS
+    -- 10mm AUTO PISTOLS (Uses Universal Glock Switch)
     -- ========================================================================
 
     [`WEAPON_GLOCK20`] = {
@@ -461,7 +537,7 @@ Config.Weapons = {
         modes = {'SEMI'},
         defaultMode = 'SEMI',
         modifiable = true,
-        modificationComponent = 'COMPONENT_G20_SWITCH',
+        modificationComponent = 'COMPONENT_GLOCK_SWITCH',
         modesWhenModified = {'SEMI', 'FULL'},
         description = 'Glock 20 10mm - Semi-only, switch capable',
     },
@@ -471,52 +547,19 @@ Config.Weapons = {
     -- ========================================================================
 
     -- Future SMG batches can be added here
-    -- Example template:
-    --[[
-    [`WEAPON_MP5`] = {
-        name = 'H&K MP5',
-        selectFire = true,
-        modes = {'SEMI', 'BURST', 'FULL'},
-        defaultMode = 'SEMI',
-        burstCount = 3,
-        description = 'H&K MP5 - Semi/Burst/Full (Navy trigger group)',
-    },
-    ]]
 }
 
 -- ============================================================================
--- MODIFICATION COMPONENTS
--- Define the weapon components that enable full-auto modifications
--- These will be checked against player's equipped components
+-- UNIVERSAL MODIFICATION COMPONENTS LIST
+-- These are the actual component hashes used for checking attachments
 -- ============================================================================
 
 Config.ModificationComponents = {
-    -- Glock Switches (auto sears) - 9mm
-    'COMPONENT_G17_SWITCH',
-    'COMPONENT_G17_BLK_SWITCH',
-    'COMPONENT_G17_GEN5_SWITCH',
-    'COMPONENT_G19_SWITCH',
-    'COMPONENT_G19X_SWITCH',
-    'COMPONENT_G19XD_SWITCH',
-    'COMPONENT_G26_SWITCH',
-    'COMPONENT_G43X_SWITCH',
-    'COMPONENT_G45_SWITCH',
-    'COMPONENT_G45_TAN_SWITCH',
-
-    -- Glock Switches (auto sears) - 10mm
-    'COMPONENT_G20_SWITCH',
-
-    -- SMG Switches
-    'COMPONENT_TEC9_SWITCH',
-
-    -- Bump Stocks (for rifles)
-    'COMPONENT_PSA_AR15_BUMPSTOCK',
-    'COMPONENT_DESERT_AR15_BUMPSTOCK',
-    'COMPONENT_ARP_BUMPSTOCK',
-
-    -- Future modifications can be added here
-    -- 'COMPONENT_BINARY_TRIGGER',
-    -- 'COMPONENT_FRT_TRIGGER',
+    -- Universal components
+    'COMPONENT_GLOCK_SWITCH',
+    'COMPONENT_AR15_BUMPSTOCK',
+    'COMPONENT_SMG_SWITCH',
+    'COMPONENT_AK_BUMPSTOCK',
 }
 
 -- ============================================================================
@@ -566,4 +609,24 @@ function GetBurstCount(weaponHash)
     local config = Config.Weapons[weaponHash]
     if not config then return Config.DefaultBurstCount end
     return config.burstCount or Config.DefaultBurstCount
+end
+
+-- Get compatible weapons for a universal component
+function GetCompatibleWeapons(componentGroup)
+    local group = Config.UniversalComponents[componentGroup]
+    if group then
+        return group.compatibleWeapons
+    end
+    return {}
+end
+
+-- Check if a weapon is compatible with a universal component
+function IsWeaponCompatible(weaponName, componentGroup)
+    local compatibleWeapons = GetCompatibleWeapons(componentGroup)
+    for _, weapon in ipairs(compatibleWeapons) do
+        if weapon == weaponName then
+            return true
+        end
+    end
+    return false
 end

@@ -461,17 +461,27 @@ Config.Weapons = {
     },
 
     -- ======================================================================
-    -- BATCH 10: 10mm AUTO PISTOLS
-    -- DUAL PERSONALITY: FBI-spec (~400 ft-lbs) vs Full-power (~650 ft-lbs)
-    -- 15+1 capacity semi-auto platform with magnum-class power
+    -- BATCH 10: HIGH-POWER & FULL-AUTO PISTOLS
+    -- 10mm AUTO: FBI-spec (~400 ft-lbs) vs Full-power (~650 ft-lbs)
+    -- Glock 18: Factory select-fire 9mm machine pistol
     -- ======================================================================
 
-    -- Glock 20 Gen 4 - Full-Size 10mm (16 rounds, 4.61" barrel)
+    -- Glock 20 Gen 4 - Full-Size 10mm (15+1 rounds, 4.61" barrel)
     -- .357 Magnum energy with semi-auto capacity and reload speed
     [`WEAPON_GLOCK20`] = {
         caliber = '10mm',
         componentBase = 'COMPONENT_GLOCK20',
         clipSize = 16,
+    },
+
+    -- Glock 18 Gen 4 - Select-Fire Machine Pistol (17+1 rounds, 4.49" barrel)
+    -- FACTORY FULL-AUTO: 1,100-1,200 RPM, extreme recoil without stock
+    -- Only Glock with factory select-fire capability (semi/full-auto switch)
+    -- Compensated slide reduces muzzle rise, 33rd stick mag recommended
+    [`WEAPON_G18`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_G18',
+        clipSize = 18,
     },
 
     -- ======================================================================

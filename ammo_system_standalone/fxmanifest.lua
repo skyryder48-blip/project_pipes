@@ -2,60 +2,72 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'Your Server Name'
-description 'Centralized Ammunition System - Multi-Caliber Support'
-version '1.0.0'
+description 'Unified Ammunition & Magazine System - Multi-Caliber Support'
+version '2.0.0'
 
 --[[
-    AMMUNITION SYSTEM
-    =================
+    UNIFIED AMMUNITION & MAGAZINE SYSTEM
+    =====================================
 
-    This resource provides a centralized ammunition system supporting multiple calibers
-    with FMJ, Hollow Point, and Armor Piercing variants.
+    This resource provides a complete weapon ammunition system:
+    - Physical magazines as inventory items
+    - Multiple ammo types per caliber (FMJ, HP, AP, etc.)
+    - Extended magazines (standard, extended, drum)
+    - Realistic magazine loading workflow
+
+    WORKFLOW:
+    1. Player purchases empty magazines
+    2. Player purchases loose ammunition
+    3. Player loads ammunition into magazines (via inventory)
+    4. Player equips loaded magazines to weapons
+    5. Empty magazines return to inventory for reloading
 
     INSTALLATION:
     1. Place this resource in your [weapons] folder
-    2. In server.cfg, ensure this resource loads BEFORE any weapon resources:
+    2. In server.cfg, ensure this loads BEFORE weapon resources:
 
         ensure ammo_system_standalone
         ensure weapon_g17
         ensure weapon_m9
         ...
 
-    3. Add the items from items.lua to your ox_inventory items configuration
+    3. Add items from inventory/magazine_items.lua to ox_inventory items.lua
 
-    SUPPORTED CALIBERS:
-    - 9mm (Pistols): FMJ, HP, AP
-    - .45 ACP (Pistols): FMJ, JHP
-    - .40 S&W (Pistols): FMJ, JHP
-    - .357 Magnum (Revolvers): FMJ, JHP
-    - .38 Special (Revolvers): FMJ, JHP
-    - .44 Magnum (Revolvers): FMJ, JHP - "Dirty Harry" cartridge
-    - .500 S&W Magnum (Revolvers): FMJ, JHP - Most powerful production handgun
-    - 5.7x28mm (PDW): FMJ, JHP, AP - High velocity, low recoil, armor defeat
-    - .22 LR (Rimfire): FMJ, JHP - Lowest power, high capacity, suppressor-friendly
-    - 10mm Auto: FBI Service, Full Power, Bear Defense - Dual personality magnum-class
-    - Future: 5.56 NATO, 7.62x39, 12 Gauge, etc.
-
-    AMMO EFFECTS:
-    - FMJ: Baseline damage, standard penetration
-    - HP (Hollow Point): +10% damage, reduced armor effectiveness, lower penetration
-    - AP (Armor Piercing): -10% damage, bypasses body armor, higher penetration
+    SUPPORTED CALIBERS (14 calibers, 38 ammo types):
+    - 9mm: FMJ, HP, AP
+    - .45 ACP: FMJ, JHP
+    - .40 S&W: FMJ, JHP
+    - .357 Magnum: FMJ, JHP
+    - .38 Special: FMJ, JHP
+    - .44 Magnum: FMJ, JHP
+    - .500 S&W: FMJ, JHP
+    - 5.7x28mm: FMJ, JHP, AP
+    - .22 LR: FMJ, JHP
+    - 10mm Auto: FBI, Full Power, Bear Defense
+    - 12 Gauge: 00 Buck, #1 Buck, Slug, Birdshot + Specialty
+    - 5.56 NATO: FMJ, SP, AP
+    - 6.8x51mm: FMJ, AP
+    - .300 Blackout: Supersonic, Subsonic
 ]]
 
--- Shared configuration
+-- Shared configuration (load order matters)
 shared_scripts {
+    '@ox_lib/init.lua',
     'shared/config.lua',
     'shared/weapons.lua',
+    'shared/magazines.lua',
 }
 
--- Client-side ammo handling
+-- Client-side scripts
 client_scripts {
     'client/cl_ammo.lua',
+    'client/magazine_client.lua',
 }
 
--- Server-side inventory integration
+-- Server-side scripts
 server_scripts {
     'server/sv_ammo.lua',
+    'server/magazine_server.lua',
 }
 
 -- Meta files for ammunition definitions and components
@@ -90,9 +102,18 @@ files {
     -- 10mm Auto Ammunition
     'meta/ammo_10mm.meta',
     'meta/weaponcomponents_10mm.meta',
-    -- Future calibers:
-    -- 'meta/ammo_12ga.meta',
-    -- 'meta/weaponcomponents_12ga.meta',
+    -- 12 Gauge Ammunition
+    'meta/ammo_12ga.meta',
+    'meta/weaponcomponents_12ga.meta',
+    -- 5.56 NATO Ammunition
+    'meta/ammo_556.meta',
+    'meta/weaponcomponents_556.meta',
+    -- 6.8x51mm Ammunition
+    'meta/ammo_68x51.meta',
+    'meta/weaponcomponents_68x51.meta',
+    -- .300 Blackout Ammunition
+    'meta/ammo_300blk.meta',
+    'meta/weaponcomponents_300blk.meta',
 }
 
 -- Data file declarations
@@ -126,6 +147,23 @@ data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_22lr.meta'
 -- 10mm Auto
 data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_10mm.meta'
 data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_10mm.meta'
--- Future calibers:
--- data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_12ga.meta'
--- data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_12ga.meta'
+-- 12 Gauge
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_12ga.meta'
+data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_12ga.meta'
+-- 5.56 NATO
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_556.meta'
+data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_556.meta'
+-- 6.8x51mm
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_68x51.meta'
+data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_68x51.meta'
+-- .300 Blackout
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_300blk.meta'
+data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_300blk.meta'
+
+-- Dependencies
+dependencies {
+    'ox_lib',
+    'ox_inventory',
+}
+
+lua54 'yes'

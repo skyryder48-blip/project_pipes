@@ -11,66 +11,51 @@
     - Empty magazines persist and can be reloaded
     - Loading can be done directly from inventory (no workbench)
 
-    Item Types:
-    - Empty magazines: Stackable by type (mag_g26_standard, mag_g26_extended, etc.)
-    - Loaded magazines: Unique items with metadata { ammoType, count }
-    - Loose ammo: Stackable rounds (ammo_9mm_fmj, ammo_9mm_hp, etc.)
+    WEAPONS WITH EXTENDED MAG OPTIONS:
+    - Semi-auto pistols with detachable box magazines
+    - SMGs with detachable magazines
+    - AR-platform rifles
+
+    WEAPONS WITHOUT EXTENDED MAGS (ammo types only):
+    - Revolvers (fixed cylinder capacity)
+    - Shotguns (tube-fed, fixed capacity)
+    - Bolt-action/hunting rifles
 ]]
 
 Config.MagazineSystem = {
-    -- Enable full realistic magazine system
     enabled = true,
-
-    -- Time to load a single round into magazine (seconds)
     loadTimePerRound = 0.5,
-
-    -- Time to swap magazines in combat (seconds)
     swapTime = {
         standard = 1.5,
         extended = 2.0,
         drum = 3.0,
     },
-
-    -- Allow partial magazine loading (load 5 of 10 rounds)
     allowPartialLoad = true,
-
-    -- Auto-reload from inventory when magazine empties in combat
-    -- If false, player must manually select next magazine
     autoReloadFromInventory = true,
-
-    -- Priority order for auto-reload (same ammo type first, then others)
-    autoReloadPriority = 'same_ammo_first', -- 'same_ammo_first', 'highest_capacity', 'any'
+    autoReloadPriority = 'same_ammo_first',
 }
 
 --[[
     Magazine Definitions
     ====================
 
-    Structure:
-    Config.Magazines[magazineItemName] = {
-        label = "Display Name",
-        weapon = "WEAPON_HASH" or { "WEAPON_1", "WEAPON_2" }, -- Compatible weapons
-        capacity = 33,
-        type = "standard" | "extended" | "drum",
-        componentSuffix = "_EXTCLIP_", -- Middle part of component name
-        model = "prop_xxx", -- Optional: 3D model for dropped item
-        weight = 150, -- Grams, for inventory weight system
-        price = 45, -- Base price at gun stores
-    }
+    Only weapons with DETACHABLE BOX MAGAZINES that realistically
+    have extended capacity options are included here.
 
-    Component naming convention:
-    COMPONENT_{WEAPON}_{SUFFIX}{AMMOTYPE}
-    Example: COMPONENT_G26_EXTCLIP_FMJ
+    Revolvers use speedloaders (single capacity).
+    Shotguns are tube-fed (capacity fixed by weapon).
 ]]
 
 Config.Magazines = {
+
     -- ========================================================================
-    -- GLOCK 26 MAGAZINES (Compact 9mm)
+    -- COMPACT 9mm PISTOLS (10-11 round base)
+    -- Extended: 15-17rd basepad, 33rd stick
     -- ========================================================================
 
     ['mag_g26_standard'] = {
         label = "Glock 26 Magazine (10rd)",
-        weapons = { 'WEAPON_G26' },
+        weapons = { 'WEAPON_G26', 'WEAPON_G43X' },
         capacity = 10,
         type = 'standard',
         componentSuffix = '_CLIP_',
@@ -79,46 +64,57 @@ Config.Magazines = {
     },
 
     ['mag_g26_extended'] = {
-        label = "Glock 26 Extended Magazine (33rd)",
-        weapons = { 'WEAPON_G26' },
-        capacity = 33,
+        label = "Glock 26 Extended (17rd)",
+        weapons = { 'WEAPON_G26', 'WEAPON_G43X' },
+        capacity = 17,
         type = 'extended',
         componentSuffix = '_EXTCLIP_',
-        weight = 180,
-        price = 85,
+        weight = 120,
+        price = 55,
     },
 
-    ['mag_g26_drum'] = {
-        label = "Glock 26 Drum Magazine (50rd)",
-        weapons = { 'WEAPON_G26' },
-        capacity = 50,
-        type = 'drum',
-        componentSuffix = '_DRUM_',
-        weight = 450,
-        price = 250,
-    },
-
-    -- G26 Switch uses same magazines but is always extended
-    ['mag_g26switch_extended'] = {
-        label = "Glock 26 Switch Magazine (33rd)",
-        weapons = { 'WEAPON_G26_SWITCH' },
+    ['mag_g26_stick'] = {
+        label = "Glock 9mm Stick Magazine (33rd)",
+        weapons = { 'WEAPON_G26', 'WEAPON_G43X', 'WEAPON_G26_SWITCH' },
         capacity = 33,
         type = 'extended',
-        componentSuffix = '_CLIP_', -- Switch default is extended
-        weight = 180,
-        price = 85,
+        componentSuffix = '_STICK_',
+        weight = 185,
+        price = 95,
+    },
+
+    ['mag_compact9_standard'] = {
+        label = "Compact 9mm Magazine (11rd)",
+        weapons = { 'WEAPON_GX4', 'WEAPON_HELLCAT' },
+        capacity = 11,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 75,
+        price = 25,
+    },
+
+    ['mag_compact9_extended'] = {
+        label = "Compact 9mm Extended (15rd)",
+        weapons = { 'WEAPON_GX4', 'WEAPON_HELLCAT' },
+        capacity = 15,
+        type = 'extended',
+        componentSuffix = '_EXTCLIP_',
+        weight = 100,
+        price = 45,
     },
 
     -- ========================================================================
-    -- GLOCK 17/19/45 MAGAZINES (Full-Size 9mm) - Cross-compatible
+    -- FULL-SIZE GLOCK 9mm (17 round base)
+    -- Extended: 33rd stick, 50rd drum
     -- ========================================================================
 
-    ['mag_glock_standard'] = {
+    ['mag_glock9_standard'] = {
         label = "Glock 9mm Magazine (17rd)",
         weapons = {
             'WEAPON_G17', 'WEAPON_G17_BLK', 'WEAPON_G17_GEN5',
+            'WEAPON_G18',
             'WEAPON_G19', 'WEAPON_G19X', 'WEAPON_G19XD',
-            'WEAPON_G45', 'WEAPON_G45_TAN'
+            'WEAPON_G45', 'WEAPON_G45_TAN',
         },
         capacity = 17,
         type = 'standard',
@@ -127,12 +123,13 @@ Config.Magazines = {
         price = 30,
     },
 
-    ['mag_glock_extended'] = {
-        label = "Glock 9mm Extended Magazine (33rd)",
+    ['mag_glock9_extended'] = {
+        label = "Glock 9mm Stick (33rd)",
         weapons = {
             'WEAPON_G17', 'WEAPON_G17_BLK', 'WEAPON_G17_GEN5',
-            'WEAPON_G19', 'WEAPON_G19X', 'WEAPON_G19XD',
-            'WEAPON_G45', 'WEAPON_G45_TAN'
+            'WEAPON_G18',
+            'WEAPON_G19', 'WEAPON_G19X', 'WEAPON_G19XD', 'WEAPON_G19X_SWITCH',
+            'WEAPON_G45', 'WEAPON_G45_TAN',
         },
         capacity = 33,
         type = 'extended',
@@ -141,12 +138,13 @@ Config.Magazines = {
         price = 90,
     },
 
-    ['mag_glock_drum'] = {
-        label = "Glock 9mm Drum Magazine (50rd)",
+    ['mag_glock9_drum'] = {
+        label = "Glock 9mm Drum (50rd)",
         weapons = {
             'WEAPON_G17', 'WEAPON_G17_BLK', 'WEAPON_G17_GEN5',
-            'WEAPON_G19', 'WEAPON_G19X', 'WEAPON_G19XD',
-            'WEAPON_G45', 'WEAPON_G45_TAN'
+            'WEAPON_G18',
+            'WEAPON_G19', 'WEAPON_G19X', 'WEAPON_G19XD', 'WEAPON_G19X_SWITCH',
+            'WEAPON_G45', 'WEAPON_G45_TAN',
         },
         capacity = 50,
         type = 'drum',
@@ -156,21 +154,142 @@ Config.Magazines = {
     },
 
     -- ========================================================================
-    -- GLOCK 19X SWITCH MAGAZINE
+    -- BERETTA 9mm (15-17 round base)
+    -- Extended: 30rd
     -- ========================================================================
 
-    ['mag_g19x_switch'] = {
-        label = "Glock 19X Switch Magazine (33rd)",
-        weapons = { 'WEAPON_G19X_SWITCH' },
-        capacity = 33,
-        type = 'extended',
+    ['mag_beretta_standard'] = {
+        label = "Beretta 9mm Magazine (15rd)",
+        weapons = { 'WEAPON_M9', 'WEAPON_PX4', 'WEAPON_PX4STORM' },
+        capacity = 15,
+        type = 'standard',
         componentSuffix = '_CLIP_',
-        weight = 185,
-        price = 90,
+        weight = 90,
+        price = 28,
+    },
+
+    ['mag_beretta_m9a3'] = {
+        label = "Beretta M9A3 Magazine (17rd)",
+        weapons = { 'WEAPON_M9A3' },
+        capacity = 17,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 100,
+        price = 32,
+    },
+
+    ['mag_beretta_extended'] = {
+        label = "Beretta 9mm Extended (30rd)",
+        weapons = { 'WEAPON_M9', 'WEAPON_M9A3', 'WEAPON_PX4', 'WEAPON_PX4STORM' },
+        capacity = 30,
+        type = 'extended',
+        componentSuffix = '_EXTCLIP_',
+        weight = 175,
+        price = 85,
     },
 
     -- ========================================================================
-    -- GLOCK 21/30/41 MAGAZINES (.45 ACP)
+    -- SIG SAUER 9mm (8-17 round base depending on model)
+    -- Extended: 21rd
+    -- ========================================================================
+
+    ['mag_sig_p210'] = {
+        label = "SIG P210 Magazine (8rd)",
+        weapons = { 'WEAPON_SIGP210' },
+        capacity = 8,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 75,
+        price = 45,
+    },
+
+    ['mag_sig_standard'] = {
+        label = "SIG 9mm Magazine (15rd)",
+        weapons = { 'WEAPON_P320', 'WEAPON_SIGP320', 'WEAPON_SIGP226', 'WEAPON_SIGP226MK25', 'WEAPON_SIGP229' },
+        capacity = 15,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 92,
+        price = 35,
+    },
+
+    ['mag_sig_extended'] = {
+        label = "SIG 9mm Extended (21rd)",
+        weapons = { 'WEAPON_P320', 'WEAPON_SIGP320', 'WEAPON_SIGP226', 'WEAPON_SIGP226MK25', 'WEAPON_SIGP229' },
+        capacity = 21,
+        type = 'extended',
+        componentSuffix = '_EXTCLIP_',
+        weight = 135,
+        price = 75,
+    },
+
+    -- ========================================================================
+    -- OTHER 9mm PISTOLS
+    -- ========================================================================
+
+    ['mag_fn509_standard'] = {
+        label = "FN 509 Magazine (17rd)",
+        weapons = { 'WEAPON_FN509' },
+        capacity = 17,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 95,
+        price = 35,
+    },
+
+    ['mag_fn509_extended'] = {
+        label = "FN 509 Extended (24rd)",
+        weapons = { 'WEAPON_FN509' },
+        capacity = 24,
+        type = 'extended',
+        componentSuffix = '_EXTCLIP_',
+        weight = 140,
+        price = 80,
+    },
+
+    ['mag_tp9sf_standard'] = {
+        label = "Canik TP9SF Magazine (18rd)",
+        weapons = { 'WEAPON_TP9SF' },
+        capacity = 18,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 98,
+        price = 30,
+    },
+
+    ['mag_walther_standard'] = {
+        label = "Walther P88 Magazine (15rd)",
+        weapons = { 'WEAPON_WALTHERP88' },
+        capacity = 15,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 90,
+        price = 40,
+    },
+
+    ['mag_rugersr9_standard'] = {
+        label = "Ruger SR9 Magazine (17rd)",
+        weapons = { 'WEAPON_RUGERSR9' },
+        capacity = 17,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 95,
+        price = 28,
+    },
+
+    ['mag_psadagger_standard'] = {
+        label = "PSA Dagger Magazine (15rd)",
+        weapons = { 'WEAPON_PSADAGGER' },
+        capacity = 15,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 88,
+        price = 22,
+    },
+
+    -- ========================================================================
+    -- GLOCK .45 ACP (10-13 round base)
+    -- Extended: 26rd
     -- ========================================================================
 
     ['mag_glock45_standard'] = {
@@ -194,17 +313,18 @@ Config.Magazines = {
     },
 
     ['mag_glock45_extended'] = {
-        label = "Glock .45 Extended Magazine (26rd)",
+        label = "Glock .45 Extended (26rd)",
         weapons = { 'WEAPON_G21', 'WEAPON_G30', 'WEAPON_G41' },
         capacity = 26,
         type = 'extended',
         componentSuffix = '_EXTCLIP_',
         weight = 220,
-        price = 120,
+        price = 110,
     },
 
     -- ========================================================================
-    -- 1911 MAGAZINES (.45 ACP)
+    -- 1911 .45 ACP (7-8 round base)
+    -- Extended: 10rd basepad only (no stick mags for 1911s realistically)
     -- ========================================================================
 
     ['mag_1911_standard'] = {
@@ -217,8 +337,18 @@ Config.Magazines = {
         price = 25,
     },
 
+    ['mag_1911_8rd'] = {
+        label = "1911 Magazine (8rd)",
+        weapons = { 'WEAPON_M45A1', 'WEAPON_KIMBER_ECLIPSE' },
+        capacity = 8,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 90,
+        price = 28,
+    },
+
     ['mag_1911_extended'] = {
-        label = "1911 Extended Magazine (10rd)",
+        label = "1911 Extended (10rd)",
         weapons = { 'WEAPON_M45A1', 'WEAPON_KIMBER1911', 'WEAPON_KIMBER_ECLIPSE' },
         capacity = 10,
         type = 'extended',
@@ -227,123 +357,58 @@ Config.Magazines = {
         price = 55,
     },
 
-    -- ========================================================================
-    -- BERETTA M9/M9A3/PX4 MAGAZINES (9mm)
-    -- ========================================================================
-
-    ['mag_beretta_standard'] = {
-        label = "Beretta 9mm Magazine (15rd)",
-        weapons = { 'WEAPON_M9', 'WEAPON_M9A3', 'WEAPON_PX4', 'WEAPON_PX4STORM' },
-        capacity = 15,
-        type = 'standard',
-        componentSuffix = '_CLIP_',
-        weight = 90,
-        price = 28,
-    },
-
-    ['mag_beretta_extended'] = {
-        label = "Beretta 9mm Extended Magazine (30rd)",
-        weapons = { 'WEAPON_M9', 'WEAPON_M9A3', 'WEAPON_PX4', 'WEAPON_PX4STORM' },
-        capacity = 30,
-        type = 'extended',
-        componentSuffix = '_EXTCLIP_',
-        weight = 175,
-        price = 95,
-    },
-
-    -- ========================================================================
-    -- SIG SAUER MAGAZINES (9mm)
-    -- ========================================================================
-
-    ['mag_sig_standard'] = {
-        label = "SIG 9mm Magazine (15rd)",
-        weapons = {
-            'WEAPON_P320', 'WEAPON_SIGP320', 'WEAPON_SIGP226',
-            'WEAPON_SIGP226MK25', 'WEAPON_SIGP229'
-        },
-        capacity = 15,
-        type = 'standard',
-        componentSuffix = '_CLIP_',
-        weight = 92,
-        price = 32,
-    },
-
-    ['mag_sig_extended'] = {
-        label = "SIG 9mm Extended Magazine (21rd)",
-        weapons = {
-            'WEAPON_P320', 'WEAPON_SIGP320', 'WEAPON_SIGP226',
-            'WEAPON_SIGP226MK25', 'WEAPON_SIGP229'
-        },
-        capacity = 21,
-        type = 'extended',
-        componentSuffix = '_EXTCLIP_',
-        weight = 135,
-        price = 75,
-    },
-
-    ['mag_sig_p210'] = {
-        label = "SIG P210 Magazine (8rd)",
-        weapons = { 'WEAPON_SIGP210' },
+    ['mag_sigp220_standard'] = {
+        label = "SIG P220 Magazine (8rd)",
+        weapons = { 'WEAPON_SIGP220' },
         capacity = 8,
         type = 'standard',
         componentSuffix = '_CLIP_',
-        weight = 75,
-        price = 45, -- Premium Swiss magazine
-    },
-
-    -- ========================================================================
-    -- REVOLVER SPEEDLOADERS (.357 MAG / .38 SPL / .44 MAG)
-    -- ========================================================================
-
-    ['speedloader_357'] = {
-        label = ".357 Magnum Speedloader (6rd)",
-        weapons = {
-            'WEAPON_KINGCOBRA', 'WEAPON_KINGCOBRA_SNUB',
-            'WEAPON_KINGCOBRA_TARGET', 'WEAPON_PYTHON', 'WEAPON_SW657'
-        },
-        capacity = 6,
-        type = 'standard',
-        componentSuffix = '_CLIP_',
-        weight = 120,
-        price = 15,
-    },
-
-    ['speedloader_38'] = {
-        label = ".38 Special Speedloader (6rd)",
-        weapons = { 'WEAPON_SW_MODEL15' },
-        capacity = 6,
-        type = 'standard',
-        componentSuffix = '_CLIP_',
         weight = 95,
-        price = 12,
-    },
-
-    ['speedloader_44'] = {
-        label = ".44 Magnum Speedloader (6rd)",
-        weapons = { 'WEAPON_SWMODEL29', 'WEAPON_RAGINGBULL' },
-        capacity = 6,
-        type = 'standard',
-        componentSuffix = '_CLIP_',
-        weight = 180,
-        price = 20,
-    },
-
-    ['speedloader_500'] = {
-        label = ".500 S&W Speedloader (5rd)",
-        weapons = { 'WEAPON_SW500' },
-        capacity = 5,
-        type = 'standard',
-        componentSuffix = '_CLIP_',
-        weight = 280,
         price = 35,
     },
 
     -- ========================================================================
-    -- 5.7x28mm MAGAZINES
+    -- .40 S&W (13-15 round base)
+    -- Extended: 22rd
     -- ========================================================================
 
-    ['mag_fiveseven_standard'] = {
-        label = "FN 5.7 Magazine (20rd)",
+    ['mag_glock40_standard'] = {
+        label = "Glock .40 Magazine (15rd)",
+        weapons = { 'WEAPON_G22_GEN4', 'WEAPON_G22_GEN5' },
+        capacity = 15,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 105,
+        price = 32,
+    },
+
+    ['mag_glock40_compact'] = {
+        label = "Glock Demon Magazine (13rd)",
+        weapons = { 'WEAPON_GLOCK_DEMON' },
+        capacity = 13,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 95,
+        price = 30,
+    },
+
+    ['mag_glock40_extended'] = {
+        label = "Glock .40 Extended (22rd)",
+        weapons = { 'WEAPON_G22_GEN4', 'WEAPON_G22_GEN5', 'WEAPON_GLOCK_DEMON' },
+        capacity = 22,
+        type = 'extended',
+        componentSuffix = '_EXTCLIP_',
+        weight = 160,
+        price = 85,
+    },
+
+    -- ========================================================================
+    -- 5.7x28mm (20 round base)
+    -- Extended: 30rd
+    -- ========================================================================
+
+    ['mag_57_standard'] = {
+        label = "5.7x28mm Magazine (20rd)",
         weapons = { 'WEAPON_FN57', 'WEAPON_RUGER57' },
         capacity = 20,
         type = 'standard',
@@ -352,8 +417,8 @@ Config.Magazines = {
         price = 40,
     },
 
-    ['mag_fiveseven_extended'] = {
-        label = "FN 5.7 Extended Magazine (30rd)",
+    ['mag_57_extended'] = {
+        label = "5.7x28mm Extended (30rd)",
         weapons = { 'WEAPON_FN57', 'WEAPON_RUGER57' },
         capacity = 30,
         type = 'extended',
@@ -363,10 +428,11 @@ Config.Magazines = {
     },
 
     -- ========================================================================
-    -- .22 LR MAGAZINES
+    -- .22 LR (10-30 round base depending on model)
+    -- Most .22s have high capacity standard, limited extended options
     -- ========================================================================
 
-    ['mag_22lr_standard'] = {
+    ['mag_22_standard'] = {
         label = ".22 LR Magazine (10rd)",
         weapons = { 'WEAPON_P22', 'WEAPON_SIGP22' },
         capacity = 10,
@@ -397,10 +463,11 @@ Config.Magazines = {
     },
 
     -- ========================================================================
-    -- 10mm AUTO MAGAZINES
+    -- 10mm AUTO (15 round base)
+    -- Extended: 30rd
     -- ========================================================================
 
-    ['mag_glock20_standard'] = {
+    ['mag_10mm_standard'] = {
         label = "Glock 20 Magazine (15rd)",
         weapons = { 'WEAPON_GLOCK20' },
         capacity = 15,
@@ -410,8 +477,8 @@ Config.Magazines = {
         price = 38,
     },
 
-    ['mag_glock20_extended'] = {
-        label = "Glock 20 Extended Magazine (30rd)",
+    ['mag_10mm_extended'] = {
+        label = "Glock 20 Extended (30rd)",
         weapons = { 'WEAPON_GLOCK20' },
         capacity = 30,
         type = 'extended',
@@ -421,7 +488,8 @@ Config.Magazines = {
     },
 
     -- ========================================================================
-    -- SMG MAGAZINES (9mm)
+    -- 9mm SMGs (30-33 round base)
+    -- Drums available for some
     -- ========================================================================
 
     ['mag_mp5_standard'] = {
@@ -454,7 +522,7 @@ Config.Magazines = {
         price = 50,
     },
 
-    ['mag_scorpion_extended'] = {
+    ['mag_scorpion_drum'] = {
         label = "Scorpion EVO Drum (50rd)",
         weapons = { 'WEAPON_SCORPION' },
         capacity = 50,
@@ -474,6 +542,16 @@ Config.Magazines = {
         price = 35,
     },
 
+    ['mag_mpa30_standard'] = {
+        label = "MPA30 Magazine (30rd)",
+        weapons = { 'WEAPON_MPA30' },
+        capacity = 30,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 165,
+        price = 40,
+    },
+
     ['mag_sub2000_standard'] = {
         label = "SUB-2000 Magazine (33rd)",
         weapons = { 'WEAPON_SUB2000' },
@@ -481,15 +559,26 @@ Config.Magazines = {
         type = 'standard',
         componentSuffix = '_CLIP_',
         weight = 185,
-        price = 45, -- Uses Glock mags
+        price = 45,
+    },
+
+    ['mag_ram9_standard'] = {
+        label = "RAM-9 Magazine (33rd)",
+        weapons = { 'WEAPON_RAM9_DESERT' },
+        capacity = 33,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 180,
+        price = 50,
     },
 
     -- ========================================================================
-    -- MAC MAGAZINES (.45 ACP)
+    -- .45 ACP SMGs (MAC-10/MAC-4A1)
+    -- Standard: 30rd, Extended: 50rd
     -- ========================================================================
 
-    ['mag_mac10_standard'] = {
-        label = "MAC-10 Magazine (30rd)",
+    ['mag_mac_standard'] = {
+        label = "MAC .45 Magazine (30rd)",
         weapons = { 'WEAPON_MAC10', 'WEAPON_MAC4A1' },
         capacity = 30,
         type = 'standard',
@@ -498,8 +587,8 @@ Config.Magazines = {
         price = 45,
     },
 
-    ['mag_mac10_extended'] = {
-        label = "MAC-10 Extended Magazine (50rd)",
+    ['mag_mac_extended'] = {
+        label = "MAC .45 Extended (50rd)",
         weapons = { 'WEAPON_MAC10', 'WEAPON_MAC4A1' },
         capacity = 50,
         type = 'extended',
@@ -509,7 +598,8 @@ Config.Magazines = {
     },
 
     -- ========================================================================
-    -- 5.56 NATO MAGAZINES
+    -- 5.56 NATO RIFLES (30 round base)
+    -- Extended: 40rd, Drum: 60rd
     -- ========================================================================
 
     ['mag_556_standard'] = {
@@ -523,7 +613,7 @@ Config.Magazines = {
     },
 
     ['mag_556_extended'] = {
-        label = "STANAG Extended Magazine (40rd)",
+        label = "STANAG Extended (40rd)",
         weapons = { 'WEAPON_MK18', 'WEAPON_ARP_BUMPSTOCK', 'WEAPON_SBR9' },
         capacity = 40,
         type = 'extended',
@@ -543,7 +633,8 @@ Config.Magazines = {
     },
 
     -- ========================================================================
-    -- 6.8x51mm / .300 BLK MAGAZINES
+    -- 6.8x51mm RIFLES (20 round base)
+    -- Limited extended options for new military caliber
     -- ========================================================================
 
     ['mag_68x51_standard'] = {
@@ -556,6 +647,11 @@ Config.Magazines = {
         price = 55,
     },
 
+    -- ========================================================================
+    -- .300 BLACKOUT RIFLES (30 round base)
+    -- Uses STANAG-compatible mags
+    -- ========================================================================
+
     ['mag_300blk_standard'] = {
         label = ".300 BLK Magazine (30rd)",
         weapons = { 'WEAPON_MCX300' },
@@ -565,19 +661,98 @@ Config.Magazines = {
         weight = 155,
         price = 45,
     },
+
+    -- ========================================================================
+    -- AR-9 PISTOLS/PCCs (Use Glock mags)
+    -- ========================================================================
+
+    ['mag_ar9_standard'] = {
+        label = "AR-9 Magazine (17rd)",
+        weapons = { 'WEAPON_UDP9', 'WEAPON_BLUEARP' },
+        capacity = 17,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 95,
+        price = 30,
+    },
+
+    ['mag_ar9_extended'] = {
+        label = "AR-9 Extended (33rd)",
+        weapons = { 'WEAPON_UDP9', 'WEAPON_BLUEARP' },
+        capacity = 33,
+        type = 'extended',
+        componentSuffix = '_EXTCLIP_',
+        weight = 185,
+        price = 85,
+    },
 }
 
---[[
-    Helper Functions
-    ================
-]]
+-- ============================================================================
+-- SPEEDLOADERS (Revolvers - Single Capacity, Ammo Type Changes Only)
+-- ============================================================================
+-- Note: Revolvers don't have "extended" options. Cylinder capacity is fixed.
+-- Speedloaders are just for faster reloading, not capacity increase.
 
--- Get magazine info by item name
+Config.Speedloaders = {
+    ['speedloader_357'] = {
+        label = ".357 Magnum Speedloader",
+        weapons = { 'WEAPON_KINGCOBRA', 'WEAPON_KINGCOBRA_SNUB', 'WEAPON_KINGCOBRA_TARGET', 'WEAPON_PYTHON', 'WEAPON_SW657' },
+        capacity = 6,
+        weight = 120,
+        price = 15,
+    },
+
+    ['speedloader_38'] = {
+        label = ".38 Special Speedloader",
+        weapons = { 'WEAPON_SW_MODEL15' },
+        capacity = 6,
+        weight = 95,
+        price = 12,
+    },
+
+    ['speedloader_44'] = {
+        label = ".44 Magnum Speedloader",
+        weapons = { 'WEAPON_SWMODEL29', 'WEAPON_RAGINGBULL' },
+        capacity = 6,
+        weight = 180,
+        price = 20,
+    },
+
+    ['speedloader_500'] = {
+        label = ".500 S&W Speedloader",
+        weapons = { 'WEAPON_SW500' },
+        capacity = 5,
+        weight = 280,
+        price = 35,
+    },
+}
+
+-- ============================================================================
+-- SHOTGUNS - NO MAGAZINES (Tube-Fed)
+-- ============================================================================
+-- Shotguns in this system are tube-fed. Capacity is fixed by weapon.
+-- Only ammo TYPE changes, not capacity. No magazine items needed.
+--
+-- Mini Shotty:      4 rounds (tube)
+-- Model 680:        5 rounds (tube)
+-- Remington 870:    5 rounds (tube)
+-- Mossberg 500:     6 rounds (tube)
+-- Browning Auto-5:  5 rounds (tube)
+-- Beretta 1301:     8 rounds (tube)
+-- Shockwave:        6 rounds (tube)
+
+-- ============================================================================
+-- HELPER FUNCTIONS
+-- ============================================================================
+
 function GetMagazineInfo(itemName)
     return Config.Magazines[itemName]
 end
 
--- Get all compatible magazines for a weapon
+function GetSpeedloaderInfo(itemName)
+    return Config.Speedloaders[itemName]
+end
+
 function GetCompatibleMagazines(weaponHash)
     local compatible = {}
     local weaponName = type(weaponHash) == 'number' and GetWeaponNameFromHash(weaponHash) or weaponHash
@@ -595,22 +770,6 @@ function GetCompatibleMagazines(weaponHash)
     return compatible
 end
 
--- Get component name for a magazine + ammo type combination
-function GetMagazineComponentName(weaponHash, magazineItem, ammoType)
-    local weaponInfo = Config.Weapons[weaponHash]
-    local magInfo = Config.Magazines[magazineItem]
-
-    if not weaponInfo or not magInfo then return nil end
-
-    -- Build component name: COMPONENT_{WEAPON_BASE}{MAG_SUFFIX}{AMMO_TYPE}
-    -- Example: COMPONENT_G26_EXTCLIP_FMJ
-    local ammoConfig = Config.AmmoTypes[weaponInfo.caliber] and Config.AmmoTypes[weaponInfo.caliber][ammoType]
-    if not ammoConfig then return nil end
-
-    return weaponInfo.componentBase .. magInfo.componentSuffix .. string.upper(ammoType)
-end
-
--- Check if weapon is compatible with magazine
 function IsMagazineCompatible(weaponHash, magazineItem)
     local magInfo = Config.Magazines[magazineItem]
     if not magInfo then return false end
@@ -627,7 +786,6 @@ function IsMagazineCompatible(weaponHash, magazineItem)
     return false
 end
 
--- Get weapon name from hash (utility)
 function GetWeaponNameFromHash(hash)
     for name, info in pairs(Config.Weapons) do
         if GetHashKey(name) == hash or joaat(name) == hash then
@@ -635,4 +793,16 @@ function GetWeaponNameFromHash(hash)
         end
     end
     return nil
+end
+
+function GetMagazineComponentName(weaponHash, magazineItem, ammoType)
+    local weaponInfo = Config.Weapons[weaponHash]
+    local magInfo = Config.Magazines[magazineItem]
+
+    if not weaponInfo or not magInfo then return nil end
+
+    local ammoConfig = Config.AmmoTypes[weaponInfo.caliber] and Config.AmmoTypes[weaponInfo.caliber][ammoType]
+    if not ammoConfig then return nil end
+
+    return weaponInfo.componentBase .. magInfo.componentSuffix .. string.upper(ammoType)
 end

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponAnimationsSets>
+  <WeaponAnimationsSets>
+    <Item>
+      <WeaponAnimations>
+        <Item key="WEAPON_M16">WEAPON_M16_set</Item>
+      </WeaponAnimations>
+    </Item>
+  </WeaponAnimationsSets>
+  <Animations>
+    <Item>
+      <n>WEAPON_M16_set</n>
+      <ClipSet>move_weapon@rifle@assault</ClipSet>
+      <MovementClipSet>move_m@rifle@assault</MovementClipSet>
+      <StrafeClipSet>move_strafe@rifle@assault</StrafeClipSet>
+      <FiringClipSet>anim@weapons@rifle@lo@ar@str</FiringClipSet>
+      <CoverClipSet>cover@weapon@rifle@lo@ar</CoverClipSet>
+    </Item>
+  </Animations>
+</CWeaponAnimationsSets>

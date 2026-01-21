@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponModelInfo__InitDataList>
+  <InitDatas>
+    <Item>
+      <n>w_ar_ram7knight</n>
+      <Model>w_ar_ram7knight</Model>
+      <Audio>AUDIO_ITEM_ASSAULTRIFLE</Audio>
+      <Slot>SLOT_RAM7KNIGHT</Slot>
+      <WeaponFlags>WF_FIREARM, WF_GUN, WF_GUN_2_HANDED, WF_PED_GUN_2_HANDED, WF_WEAPON, WF_LOUDWEAPON, WF_TAKE_ARM_L_LONG_GUN_IMMEDIATE_DAMAGE_REACTIONS, WF_MAKE_PED_BACKUP</WeaponFlags>
+    </Item>
+  </InitDatas>
+</CWeaponModelInfo__InitDataList>

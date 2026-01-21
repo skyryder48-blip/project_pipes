@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="410" />
+          <Entry>SLOT_DARTGUN</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="410" />
+          <Entry>SLOT_DARTGUN</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="210" />
+        <Entry>SLOT_DARTGUN</Entry>
+      </Item>
+    </WeaponSlots>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos>
+    <Item type="CAimingInfo">
+      <n>YOURWEAPON_YOURWEAPON_YOURWEAPON</n>
+      <HeadingLimit value="90.000000" />
+      <SweepPitchMin value="-45.000000" />
+      <SweepPitchMax value="45.000000" />
+    </Item>
+  </AimingInfos>
+  <Infos>
+    <Item>
+      <Infos />
+    </Item>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+          <!-- ================================================================
+               TRANQUILIZER DART GUN
+               ================================================================
+               Game Implementation Specifications:
+               - Damage: 2 (minimum physical damage)
+               - Magazine: 3 darts
+               - Effects: Freeze + Ragdoll + Stumble
+               - Effect Duration: 30 seconds
+               - Fire Rate: Single-shot with reload animation
+               - Range: 30-40 meters effective
+               - Noise: Very quiet (CO2 powered)
+               - Projectile: Visible slow-moving dart
+               
+               Real-World Basis (Pneu-Dart Model 389):
+               - Power Source: CO2 cartridge
+               - Velocity: 150-300 fps (45-90 m/s)
+               - Effective Range: 40-60 meters
+               - Weight: ~7 lbs
+               - Barrel: 19" rifled
+               - Capacity: Single-shot (game modified to 3)
+               - Sound Level: ~80-90 dB (quiet "pop")
+               
+               Special Mechanics:
+               - Target staggers on hit (stumble)
+               - 2-3 second delay before full effect
+               - Target freezes in place (30 seconds)
+               - Ragdoll physics during freeze
+               - Ineffective against armored targets
+               ================================================================ -->
+          <n>WEAPON_DARTGUN</n>
+          <Model>w_pi_dartgun</Model>
+          <Audio>AUDIO_ITEM_STUNGUN</Audio>
+          <Slot>SLOT_DARTGUN</Slot>
+          <HumanNameHash>WT_DARTGUN</HumanNameHash>
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FireType>DELAYED_HIT</FireType>
+          <WheelSlot>WHEEL_PISTOL</WheelSlot>
+          <Group>GROUP_STUNGUN</Group>
+          <AmmoInfo ref="AMMO_STUNGUN" />
+          <AimingInfo ref="YOURWEAPON_YOURWEAPON_YOURWEAPON" />
+          
+          <!-- Magazine: 3 darts -->
+          <ClipSize value="3" />
+          
+          <!-- Accuracy: Good at short range, arcing trajectory -->
+          <AccuracySpread value="0.150000" />
+          <AccurateModeAccuracyModifier value="0.100000" />
+          <RunAndGunAccuracyModifier value="2.500000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+          <RecoilAccuracyMax value="0.400000" />
+          <RecoilErrorTime value="0.100000" />
+          <RecoilRecoveryRate value="0.800000" />
+          
+          <!-- Headshot Parameters - minimal -->
+          <RecoilAccuracyToAllowHeadShotAI value="0.800000" />
+          <MinHeadShotDistanceAI value="3.000000" />
+          <MaxHeadShotDistanceAI value="25.000000" />
+          <HeadShotDamageModifierAI value="1.000000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.400000" />
+          <MinHeadShotDistancePlayer value="0.000000" />
+          <MaxHeadShotDistancePlayer value="25.000000" />
+          <HeadShotDamageModifierPlayer value="1.000000" />
+          
+          <!-- Damage: 2 - Minimal physical damage, effect-based -->
+          <Damage value="2.000000" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <HitLimbsDamageModifier value="1.000000" />
+          <NetworkHitLimbsDamageModifier value="1.000000" />
+          <LightlyArmouredDamageModifier value="0.100000" />
+          
+          <!-- Physics Forces - dart impact, causes stumble -->
+          <Force value="150.000000" />
+          <ForceHitPed value="200.000000" />
+          <ForceHitVehicle value="10.000000" />
+          <ForceHitFlyingHeli value="10.000000" />
+          <OverrideForces />
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="0.000000" />
+          <ForceFalloffRangeEnd value="30.000000" />
+          <ForceFalloffMin value="0.500000" />
+          <ProjectileForce value="0.000000" />
+          <FragImpulse value="50.000000" />
+          
+          <!-- Penetration: None - darts don't penetrate -->
+          <Penetration value="0.000000" />
+          <VerticalLaunchAdjustment value="0.000000" />
+          <DropForwardVelocity value="0.000000" />
+          
+          <!-- Velocity: ~250 fps = 76 m/s (very slow, visible projectile) -->
+          <Speed value="76.000000" />
+          
+          <!-- Single dart -->
+          <BulletsInBatch value="1" />
+          <BatchSpread value="0.000000" />
+          
+          <!-- Reload timing - loading dart -->
+          <ReloadTimeMP value="3.500000" />
+          <ReloadTimeSP value="3.500000" />
+          
+          <!-- Fire Rate: Single shot, 2.0s between shots -->
+          <TimeBetweenShots value="2.000000" />
+          
+          <!-- Damage Falloff: Full to 15m, minimum at 40m -->
+          <DamageFallOffRangeMin value="15.000000" />
+          <DamageFallOffRangeMax value="40.000000" />
+          <DamageFallOffModifier value="0.500000" />
+          
+          <!-- Network Damage -->
+          <NetworkPlayerDamageModifier value="1.000000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          <NetworkHeadShotPlayerDamageModifier value="1.000000" />
+          <LockOnRange value="0.000000" />
+          <WeaponRange value="40.000000" />
+          
+          <!-- Recoil: Minimal - CO2 powered -->
+          <BulletDirectionOffsetInDegrees value="0.000000" />
+          <RecoilShakeAmplitude value="0.050000" />
+          <RecoilShakeFrequency value="0.000000" />
+          <RecoilShakeRollMagnitude value="0.020000" />
+          <RecoilShakeDuration value="0.100000" />
+          
+          <!-- Sound Range: Very quiet -->
+          <AiSoundRange value="15.000000" />
+          <AimingMod1 value="0.800000" />
+          <AimingModTime1 value="0.150000" />
+          <AimingMod2 value="0.600000" />
+          <AimingModTime2 value="0.250000" />
+          
+          <Flags>WF_GUN, WF_NO_SHOOTING_BERSERK, WF_WEAPON, WF_TAKE_ARM_L_HAND_DAMAGE_REACTIONS</Flags>
+          
+          <AltWheelSlot>WHEEL_UNARMED</AltWheelSlot>
+          <PickupGlowAsset />
+          <PickupTextRep />
+          <ModelHashKey>w_pi_dartgun</ModelHashKey>
+          <DefaultCameraHash>DEFAULT_FOLLOW_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_FOLLOW_CAMERA</CoverCameraHash>
+          <RunAndGunCameraHash>DEFAULT_FOLLOW_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash>DEFAULT_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+          <AimOffset>
+            <X value="0.000000" />
+            <Y value="0.015000" />
+            <Z value="0.000000" />
+          </AimOffset>
+          <FirstPersonAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonAimOffset>
+          <FirstPersonScopeOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonScopeOffset>
+          <CrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </CrouchAimOffset>
+          <FirstPersonCrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonCrouchAimOffset>
+          <ZoomFactorForAccurateMode value="1.000000" />
+          <ReticuleMinSizeStanding value="0.000000" />
+          <ReticuleMinSizeDucked value="0.000000" />
+          <ReticuleScale value="0.350000" />
+          <IronSightCameraZoomFactor value="1.000000" />
+          <WeaponSoundBoneTag />
+          <Hud>
+            <FlashColor value="0xFF88CCFF" />
+            <ScrollSelect>true</ScrollSelect>
+          </Hud>
+          <AmmoPickup>
+            <AmmoType>AMMO_STUNGUN</AmmoType>
+            <Amount value="3" />
+          </AmmoPickup>
+          <AmmoPickup2>
+            <AmmoType>AMMO_STUNGUN</AmmoType>
+            <Amount value="6" />
+          </AmmoPickup2>
+          <FireFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="3.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="0.300000" />
+            <EffectName>muz_stungun</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </FireFx>
+          <MuzzleFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="3.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="0.400000" />
+            <EffectName>muz_stungun</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </MuzzleFx>
+          <ShellFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName />
+            <FxBone />
+          </ShellFx>
+          <TracerFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="0.800000" />
+            <EffectName>proj_stungun</EffectName>
+            <FxBone />
+          </TracerFx>
+          <FlashFxLightEnabled value="false" />
+          <FlashFxLightCastsShadows value="false" />
+          <FlashFxLightOffsetDistance value="1.000000" />
+          <FlashFxLightRGBAMax value="0xFF88CCFF" />
+          <FlashFxLightIntensityMax value="0.300000" />
+          <FlashFxLightFallOffMax value="2.000000" />
+          <FlashFxFadeOutTime value="0.020000" />
+          <FlashFxAltBone />
+          <ReloadUpperBodyFixupExpression>YOURNAME/YOURFOLDER</ReloadUpperBodyFixupExpression>
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

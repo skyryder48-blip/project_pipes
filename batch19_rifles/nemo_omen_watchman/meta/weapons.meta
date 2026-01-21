@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="304" />
+          <Entry>SLOT_NEMOWATCHMAN</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="304" />
+          <Entry>SLOT_NEMOWATCHMAN</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="154" />
+        <Entry>SLOT_NEMOWATCHMAN</Entry>
+      </Item>
+    </WeaponSlots>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos>
+    <Item type="CAimingInfo">
+      <n>YOURWEAPON_YOURWEAPON_YOURWEAPON</n>
+      <HeadingLimit value="90.000000" />
+      <SweepPitchMin value="-45.000000" />
+      <SweepPitchMax value="45.000000" />
+    </Item>
+  </AimingInfos>
+  <Infos>
+    <Item>
+      <Infos />
+    </Item>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+          <!-- ================================================================
+               NEMO ARMS OMEN WATCHMAN - .300 WIN MAG SEMI-AUTO
+               ================================================================
+               Real-World Specifications:
+               - Caliber: .300 Winchester Magnum
+               - Barrel: 24" PROOF Research carbon fiber, 1:8" twist
+               - Overall Length: 46.5"
+               - Weight: 10.2 lbs unloaded
+               - Magazine: 14 rounds, NEMO polymer
+               - Action: Gas-operated semi-auto, 48-position adjustable
+               - Accuracy: 0.5-1.0 MOA
+               - Effective Range: 1,200m+
+               - Trigger: TriggerTech adjustable
+               - MSRP: $6,499-6,999
+               
+               Unique Features:
+               - World's first reliable semi-auto .300 Win Mag AR
+               - Dual-stage recoil-reduction bolt carrier
+               - Felt recoil comparable to 6.8 SPC despite 3x energy
+               - 48-position adjustable gas block
+               
+               Ballistic Performance (.300 WM, 190gr Berger):
+               - Muzzle Velocity: 2,960 fps (902 m/s)
+               - Muzzle Energy: 3,700 ft-lbs
+               - Energy @ 500m: 1,600 ft-lbs (43% retained)
+               - Energy @ 1,000m: 900 ft-lbs (24% retained)
+               ================================================================ -->
+          <n>WEAPON_NEMOWATCHMAN</n>
+          <Model>w_sr_nemowatchman</Model>
+          <Audio>AUDIO_ITEM_SNIPERRIFLE</Audio>
+          <Slot>SLOT_NEMOWATCHMAN</Slot>
+          <HumanNameHash>WT_NEMOWATCHMAN</HumanNameHash>
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FireType>INSTANT_HIT</FireType>
+          <WheelSlot>WHEEL_SNIPERRIFLE</WheelSlot>
+          <Group>GROUP_SNIPERRIFLE</Group>
+          <AmmoInfo ref="AMMO_SNIPER" />
+          <AimingInfo ref="YOURWEAPON_YOURWEAPON_YOURWEAPON" />
+          
+          <!-- Magazine: 14 rounds - high capacity magnum -->
+          <ClipSize value="14" />
+          
+          <!-- Accuracy: Precision semi-auto -->
+          <AccuracySpread value="0.100000" />
+          <AccurateModeAccuracyModifier value="0.150000" />
+          <RunAndGunAccuracyModifier value="4.000000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+          <RecoilAccuracyMax value="1.000000" />
+          <RecoilErrorTime value="0.250000" />
+          <RecoilRecoveryRate value="0.350000" />
+          
+          <!-- Headshot Parameters -->
+          <RecoilAccuracyToAllowHeadShotAI value="0.450000" />
+          <MinHeadShotDistanceAI value="5.000000" />
+          <MaxHeadShotDistanceAI value="600.000000" />
+          <HeadShotDamageModifierAI value="2.200000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.120000" />
+          <MinHeadShotDistancePlayer value="0.000000" />
+          <MaxHeadShotDistancePlayer value="600.000000" />
+          <HeadShotDamageModifierPlayer value="1.800000" />
+          
+          <!-- Damage: 92 - .300 Win Mag power -->
+          <Damage value="92.000000" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <HitLimbsDamageModifier value="0.680000" />
+          <NetworkHitLimbsDamageModifier value="0.820000" />
+          <LightlyArmouredDamageModifier value="0.950000" />
+          
+          <!-- Physics Forces - magnum rifle impact -->
+          <Force value="420.000000" />
+          <ForceHitPed value="220.000000" />
+          <ForceHitVehicle value="750.000000" />
+          <ForceHitFlyingHeli value="420.000000" />
+          <OverrideForces />
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="0.000000" />
+          <ForceFalloffRangeEnd value="600.000000" />
+          <ForceFalloffMin value="0.400000" />
+          <ProjectileForce value="0.000000" />
+          <FragImpulse value="950.000000" />
+          
+          <!-- Penetration: High for magnum rifle -->
+          <Penetration value="0.750000" />
+          <VerticalLaunchAdjustment value="0.000000" />
+          <DropForwardVelocity value="0.000000" />
+          
+          <!-- Velocity: 2,960 fps = 902 m/s -->
+          <Speed value="902.000000" />
+          
+          <!-- Single projectile -->
+          <BulletsInBatch value="1" />
+          <BatchSpread value="0.000000" />
+          
+          <!-- Reload timing -->
+          <ReloadTimeMP value="3.200000" />
+          <ReloadTimeSP value="3.200000" />
+          
+          <!-- Fire Rate: Semi-auto, precision spacing 0.35s -->
+          <TimeBetweenShots value="0.350000" />
+          
+          <!-- Damage Falloff: Full to 120m, minimum at 1000m -->
+          <DamageFallOffRangeMin value="120.000000" />
+          <DamageFallOffRangeMax value="1000.000000" />
+          <DamageFallOffModifier value="0.400000" />
+          
+          <!-- Network Damage -->
+          <NetworkPlayerDamageModifier value="1.000000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          <NetworkHeadShotPlayerDamageModifier value="1.000000" />
+          <LockOnRange value="0.000000" />
+          <WeaponRange value="1000.000000" />
+          
+          <!-- Recoil: Mitigated by dual-stage BCG -->
+          <BulletDirectionOffsetInDegrees value="0.000000" />
+          <RecoilShakeAmplitude value="0.420000" />
+          <RecoilShakeFrequency value="0.000000" />
+          <RecoilShakeRollMagnitude value="0.280000" />
+          <RecoilShakeDuration value="0.380000" />
+          
+          <AiSoundRange value="350.000000" />
+          <AimingMod1 value="0.480000" />
+          <AimingModTime1 value="0.320000" />
+          <AimingMod2 value="0.200000" />
+          <AimingModTime2 value="0.480000" />
+          
+          <Flags>WF_GUN, WF_GUN_2_HANDED, WF_NO_SHOOTING_BERSERK, WF_PED_GUN_2_HANDED, WF_WEAPON, WF_LOUDWEAPON, WF_TAKE_ARM_L_LONG_GUN_IMMEDIATE_DAMAGE_REACTIONS, WF_MAKE_PED_BACKUP, WF_DEFAULT_SCOPE_ON</Flags>
+          
+          <AltWheelSlot>WHEEL_UNARMED</AltWheelSlot>
+          <PickupGlowAsset />
+          <PickupTextRep />
+          <ModelHashKey>w_sr_nemowatchman</ModelHashKey>
+          <DefaultCameraHash>DEFAULT_FOLLOW_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_FOLLOW_CAMERA</CoverCameraHash>
+          <RunAndGunCameraHash>DEFAULT_FOLLOW_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash>DEFAULT_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+          <AimOffset>
+            <X value="0.000000" />
+            <Y value="0.020000" />
+            <Z value="0.000000" />
+          </AimOffset>
+          <FirstPersonAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonAimOffset>
+          <FirstPersonScopeOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonScopeOffset>
+          <CrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </CrouchAimOffset>
+          <FirstPersonCrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonCrouchAimOffset>
+          <ZoomFactorForAccurateMode value="1.000000" />
+          <ReticuleMinSizeStanding value="0.000000" />
+          <ReticuleMinSizeDucked value="0.000000" />
+          <ReticuleScale value="0.300000" />
+          <IronSightCameraZoomFactor value="1.000000" />
+          <WeaponSoundBoneTag />
+          <Hud>
+            <FlashColor value="0xFFFFFFFF" />
+            <ScrollSelect>true</ScrollSelect>
+          </Hud>
+          <AmmoPickup>
+            <AmmoType>AMMO_SNIPER</AmmoType>
+            <Amount value="7" />
+          </AmmoPickup>
+          <AmmoPickup2>
+            <AmmoType>AMMO_SNIPER</AmmoType>
+            <Amount value="14" />
+          </AmmoPickup2>
+          <FireFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.200000" />
+            <EffectName>muz_assault_rifle_fp</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </FireFx>
+          <MuzzleFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.200000" />
+            <EffectName>muz_assault_rifle</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </MuzzleFx>
+          <ShellFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.200000" />
+            <EffectName>weap_sh_ar</EffectName>
+            <FxBone>Gun_Shell</FxBone>
+          </ShellFx>
+          <TracerFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>proj_tracer</EffectName>
+            <FxBone />
+          </TracerFx>
+          <FlashFxLightEnabled value="true" />
+          <FlashFxLightCastsShadows value="false" />
+          <FlashFxLightOffsetDistance value="5.500000" />
+          <FlashFxLightRGBAMax value="0xFFFFE4C9" />
+          <FlashFxLightIntensityMax value="2.000000" />
+          <FlashFxLightFallOffMax value="10.000000" />
+          <FlashFxFadeOutTime value="0.060000" />
+          <FlashFxAltBone />
+          <ReloadUpperBodyFixupExpression>YOURNAME/YOURFOLDER</ReloadUpperBodyFixupExpression>
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

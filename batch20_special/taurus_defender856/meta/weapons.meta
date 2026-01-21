@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="405" />
+          <Entry>SLOT_TAURUS856</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="405" />
+          <Entry>SLOT_TAURUS856</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="205" />
+        <Entry>SLOT_TAURUS856</Entry>
+      </Item>
+    </WeaponSlots>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos>
+    <Item type="CAimingInfo">
+      <n>YOURWEAPON_YOURWEAPON_YOURWEAPON</n>
+      <HeadingLimit value="90.000000" />
+      <SweepPitchMin value="-45.000000" />
+      <SweepPitchMax value="45.000000" />
+    </Item>
+  </AimingInfos>
+  <Infos>
+    <Item>
+      <Infos />
+    </Item>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+          <!-- ================================================================
+               TAURUS DEFENDER 856 - BUDGET 6-SHOT REVOLVER
+               ================================================================
+               Real-World Specifications:
+               - Caliber: .38 Special +P
+               - Barrel: 3.0"
+               - Overall Length: 7.50"
+               - Weight: 23.5 oz (steel) / 17.3 oz (Ultra-Lite)
+               - Cylinder Capacity: 6 rounds (vs 5 for J-frames)
+               - Action: DA/SA
+               - Frame: Carbon steel or aluminum alloy
+               - Sights: Fixed rear, tritium front (AmeriGlo H3)
+               - MSRP: $425-$460 (street: $300-$350)
+               
+               Ballistic Performance (.38 Special +P, 125gr JHP):
+               - Muzzle Velocity: ~1,000 fps from 3" barrel
+               - Muzzle Energy: ~278 ft-lbs
+               - Energy vs 9mm: 77% of baseline (360 ft-lbs)
+               
+               Key Advantages:
+               - 6-shot capacity in J-frame-size package
+               - Budget price point (~50% of S&W)
+               - Tritium night sights standard
+               - Compatible with K-frame speedloaders
+               ================================================================ -->
+          <n>WEAPON_TAURUS856</n>
+          <Model>w_pi_taurus856</Model>
+          <Audio>AUDIO_ITEM_REVOLVER</Audio>
+          <Slot>SLOT_TAURUS856</Slot>
+          <HumanNameHash>WT_TAURUS856</HumanNameHash>
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FireType>INSTANT_HIT</FireType>
+          <WheelSlot>WHEEL_PISTOL</WheelSlot>
+          <Group>GROUP_PISTOL</Group>
+          <AmmoInfo ref="AMMO_PISTOL" />
+          <AimingInfo ref="YOURWEAPON_YOURWEAPON_YOURWEAPON" />
+          
+          <!-- Magazine: 6-shot cylinder - extra round advantage -->
+          <ClipSize value="6" />
+          
+          <!-- Accuracy: Good for 3" barrel, budget quality -->
+          <AccuracySpread value="0.300000" />
+          <AccurateModeAccuracyModifier value="0.270000" />
+          <RunAndGunAccuracyModifier value="3.400000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+          <RecoilAccuracyMax value="1.150000" />
+          <RecoilErrorTime value="0.210000" />
+          <RecoilRecoveryRate value="0.520000" />
+          
+          <!-- Headshot Parameters -->
+          <RecoilAccuracyToAllowHeadShotAI value="0.660000" />
+          <MinHeadShotDistanceAI value="3.000000" />
+          <MaxHeadShotDistanceAI value="48.000000" />
+          <HeadShotDamageModifierAI value="2.750000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.260000" />
+          <MinHeadShotDistancePlayer value="0.000000" />
+          <MaxHeadShotDistancePlayer value="48.000000" />
+          <HeadShotDamageModifierPlayer value="2.350000" />
+          
+          <!-- Damage: 26 - 3" barrel +P performance -->
+          <Damage value="26.000000" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <HitLimbsDamageModifier value="0.570000" />
+          <NetworkHitLimbsDamageModifier value="0.740000" />
+          <LightlyArmouredDamageModifier value="0.640000" />
+          
+          <!-- Physics Forces -->
+          <Force value="118.000000" />
+          <ForceHitPed value="64.000000" />
+          <ForceHitVehicle value="195.000000" />
+          <ForceHitFlyingHeli value="118.000000" />
+          <OverrideForces />
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="0.000000" />
+          <ForceFalloffRangeEnd value="35.000000" />
+          <ForceFalloffMin value="0.400000" />
+          <ProjectileForce value="0.000000" />
+          <FragImpulse value="245.000000" />
+          
+          <!-- Penetration -->
+          <Penetration value="0.340000" />
+          <VerticalLaunchAdjustment value="0.000000" />
+          <DropForwardVelocity value="0.000000" />
+          
+          <!-- Velocity: ~1,000 fps = 305 m/s -->
+          <Speed value="305.000000" />
+          
+          <!-- Single projectile -->
+          <BulletsInBatch value="1" />
+          <BatchSpread value="0.000000" />
+          
+          <!-- Reload timing -->
+          <ReloadTimeMP value="2.700000" />
+          <ReloadTimeSP value="2.700000" />
+          
+          <!-- Fire Rate: DA/SA, 0.45s between shots -->
+          <TimeBetweenShots value="0.450000" />
+          
+          <!-- Damage Falloff: Full to 15m, minimum at 48m -->
+          <DamageFallOffRangeMin value="15.000000" />
+          <DamageFallOffRangeMax value="48.000000" />
+          <DamageFallOffModifier value="0.560000" />
+          
+          <!-- Network Damage -->
+          <NetworkPlayerDamageModifier value="1.000000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          <NetworkHeadShotPlayerDamageModifier value="1.000000" />
+          <LockOnRange value="0.000000" />
+          <WeaponRange value="55.000000" />
+          
+          <!-- Recoil: Steel frame, moderate -->
+          <BulletDirectionOffsetInDegrees value="0.000000" />
+          <RecoilShakeAmplitude value="0.290000" />
+          <RecoilShakeFrequency value="0.000000" />
+          <RecoilShakeRollMagnitude value="0.190000" />
+          <RecoilShakeDuration value="0.260000" />
+          
+          <AiSoundRange value="115.000000" />
+          <AimingMod1 value="0.640000" />
+          <AimingModTime1 value="0.210000" />
+          <AimingMod2 value="0.390000" />
+          <AimingModTime2 value="0.360000" />
+          
+          <Flags>WF_GUN, WF_NO_SHOOTING_BERSERK, WF_WEAPON, WF_LOUDWEAPON, WF_TAKE_ARM_L_HAND_DAMAGE_REACTIONS, WF_MAKE_PED_BACKUP</Flags>
+          
+          <AltWheelSlot>WHEEL_UNARMED</AltWheelSlot>
+          <PickupGlowAsset />
+          <PickupTextRep />
+          <ModelHashKey>w_pi_taurus856</ModelHashKey>
+          <DefaultCameraHash>DEFAULT_FOLLOW_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_FOLLOW_CAMERA</CoverCameraHash>
+          <RunAndGunCameraHash>DEFAULT_FOLLOW_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash>DEFAULT_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+          <AimOffset>
+            <X value="0.000000" />
+            <Y value="0.010000" />
+            <Z value="0.000000" />
+          </AimOffset>
+          <FirstPersonAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonAimOffset>
+          <FirstPersonScopeOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonScopeOffset>
+          <CrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </CrouchAimOffset>
+          <FirstPersonCrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonCrouchAimOffset>
+          <ZoomFactorForAccurateMode value="1.000000" />
+          <ReticuleMinSizeStanding value="0.000000" />
+          <ReticuleMinSizeDucked value="0.000000" />
+          <ReticuleScale value="0.410000" />
+          <IronSightCameraZoomFactor value="1.000000" />
+          <WeaponSoundBoneTag />
+          <Hud>
+            <FlashColor value="0xFFFFFFFF" />
+            <ScrollSelect>true</ScrollSelect>
+          </Hud>
+          <AmmoPickup>
+            <AmmoType>AMMO_PISTOL</AmmoType>
+            <Amount value="6" />
+          </AmmoPickup>
+          <AmmoPickup2>
+            <AmmoType>AMMO_PISTOL</AmmoType>
+            <Amount value="12" />
+          </AmmoPickup2>
+          <FireFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>muz_pistol_fp</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </FireFx>
+          <MuzzleFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.200000" />
+            <EffectName>muz_pistol</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </MuzzleFx>
+          <ShellFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName />
+            <FxBone />
+          </ShellFx>
+          <TracerFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>proj_tracer</EffectName>
+            <FxBone />
+          </TracerFx>
+          <FlashFxLightEnabled value="true" />
+          <FlashFxLightCastsShadows value="false" />
+          <FlashFxLightOffsetDistance value="3.000000" />
+          <FlashFxLightRGBAMax value="0xFFFFE4C9" />
+          <FlashFxLightIntensityMax value="1.250000" />
+          <FlashFxLightFallOffMax value="5.000000" />
+          <FlashFxFadeOutTime value="0.040000" />
+          <FlashFxAltBone />
+          <ReloadUpperBodyFixupExpression>YOURNAME/YOURFOLDER</ReloadUpperBodyFixupExpression>
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+</CWeaponInfoBlob>

@@ -2,11 +2,11 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <n>w_sr_nemowatchman</n>
-      <Model>w_sr_nemowatchman</Model>
+      <n>w_sr_watchman</n>
+      <Model>w_sr_watchman</Model>
       <Audio>AUDIO_ITEM_SNIPERRIFLE</Audio>
-      <Slot>YOURSLOT</Slot>
-      <WeaponFlags>WF_FIREARM, WF_GUN, WF_GUN_2_HANDED, WF_PED_GUN_2_HANDED, WF_WEAPON, WF_LOUDWEAPON</WeaponFlags>
+      <Slot>SLOT_NEMOWATCHMAN</Slot>
+      <WeaponFlags>WF_FIREARM, WF_GUN, WF_GUN_2_HANDED, WF_PED_GUN_2_HANDED, WF_WEAPON, WF_LOUDWEAPON, WF_TAKE_ARM_L_LONG_GUN_IMMEDIATE_DAMAGE_REACTIONS, WF_MAKE_PED_BACKUP, WF_DEFAULT_SCOPE_ON</WeaponFlags>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

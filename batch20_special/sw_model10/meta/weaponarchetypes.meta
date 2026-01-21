@@ -2,11 +2,11 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <n>w_pi_swmodel10</n>
-      <Model>w_pi_swmodel10</Model>
+      <n>w_pi_model10</n>
+      <Model>w_pi_model10</Model>
       <Audio>AUDIO_ITEM_REVOLVER</Audio>
-      <Slot>YOURSLOT</Slot>
-      <WeaponFlags>WF_FIREARM, WF_GUN, WF_WEAPON, WF_LOUDWEAPON</WeaponFlags>
+      <Slot>SLOT_SWMODEL10</Slot>
+      <WeaponFlags>WF_FIREARM, WF_GUN, WF_WEAPON, WF_LOUDWEAPON, WF_TAKE_ARM_L_HAND_DAMAGE_REACTIONS, WF_MAKE_PED_BACKUP</WeaponFlags>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

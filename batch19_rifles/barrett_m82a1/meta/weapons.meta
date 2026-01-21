@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>YOURWEAPON_YOURWEAPON_YOURWEAPON</n>
+      <n>AI_M82A1</n>
       <HeadingLimit value="90.000000" />
       <SweepPitchMin value="-45.000000" />
       <SweepPitchMax value="45.000000" />
@@ -75,7 +75,7 @@
                - "Kicks like a 12-gauge with 3" shells"
                ================================================================ -->
           <n>WEAPON_BARRETTM82A1</n>
-          <Model>w_sr_barrettm82a1</Model>
+          <Model>w_sr_m82a1</Model>
           <Audio>AUDIO_ITEM_HEAVYSNIPER</Audio>
           <Slot>SLOT_BARRETTM82A1</Slot>
           <HumanNameHash>WT_BARRETTM82A1</HumanNameHash>
@@ -92,7 +92,7 @@
           <WheelSlot>WHEEL_SNIPERRIFLE</WheelSlot>
           <Group>GROUP_SNIPERRIFLE</Group>
           <AmmoInfo ref="AMMO_SNIPER_REMOTE" />
-          <AimingInfo ref="YOURWEAPON_YOURWEAPON_YOURWEAPON" />
+          <AimingInfo ref="AI_M82A1" />
           
           <!-- Magazine: 10 rounds -->
           <ClipSize value="10" />
@@ -187,7 +187,7 @@
           <AltWheelSlot>WHEEL_UNARMED</AltWheelSlot>
           <PickupGlowAsset />
           <PickupTextRep />
-          <ModelHashKey>w_sr_barrettm82a1</ModelHashKey>
+          <ModelHashKey>w_sr_m82a1</ModelHashKey>
           <DefaultCameraHash>DEFAULT_FOLLOW_CAMERA</DefaultCameraHash>
           <CoverCameraHash>DEFAULT_FOLLOW_CAMERA</CoverCameraHash>
           <RunAndGunCameraHash>DEFAULT_FOLLOW_CAMERA</RunAndGunCameraHash>
@@ -303,7 +303,7 @@
           <FlashFxLightFallOffMax value="15.000000" />
           <FlashFxFadeOutTime value="0.100000" />
           <FlashFxAltBone />
-          <ReloadUpperBodyFixupExpression>YOURNAME/YOURFOLDER</ReloadUpperBodyFixupExpression>
+          <ReloadUpperBodyFixupExpression></ReloadUpperBodyFixupExpression>
         </Item>
       </Infos>
     </Item>

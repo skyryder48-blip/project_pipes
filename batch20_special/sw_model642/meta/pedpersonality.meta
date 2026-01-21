@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CPedModelInfo__PersonalityDataList>
+  <PersonalityDatas>
+    <Item>
+      <n>WEAPON_SWMODEL642</n>
+      <bCanBeTargetted value="true" />
+      <bIsWeapon value="true" />
+      <bCanUseCover value="true" />
+      <bCanGrabWeapons value="true" />
+      <fAccuracy value="0.550000" />
+      <fFireRate value="0.750000" />
+      <fCoverSearchTime value="0.700000" />
+    </Item>
+  </PersonalityDatas>
+</CPedModelInfo__PersonalityDataList>

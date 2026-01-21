@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>YOURWEAPON_YOURWEAPON_YOURWEAPON</n>
+      <n>AI_MODEL60</n>
       <HeadingLimit value="90.000000" />
       <SweepPitchMin value="-45.000000" />
       <SweepPitchMax value="45.000000" />
@@ -70,7 +70,7 @@
                - Full underlug adds muzzle weight for stability
                ================================================================ -->
           <n>WEAPON_SWMODEL60</n>
-          <Model>w_pi_swmodel60</Model>
+          <Model>w_pi_model60</Model>
           <Audio>AUDIO_ITEM_REVOLVER</Audio>
           <Slot>SLOT_SWMODEL60</Slot>
           <HumanNameHash>WT_SWMODEL60</HumanNameHash>
@@ -87,7 +87,7 @@
           <WheelSlot>WHEEL_PISTOL</WheelSlot>
           <Group>GROUP_PISTOL</Group>
           <AmmoInfo ref="AMMO_PISTOL" />
-          <AimingInfo ref="YOURWEAPON_YOURWEAPON_YOURWEAPON" />
+          <AimingInfo ref="AI_MODEL60" />
           
           <!-- Magazine: 5-shot cylinder -->
           <ClipSize value="5" />
@@ -182,7 +182,7 @@
           <AltWheelSlot>WHEEL_UNARMED</AltWheelSlot>
           <PickupGlowAsset />
           <PickupTextRep />
-          <ModelHashKey>w_pi_swmodel60</ModelHashKey>
+          <ModelHashKey>w_pi_model60</ModelHashKey>
           <DefaultCameraHash>DEFAULT_FOLLOW_CAMERA</DefaultCameraHash>
           <CoverCameraHash>DEFAULT_FOLLOW_CAMERA</CoverCameraHash>
           <RunAndGunCameraHash>DEFAULT_FOLLOW_CAMERA</RunAndGunCameraHash>
@@ -298,7 +298,7 @@
           <FlashFxLightFallOffMax value="5.000000" />
           <FlashFxFadeOutTime value="0.040000" />
           <FlashFxAltBone />
-          <ReloadUpperBodyFixupExpression>YOURNAME/YOURFOLDER</ReloadUpperBodyFixupExpression>
+          <ReloadUpperBodyFixupExpression></ReloadUpperBodyFixupExpression>
         </Item>
       </Infos>
     </Item>

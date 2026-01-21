@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>YOURWEAPON_YOURWEAPON_YOURWEAPON</n>
+      <n>AI_MODEL642</n>
       <HeadingLimit value="90.000000" />
       <SweepPitchMin value="-45.000000" />
       <SweepPitchMax value="45.000000" />
@@ -73,7 +73,7 @@
                - Silver front sight (harder to acquire vs light targets)
                ================================================================ -->
           <n>WEAPON_SWMODEL642</n>
-          <Model>w_pi_swmodel642</Model>
+          <Model>w_pi_model642</Model>
           <Audio>AUDIO_ITEM_REVOLVER</Audio>
           <Slot>SLOT_SWMODEL642</Slot>
           <HumanNameHash>WT_SWMODEL642</HumanNameHash>
@@ -90,7 +90,7 @@
           <WheelSlot>WHEEL_PISTOL</WheelSlot>
           <Group>GROUP_PISTOL</Group>
           <AmmoInfo ref="AMMO_PISTOL" />
-          <AimingInfo ref="YOURWEAPON_YOURWEAPON_YOURWEAPON" />
+          <AimingInfo ref="AI_MODEL642" />
           
           <!-- Magazine: 5-shot cylinder -->
           <ClipSize value="5" />
@@ -185,7 +185,7 @@
           <AltWheelSlot>WHEEL_UNARMED</AltWheelSlot>
           <PickupGlowAsset />
           <PickupTextRep />
-          <ModelHashKey>w_pi_swmodel642</ModelHashKey>
+          <ModelHashKey>w_pi_model642</ModelHashKey>
           <DefaultCameraHash>DEFAULT_FOLLOW_CAMERA</DefaultCameraHash>
           <CoverCameraHash>DEFAULT_FOLLOW_CAMERA</CoverCameraHash>
           <RunAndGunCameraHash>DEFAULT_FOLLOW_CAMERA</RunAndGunCameraHash>
@@ -301,7 +301,7 @@
           <FlashFxLightFallOffMax value="4.500000" />
           <FlashFxFadeOutTime value="0.035000" />
           <FlashFxAltBone />
-          <ReloadUpperBodyFixupExpression>YOURNAME/YOURFOLDER</ReloadUpperBodyFixupExpression>
+          <ReloadUpperBodyFixupExpression></ReloadUpperBodyFixupExpression>
         </Item>
       </Infos>
     </Item>

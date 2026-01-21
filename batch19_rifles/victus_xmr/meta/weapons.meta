@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>YOURWEAPON_YOURWEAPON_YOURWEAPON</n>
+      <n>AI_VICTUSXMR</n>
       <HeadingLimit value="90.000000" />
       <SweepPitchMin value="-45.000000" />
       <SweepPitchMax value="45.000000" />
@@ -89,7 +89,7 @@
           <WheelSlot>WHEEL_SNIPERRIFLE</WheelSlot>
           <Group>GROUP_SNIPERRIFLE</Group>
           <AmmoInfo ref="AMMO_SNIPER_REMOTE" />
-          <AimingInfo ref="YOURWEAPON_YOURWEAPON_YOURWEAPON" />
+          <AimingInfo ref="AI_VICTUSXMR" />
           
           <!-- Magazine: 5 rounds -->
           <ClipSize value="5" />
@@ -300,7 +300,7 @@
           <FlashFxLightFallOffMax value="12.000000" />
           <FlashFxFadeOutTime value="0.080000" />
           <FlashFxAltBone />
-          <ReloadUpperBodyFixupExpression>YOURNAME/YOURFOLDER</ReloadUpperBodyFixupExpression>
+          <ReloadUpperBodyFixupExpression></ReloadUpperBodyFixupExpression>
         </Item>
       </Infos>
     </Item>

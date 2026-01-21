@@ -1,21 +1,19 @@
 fx_version 'cerulean'
 game 'gta5'
 
-author 'Project Pipes'
-description 'weapon_glock_demon - Full-Auto .40 S&W Converted Street Weapon'
+author 'Weapon Meta Development Project'
+description 'weapon_glock_demon Addon Weapon'
 version '1.0.0'
 
 client_script 'cl_weaponNames.lua'
 
 files {
     'meta/weapon_glock_demon.meta',
+    'meta/weaponarchetypes.meta',
     'meta/weaponanimations.meta',
     'meta/pedpersonality.meta',
-    'meta/weaponarchetypes.meta',
+    'stream/*',
 }
 
--- Load order matters: archetypes -> animations -> personality -> weapon
-data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'
-data_file 'WEAPON_ANIMATIONS_FILE' 'meta/weaponanimations.meta'
-data_file 'PED_PERSONALITY_FILE' 'meta/pedpersonality.meta'
 data_file 'WEAPONINFO_FILE' 'meta/weapon_glock_demon.meta'
+data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'

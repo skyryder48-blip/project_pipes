@@ -1,14 +1,8 @@
---[[
-    Walther P88 9mm - Batch 2 Full-Size 9mm (organized in Batch 9)
-    1980s German engineering - best accuracy of any 9mm
-    34 damage, 16 rounds, 4.0" barrel
-]]
-
 fx_version 'cerulean'
 game 'gta5'
 
-author 'Weapon Meta Project'
-description 'Walther P88 9mm - Premium German Service Pistol'
+author 'Weapon Meta Development Project'
+description 'weapon_waltherp88 Addon Weapon'
 version '1.0.0'
 
 client_script 'cl_weaponNames.lua'
@@ -18,10 +12,8 @@ files {
     'meta/weaponarchetypes.meta',
     'meta/weaponanimations.meta',
     'meta/pedpersonality.meta',
-    'stream/*'
+    'stream/*',
 }
 
 data_file 'WEAPONINFO_FILE' 'meta/weapon_waltherp88.meta'
 data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'
-data_file 'WEAPON_ANIMATIONS_FILE' 'meta/weaponanimations.meta'
-data_file 'PED_PERSONALITY_FILE' 'meta/pedpersonality.meta'

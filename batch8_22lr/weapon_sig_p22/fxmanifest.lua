@@ -1,17 +1,8 @@
---[[
-    SIG P22 (Walther P22) - .22 LR
-    Batch 8: Rimfire Pistols
-
-    Budget rimfire trainer with DA/SA operation
-    3.42" barrel, 10+1 capacity, $329 MSRP
-    Entry-level suppressor host, ideal for training
-]]
-
 fx_version 'cerulean'
 game 'gta5'
 
-author 'Weapon Meta Development'
-description 'SIG P22 (Walther P22) - .22 Long Rifle'
+author 'Weapon Meta Development Project'
+description 'weapon_sig_p22 Addon Weapon'
 version '1.0.0'
 
 client_script 'cl_weaponNames.lua'
@@ -21,10 +12,8 @@ files {
     'meta/weaponarchetypes.meta',
     'meta/weaponanimations.meta',
     'meta/pedpersonality.meta',
-    'stream/*'
+    'stream/*',
 }
 
 data_file 'WEAPONINFO_FILE' 'meta/weapon_sigp22.meta'
 data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'
-data_file 'WEAPON_ANIMATIONS_FILE' 'meta/weaponanimations.meta'
-data_file 'PED_PERSONALITY_FILE' 'meta/pedpersonality.meta'

@@ -547,37 +547,25 @@ exports('magazineContextMenu', function(data)
 end)
 
 -- ============================================================================
--- WEAPON SWITCH HANDLING
+-- WEAPON MODIFICATIONS
 -- ============================================================================
-
 --[[
-    When weapon is converted (e.g., G26 → G26_SWITCH), transfer magazine state
+    NOTE: Weapon swap conversion is DEPRECATED.
+
+    Fire mode modifications (switches, bump stocks, binary triggers) are now
+    handled by the selective fire system via component detection:
+
+    1. Player uses switch item on compatible weapon
+    2. Switch item attaches COMPONENT_G26_SWITCH to weapon
+    3. Selective fire system detects component and unlocks full-auto mode
+    4. Same weapon, same magazines - only fire behavior changes
+
+    This approach is preferred because:
+    - No separate weapon variants needed (G26 vs G26_SWITCH)
+    - Magazines work identically on base weapon
+    - Modification is reversible (can detach component)
+    - Simpler inventory management
 ]]
-RegisterNetEvent('ammo:weaponConverted', function(data)
-    local oldWeapon = data.oldWeapon
-    local newWeapon = data.newWeapon
-
-    -- Transfer magazine state from old weapon to new weapon
-    if equippedMagazines[oldWeapon] then
-        equippedMagazines[newWeapon] = equippedMagazines[oldWeapon]
-        equippedMagazines[oldWeapon] = nil
-    end
-
-    -- Apply component to new weapon if magazine was equipped
-    if equippedMagazines[newWeapon] then
-        local magData = equippedMagazines[newWeapon]
-        local componentName = GetMagazineComponentName(newWeapon, magData.item, magData.ammoType)
-
-        if componentName then
-            local componentHash = GetHashKey(componentName)
-            local ped = PlayerPedId()
-
-            RemoveAllClipComponents(newWeapon)
-            GiveWeaponComponentToPed(ped, newWeapon, componentHash)
-            SetPedAmmo(ped, newWeapon, magData.count)
-        end
-    end
-end)
 
 -- ============================================================================
 -- EXPORTS

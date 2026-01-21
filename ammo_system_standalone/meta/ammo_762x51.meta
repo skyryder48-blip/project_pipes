@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  7.62x51mm NATO / .308 Winchester Ammunition Definitions - CENTRALIZED
+  Used by ALL 7.62x51mm weapons (Batch 19 Precision Rifles)
+
+  Full-power battle rifle cartridge: 147gr @ 2,800 fps = 2,627 ft-lbs
+  74% more energy than 7.62x39, NATO standard sniper/DMR round
+  Weapons: Remington 700, Sauer 101, Remington M24
+
+  AMMO TYPES:
+  - FMJ (Standard): M80 ball, baseline damage, standard penetration
+  - Match: Sierra MatchKing HPBT, +5% damage, sub-MOA precision
+  - AP (Armor Piercing): M993 tungsten, -5% damage, defeats Level III+
+
+  Load this resource BEFORE any 7.62x51 weapon resources in server.cfg:
+    ensure ammo_system_standalone
+    ensure remington_700
+    ensure sauer_101
+    ensure remington_m24
+-->
+<CWeaponInfoBlob>
+  <Infos>
+    <Item>
+      <Infos>
+        <!-- ==================== 7.62x51 FMJ (Full Metal Jacket) ==================== -->
+        <!-- M80 Ball ammunition, NATO standard issue -->
+        <!-- 147gr @ 2,800 fps, baseline damage, 0.60 penetration -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_762X51_FMJ</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="100" />
+          <AmmoMax50 value="100" />
+          <AmmoMax100 value="100" />
+          <AmmoMaxMP value="100" />
+          <AmmoMax50MP value="100" />
+          <AmmoMax100MP value="100" />
+          <AmmoFlags />
+          <AmmoSpecialType>None</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="1.300000" />
+          <PedRicochetTolerance value="1.300000" />
+          <VehicleRicochetTolerance value="1.300000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== 7.62x51 Match (Precision) ==================== -->
+        <!-- Sierra MatchKing 168gr HPBT, competition/precision -->
+        <!-- +5% damage, sub-MOA accuracy, optimized ballistic coefficient -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_762X51_MATCH</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="60" />
+          <AmmoMax50 value="60" />
+          <AmmoMax100 value="60" />
+          <AmmoMaxMP value="60" />
+          <AmmoMax50MP value="60" />
+          <AmmoMax100MP value="60" />
+          <AmmoFlags />
+          <AmmoSpecialType>None</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="0.950000" />
+          <RicochetTolerance value="1.200000" />
+          <PedRicochetTolerance value="1.200000" />
+          <VehicleRicochetTolerance value="1.100000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== 7.62x51 AP (Armor Piercing) ==================== -->
+        <!-- M993 tungsten carbide core -->
+        <!-- -5% damage, defeats Level III+ body armor and barriers -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_762X51_AP</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="40" />
+          <AmmoMax50 value="40" />
+          <AmmoMax100 value="40" />
+          <AmmoMaxMP value="40" />
+          <AmmoMax50MP value="40" />
+          <AmmoMax100MP value="40" />
+          <AmmoFlags />
+          <AmmoSpecialType>ArmorPiercing</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="1.800000" />
+          <PedRicochetTolerance value="1.800000" />
+          <VehicleRicochetTolerance value="1.800000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+  <n>7.62x51mm NATO / .308 Winchester Ammunition Types</n>
+</CWeaponInfoBlob>

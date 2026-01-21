@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  .50 BMG (12.7x99mm NATO) Ammunition Definitions - CENTRALIZED
+  Used by ALL .50 BMG weapons (Batch 19 Anti-Materiel Rifles)
+
+  THE MOST POWERFUL conventional small arms cartridge
+  647gr @ 2,910 fps = 13,200 ft-lbs (36x 9mm energy)
+  Weapons: Barrett M82A1, Barrett M107A1, Victus XMR
+
+  AMMO TYPES:
+  - Ball (Standard): M33 647gr, baseline damage, anti-personnel
+  - API (Armor Piercing Incendiary): M8, -5% damage, ignites on impact
+  - BOOM (Explosive): +10% damage, DEVASTATING vs vehicles, explosive effect
+
+  Load this resource BEFORE any .50 BMG weapon resources in server.cfg:
+    ensure ammo_system_standalone
+    ensure barrett_m82a1
+    ensure barrett_m107a1
+    ensure victus_xmr
+-->
+<CWeaponInfoBlob>
+  <Infos>
+    <Item>
+      <Infos>
+        <!-- ==================== .50 BMG Ball (Standard) ==================== -->
+        <!-- M33 Ball ammunition, NATO standard issue -->
+        <!-- 647gr @ 2,910 fps, 13,200 ft-lbs, anti-personnel baseline -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_50BMG_BALL</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="30" />
+          <AmmoMax50 value="30" />
+          <AmmoMax100 value="30" />
+          <AmmoMaxMP value="30" />
+          <AmmoMax50MP value="30" />
+          <AmmoMax100MP value="30" />
+          <AmmoFlags />
+          <AmmoSpecialType>None</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="0.900000" />
+          <RicochetTolerance value="2.000000" />
+          <PedRicochetTolerance value="2.000000" />
+          <VehicleRicochetTolerance value="2.000000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx>proj_tracer_50cal</TrailFx>
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.100000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== .50 BMG API (Armor Piercing Incendiary) ==================== -->
+        <!-- M8 Armor Piercing Incendiary -->
+        <!-- -5% damage, ignites on armor impact, anti-materiel -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_50BMG_API</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="20" />
+          <AmmoMax50 value="20" />
+          <AmmoMax100 value="20" />
+          <AmmoMaxMP value="20" />
+          <AmmoMax50MP value="20" />
+          <AmmoMax100MP value="20" />
+          <AmmoFlags />
+          <AmmoSpecialType>ArmorPiercing</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="0.900000" />
+          <RicochetTolerance value="2.200000" />
+          <PedRicochetTolerance value="2.200000" />
+          <VehicleRicochetTolerance value="2.200000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>EXP_TAG_MOLOTOV</HitCar>
+            <HitTruck>EXP_TAG_MOLOTOV</HitTruck>
+            <HitBike>EXP_TAG_MOLOTOV</HitBike>
+            <HitBoat>EXP_TAG_MOLOTOV</HitBoat>
+            <HitPlane>EXP_TAG_MOLOTOV</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx>proj_tracer_50cal</TrailFx>
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.100000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="1.000000" y="0.500000" z="0.200000" />
+          <LightIntensity value="1.500000" />
+          <LightRange value="3.000000" />
+          <LightFalloffExp value="64.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="5.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== .50 BMG BOOM (Explosive Multipurpose) ==================== -->
+        <!-- Based on Mk 211 Raufoss Multipurpose round -->
+        <!-- +10% damage, DEVASTATING vs vehicles -->
+        <!-- Penetrate → Fragment → EXPLODE sequence -->
+        <!-- WARNING: This round creates explosions on impact! -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_50BMG_BOOM</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="15" />
+          <AmmoMax50 value="15" />
+          <AmmoMax100 value="15" />
+          <AmmoMaxMP value="15" />
+          <AmmoMax50MP value="15" />
+          <AmmoMax100MP value="15" />
+          <AmmoFlags>ExplosiveRounds</AmmoFlags>
+          <AmmoSpecialType>Explosive</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="0.900000" />
+          <RicochetTolerance value="0.000000" />
+          <PedRicochetTolerance value="0.000000" />
+          <VehicleRicochetTolerance value="0.000000" />
+          <Explosion>
+            <Default>EXP_TAG_BULLET</Default>
+            <HitCar>EXP_TAG_TANKSHELL</HitCar>
+            <HitTruck>EXP_TAG_TANKSHELL</HitTruck>
+            <HitBike>EXP_TAG_BULLET</HitBike>
+            <HitBoat>EXP_TAG_TANKSHELL</HitBoat>
+            <HitPlane>EXP_TAG_TANKSHELL</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx>proj_tracer_50cal</TrailFx>
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.100000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="true" />
+          <LightBone />
+          <LightColour x="1.000000" y="0.800000" z="0.400000" />
+          <LightIntensity value="3.000000" />
+          <LightRange value="8.000000" />
+          <LightFalloffExp value="64.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="10.000000" />
+          <CoronaSize value="0.500000" />
+          <CoronaIntensity value="1.000000" />
+          <CoronaZBias value="0.200000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+  <n>.50 BMG Anti-Materiel Ammunition Types</n>
+</CWeaponInfoBlob>

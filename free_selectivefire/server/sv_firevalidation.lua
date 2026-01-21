@@ -1,15 +1,14 @@
 --[[
-    SELECTIVE FIRE SYSTEM - SERVER VALIDATION
+    SELECTIVE FIRE SYSTEM - SERVER VALIDATION (Optimized)
 
-    Server-side fire rate validation to detect anomalous fire patterns.
-    This provides anti-cheat protection while respecting client authority
-    for immediate fire control feedback.
+    Lightweight server-side fire rate validation.
+    Uses event-driven architecture with minimal memory footprint.
 
-    Features:
-    - Tracks player fire modes and shot timing
-    - Detects suspicious fire rates for semi-auto weapons
-    - Logs anomalies for admin review
-    - Configurable thresholds to avoid false positives
+    Performance characteristics:
+    - No polling/ticks - purely event-driven
+    - O(1) lookups using hash tables
+    - Limited memory: only tracks active players with weapons
+    - Automatic cleanup on player disconnect
 ]]
 
 -- ============================================================================
@@ -18,134 +17,116 @@
 
 local ValidationConfig = {
     -- Minimum time between shots for semi-auto (ms)
-    -- Slightly lower than client to account for latency
-    SemiAutoMinInterval = 200,
+    SemiAutoMinInterval = 180,      -- Slightly lower than client (200ms) for latency
 
-    -- Burst validation: max shots in burst period
+    -- Burst validation
     BurstMaxShots = 4,              -- Allow 4 to account for timing variance
-    BurstPeriod = 400,              -- Window to count burst shots (ms)
+    BurstWindow = 400,              -- Window to count burst shots (ms)
 
-    -- Anomaly detection thresholds
-    MaxViolationsBeforeLog = 3,     -- Violations before logging
-    ViolationResetTime = 10000,     -- Reset violations after this time (ms)
+    -- Anomaly thresholds
+    ViolationThreshold = 5,         -- Violations before logging
+    ViolationDecay = 15000,         -- Reset violations after this time (ms)
 
-    -- Enable/disable validation features
+    -- Feature toggles
     EnableValidation = true,
     EnableLogging = true,
-    EnableKick = false,             -- DANGER: Set true only for strict servers
-    KickThreshold = 10,             -- Violations before kick (if enabled)
+    EnableKick = false,             -- Set true only for strict enforcement
+    KickThreshold = 15,
 }
 
 -- ============================================================================
--- PLAYER STATE TRACKING
+-- PLAYER STATE (Minimal Memory)
 -- ============================================================================
 
 local playerStates = {}
 
--- Initialize player state
-local function InitPlayerState(source)
-    playerStates[source] = {
-        currentMode = 'SEMI',
-        currentWeapon = nil,
-        lastShotTime = 0,
-        shotTimes = {},             -- Ring buffer of recent shot times
-        violations = 0,
-        lastViolationTime = 0,
-    }
+-- Lightweight state structure
+local function GetState(source)
+    if not playerStates[source] then
+        playerStates[source] = {
+            mode = 'SEMI',
+            weapon = nil,
+            lastShot = 0,
+            recentShots = {},       -- Circular buffer of last 5 shot times
+            shotIndex = 1,
+            violations = 0,
+            lastViolation = 0,
+        }
+    end
+    return playerStates[source]
 end
 
--- Clean up player state on disconnect
-AddEventHandler('playerDropped', function(reason)
-    local source = source
+-- Cleanup on disconnect
+AddEventHandler('playerDropped', function()
     playerStates[source] = nil
 end)
 
 -- ============================================================================
--- VALIDATION LOGIC
+-- VALIDATION LOGIC (Optimized)
 -- ============================================================================
 
--- Check if fire rate is valid for current mode
-local function ValidateFireRate(source, weaponHash, mode)
-    local state = playerStates[source]
-    if not state then
-        InitPlayerState(source)
-        state = playerStates[source]
-    end
+local function ValidateShot(source, mode)
+    if not ValidationConfig.EnableValidation then return true end
 
-    local currentTime = GetGameTimer()
+    local state = GetState(source)
+    local now = GetGameTimer()
 
-    -- Reset violations if enough time has passed
-    if (currentTime - state.lastViolationTime) > ValidationConfig.ViolationResetTime then
+    -- Decay violations over time
+    if (now - state.lastViolation) > ValidationConfig.ViolationDecay then
         state.violations = 0
     end
 
-    -- Add current shot time to buffer
-    table.insert(state.shotTimes, currentTime)
+    -- Record shot time in circular buffer
+    state.recentShots[state.shotIndex] = now
+    state.shotIndex = (state.shotIndex % 5) + 1
 
-    -- Keep only recent shots (last second)
-    local recentShots = {}
-    for _, shotTime in ipairs(state.shotTimes) do
-        if (currentTime - shotTime) < 1000 then
-            table.insert(recentShots, shotTime)
-        end
-    end
-    state.shotTimes = recentShots
-
-    -- Validate based on mode
     local isValid = true
-    local violationType = nil
 
     if mode == 'SEMI' then
-        -- Check interval between last two shots
-        if #state.shotTimes >= 2 then
-            local interval = state.shotTimes[#state.shotTimes] - state.shotTimes[#state.shotTimes - 1]
-            if interval < ValidationConfig.SemiAutoMinInterval then
-                isValid = false
-                violationType = 'SEMI_RAPID_FIRE'
-            end
+        -- Check interval from previous shot
+        local prevIndex = state.shotIndex - 2
+        if prevIndex < 1 then prevIndex = prevIndex + 5 end
+        local prevShot = state.recentShots[prevIndex]
+
+        if prevShot and (now - prevShot) < ValidationConfig.SemiAutoMinInterval then
+            isValid = false
         end
+
     elseif mode == 'BURST' then
         -- Count shots in burst window
-        local burstShots = 0
-        for _, shotTime in ipairs(state.shotTimes) do
-            if (currentTime - shotTime) < ValidationConfig.BurstPeriod then
-                burstShots = burstShots + 1
+        local count = 0
+        for i = 1, 5 do
+            local t = state.recentShots[i]
+            if t and (now - t) < ValidationConfig.BurstWindow then
+                count = count + 1
             end
         end
-        if burstShots > ValidationConfig.BurstMaxShots then
+        if count > ValidationConfig.BurstMaxShots then
             isValid = false
-            violationType = 'BURST_OVERFLOW'
         end
     end
-    -- FULL mode has no restrictions
+    -- FULL mode: no restrictions
 
-    -- Handle violations
+    -- Handle violation
     if not isValid then
         state.violations = state.violations + 1
-        state.lastViolationTime = currentTime
+        state.lastViolation = now
 
-        if state.violations >= ValidationConfig.MaxViolationsBeforeLog then
+        if state.violations >= ValidationConfig.ViolationThreshold then
             if ValidationConfig.EnableLogging then
-                local playerName = GetPlayerName(source) or 'Unknown'
-                print(string.format(
-                    '[SelectiveFire] WARNING: Player %s (%d) - %s violation #%d (mode: %s, weapon: %s)',
-                    playerName,
-                    source,
-                    violationType,
-                    state.violations,
-                    mode,
-                    weaponHash
+                local name = GetPlayerName(source) or 'Unknown'
+                print(('[SelectiveFire] WARN: %s (%d) - Rapid fire detected (mode: %s, violations: %d)'):format(
+                    name, source, mode, state.violations
                 ))
             end
-        end
 
-        -- Kick if enabled and threshold reached
-        if ValidationConfig.EnableKick and state.violations >= ValidationConfig.KickThreshold then
-            DropPlayer(source, 'Fire rate anomaly detected')
+            if ValidationConfig.EnableKick and state.violations >= ValidationConfig.KickThreshold then
+                DropPlayer(source, 'Fire rate anomaly')
+            end
         end
     end
 
-    state.lastShotTime = currentTime
+    state.lastShot = now
     return isValid
 end
 
@@ -153,96 +134,51 @@ end
 -- EVENT HANDLERS
 -- ============================================================================
 
--- Player changed fire mode
-RegisterNetEvent('selectivefire:modeChanged')
-AddEventHandler('selectivefire:modeChanged', function(weaponHash, mode)
-    local source = source
-    if not playerStates[source] then
-        InitPlayerState(source)
-    end
-
-    playerStates[source].currentMode = mode
-    playerStates[source].currentWeapon = weaponHash
-    -- Reset shot tracking on mode change
-    playerStates[source].shotTimes = {}
+RegisterNetEvent('selectivefire:modeChanged', function(weaponHash, mode)
+    local state = GetState(source)
+    state.mode = mode
+    state.weapon = weaponHash
+    -- Clear shot history on mode change
+    state.recentShots = {}
+    state.shotIndex = 1
 end)
 
--- Player fired a shot
-RegisterNetEvent('selectivefire:shotFired')
-AddEventHandler('selectivefire:shotFired', function(weaponHash, mode)
-    local source = source
-
-    if not ValidationConfig.EnableValidation then
-        return
-    end
-
-    if not playerStates[source] then
-        InitPlayerState(source)
-    end
-
-    -- Update current state
-    playerStates[source].currentWeapon = weaponHash
-    playerStates[source].currentMode = mode
-
-    -- Validate fire rate
-    ValidateFireRate(source, weaponHash, mode)
+RegisterNetEvent('selectivefire:shotFired', function(weaponHash, mode)
+    ValidateShot(source, mode)
 end)
 
 -- ============================================================================
--- ADMIN COMMANDS
+-- ADMIN COMMANDS (Console only)
 -- ============================================================================
 
--- Command to check player fire state (admin only)
-RegisterCommand('checkfirestate', function(source, args, rawCommand)
-    -- Server console or admin check
-    if source ~= 0 then
-        -- Add your admin permission check here
-        -- For now, only server console can use this
+RegisterCommand('sf_check', function(src, args)
+    if src ~= 0 then return end
+
+    local target = tonumber(args[1])
+    if not target then
+        print('Usage: sf_check <playerId>')
         return
     end
 
-    local targetId = tonumber(args[1])
-    if not targetId then
-        print('Usage: checkfirestate <playerId>')
-        return
-    end
-
-    local state = playerStates[targetId]
+    local state = playerStates[target]
     if not state then
-        print('No state found for player ' .. targetId)
+        print('No state for player ' .. target)
         return
     end
 
-    local playerName = GetPlayerName(targetId) or 'Unknown'
-    print(string.format(
-        '[SelectiveFire] Player %s (%d):\n  Mode: %s\n  Weapon: %s\n  Violations: %d\n  Recent Shots: %d',
-        playerName,
-        targetId,
-        state.currentMode or 'N/A',
-        state.currentWeapon or 'N/A',
-        state.violations or 0,
-        #state.shotTimes
+    print(('[SelectiveFire] Player %d: mode=%s, violations=%d'):format(
+        target, state.mode, state.violations
     ))
 end, true)
 
--- Command to reset player violations (admin only)
-RegisterCommand('resetfireviolations', function(source, args, rawCommand)
-    if source ~= 0 then
-        return
-    end
+RegisterCommand('sf_reset', function(src, args)
+    if src ~= 0 then return end
 
-    local targetId = tonumber(args[1])
-    if not targetId then
-        print('Usage: resetfireviolations <playerId>')
-        return
-    end
-
-    if playerStates[targetId] then
-        playerStates[targetId].violations = 0
-        playerStates[targetId].shotTimes = {}
-        print('Reset fire violations for player ' .. targetId)
-    else
-        print('No state found for player ' .. targetId)
+    local target = tonumber(args[1])
+    if target and playerStates[target] then
+        playerStates[target].violations = 0
+        playerStates[target].recentShots = {}
+        print('Reset state for player ' .. target)
     end
 end, true)
 
@@ -250,19 +186,12 @@ end, true)
 -- EXPORTS
 -- ============================================================================
 
-exports('GetPlayerFireState', function(playerId)
-    return playerStates[playerId]
-end)
-
-exports('GetPlayerViolations', function(playerId)
+exports('GetViolations', function(playerId)
     local state = playerStates[playerId]
-    if state then
-        return state.violations
-    end
-    return 0
+    return state and state.violations or 0
 end)
 
-exports('ResetPlayerViolations', function(playerId)
+exports('ResetViolations', function(playerId)
     if playerStates[playerId] then
         playerStates[playerId].violations = 0
         return true
@@ -271,9 +200,10 @@ exports('ResetPlayerViolations', function(playerId)
 end)
 
 -- ============================================================================
--- INITIALIZATION
+-- INIT
 -- ============================================================================
 
-print('[SelectiveFire] Server validation loaded - Validation: ' ..
-    (ValidationConfig.EnableValidation and 'ENABLED' or 'DISABLED') ..
-    ', Logging: ' .. (ValidationConfig.EnableLogging and 'ENABLED' or 'DISABLED'))
+if ValidationConfig.EnableValidation then
+    print('[SelectiveFire] Server validation active (logging: ' ..
+        (ValidationConfig.EnableLogging and 'on' or 'off') .. ')')
+end

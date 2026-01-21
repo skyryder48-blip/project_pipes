@@ -324,30 +324,8 @@ RegisterNetEvent('ammo:magazineEquipped', function(data)
     })
 end)
 
---[[
-    Remove all clip components from weapon (before applying new one)
-]]
-function RemoveAllClipComponents(weaponHash)
-    local ped = PlayerPedId()
-    local weaponInfo = Config.Weapons[weaponHash]
-    if not weaponInfo then return end
-
-    local caliber = weaponInfo.caliber
-    local ammoTypes = Config.AmmoTypes[caliber]
-    if not ammoTypes then return end
-
-    -- Remove all possible clip components for this weapon
-    for ammoType, _ in pairs(ammoTypes) do
-        -- Try standard, extended, and drum variants
-        for _, suffix in ipairs({ '_CLIP_', '_EXTCLIP_', '_DRUM_' }) do
-            local componentName = weaponInfo.componentBase .. suffix .. string.upper(ammoType)
-            local componentHash = GetHashKey(componentName)
-            if HasPedGotWeaponComponent(ped, weaponHash, componentHash) then
-                RemoveWeaponComponentFromPed(ped, weaponHash, componentHash)
-            end
-        end
-    end
-end
+-- NOTE: RemoveAllClipComponents is now defined in cl_ammo.lua and exported
+-- This file uses the shared function from cl_ammo.lua
 
 -- ============================================================================
 -- COMBAT RELOAD MANAGEMENT
@@ -569,29 +547,25 @@ exports('magazineContextMenu', function(data)
 end)
 
 -- ============================================================================
--- WEAPON SWITCH HANDLING
+-- WEAPON MODIFICATIONS
 -- ============================================================================
-
 --[[
-    When player switches weapons, restore equipped magazine state
+    NOTE: Weapon swap conversion is DEPRECATED.
+
+    Fire mode modifications (switches, bump stocks, binary triggers) are now
+    handled by the selective fire system via component detection:
+
+    1. Player uses switch item on compatible weapon
+    2. Switch item attaches COMPONENT_G26_SWITCH to weapon
+    3. Selective fire system detects component and unlocks full-auto mode
+    4. Same weapon, same magazines - only fire behavior changes
+
+    This approach is preferred because:
+    - No separate weapon variants needed (G26 vs G26_SWITCH)
+    - Magazines work identically on base weapon
+    - Modification is reversible (can detach component)
+    - Simpler inventory management
 ]]
-RegisterNetEvent('ammo:weaponSwitched', function(newWeapon)
-    if equippedMagazines[newWeapon] then
-        local magData = equippedMagazines[newWeapon]
-        local componentName = GetMagazineComponentName(newWeapon, magData.item, magData.ammoType)
-
-        if componentName then
-            local componentHash = GetHashKey(componentName)
-            local ped = PlayerPedId()
-
-            if not HasPedGotWeaponComponent(ped, newWeapon, componentHash) then
-                GiveWeaponComponentToPed(ped, newWeapon, componentHash)
-            end
-
-            SetPedAmmo(ped, newWeapon, magData.count)
-        end
-    end
-end)
 
 -- ============================================================================
 -- EXPORTS

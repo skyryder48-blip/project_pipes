@@ -327,63 +327,19 @@ function joaat(s)
 end
 
 -- ============================================================================
--- WEAPON SWITCH CONVERSION (e.g., G26 -> G26_SWITCH)
+-- WEAPON MODIFICATIONS (Switches, Bump Stocks, Binary Triggers)
 -- ============================================================================
-
 --[[
-    Convert a weapon to its switch variant
-    Example: Player uses 'glock_switch' item on WEAPON_G26 -> WEAPON_G26_SWITCH
+    NOTE: Weapon conversion (G26 → G26_SWITCH) is DEPRECATED.
+
+    The selective fire system now handles fire mode changes via component detection:
+    - Player attaches COMPONENT_G26_SWITCH to WEAPON_G26
+    - Selective fire system detects component via HasPedGotWeaponComponent()
+    - Fire modes unlock: SEMI → SEMI/FULL
+    - No weapon swap required, attachment is reversible
+
+    See: free_selectivefire/shared/config.lua for modification component definitions
 ]]
-RegisterNetEvent('ammo:convertWeaponSwitch', function(data)
-    local source = source
-
-    if not data.baseWeapon or not data.switchItem or not data.targetWeapon then
-        return
-    end
-
-    -- Check player has the switch item
-    local switchCount = ox_inventory:Search(source, 'count', data.switchItem)
-    if switchCount <= 0 then
-        TriggerClientEvent('ox_lib:notify', source, {
-            title = 'Error',
-            description = 'Switch not found in inventory',
-            type = 'error'
-        })
-        return
-    end
-
-    -- Check player has the base weapon
-    local hasWeapon = ox_inventory:Search(source, 'count', data.baseWeapon)
-    if hasWeapon <= 0 then
-        TriggerClientEvent('ox_lib:notify', source, {
-            title = 'Error',
-            description = 'Compatible weapon not equipped',
-            type = 'error'
-        })
-        return
-    end
-
-    -- Remove the switch item (consumed - permanent modification)
-    ox_inventory:RemoveItem(source, data.switchItem, 1)
-
-    -- Remove the base weapon
-    ox_inventory:RemoveItem(source, data.baseWeapon, 1)
-
-    -- Add the converted weapon
-    ox_inventory:AddItem(source, data.targetWeapon, 1)
-
-    TriggerClientEvent('ox_lib:notify', source, {
-        title = 'Weapon Modified',
-        description = 'Switch installed - weapon is now full-auto',
-        type = 'success'
-    })
-
-    -- Trigger client to update weapon
-    TriggerClientEvent('ammo:weaponConverted', source, {
-        oldWeapon = data.baseWeapon,
-        newWeapon = data.targetWeapon,
-    })
-end)
 
 -- ============================================================================
 -- ADMIN COMMANDS (for testing)

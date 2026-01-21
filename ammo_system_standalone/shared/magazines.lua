@@ -685,6 +685,123 @@ Config.Magazines = {
         weight = 185,
         price = 85,
     },
+
+    -- ========================================================================
+    -- 7.62x39mm AK PLATFORMS (Batch 13)
+    -- Standard: 30rd AK magazine, Extended: 40rd RPK mag, Drum: 75rd
+    -- Both Micro Draco and Mk47 use standard AK magazines
+    -- ========================================================================
+
+    ['mag_762x39_standard'] = {
+        label = "AK Magazine (30rd)",
+        weapons = { 'WEAPON_MINI_AK47', 'WEAPON_MK47' },
+        capacity = 30,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 350,
+        price = 35,
+    },
+
+    ['mag_762x39_extended'] = {
+        label = "AK Extended Magazine (40rd)",
+        weapons = { 'WEAPON_MINI_AK47', 'WEAPON_MK47' },
+        capacity = 40,
+        type = 'extended',
+        componentSuffix = '_EXTCLIP_',
+        weight = 480,
+        price = 75,
+    },
+
+    ['mag_762x39_drum'] = {
+        label = "AK Drum Magazine (75rd)",
+        weapons = { 'WEAPON_MK47' },  -- Drum too heavy/awkward for Draco pistol
+        capacity = 75,
+        type = 'drum',
+        componentSuffix = '_DRUM_',
+        weight = 1200,
+        price = 225,
+    },
+
+    -- ========================================================================
+    -- 5.56 NATO SWISS RIFLE (Batch 19 - SIG 550)
+    -- Uses proprietary SIG 550 magazines (not STANAG compatible)
+    -- ========================================================================
+
+    ['mag_sig550_standard'] = {
+        label = "SIG 550 Magazine (20rd)",
+        weapons = { 'WEAPON_SIG550' },
+        capacity = 20,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 140,
+        price = 45,
+    },
+
+    ['mag_sig550_extended'] = {
+        label = "SIG 550 Magazine (30rd)",
+        weapons = { 'WEAPON_SIG550' },
+        capacity = 30,
+        type = 'extended',
+        componentSuffix = '_EXTCLIP_',
+        weight = 195,
+        price = 75,
+    },
+
+    -- ========================================================================
+    -- .300 WIN MAG RIFLE (Batch 19 - NEMO Watchman)
+    -- High capacity for magnum caliber - 14 rounds standard
+    -- ========================================================================
+
+    ['mag_300wm_standard'] = {
+        label = ".300 WM Magazine (14rd)",
+        weapons = { 'WEAPON_NEMOWATCHMAN' },
+        capacity = 14,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 320,
+        price = 125,
+    },
+
+    -- ========================================================================
+    -- .50 BMG ANTI-MATERIEL RIFLES (Batch 19)
+    -- Barrett: 10rd box magazine
+    -- Victus XMR: 5rd precision magazine
+    -- ========================================================================
+
+    ['mag_50bmg_barrett'] = {
+        label = "Barrett .50 BMG Magazine (10rd)",
+        weapons = { 'WEAPON_BARRETTM82A1', 'WEAPON_BARRETTM107A1' },
+        capacity = 10,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 850,
+        price = 275,
+    },
+
+    ['mag_50bmg_victus'] = {
+        label = "Victus .50 BMG Magazine (5rd)",
+        weapons = { 'WEAPON_VICTUSXMR' },
+        capacity = 5,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 480,
+        price = 195,
+    },
+
+    -- ========================================================================
+    -- TRANQUILIZER DART GUN (Batch 20)
+    -- 3-dart magazine for non-lethal incapacitation
+    -- ========================================================================
+
+    ['mag_dart_standard'] = {
+        label = "Dart Gun Magazine (3rd)",
+        weapons = { 'WEAPON_DARTGUN' },
+        capacity = 3,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 45,
+        price = 35,
+    },
 }
 
 -- ============================================================================
@@ -703,10 +820,26 @@ Config.Speedloaders = {
     },
 
     ['speedloader_38'] = {
-        label = ".38 Special Speedloader",
-        weapons = { 'WEAPON_SW_MODEL15' },
+        label = ".38 Special Speedloader (6rd)",
+        weapons = { 'WEAPON_SW_MODEL15', 'WEAPON_SWMODEL10' },
         capacity = 6,
         weight = 95,
+        price = 12,
+    },
+
+    ['speedloader_38_5rd'] = {
+        label = ".38 Special Speedloader (5rd)",
+        weapons = { 'WEAPON_SWMODEL60', 'WEAPON_SWMODEL442', 'WEAPON_SWMODEL642', 'WEAPON_RUGERLCR' },
+        capacity = 5,
+        weight = 85,
+        price = 10,
+    },
+
+    ['speedloader_taurus856'] = {
+        label = "Taurus 856 Speedloader (6rd)",
+        weapons = { 'WEAPON_TAURUS856' },
+        capacity = 6,
+        weight = 90,
         price = 12,
     },
 
@@ -742,8 +875,36 @@ Config.Speedloaders = {
 -- Shockwave:        6 rounds (tube)
 
 -- ============================================================================
+-- BOLT-ACTION RIFLES - INTERNAL MAGAZINES (Batch 19)
+-- ============================================================================
+-- These rifles have fixed internal magazines. Ammo is loaded directly.
+-- Capacity is weapon-specific, no magazine items needed.
+--
+-- Remington 700:    4 rounds (internal box)
+-- Sauer 101:        5 rounds (detachable but single size)
+-- Remington M24:    5 rounds (internal box)
+
+-- ============================================================================
 -- HELPER FUNCTIONS
 -- ============================================================================
+
+-- Local joaat hash function (for shared context where native isn't available)
+local function joaat(s)
+    local hash = 0
+    s = string.lower(s)
+    for i = 1, #s do
+        hash = hash + string.byte(s, i)
+        hash = hash + (hash << 10)
+        hash = hash ~ (hash >> 6)
+    end
+    hash = hash + (hash << 3)
+    hash = hash ~ (hash >> 11)
+    hash = hash + (hash << 15)
+    if hash >= 2147483648 then
+        hash = hash - 4294967296
+    end
+    return hash
+end
 
 function GetMagazineInfo(itemName)
     return Config.Magazines[itemName]
@@ -788,7 +949,8 @@ end
 
 function GetWeaponNameFromHash(hash)
     for name, info in pairs(Config.Weapons) do
-        if GetHashKey(name) == hash or joaat(name) == hash then
+        -- Use joaat for cross-context compatibility (works on client and server)
+        if joaat(name) == hash then
             return name
         end
     end

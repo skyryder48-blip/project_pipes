@@ -1,8 +1,15 @@
 --[[
     SELECTIVE FIRE SYSTEM - FIRE CONTROL
+    Integrated with ox_inventory and ox_lib
 
-    Core logic for managing weapon fire modes.
-    Handles semi-auto, burst, and full-auto fire control.
+    Features:
+    - ox_inventory currentWeapon event for weapon detection
+    - ox_lib keybind for fire mode toggle
+    - Death/respawn state reset
+    - Character switch cleanup
+    - Weapon removal detection
+
+    Performance: <0.1ms idle, event-driven where possible
 ]]
 
 -- ============================================================================
@@ -10,14 +17,24 @@
 -- ============================================================================
 
 local currentWeapon = nil
+local currentWeaponHash = nil
 local currentMode = 'SEMI'
 local weaponModes = {}               -- Stores selected mode per weapon
 local isInBurst = false
 local burstShotsRemaining = 0
 local lastShotTime = 0
-local lastToggleTime = 0
 local isTriggerHeld = false
 local shotsFiredThisTrigger = 0
+
+-- Performance: Cached values
+local cachedPed = nil
+local pedCacheTime = 0
+local PED_CACHE_INTERVAL = 1000
+
+-- State flags
+local isArmed = false
+local isAlive = true
+local isLoggedIn = false
 
 -- Mode display names
 local modeNames = {
@@ -30,12 +47,15 @@ local modeNames = {
 -- UTILITY FUNCTIONS
 -- ============================================================================
 
--- Check if player has a specific weapon component
-local function HasWeaponComponent(ped, weaponHash, componentHash)
-    return HasPedGotWeaponComponent(ped, weaponHash, componentHash)
+local function GetCachedPed()
+    local currentTime = GetGameTimer()
+    if not cachedPed or (currentTime - pedCacheTime) > PED_CACHE_INTERVAL then
+        cachedPed = PlayerPedId()
+        pedCacheTime = currentTime
+    end
+    return cachedPed
 end
 
--- Check if weapon has modification component attached
 local function HasModificationAttached(ped, weaponHash)
     local config = Config.Weapons[weaponHash]
     if not config or not config.modifiable then
@@ -48,17 +68,15 @@ local function HasModificationAttached(ped, weaponHash)
     end
 
     local componentHash = GetHashKey(componentName)
-    return HasWeaponComponent(ped, weaponHash, componentHash)
+    return HasPedGotWeaponComponent(ped, weaponHash, componentHash)
 end
 
--- Get the effective modes for current weapon state
 local function GetEffectiveModes(ped, weaponHash)
     local config = Config.Weapons[weaponHash]
     if not config then
         return {'SEMI'}
     end
 
-    -- Check for modification
     if config.modifiable and HasModificationAttached(ped, weaponHash) then
         return config.modesWhenModified or config.modes or {'SEMI'}
     end
@@ -66,12 +84,39 @@ local function GetEffectiveModes(ped, weaponHash)
     return config.modes or {'SEMI'}
 end
 
--- Cycle to next fire mode
-local function CycleFireMode(ped, weaponHash)
-    local modes = GetEffectiveModes(ped, weaponHash)
-    if #modes <= 1 then
-        return false
-    end
+local function ResetFireState()
+    isTriggerHeld = false
+    isInBurst = false
+    burstShotsRemaining = 0
+    shotsFiredThisTrigger = 0
+    lastShotTime = 0
+end
+
+local function ClearWeaponState()
+    currentWeapon = nil
+    currentWeaponHash = nil
+    currentMode = 'SEMI'
+    isArmed = false
+    ResetFireState()
+end
+
+local function ClearAllState()
+    ClearWeaponState()
+    weaponModes = {}
+    isAlive = true
+end
+
+-- ============================================================================
+-- FIRE MODE TOGGLE (ox_lib keybind)
+-- ============================================================================
+
+local function CycleFireMode()
+    if not isArmed or not currentWeaponHash then return end
+
+    local ped = GetCachedPed()
+    local modes = GetEffectiveModes(ped, currentWeaponHash)
+
+    if #modes <= 1 then return end
 
     local currentIndex = 1
     for i, mode in ipairs(modes) do
@@ -86,35 +131,88 @@ local function CycleFireMode(ped, weaponHash)
 
     -- Store mode for this weapon
     if Config.RememberMode then
-        weaponModes[weaponHash] = currentMode
+        weaponModes[currentWeaponHash] = currentMode
     end
 
-    return true
-end
+    -- Notify server
+    TriggerServerEvent('selectivefire:modeChanged', currentWeaponHash, currentMode)
 
--- Play mode change sound (subtle click)
-local function PlayModeChangeSound()
-    if not Config.PlaySound then return end
-    PlaySoundFrontend(-1, 'WEAPON_PURCHASE', 'HUD_AMMO_SHOP_SOUNDSET', true)
-end
+    -- Play sound
+    if Config.PlaySound then
+        PlaySoundFrontend(-1, 'WEAPON_PURCHASE', 'HUD_AMMO_SHOP_SOUNDSET', true)
+    end
 
--- Show brief notification
-local function ShowModeNotification(weaponHash)
-    local config = Config.Weapons[weaponHash]
+    -- Show notification
     local modeName = modeNames[currentMode] or currentMode
-
-    -- Brief, subtle notification
     BeginTextCommandThefeedPost('STRING')
     AddTextComponentSubstringPlayerName(modeName)
     EndTextCommandThefeedPostTicker(false, false)
+
+    -- Reset fire state
+    ResetFireState()
 end
+
+-- Register keybind with ox_lib
+lib.addKeybind({
+    name = 'selectivefire_toggle',
+    description = 'Toggle Fire Mode',
+    defaultKey = Config.ToggleKey or 'B',
+    onPressed = function()
+        if isArmed and isAlive then
+            CycleFireMode()
+        end
+    end
+})
+
+-- ============================================================================
+-- OX_INVENTORY WEAPON DETECTION
+-- ============================================================================
+
+AddEventHandler('ox_inventory:currentWeapon', function(weapon)
+    if weapon then
+        -- Weapon equipped
+        local weaponHash = weapon.hash
+        local config = Config.Weapons[weaponHash]
+
+        currentWeapon = weapon
+        currentWeaponHash = weaponHash
+        isArmed = (config ~= nil)
+
+        if config then
+            -- Restore remembered mode or use default
+            if Config.RememberMode and weaponModes[weaponHash] then
+                currentMode = weaponModes[weaponHash]
+            else
+                currentMode = GetDefaultMode(weaponHash)
+            end
+
+            -- Validate mode is available
+            local ped = GetCachedPed()
+            local modes = GetEffectiveModes(ped, weaponHash)
+            local modeValid = false
+            for _, mode in ipairs(modes) do
+                if mode == currentMode then
+                    modeValid = true
+                    break
+                end
+            end
+            if not modeValid then
+                currentMode = modes[1] or 'SEMI'
+            end
+        end
+
+        ResetFireState()
+    else
+        -- Weapon holstered/removed
+        ClearWeaponState()
+    end
+end)
 
 -- ============================================================================
 -- FIRE CONTROL LOGIC
 -- ============================================================================
 
--- Handle semi-automatic fire
-local function HandleSemiAuto(ped, weaponHash)
+local function HandleSemiAuto()
     if IsControlPressed(0, 24) then
         if not isTriggerHeld then
             isTriggerHeld = true
@@ -131,10 +229,9 @@ local function HandleSemiAuto(ped, weaponHash)
     end
 end
 
--- Handle burst fire
-local function HandleBurstFire(ped, weaponHash)
+local function HandleBurstFire()
     local currentTime = GetGameTimer()
-    local burstCount = GetBurstCount(weaponHash)
+    local burstCount = GetBurstCount(currentWeaponHash)
 
     if IsControlPressed(0, 24) then
         if not isTriggerHeld then
@@ -175,118 +272,123 @@ local function HandleBurstFire(ped, weaponHash)
     end
 end
 
--- Handle full-automatic fire
-local function HandleFullAuto(ped, weaponHash)
+local function HandleFullAuto()
     isTriggerHeld = IsControlPressed(0, 24)
 end
 
 -- Track shots fired
 local lastAmmoCount = 0
-local function TrackShotsFired(ped, weaponHash)
-    local _, currentAmmo = GetAmmoInClip(ped, weaponHash)
+local function TrackShotsFired()
+    if not currentWeaponHash then return end
+
+    local ped = GetCachedPed()
+    local _, currentAmmo = GetAmmoInClip(ped, currentWeaponHash)
 
     if currentAmmo < lastAmmoCount then
-        shotsFiredThisTrigger = shotsFiredThisTrigger + 1
+        local shotsFired = lastAmmoCount - currentAmmo
+        shotsFiredThisTrigger = shotsFiredThisTrigger + shotsFired
         if isInBurst then
-            burstShotsRemaining = burstShotsRemaining - 1
+            burstShotsRemaining = burstShotsRemaining - shotsFired
         end
+        TriggerServerEvent('selectivefire:shotFired', currentWeaponHash, currentMode)
     end
 
     lastAmmoCount = currentAmmo
 end
 
 -- ============================================================================
--- MAIN CONTROL THREAD
+-- MAIN FIRE CONTROL THREAD
 -- ============================================================================
 
-Citizen.CreateThread(function()
+CreateThread(function()
+    cachedPed = PlayerPedId()
+    pedCacheTime = GetGameTimer()
+
     while true do
-        Citizen.Wait(0)
-
-        local ped = PlayerPedId()
-        local weaponHash = GetSelectedPedWeapon(ped)
-
-        -- Check if weapon changed
-        if weaponHash ~= currentWeapon then
-            currentWeapon = weaponHash
-            lastAmmoCount = 0
-            shotsFiredThisTrigger = 0
-            isTriggerHeld = false
-            isInBurst = false
-
-            -- Restore remembered mode or use default
-            if Config.RememberMode and weaponModes[weaponHash] then
-                currentMode = weaponModes[weaponHash]
-            else
-                currentMode = GetDefaultMode(weaponHash)
-            end
-
-            -- Validate mode is available
-            local modes = GetEffectiveModes(ped, weaponHash)
-            local modeValid = false
-            for _, mode in ipairs(modes) do
-                if mode == currentMode then
-                    modeValid = true
-                    break
-                end
-            end
-            if not modeValid then
-                currentMode = modes[1] or 'SEMI'
-            end
-        end
-
-        -- Apply fire control if weapon is configured
-        local config = Config.Weapons[weaponHash]
-        if config then
-            TrackShotsFired(ped, weaponHash)
+        if isArmed and isAlive and currentWeaponHash then
+            TrackShotsFired()
 
             if currentMode == 'SEMI' then
-                HandleSemiAuto(ped, weaponHash)
+                HandleSemiAuto()
             elseif currentMode == 'BURST' then
-                HandleBurstFire(ped, weaponHash)
+                HandleBurstFire()
             elseif currentMode == 'FULL' then
-                HandleFullAuto(ped, weaponHash)
+                HandleFullAuto()
             end
+
+            Wait(0)
+        else
+            Wait(250)
         end
     end
 end)
 
 -- ============================================================================
--- TOGGLE KEY HANDLER
+-- DEATH / RESPAWN HANDLING
 -- ============================================================================
 
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(0)
+AddEventHandler('gameEventTriggered', function(name, args)
+    if name == 'CEventNetworkEntityDamage' then
+        local victim = args[1]
+        local isDead = args[4] == 1
 
-        local ped = PlayerPedId()
-        local weaponHash = GetSelectedPedWeapon(ped)
-
-        if IsControlJustPressed(0, Config.ToggleKeyCode) then
-            local currentTime = GetGameTimer()
-
-            if currentTime - lastToggleTime > 200 then
-                lastToggleTime = currentTime
-
-                local config = Config.Weapons[weaponHash]
-                if config then
-                    local modes = GetEffectiveModes(ped, weaponHash)
-
-                    if #modes > 1 then
-                        if CycleFireMode(ped, weaponHash) then
-                            PlayModeChangeSound()
-                            ShowModeNotification(weaponHash)
-
-                            -- Reset fire control state
-                            isTriggerHeld = false
-                            isInBurst = false
-                            burstShotsRemaining = 0
-                            shotsFiredThisTrigger = 0
-                        end
-                    end
-                end
-            end
+        if victim == GetCachedPed() and isDead then
+            isAlive = false
+            ResetFireState()
+            TriggerServerEvent('selectivefire:playerDied')
         end
+    end
+end)
+
+-- Respawn detection
+CreateThread(function()
+    while true do
+        Wait(1000)
+        local ped = GetCachedPed()
+
+        if not isAlive and not IsEntityDead(ped) then
+            isAlive = true
+            ResetFireState()
+            TriggerServerEvent('selectivefire:playerRespawned')
+        end
+    end
+end)
+
+-- ============================================================================
+-- CHARACTER SWITCH / LOGOUT CLEANUP
+-- ============================================================================
+
+-- Qbox
+RegisterNetEvent('QBCore:Client:OnPlayerUnload', function()
+    ClearAllState()
+    isLoggedIn = false
+    TriggerServerEvent('selectivefire:characterUnloaded')
+end)
+
+RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
+    ClearAllState()
+    isLoggedIn = true
+end)
+
+-- ox_core (if used)
+RegisterNetEvent('ox:playerLoaded', function()
+    ClearAllState()
+    isLoggedIn = true
+end)
+
+RegisterNetEvent('ox:playerLogout', function()
+    ClearAllState()
+    isLoggedIn = false
+    TriggerServerEvent('selectivefire:characterUnloaded')
+end)
+
+-- ============================================================================
+-- RESOURCE CLEANUP
+-- ============================================================================
+
+AddEventHandler('onResourceStop', function(resourceName)
+    if resourceName == GetCurrentResourceName() then
+        ClearAllState()
     end
 end)
 
@@ -302,24 +404,30 @@ exports('GetCurrentWeapon', function()
     return currentWeapon
 end)
 
+exports('GetCurrentWeaponHash', function()
+    return currentWeaponHash
+end)
+
 exports('HasSelectFire', function(weaponHash)
-    weaponHash = weaponHash or currentWeapon
+    weaponHash = weaponHash or currentWeaponHash
     local config = Config.Weapons[weaponHash]
     if not config then return false end
-    return #GetEffectiveModes(PlayerPedId(), weaponHash) > 1
+    return #GetEffectiveModes(GetCachedPed(), weaponHash) > 1
 end)
 
 exports('SetFireMode', function(mode)
-    local ped = PlayerPedId()
-    local weaponHash = GetSelectedPedWeapon(ped)
-    local modes = GetEffectiveModes(ped, weaponHash)
+    if not currentWeaponHash then return false end
+
+    local ped = GetCachedPed()
+    local modes = GetEffectiveModes(ped, currentWeaponHash)
 
     for _, availableMode in ipairs(modes) do
         if availableMode == mode then
             currentMode = mode
             if Config.RememberMode then
-                weaponModes[weaponHash] = currentMode
+                weaponModes[currentWeaponHash] = currentMode
             end
+            TriggerServerEvent('selectivefire:modeChanged', currentWeaponHash, currentMode)
             return true
         end
     end
@@ -327,5 +435,13 @@ exports('SetFireMode', function(mode)
 end)
 
 exports('GetAvailableModes', function()
-    return GetEffectiveModes(PlayerPedId(), currentWeapon)
+    return GetEffectiveModes(GetCachedPed(), currentWeaponHash)
+end)
+
+exports('IsArmed', function()
+    return isArmed
+end)
+
+exports('IsAlive', function()
+    return isAlive
 end)

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  7.62x39mm Soviet Intermediate Ammunition Definitions - CENTRALIZED
+  Used by ALL 7.62x39mm weapons (Batch 13 AK Platforms)
+
+  Soviet intermediate cartridge: 123gr @ 2,350 fps = 1,508 ft-lbs
+  +14% more damage than 5.56 NATO, superior short-barrel performance
+  Weapons: Micro Draco, CMMG Mk47 Mutant
+
+  AMMO TYPES:
+  - FMJ (Standard): M43/M67 ball, baseline damage, standard penetration
+  - SP (Soft Point): Hunting/defense, +15% soft tissue, -40% barrier pen
+  - AP (Armor Piercing): 7N23 BP, -10% damage, +50% vs armor
+
+  Load this resource BEFORE any 7.62x39 weapon resources in server.cfg:
+    ensure ammo_system_standalone
+    ensure weapon_mini_ak47
+    ensure weapon_mk47
+-->
+<CWeaponInfoBlob>
+  <Infos>
+    <Item>
+      <Infos>
+        <!-- ==================== 7.62x39 FMJ (Full Metal Jacket) ==================== -->
+        <!-- Soviet M43 steel-core or Yugoslav M67 lead-core ball -->
+        <!-- Baseline damage, 0.38 penetration, consistent at all ranges -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_762X39_FMJ</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="180" />
+          <AmmoMax50 value="180" />
+          <AmmoMax100 value="180" />
+          <AmmoMaxMP value="180" />
+          <AmmoMax50MP value="180" />
+          <AmmoMax100MP value="180" />
+          <AmmoFlags />
+          <AmmoSpecialType>None</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="1.200000" />
+          <PedRicochetTolerance value="1.200000" />
+          <VehicleRicochetTolerance value="1.200000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== 7.62x39 SP (Soft Point) ==================== -->
+        <!-- Hornady SST, Federal Fusion - hunting/defense expanding -->
+        <!-- +15% soft tissue damage, -40% barrier penetration -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_762X39_SP</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="120" />
+          <AmmoMax50 value="120" />
+          <AmmoMax100 value="120" />
+          <AmmoMaxMP value="120" />
+          <AmmoMax50MP value="120" />
+          <AmmoMax100MP value="120" />
+          <AmmoFlags />
+          <AmmoSpecialType>HollowPoint</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="0.600000" />
+          <PedRicochetTolerance value="0.600000" />
+          <VehicleRicochetTolerance value="0.400000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== 7.62x39 AP (Armor Piercing) ==================== -->
+        <!-- 7N23 BP with tool steel penetrator core -->
+        <!-- -10% soft tissue damage, +50% vs armor, defeats soft body armor -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_762X39_AP</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="90" />
+          <AmmoMax50 value="90" />
+          <AmmoMax100 value="90" />
+          <AmmoMaxMP value="90" />
+          <AmmoMax50MP value="90" />
+          <AmmoMax100MP value="90" />
+          <AmmoFlags />
+          <AmmoSpecialType>ArmorPiercing</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="1.000000" />
+          <RicochetTolerance value="1.600000" />
+          <PedRicochetTolerance value="1.600000" />
+          <VehicleRicochetTolerance value="1.600000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+  <n>7.62x39mm Soviet Intermediate Ammunition Types</n>
+</CWeaponInfoBlob>

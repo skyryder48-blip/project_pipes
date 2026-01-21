@@ -227,31 +227,36 @@ Config.MagazineSystem = {
 
 ---
 
-## Weapon Switch Conversion System
+## Weapon Modification System (Switches, Bump Stocks, Binary Triggers)
 
-For permanent weapon modifications (like Glock switches):
+Fire mode modifications are handled by the **selective fire system** via component attachment.
 
-### Item: `glock_switch`
-- Consumable item (used on installation)
-- Converts WEAPON_G26 → WEAPON_G26_SWITCH
-- Permanent modification (cannot be reversed)
+### How It Works:
+1. Player uses modification item (e.g., `glock_switch`) on compatible weapon
+2. Item attaches a component (e.g., `COMPONENT_G26_SWITCH`) to the weapon
+3. Selective fire system detects component via `HasPedGotWeaponComponent()`
+4. Fire modes unlock automatically (SEMI → SEMI/FULL)
 
-### Usage Flow:
-1. Player has `glock_switch` in inventory
-2. Player has `WEAPON_G26` equipped
-3. Player uses `glock_switch` item
-4. Server validates and performs conversion
-5. `WEAPON_G26` removed, `WEAPON_G26_SWITCH` added
-6. `glock_switch` consumed
+### Benefits of Component Approach:
+- **No separate weapon variants** - Same G26, different behavior
+- **Magazines work identically** - No reconfiguration needed
+- **Reversible modifications** - Components can be detached
+- **Simpler inventory** - One weapon item, multiple capabilities
 
+### Example Configuration (selective fire):
 ```lua
--- Trigger conversion
-TriggerServerEvent('ammo:convertWeaponSwitch', {
-    baseWeapon = 'weapon_g26',
-    switchItem = 'glock_switch',
-    targetWeapon = 'weapon_g26_switch',
-})
+[`WEAPON_G26`] = {
+    name = 'Glock 26',
+    selectFire = false,
+    modes = {'SEMI'},
+    defaultMode = 'SEMI',
+    modifiable = true,
+    modificationComponent = 'COMPONENT_G26_SWITCH',
+    modesWhenModified = {'SEMI', 'FULL'},
+}
 ```
+
+See: `free_selectivefire/shared/config.lua` for full configuration
 
 ---
 

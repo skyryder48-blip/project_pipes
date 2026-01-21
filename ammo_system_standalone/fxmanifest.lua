@@ -33,7 +33,7 @@ version '2.0.0'
 
     3. Add items from inventory/magazine_items.lua to ox_inventory items.lua
 
-    SUPPORTED CALIBERS (14 calibers, 38 ammo types):
+    SUPPORTED CALIBERS (19 calibers, 51 ammo types):
     - 9mm: FMJ, HP, AP
     - .45 ACP: FMJ, JHP
     - .40 S&W: FMJ, JHP
@@ -48,6 +48,11 @@ version '2.0.0'
     - 5.56 NATO: FMJ, SP, AP
     - 6.8x51mm: FMJ, AP
     - .300 Blackout: Supersonic, Subsonic
+    - 7.62x39mm: FMJ, SP, AP (AK platforms)
+    - 7.62x51mm/.308: FMJ, Match, AP (precision rifles)
+    - .300 Win Mag: FMJ, Match (NEMO Watchman)
+    - .50 BMG: Ball, API, BOOM (anti-materiel)
+    - Dart: Tranq (non-lethal incapacitation)
 ]]
 
 -- Shared configuration (load order matters)
@@ -103,8 +108,8 @@ files {
     'meta/ammo_10mm.meta',
     'meta/weaponcomponents_10mm.meta',
     -- 12 Gauge Ammunition
-    'meta/ammo_12ga.meta',
-    'meta/weaponcomponents_12ga.meta',
+    'meta/ammo_12gauge.meta',
+    'meta/weaponcomponents_12gauge.meta',
     -- 5.56 NATO Ammunition
     'meta/ammo_556.meta',
     'meta/weaponcomponents_556.meta',
@@ -114,6 +119,16 @@ files {
     -- .300 Blackout Ammunition
     'meta/ammo_300blk.meta',
     'meta/weaponcomponents_300blk.meta',
+    -- 7.62x39mm Ammunition (AK Platforms)
+    'meta/ammo_762x39.meta',
+    -- 7.62x51mm/.308 Win Ammunition (Precision Rifles)
+    'meta/ammo_762x51.meta',
+    -- .300 Winchester Magnum Ammunition
+    'meta/ammo_300wm.meta',
+    -- .50 BMG Ammunition (Anti-Materiel)
+    'meta/ammo_50bmg.meta',
+    -- Tranquilizer Dart Ammunition
+    'meta/ammo_dart.meta',
 }
 
 -- Data file declarations
@@ -148,8 +163,8 @@ data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_22lr.meta'
 data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_10mm.meta'
 data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_10mm.meta'
 -- 12 Gauge
-data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_12ga.meta'
-data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_12ga.meta'
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_12gauge.meta'
+data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_12gauge.meta'
 -- 5.56 NATO
 data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_556.meta'
 data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_556.meta'
@@ -159,6 +174,16 @@ data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_68x51.meta'
 -- .300 Blackout
 data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_300blk.meta'
 data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents_300blk.meta'
+-- 7.62x39mm (AK Platforms)
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_762x39.meta'
+-- 7.62x51mm/.308 Win (Precision Rifles)
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_762x51.meta'
+-- .300 Winchester Magnum
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_300wm.meta'
+-- .50 BMG (Anti-Materiel)
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_50bmg.meta'
+-- Tranquilizer Dart
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/ammo_dart.meta'
 
 -- Dependencies
 dependencies {

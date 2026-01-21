@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  .300 Winchester Magnum Ammunition Definitions - CENTRALIZED
+  Used by ALL .300 Win Mag weapons (Batch 19 Precision Rifles)
+
+  Magnum hunting/sniper cartridge: 180gr @ 2,960 fps = 3,700 ft-lbs
+  40% more energy than .308 Win, 1000+ yard effective range
+  Weapons: NEMO Omen Watchman
+
+  AMMO TYPES:
+  - FMJ (Standard): 180gr hunting load, baseline damage
+  - Match: 190gr Sierra MatchKing, +3% damage, competition precision
+
+  Load this resource BEFORE any .300 WM weapon resources in server.cfg:
+    ensure ammo_system_standalone
+    ensure nemo_omen_watchman
+-->
+<CWeaponInfoBlob>
+  <Infos>
+    <Item>
+      <Infos>
+        <!-- ==================== .300 WM FMJ (Hunting Load) ==================== -->
+        <!-- 180gr standard hunting ammunition -->
+        <!-- 2,960 fps, 3,700 ft-lbs, long-range big game standard -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_300WM_FMJ</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="70" />
+          <AmmoMax50 value="70" />
+          <AmmoMax100 value="70" />
+          <AmmoMaxMP value="70" />
+          <AmmoMax50MP value="70" />
+          <AmmoMax100MP value="70" />
+          <AmmoFlags />
+          <AmmoSpecialType>None</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="0.950000" />
+          <RicochetTolerance value="1.400000" />
+          <PedRicochetTolerance value="1.400000" />
+          <VehicleRicochetTolerance value="1.400000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+
+        <!-- ==================== .300 WM Match (Precision) ==================== -->
+        <!-- 190gr Sierra MatchKing, competition/military precision -->
+        <!-- +3% damage, optimized BC for extreme range accuracy -->
+        <Item type="CAmmoInfo">
+          <n>AMMO_300WM_MATCH</n>
+          <Model />
+          <Audio />
+          <Slot />
+          <AmmoMax value="42" />
+          <AmmoMax50 value="42" />
+          <AmmoMax100 value="42" />
+          <AmmoMaxMP value="42" />
+          <AmmoMax50MP value="42" />
+          <AmmoMax100MP value="42" />
+          <AmmoFlags />
+          <AmmoSpecialType>None</AmmoSpecialType>
+          <Damage value="0.000000" />
+          <LifeTime value="-1.000000" />
+          <FromVehicleLifeTime value="-1.000000" />
+          <LifeTimeAfterImpact value="0.000000" />
+          <LifeTimeAfterExplosion value="0.000000" />
+          <ExplosionTime value="0.000000" />
+          <LaunchSpeed value="0.000000" />
+          <SeparationTime value="0.000000" />
+          <TimeToReachTarget value="0.000000" />
+          <Damping value="0.000000" />
+          <GravityFactor value="0.920000" />
+          <RicochetTolerance value="1.300000" />
+          <PedRicochetTolerance value="1.300000" />
+          <VehicleRicochetTolerance value="1.200000" />
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FuseFx />
+          <TrailFx />
+          <TrailFxUnderWater />
+          <TrailFxFadeInTime value="0.000000" />
+          <TrailFxFadeOutTime value="0.000000" />
+          <PrimedFx />
+          <DisturbFxDefault />
+          <DisturbFxSand />
+          <DisturbFxWater />
+          <DisturbFxDirt />
+          <DisturbFxFoliage />
+          <DisturbFxProbeDist value="0.000000" />
+          <DisturbFxScale value="0.000000" />
+          <LightOnlyActiveWhenStuck value="false" />
+          <LightFlickers value="false" />
+          <LightBone />
+          <LightColour x="0.000000" y="0.000000" z="0.000000" />
+          <LightIntensity value="0.000000" />
+          <LightRange value="0.000000" />
+          <LightFalloffExp value="0.000000" />
+          <LightFrequency value="0.000000" />
+          <LightPower value="0.000000" />
+          <CoronaSize value="0.000000" />
+          <CoronaIntensity value="0.000000" />
+          <CoronaZBias value="0.000000" />
+          <ProjectileFlags>DestroyOnImpact ProcessImpacts</ProjectileFlags>
+          <ThrownForce value="0.000000" />
+          <ThrownForceFromVehicle value="0.000000" />
+          <AmmoMaxMPBonus value="0" />
+        </Item>
+      </Infos>
+    </Item>
+  </Infos>
+  <n>.300 Winchester Magnum Ammunition Types</n>
+</CWeaponInfoBlob>

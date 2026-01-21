@@ -112,6 +112,7 @@ Config.Magazines = {
         label = "Glock 9mm Magazine (17rd)",
         weapons = {
             'WEAPON_G17', 'WEAPON_G17_BLK', 'WEAPON_G17_GEN5',
+            'WEAPON_G18',
             'WEAPON_G19', 'WEAPON_G19X', 'WEAPON_G19XD',
             'WEAPON_G45', 'WEAPON_G45_TAN',
         },
@@ -126,6 +127,7 @@ Config.Magazines = {
         label = "Glock 9mm Stick (33rd)",
         weapons = {
             'WEAPON_G17', 'WEAPON_G17_BLK', 'WEAPON_G17_GEN5',
+            'WEAPON_G18',
             'WEAPON_G19', 'WEAPON_G19X', 'WEAPON_G19XD', 'WEAPON_G19X_SWITCH',
             'WEAPON_G45', 'WEAPON_G45_TAN',
         },
@@ -140,6 +142,7 @@ Config.Magazines = {
         label = "Glock 9mm Drum (50rd)",
         weapons = {
             'WEAPON_G17', 'WEAPON_G17_BLK', 'WEAPON_G17_GEN5',
+            'WEAPON_G18',
             'WEAPON_G19', 'WEAPON_G19X', 'WEAPON_G19XD', 'WEAPON_G19X_SWITCH',
             'WEAPON_G45', 'WEAPON_G45_TAN',
         },

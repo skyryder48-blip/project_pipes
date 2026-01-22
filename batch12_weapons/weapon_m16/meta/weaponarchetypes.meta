@@ -2,7 +2,7 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <n>w_ar_m16</n>
+      <Name>w_ar_m16</Name>
       <Model>w_ar_m16</Model>
       <Audio>AUDIO_ITEM_ASSAULTRIFLE</Audio>
       <Slot>SLOT_M16</Slot>

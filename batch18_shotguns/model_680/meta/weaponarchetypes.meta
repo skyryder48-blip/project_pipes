@@ -2,7 +2,7 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <n>w_sg_model680</n>
+      <Name>w_sg_model680</Name>
       <Model>w_sg_model680</Model>
       <Audio>AUDIO_ITEM_PUMPSHOTGUN</Audio>
       <Slot>SLOT_MODEL_680</Slot>

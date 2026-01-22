@@ -2,7 +2,7 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <n>w_sr_sauer101</n>
+      <Name>w_sr_sauer101</Name>
       <Model>w_sr_sauer101</Model>
       <Audio>AUDIO_ITEM_SNIPERRIFLE</Audio>
       <Slot>SLOT_SAUER101</Slot>

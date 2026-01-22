@@ -2,7 +2,7 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <n>w_sr_victusxmr</n>
+      <Name>w_sr_victusxmr</Name>
       <Model>w_sr_victusxmr</Model>
       <Audio>AUDIO_ITEM_HEAVYSNIPER</Audio>
       <Slot>SLOT_VICTUSXMR</Slot>

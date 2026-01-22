@@ -48,8 +48,8 @@
           <AmmoInfo ref="AMMO_PISTOL" />
           <AimingInfo ref="PISTOL_2H_BASE_STRAFE" />
           
-          <!-- Taurus GX4: 11+1 capacity -->
-          <ClipSize value="11" />
+          <!-- Taurus GX4: 13+1 capacity (standard), 33+1 (extended), 17+1 (mag3) -->
+          <ClipSize value="13" />
           
           <!-- Accuracy: Good overall, aggressive 360° grip texture helps -->
           <AccuracySpread value="1.750000" />
@@ -201,7 +201,7 @@
           <KillshotImpulseScale value="1.000000" />
           <NmShotTuningSet>normal</NmShotTuningSet>
           
-                    <!-- Attach Points: Configured for FMJ, HP, and AP magazines -->
+                    <!-- Attach Points: Configured for FMJ, HP, AP magazines, extended (33 round), and mag3 (17 round) -->
           <AttachPoints>
             <Item>
               <AttachBone>WAPClip</AttachBone>
@@ -216,6 +216,30 @@
                 </Item>
                 <Item>
                   <n>COMPONENT_GX4_CLIP_AP</n>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_GX4_EXTCLIP_FMJ</n>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_GX4_EXTCLIP_HP</n>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_GX4_EXTCLIP_AP</n>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_GX4_MAG3_FMJ</n>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_GX4_MAG3_HP</n>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_GX4_MAG3_AP</n>
                   <Default value="false" />
                 </Item>
               </Components>

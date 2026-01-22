@@ -220,6 +220,7 @@
 					<KnockdownCount value="3"/>
 					<KillshotImpulseScale value="1.000000"/>
 					<NmShotTuningSet>Normal</NmShotTuningSet>
+					<!-- Attach Points: Configured for FMJ, HP, AP magazines and extended magazines (25 round) -->
 					<AttachPoints>
 						<Item>
 							<AttachBone>WAPClip</AttachBone>
@@ -235,6 +236,18 @@
 								<Item>
 									<Default value="false"/>
 									<Name>COMPONENT_G43X_CLIP_AP</Name>
+								</Item>
+								<Item>
+									<Default value="false"/>
+									<Name>COMPONENT_G43X_EXTCLIP_FMJ</Name>
+								</Item>
+								<Item>
+									<Default value="false"/>
+									<Name>COMPONENT_G43X_EXTCLIP_HP</Name>
+								</Item>
+								<Item>
+									<Default value="false"/>
+									<Name>COMPONENT_G43X_EXTCLIP_AP</Name>
 								</Item>
 							</Components>
 						</Item>

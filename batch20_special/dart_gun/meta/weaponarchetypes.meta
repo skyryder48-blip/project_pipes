@@ -2,7 +2,7 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <n>w_pi_dartgun</n>
+      <Name>w_pi_dartgun</Name>
       <Model>w_pi_dartgun</Model>
       <Audio>AUDIO_ITEM_STUNGUN</Audio>
       <Slot>SLOT_DARTGUN</Slot>

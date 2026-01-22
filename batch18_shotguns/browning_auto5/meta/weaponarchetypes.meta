@@ -2,7 +2,7 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <n>w_sg_browningauto5</n>
+      <Name>w_sg_browningauto5</Name>
       <Model>w_sg_browningauto5</Model>
       <Audio>AUDIO_ITEM_AUTOSHOTGUN</Audio>
       <Slot>SLOT_BROWNING_AUTO5</Slot>

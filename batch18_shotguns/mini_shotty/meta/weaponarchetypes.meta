@@ -2,7 +2,7 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <n>w_sg_minishotty</n>
+      <Name>w_sg_minishotty</Name>
       <Model>w_sg_minishotty</Model>
       <Audio>AUDIO_ITEM_SAWNOFFSHOTGUN</Audio>
       <Slot>SLOT_MINI_SHOTTY</Slot>

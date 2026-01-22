@@ -2,7 +2,7 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <n>w_ar_cz_bren</n>
+      <Name>w_ar_cz_bren</Name>
       <Model>w_ar_cz_bren</Model>
       <Audio>AUDIO_ITEM_ASSAULTRIFLE</Audio>
       <Slot>SLOT_CZ_BREN</Slot>

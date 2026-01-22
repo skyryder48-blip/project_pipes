@@ -2,7 +2,7 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <n>w_sr_watchman</n>
+      <Name>w_sr_watchman</Name>
       <Model>w_sr_watchman</Model>
       <Audio>AUDIO_ITEM_SNIPERRIFLE</Audio>
       <Slot>SLOT_NEMOWATCHMAN</Slot>

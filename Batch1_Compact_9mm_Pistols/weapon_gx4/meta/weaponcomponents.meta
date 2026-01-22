@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    WEAPONCOMPONENTS.META - Magazine Components for Taurus GX4
+    Defines FMJ, Hollow Point, and Armor Piercing magazine components.
+    Standard mag: 13 rounds, Mag2 (Extended): 33 rounds, Mag3: 17 rounds
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+    <!-- FMJ MAGAZINE - Standard 13 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_GX4_CLIP_FMJ</Name>
+      <Model />
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_FMJ</LocDesc>
+      <ClipSize value="13" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- HOLLOW POINT MAGAZINE - Standard 13 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_GX4_CLIP_HP</Name>
+      <Model />
+      <LocName>WCT_CLIP_HP</LocName>
+      <LocDesc>WCD_CLIP_HP</LocDesc>
+      <ClipSize value="13" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- ARMOR PIERCING MAGAZINE - Standard 13 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_GX4_CLIP_AP</Name>
+      <Model />
+      <LocName>WCT_CLIP_AP</LocName>
+      <LocDesc>WCD_CLIP_AP</LocDesc>
+      <ClipSize value="13" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- EXTENDED FMJ MAGAZINE (MAG2) - 33 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_GX4_EXTCLIP_FMJ</Name>
+      <Model />
+      <LocName>WCT_EXTCLIP_FMJ</LocName>
+      <LocDesc>WCD_EXTCLIP_FMJ</LocDesc>
+      <ClipSize value="33" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- EXTENDED HOLLOW POINT MAGAZINE (MAG2) - 33 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_GX4_EXTCLIP_HP</Name>
+      <Model />
+      <LocName>WCT_EXTCLIP_HP</LocName>
+      <LocDesc>WCD_EXTCLIP_HP</LocDesc>
+      <ClipSize value="33" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- EXTENDED ARMOR PIERCING MAGAZINE (MAG2) - 33 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_GX4_EXTCLIP_AP</Name>
+      <Model />
+      <LocName>WCT_EXTCLIP_AP</LocName>
+      <LocDesc>WCD_EXTCLIP_AP</LocDesc>
+      <ClipSize value="33" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- MAG3 FMJ MAGAZINE - 17 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_GX4_MAG3_FMJ</Name>
+      <Model />
+      <LocName>WCT_MAG3_FMJ</LocName>
+      <LocDesc>WCD_MAG3_FMJ</LocDesc>
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- MAG3 HOLLOW POINT MAGAZINE - 17 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_GX4_MAG3_HP</Name>
+      <Model />
+      <LocName>WCT_MAG3_HP</LocName>
+      <LocDesc>WCD_MAG3_HP</LocDesc>
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- MAG3 ARMOR PIERCING MAGAZINE - 17 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_GX4_MAG3_AP</Name>
+      <Model />
+      <LocName>WCT_MAG3_AP</LocName>
+      <LocDesc>WCD_MAG3_AP</LocDesc>
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+  </Infos>
+</CWeaponComponentInfoBlob>

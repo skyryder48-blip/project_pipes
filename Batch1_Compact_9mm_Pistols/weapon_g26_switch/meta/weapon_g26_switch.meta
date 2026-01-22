@@ -48,8 +48,8 @@
           <AmmoInfo ref="AMMO_PISTOL" />
           <AimingInfo ref="PISTOL_2H_BASE_STRAFE" />
           
-          <!-- Glock 26 Switch: 10+1 capacity -->
-          <ClipSize value="10" />
+          <!-- Glock 26 Switch: 12+1 capacity (standard), 21+1 (extended) -->
+          <ClipSize value="12" />
           
           <!-- Accuracy: Reduced due to full-auto - harder to control -->
           <AccuracySpread value="2.200000" />
@@ -201,7 +201,7 @@
           <KillshotImpulseScale value="1.000000" />
           <NmShotTuningSet>normal</NmShotTuningSet>
           
-                    <!-- Attach Points: Configured for FMJ, HP, and AP magazines -->
+                    <!-- Attach Points: Configured for FMJ, HP, AP magazines and extended magazines (21 round) -->
           <AttachPoints>
             <Item>
               <AttachBone>WAPClip</AttachBone>
@@ -216,6 +216,18 @@
                 </Item>
                 <Item>
                   <n>COMPONENT_G26_SWITCH_CLIP_AP</n>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_G26_SWITCH_EXTCLIP_FMJ</n>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_G26_SWITCH_EXTCLIP_HP</n>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_G26_SWITCH_EXTCLIP_AP</n>
                   <Default value="false" />
                 </Item>
               </Components>

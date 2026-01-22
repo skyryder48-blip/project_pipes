@@ -201,7 +201,7 @@
           <KillshotImpulseScale value="1.000000" />
           <NmShotTuningSet>normal</NmShotTuningSet>
           
-                    <!-- Attach Points: Configured for FMJ, HP, and AP magazines -->
+                    <!-- Attach Points: Configured for FMJ, HP, AP magazines and extended magazines (12 round) -->
           <AttachPoints>
             <Item>
               <AttachBone>WAPClip</AttachBone>
@@ -216,6 +216,18 @@
                 </Item>
                 <Item>
                   <n>COMPONENT_G26_CLIP_AP</n>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_G26_EXTCLIP_FMJ</n>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_G26_EXTCLIP_HP</n>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_G26_EXTCLIP_AP</n>
                   <Default value="false" />
                 </Item>
               </Components>

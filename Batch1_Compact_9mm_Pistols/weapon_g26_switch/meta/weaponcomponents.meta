@@ -1,68 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    WEAPONCOMPONENTS.META - Magazine Components for Glock 43X
+    WEAPONCOMPONENTS.META - Magazine Components for Glock 26 Switch (Full-Auto)
     Defines FMJ, Hollow Point, and Armor Piercing magazine components.
-    Standard mag: 10 rounds, Extended mag (mag2): 25 rounds
+    Standard mag: 12 rounds, Extended mag: 21 rounds
 -->
 <CWeaponComponentInfoBlob>
   <Infos>
-    <!-- FMJ MAGAZINE - Standard 10 round -->
+    <!-- FMJ MAGAZINE - Standard 12 round -->
     <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G43X_CLIP_FMJ</Name>
+      <Name>COMPONENT_G26_SWITCH_CLIP_FMJ</Name>
       <Model />
       <LocName>WCT_CLIP_FMJ</LocName>
       <LocDesc>WCD_CLIP_FMJ</LocDesc>
-      <ClipSize value="10" />
+      <ClipSize value="12" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
-    <!-- HOLLOW POINT MAGAZINE - Standard 10 round -->
+    <!-- HOLLOW POINT MAGAZINE - Standard 12 round -->
     <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G43X_CLIP_HP</Name>
+      <Name>COMPONENT_G26_SWITCH_CLIP_HP</Name>
       <Model />
       <LocName>WCT_CLIP_HP</LocName>
       <LocDesc>WCD_CLIP_HP</LocDesc>
-      <ClipSize value="10" />
+      <ClipSize value="12" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
-    <!-- ARMOR PIERCING MAGAZINE - Standard 10 round -->
+    <!-- ARMOR PIERCING MAGAZINE - Standard 12 round -->
     <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G43X_CLIP_AP</Name>
+      <Name>COMPONENT_G26_SWITCH_CLIP_AP</Name>
       <Model />
       <LocName>WCT_CLIP_AP</LocName>
       <LocDesc>WCD_CLIP_AP</LocDesc>
-      <ClipSize value="10" />
+      <ClipSize value="12" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
-    <!-- EXTENDED FMJ MAGAZINE (MAG2) - 25 round -->
+    <!-- EXTENDED FMJ MAGAZINE - 21 round -->
     <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G43X_EXTCLIP_FMJ</Name>
+      <Name>COMPONENT_G26_SWITCH_EXTCLIP_FMJ</Name>
       <Model />
       <LocName>WCT_EXTCLIP_FMJ</LocName>
       <LocDesc>WCD_EXTCLIP_FMJ</LocDesc>
-      <ClipSize value="25" />
+      <ClipSize value="21" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
-    <!-- EXTENDED HOLLOW POINT MAGAZINE (MAG2) - 25 round -->
+    <!-- EXTENDED HOLLOW POINT MAGAZINE - 21 round -->
     <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G43X_EXTCLIP_HP</Name>
+      <Name>COMPONENT_G26_SWITCH_EXTCLIP_HP</Name>
       <Model />
       <LocName>WCT_EXTCLIP_HP</LocName>
       <LocDesc>WCD_EXTCLIP_HP</LocDesc>
-      <ClipSize value="25" />
+      <ClipSize value="21" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
-    <!-- EXTENDED ARMOR PIERCING MAGAZINE (MAG2) - 25 round -->
+    <!-- EXTENDED ARMOR PIERCING MAGAZINE - 21 round -->
     <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G43X_EXTCLIP_AP</Name>
+      <Name>COMPONENT_G26_SWITCH_EXTCLIP_AP</Name>
       <Model />
       <LocName>WCT_EXTCLIP_AP</LocName>
       <LocDesc>WCD_EXTCLIP_AP</LocDesc>
-      <ClipSize value="25" />
+      <ClipSize value="21" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
   </Infos>

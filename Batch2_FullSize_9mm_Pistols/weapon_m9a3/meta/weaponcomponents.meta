@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    WEAPONCOMPONENTS.META - Magazine Components for Beretta M9A3
+    Defines FMJ, Hollow Point, and Armor Piercing magazine components.
+    Standard mag: 15 rounds, Extended: 18 rounds
+    Also includes flashlight and suppressor components
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+    <!-- FMJ MAGAZINE - Standard 15 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_M9A3_CLIP_FMJ</Name>
+      <Model />
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_FMJ</LocDesc>
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- HOLLOW POINT MAGAZINE - Standard 15 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_M9A3_CLIP_HP</Name>
+      <Model />
+      <LocName>WCT_CLIP_HP</LocName>
+      <LocDesc>WCD_CLIP_HP</LocDesc>
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- ARMOR PIERCING MAGAZINE - Standard 15 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_M9A3_CLIP_AP</Name>
+      <Model />
+      <LocName>WCT_CLIP_AP</LocName>
+      <LocDesc>WCD_CLIP_AP</LocDesc>
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- EXTENDED FMJ MAGAZINE - 18 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_M9A3_EXTCLIP_FMJ</Name>
+      <Model />
+      <LocName>WCT_EXTCLIP_FMJ</LocName>
+      <LocDesc>WCD_EXTCLIP_FMJ</LocDesc>
+      <ClipSize value="18" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- EXTENDED HOLLOW POINT MAGAZINE - 18 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_M9A3_EXTCLIP_HP</Name>
+      <Model />
+      <LocName>WCT_EXTCLIP_HP</LocName>
+      <LocDesc>WCD_EXTCLIP_HP</LocDesc>
+      <ClipSize value="18" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- EXTENDED ARMOR PIERCING MAGAZINE - 18 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_M9A3_EXTCLIP_AP</Name>
+      <Model />
+      <LocName>WCT_EXTCLIP_AP</LocName>
+      <LocDesc>WCD_EXTCLIP_AP</LocDesc>
+      <ClipSize value="18" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- FLASHLIGHT COMPONENT -->
+    <Item type="CWeaponComponentFlashLightInfo">
+      <Name>COMPONENT_M9A3_FLASHLIGHT</Name>
+      <Model />
+      <LocName>WCT_FLASH</LocName>
+      <LocDesc>WCD_FLASH</LocDesc>
+    </Item>
+
+    <!-- SUPPRESSOR COMPONENT -->
+    <Item type="CWeaponComponentSuppressorInfo">
+      <Name>COMPONENT_M9A3_SUPPRESSOR</Name>
+      <Model />
+      <LocName>WCT_SUPP</LocName>
+      <LocDesc>WCD_SUPP</LocDesc>
+    </Item>
+  </Infos>
+</CWeaponComponentInfoBlob>

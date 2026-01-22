@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CPedModelInfo__PersonalityDataList>
   <!-- Beretta M9 - Full-Size 9mm Pistol Ped Personality -->
-  <!-- Format based on FiveM-Addon-Weapon-Tool-Kit -->
+  <!-- Format based on working WEAPON_G17B example -->
   <MovementModeUnholsterData>
     <Item>
       <Name>UNHOLSTER_UNARMED</Name>
@@ -47,6 +47,61 @@
         </Item>
       </UnholsterClips>
     </Item>
+    <Item>
+      <Name>UNHOLSTER_STEALTH_UNARMED</Name>
+      <UnholsterClips>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_M9</Item>
+          </Weapons>
+          <Clip>unarmed_holster_1h</Clip>
+        </Item>
+      </UnholsterClips>
+    </Item>
+    <Item>
+      <Name>UNHOLSTER_STEALTH_1H</Name>
+      <UnholsterClips>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_M9</Item>
+          </Weapons>
+          <Clip>1h_holster_1h</Clip>
+        </Item>
+      </UnholsterClips>
+    </Item>
+    <Item>
+      <Name>UNHOLSTER_STEALTH_2H_MELEE</Name>
+      <UnholsterClips>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_M9</Item>
+          </Weapons>
+          <Clip>2h_melee_holster_1h</Clip>
+        </Item>
+      </UnholsterClips>
+    </Item>
+    <Item>
+      <Name>UNHOLSTER_STEALTH_2H</Name>
+      <UnholsterClips>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_M9</Item>
+          </Weapons>
+          <Clip>2h_holster_1h</Clip>
+        </Item>
+      </UnholsterClips>
+    </Item>
+    <Item>
+      <Name>UNHOLSTER_MINIGUN</Name>
+      <UnholsterClips>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_M9</Item>
+          </Weapons>
+          <Clip>minigun_holster_1h</Clip>
+        </Item>
+      </UnholsterClips>
+    </Item>
   </MovementModeUnholsterData>
   <MovementModes>
     <Item>
@@ -71,7 +126,31 @@
                   <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
                 </IdleTransitions>
                 <UnholsterClipSetId>MOVE_ACTION@P_M_ZERO@HOLSTER</UnholsterClipSetId>
-                <UnholsterClipData ref="UNHOLSTER_1H"/>
+                <UnholsterClipData>UNHOLSTER_1H</UnholsterClipData>
+              </Item>
+            </ClipSets>
+          </Item>
+        </Item>
+        <Item>
+          <Item>
+            <Weapons>
+              <Item>WEAPON_M9</Item>
+            </Weapons>
+            <ClipSets>
+              <Item>
+                <MovementClipSetId>MOVE_STEALTH@ACTION@P_M_ZERO@ARMED@CORE</MovementClipSetId>
+                <WeaponClipSetId>MOVE_STEALTH@ACTION@P_M_ZERO@ARMED@1H@UPPER</WeaponClipSetId>
+                <WeaponClipFilterId>UpperbodyAndIk_filter</WeaponClipFilterId>
+                <UpperBodyShadowExpressionEnabled value="true"/>
+                <UpperBodyFeatheredLeanEnabled value="true"/>
+                <UseWeaponAnimsForGrip value="false"/>
+                <UseLeftHandIk value="true"/>
+                <IdleTransitionBlendOutTime value="0.50000000"/>
+                <IdleTransitions>
+                  <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
+                </IdleTransitions>
+                <UnholsterClipSetId>MOVE_STEALTH@ACTION@P_M_ZERO@HOLSTER</UnholsterClipSetId>
+                <UnholsterClipData>UNHOLSTER_STEALTH_1H</UnholsterClipData>
               </Item>
             </ClipSets>
           </Item>
@@ -102,7 +181,31 @@
                   <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
                 </IdleTransitions>
                 <UnholsterClipSetId>MOVE_ACTION@FEMALE@HOLSTER</UnholsterClipSetId>
-                <UnholsterClipData ref="UNHOLSTER_1H"/>
+                <UnholsterClipData>UNHOLSTER_1H</UnholsterClipData>
+              </Item>
+            </ClipSets>
+          </Item>
+        </Item>
+        <Item>
+          <Item>
+            <Weapons>
+              <Item>WEAPON_M9</Item>
+            </Weapons>
+            <ClipSets>
+              <Item>
+                <MovementClipSetId>MOVE_STEALTH@ACTION@FEMALE@ARMED@CORE</MovementClipSetId>
+                <WeaponClipSetId>MOVE_STEALTH@ACTION@FEMALE@ARMED@1H@UPPER</WeaponClipSetId>
+                <WeaponClipFilterId>UpperbodyAndIk_filter</WeaponClipFilterId>
+                <UpperBodyShadowExpressionEnabled value="true"/>
+                <UpperBodyFeatheredLeanEnabled value="true"/>
+                <UseWeaponAnimsForGrip value="false"/>
+                <UseLeftHandIk value="true"/>
+                <IdleTransitionBlendOutTime value="0.50000000"/>
+                <IdleTransitions>
+                  <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
+                </IdleTransitions>
+                <UnholsterClipSetId>MOVE_STEALTH@ACTION@FEMALE@HOLSTER</UnholsterClipSetId>
+                <UnholsterClipData>UNHOLSTER_STEALTH_1H</UnholsterClipData>
               </Item>
             </ClipSets>
           </Item>
@@ -133,7 +236,31 @@
                   <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
                 </IdleTransitions>
                 <UnholsterClipSetId>MOVE_ACTION@P_M_ZERO@HOLSTER</UnholsterClipSetId>
-                <UnholsterClipData ref="UNHOLSTER_1H"/>
+                <UnholsterClipData>UNHOLSTER_1H</UnholsterClipData>
+              </Item>
+            </ClipSets>
+          </Item>
+        </Item>
+        <Item>
+          <Item>
+            <Weapons>
+              <Item>WEAPON_M9</Item>
+            </Weapons>
+            <ClipSets>
+              <Item>
+                <MovementClipSetId>MOVE_STEALTH@ACTION@P_M_ZERO@ARMED@CORE</MovementClipSetId>
+                <WeaponClipSetId>MOVE_STEALTH@ACTION@P_M_ZERO@ARMED@1H@UPPER</WeaponClipSetId>
+                <WeaponClipFilterId>UpperbodyAndIk_filter</WeaponClipFilterId>
+                <UpperBodyShadowExpressionEnabled value="true"/>
+                <UpperBodyFeatheredLeanEnabled value="true"/>
+                <UseWeaponAnimsForGrip value="false"/>
+                <UseLeftHandIk value="false"/>
+                <IdleTransitionBlendOutTime value="0.50000000"/>
+                <IdleTransitions>
+                  <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
+                </IdleTransitions>
+                <UnholsterClipSetId>MOVE_STEALTH@ACTION@P_M_ZERO@HOLSTER</UnholsterClipSetId>
+                <UnholsterClipData>UNHOLSTER_STEALTH_1H</UnholsterClipData>
               </Item>
             </ClipSets>
           </Item>
@@ -164,7 +291,31 @@
                   <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
                 </IdleTransitions>
                 <UnholsterClipSetId>MOVE_ACTION@P_M_ONE@HOLSTER</UnholsterClipSetId>
-                <UnholsterClipData ref="UNHOLSTER_1H"/>
+                <UnholsterClipData>UNHOLSTER_1H</UnholsterClipData>
+              </Item>
+            </ClipSets>
+          </Item>
+        </Item>
+        <Item>
+          <Item>
+            <Weapons>
+              <Item>WEAPON_M9</Item>
+            </Weapons>
+            <ClipSets>
+              <Item>
+                <MovementClipSetId>MOVE_STEALTH@ACTION@P_M_ONE@ARMED@CORE</MovementClipSetId>
+                <WeaponClipSetId>MOVE_STEALTH@ACTION@P_M_ONE@ARMED@1H@UPPER</WeaponClipSetId>
+                <WeaponClipFilterId>UpperbodyAndIk_filter</WeaponClipFilterId>
+                <UpperBodyShadowExpressionEnabled value="true"/>
+                <UpperBodyFeatheredLeanEnabled value="true"/>
+                <UseWeaponAnimsForGrip value="false"/>
+                <UseLeftHandIk value="false"/>
+                <IdleTransitionBlendOutTime value="0.50000000"/>
+                <IdleTransitions>
+                  <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
+                </IdleTransitions>
+                <UnholsterClipSetId>MOVE_STEALTH@ACTION@P_M_ONE@HOLSTER</UnholsterClipSetId>
+                <UnholsterClipData>UNHOLSTER_STEALTH_1H</UnholsterClipData>
               </Item>
             </ClipSets>
           </Item>
@@ -195,7 +346,31 @@
                   <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
                 </IdleTransitions>
                 <UnholsterClipSetId>MOVE_ACTION@P_M_TWO@HOLSTER</UnholsterClipSetId>
-                <UnholsterClipData ref="UNHOLSTER_1H"/>
+                <UnholsterClipData>UNHOLSTER_1H</UnholsterClipData>
+              </Item>
+            </ClipSets>
+          </Item>
+        </Item>
+        <Item>
+          <Item>
+            <Weapons>
+              <Item>WEAPON_M9</Item>
+            </Weapons>
+            <ClipSets>
+              <Item>
+                <MovementClipSetId>MOVE_STEALTH@ACTION@P_M_TWO@ARMED@CORE</MovementClipSetId>
+                <WeaponClipSetId>MOVE_STEALTH@ACTION@P_M_TWO@ARMED@1H@UPPER</WeaponClipSetId>
+                <WeaponClipFilterId>UpperbodyAndIk_filter</WeaponClipFilterId>
+                <UpperBodyShadowExpressionEnabled value="true"/>
+                <UpperBodyFeatheredLeanEnabled value="true"/>
+                <UseWeaponAnimsForGrip value="false"/>
+                <UseLeftHandIk value="false"/>
+                <IdleTransitionBlendOutTime value="0.50000000"/>
+                <IdleTransitions>
+                  <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
+                </IdleTransitions>
+                <UnholsterClipSetId>MOVE_STEALTH@ACTION@P_M_TWO@HOLSTER</UnholsterClipSetId>
+                <UnholsterClipData>UNHOLSTER_STEALTH_1H</UnholsterClipData>
               </Item>
             </ClipSets>
           </Item>

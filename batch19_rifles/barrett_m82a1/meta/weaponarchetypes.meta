@@ -2,7 +2,7 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <n>w_sr_m82a1</n>
+      <Name>w_sr_m82a1</Name>
       <Model>w_sr_m82a1</Model>
       <Audio>AUDIO_ITEM_HEAVYSNIPER</Audio>
       <Slot>SLOT_M82A1</Slot>

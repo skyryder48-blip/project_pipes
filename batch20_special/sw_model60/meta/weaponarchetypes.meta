@@ -2,7 +2,7 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <n>w_pi_model60</n>
+      <Name>w_pi_model60</Name>
       <Model>w_pi_model60</Model>
       <Audio>AUDIO_ITEM_REVOLVER</Audio>
       <Slot>SLOT_SWMODEL60</Slot>

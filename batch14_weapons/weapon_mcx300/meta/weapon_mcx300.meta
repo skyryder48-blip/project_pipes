@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponInfoBlob>
   <SlotNavigateOrder>
-    <Item key="SLOT_MCX300">SLOT_MCX300</Item>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="300" />
+          <Entry>SLOT_MCX300</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
   </SlotNavigateOrder>
   <SlotBestOrder>
-    <Item key="SLOT_MCX300">SLOT_MCX300</Item>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="300" />
+        <Entry>SLOT_MCX300</Entry>
+      </Item>
+    </WeaponSlots>
   </SlotBestOrder>
   <TintSpecValues />
   <FiringPatternAliases />
@@ -12,7 +24,7 @@
   <AimingInfos />
   <Infos>
     <Item type="CWeaponInfo">
-      <n>WEAPON_MCX300</n>
+      <Name>WEAPON_MCX300</Name>
       <Model>w_ar_mcx300</Model>
       <Audio>AUDIO_ASSAULT_RIFLE</Audio>
       <Slot>SLOT_MCX300</Slot>
@@ -108,7 +120,7 @@
       <FireAnimTime value="0.10" />
       <RecoilAimOffsetInterpolation />
       
-      <HumanNameHash>WT_MCX300</HumanNameHash>
+      <HumanNameHash>WEAPON_MCX300</HumanNameHash>
       <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
     </Item>
   </Infos>

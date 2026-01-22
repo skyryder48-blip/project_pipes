@@ -71,7 +71,7 @@
                   <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
                 </IdleTransitions>
                 <UnholsterClipSetId>MOVE_ACTION@P_M_ZERO@HOLSTER</UnholsterClipSetId>
-                <UnholsterClipData>UNHOLSTER_1H</UnholsterClipData>
+                <UnholsterClipData ref="UNHOLSTER_1H"/>
               </Item>
             </ClipSets>
           </Item>
@@ -102,7 +102,7 @@
                   <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
                 </IdleTransitions>
                 <UnholsterClipSetId>MOVE_ACTION@FEMALE@HOLSTER</UnholsterClipSetId>
-                <UnholsterClipData>UNHOLSTER_1H</UnholsterClipData>
+                <UnholsterClipData ref="UNHOLSTER_1H"/>
               </Item>
             </ClipSets>
           </Item>
@@ -133,7 +133,7 @@
                   <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
                 </IdleTransitions>
                 <UnholsterClipSetId>MOVE_ACTION@P_M_ZERO@HOLSTER</UnholsterClipSetId>
-                <UnholsterClipData>UNHOLSTER_1H</UnholsterClipData>
+                <UnholsterClipData ref="UNHOLSTER_1H"/>
               </Item>
             </ClipSets>
           </Item>
@@ -164,7 +164,7 @@
                   <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
                 </IdleTransitions>
                 <UnholsterClipSetId>MOVE_ACTION@P_M_ONE@HOLSTER</UnholsterClipSetId>
-                <UnholsterClipData>UNHOLSTER_1H</UnholsterClipData>
+                <UnholsterClipData ref="UNHOLSTER_1H"/>
               </Item>
             </ClipSets>
           </Item>
@@ -195,7 +195,7 @@
                   <Item>MOVE_ACTION@GENERIC@TRANS@1H</Item>
                 </IdleTransitions>
                 <UnholsterClipSetId>MOVE_ACTION@P_M_TWO@HOLSTER</UnholsterClipSetId>
-                <UnholsterClipData>UNHOLSTER_1H</UnholsterClipData>
+                <UnholsterClipData ref="UNHOLSTER_1H"/>
               </Item>
             </ClipSets>
           </Item>

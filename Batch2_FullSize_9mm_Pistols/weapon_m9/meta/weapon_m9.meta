@@ -29,7 +29,7 @@
     <Item>
       <Infos>
         <Item type="CWeaponInfo">
-          <n>WEAPON_M9</n>
+          <Name>WEAPON_M9</Name>
           <Model>w_pi_m9</Model>
           <Audio>AUDIO_ITEM_PISTOL</Audio>
           <Slot>SLOT_M9</Slot>
@@ -190,7 +190,7 @@
           <FirstPersonReticuleStyleHash />
           <PickupHash>PICKUP_WEAPON_M9</PickupHash>
           <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
-          <HumanNameHash>WT_M9</HumanNameHash>
+          <HumanNameHash>WEAPON_M9</HumanNameHash>
           <MovementModeConditionalIdle>MMI_1Handed</MovementModeConditionalIdle>
           <StatName>M9</StatName>
           <KnockdownCount value="3" />

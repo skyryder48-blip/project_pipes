@@ -316,7 +316,7 @@
           <FlashFxLightFallOffMax value="10.000000" />
           <FlashFxFadeOutTime value="0.070000" />
           <FlashFxAltBone />
-          <ReloadUpperBodyFixupExpression>YOURNAME/YOURFOLDER</ReloadUpperBodyFixupExpression>
+          <ReloadUpperBodyFixupExpression></ReloadUpperBodyFixupExpression>
         </Item>
       </Infos>
     </Item>

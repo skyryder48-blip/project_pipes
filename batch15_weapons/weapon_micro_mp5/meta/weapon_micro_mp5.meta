@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponInfoBlob>
   <SlotNavigateOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_MICRO_MP5">SLOT_MICRO_MP5</Item>
   </SlotNavigateOrder>
   <SlotBestOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_MICRO_MP5">SLOT_MICRO_MP5</Item>
   </SlotBestOrder>
   <TintSpecValues />
   <FiringPatternAliases />
@@ -15,11 +15,11 @@
       <n>WEAPON_MICRO_MP5</n>
       <Model>w_sb_micro_mp5</Model>
       <Audio>AUDIO_SMG</Audio>
-      <Slot>YOURSLOT</Slot>
+      <Slot>SLOT_MICRO_MP5</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>YOURSLOT</WheelSlot>
-      <Group>YOURGROUP</Group>
+      <WheelSlot>WHEEL_PISTOL</WheelSlot>
+      <Group>GROUP_PISTOL</Group>
       <ClipSize value="30" />
       <AccuracySpread value="1.20" />
       <AccurateModeAccuracyModifier value="0.18" />
@@ -81,7 +81,7 @@
       <!-- LOW RECOIL - roller-delayed spreads impulse over time -->
       <RecoilShakeAmplitude value="0.14" />
       <RecoilShakeFrequency value="0.42" />
-      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      <RecoilShakeHashKey />
       
       <NetworkHitLimbsDamageModifier value="0.80" />
       <NetworkPlayerDamageModifier value="1.0" />
@@ -105,7 +105,7 @@
       <RecoilAimOffsetInterpolation />
       
       <HumanNameHash>WT_MICRO_MP5</HumanNameHash>
-      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+      <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

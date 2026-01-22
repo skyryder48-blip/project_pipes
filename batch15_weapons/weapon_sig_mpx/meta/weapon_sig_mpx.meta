@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponInfoBlob>
   <SlotNavigateOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_SIG_MPX">SLOT_SIG_MPX</Item>
   </SlotNavigateOrder>
   <SlotBestOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_SIG_MPX">SLOT_SIG_MPX</Item>
   </SlotBestOrder>
   <TintSpecValues />
   <FiringPatternAliases />
@@ -15,11 +15,11 @@
       <n>WEAPON_SIG_MPX</n>
       <Model>w_sb_sig_mpx</Model>
       <Audio>AUDIO_SMG</Audio>
-      <Slot>YOURSLOT</Slot>
+      <Slot>SLOT_SIG_MPX</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>YOURSLOT</WheelSlot>
-      <Group>YOURGROUP</Group>
+      <WheelSlot>WHEEL_PISTOL</WheelSlot>
+      <Group>GROUP_PISTOL</Group>
       <ClipSize value="30" />
       <AccuracySpread value="1.15" />
       <AccurateModeAccuracyModifier value="0.16" />
@@ -82,7 +82,7 @@
       <!-- LOWEST RECOIL - gas piston spreads impulse, lighter bolt -->
       <RecoilShakeAmplitude value="0.12" />
       <RecoilShakeFrequency value="0.40" />
-      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      <RecoilShakeHashKey />
       
       <NetworkHitLimbsDamageModifier value="0.80" />
       <NetworkPlayerDamageModifier value="1.0" />
@@ -106,7 +106,7 @@
       <RecoilAimOffsetInterpolation />
       
       <HumanNameHash>WT_SIG_MPX</HumanNameHash>
-      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+      <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

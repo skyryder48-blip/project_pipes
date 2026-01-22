@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CPedModelInfo__PersonalityDataList>
-  <InitDatas>
+  <MovementModeUnholsterData>
     <Item>
-      <name>WEAPON_MAC10</name>
-      <drawableHolsteredIndex value="255" />
-      <holsterClip>YOURHOLSTERCLIP</holsterClip>
-      <unholsterClip>YOURHOLSTERCLIP</unholsterClip>
-      <unEquipClip>UNHOLSTER_1H</unEquipClip>
-      <equipClip>UNHOLSTER_1H</equipClip>
+      <Name>UNHOLSTER_1H</Name>
+      <UnholsterClips>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_MAC10</Item>
+          </Weapons>
+          <Clip>1h_holster_1h</Clip>
+        </Item>
+      </UnholsterClips>
     </Item>
-  </InitDatas>
+  </MovementModeUnholsterData>
+  <MovementModes>
+    <Item>
+      <Name>DEFAULT_ACTION</Name>
+      <MovementModeItems>
+        <Item>
+          <Weapons>
+            <Item>WEAPON_MAC10</Item>
+          </Weapons>
+          <MovementMode>armed</MovementMode>
+        </Item>
+      </MovementModeItems>
+    </Item>
+  </MovementModes>
 </CPedModelInfo__PersonalityDataList>

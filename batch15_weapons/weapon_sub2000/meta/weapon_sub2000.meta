@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponInfoBlob>
   <SlotNavigateOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_SUB2000">SLOT_SUB2000</Item>
   </SlotNavigateOrder>
   <SlotBestOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_SUB2000">SLOT_SUB2000</Item>
   </SlotBestOrder>
   <TintSpecValues />
   <FiringPatternAliases />
@@ -15,11 +15,11 @@
       <n>WEAPON_SUB2000</n>
       <Model>w_sb_sub2000</Model>
       <Audio>AUDIO_SMG</Audio>
-      <Slot>YOURSLOT</Slot>
+      <Slot>SLOT_SUB2000</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>YOURSLOT</WheelSlot>
-      <Group>YOURGROUP</Group>
+      <WheelSlot>WHEEL_PISTOL</WheelSlot>
+      <Group>GROUP_PISTOL</Group>
       <ClipSize value="33" />
       <AccuracySpread value="1.25" />
       <AccurateModeAccuracyModifier value="0.18" />
@@ -84,7 +84,7 @@
       <!-- MODERATE-HIGH RECOIL - blowback, light weight -->
       <RecoilShakeAmplitude value="0.22" />
       <RecoilShakeFrequency value="0.48" />
-      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      <RecoilShakeHashKey />
       
       <NetworkHitLimbsDamageModifier value="0.80" />
       <NetworkPlayerDamageModifier value="1.0" />
@@ -108,7 +108,7 @@
       <RecoilAimOffsetInterpolation />
       
       <HumanNameHash>WT_SUB2000</HumanNameHash>
-      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+      <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

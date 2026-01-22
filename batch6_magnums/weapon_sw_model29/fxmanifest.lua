@@ -1,16 +1,8 @@
---[[
-    Smith & Wesson Model 29 - .44 Magnum
-    Batch 6: Large Caliber Magnum Revolvers
-
-    The iconic "Dirty Harry" revolver
-    6.5" barrel, N-Frame, 6-round capacity
-]]
-
 fx_version 'cerulean'
 game 'gta5'
 
-author 'Weapon Meta Development'
-description 'Smith & Wesson Model 29 - .44 Remington Magnum'
+author 'Weapon Meta Development Project'
+description 'weapon_sw_model29 Addon Weapon'
 version '1.0.0'
 
 client_script 'cl_weaponNames.lua'
@@ -20,9 +12,8 @@ files {
     'meta/weaponarchetypes.meta',
     'meta/weaponanimations.meta',
     'meta/pedpersonality.meta',
+    'stream/*',
 }
 
 data_file 'WEAPONINFO_FILE' 'meta/weapon_swmodel29.meta'
 data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'
-data_file 'WEAPON_ANIMATIONS_FILE' 'meta/weaponanimations.meta'
-data_file 'PED_PERSONALITY_FILE' 'meta/pedpersonality.meta'

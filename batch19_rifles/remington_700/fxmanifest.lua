@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'Weapon Meta Development Project'
-description 'Remington 700 - Civilian .308 Bolt-Action Rifle'
+description 'remington_700 Addon Weapon'
 version '1.0.0'
 
 client_script 'cl_weaponNames.lua'
@@ -10,6 +10,9 @@ client_script 'cl_weaponNames.lua'
 files {
     'meta/weapons.meta',
     'meta/weaponarchetypes.meta',
+    'meta/weaponanimations.meta',
+    'meta/pedpersonality.meta',
+    'stream/*',
 }
 
 data_file 'WEAPONINFO_FILE' 'meta/weapons.meta'

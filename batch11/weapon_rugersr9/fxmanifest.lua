@@ -1,17 +1,19 @@
 fx_version 'cerulean'
 game 'gta5'
 
-author 'Weapon Developer'
-description 'WEAPON_RUGERSR9 - Custom Pistol Addon'
+author 'Weapon Meta Development Project'
+description 'weapon_rugersr9 Addon Weapon'
 version '1.0.0'
 
+client_script 'cl_weaponNames.lua'
+
 files {
-    'meta/*.meta',
+    'meta/weapon_rugersr9.meta',
+    'meta/weaponarchetypes.meta',
+    'meta/weaponanimations.meta',
+    'meta/pedpersonality.meta',
+    'stream/*',
 }
 
-data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'
-data_file 'WEAPON_ANIMATIONS_FILE' 'meta/weaponanimations.meta'
-data_file 'PED_PERSONALITY_FILE' 'meta/pedpersonality.meta'
 data_file 'WEAPONINFO_FILE' 'meta/weapon_rugersr9.meta'
-
-client_script 'cl_weaponNames.lua'
+data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'

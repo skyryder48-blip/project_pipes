@@ -8,11 +8,11 @@
       <Slot>SLOT_UNARMED</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>YOURWEAPONWHEEL</WheelSlot>
-      <Group>YOURWEAPONWHEEL</Group>
+      <WheelSlot>WHEEL_PISTOL</WheelSlot>
+      <Group>GROUP_PISTOL</Group>
       <ClipSize value="8" />
       <AmmoInfo ref="AMMO_PISTOL" />
-      <AimingInfo ref="YOURWEAPONAIMINGINFO" />
+      <AimingInfo ref="AI_PISTOL_AIMINGINFO" />
       
       <!-- COLT M45A1 CQBP - MARSOC MILITARY 1911 -->
       <!-- 5.0" National Match barrel, 40 oz steel frame -->

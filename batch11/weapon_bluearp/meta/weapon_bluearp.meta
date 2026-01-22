@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponInfoBlob>
   <SlotNavigateOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_BLUEARP">SLOT_BLUEARP</Item>
   </SlotNavigateOrder>
   <SlotBestOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_BLUEARP">SLOT_BLUEARP</Item>
   </SlotBestOrder>
   <TintSpecValues />
   <FiringPatternAliases />
@@ -15,11 +15,11 @@
       <n>WEAPON_BLUEARP</n>
       <Model>w_ar_bluearp</Model>
       <Audio>AUDIO_SMG</Audio>
-      <Slot>YOURSLOT</Slot>
+      <Slot>SLOT_BLUEARP</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>YOURSLOT</WheelSlot>
-      <Group>YOURGROUP</Group>
+      <WheelSlot>WHEEL_PISTOL</WheelSlot>
+      <Group>GROUP_PISTOL</Group>
       <ClipSize value="17" />
       <AccuracySpread value="1.10" />
       <AccurateModeAccuracyModifier value="0.28" />
@@ -71,7 +71,7 @@
       <!-- Budget AR = slightly more recoil than premium -->
       <RecoilShakeAmplitude value="0.19" />
       <RecoilShakeFrequency value="0.52" />
-      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      <RecoilShakeHashKey />
       
       <NetworkHitLimbsDamageModifier value="0.80" />
       <NetworkPlayerDamageModifier value="1.0" />
@@ -86,13 +86,13 @@
       <WeaponRange value="130.0" />
       
       <BulletDirectionOffsetInDegrees value="0.15" />
-      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <WeaponFlags>Gun, SafeToFire, Thrown, NoWhilstRunning, BulletDealsDamage, HandGun</WeaponFlags>
       <Recoil />
       <FireAnimTime value="0.10" />
       <RecoilAimOffsetInterpolation />
       
       <HumanNameHash>WT_BLUEARP</HumanNameHash>
-      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+      <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

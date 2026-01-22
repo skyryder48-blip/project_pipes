@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CPedModelInfo__PersonalityDataList>
+  <PersonalityDatas>
+    <Item>
+      <n>WEAPON_RAM7KNIGHT</n>
+      <bCanBeTargetted value="true" />
+      <bIsWeapon value="true" />
+      <bCanUseCover value="true" />
+      <bCanGrabWeapons value="true" />
+      <fAccuracy value="0.720000" />
+      <fFireRate value="0.780000" />
+      <fCoverSearchTime value="0.800000" />
+    </Item>
+  </PersonalityDatas>
+</CPedModelInfo__PersonalityDataList>

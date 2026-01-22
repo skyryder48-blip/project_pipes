@@ -1,8 +1,8 @@
 fx_version 'cerulean'
 game 'gta5'
 
-author 'Your Server Name'
-description 'weapon_m9a3 - 9mm Full-Size Pistol'
+author 'Weapon Meta Development Project'
+description 'weapon_m9a3 Addon Weapon'
 version '1.0.0'
 
 client_script 'cl_weaponNames.lua'
@@ -11,10 +11,7 @@ files {
     'meta/weapon_m9a3.meta',
     'meta/weaponanimations.meta',
     'meta/pedpersonality.meta',
-    'meta/weaponarchetypes.meta',
+    'stream/*',
 }
 
-data_file 'WEAPONINFO_FILE_PATCH' 'meta/weapon_m9a3.meta'
-data_file 'WEAPON_ANIMATIONS_FILE' 'meta/weaponanimations.meta'
-data_file 'PED_PERSONALITY_FILE' 'meta/pedpersonality.meta'
-data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'
+data_file 'WEAPONINFO_FILE' 'meta/weapon_m9a3.meta'

@@ -1,10 +1,19 @@
 fx_version 'cerulean'
 game 'gta5'
+
 author 'Weapon Meta Development Project'
-description 'Tranquilizer Dart Gun - Non-lethal with Freeze/Ragdoll/Stumble Effects'
+description 'dart_gun Addon Weapon'
 version '1.0.0'
+
 client_script 'cl_weaponNames.lua'
-client_script 'cl_dartgun_effects.lua'
-files { 'meta/weapons.meta', 'meta/weaponarchetypes.meta' }
+
+files {
+    'meta/weapons.meta',
+    'meta/weaponarchetypes.meta',
+    'meta/weaponanimations.meta',
+    'meta/pedpersonality.meta',
+    'stream/*',
+}
+
 data_file 'WEAPONINFO_FILE' 'meta/weapons.meta'
 data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'

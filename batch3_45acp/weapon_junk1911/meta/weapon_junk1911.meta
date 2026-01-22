@@ -8,11 +8,11 @@
       <Slot>SLOT_UNARMED</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>YOURWEAPONWHEEL</WheelSlot>
-      <Group>YOURWEAPONWHEEL</Group>
+      <WheelSlot>WHEEL_PISTOL</WheelSlot>
+      <Group>GROUP_PISTOL</Group>
       <ClipSize value="7" />
       <AmmoInfo ref="AMMO_PISTOL" />
-      <AimingInfo ref="YOURWEAPONAIMINGINFO" />
+      <AimingInfo ref="AI_PISTOL_AIMINGINFO" />
       
       <!-- JUNK 1911 - WORN/DEGRADED PISTOL -->
       <!-- Decades of abuse, neglected maintenance -->

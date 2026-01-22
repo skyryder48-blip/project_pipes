@@ -1,15 +1,19 @@
 fx_version 'cerulean'
 game 'gta5'
 
-name 'weapon_cz_bren'
-description 'CZ BREN 2 - 14" Czech Modular Rifle - 5.56 NATO'
-author 'Custom Weapons Project'
+author 'Weapon Meta Development Project'
+description 'weapon_cz_bren Addon Weapon'
 version '1.0.0'
 
+client_script 'cl_weaponNames.lua'
+
 files {
-    'meta/weapons.meta'
+    'meta/weapons.meta',
+    'meta/weaponarchetypes.meta',
+    'meta/weaponanimations.meta',
+    'meta/pedpersonality.meta',
+    'stream/*',
 }
 
 data_file 'WEAPONINFO_FILE' 'meta/weapons.meta'
-
-client_script 'cl_weaponNames.lua'
+data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'

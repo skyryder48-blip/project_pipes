@@ -8,11 +8,11 @@
       <Slot>SLOT_UNARMED</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>YOURWEAPONWHEEL</WheelSlot>
-      <Group>YOURWEAPONWHEEL</Group>
+      <WheelSlot>WHEEL_PISTOL</WheelSlot>
+      <Group>GROUP_PISTOL</Group>
       <ClipSize value="13" />
       <AmmoInfo ref="AMMO_PISTOL" />
-      <AimingInfo ref="YOURWEAPONAIMINGINFO" />
+      <AimingInfo ref="AI_PISTOL_AIMINGINFO" />
       
       <!-- GLOCK DEMON - FULL AUTO G23 GEN 4 WITH SWITCH -->
       <!-- 4.02" barrel, 21.16 oz compact polymer frame -->

@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <CWeaponModelInfo__InitDataList>
-  <InitDatas/>
+	<InitDatas>
+		<Item>
+			<modelName>w_pi_hellcat</modelName>
+			<txdName>w_pi_hellcat</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="500"/>
+		</Item>
+	</InitDatas>
 </CWeaponModelInfo__InitDataList>

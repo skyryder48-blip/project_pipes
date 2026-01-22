@@ -29,7 +29,7 @@
     <Item>
       <Infos>
         <Item type="CWeaponInfo">
-          <n>WEAPON_G43X</n>
+          <Name>WEAPON_G43X</Name>
           <Model>w_pi_g43x</Model>
           <Audio>AUDIO_ITEM_SNSPISTOL</Audio>
           <Slot>SLOT_G43X</Slot>
@@ -194,7 +194,7 @@
           <FirstPersonReticuleStyleHash />
           <PickupHash>PICKUP_WEAPON_G43X</PickupHash>
           <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
-          <HumanNameHash>WT_G43X</HumanNameHash>
+          <HumanNameHash>WEAPON_G43X</HumanNameHash>
           <MovementModeConditionalIdle>MMI_1Handed</MovementModeConditionalIdle>
           <StatName>G43X</StatName>
           <KnockdownCount value="3" />

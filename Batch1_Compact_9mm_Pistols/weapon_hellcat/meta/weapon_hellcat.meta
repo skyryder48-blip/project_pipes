@@ -29,7 +29,7 @@
     <Item>
       <Infos>
         <Item type="CWeaponInfo">
-          <n>WEAPON_HELLCAT</n>
+          <Name>WEAPON_HELLCAT</Name>
           <Model>w_pi_hellcat</Model>
           <Audio>AUDIO_ITEM_SNSPISTOL</Audio>
           <Slot>SLOT_HELLCAT</Slot>
@@ -194,7 +194,7 @@
           <FirstPersonReticuleStyleHash />
           <PickupHash>PICKUP_WEAPON_HELLCAT</PickupHash>
           <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
-          <HumanNameHash>WT_HELLCAT</HumanNameHash>
+          <HumanNameHash>WEAPON_HELLCAT</HumanNameHash>
           <MovementModeConditionalIdle>MMI_1Handed</MovementModeConditionalIdle>
           <StatName>HELLCAT</StatName>
           <KnockdownCount value="3" />

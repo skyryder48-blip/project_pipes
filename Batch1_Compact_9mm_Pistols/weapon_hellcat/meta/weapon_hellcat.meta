@@ -15,7 +15,7 @@
 		<Item>
 			<Infos>
 				<Item type="CWeaponInfo">
-					<Name>WEAPON_HELLCAT</Name>
+					<n>WEAPON_HELLCAT</n>
 					<Model>w_pi_hellcat</Model>
 					<Audio>AUDIO_ITEM_SNSPISTOL</Audio>
 					<Slot>SLOT_HELLCAT</Slot>
@@ -225,16 +225,16 @@
 							<AttachBone>WAPClip</AttachBone>
 							<Components>
 								<Item>
+									<n>COMPONENT_HELLCAT_CLIP_FMJ</n>
 									<Default value="true"/>
-									<Name>COMPONENT_HELLCAT_CLIP_FMJ</Name>
 								</Item>
 								<Item>
+									<n>COMPONENT_HELLCAT_CLIP_HP</n>
 									<Default value="false"/>
-									<Name>COMPONENT_HELLCAT_CLIP_HP</Name>
 								</Item>
 								<Item>
+									<n>COMPONENT_HELLCAT_CLIP_AP</n>
 									<Default value="false"/>
-									<Name>COMPONENT_HELLCAT_CLIP_AP</Name>
 								</Item>
 							</Components>
 						</Item>

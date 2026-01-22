@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!--
+    WEAPONARCHETYPES.META - Glock 43X
+    Links weapon model to texture dictionary.
+    Empty InitDatas works when textures are embedded in .ytd file.
+-->
 <CWeaponModelInfo__InitDataList>
-	<InitDatas>
-		<Item>
-			<modelName>w_pi_g43x</modelName>
-			<txdName>w_pi_g43x</txdName>
-			<ptfxAssetName>NULL</ptfxAssetName>
-			<lodDist value="500"/>
-		</Item>
-	</InitDatas>
+  <InitDatas />
 </CWeaponModelInfo__InitDataList>

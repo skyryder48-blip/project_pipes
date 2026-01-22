@@ -15,7 +15,7 @@
 		<Item>
 			<Infos>
 				<Item type="CWeaponInfo">
-					<Name>WEAPON_G43X</Name>
+					<n>WEAPON_G43X</n>
 					<Model>w_pi_g43x</Model>
 					<Audio>AUDIO_ITEM_SNSPISTOL</Audio>
 					<Slot>SLOT_G43X</Slot>
@@ -225,16 +225,16 @@
 							<AttachBone>WAPClip</AttachBone>
 							<Components>
 								<Item>
+									<n>COMPONENT_G43X_CLIP_FMJ</n>
 									<Default value="true"/>
-									<Name>COMPONENT_G43X_CLIP_FMJ</Name>
 								</Item>
 								<Item>
+									<n>COMPONENT_G43X_CLIP_HP</n>
 									<Default value="false"/>
-									<Name>COMPONENT_G43X_CLIP_HP</Name>
 								</Item>
 								<Item>
+									<n>COMPONENT_G43X_CLIP_AP</n>
 									<Default value="false"/>
-									<Name>COMPONENT_G43X_CLIP_AP</Name>
 								</Item>
 							</Components>
 						</Item>

@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponModelInfo__InitDataList>
-  <InitDatas>
-    <!-- Springfield Hellcat - 9mm Subcompact Pistol -->
-    <Item>
-      <modelName>w_pi_hellcat</modelName>
-      <txdName>w_pi_hellcat</txdName>
-      <ptfxAssetName>null</ptfxAssetName>
-      <lodDist value="50"/>
-    </Item>
-  </InitDatas>
+  <InitDatas/>
 </CWeaponModelInfo__InitDataList>

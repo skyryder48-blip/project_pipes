@@ -17,3 +17,5 @@ files {
 
 data_file 'WEAPONINFO_FILE' 'meta/weapon_g43x.meta'
 data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'
+data_file 'WEAPON_ANIMATIONS_FILE' 'meta/weaponanimations.meta'
+data_file 'PED_PERSONALITY_FILE' 'meta/pedpersonality.meta'

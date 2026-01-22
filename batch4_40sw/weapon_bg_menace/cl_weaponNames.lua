@@ -1,9 +1,9 @@
 -- cl_weaponNames.lua
--- Glock Demon - Full-Auto .40 S&W Converted Street Weapon
+-- BG Menace - Full-Auto .40 S&W Converted Street Weapon
 -- Weapon display name registration
 
 Citizen.CreateThread(function()
-    AddTextEntry('WT_GLOCK_DEMON', 'Glock Demon')
+    AddTextEntry('WT_BG_MENACE', 'BG Menace')
 
     -- Ammo type display names
     AddTextEntry('WCT_CLIP_FMJ', 'FMJ Magazine')

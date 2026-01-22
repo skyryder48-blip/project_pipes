@@ -2,13 +2,14 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'Weapon Meta Development Project'
-description 'weapon_tp9sf Addon Weapon'
+description 'weapon_bg_menace Addon Weapon'
 version '1.0.0'
 
 client_script 'cl_weaponNames.lua'
 
 files {
-    'meta/weapon_tp9sf.meta',
+    'meta/weapon_bg_menace.meta',
+    'meta/weaponarchetypes.meta',
     'meta/weaponanimations.meta',
     'meta/weaponcomponents.meta',
     'meta/pedpersonality.meta',
@@ -21,6 +22,7 @@ files {
 ]]
 
 data_file 'WEAPONCOMPONENTSINFO_FILE' 'meta/weaponcomponents.meta'
+data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'
 data_file 'WEAPON_ANIMATIONS_FILE' 'meta/weaponanimations.meta'
-data_file 'WEAPONINFO_FILE' 'meta/weapon_tp9sf.meta'
+data_file 'WEAPONINFO_FILE' 'meta/weapon_bg_menace.meta'
 data_file 'PED_PERSONALITY_FILE' 'meta/pedpersonality.meta'

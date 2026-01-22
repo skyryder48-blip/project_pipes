@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CPedModelInfo__PersonalityDataList>
-  <!-- Glock Demon - Full-Auto .40 S&W Street Weapon Ped Personality -->
+  <!-- BG Menace - Full-Auto .40 S&W Street Weapon Ped Personality -->
   <MovementModeUnholsterData>
     <Item>
       <Name>UNHOLSTER_UNARMED</Name>
       <UnholsterClips>
         <Item>
           <Weapons>
-            <Item>WEAPON_GLOCK_DEMON</Item>
+            <Item>WEAPON_BG_MENACE</Item>
           </Weapons>
           <Clip>unarmed_holster_1h</Clip>
         </Item>
@@ -18,7 +18,7 @@
       <UnholsterClips>
         <Item>
           <Weapons>
-            <Item>WEAPON_GLOCK_DEMON</Item>
+            <Item>WEAPON_BG_MENACE</Item>
           </Weapons>
           <Clip>1h_holster_1h</Clip>
         </Item>
@@ -29,7 +29,7 @@
       <UnholsterClips>
         <Item>
           <Weapons>
-            <Item>WEAPON_GLOCK_DEMON</Item>
+            <Item>WEAPON_BG_MENACE</Item>
           </Weapons>
           <Clip>2h_melee_holster_1h</Clip>
         </Item>
@@ -40,7 +40,7 @@
       <UnholsterClips>
         <Item>
           <Weapons>
-            <Item>WEAPON_GLOCK_DEMON</Item>
+            <Item>WEAPON_BG_MENACE</Item>
           </Weapons>
           <Clip>2h_holster_1h</Clip>
         </Item>
@@ -54,7 +54,7 @@
         <Item>
           <Item>
             <Weapons>
-              <Item>WEAPON_GLOCK_DEMON</Item>
+              <Item>WEAPON_BG_MENACE</Item>
             </Weapons>
             <ClipSets>
               <Item>
@@ -85,7 +85,7 @@
         <Item>
           <Item>
             <Weapons>
-              <Item>WEAPON_GLOCK_DEMON</Item>
+              <Item>WEAPON_BG_MENACE</Item>
             </Weapons>
             <ClipSets>
               <Item>
@@ -116,7 +116,7 @@
         <Item>
           <Item>
             <Weapons>
-              <Item>WEAPON_GLOCK_DEMON</Item>
+              <Item>WEAPON_BG_MENACE</Item>
             </Weapons>
             <ClipSets>
               <Item>
@@ -147,7 +147,7 @@
         <Item>
           <Item>
             <Weapons>
-              <Item>WEAPON_GLOCK_DEMON</Item>
+              <Item>WEAPON_BG_MENACE</Item>
             </Weapons>
             <ClipSets>
               <Item>
@@ -178,7 +178,7 @@
         <Item>
           <Item>
             <Weapons>
-              <Item>WEAPON_GLOCK_DEMON</Item>
+              <Item>WEAPON_BG_MENACE</Item>
             </Weapons>
             <ClipSets>
               <Item>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    WEAPONANIMATIONS.META - Colt M45A1 CQBP
+    WEAPONANIMATIONS.META - BG Menace (Full-Auto .40 S&W)
     Pistol MK2 Animation Set for proper FiveM compatibility
 -->
 <CWeaponAnimationsSets>
   <WeaponAnimationsSets>
     <Item key="Default">
       <WeaponAnimations>
-        <Item key="WEAPON_M45A1">
+        <Item key="WEAPON_BG_MENACE">
           <CoverMovementClipSetHash />
           <CoverMovementExtraClipSetHash />
           <CoverAlternateMovementClipSetHash>cover@move@ai@base@1h</CoverAlternateMovementClipSetHash>
@@ -56,7 +56,7 @@
     <Item key="Gang">
       <Fallback>Default</Fallback>
       <WeaponAnimations>
-        <Item key="WEAPON_M45A1">
+        <Item key="WEAPON_BG_MENACE">
           <CoverMovementClipSetHash />
           <CoverMovementExtraClipSetHash />
           <CoverAlternateMovementClipSetHash />
@@ -105,7 +105,7 @@
     <Item key="FirstPerson">
       <Fallback>Default</Fallback>
       <WeaponAnimations>
-        <Item key="WEAPON_M45A1">
+        <Item key="WEAPON_BG_MENACE">
           <MovementOverrideClipSetHash>move_m@generic</MovementOverrideClipSetHash>
           <CoverMovementClipSetHash />
           <CoverMovementExtraClipSetHash />
@@ -169,7 +169,7 @@
     <Item key="FirstPersonAiming">
       <Fallback>Default</Fallback>
       <WeaponAnimations>
-        <Item key="WEAPON_M45A1">
+        <Item key="WEAPON_BG_MENACE">
           <CoverMovementClipSetHash />
           <CoverMovementExtraClipSetHash />
           <CoverAlternateMovementClipSetHash>cover@move@ai@base@1h</CoverAlternateMovementClipSetHash>
@@ -231,7 +231,7 @@
     <Item key="FirstPersonRNG">
       <Fallback>Default</Fallback>
       <WeaponAnimations>
-        <Item key="WEAPON_M45A1">
+        <Item key="WEAPON_BG_MENACE">
           <CoverMovementClipSetHash />
           <CoverMovementExtraClipSetHash />
           <CoverAlternateMovementClipSetHash>cover@move@ai@base@1h</CoverAlternateMovementClipSetHash>
@@ -292,7 +292,7 @@
     <Item key="FirstPersonScope">
       <Fallback>Default</Fallback>
       <WeaponAnimations>
-        <Item key="WEAPON_M45A1">
+        <Item key="WEAPON_BG_MENACE">
           <CoverMovementClipSetHash />
           <CoverMovementExtraClipSetHash />
           <CoverAlternateMovementClipSetHash>cover@move@ai@base@1h</CoverAlternateMovementClipSetHash>

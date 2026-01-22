@@ -240,6 +240,18 @@
                   <Name>COMPONENT_M9_CLIP_AP</Name>
                   <Default value="false" />
                 </Item>
+                <Item>
+                  <Name>COMPONENT_M9_EXTCLIP_FMJ</Name>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <Name>COMPONENT_M9_EXTCLIP_HP</Name>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <Name>COMPONENT_M9_EXTCLIP_AP</Name>
+                  <Default value="false" />
+                </Item>
               </Components>
             </Item>
           </AttachPoints>

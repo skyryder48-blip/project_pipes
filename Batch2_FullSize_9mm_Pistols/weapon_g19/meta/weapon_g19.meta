@@ -212,6 +212,27 @@
                   <n>COMPONENT_G19_CLIP_AP</n>
                   <Default value="false" />
                 </Item>
+                <Item>
+                  <n>COMPONENT_G19_EXTCLIP_FMJ</n>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_G19_EXTCLIP_HP</n>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_G19_EXTCLIP_AP</n>
+                  <Default value="false" />
+                </Item>
+              </Components>
+            </Item>
+            <Item>
+              <AttachBone>WAPFlashLight</AttachBone>
+              <Components>
+                <Item>
+                  <n>COMPONENT_G19_FLASHLIGHT</n>
+                  <Default value="false" />
+                </Item>
               </Components>
             </Item>
           </AttachPoints>

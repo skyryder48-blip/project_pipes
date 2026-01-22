@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    WEAPONCOMPONENTS.META - Magazine Components for Glock 19
+    Defines FMJ, Hollow Point, and Armor Piercing magazine components.
+    Standard mag: 15 rounds, Mag2 (Extended): 17 rounds
+    Also includes flashlight component
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+    <!-- FMJ MAGAZINE - Standard 15 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G19_CLIP_FMJ</Name>
+      <Model />
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_FMJ</LocDesc>
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- HOLLOW POINT MAGAZINE - Standard 15 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G19_CLIP_HP</Name>
+      <Model />
+      <LocName>WCT_CLIP_HP</LocName>
+      <LocDesc>WCD_CLIP_HP</LocDesc>
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- ARMOR PIERCING MAGAZINE - Standard 15 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G19_CLIP_AP</Name>
+      <Model />
+      <LocName>WCT_CLIP_AP</LocName>
+      <LocDesc>WCD_CLIP_AP</LocDesc>
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- EXTENDED FMJ MAGAZINE (MAG2) - 17 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G19_EXTCLIP_FMJ</Name>
+      <Model />
+      <LocName>WCT_EXTCLIP_FMJ</LocName>
+      <LocDesc>WCD_EXTCLIP_FMJ</LocDesc>
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- EXTENDED HOLLOW POINT MAGAZINE (MAG2) - 17 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G19_EXTCLIP_HP</Name>
+      <Model />
+      <LocName>WCT_EXTCLIP_HP</LocName>
+      <LocDesc>WCD_EXTCLIP_HP</LocDesc>
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- EXTENDED ARMOR PIERCING MAGAZINE (MAG2) - 17 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G19_EXTCLIP_AP</Name>
+      <Model />
+      <LocName>WCT_EXTCLIP_AP</LocName>
+      <LocDesc>WCD_EXTCLIP_AP</LocDesc>
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- FLASHLIGHT COMPONENT -->
+    <Item type="CWeaponComponentFlashLightInfo">
+      <Name>COMPONENT_G19_FLASHLIGHT</Name>
+      <Model />
+      <LocName>WCT_FLASH</LocName>
+      <LocDesc>WCD_FLASH</LocDesc>
+    </Item>
+  </Infos>
+</CWeaponComponentInfoBlob>

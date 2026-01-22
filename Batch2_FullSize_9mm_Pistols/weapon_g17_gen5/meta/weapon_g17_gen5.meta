@@ -211,6 +211,18 @@
                   <n>COMPONENT_G17_GEN5_CLIP_AP</n>
                   <Default value="false" />
                 </Item>
+                <Item>
+                  <n>COMPONENT_G17_GEN5_EXTCLIP_FMJ</n>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_G17_GEN5_EXTCLIP_HP</n>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_G17_GEN5_EXTCLIP_AP</n>
+                  <Default value="false" />
+                </Item>
               </Components>
             </Item>
           </AttachPoints>

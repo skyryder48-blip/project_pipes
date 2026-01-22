@@ -10,7 +10,7 @@
       <FireType>INSTANT_HIT</FireType>
       <WheelSlot>WHEEL_PISTOL</WheelSlot>
       <Group>GROUP_PISTOL</Group>
-      <ClipSize value="8" />
+      <ClipSize value="7" />
       <AmmoInfo ref="AMMO_PISTOL" />
       <AimingInfo ref="AI_PISTOL_AIMINGINFO" />
       
@@ -87,6 +87,39 @@
       <HudRange value="1.600000" />
       
       <HumanNameHash>WT_M45A1</HumanNameHash>
+
+      <!-- Attach Points: Configured for FMJ, HP, AP magazines and extended variants -->
+      <AttachPoints>
+        <Item>
+          <AttachBone>WAPClip</AttachBone>
+          <Components>
+            <Item>
+              <n>COMPONENT_M45A1_CLIP_FMJ</n>
+              <Default value="true" />
+            </Item>
+            <Item>
+              <n>COMPONENT_M45A1_CLIP_HP</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_M45A1_CLIP_AP</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_M45A1_EXTCLIP_FMJ</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_M45A1_EXTCLIP_HP</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_M45A1_EXTCLIP_AP</n>
+              <Default value="false" />
+            </Item>
+          </Components>
+        </Item>
+      </AttachPoints>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

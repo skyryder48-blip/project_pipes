@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponInfoBlob>
   <SlotNavigateOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_UDP9">SLOT_UDP9</Item>
   </SlotNavigateOrder>
   <SlotBestOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_UDP9">SLOT_UDP9</Item>
   </SlotBestOrder>
   <TintSpecValues />
   <FiringPatternAliases />
@@ -15,11 +15,11 @@
       <n>WEAPON_UDP9</n>
       <Model>w_ar_udp9</Model>
       <Audio>AUDIO_SMG</Audio>
-      <Slot>YOURSLOT</Slot>
+      <Slot>SLOT_UDP9</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>YOURSLOT</WheelSlot>
-      <Group>YOURGROUP</Group>
+      <WheelSlot>WHEEL_PISTOL</WheelSlot>
+      <Group>GROUP_PISTOL</Group>
       <ClipSize value="17" />
       <AccuracySpread value="0.90" />
       <AccurateModeAccuracyModifier value="0.22" />
@@ -71,7 +71,7 @@
       <!-- AR platform with brace = stable, but direct blowback recoil -->
       <RecoilShakeAmplitude value="0.16" />
       <RecoilShakeFrequency value="0.48" />
-      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      <RecoilShakeHashKey />
       
       <NetworkHitLimbsDamageModifier value="0.80" />
       <NetworkPlayerDamageModifier value="1.0" />
@@ -87,13 +87,13 @@
       <WeaponRange value="150.0" />
       
       <BulletDirectionOffsetInDegrees value="0.12" />
-      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <WeaponFlags>Gun, SafeToFire, Thrown, NoWhilstRunning, BulletDealsDamage, HandGun</WeaponFlags>
       <Recoil />
       <FireAnimTime value="0.10" />
       <RecoilAimOffsetInterpolation />
       
       <HumanNameHash>WT_UDP9</HumanNameHash>
-      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+      <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

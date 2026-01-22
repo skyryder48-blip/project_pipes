@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponInfoBlob>
   <SlotNavigateOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_SBR9">SLOT_SBR9</Item>
   </SlotNavigateOrder>
   <SlotBestOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_SBR9">SLOT_SBR9</Item>
   </SlotBestOrder>
   <TintSpecValues />
   <FiringPatternAliases />
@@ -15,11 +15,11 @@
       <n>WEAPON_SBR9</n>
       <Model>w_ar_sbr9</Model>
       <Audio>AUDIO_CARBINERIFLE</Audio>
-      <Slot>YOURSLOT</Slot>
+      <Slot>SLOT_SBR9</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>YOURSLOT</WheelSlot>
-      <Group>YOURGROUP</Group>
+      <WheelSlot>WHEEL_PISTOL</WheelSlot>
+      <Group>GROUP_PISTOL</Group>
       <ClipSize value="30" />
       <AccuracySpread value="1.55" />
       <AccurateModeAccuracyModifier value="0.25" />
@@ -85,7 +85,7 @@
       <!-- HIGH RECOIL - short barrel, but custom tuned gas -->
       <RecoilShakeAmplitude value="0.30" />
       <RecoilShakeFrequency value="0.55" />
-      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      <RecoilShakeHashKey />
       
       <NetworkHitLimbsDamageModifier value="0.80" />
       <NetworkPlayerDamageModifier value="1.0" />
@@ -109,7 +109,7 @@
       <RecoilAimOffsetInterpolation />
       
       <HumanNameHash>WT_SBR9</HumanNameHash>
-      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+      <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponInfoBlob>
   <SlotNavigateOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_PSADAGGER">SLOT_PSADAGGER</Item>
   </SlotNavigateOrder>
   <SlotBestOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_PSADAGGER">SLOT_PSADAGGER</Item>
   </SlotBestOrder>
   <TintSpecValues />
   <FiringPatternAliases />
@@ -15,11 +15,11 @@
       <n>WEAPON_PSADAGGER</n>
       <Model>w_pi_psadagger</Model>
       <Audio>AUDIO_PISTOL</Audio>
-      <Slot>YOURSLOT</Slot>
+      <Slot>SLOT_PSADAGGER</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>YOURSLOT</WheelSlot>
-      <Group>YOURGROUP</Group>
+      <WheelSlot>WHEEL_PISTOL</WheelSlot>
+      <Group>GROUP_PISTOL</Group>
       <ClipSize value="15" />
       <AccuracySpread value="1.45" />
       <AccurateModeAccuracyModifier value="0.35" />
@@ -65,7 +65,7 @@
       <!-- LIGHTEST = more felt recoil -->
       <RecoilShakeAmplitude value="0.24" />
       <RecoilShakeFrequency value="0.55" />
-      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      <RecoilShakeHashKey />
       
       <NetworkHitLimbsDamageModifier value="0.80" />
       <NetworkPlayerDamageModifier value="1.0" />
@@ -81,13 +81,13 @@
       <WeaponRange value="95.0" />
       
       <BulletDirectionOffsetInDegrees value="0.25" />
-      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <WeaponFlags>Gun, SafeToFire, Thrown, NoWhilstRunning, BulletDealsDamage, HandGun</WeaponFlags>
       <Recoil />
       <FireAnimTime value="0.10" />
       <RecoilAimOffsetInterpolation />
       
       <HumanNameHash>WT_PSADAGGER</HumanNameHash>
-      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+      <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

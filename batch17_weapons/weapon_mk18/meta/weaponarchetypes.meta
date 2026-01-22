@@ -8,8 +8,6 @@
       <Audio>AUDIO_RIFLE</Audio>
       <SlotPosition />
       <SlotRotation />
-      <SlotPosition_YOURSLOT />
-      <SlotRotation_YOURSLOT />
       <Vfx />
       <AnimOverride />
       <CanPickUp value="true" />

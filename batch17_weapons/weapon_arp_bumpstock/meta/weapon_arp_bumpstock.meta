@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponInfoBlob>
   <SlotNavigateOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_ARP_BUMPSTOCK">SLOT_ARP_BUMPSTOCK</Item>
   </SlotNavigateOrder>
   <SlotBestOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_ARP_BUMPSTOCK">SLOT_ARP_BUMPSTOCK</Item>
   </SlotBestOrder>
   <TintSpecValues />
   <FiringPatternAliases />
@@ -15,11 +15,11 @@
       <n>WEAPON_ARP_BUMPSTOCK</n>
       <Model>w_ar_arp_bumpstock</Model>
       <Audio>AUDIO_CARBINERIFLE</Audio>
-      <Slot>YOURSLOT</Slot>
+      <Slot>SLOT_ARP_BUMPSTOCK</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>YOURSLOT</WheelSlot>
-      <Group>YOURGROUP</Group>
+      <WheelSlot>WHEEL_PISTOL</WheelSlot>
+      <Group>GROUP_PISTOL</Group>
       <ClipSize value="30" />
       <AccuracySpread value="3.20" />
       <AccurateModeAccuracyModifier value="0.55" />
@@ -84,7 +84,7 @@
       <!-- EXTREME RECOIL - bump fire + ultra-short + over-gassed -->
       <RecoilShakeAmplitude value="0.42" />
       <RecoilShakeFrequency value="0.65" />
-      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      <RecoilShakeHashKey />
       
       <NetworkHitLimbsDamageModifier value="0.80" />
       <NetworkPlayerDamageModifier value="1.0" />
@@ -108,7 +108,7 @@
       <RecoilAimOffsetInterpolation />
       
       <HumanNameHash>WT_ARP_BUMPSTOCK</HumanNameHash>
-      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+      <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

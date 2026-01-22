@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponInfoBlob>
   <SlotNavigateOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_M7">SLOT_M7</Item>
   </SlotNavigateOrder>
   <SlotBestOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_M7">SLOT_M7</Item>
   </SlotBestOrder>
   <TintSpecValues />
   <FiringPatternAliases />
@@ -15,11 +15,11 @@
       <n>WEAPON_M7</n>
       <Model>w_ar_m7</Model>
       <Audio>AUDIO_ASSAULT_RIFLE</Audio>
-      <Slot>YOURSLOT</Slot>
+      <Slot>SLOT_M7</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>YOURSLOT</WheelSlot>
-      <Group>YOURGROUP</Group>
+      <WheelSlot>WHEEL_PISTOL</WheelSlot>
+      <Group>GROUP_PISTOL</Group>
       <ClipSize value="20" />
       <AccuracySpread value="1.00" />
       <AccurateModeAccuracyModifier value="0.15" />
@@ -82,7 +82,7 @@
       <!-- HIGH RECOIL - automatic fire of powerful cartridge -->
       <RecoilShakeAmplitude value="0.38" />
       <RecoilShakeFrequency value="0.60" />
-      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      <RecoilShakeHashKey />
       
       <NetworkHitLimbsDamageModifier value="0.80" />
       <NetworkPlayerDamageModifier value="1.0" />
@@ -106,7 +106,7 @@
       <RecoilAimOffsetInterpolation />
       
       <HumanNameHash>WT_M7</HumanNameHash>
-      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+      <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

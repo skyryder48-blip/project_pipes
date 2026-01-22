@@ -3,13 +3,13 @@
   <WeaponAnimationsSets>
     <Item>
       <WeaponAnimations>
-        <Item key="YOURWEAPON">YOURWEAPON_set</Item>
+        <Item key="WEAPON_DART_GUN">WEAPON_DART_GUN_set</Item>
       </WeaponAnimations>
     </Item>
   </WeaponAnimationsSets>
   <Animations>
     <Item>
-      <n>YOURWEAPON_set</n>
+      <n>WEAPON_DART_GUN_set</n>
       <ClipSet>move_weapon@pistol@stungun</ClipSet>
       <MovementClipSet>move_m@pistol@stungun</MovementClipSet>
       <StrafeClipSet>move_strafe@pistol@stungun</StrafeClipSet>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponInfoBlob>
   <SlotNavigateOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_DESERT_AR15">SLOT_DESERT_AR15</Item>
   </SlotNavigateOrder>
   <SlotBestOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_DESERT_AR15">SLOT_DESERT_AR15</Item>
   </SlotBestOrder>
   <TintSpecValues />
   <FiringPatternAliases />
@@ -15,11 +15,11 @@
       <n>WEAPON_DESERT_AR15</n>
       <Model>w_ar_desert_ar15</Model>
       <Audio>AUDIO_ASSAULT_RIFLE</Audio>
-      <Slot>YOURSLOT</Slot>
+      <Slot>SLOT_DESERT_AR15</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>YOURSLOT</WheelSlot>
-      <Group>YOURGROUP</Group>
+      <WheelSlot>WHEEL_PISTOL</WheelSlot>
+      <Group>GROUP_PISTOL</Group>
       <ClipSize value="30" />
       <AccuracySpread value="1.05" />
       <AccurateModeAccuracyModifier value="0.18" />
@@ -77,7 +77,7 @@
       <!-- Mid-tier quality = better recoil control -->
       <RecoilShakeAmplitude value="0.23" />
       <RecoilShakeFrequency value="0.48" />
-      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      <RecoilShakeHashKey />
       
       <NetworkHitLimbsDamageModifier value="0.80" />
       <NetworkPlayerDamageModifier value="1.0" />
@@ -93,13 +93,13 @@
       <WeaponRange value="460.0" />
       
       <BulletDirectionOffsetInDegrees value="0.10" />
-      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <WeaponFlags>Gun, SafeToFire, Thrown, NoWhilstRunning, BulletDealsDamage, HandGun</WeaponFlags>
       <Recoil />
       <FireAnimTime value="0.10" />
       <RecoilAimOffsetInterpolation />
       
       <HumanNameHash>WT_DESERT_AR15</HumanNameHash>
-      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+      <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

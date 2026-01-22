@@ -3,13 +3,13 @@
   <WeaponAnimationsSets>
     <Item>
       <WeaponAnimations>
-        <Item key="YOURWEAPON">YOURWEAPON_set</Item>
+        <Item key="WEAPON_REMINGTON_M24">WEAPON_REMINGTON_M24_set</Item>
       </WeaponAnimations>
     </Item>
   </WeaponAnimationsSets>
   <Animations>
     <Item>
-      <n>YOURWEAPON_set</n>
+      <n>WEAPON_REMINGTON_M24_set</n>
       <ClipSet>move_weapon@rifle@sniper</ClipSet>
       <MovementClipSet>move_m@rifle@sniper</MovementClipSet>
       <StrafeClipSet>move_strafe@rifle@sniper</StrafeClipSet>

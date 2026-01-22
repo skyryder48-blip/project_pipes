@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponInfoBlob>
   <SlotNavigateOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_SIGP229">SLOT_SIGP229</Item>
   </SlotNavigateOrder>
   <SlotBestOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_SIGP229">SLOT_SIGP229</Item>
   </SlotBestOrder>
   <TintSpecValues />
   <FiringPatternAliases />
@@ -15,11 +15,11 @@
       <n>WEAPON_SIGP229</n>
       <Model>w_pi_sigp229</Model>
       <Audio>AUDIO_PISTOL</Audio>
-      <Slot>YOURSLOT</Slot>
+      <Slot>SLOT_SIGP229</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>YOURSLOT</WheelSlot>
-      <Group>YOURGROUP</Group>
+      <WheelSlot>WHEEL_PISTOL</WheelSlot>
+      <Group>GROUP_PISTOL</Group>
       <ClipSize value="15" />
       <AccuracySpread value="1.30" />
       <AccurateModeAccuracyModifier value="0.32" />
@@ -64,7 +64,7 @@
       <!-- Heavy milled slide = good recoil control despite compact size -->
       <RecoilShakeAmplitude value="0.20" />
       <RecoilShakeFrequency value="0.52" />
-      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      <RecoilShakeHashKey />
       
       <NetworkHitLimbsDamageModifier value="0.80" />
       <NetworkPlayerDamageModifier value="1.0" />
@@ -79,13 +79,13 @@
       <WeaponRange value="95.0" />
       
       <BulletDirectionOffsetInDegrees value="0.22" />
-      <WeaponFlags>YOURFLAGS</WeaponFlags>
+      <WeaponFlags>Gun, SafeToFire, Thrown, NoWhilstRunning, BulletDealsDamage, HandGun</WeaponFlags>
       <Recoil />
       <FireAnimTime value="0.10" />
       <RecoilAimOffsetInterpolation />
       
       <HumanNameHash>WT_SIGP229</HumanNameHash>
-      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+      <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

@@ -82,7 +82,7 @@
           
           <!-- REFERENCES -->
           <AmmoInfo ref="AMMO_PISTOL" />
-          <AimingInfo ref="YOURFACE_YOURFATE" />
+          <AimingInfo ref="AI_PISTOL_AIMINGINFO" />
           <ClipSize value="10" />
           
           <!-- ACCURACY PARAMETERS -->

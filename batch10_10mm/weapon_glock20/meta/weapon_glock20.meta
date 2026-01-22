@@ -35,11 +35,11 @@
       <Slot>SLOT_UNARMED</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>YOURWEAPON</WheelSlot>
-      <Group>YOURWEAPON</Group>
+      <WheelSlot>WHEEL_PISTOL</WheelSlot>
+      <Group>GROUP_PISTOL</Group>
       <MovementModeConditionalIdle>1</MovementModeConditionalIdle>
       <AmmoInfo ref="AMMO_PISTOL" />
-      <AimingInfo ref="YOURWEAPON" />
+      <AimingInfo ref="AI_GLOCK20" />
       <ClipSize value="16" />
       <AccuracySpread value="1.20" />
       <AccurateModeAccuracyModifier value="0.30" />

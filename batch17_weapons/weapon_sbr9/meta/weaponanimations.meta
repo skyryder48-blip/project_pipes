@@ -1,40 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CWeaponAnimations>
-  <ClipSets>
-    <Item>
-      <Actions>YOURSLOT</Actions>
-      <AnimSet>move_strafe@first_person@generic</AnimSet>
+<!--
+  WEAPON_SBR9 - SMG Animation Template
+-->
+<CWeaponAnimationsSets>
+  <WeaponAnimationsSets>
+    <Item key="Default">
+      <WeaponAnimations>
+        <Item key="WEAPON_SBR9">
+          <SwapData>SWAP_DEFAULT</SwapData>
+          <CoverMovementClipSetHash />
+          <CoverMovementExtraClipSetHash />
+          <CoverAlternateMovementClipSetHash>cover@move@base@2h</CoverAlternateMovementClipSetHash>
+          <CoverWeaponClipSetHash>Cover_Wpn_Rifle</CoverWeaponClipSetHash>
+          <MotionClipSetHash>weapons@rifle@hi@special_carbine</MotionClipSetHash>
+          <MotionFilterHash>UpperBody_UpperArms_Fingers_filter</MotionFilterHash>
+          <MotionCrouchClipSetHash />
+          <MotionStrafingClipSetHash>weapons@rifle@hi@special_carbine</MotionStrafingClipSetHash>
+          <MotionStrafingStealthClipSetHash />
+          <MotionStrafingUpperBodyClipSetHash>weapons@rifle@hi@special_carbine@strafing_ub</MotionStrafingUpperBodyClipSetHash>
+          <WeaponClipSetHash>weapons@rifle@hi@special_carbine</WeaponClipSetHash>
+          <WeaponClipSetStreamedHash>weapons@rifle@hi@special_carbine_str</WeaponClipSetStreamedHash>
+          <WeaponClipSetHashInjured />
+          <WeaponClipSetHashStealth>weapons@rifle@hi@special_carbine@stealth</WeaponClipSetHashStealth>
+          <WeaponClipSetHashHiCover />
+          <AlternativeClipSetWhenBlocked />
+          <ScopeWeaponClipSet />
+          <AlternateAimingStandingClipSetHash />
+          <AlternateAimingCrouchingClipSetHash />
+          <FiringVariationsStandingClipSetHash>combat_fire_variations_rifle</FiringVariationsStandingClipSetHash>
+          <FiringVariationsCrouchingClipSetHash />
+          <AimTurnStandingClipSetHash>combat_aim_turns_rifle</AimTurnStandingClipSetHash>
+          <AimTurnCrouchingClipSetHash />
+          <MeleeClipSetHash>melee@rifle@streamed_core</MeleeClipSetHash>
+          <MeleeVariationClipSetHash />
+          <MeleeTauntClipSetHash />
+          <MeleeSupportTauntClipSetHash />
+          <MeleeStealthClipSetHash />
+          <ShellShockedClipSetHash>reaction@shellshock@2h</ShellShockedClipSetHash>
+          <JumpUpperbodyClipSetHash>MOVE_JUMP@WEAPONS@RIFLE</JumpUpperbodyClipSetHash>
+          <FallUpperbodyClipSetHash>MOVE_FALL@WEAPONS@RIFLE</FallUpperbodyClipSetHash>
+          <FromStrafeTransitionUpperBodyClipSetHash>weapons@rifle@hi@special_carbine@</FromStrafeTransitionUpperBodyClipSetHash>
+          <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+          <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+          <AnimFireRateModifier value="1.000000" />
+          <AnimBlindFireRateModifier value="1.000000" />
+          <AnimWantingToShootFireRateModifier value="3.000000" />
+          <UseFromStrafeUpperBodyAimNetwork value="true" />
+        </Item>
+      </WeaponAnimations>
     </Item>
-    <Item>
-      <Actions>YOURSLOT</Actions>
-      <AnimSet>move_strafe@stealth</AnimSet>
-    </Item>
-    <Item>
-      <Actions>YOURSLOT</Actions>
-      <AnimSet>move_strafe@stealth@rifle</AnimSet>
-    </Item>
-    <Item>
-      <Actions>YOURSLOT</Actions>
-      <AnimSet>weapons@rifle@hi@carbine_mk2</AnimSet>
-    </Item>
-    <Item>
-      <Actions>YOURSLOT</Actions>
-      <AnimSet>weapons@rifle@hi@carbine_mk2@drunk</AnimSet>
-    </Item>
-  </ClipSets>
-  <Animations>
-    <Item>
-      <ClipSet>weapons@rifle@hi@carbine_mk2</ClipSet>
-      <Action>YOURSLOT</Action>
-      <Anim>fire</Anim>
-      <Type>Fire</Type>
-    </Item>
-    <Item>
-      <ClipSet>weapons@rifle@hi@carbine_mk2</ClipSet>
-      <Action>YOURSLOT</Action>
-      <Anim>reload_quick</Anim>
-      <Type>Reload</Type>
-    </Item>
-  </Animations>
-  <CoverAnimationBlend>Cover_Wpn_Hi</CoverAnimationBlend>
-</CWeaponAnimations>
+  </WeaponAnimationsSets>
+</CWeaponAnimationsSets>

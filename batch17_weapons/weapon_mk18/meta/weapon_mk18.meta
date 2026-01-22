@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponInfoBlob>
   <SlotNavigateOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_MK18">SLOT_MK18</Item>
   </SlotNavigateOrder>
   <SlotBestOrder>
-    <Item key="YOURSLOT">YOURSLOT</Item>
+    <Item key="SLOT_MK18">SLOT_MK18</Item>
   </SlotBestOrder>
   <TintSpecValues />
   <FiringPatternAliases />
@@ -15,11 +15,11 @@
       <n>WEAPON_MK18</n>
       <Model>w_ar_mk18</Model>
       <Audio>AUDIO_CARBINERIFLE</Audio>
-      <Slot>YOURSLOT</Slot>
+      <Slot>SLOT_MK18</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>YOURSLOT</WheelSlot>
-      <Group>YOURGROUP</Group>
+      <WheelSlot>WHEEL_PISTOL</WheelSlot>
+      <Group>GROUP_PISTOL</Group>
       <ClipSize value="30" />
       <AccuracySpread value="1.40" />
       <AccurateModeAccuracyModifier value="0.22" />
@@ -84,7 +84,7 @@
       <!-- ELEVATED RECOIL - over-gassed short barrel, violent cycling -->
       <RecoilShakeAmplitude value="0.26" />
       <RecoilShakeFrequency value="0.52" />
-      <RecoilShakeHashKey>YOURRECOIL</RecoilShakeHashKey>
+      <RecoilShakeHashKey />
       
       <NetworkHitLimbsDamageModifier value="0.80" />
       <NetworkPlayerDamageModifier value="1.0" />
@@ -108,7 +108,7 @@
       <RecoilAimOffsetInterpolation />
       
       <HumanNameHash>WT_MK18</HumanNameHash>
-      <PlayerControllerType>YOURCONTROLLERTYPE</PlayerControllerType>
+      <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

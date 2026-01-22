@@ -5,7 +5,7 @@
       <n>w_sg_model680</n>
       <Model>w_sg_model680</Model>
       <Audio>AUDIO_ITEM_PUMPSHOTGUN</Audio>
-      <Slot>YOURSLOT</Slot>
+      <Slot>SLOT_MODEL_680</Slot>
       <WeaponFlags>WF_FIREARM, WF_GUN, WF_GUN_2_HANDED, WF_PED_GUN_2_HANDED, WF_WEAPON, WF_LOUDWEAPON</WeaponFlags>
     </Item>
   </InitDatas>

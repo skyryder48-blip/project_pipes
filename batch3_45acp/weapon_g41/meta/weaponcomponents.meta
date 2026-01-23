@@ -2,7 +2,7 @@
 <!--
     WEAPONCOMPONENTS.META - Magazine Components for Glock 41 Gen 4 MOS
     Defines FMJ, Hollow Point, and Armor Piercing magazine components.
-    Standard mag: 13 rounds, Extended: 17 rounds
+    Standard mag: 13 rounds, Extended: 26 rounds
 -->
 <CWeaponComponentInfoBlob>
   <Infos>
@@ -36,33 +36,33 @@
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
-    <!-- EXTENDED FMJ MAGAZINE - 17 round -->
+    <!-- EXTENDED FMJ MAGAZINE - 26 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G41_EXTCLIP_FMJ</Name>
       <Model />
       <LocName>WCT_EXTCLIP_FMJ</LocName>
       <LocDesc>WCD_EXTCLIP_FMJ</LocDesc>
-      <ClipSize value="17" />
+      <ClipSize value="26" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
-    <!-- EXTENDED HOLLOW POINT MAGAZINE - 17 round -->
+    <!-- EXTENDED HOLLOW POINT MAGAZINE - 26 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G41_EXTCLIP_HP</Name>
       <Model />
       <LocName>WCT_EXTCLIP_HP</LocName>
       <LocDesc>WCD_EXTCLIP_HP</LocDesc>
-      <ClipSize value="17" />
+      <ClipSize value="26" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
-    <!-- EXTENDED ARMOR PIERCING MAGAZINE - 17 round -->
+    <!-- EXTENDED ARMOR PIERCING MAGAZINE - 26 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G41_EXTCLIP_AP</Name>
       <Model />
       <LocName>WCT_EXTCLIP_AP</LocName>
       <LocDesc>WCD_EXTCLIP_AP</LocDesc>
-      <ClipSize value="17" />
+      <ClipSize value="26" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
   </Infos>

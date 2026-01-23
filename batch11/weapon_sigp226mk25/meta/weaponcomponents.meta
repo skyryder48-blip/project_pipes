@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     WEAPONCOMPONENTS.META - Magazine Components for SIG P226 MK25
-    Standard magazines only: FMJ, Hollow Point, and Armor Piercing
-    Clip Size: 15 rounds
+    Standard: 15 rounds, Extended (Mag2): 18 rounds
 -->
 <CWeaponComponentInfoBlob>
   <Infos>
@@ -33,6 +32,36 @@
       <LocName>WCT_CLIP_AP</LocName>
       <LocDesc>WCD_CLIP_AP</LocDesc>
       <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- EXTENDED FMJ MAGAZINE - 18 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_SIGP226MK25_EXTCLIP_FMJ</Name>
+      <Model />
+      <LocName>WCT_EXTCLIP_FMJ</LocName>
+      <LocDesc>WCD_EXTCLIP_FMJ</LocDesc>
+      <ClipSize value="18" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- EXTENDED HOLLOW POINT MAGAZINE - 18 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_SIGP226MK25_EXTCLIP_HP</Name>
+      <Model />
+      <LocName>WCT_EXTCLIP_HP</LocName>
+      <LocDesc>WCD_EXTCLIP_HP</LocDesc>
+      <ClipSize value="18" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- EXTENDED ARMOR PIERCING MAGAZINE - 18 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_SIGP226MK25_EXTCLIP_AP</Name>
+      <Model />
+      <LocName>WCT_EXTCLIP_AP</LocName>
+      <LocDesc>WCD_EXTCLIP_AP</LocDesc>
+      <ClipSize value="18" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
   </Infos>

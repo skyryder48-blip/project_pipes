@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
-    <!-- Glock 19XD - Full-Size 9mm Pistol -->
+    <!-- Canik TP9SF - Full-Size 9mm Pistol -->
     <Item>
-      <modelName>w_pi_g19xd</modelName>
-      <txdName>w_pi_g19xd</txdName>
+      <modelName>w_pi_tp9sf</modelName>
+      <txdName>w_pi_tp9sf</txdName>
       <ptfxAssetName>NULL</ptfxAssetName>
       <lodDist value="70"/>
     </Item>

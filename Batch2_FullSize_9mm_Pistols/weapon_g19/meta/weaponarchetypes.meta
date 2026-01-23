@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
-    <Item><modelName>w_pi_g19</modelName><txdName>w_pi_g19</txdName><ptfxAssetName>null</ptfxAssetName><lodDist value="50"/></Item>
+    <!-- Glock 19 - Compact 9mm Pistol -->
+    <Item>
+      <modelName>w_pi_g19</modelName>
+      <txdName>w_pi_g19</txdName>
+      <ptfxAssetName>NULL</ptfxAssetName>
+      <lodDist value="70"/>
+    </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

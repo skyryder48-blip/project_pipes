@@ -1,9 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+    WEAPONANIMATIONS.META - Complete Semi-Auto Pistol Template
+    Uses combat_pistol animation sets for all animation modes.
+
+    USAGE: Replace WEAPON_YOURWEAPON with your weapon hash (e.g., WEAPON_G17)
+
+    This template includes all 6 animation modes:
+    - Default (third person)
+    - Gang (NPC gang members)
+    - FirstPerson (FPS hip-fire)
+    - FirstPersonAiming (FPS ADS)
+    - FirstPersonRNG (FPS run-and-gun)
+    - FirstPersonScope (FPS scoped)
+
+    Use this template for all semi-auto pistols:
+    - Glocks (except G18/switches)
+    - Berettas (M9, PX4)
+    - Sigs (P320, P226, etc.)
+    - 1911 variants
+    - Most other semi-auto pistols
+-->
 <CWeaponAnimationsSets>
   <WeaponAnimationsSets>
     <Item key="Default">
       <WeaponAnimations>
-        <Item key="WEAPON_GX4">
+        <Item key="WEAPON_YOURWEAPON">
           <CoverMovementClipSetHash />
           <CoverMovementExtraClipSetHash />
           <CoverAlternateMovementClipSetHash>cover@move@ai@base@1h</CoverAlternateMovementClipSetHash>
@@ -52,7 +73,7 @@
     <Item key="Gang">
       <Fallback>Default</Fallback>
       <WeaponAnimations>
-        <Item key="WEAPON_GX4">
+        <Item key="WEAPON_YOURWEAPON">
           <CoverMovementClipSetHash />
           <CoverMovementExtraClipSetHash />
           <CoverAlternateMovementClipSetHash />
@@ -101,7 +122,7 @@
     <Item key="FirstPerson">
       <Fallback>Default</Fallback>
       <WeaponAnimations>
-        <Item key="WEAPON_GX4">
+        <Item key="WEAPON_YOURWEAPON">
           <MovementOverrideClipSetHash>move_m@generic</MovementOverrideClipSetHash>
           <CoverMovementClipSetHash />
           <CoverMovementExtraClipSetHash />
@@ -165,7 +186,7 @@
     <Item key="FirstPersonAiming">
       <Fallback>Default</Fallback>
       <WeaponAnimations>
-        <Item key="WEAPON_GX4">
+        <Item key="WEAPON_YOURWEAPON">
           <CoverMovementClipSetHash />
           <CoverMovementExtraClipSetHash />
           <CoverAlternateMovementClipSetHash>cover@move@ai@base@1h</CoverAlternateMovementClipSetHash>
@@ -227,7 +248,7 @@
     <Item key="FirstPersonRNG">
       <Fallback>Default</Fallback>
       <WeaponAnimations>
-        <Item key="WEAPON_GX4">
+        <Item key="WEAPON_YOURWEAPON">
           <CoverMovementClipSetHash />
           <CoverMovementExtraClipSetHash />
           <CoverAlternateMovementClipSetHash>cover@move@ai@base@1h</CoverAlternateMovementClipSetHash>
@@ -288,7 +309,7 @@
     <Item key="FirstPersonScope">
       <Fallback>Default</Fallback>
       <WeaponAnimations>
-        <Item key="WEAPON_GX4">
+        <Item key="WEAPON_YOURWEAPON">
           <CoverMovementClipSetHash />
           <CoverMovementExtraClipSetHash />
           <CoverAlternateMovementClipSetHash>cover@move@ai@base@1h</CoverAlternateMovementClipSetHash>

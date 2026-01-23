@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-    WEAPONARCHETYPES.META - Colt M45A1 CQBP
-    Universal boilerplate - texture embedded in .ytd
--->
+
 <CWeaponModelInfo__InitDataList>
-  <InitDatas />
+	<InitDatas>
+		<Item>
+			<modelName>w_pi_m45a1</modelName>
+			<txdName>w_pi_m45a1</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="500"/>
+		</Item>
+	</InitDatas>
 </CWeaponModelInfo__InitDataList>

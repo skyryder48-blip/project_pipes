@@ -2,7 +2,7 @@
 <!--
     WEAPONCOMPONENTS.META - Magazine Components for BG Menace
     Defines FMJ, Hollow Point, and Armor Piercing magazine components.
-    Standard mag: 30 rounds, Mag2 (Extended): 31 rounds
+    Standard mag: 30 rounds, Mag2 (Extended): 33 rounds
 -->
 <CWeaponComponentInfoBlob>
   <Infos>
@@ -36,33 +36,33 @@
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
-    <!-- EXTENDED FMJ MAGAZINE (MAG2) - 31 round -->
+    <!-- EXTENDED FMJ MAGAZINE (MAG2) - 33 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_BG_MENACE_EXTCLIP_FMJ</Name>
       <Model />
       <LocName>WCT_EXTCLIP_FMJ</LocName>
       <LocDesc>WCD_EXTCLIP_FMJ</LocDesc>
-      <ClipSize value="31" />
+      <ClipSize value="33" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
-    <!-- EXTENDED HOLLOW POINT MAGAZINE (MAG2) - 31 round -->
+    <!-- EXTENDED HOLLOW POINT MAGAZINE (MAG2) - 33 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_BG_MENACE_EXTCLIP_HP</Name>
       <Model />
       <LocName>WCT_EXTCLIP_HP</LocName>
       <LocDesc>WCD_EXTCLIP_HP</LocDesc>
-      <ClipSize value="31" />
+      <ClipSize value="33" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
-    <!-- EXTENDED ARMOR PIERCING MAGAZINE (MAG2) - 31 round -->
+    <!-- EXTENDED ARMOR PIERCING MAGAZINE (MAG2) - 33 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_BG_MENACE_EXTCLIP_AP</Name>
       <Model />
       <LocName>WCT_EXTCLIP_AP</LocName>
       <LocDesc>WCD_EXTCLIP_AP</LocDesc>
-      <ClipSize value="31" />
+      <ClipSize value="33" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
   </Infos>

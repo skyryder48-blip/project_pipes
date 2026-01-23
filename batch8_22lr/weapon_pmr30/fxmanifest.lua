@@ -11,9 +11,18 @@ files {
     'meta/weapon_pmr30.meta',
     'meta/weaponarchetypes.meta',
     'meta/weaponanimations.meta',
+    'meta/weaponcomponents.meta',
     'meta/pedpersonality.meta',
     'stream/*',
 }
 
-data_file 'WEAPONINFO_FILE' 'meta/weapon_pmr30.meta'
+--[[
+    DATA FILE LOAD ORDER (CRITICAL!)
+    Components must load BEFORE weapons.meta
+]]
+
+data_file 'WEAPONCOMPONENTSINFO_FILE' 'meta/weaponcomponents.meta'
 data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'
+data_file 'WEAPON_ANIMATIONS_FILE' 'meta/weaponanimations.meta'
+data_file 'WEAPONINFO_FILE' 'meta/weapon_pmr30.meta'
+data_file 'PED_PERSONALITY_FILE' 'meta/pedpersonality.meta'

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    WEAPONCOMPONENTS.META - Magazine Components for Glock 22 Gen 5 (.40 S&W)
+    Defines FMJ, Hollow Point, and Armor Piercing magazine components.
+    Standard mag: 15 rounds, Mag2: 31rds, Mag3: 50rds, Mag4: 100rds, Mag5: 27rds
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+    <!-- FMJ MAGAZINE - Standard 15 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G22_GEN5_CLIP_FMJ</Name>
+      <Model />
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_FMJ</LocDesc>
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- HOLLOW POINT MAGAZINE - Standard 15 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G22_GEN5_CLIP_HP</Name>
+      <Model />
+      <LocName>WCT_CLIP_HP</LocName>
+      <LocDesc>WCD_CLIP_HP</LocDesc>
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- ARMOR PIERCING MAGAZINE - Standard 15 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G22_GEN5_CLIP_AP</Name>
+      <Model />
+      <LocName>WCT_CLIP_AP</LocName>
+      <LocDesc>WCD_CLIP_AP</LocDesc>
+      <ClipSize value="15" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- EXTENDED FMJ MAGAZINE (MAG2) - 31 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G22_GEN5_EXTCLIP_FMJ</Name>
+      <Model />
+      <LocName>WCT_EXTCLIP_FMJ</LocName>
+      <LocDesc>WCD_EXTCLIP_FMJ</LocDesc>
+      <ClipSize value="31" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- EXTENDED HOLLOW POINT MAGAZINE (MAG2) - 31 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G22_GEN5_EXTCLIP_HP</Name>
+      <Model />
+      <LocName>WCT_EXTCLIP_HP</LocName>
+      <LocDesc>WCD_EXTCLIP_HP</LocDesc>
+      <ClipSize value="31" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- EXTENDED ARMOR PIERCING MAGAZINE (MAG2) - 31 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G22_GEN5_EXTCLIP_AP</Name>
+      <Model />
+      <LocName>WCT_EXTCLIP_AP</LocName>
+      <LocDesc>WCD_EXTCLIP_AP</LocDesc>
+      <ClipSize value="31" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- DRUM FMJ MAGAZINE (MAG3) - 50 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G22_GEN5_DRUM_FMJ</Name>
+      <Model />
+      <LocName>WCT_DRUM_FMJ</LocName>
+      <LocDesc>WCD_DRUM_FMJ</LocDesc>
+      <ClipSize value="50" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- DRUM HOLLOW POINT MAGAZINE (MAG3) - 50 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G22_GEN5_DRUM_HP</Name>
+      <Model />
+      <LocName>WCT_DRUM_HP</LocName>
+      <LocDesc>WCD_DRUM_HP</LocDesc>
+      <ClipSize value="50" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- DRUM ARMOR PIERCING MAGAZINE (MAG3) - 50 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G22_GEN5_DRUM_AP</Name>
+      <Model />
+      <LocName>WCT_DRUM_AP</LocName>
+      <LocDesc>WCD_DRUM_AP</LocDesc>
+      <ClipSize value="50" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- LARGE DRUM FMJ MAGAZINE (MAG4) - 100 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G22_GEN5_LGDRUM_FMJ</Name>
+      <Model />
+      <LocName>WCT_LGDRUM_FMJ</LocName>
+      <LocDesc>WCD_LGDRUM_FMJ</LocDesc>
+      <ClipSize value="100" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- LARGE DRUM HOLLOW POINT MAGAZINE (MAG4) - 100 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G22_GEN5_LGDRUM_HP</Name>
+      <Model />
+      <LocName>WCT_LGDRUM_HP</LocName>
+      <LocDesc>WCD_LGDRUM_HP</LocDesc>
+      <ClipSize value="100" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- LARGE DRUM ARMOR PIERCING MAGAZINE (MAG4) - 100 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G22_GEN5_LGDRUM_AP</Name>
+      <Model />
+      <LocName>WCT_LGDRUM_AP</LocName>
+      <LocDesc>WCD_LGDRUM_AP</LocDesc>
+      <ClipSize value="100" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- STICK FMJ MAGAZINE (MAG5) - 27 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G22_GEN5_STICK_FMJ</Name>
+      <Model />
+      <LocName>WCT_STICK_FMJ</LocName>
+      <LocDesc>WCD_STICK_FMJ</LocDesc>
+      <ClipSize value="27" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- STICK HOLLOW POINT MAGAZINE (MAG5) - 27 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G22_GEN5_STICK_HP</Name>
+      <Model />
+      <LocName>WCT_STICK_HP</LocName>
+      <LocDesc>WCD_STICK_HP</LocDesc>
+      <ClipSize value="27" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- STICK ARMOR PIERCING MAGAZINE (MAG5) - 27 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_G22_GEN5_STICK_AP</Name>
+      <Model />
+      <LocName>WCT_STICK_AP</LocName>
+      <LocDesc>WCD_STICK_AP</LocDesc>
+      <ClipSize value="27" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+  </Infos>
+</CWeaponComponentInfoBlob>

@@ -89,6 +89,75 @@
       <HudRange value="1.700000" />
       
       <HumanNameHash>WT_G22_GEN5</HumanNameHash>
+
+      <!-- Attach Points: Configured for FMJ, HP, AP magazines and extended variants -->
+      <AttachPoints>
+        <Item>
+          <AttachBone>WAPClip</AttachBone>
+          <Components>
+            <Item>
+              <n>COMPONENT_G22_GEN5_CLIP_FMJ</n>
+              <Default value="true" />
+            </Item>
+            <Item>
+              <n>COMPONENT_G22_GEN5_CLIP_HP</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_G22_GEN5_CLIP_AP</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_G22_GEN5_EXTCLIP_FMJ</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_G22_GEN5_EXTCLIP_HP</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_G22_GEN5_EXTCLIP_AP</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_G22_GEN5_DRUM_FMJ</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_G22_GEN5_DRUM_HP</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_G22_GEN5_DRUM_AP</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_G22_GEN5_LGDRUM_FMJ</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_G22_GEN5_LGDRUM_HP</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_G22_GEN5_LGDRUM_AP</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_G22_GEN5_STICK_FMJ</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_G22_GEN5_STICK_HP</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_G22_GEN5_STICK_AP</n>
+              <Default value="false" />
+            </Item>
+          </Components>
+        </Item>
+      </AttachPoints>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

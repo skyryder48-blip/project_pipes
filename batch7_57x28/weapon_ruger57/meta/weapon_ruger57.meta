@@ -279,8 +279,16 @@
               <AttachBone>WAPClip</AttachBone>
               <Components>
                 <Item>
-                  <n>COMPONENT_RUGER57_CLIP_01</n>
+                  <n>COMPONENT_RUGER57_CLIP_FMJ</n>
                   <Default value="true" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_RUGER57_CLIP_HP</n>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <n>COMPONENT_RUGER57_CLIP_AP</n>
+                  <Default value="false" />
                 </Item>
               </Components>
             </Item>

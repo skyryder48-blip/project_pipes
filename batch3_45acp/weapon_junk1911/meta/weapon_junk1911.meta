@@ -102,6 +102,39 @@
       <HudRange value="0.900000" />
       
       <HumanNameHash>WT_JUNK1911</HumanNameHash>
+
+      <!-- Attach Points: Configured for FMJ, HP, AP magazines and extended variants -->
+      <AttachPoints>
+        <Item>
+          <AttachBone>WAPClip</AttachBone>
+          <Components>
+            <Item>
+              <n>COMPONENT_JUNK1911_CLIP_FMJ</n>
+              <Default value="true" />
+            </Item>
+            <Item>
+              <n>COMPONENT_JUNK1911_CLIP_HP</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_JUNK1911_CLIP_AP</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_JUNK1911_EXTCLIP_FMJ</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_JUNK1911_EXTCLIP_HP</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_JUNK1911_EXTCLIP_AP</n>
+              <Default value="false" />
+            </Item>
+          </Components>
+        </Item>
+      </AttachPoints>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

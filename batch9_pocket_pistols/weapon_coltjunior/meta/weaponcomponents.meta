@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    WEAPONCOMPONENTS.META - Magazine Components for Colt Junior
+    Standard magazines only: FMJ, Hollow Point, and Armor Piercing
+    Clip Size: 7 rounds (.25 ACP)
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+    <!-- FMJ MAGAZINE - Standard 7 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_COLTJUNIOR_CLIP_FMJ</Name>
+      <Model />
+      <LocName>WCT_CLIP_FMJ</LocName>
+      <LocDesc>WCD_CLIP_FMJ</LocDesc>
+      <ClipSize value="7" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- HOLLOW POINT MAGAZINE - Standard 7 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_COLTJUNIOR_CLIP_HP</Name>
+      <Model />
+      <LocName>WCT_CLIP_HP</LocName>
+      <LocDesc>WCD_CLIP_HP</LocDesc>
+      <ClipSize value="7" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- ARMOR PIERCING MAGAZINE - Standard 7 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_COLTJUNIOR_CLIP_AP</Name>
+      <Model />
+      <LocName>WCT_CLIP_AP</LocName>
+      <LocDesc>WCD_CLIP_AP</LocDesc>
+      <ClipSize value="7" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+  </Infos>
+</CWeaponComponentInfoBlob>

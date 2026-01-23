@@ -1,37 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     WEAPONCOMPONENTS.META - Magazine Components for Angstadt UDP-9
-    Standard magazines only: FMJ, Hollow Point, and Armor Piercing
-    Clip Size: 17 rounds (Glock mag compatible)
+    Standard: 30 rounds, Mag2: 17 rounds
 -->
 <CWeaponComponentInfoBlob>
   <Infos>
-    <!-- FMJ MAGAZINE - Standard 17 round -->
+    <!-- FMJ MAGAZINE - Standard 30 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_UDP9_CLIP_FMJ</Name>
       <Model />
       <LocName>WCT_CLIP_FMJ</LocName>
       <LocDesc>WCD_CLIP_FMJ</LocDesc>
-      <ClipSize value="17" />
+      <ClipSize value="30" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
-    <!-- HOLLOW POINT MAGAZINE - Standard 17 round -->
+    <!-- HOLLOW POINT MAGAZINE - Standard 30 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_UDP9_CLIP_HP</Name>
       <Model />
       <LocName>WCT_CLIP_HP</LocName>
       <LocDesc>WCD_CLIP_HP</LocDesc>
-      <ClipSize value="17" />
+      <ClipSize value="30" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
-    <!-- ARMOR PIERCING MAGAZINE - Standard 17 round -->
+    <!-- ARMOR PIERCING MAGAZINE - Standard 30 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_UDP9_CLIP_AP</Name>
       <Model />
       <LocName>WCT_CLIP_AP</LocName>
       <LocDesc>WCD_CLIP_AP</LocDesc>
+      <ClipSize value="30" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- MAG2 FMJ MAGAZINE - 17 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_UDP9_CLIP2_FMJ</Name>
+      <Model />
+      <LocName>WCT_CLIP2_FMJ</LocName>
+      <LocDesc>WCD_CLIP2_FMJ</LocDesc>
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- MAG2 HOLLOW POINT MAGAZINE - 17 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_UDP9_CLIP2_HP</Name>
+      <Model />
+      <LocName>WCT_CLIP2_HP</LocName>
+      <LocDesc>WCD_CLIP2_HP</LocDesc>
+      <ClipSize value="17" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- MAG2 ARMOR PIERCING MAGAZINE - 17 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_UDP9_CLIP2_AP</Name>
+      <Model />
+      <LocName>WCT_CLIP2_AP</LocName>
+      <LocDesc>WCD_CLIP2_AP</LocDesc>
       <ClipSize value="17" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>

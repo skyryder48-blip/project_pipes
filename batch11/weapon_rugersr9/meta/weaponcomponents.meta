@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     WEAPONCOMPONENTS.META - Magazine Components for Ruger SR9
-    Standard magazines only: FMJ, Hollow Point, and Armor Piercing
-    Clip Size: 17 rounds
+    Standard: 17 rounds, Extended: 32 rounds
+    Includes flashlight component
 -->
 <CWeaponComponentInfoBlob>
   <Infos>
@@ -34,6 +34,44 @@
       <LocDesc>WCD_CLIP_AP</LocDesc>
       <ClipSize value="17" />
       <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- EXTENDED FMJ MAGAZINE - 32 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_RUGERSR9_EXTCLIP_FMJ</Name>
+      <Model />
+      <LocName>WCT_EXTCLIP_FMJ</LocName>
+      <LocDesc>WCD_EXTCLIP_FMJ</LocDesc>
+      <ClipSize value="32" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- EXTENDED HOLLOW POINT MAGAZINE - 32 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_RUGERSR9_EXTCLIP_HP</Name>
+      <Model />
+      <LocName>WCT_EXTCLIP_HP</LocName>
+      <LocDesc>WCD_EXTCLIP_HP</LocDesc>
+      <ClipSize value="32" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- EXTENDED ARMOR PIERCING MAGAZINE - 32 round -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_RUGERSR9_EXTCLIP_AP</Name>
+      <Model />
+      <LocName>WCT_EXTCLIP_AP</LocName>
+      <LocDesc>WCD_EXTCLIP_AP</LocDesc>
+      <ClipSize value="32" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+
+    <!-- FLASHLIGHT COMPONENT -->
+    <Item type="CWeaponComponentFlashLightInfo">
+      <Name>COMPONENT_RUGERSR9_FLASHLIGHT</Name>
+      <Model />
+      <LocName>WCT_FLASH</LocName>
+      <LocDesc>WCD_FLASH</LocDesc>
     </Item>
   </Infos>
 </CWeaponComponentInfoBlob>

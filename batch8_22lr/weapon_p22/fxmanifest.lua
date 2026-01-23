@@ -8,6 +8,7 @@ version '1.0.0'
 client_script 'cl_weaponNames.lua'
 
 files {
+    'meta/weaponcomponents.meta',
     'meta/weapon_p22.meta',
     'meta/weaponarchetypes.meta',
     'meta/weaponanimations.meta',
@@ -15,5 +16,6 @@ files {
     'stream/*',
 }
 
+data_file 'WEAPON_COMPONENTS_FILE' 'meta/weaponcomponents.meta'
 data_file 'WEAPONINFO_FILE' 'meta/weapon_p22.meta'
 data_file 'WEAPON_METADATA_FILE' 'meta/weaponarchetypes.meta'

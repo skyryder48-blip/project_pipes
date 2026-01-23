@@ -230,7 +230,7 @@
           <KillshotImpulseScale value="1.000000" />
           <NmShotTuningSet>normal</NmShotTuningSet>
 
-          <!-- Attach Points: Standard magazines only (FMJ, HP, AP) -->
+          <!-- Attach Points: Magazines (FMJ, HP, AP) and Suppressor -->
           <AttachPoints>
             <Item>
               <AttachBone>WAPClip</AttachBone>
@@ -245,6 +245,15 @@
                 </Item>
                 <Item>
                   <n>COMPONENT_WALTHERP88_CLIP_AP</n>
+                  <Default value="false" />
+                </Item>
+              </Components>
+            </Item>
+            <Item>
+              <AttachBone>WAPSupp</AttachBone>
+              <Components>
+                <Item>
+                  <n>COMPONENT_WALTHERP88_SUPPRESSOR</n>
                   <Default value="false" />
                 </Item>
               </Components>

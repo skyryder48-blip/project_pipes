@@ -35,5 +35,13 @@
       <ClipSize value="16" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
+
+    <!-- SUPPRESSOR COMPONENT -->
+    <Item type="CWeaponComponentSuppressorInfo">
+      <Name>COMPONENT_WALTHERP88_SUPPRESSOR</Name>
+      <Model />
+      <LocName>WCT_SUPP</LocName>
+      <LocDesc>WCD_SUPP</LocDesc>
+    </Item>
   </Infos>
 </CWeaponComponentInfoBlob>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    WEAPONCOMPONENTS.META - Revolver Speedloader Component
+-->
+<CWeaponComponentInfoBlob>
+  <Infos>
+    <!-- SPEEDLOADER - Standard -->
+    <Item type="CWeaponComponentClipInfo">
+      <Name>COMPONENT_SWMODEL29_CLIP_01</Name>
+      <Model />
+      <LocName>WCT_CLIP1</LocName>
+      <LocDesc>WCD_CLIP1</LocDesc>
+      <ClipSize value="6" />
+      <AmmoInfo ref="AMMO_PISTOL" />
+    </Item>
+  </Infos>
+</CWeaponComponentInfoBlob>

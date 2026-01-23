@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    WEAPONARCHETYPES.META - Universal Boilerplate
-    This file is the SAME for all addon weapons.
-    Empty InitDatas works when textures are embedded in .ytd file.
-    
-    Just copy this file to: meta/weaponarchetypes.meta
+    WEAPONARCHETYPES.META - Universal Template
+    This file links the weapon model and texture files.
+
+    USAGE: Replace WEAPON_NAME with your weapon name (e.g., g17, g26, hellcat)
+
+    Required values:
+    - modelName: w_pi_WEAPON_NAME (must match your .ydr file)
+    - txdName: w_pi_WEAPON_NAME (must match your .ytd file)
+    - ptfxAssetName: NULL (use base game particles)
+    - lodDist: 500 (render distance in game units)
 -->
 <CWeaponModelInfo__InitDataList>
-  <InitDatas />
+	<InitDatas>
+		<Item>
+			<modelName>w_pi_WEAPON_NAME</modelName>
+			<txdName>w_pi_WEAPON_NAME</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="500"/>
+		</Item>
+	</InitDatas>
 </CWeaponModelInfo__InitDataList>

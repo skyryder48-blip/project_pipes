@@ -8,7 +8,7 @@
           <CoverMovementExtraClipSetHash />
           <CoverAlternateMovementClipSetHash>cover@move@ai@base@1h</CoverAlternateMovementClipSetHash>
           <CoverWeaponClipSetHash>Cover_Wpn_Pistol</CoverWeaponClipSetHash>
-          <MotionClipSetHash>weapons@pistol@</MotionClipSetHash>
+          <MotionClipSetHash>weapons@pistol@pistol_mk2</MotionClipSetHash>
           <MotionFilterHash>BothArms_filter</MotionFilterHash>
           <MotionCrouchClipSetHash />
           <MotionStrafingClipSetHash />

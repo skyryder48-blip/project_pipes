@@ -1,23 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+    WEAPONANIMATIONS.META - Complete Semi-Auto Pistol Template
+    Uses combat_pistol animation sets for all animation modes.
+
+    USAGE: Replace WEAPON_YOURWEAPON with your weapon hash (e.g., WEAPON_G17)
+
+    This template includes all 6 animation modes:
+    - Default (third person)
+    - Gang (NPC gang members)
+    - FirstPerson (FPS hip-fire)
+    - FirstPersonAiming (FPS ADS)
+    - FirstPersonRNG (FPS run-and-gun)
+    - FirstPersonScope (FPS scoped)
+
+    Use this template for all semi-auto pistols:
+    - Glocks (except G18/switches)
+    - Berettas (M9, PX4)
+    - Sigs (P320, P226, etc.)
+    - 1911 variants
+    - Most other semi-auto pistols
+-->
 <CWeaponAnimationsSets>
   <WeaponAnimationsSets>
     <Item key="Default">
       <WeaponAnimations>
-        <Item key="WEAPON_PX4">
+        <Item key="WEAPON_YOURWEAPON">
           <CoverMovementClipSetHash />
           <CoverMovementExtraClipSetHash />
           <CoverAlternateMovementClipSetHash>cover@move@ai@base@1h</CoverAlternateMovementClipSetHash>
           <CoverWeaponClipSetHash>Cover_Wpn_Pistol</CoverWeaponClipSetHash>
-          <MotionClipSetHash>weapons@pistol@pistol_mk2</MotionClipSetHash>
+          <MotionClipSetHash>weapons@pistol@combat_pistol</MotionClipSetHash>
           <MotionFilterHash>BothArms_filter</MotionFilterHash>
           <MotionCrouchClipSetHash />
           <MotionStrafingClipSetHash />
           <MotionStrafingStealthClipSetHash />
           <MotionStrafingUpperBodyClipSetHash />
-          <WeaponClipSetHash>weapons@pistol@pistol_mk2</WeaponClipSetHash>
-          <WeaponClipSetStreamedHash>weapons@pistol@pistol_mk2_str</WeaponClipSetStreamedHash>
+          <WeaponClipSetHash>weapons@pistol@combat_pistol</WeaponClipSetHash>
+          <WeaponClipSetStreamedHash>weapons@pistol@combat_pistol_str</WeaponClipSetStreamedHash>
           <WeaponClipSetHashInjured>Wpn_Pistol_Injured</WeaponClipSetHashInjured>
-          <WeaponClipSetHashStealth>weapons@pistol@pistol_mk2@w_stealth</WeaponClipSetHashStealth>
+          <WeaponClipSetHashStealth>weapons@pistol@combat_pistol@w_stealth</WeaponClipSetHashStealth>
           <WeaponClipSetHashHiCover />
           <AlternativeClipSetWhenBlocked />
           <ScopeWeaponClipSet />
@@ -52,7 +73,7 @@
     <Item key="Gang">
       <Fallback>Default</Fallback>
       <WeaponAnimations>
-        <Item key="WEAPON_PX4">
+        <Item key="WEAPON_YOURWEAPON">
           <CoverMovementClipSetHash />
           <CoverMovementExtraClipSetHash />
           <CoverAlternateMovementClipSetHash />
@@ -66,7 +87,7 @@
           <WeaponClipSetHash />
           <WeaponClipSetStreamedHash />
           <WeaponClipSetHashInjured />
-          <WeaponClipSetHashStealth>weapons@pistol@pistol_mk2@stealth</WeaponClipSetHashStealth>
+          <WeaponClipSetHashStealth>weapons@pistol@combat_pistol@stealth</WeaponClipSetHashStealth>
           <WeaponClipSetHashHiCover />
           <AlternativeClipSetWhenBlocked />
           <ScopeWeaponClipSet />
@@ -101,7 +122,7 @@
     <Item key="FirstPerson">
       <Fallback>Default</Fallback>
       <WeaponAnimations>
-        <Item key="WEAPON_PX4">
+        <Item key="WEAPON_YOURWEAPON">
           <MovementOverrideClipSetHash>move_m@generic</MovementOverrideClipSetHash>
           <CoverMovementClipSetHash />
           <CoverMovementExtraClipSetHash />
@@ -114,7 +135,7 @@
           <MotionStrafingStealthClipSetHash>move_ped_strafing_stealth</MotionStrafingStealthClipSetHash>
           <MotionStrafingUpperBodyClipSetHash />
           <WeaponClipSetHash>weapons@first_person@aim_idle@generic@pistol@shared@core</WeaponClipSetHash>
-          <WeaponClipSetStreamedHash>weapons@first_person@aim_rng@generic@pistol@pistol_mk2@str</WeaponClipSetStreamedHash>
+          <WeaponClipSetStreamedHash>weapons@first_person@aim_rng@generic@pistol@combat_pistol@str</WeaponClipSetStreamedHash>
           <WeaponClipSetHashInjured>Wpn_Pistol_Injured</WeaponClipSetHashInjured>
           <WeaponClipSetHashStealth>weapons@first_person@aim_stealth@generic@pistol@shared@core</WeaponClipSetHashStealth>
           <WeaponClipSetHashHiCover />
@@ -165,7 +186,7 @@
     <Item key="FirstPersonAiming">
       <Fallback>Default</Fallback>
       <WeaponAnimations>
-        <Item key="WEAPON_PX4">
+        <Item key="WEAPON_YOURWEAPON">
           <CoverMovementClipSetHash />
           <CoverMovementExtraClipSetHash />
           <CoverAlternateMovementClipSetHash>cover@move@ai@base@1h</CoverAlternateMovementClipSetHash>
@@ -176,10 +197,10 @@
           <MotionStrafingClipSetHash />
           <MotionStrafingStealthClipSetHash>move_ped_strafing_stealth</MotionStrafingStealthClipSetHash>
           <MotionStrafingUpperBodyClipSetHash />
-          <WeaponClipSetHash>weapons@first_person@aim_lt@generic@pistol@pistol_mk2@w_fire</WeaponClipSetHash>
-          <WeaponClipSetStreamedHash>weapons@first_person@aim_rng@generic@pistol@pistol_mk2@str</WeaponClipSetStreamedHash>
+          <WeaponClipSetHash>weapons@first_person@aim_lt@generic@pistol@combat_pistol@w_fire</WeaponClipSetHash>
+          <WeaponClipSetStreamedHash>weapons@first_person@aim_rng@generic@pistol@combat_pistol@str</WeaponClipSetStreamedHash>
           <WeaponClipSetHashInjured>Wpn_Pistol_Injured</WeaponClipSetHashInjured>
-          <WeaponClipSetHashStealth>weapons@first_person@aim_lt@generic@pistol@pistol_mk2@w_fire</WeaponClipSetHashStealth>
+          <WeaponClipSetHashStealth>weapons@first_person@aim_lt@generic@pistol@combat_pistol@w_fire</WeaponClipSetHashStealth>
           <WeaponClipSetHashHiCover />
           <AlternativeClipSetWhenBlocked />
           <ScopeWeaponClipSet />
@@ -227,7 +248,7 @@
     <Item key="FirstPersonRNG">
       <Fallback>Default</Fallback>
       <WeaponAnimations>
-        <Item key="WEAPON_PX4">
+        <Item key="WEAPON_YOURWEAPON">
           <CoverMovementClipSetHash />
           <CoverMovementExtraClipSetHash />
           <CoverAlternateMovementClipSetHash>cover@move@ai@base@1h</CoverAlternateMovementClipSetHash>
@@ -238,10 +259,10 @@
           <MotionStrafingClipSetHash />
           <MotionStrafingStealthClipSetHash>move_ped_strafing_stealth</MotionStrafingStealthClipSetHash>
           <MotionStrafingUpperBodyClipSetHash />
-          <WeaponClipSetHash>weapons@first_person@aim_rng@generic@pistol@pistol_mk2@w_fire</WeaponClipSetHash>
-          <WeaponClipSetStreamedHash>weapons@first_person@aim_rng@generic@pistol@pistol_mk2@str</WeaponClipSetStreamedHash>
+          <WeaponClipSetHash>weapons@first_person@aim_rng@generic@pistol@combat_pistol@w_fire</WeaponClipSetHash>
+          <WeaponClipSetStreamedHash>weapons@first_person@aim_rng@generic@pistol@combat_pistol@str</WeaponClipSetStreamedHash>
           <WeaponClipSetHashInjured>Wpn_Pistol_Injured</WeaponClipSetHashInjured>
-          <WeaponClipSetHashStealth>weapons@first_person@aim_rng@generic@pistol@pistol_mk2@w_fire</WeaponClipSetHashStealth>
+          <WeaponClipSetHashStealth>weapons@first_person@aim_rng@generic@pistol@combat_pistol@w_fire</WeaponClipSetHashStealth>
           <WeaponClipSetHashHiCover />
           <AlternativeClipSetWhenBlocked />
           <ScopeWeaponClipSet />
@@ -288,7 +309,7 @@
     <Item key="FirstPersonScope">
       <Fallback>Default</Fallback>
       <WeaponAnimations>
-        <Item key="WEAPON_PX4">
+        <Item key="WEAPON_YOURWEAPON">
           <CoverMovementClipSetHash />
           <CoverMovementExtraClipSetHash />
           <CoverAlternateMovementClipSetHash>cover@move@ai@base@1h</CoverAlternateMovementClipSetHash>
@@ -299,10 +320,10 @@
           <MotionStrafingClipSetHash />
           <MotionStrafingStealthClipSetHash>move_ped_strafing_stealth</MotionStrafingStealthClipSetHash>
           <MotionStrafingUpperBodyClipSetHash />
-          <WeaponClipSetHash>weapons@first_person@aim_scope@generic@pistol@pistol_mk2@w_fire</WeaponClipSetHash>
-          <WeaponClipSetStreamedHash>weapons@first_person@aim_rng@generic@pistol@pistol_mk2@str</WeaponClipSetStreamedHash>
+          <WeaponClipSetHash>weapons@first_person@aim_scope@generic@pistol@combat_pistol@w_fire</WeaponClipSetHash>
+          <WeaponClipSetStreamedHash>weapons@first_person@aim_rng@generic@pistol@combat_pistol@str</WeaponClipSetStreamedHash>
           <WeaponClipSetHashInjured>Wpn_Pistol_Injured</WeaponClipSetHashInjured>
-          <WeaponClipSetHashStealth>weapons@first_person@aim_scope@generic@pistol@pistol_mk2@w_fire</WeaponClipSetHashStealth>
+          <WeaponClipSetHashStealth>weapons@first_person@aim_scope@generic@pistol@combat_pistol@w_fire</WeaponClipSetHashStealth>
           <WeaponClipSetHashHiCover />
           <AlternativeClipSetWhenBlocked />
           <ScopeWeaponClipSet />

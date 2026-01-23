@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+    PEDPERSONALITY.META - Complete Pistol Template
+    For semi-auto 1H pistols (Glocks, Berettas, Sigs, 1911s, etc.)
 
+    USAGE: Replace WEAPON_YOURWEAPON with your weapon hash (e.g., WEAPON_G17)
+
+    This template includes:
+    - All 9 unholster clip types (including stealth variants)
+    - 5 movement mode profiles (DEFAULT, MP_FEMALE, MICHAEL, FRANKLIN, TREVOR)
+    - Stealth movement modes for each profile
+-->
 <CPedModelInfo__PersonalityDataList>
 	<MovementModeUnholsterData>
 		<Item>
@@ -7,7 +17,7 @@
 			<UnholsterClips>
 				<Item>
 					<Weapons>
-						<Item>WEAPON_FN509</Item>
+						<Item>WEAPON_YOURWEAPON</Item>
 					</Weapons>
 					<Clip>unarmed_holster_1h</Clip>
 				</Item>
@@ -18,7 +28,7 @@
 			<UnholsterClips>
 				<Item>
 					<Weapons>
-						<Item>WEAPON_FN509</Item>
+						<Item>WEAPON_YOURWEAPON</Item>
 					</Weapons>
 					<Clip>2h_melee_holster_1h</Clip>
 				</Item>
@@ -29,7 +39,7 @@
 			<UnholsterClips>
 				<Item>
 					<Weapons>
-						<Item>WEAPON_FN509</Item>
+						<Item>WEAPON_YOURWEAPON</Item>
 					</Weapons>
 					<Clip>1h_holster_1h</Clip>
 				</Item>
@@ -40,7 +50,7 @@
 			<UnholsterClips>
 				<Item>
 					<Weapons>
-						<Item>WEAPON_FN509</Item>
+						<Item>WEAPON_YOURWEAPON</Item>
 					</Weapons>
 					<Clip>2h_holster_1h</Clip>
 				</Item>
@@ -51,7 +61,7 @@
 			<UnholsterClips>
 				<Item>
 					<Weapons>
-						<Item>WEAPON_FN509</Item>
+						<Item>WEAPON_YOURWEAPON</Item>
 					</Weapons>
 					<Clip>mini_holster_1h</Clip>
 				</Item>
@@ -62,7 +72,7 @@
 			<UnholsterClips>
 				<Item>
 					<Weapons>
-						<Item>WEAPON_FN509</Item>
+						<Item>WEAPON_YOURWEAPON</Item>
 					</Weapons>
 					<Clip>unarmed_holster_1h</Clip>
 				</Item>
@@ -73,7 +83,7 @@
 			<UnholsterClips>
 				<Item>
 					<Weapons>
-						<Item>WEAPON_FN509</Item>
+						<Item>WEAPON_YOURWEAPON</Item>
 					</Weapons>
 					<Clip>unarmed_holster_1h</Clip>
 				</Item>
@@ -84,7 +94,7 @@
 			<UnholsterClips>
 				<Item>
 					<Weapons>
-						<Item>WEAPON_FN509</Item>
+						<Item>WEAPON_YOURWEAPON</Item>
 					</Weapons>
 					<Clip>1h_holster_1h</Clip>
 				</Item>
@@ -95,7 +105,7 @@
 			<UnholsterClips>
 				<Item>
 					<Weapons>
-						<Item>WEAPON_FN509</Item>
+						<Item>WEAPON_YOURWEAPON</Item>
 					</Weapons>
 					<Clip>2h_holster_1h</Clip>
 				</Item>
@@ -109,7 +119,7 @@
 				<Item>
 					<Item>
 						<Weapons>
-							<Item>WEAPON_FN509</Item>
+							<Item>WEAPON_YOURWEAPON</Item>
 						</Weapons>
 						<ClipSets>
 							<Item>
@@ -133,7 +143,7 @@
 				<Item>
 					<Item>
 						<Weapons>
-							<Item>WEAPON_FN509</Item>
+							<Item>WEAPON_YOURWEAPON</Item>
 						</Weapons>
 						<ClipSets>
 							<Item>
@@ -164,7 +174,7 @@
 				<Item>
 					<Item>
 						<Weapons>
-							<Item>WEAPON_FN509</Item>
+							<Item>WEAPON_YOURWEAPON</Item>
 						</Weapons>
 						<ClipSets>
 							<Item>
@@ -188,7 +198,7 @@
 				<Item>
 					<Item>
 						<Weapons>
-							<Item>WEAPON_FN509</Item>
+							<Item>WEAPON_YOURWEAPON</Item>
 						</Weapons>
 						<ClipSets>
 							<Item>
@@ -219,7 +229,7 @@
 				<Item>
 					<Item>
 						<Weapons>
-							<Item>WEAPON_FN509</Item>
+							<Item>WEAPON_YOURWEAPON</Item>
 						</Weapons>
 						<ClipSets>
 							<Item>
@@ -243,7 +253,7 @@
 				<Item>
 					<Item>
 						<Weapons>
-							<Item>WEAPON_FN509</Item>
+							<Item>WEAPON_YOURWEAPON</Item>
 						</Weapons>
 						<ClipSets>
 							<Item>
@@ -274,7 +284,7 @@
 				<Item>
 					<Item>
 						<Weapons>
-							<Item>WEAPON_FN509</Item>
+							<Item>WEAPON_YOURWEAPON</Item>
 						</Weapons>
 						<ClipSets>
 							<Item>
@@ -298,7 +308,7 @@
 				<Item>
 					<Item>
 						<Weapons>
-							<Item>WEAPON_FN509</Item>
+							<Item>WEAPON_YOURWEAPON</Item>
 						</Weapons>
 						<ClipSets>
 							<Item>
@@ -329,7 +339,7 @@
 				<Item>
 					<Item>
 						<Weapons>
-							<Item>WEAPON_FN509</Item>
+							<Item>WEAPON_YOURWEAPON</Item>
 						</Weapons>
 						<ClipSets>
 							<Item>
@@ -353,7 +363,7 @@
 				<Item>
 					<Item>
 						<Weapons>
-							<Item>WEAPON_FN509</Item>
+							<Item>WEAPON_YOURWEAPON</Item>
 						</Weapons>
 						<ClipSets>
 							<Item>

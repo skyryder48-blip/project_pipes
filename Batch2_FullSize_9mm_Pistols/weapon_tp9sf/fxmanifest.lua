@@ -10,8 +10,17 @@ client_script 'cl_weaponNames.lua'
 files {
     'meta/weapon_tp9sf.meta',
     'meta/weaponanimations.meta',
+    'meta/weaponcomponents.meta',
     'meta/pedpersonality.meta',
     'stream/*',
 }
 
+--[[
+    DATA FILE LOAD ORDER (CRITICAL!)
+    Components must load BEFORE weapons.meta
+]]
+
+data_file 'WEAPONCOMPONENTSINFO_FILE' 'meta/weaponcomponents.meta'
+data_file 'WEAPON_ANIMATIONS_FILE' 'meta/weaponanimations.meta'
 data_file 'WEAPONINFO_FILE' 'meta/weapon_tp9sf.meta'
+data_file 'PED_PERSONALITY_FILE' 'meta/pedpersonality.meta'

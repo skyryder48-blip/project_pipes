@@ -2,19 +2,19 @@
 <CWeaponInfoBlob>
   <Infos>
     <Item type="CWeaponInfo">
-      <n>WEAPON_GLOCK_DEMON</n>
-      <Model>w_pi_glock_demon</Model>
+      <n>WEAPON_BG_MENACE</n>
+      <Model>w_pi_bg_menace</Model>
       <Audio>AUDIO_PISTOL</Audio>
       <Slot>SLOT_UNARMED</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
       <WheelSlot>WHEEL_PISTOL</WheelSlot>
       <Group>GROUP_PISTOL</Group>
-      <ClipSize value="13" />
+      <ClipSize value="30" />
       <AmmoInfo ref="AMMO_PISTOL" />
       <AimingInfo ref="AI_PISTOL_AIMINGINFO" />
       
-      <!-- GLOCK DEMON - FULL AUTO G23 GEN 4 WITH SWITCH -->
+      <!-- BG MENACE - FULL AUTO .40 S&W WITH SWITCH -->
       <!-- 4.02" barrel, 21.16 oz compact polymer frame -->
       <!-- .40 S&W + FULL AUTO = EXTREME RECOIL -->
       <!-- Illegal auto-sear conversion ("switch") -->
@@ -102,7 +102,40 @@
       <HudAccuracy value="0.900000" />
       <HudRange value="1.100000" />
       
-      <HumanNameHash>WT_GLOCK_DEMON</HumanNameHash>
+      <HumanNameHash>WT_BG_MENACE</HumanNameHash>
+
+      <!-- Attach Points: Configured for FMJ, HP, AP magazines and extended variants -->
+      <AttachPoints>
+        <Item>
+          <AttachBone>WAPClip</AttachBone>
+          <Components>
+            <Item>
+              <n>COMPONENT_BG_MENACE_CLIP_FMJ</n>
+              <Default value="true" />
+            </Item>
+            <Item>
+              <n>COMPONENT_BG_MENACE_CLIP_HP</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_BG_MENACE_CLIP_AP</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_BG_MENACE_EXTCLIP_FMJ</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_BG_MENACE_EXTCLIP_HP</n>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <n>COMPONENT_BG_MENACE_EXTCLIP_AP</n>
+              <Default value="false" />
+            </Item>
+          </Components>
+        </Item>
+      </AttachPoints>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

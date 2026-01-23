@@ -1,13 +1,1 @@
--- cl_weaponNames.lua
--- Glock 41 Gen 4 MOS - .45 ACP Competition Pistol
--- Weapon display name registration
-
-Citizen.CreateThread(function()
-    AddTextEntry('WT_G41', 'Glock 41')
-
-    -- Ammo type display names
-    AddTextEntry('WCT_CLIP_FMJ', 'FMJ Magazine')
-    AddTextEntry('WCD_CLIP_FMJ', 'Standard full metal jacket ammunition.')
-    AddTextEntry('WCT_CLIP_JHP', 'JHP Magazine')
-    AddTextEntry('WCD_CLIP_JHP', 'Jacketed hollow point for increased stopping power.')
-end)
+AddTextEntry("WEAPON_G41", "Glock 41 Gen 4")

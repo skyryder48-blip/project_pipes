@@ -23,9 +23,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos />
   <Infos>
-    <Item>
-      <Infos>
-        <Item type="CWeaponInfo">
+    <Item type="CWeaponInfo">
           <Name>WEAPON_M9</Name>
           <Model>w_pi_m9</Model>
           <Audio>AUDIO_ITEM_PISTOL</Audio>
@@ -70,18 +68,18 @@
           <RunAndGunCameraHash>DEFAULT_THIRD_PERSON_PED_RUN_AND_GUN_CAMERA</RunAndGunCameraHash>
           <CinematicShootingCameraHash>DEFAULT_THIRD_PERSON_PED_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
 
-          <!-- Beretta M9: 15+1 capacity, 4.9" barrel, HEAVIEST pistol (944g empty) -->
-          <ClipSize value="15" />
+          <!-- Beretta M9: 10+1 capacity, 4.9" barrel -->
+          <ClipSize value="10" />
 
-          <!-- Accuracy: Good - longer barrel (4.9"), but DA/SA affects first shot -->
-          <!-- DA first shot is harder to aim (heavier trigger 10-12 lb), SA follow-ups better (4.5-5.5 lb) -->
-          <AccuracySpread value="1.600000" />
-          <AccurateModeAccuracyModifier value="0.480000" />
-          <RunAndGunAccuracyModifier value="2.100000" />
+          <!-- Accuracy: Good - longest barrel (4.9"), heaviest steel frame = stable platform -->
+          <!-- DA/SA: First shot slightly harder, but exceptional follow-up stability -->
+          <AccuracySpread value="1.250000" />
+          <AccurateModeAccuracyModifier value="0.400000" />
+          <RunAndGunAccuracyModifier value="1.900000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
-          <RecoilAccuracyMax value="0.900000" />
-          <RecoilErrorTime value="0.300000" />
-          <RecoilRecoveryRate value="0.380000" />
+          <RecoilAccuracyMax value="0.800000" />
+          <RecoilErrorTime value="0.250000" />
+          <RecoilRecoveryRate value="1.150000" />
           <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
           <MinHeadShotDistanceAI value="1.200000" />
           <MaxHeadShotDistanceAI value="48.000000" />
@@ -167,17 +165,17 @@
           <FirstPersonDofMaxNearInFocusDistanceBlendLevel value="0.300000" />
           <ZoomFactorForAccurateMode value="1.300000" />
 
-          <!-- Recoil: EXCELLENT CONTROL - heaviest pistol (944g) absorbs recoil best -->
+          <!-- Recoil: EXCELLENT - heaviest pistol (944g), steel frame absorbs recoil exceptionally -->
           <RecoilShakeHash>PISTOL_RECOIL_SHAKE</RecoilShakeHash>
           <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
           <AccuracyOffsetShakeHash />
           <MinTimeBetweenRecoilShakes value="80" />
-          <RecoilShakeAmplitude value="0.130000" />
+          <RecoilShakeAmplitude value="0.095000" />
           <ExplosionShakeAmplitude value="-1.000000" />
-          <IkRecoilDisplacement value="0.100000" />
+          <IkRecoilDisplacement value="0.003000" />
           <IkRecoilDisplacementScope value="0.000000" />
           <IkRecoilDisplacementScaleBackward value="1.000000" />
-          <IkRecoilDisplacementScaleVertical value="0.280000" />
+          <IkRecoilDisplacementScaleVertical value="0.200000" />
 
           <ReticuleHudPosition x="0.000000" y="0.000000" />
           <ReticuleHudPositionOffsetForPOVTurret x="0.000000" y="0.000000" />
@@ -215,14 +213,14 @@
           <ReticuleScale value="0.300000" />
           <ReticuleStyleHash>WEAPON_PISTOL</ReticuleStyleHash>
           <FirstPersonReticuleStyleHash />
-          <PickupHash>PICKUP_WEAPON_M9</PickupHash>
+          <PickupHash>PICKUP_WEAPON_COMBATPISTOL</PickupHash>
           <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
           <HumanNameHash>WEAPON_M9</HumanNameHash>
           <MovementModeConditionalIdle>MMI_1Handed</MovementModeConditionalIdle>
           <StatName>M9</StatName>
           <KnockdownCount value="3" />
           <KillshotImpulseScale value="1.000000" />
-          <NmShotTuningSet>normal</NmShotTuningSet>
+          <NmShotTuningSet>Normal</NmShotTuningSet>
 
           <AttachPoints>
             <Item>
@@ -296,8 +294,6 @@
             <CapsuleRadius value="0.000000" />
             <CapsuleLength value="0.000000" />
           </FrontClearTestParams>
-        </Item>
-      </Infos>
     </Item>
   </Infos>
   <VehicleWeaponInfos />

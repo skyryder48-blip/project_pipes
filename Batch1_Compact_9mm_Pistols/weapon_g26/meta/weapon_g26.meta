@@ -34,13 +34,13 @@
 					<AmmoInfo ref="AMMO_PISTOL"/>
 					<AimingInfo ref="PISTOL_2H_BASE_STRAFE"/>
 					<ClipSize value="10"/>
-					<AccuracySpread value="1.600000"/>
+					<AccuracySpread value="1.350000"/>
 					<AccurateModeAccuracyModifier value="0.500000"/>
 					<RunAndGunAccuracyModifier value="2.000000"/>
 					<RunAndGunAccuracyMaxModifier value="1.000000"/>
 					<RecoilAccuracyMax value="1.200000"/>
 					<RecoilErrorTime value="0.400000"/>
-					<RecoilRecoveryRate value="0.300000"/>
+					<RecoilRecoveryRate value="0.340000"/>
 					<RecoilAccuracyToAllowHeadShotAI value="0.650000"/>
 					<MinHeadShotDistanceAI value="1.200000"/>
 					<MaxHeadShotDistanceAI value="45.000000"/>
@@ -78,7 +78,7 @@
 					<VehicleReloadTime value="1.000000"/>
 					<AnimReloadRate value="1.000000"/>
 					<BulletsPerAnimLoop value="1"/>
-					<TimeBetweenShots value="0.180000"/>
+					<TimeBetweenShots value="0.185000"/>
 					<TimeLeftBetweenShotsWhereShouldFireIsCached value="0.250000"/>
 					<SpinUpTime value="0.000000"/>
 					<SpinTime value="0.000000"/>
@@ -146,8 +146,8 @@
 					<BulletDirectionOffsetInDegrees value="0.000000"/>
 					<AiSoundRange value="100.000000"/>
 					<AiPotentialBlastEventRange value="-1.000000"/>
-					<DamageFallOffRangeMin value="15.000000"/>
-					<DamageFallOffRangeMax value="50.000000"/>
+					<DamageFallOffRangeMin value="18.000000"/>
+					<DamageFallOffRangeMax value="55.000000"/>
 					<DamageFallOffModifier value="0.380000"/>
 					<VehicleWeaponHash/>
 					<DefaultCameraHash>DEFAULT_THIRD_PERSON_PED_AIM_CAMERA</DefaultCameraHash>
@@ -181,7 +181,7 @@
 					<RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
 					<AccuracyOffsetShakeHash/>
 					<MinTimeBetweenRecoilShakes value="80"/>
-					<RecoilShakeAmplitude value="0.180000"/>
+					<RecoilShakeAmplitude value="0.140000"/>
 					<ExplosionShakeAmplitude value="-1.000000"/>
 					<IkRecoilDisplacement value="0.005"/>
 					<IkRecoilDisplacementScope value="0.005"/>

@@ -2,7 +2,7 @@
 <!--
   Glock 19X Switch - FULL-AUTO CONVERSION
   Illegal auto-sear modification
-  
+
   Characteristics:
   - ~1100 RPM cyclic rate (0.055s between shots)
   - SEVERE recoil - nearly uncontrollable
@@ -16,9 +16,9 @@
     <Item><Name>FIRING_PATTERN_FULL_AUTO</Name><Patterns><Item><Range value="100.000000" /><TimeBetweenShots value="0.055000" /></Item></Patterns></Item>
   </FiringPatternAliases>
   <UpperBodyFixupExpressionData /><AimingInfos />
-  <Infos><Item><Infos /></Item><Item><Infos>
+  <Infos>
     <Item type="CWeaponInfo">
-      <n>WEAPON_G19X_SWITCH</n>
+      <Name>WEAPON_G19X_SWITCH</Name>
       <Model>w_pi_g19x_switch</Model>
       <Audio>AUDIO_ITEM_PISTOL</Audio>
       <Slot>SLOT_G19X_SWITCH</Slot>
@@ -29,9 +29,9 @@
       <Group>GROUP_PISTOL</Group>
       <AmmoInfo ref="AMMO_9MM_FMJ" />
       <AimingInfo ref="PISTOL_ACCURATE" />
-      
-      <ClipSize value="17" />
-      
+
+      <ClipSize value="15" />
+
       <!-- SEVERELY DEGRADED accuracy due to full-auto fire -->
       <AccuracySpread value="2.400000" />
       <AccurateModeAccuracyModifier value="0.700000" />
@@ -48,7 +48,7 @@
       <MinHeadShotDistancePlayer value="0.000000" />
       <MaxHeadShotDistancePlayer value="7.000000" />
       <HeadShotDamageModifierPlayer value="2.900000" />
-      
+
       <Damage value="34.000000" />
       <DamageTime value="0.000000" />
       <DamageTimeInVehicle value="0.000000" />
@@ -57,7 +57,7 @@
       <NetworkHitLimbsDamageModifier value="0.800000" />
       <LightlyArmouredDamageModifier value="1.000000" />
       <VehicleDamageModifier value="1.000000" />
-      
+
       <Force value="50.000000" />
       <ForceHitPed value="40.000000" />
       <ForceHitVehicle value="200.000000" />
@@ -72,7 +72,7 @@
       <Penetration value="0.150000" />
       <VerticalLaunchAdjustment value="0.000000" />
       <DropForwardVelocity value="0.000000" />
-      
+
       <Speed value="340.000000" />
       <BulletsInBatch value="1" />
       <BatchSpread value="0.000000" />
@@ -81,10 +81,11 @@
       <VehicleReloadTime value="0.000000" />
       <AnimReloadRate value="1.000000" />
       <BulletsPerAnimLoop value="1" />
-      
+
       <!-- FULL-AUTO: ~1100 RPM -->
       <TimeBetweenShots value="0.055000" />
-      
+      <TimeLeftBetweenShotsWhereShouldFireIsCached value="-1.000000" />
+
       <DamageFallOffRangeMin value="12.000000" />
       <DamageFallOffRangeMax value="40.000000" />
       <DamageFallOffModifier value="0.380000" />
@@ -92,7 +93,7 @@
       <NetworkPedDamageModifier value="1.000000" />
       <NetworkHeadShotPlayerDamageModifier value="1.000000" />
       <LockonRange value="80.000000" />
-      
+
       <WeaponRange value="90.000000" />
       <BulletDirectionOffsetInDegrees value="0.000000" />
       <AiSoundRange value="150.000000" />
@@ -101,7 +102,7 @@
       <GunShotNormalRumbleProfile>LIGHT_GUNSHOT_PLAYER</GunShotNormalRumbleProfile>
       <ExplosionRumbleProfile>LIGHT_EXPLOSION</ExplosionRumbleProfile>
       <GunShotSlowMoRumbleProfile>SLOW_MO_GUNSHOT_PLAYER</GunShotSlowMoRumbleProfile>
-      
+
       <FirstPersonScopeOffset x="0.000000" y="0.000000" z="0.000000" />
       <FirstPersonScopeAttachmentOffset x="0.000000" y="0.000000" z="0.000000" />
       <FirstPersonScopeRotationOffset x="0.000000" y="0.000000" z="0.000000" />
@@ -115,7 +116,34 @@
       <FirstPersonDofMaxNearInFocusDistance value="0.000000" />
       <FirstPersonDofMaxNearInFocusDistanceBlendLevel value="0.300000" />
       <ZoomFactorForAccurateMode value="1.200000" />
-      
+
+      <Fx>
+        <FlashFx>muz_pistol_fp</FlashFx>
+        <FlashFxAlt>muz_pistol</FlashFxAlt>
+        <FlashFxFP />
+        <FlashFxAltFP />
+        <SmokeFx />
+        <SmokeFxFP />
+        <SmokeFxIsBeingUsed value="false" />
+        <TracerFx>proj_tracer_youforyou</TracerFx>
+        <TracerFxFP />
+        <ShellFx>eject_pistol</ShellFx>
+        <ShellFxFP />
+        <MuzzleSmokeFx>muz_pistol_smoke</MuzzleSmokeFx>
+        <MuzzleSmokeFxFP />
+        <MuzzleSmokeFxMinLevel value="0.200000" />
+        <MuzzleSmokeFxIncPerShot value="0.050000" />
+        <MuzzleSmokeFxDecPerSec value="0.300000" />
+        <GroundDisturbFx />
+        <GroundDisturbFxAlt />
+        <GroundDisturbFxFP />
+        <GroundDisturbFxAltFP />
+      </Fx>
+
+      <CameraFovZoom value="0.000000" />
+      <CameraShakeOnKill>NO_SHAKE</CameraShakeOnKill>
+      <CameraShakeOnKillFP>NO_SHAKE</CameraShakeOnKillFP>
+
       <!-- SEVERE recoil - nearly uncontrollable in full-auto -->
       <RecoilShakeHash>PISTOL_RECOIL_SHAKE</RecoilShakeHash>
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
@@ -127,7 +155,7 @@
       <IkRecoilDisplacementScope value="0.000000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
       <IkRecoilDisplacementScaleVertical value="0.650000" />
-      
+
       <ReticuleHudPosition x="0.000000" y="0.000000" />
       <ReticuleHudPositionOffsetForPOVTurret x="0.000000" y="0.000000" />
       <AimOffsetMin x="0.210000" y="0.100000" z="0.600000" />
@@ -157,32 +185,32 @@
       <TorsoAimOffset x="-1.300000" y="0.550000" />
       <TorsoCrouchedAimOffset x="0.200000" y="0.050000" />
       <LeftHandIkOffset x="0.000000" y="0.000000" z="0.000000" />
-      
+
       <ReticuleMinSizeStanding value="0.800000" />
       <ReticuleMinSizeCrouched value="0.700000" />
       <ReticuleScale value="0.400000" />
       <ReticuleStyleHash>WEAPON_PISTOL</ReticuleStyleHash>
       <FirstPersonReticuleStyleHash />
-      <PickupHash>PICKUP_WEAPON_G19X_SWITCH</PickupHash>
+      <PickupHash>PICKUP_WEAPON_COMBATPISTOL</PickupHash>
       <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
-      <HumanNameHash>WT_G19X_SWITCH</HumanNameHash>
+      <HumanNameHash>WEAPON_G19X_SWITCH</HumanNameHash>
       <MovementModeConditionalIdle>MMI_1Handed</MovementModeConditionalIdle>
       <StatName>G19X_SWITCH</StatName>
       <KnockdownCount value="3" />
       <KillshotImpulseScale value="1.000000" />
-      <NmShotTuningSet>normal</NmShotTuningSet>
-      
+      <NmShotTuningSet>Normal</NmShotTuningSet>
+
       <AttachPoints>
         <Item>
           <AttachBone>WAPClip</AttachBone>
           <Components>
-            <Item><n>COMPONENT_G19X_SWITCH_CLIP_FMJ</n><Default value="true" /></Item>
-            <Item><n>COMPONENT_G19X_SWITCH_CLIP_HP</n><Default value="false" /></Item>
-            <Item><n>COMPONENT_G19X_SWITCH_CLIP_AP</n><Default value="false" /></Item>
+            <Item><Name>COMPONENT_G19X_SWITCH_CLIP_FMJ</Name><Default value="true" /></Item>
+            <Item><Name>COMPONENT_G19X_SWITCH_CLIP_HP</Name><Default value="false" /></Item>
+            <Item><Name>COMPONENT_G19X_SWITCH_CLIP_AP</Name><Default value="false" /></Item>
           </Components>
         </Item>
       </AttachPoints>
-      
+
       <GunFeedBone />
       <TargetSequenceGroup>Pistol</TargetSequenceGroup>
       <WeaponFlags>CarriedInHand Gun CanLockonOnFoot CanLockonInVehicle CanFreeAim AnimReload AnimCrouchFire UsableOnFoot UsableClimbing UsableInCover AllowCloseQuarterKills HasLowCoverReloads HasLowCoverSwaps QuitTransitionToIdleIntroOnWeaponChange DisableLeftHandIkWhenOnFoot TorsoIKForWeaponBlock UseFPSAimIK UseFPSSecondaryMotion</WeaponFlags>
@@ -200,7 +228,7 @@
       <StealthFiringLeanAdditiveWeight value="1.000000" />
       <ExpandPedCapsuleRadius value="0.000000" />
       <AudioCollisionHash />
-      
+
       <!-- HUD: High fire rate, terrible accuracy -->
       <HudDamage value="35" />
       <HudSpeed value="90" />
@@ -224,8 +252,8 @@
         <CapsuleLength value="0.000000" />
       </FrontClearTestParams>
     </Item>
-  </Infos></Item><Item><Infos /></Item><Item><Infos /></Item></Infos>
+  </Infos>
   <VehicleWeaponInfos />
   <WeaponGroupDamageForArmouredVehicleGlass />
-  <n>Glock 19X Switch</n>
+  <Name>Glock 19X Switch</Name>
 </CWeaponInfoBlob>

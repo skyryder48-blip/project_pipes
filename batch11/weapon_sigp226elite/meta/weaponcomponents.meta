@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    WEAPONCOMPONENTS.META - Magazine Components for Beretta M9
-    Defines FMJ, Hollow Point, and Armor Piercing magazine components.
-    Standard mag: 15 rounds, Extended: 32 rounds
+    WEAPONCOMPONENTS.META - Magazine Components for P226 Elite
+    Standard: 15 rounds, Extended: 20 rounds
 -->
 <CWeaponComponentInfoBlob>
   <Infos>
     <!-- FMJ MAGAZINE - Standard 15 round -->
     <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_M9_CLIP_FMJ</Name>
+      <Name>COMPONENT_SIGP226ELITE_CLIP_FMJ</Name>
       <Model />
       <LocName>WCT_CLIP_FMJ</LocName>
       <LocDesc>WCD_CLIP_FMJ</LocDesc>
@@ -18,7 +17,7 @@
 
     <!-- HOLLOW POINT MAGAZINE - Standard 15 round -->
     <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_M9_CLIP_HP</Name>
+      <Name>COMPONENT_SIGP226ELITE_CLIP_HP</Name>
       <Model />
       <LocName>WCT_CLIP_HP</LocName>
       <LocDesc>WCD_CLIP_HP</LocDesc>
@@ -28,7 +27,7 @@
 
     <!-- ARMOR PIERCING MAGAZINE - Standard 15 round -->
     <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_M9_CLIP_AP</Name>
+      <Name>COMPONENT_SIGP226ELITE_CLIP_AP</Name>
       <Model />
       <LocName>WCT_CLIP_AP</LocName>
       <LocDesc>WCD_CLIP_AP</LocDesc>
@@ -36,33 +35,33 @@
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
-    <!-- EXTENDED FMJ MAGAZINE - 32 round -->
+    <!-- EXTENDED FMJ MAGAZINE - 20 round -->
     <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_M9_EXTCLIP_FMJ</Name>
+      <Name>COMPONENT_SIGP226ELITE_EXTCLIP_FMJ</Name>
       <Model />
       <LocName>WCT_EXTCLIP_FMJ</LocName>
       <LocDesc>WCD_EXTCLIP_FMJ</LocDesc>
-      <ClipSize value="32" />
+      <ClipSize value="20" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
-    <!-- EXTENDED HOLLOW POINT MAGAZINE - 32 round -->
+    <!-- EXTENDED HOLLOW POINT MAGAZINE - 20 round -->
     <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_M9_EXTCLIP_HP</Name>
+      <Name>COMPONENT_SIGP226ELITE_EXTCLIP_HP</Name>
       <Model />
       <LocName>WCT_EXTCLIP_HP</LocName>
       <LocDesc>WCD_EXTCLIP_HP</LocDesc>
-      <ClipSize value="32" />
+      <ClipSize value="20" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
-    <!-- EXTENDED ARMOR PIERCING MAGAZINE - 32 round -->
+    <!-- EXTENDED ARMOR PIERCING MAGAZINE - 20 round -->
     <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_M9_EXTCLIP_AP</Name>
+      <Name>COMPONENT_SIGP226ELITE_EXTCLIP_AP</Name>
       <Model />
       <LocName>WCT_EXTCLIP_AP</LocName>
       <LocDesc>WCD_EXTCLIP_AP</LocDesc>
-      <ClipSize value="32" />
+      <ClipSize value="20" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
   </Infos>

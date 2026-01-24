@@ -4,8 +4,8 @@
     <Item>
       <WeaponSlots>
         <Item>
-          <OrderNumber value="113" />
-          <Entry>SLOT_G19XD</Entry>
+          <OrderNumber value="111" />
+          <Entry>SLOT_SIGP226ELITE</Entry>
         </Item>
       </WeaponSlots>
     </Item>
@@ -13,8 +13,8 @@
   <SlotBestOrder>
     <WeaponSlots>
       <Item>
-        <OrderNumber value="113" />
-        <Entry>SLOT_G19XD</Entry>
+        <OrderNumber value="111" />
+        <Entry>SLOT_SIGP226ELITE</Entry>
       </Item>
     </WeaponSlots>
   </SlotBestOrder>
@@ -24,10 +24,10 @@
   <AimingInfos />
   <Infos>
     <Item type="CWeaponInfo">
-      <Name>WEAPON_G19XD</Name>
-      <Model>w_pi_g19xd</Model>
+      <Name>WEAPON_SIGP226ELITE</Name>
+      <Model>w_pi_sigp226elite</Model>
       <Audio>AUDIO_ITEM_PISTOL</Audio>
-      <Slot>SLOT_G19XD</Slot>
+      <Slot>SLOT_SIGP226ELITE</Slot>
       <DamageType>BULLET</DamageType>
       <Explosion>
         <Default>DONTCARE</Default>
@@ -43,29 +43,29 @@
       <AmmoInfo ref="AMMO_9MM_FMJ" />
       <AimingInfo ref="PISTOL_ACCURATE" />
 
-      <!-- Glock 19X Deluxe: 27+1 capacity, 4.02" barrel - COMPACT -->
-      <ClipSize value="27" />
+      <!-- P226 Elite: Premium SAO 9mm, 4.4" match barrel, 40 oz all-metal -->
+      <!-- Upgraded with SAO trigger, match-grade barrel, enhanced sights -->
+      <ClipSize value="15" />
 
-      <!-- Accuracy: Slightly less than G17 due to shorter 4.02" barrel, 6.02" sight radius -->
-      <!-- AGGRESSIVE DIFFERENTIATION: Quality+ Tier - Deluxe hybrid -->
-      <AccuracySpread value="1.250000" />
-      <AccurateModeAccuracyModifier value="0.460000" />
-      <RunAndGunAccuracyModifier value="1.900000" />
+      <!-- Accuracy: EXCELLENT - Match-grade barrel, SAO trigger consistency -->
+      <AccuracySpread value="0.950000" />
+      <AccurateModeAccuracyModifier value="0.420000" />
+      <RunAndGunAccuracyModifier value="2.000000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="1.000000" />
-      <RecoilErrorTime value="0.320000" />
-      <RecoilRecoveryRate value="0.920000" />
+      <RecoilAccuracyMax value="0.950000" />
+      <RecoilErrorTime value="0.300000" />
+      <RecoilRecoveryRate value="0.400000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
-      <MaxHeadShotDistanceAI value="42.000000" />
+      <MaxHeadShotDistanceAI value="50.000000" />
       <HeadShotDamageModifierAI value="1.500000" />
-      <RecoilAccuracyToAllowHeadShotPlayer value="0.500000" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.480000" />
       <MinHeadShotDistancePlayer value="0.000000" />
-      <MaxHeadShotDistancePlayer value="7.000000" />
-      <HeadShotDamageModifierPlayer value="2.900000" />
+      <MaxHeadShotDistancePlayer value="8.000000" />
+      <HeadShotDamageModifierPlayer value="3.000000" />
 
-      <!-- Damage: 9mm baseline -->
-      <Damage value="34.000000" />
+      <!-- Damage: 9mm premium performance -->
+      <Damage value="35.500000" />
       <DamageTime value="0.000000" />
       <DamageTimeInVehicle value="0.000000" />
       <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -74,6 +74,7 @@
       <LightlyArmouredDamageModifier value="1.000000" />
       <VehicleDamageModifier value="1.000000" />
 
+      <!-- Force values -->
       <Force value="50.000000" />
       <ForceHitPed value="40.000000" />
       <ForceHitVehicle value="200.000000" />
@@ -89,38 +90,40 @@
       <VerticalLaunchAdjustment value="0.000000" />
       <DropForwardVelocity value="0.000000" />
 
-      <!-- Bullet Speed: 9mm from 4.02" barrel ~340 m/s (1125 fps) -->
-      <Speed value="340.000000" />
+      <!-- Bullet Speed: 4.4" match barrel ~355 m/s -->
+      <Speed value="355.000000" />
 
       <BulletsInBatch value="1" />
       <BatchSpread value="0.000000" />
       <ReloadTimeMP value="-1.000000" />
       <ReloadTimeSP value="-1.000000" />
       <VehicleReloadTime value="0.000000" />
-      <AnimReloadRate value="1.050000" />
+      <AnimReloadRate value="1.000000" />
       <BulletsPerAnimLoop value="1" />
 
-      <!-- Fire Rate: Same as G17, 6.29 lb trigger -->
-      <TimeBetweenShots value="0.170000" />
+      <!-- Fire Rate: SAO trigger = FASTER, more consistent (~4 lb pull) -->
+      <TimeBetweenShots value="0.145000" />
 
-      <!-- Damage Falloff: Slightly reduced range due to shorter barrel -->
-      <DamageFallOffRangeMin value="16.000000" />
-      <DamageFallOffRangeMax value="50.000000" />
+      <!-- Damage Falloff: Excellent range from match barrel -->
+      <DamageFallOffRangeMin value="18.000000" />
+      <DamageFallOffRangeMax value="58.000000" />
       <DamageFallOffModifier value="0.380000" />
       <NetworkPlayerDamageModifier value="1.000000" />
       <NetworkPedDamageModifier value="1.000000" />
       <NetworkHeadShotPlayerDamageModifier value="1.000000" />
       <LockonRange value="100.000000" />
 
+      <!-- Weapon Range -->
       <WeaponRange value="110.000000" />
       <BulletDirectionOffsetInDegrees value="0.000000" />
-      <AiSoundRange value="110.000000" />
+      <AiSoundRange value="120.000000" />
       <AiPotentialBlastEventRange value="-1.000000" />
       <DamageByCategoryModifiers />
       <GunShotNormalRumbleProfile>LIGHT_GUNSHOT_PLAYER</GunShotNormalRumbleProfile>
       <ExplosionRumbleProfile>LIGHT_EXPLOSION</ExplosionRumbleProfile>
       <GunShotSlowMoRumbleProfile>SLOW_MO_GUNSHOT_PLAYER</GunShotSlowMoRumbleProfile>
 
+      <!-- Camera and Aiming -->
       <FirstPersonScopeOffset x="0.000000" y="0.000000" z="0.000000" />
       <FirstPersonScopeAttachmentOffset x="0.000000" y="0.000000" z="0.000000" />
       <FirstPersonScopeRotationOffset x="0.000000" y="0.000000" z="0.000000" />
@@ -158,30 +161,30 @@
         <GroundDisturbFxAltFP />
       </Fx>
 
-      <!-- Recoil: Slightly more than G17 due to lighter weight (600g vs 625g) -->
+      <AimCameraHash>DEFAULT_PISTOL_CAMERA</AimCameraHash>
+      <FirstPersonAimCameraHash>DEFAULT_FIRST_PERSON_PISTOL_CAMERA</FirstPersonAimCameraHash>
+
+      <!-- Recoil: REDUCED - Heavy metal frame + SAO trigger consistency -->
       <RecoilShakeHash>PISTOL_RECOIL_SHAKE</RecoilShakeHash>
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="80" />
-      <RecoilShakeAmplitude value="0.160000" />
+      <RecoilShakeAmplitude value="0.145000" />
       <ExplosionShakeAmplitude value="-1.000000" />
       <IkRecoilDisplacement value="0.000000" />
       <IkRecoilDisplacementScope value="0.000000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
-      <IkRecoilDisplacementScaleVertical value="0.360000" />
+      <IkRecoilDisplacementScaleVertical value="0.300000" />
 
-      <CameraHash>DEFAULT_PISTOL_CAMERA</CameraHash>
-      <FirstPersonCameraHash>DEFAULT_FIRST_PERSON_PISTOL_CAMERA</FirstPersonCameraHash>
-      <CoverCameraHash>YOURFORYOU_COVER_CAMERA</CoverCameraHash>
-      <RunAndGunCameraHash>DEFAULT_RUN_AND_GUN_CAMERA</RunAndGunCameraHash>
-
+      <!-- Reticle -->
       <ReticuleHudPosition x="0.000000" y="0.000000" />
       <ReticuleHudPositionOffsetForPOVTurret x="0.000000" y="0.000000" />
 
-      <AimOffsetMin x="0.200000" y="0.100000" z="0.600000" />
-      <AimProbeLengthMin value="0.350000" />
-      <AimOffsetMax x="0.175000" y="-0.200000" z="0.500000" />
-      <AimProbeLengthMax value="0.300000" />
+      <!-- Aim Offsets -->
+      <AimOffsetMin x="0.215000" y="0.100000" z="0.600000" />
+      <AimProbeLengthMin value="0.425000" />
+      <AimOffsetMax x="0.165000" y="-0.225000" z="0.475000" />
+      <AimProbeLengthMax value="0.335000" />
       <AimOffsetMinFPSIdle x="0.178000" y="0.392000" z="0.135000" />
       <AimOffsetMedFPSIdle x="0.169000" y="0.312000" z="0.420000" />
       <AimOffsetMaxFPSIdle x="0.187000" y="0.064000" z="0.649000" />
@@ -206,34 +209,47 @@
       <TorsoCrouchedAimOffset x="0.200000" y="0.050000" />
       <LeftHandIkOffset x="0.000000" y="0.000000" z="0.000000" />
 
-      <ReticuleMinSizeStanding value="0.620000" />
-      <ReticuleMinSizeCrouched value="0.520000" />
-      <ReticuleScale value="0.290000" />
+      <ReticuleMinSizeStanding value="0.550000" />
+      <ReticuleMinSizeCrouched value="0.450000" />
+      <ReticuleScale value="0.260000" />
       <ReticuleStyleHash>WEAPON_PISTOL</ReticuleStyleHash>
       <FirstPersonReticuleStyleHash />
       <PickupHash>PICKUP_WEAPON_COMBATPISTOL</PickupHash>
       <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
-      <HumanNameHash>WEAPON_G19XD</HumanNameHash>
+      <HumanNameHash>WEAPON_SIGP226ELITE</HumanNameHash>
       <MovementModeConditionalIdle>MMI_1Handed</MovementModeConditionalIdle>
-      <StatName>G19XD</StatName>
+      <StatName>SIGP226ELITE</StatName>
       <KnockdownCount value="3" />
       <KillshotImpulseScale value="1.000000" />
       <NmShotTuningSet>Normal</NmShotTuningSet>
 
+      <!-- Attach Points: Magazine components -->
       <AttachPoints>
         <Item>
           <AttachBone>WAPClip</AttachBone>
           <Components>
             <Item>
-              <Name>COMPONENT_G19XD_CLIP_FMJ</Name>
+              <Name>COMPONENT_SIGP226ELITE_CLIP_FMJ</Name>
               <Default value="true" />
             </Item>
             <Item>
-              <Name>COMPONENT_G19XD_CLIP_HP</Name>
+              <Name>COMPONENT_SIGP226ELITE_CLIP_HP</Name>
               <Default value="false" />
             </Item>
             <Item>
-              <Name>COMPONENT_G19XD_CLIP_AP</Name>
+              <Name>COMPONENT_SIGP226ELITE_CLIP_AP</Name>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <Name>COMPONENT_SIGP226ELITE_EXTCLIP_FMJ</Name>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <Name>COMPONENT_SIGP226ELITE_EXTCLIP_HP</Name>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <Name>COMPONENT_SIGP226ELITE_EXTCLIP_AP</Name>
               <Default value="false" />
             </Item>
           </Components>
@@ -258,11 +274,12 @@
       <ExpandPedCapsuleRadius value="0.000000" />
       <AudioCollisionHash />
 
-      <HudDamage value="35" />
-      <HudSpeed value="55" />
+      <!-- HUD Stats: Premium performance across the board -->
+      <HudDamage value="36" />
+      <HudSpeed value="58" />
       <HudCapacity value="30" />
-      <HudAccuracy value="55" />
-      <HudRange value="30" />
+      <HudAccuracy value="68" />
+      <HudRange value="40" />
       <VehicleAttackAngle value="25.000000" />
       <TorsoIKAngleLimit value="-1.000000" />
       <MeleeRightFistTargetHealthDamageScaler value="-1.000000" />
@@ -283,5 +300,5 @@
   </Infos>
   <VehicleWeaponInfos />
   <WeaponGroupDamageForArmouredVehicleGlass />
-  <Name>Glock 19X Deluxe</Name>
+  <Name>P226 Elite</Name>
 </CWeaponInfoBlob>

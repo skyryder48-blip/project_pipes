@@ -24,12 +24,9 @@
   <AimingInfos />
   <Infos>
     <Item>
-      <Infos />
-    </Item>
-    <Item>
       <Infos>
         <Item type="CWeaponInfo">
-          <n>WEAPON_G45_TAN</n>
+          <Name>WEAPON_G45_TAN</Name>
           <Model>w_pi_g45_tan</Model>
           <Audio>AUDIO_ITEM_PISTOL</Audio>
           <Slot>SLOT_G45_TAN</Slot>
@@ -47,10 +44,10 @@
           <Group>GROUP_PISTOL</Group>
           <AmmoInfo ref="AMMO_9MM_FMJ" />
           <AimingInfo ref="PISTOL_ACCURATE" />
-          
+
           <!-- Glock 45 Tan: 15+1 capacity, 4.02" barrel - COMPACT -->
           <ClipSize value="17" />
-          
+
           <!-- Accuracy: Slightly less than G17 due to shorter 4.02" barrel, 6.02" sight radius -->
           <AccuracySpread value="1.550000" />
           <AccurateModeAccuracyModifier value="0.520000" />
@@ -67,7 +64,7 @@
           <MinHeadShotDistancePlayer value="0.000000" />
           <MaxHeadShotDistancePlayer value="7.000000" />
           <HeadShotDamageModifierPlayer value="2.900000" />
-          
+
           <!-- Damage: 9mm baseline -->
           <Damage value="34.000000" />
           <DamageTime value="0.000000" />
@@ -77,7 +74,7 @@
           <NetworkHitLimbsDamageModifier value="0.800000" />
           <LightlyArmouredDamageModifier value="1.000000" />
           <VehicleDamageModifier value="1.000000" />
-          
+
           <Force value="50.000000" />
           <ForceHitPed value="40.000000" />
           <ForceHitVehicle value="200.000000" />
@@ -92,10 +89,10 @@
           <Penetration value="0.150000" />
           <VerticalLaunchAdjustment value="0.000000" />
           <DropForwardVelocity value="0.000000" />
-          
+
           <!-- Bullet Speed: 9mm from 4.02" barrel ~340 m/s (1125 fps) -->
           <Speed value="340.000000" />
-          
+
           <BulletsInBatch value="1" />
           <BatchSpread value="0.000000" />
           <ReloadTimeMP value="-1.000000" />
@@ -103,10 +100,10 @@
           <VehicleReloadTime value="0.000000" />
           <AnimReloadRate value="1.050000" />
           <BulletsPerAnimLoop value="1" />
-          
+
           <!-- Fire Rate: Same as G17, 6.29 lb trigger -->
           <TimeBetweenShots value="0.158000" />
-          
+
           <!-- Damage Falloff: Slightly reduced range due to shorter barrel -->
           <DamageFallOffRangeMin value="16.000000" />
           <DamageFallOffRangeMax value="50.000000" />
@@ -115,7 +112,7 @@
           <NetworkPedDamageModifier value="1.000000" />
           <NetworkHeadShotPlayerDamageModifier value="1.000000" />
           <LockonRange value="100.000000" />
-          
+
           <WeaponRange value="110.000000" />
           <BulletDirectionOffsetInDegrees value="0.000000" />
           <AiSoundRange value="110.000000" />
@@ -124,7 +121,18 @@
           <GunShotNormalRumbleProfile>LIGHT_GUNSHOT_PLAYER</GunShotNormalRumbleProfile>
           <ExplosionRumbleProfile>LIGHT_EXPLOSION</ExplosionRumbleProfile>
           <GunShotSlowMoRumbleProfile>SLOW_MO_GUNSHOT_PLAYER</GunShotSlowMoRumbleProfile>
-          
+
+          <DefaultCameraHash>DEFAULT_THIRD_PERSON_PED_AIM_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_THIRD_PERSON_PED_AIM_IN_COVER_CAMERA</CoverCameraHash>
+          <CoverReadyToFireCameraHash />
+          <RunAndGunCameraHash>DEFAULT_THIRD_PERSON_PED_RUN_AND_GUN_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash>DEFAULT_THIRD_PERSON_PED_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+          <AlternativeOrScopedCameraHash />
+          <RunAndGunAlternativeOrScopedCameraHash />
+          <CinematicShootingAlternativeOrScopedCameraHash />
+          <CameraFov value="45.000000" />
+          <FirstPersonScopeFov value="30.000000" />
+
           <FirstPersonScopeOffset x="0.000000" y="0.000000" z="0.000000" />
           <FirstPersonScopeAttachmentOffset x="0.000000" y="0.000000" z="0.000000" />
           <FirstPersonScopeRotationOffset x="0.000000" y="0.000000" z="0.000000" />
@@ -138,7 +146,30 @@
           <FirstPersonDofMaxNearInFocusDistance value="0.000000" />
           <FirstPersonDofMaxNearInFocusDistanceBlendLevel value="0.300000" />
           <ZoomFactorForAccurateMode value="1.300000" />
-          
+
+          <Fx>
+            <FlashFx>muz_pistol_fp</FlashFx>
+            <FlashFxAlt>muz_pistol</FlashFxAlt>
+            <FlashFxFP />
+            <FlashFxAltFP />
+            <SmokeFx />
+            <SmokeFxFP />
+            <SmokeFxIsBeingUsed value="false" />
+            <TracerFx>proj_tracer_youforyou</TracerFx>
+            <TracerFxFP />
+            <ShellFx>eject_pistol</ShellFx>
+            <ShellFxFP />
+            <MuzzleSmokeFx>muz_pistol_smoke</MuzzleSmokeFx>
+            <MuzzleSmokeFxFP />
+            <MuzzleSmokeFxMinLevel value="0.200000" />
+            <MuzzleSmokeFxIncPerShot value="0.050000" />
+            <MuzzleSmokeFxDecPerSec value="0.300000" />
+            <GroundDisturbFx />
+            <GroundDisturbFxAlt />
+            <GroundDisturbFxFP />
+            <GroundDisturbFxAltFP />
+          </Fx>
+
           <!-- Recoil: Slightly more than G17 due to lighter weight (600g vs 625g) -->
           <RecoilShakeHash>PISTOL_RECOIL_SHAKE</RecoilShakeHash>
           <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
@@ -150,10 +181,10 @@
           <IkRecoilDisplacementScope value="0.000000" />
           <IkRecoilDisplacementScaleBackward value="1.000000" />
           <IkRecoilDisplacementScaleVertical value="0.380000" />
-          
+
           <ReticuleHudPosition x="0.000000" y="0.000000" />
           <ReticuleHudPositionOffsetForPOVTurret x="0.000000" y="0.000000" />
-          
+
           <AimOffsetMin x="0.200000" y="0.100000" z="0.600000" />
           <AimProbeLengthMin value="0.350000" />
           <AimOffsetMax x="0.175000" y="-0.200000" z="0.500000" />
@@ -181,41 +212,41 @@
           <TorsoAimOffset x="-1.300000" y="0.550000" />
           <TorsoCrouchedAimOffset x="0.200000" y="0.050000" />
           <LeftHandIkOffset x="0.000000" y="0.000000" z="0.000000" />
-          
+
           <ReticuleMinSizeStanding value="0.620000" />
           <ReticuleMinSizeCrouched value="0.520000" />
           <ReticuleScale value="0.290000" />
           <ReticuleStyleHash>WEAPON_PISTOL</ReticuleStyleHash>
           <FirstPersonReticuleStyleHash />
-          <PickupHash>PICKUP_WEAPON_G45_TAN_TANX</PickupHash>
+          <PickupHash>PICKUP_WEAPON_COMBATPISTOL</PickupHash>
           <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
-          <HumanNameHash>WT_G45_TAN</HumanNameHash>
+          <HumanNameHash>WEAPON_G45_TAN</HumanNameHash>
           <MovementModeConditionalIdle>MMI_1Handed</MovementModeConditionalIdle>
           <StatName>G45_TAN</StatName>
           <KnockdownCount value="3" />
           <KillshotImpulseScale value="1.000000" />
-          <NmShotTuningSet>normal</NmShotTuningSet>
-          
+          <NmShotTuningSet>Normal</NmShotTuningSet>
+
           <AttachPoints>
             <Item>
               <AttachBone>WAPClip</AttachBone>
               <Components>
                 <Item>
-                  <n>COMPONENT_G45_TAN_CLIP_FMJ</n>
+                  <Name>COMPONENT_G45_TAN_CLIP_FMJ</Name>
                   <Default value="true" />
                 </Item>
                 <Item>
-                  <n>COMPONENT_G45_TAN_CLIP_HP</n>
+                  <Name>COMPONENT_G45_TAN_CLIP_HP</Name>
                   <Default value="false" />
                 </Item>
                 <Item>
-                  <n>COMPONENT_G45_TAN_CLIP_AP</n>
+                  <Name>COMPONENT_G45_TAN_CLIP_AP</Name>
                   <Default value="false" />
                 </Item>
               </Components>
             </Item>
           </AttachPoints>
-          
+
           <GunFeedBone />
           <TargetSequenceGroup>Pistol</TargetSequenceGroup>
           <WeaponFlags>CarriedInHand Gun CanLockonOnFoot CanLockonInVehicle CanFreeAim AnimReload AnimCrouchFire UsableOnFoot UsableClimbing UsableInCover AllowCloseQuarterKills HasLowCoverReloads HasLowCoverSwaps QuitTransitionToIdleIntroOnWeaponChange DisableLeftHandIkWhenOnFoot TorsoIKForWeaponBlock UseFPSAimIK UseFPSSecondaryMotion</WeaponFlags>
@@ -233,7 +264,7 @@
           <StealthFiringLeanAdditiveWeight value="1.000000" />
           <ExpandPedCapsuleRadius value="0.000000" />
           <AudioCollisionHash />
-          
+
           <HudDamage value="35" />
           <HudSpeed value="55" />
           <HudCapacity value="30" />
@@ -258,14 +289,8 @@
         </Item>
       </Infos>
     </Item>
-    <Item>
-      <Infos />
-    </Item>
-    <Item>
-      <Infos />
-    </Item>
   </Infos>
   <VehicleWeaponInfos />
   <WeaponGroupDamageForArmouredVehicleGlass />
-  <n>Glock 45 Tan</n>
+  <Name>Glock 45 Tan</Name>
 </CWeaponInfoBlob>

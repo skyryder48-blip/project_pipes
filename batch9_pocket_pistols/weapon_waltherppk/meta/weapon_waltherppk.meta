@@ -3,7 +3,7 @@
     WALTHER PPK (.380 ACP)
     ======================
     Cinema's most iconic concealment pistol - "delivery like a brick through plate glass"
-    
+
     Real-World Specs:
     - Barrel: 3.3"
     - Weight: 19 oz empty
@@ -13,100 +13,304 @@
     - DA/SA Trigger: 13.4 lb DA, 6.1 lb SA
     - Production: 1931-present
     - MSRP: $969 (current Fort Smith)
-    
+
     Ballistic Notes:
     - .380 ACP = minimum recommended defensive caliber
     - ~60% of 9mm energy
     - FBI gel: 13-14" penetration with quality JHP
     - Straight blowback = more felt recoil than locked breech
     - Notorious for slide bite on older models
-    
-    Game Balance:
-    - Damage: 20 (60% of 9mm baseline)
-    - 5 shots close, 10 at range
-    - Heavy first DA pull reflected in accuracy
-    - Higher recoil than P238 (blowback vs locked breech)
+
+    QUALITY- TIER: Iconic but outclassed by modern designs
+    - Heavy DA first pull hurts first-shot accuracy
+    - Straight blowback = more recoil than P238
+    - Higher damage than P238 due to longer barrel
 -->
 <CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="101" />
+          <Entry>SLOT_WALTHERPPK</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="101" />
+        <Entry>SLOT_WALTHERPPK</Entry>
+      </Item>
+    </WeaponSlots>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
   <Infos>
-    <Item type="CWeaponInfo">
-      <n>WEAPON_WALTHERPPK</n>
-      <Model>w_pi_waltherppk</Model>
-      <Audio>AUDIO_PISTOL</Audio>
-      <Slot>SLOT_UNARMED</Slot>
-      <DamageType>BULLET</DamageType>
-      <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>WHEEL_PISTOL</WheelSlot>
-      <Group>GROUP_PISTOL</Group>
-      <MovementModeConditionalIdle>1</MovementModeConditionalIdle>
-      <AmmoInfo ref="AMMO_PISTOL" />
-      <AimingInfo ref="AI_PISTOL_AIMINGINFO" />
-      <ClipSize value="7" />
-      <AccuracySpread value="1.40" />
-      <AccurateModeAccuracyModifier value="0.40" />
-      <RunAndGunAccuracyModifier value="0.60" />
-      
-      <!-- DAMAGE: .380 ACP = ~190 ft-lbs = 60% of 9mm -->
-      <!-- 20 damage = 5 body shots close, 10 at range -->
-      <Damage value="20.000000" />
-      <DamageType>BULLET</DamageType>
-      <DamageFallOffRangeMin value="8.000000" />
-      <DamageFallOffRangeMax value="35.000000" />
-      <DamageFallOffModifier value="0.500000" />
-      
-      <!-- HEADSHOTS: 1 shot point blank, 2 from 5+ units -->
-      <!-- 20 × 5.5 = 110 damage -->
-      <HeadShotDamageModifierPlayer value="5.500000" />
-      <HeadShotDamageModifierAI value="7.000000" />
-      <MinHeadShotDistancePlayer value="0.000000" />
-      <MaxHeadShotDistancePlayer value="5.000000" />
-      
-      <!-- LIMB DAMAGE -->
-      <HitLimbsDamageModifier value="0.500000" />
-      <NetworkHitLimbsDamageModifier value="0.800000" />
-      <NetworkPlayerDamageModifier value="1.000000" />
-      <NetworkPedDamageModifier value="1.000000" />
-      
-      <!-- VELOCITY: ~290 m/s from 3.3" barrel -->
-      <Speed value="290.000000" />
-      <BulletsInBatch value="1" />
-      <BatchSpread value="0.000000" />
-      <WeaponRange value="70.000000" />
-      
-      <!-- FIRE RATE: DA/SA, ~160 RPM practical -->
-      <!-- Heavy DA pull (13.4 lb) limits rapid accurate fire -->
-      <TimeBetweenShots value="0.375000" />
-      <ForceShootOnGround value="false" />
-      <BulletInPeriod value="1" />
-      
-      <!-- RECOIL: Moderate - straight blowback at 19 oz -->
-      <!-- More felt recoil than heavier or locked-breech guns -->
-      <RecoilShakeAmplitude value="0.180000" />
-      <RecoilShakeFrequency value="0.000000" />
-      <RecoilShakeRumbleDuration value="350.000000" />
-      <RecoilErrorTime value="0.200000" />
-      <RecoilRecoveryTime value="0.150000" />
-      <RecoilAccuracyMax value="1.500000" />
-      <RecoilMagnitude value="0.200000" />
-      <RecoilRecoveryRate value="1.200000" />
-      <RecoilEnduranceTime value="0.500000" />
-      
-      <!-- PENETRATION: Low - .380 ACP marginal penetration -->
-      <Penetration value="0.100000" />
-      <ArmorPenetration value="0.100000" />
-      
-      <!-- PHYSICS FORCE -->
-      <Force value="35.000000" />
-      <ForceHitPed value="25.000000" />
-      <ForceOnPlayer value="20.000000" />
-      <ForceMaxStrengthMult value="1.000000" />
-      <ForceFalloffRangeStart value="5.000000" />
-      <ForceFalloffRangeEnd value="30.000000" />
-      <ForceFalloffMin value="0.500000" />
-      
-      <!-- HANDLING -->
-      <AnimStyle>Pistol</AnimStyle>
-      <HumanNameHash>WT_WALTHERPPK</HumanNameHash>
+    <Item>
+      <Infos />
+    </Item>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+          <!-- IDENTIFICATION -->
+          <Name>WEAPON_WALTHERPPK</Name>
+          <Model>w_pi_waltherppk</Model>
+          <Audio>AUDIO_ITEM_SNSPISTOL</Audio>
+          <Slot>SLOT_WALTHERPPK</Slot>
+
+          <!-- DAMAGE CONFIGURATION -->
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+
+          <!-- FIRE TYPE AND CLASSIFICATION -->
+          <FireType>INSTANT_HIT</FireType>
+          <WheelSlot>WHEEL_PISTOL</WheelSlot>
+          <Group>GROUP_PISTOL</Group>
+
+          <!-- REFERENCES -->
+          <AmmoInfo ref="AMMO_PISTOL" />
+          <AimingInfo ref="AI_PISTOL_AIMINGINFO" />
+          <ClipSize value="7" />
+
+          <!-- ACCURACY PARAMETERS -->
+          <!-- QUALITY- TIER: DA/SA with heavy first pull hurts accuracy -->
+          <!-- 3.3" barrel, short sight radius, blowback design -->
+          <AccuracySpread value="1.800000" />
+          <AccurateModeAccuracyModifier value="0.400000" />
+          <RunAndGunAccuracyModifier value="2.200000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+
+          <!-- RECOIL PARAMETERS -->
+          <!-- Straight blowback = more felt recoil than locked-breech -->
+          <!-- DA/SA: Heavy 13.4 lb DA, light 6.1 lb SA -->
+          <RecoilAccuracyMax value="1.800000" />
+          <RecoilErrorTime value="0.280000" />
+          <RecoilRecoveryRate value="0.800000" />
+          <RecoilAccuracyToAllowHeadShotAI value="0.700000" />
+          <MinHeadShotDistanceAI value="1.200000" />
+          <MaxHeadShotDistanceAI value="30.000000" />
+          <HeadShotDamageModifierAI value="1.500000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.700000" />
+          <MinHeadShotDistancePlayer value="1.200000" />
+          <MaxHeadShotDistancePlayer value="5.000000" />
+          <!-- Moderate headshot multiplier - decent caliber -->
+          <HeadShotDamageModifierPlayer value="5.500000" />
+
+          <!-- DAMAGE PARAMETERS -->
+          <!-- .380 ACP 90gr @ 880-950 fps from 3.3" = ~190 ft-lbs -->
+          <!-- 60% of 9mm energy = 60% of ~34 damage baseline -->
+          <Damage value="20.000000" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <HitLimbsDamageModifier value="0.750000" />
+          <NetworkHitLimbsDamageModifier value="0.850000" />
+          <LightlyArmouredDamageModifier value="1.000000" />
+
+          <!-- FORCE PARAMETERS -->
+          <!-- .380 ACP has moderate stopping power -->
+          <Force value="65.000000" />
+          <ForceHitPed value="35.000000" />
+          <ForceHitVehicle value="65.000000" />
+          <ForceHitFlyingHeli value="280.000000" />
+          <OverrideForces />
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="8.000000" />
+          <ForceFalloffRangeEnd value="30.000000" />
+          <ForceFalloffMin value="0.350000" />
+
+          <!-- PROJECTILE SETTINGS -->
+          <ProjectileForce value="0.000000" />
+          <FragImpulse value="32.000000" />
+          <!-- Low penetration - .380 ACP marginal penetration -->
+          <Penetration value="0.100000" />
+          <VerticalLaunchAdjustment value="0.000000" />
+          <DropForwardVelocity value="0.000000" />
+          <!-- .380 ACP velocity: ~285 m/s from 3.3" barrel -->
+          <Speed value="285.000000" />
+
+          <!-- BATCH SETTINGS -->
+          <BulletsInBatch value="1" />
+          <BatchSpread value="0.000000" />
+
+          <!-- RELOAD PARAMETERS -->
+          <!-- Small 7-round magazine -->
+          <ReloadTimeMP value="-1.000000" />
+          <ReloadTimeSP value="-1.000000" />
+          <VehicleReloadTime value="0.000000" />
+          <AnimReloadRate value="1.000000" />
+          <BulletsPerAnimLoop value="7" />
+
+          <!-- FIRE RATE -->
+          <!-- DA/SA: Heavy first pull limits rapid fire -->
+          <!-- ~160 RPM practical due to heavy DA -->
+          <TimeBetweenShots value="0.375000" />
+          <TimeLeftBetweenShotsWhereShouldFireIsCached value="0.100000" />
+          <SpinUpTime value="0.000000" />
+          <SpinTime value="0.000000" />
+          <SpinDownTime value="0.000000" />
+          <AlternateWaitTime value="-1.000000" />
+
+          <!-- BULLET BENDING -->
+          <BulletBendingNearRadius value="0.500000" />
+          <BulletBendingFarRadius value="2.000000" />
+          <BulletBendingZoomedRadius value="3.000000" />
+
+          <!-- EFFECTS -->
+          <!-- Moderate muzzle flash for .380 ACP -->
+          <Fx>
+            <EffectGroup />
+            <FlashFx>muz_pistol</FlashFx>
+            <FlashFxAlt />
+            <ShellFx>eject_pistol</ShellFx>
+            <TracerFx>bullet_tracer_small</TracerFx>
+            <PedDamageHash>BulletSmall</PedDamageHash>
+            <TracerFxChanceSP value="1.000000" />
+            <TracerFxChanceMP value="0.500000" />
+            <FlashFxChanceSP value="1.000000" />
+            <FlashFxChanceMP value="1.000000" />
+            <FlashFxAltChance value="0.000000" />
+            <FlashFxScale value="0.600000" />
+            <GroundDisturbFxNameDefault />
+            <GroundDisturbFxNameSand />
+            <GroundDisturbFxNameWater />
+          </Fx>
+
+          <!-- RUMBLE/HAPTICS -->
+          <!-- Moderate - straight blowback at 19 oz -->
+          <InitialRumbleDuration value="85" />
+          <InitialRumbleIntensity value="0.180000" />
+          <RumbleDuration value="85" />
+          <RumbleIntensity value="0.180000" />
+          <RumbleDamageIntensity value="1.000000" />
+
+          <!-- NETWORK MODIFIERS -->
+          <NetworkPlayerDamageModifier value="0.850000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          <NetworkHeadShotPlayerDamageModifier value="5.500000" />
+
+          <!-- RANGE PARAMETERS -->
+          <!-- .380 ACP effective ~30 yards from short barrel -->
+          <LockOnRange value="55.000000" />
+          <WeaponRange value="70.000000" />
+          <BulletDirectionOffsetInDegrees value="0.000000" />
+          <AiSoundRange value="75.000000" />
+          <AiPotentialBlastEventRange value="0.000000" />
+
+          <!-- DAMAGE FALLOFF -->
+          <!-- .380 ACP loses energy faster than 9mm -->
+          <!-- Full damage to 8m, drops to 50% at 35m -->
+          <DamageFallOffRangeMin value="8.000000" />
+          <DamageFallOffRangeMax value="35.000000" />
+          <DamageFallOffModifier value="0.500000" />
+
+          <!-- CAMERA SETTINGS -->
+          <VehicleWeaponHash />
+          <DefaultCameraHash>DEFAULT_PISTOL_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_PISTOL_COVER_CAMERA</CoverCameraHash>
+          <CoverReadyToFireCameraHash>DEFAULT_PISTOL_COVER_CAMERA</CoverReadyToFireCameraHash>
+          <RunAndGunCameraHash>DEFAULT_RUN_AND_GUN_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash />
+          <AlternativeOrScopedCameraHash>DEFAULT_PISTOL_FIRST_PERSON_CAMERA</AlternativeOrScopedCameraHash>
+          <CameraFov value="0.000000" />
+
+          <!-- FIRST PERSON OFFSETS -->
+          <FirstPersonScopeOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeAttachmentOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeRotationOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonScopeAttachmentRotationOffset x="0.000000" y="0.000000" z="0.000000" />
+          <FirstPersonAsThirdPersonIdleOffset x="0.075000" y="0.000000" z="0.000000" />
+          <FirstPersonAsThirdPersonRNGOffset x="0.000000" y="0.000000" z="0.020000" />
+          <FirstPersonAsThirdPersonLTOffset x="0.050000" y="0.000000" z="0.010000" />
+          <FirstPersonAsThirdPersonScopeOffset x="0.070000" y="0.000000" z="0.000000" />
+          <FirstPersonAsThirdPersonWeaponBlockedOffset x="0.000000" y="0.000000" z="0.000000" />
+          <ZoomFactorForAccurateMode value="1.000000" />
+
+          <!-- RECOIL SHAKE -->
+          <!-- QUALITY-: Straight blowback = more muzzle rise -->
+          <RecoilShakeHash>RECOIL_PISTOL</RecoilShakeHash>
+          <RecoilShakeHashFirstPerson>RECOIL_PISTOL</RecoilShakeHashFirstPerson>
+          <AccuracyOffsetShakeHash>ACCURACY_OFFSET_PISTOL</AccuracyOffsetShakeHash>
+          <MinTimeBetweenRecoilShakes value="75" />
+          <RecoilShakeAmplitude value="0.200000" />
+          <ExplosionShakeAmplitude value="0.000000" />
+
+          <!-- IK RECOIL - Higher due to straight blowback design -->
+          <IkRecoilDisplacementScaleVertical value="0.380000" />
+
+          <!-- AIM OFFSETS -->
+          <AimOffsetMin x="0.200000" y="0.100000" z="0.600000" />
+          <AimProbeLengthMin value="0.300000" />
+          <AimOffsetMax x="0.175000" y="-0.200000" z="0.500000" />
+          <AimProbeLengthMax value="0.275000" />
+          <TorsoAimOffset x="0.000000" y="0.000000" z="0.000000" />
+          <TorsoCrouchedAimOffset x="0.000000" y="0.000000" z="0.000000" />
+          <LeftHandIkOffset x="0.000000" y="0.000000" z="0.000000" />
+
+          <!-- RETICULE SETTINGS -->
+          <ReticuleMinSizeStanding value="0.018000" />
+          <ReticuleMinSizeCrouched value="0.014000" />
+          <ReticuleScale value="0.320000" />
+          <ReticuleStyleHash>RETICULE_PISTOL</ReticuleStyleHash>
+          <FirstPersonReticuleStyleHash />
+
+          <!-- IDENTIFICATION HASHES -->
+          <PickupHash>PICKUP_WEAPON_WALTHERPPK</PickupHash>
+          <MPPickupHash>PICKUP_WEAPON_WALTHERPPK</MPPickupHash>
+          <HumanNameHash>WT_WALTHERPPK</HumanNameHash>
+          <MovementModeConditionalIdle />
+          <WeaponTypeSet>Small</WeaponTypeSet>
+          <WeaponWheelSlot>Pistol</WeaponWheelSlot>
+          <StatName>PISTOL_STAT</StatName>
+
+          <!-- PHYSICS -->
+          <KnockdownCount value="0" />
+          <KillshotImpulseScale value="0.650000" />
+          <NmShotTuningSet>StandardPistol</NmShotTuningSet>
+
+          <!-- ATTACHMENT POINTS -->
+          <AttachPoints>
+            <Item>
+              <AttachBone>WAPClip</AttachBone>
+              <Components>
+                <Item>
+                  <Name>COMPONENT_WALTHERPPK_CLIP_FMJ</Name>
+                  <Default value="true" />
+                </Item>
+                <Item>
+                  <Name>COMPONENT_WALTHERPPK_CLIP_HP</Name>
+                  <Default value="false" />
+                </Item>
+                <Item>
+                  <Name>COMPONENT_WALTHERPPK_CLIP_AP</Name>
+                  <Default value="false" />
+                </Item>
+              </Components>
+            </Item>
+          </AttachPoints>
+
+          <!-- WEAPON FLAGS -->
+          <WeaponFlags>CanBeUsedWithSameMoveClipSet Gun CanLockonOnFoot CanLockonInVehicle CanFreeAim CarriedByPlayer HoldBothHandsInCover AnimReload AnimCrouchFire UsableOnFoot UsableInCover UsableClimbing AllowCloseQuarterKills HasLowCoverReloads HasLowCoverSwaps UseFPSAimIK UseFPSSecondaryMotion TorsoIKForWeaponBlock CenterLeftHandIk Thrown</WeaponFlags>
+
+          <!-- HUD DISPLAY VALUES -->
+          <HudDamage value="20.000000" />
+          <HudSpeed value="52.000000" />
+          <HudCapacity value="7.000000" />
+          <HudAccuracy value="45.000000" />
+          <HudRange value="35.000000" />
+        </Item>
+      </Infos>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

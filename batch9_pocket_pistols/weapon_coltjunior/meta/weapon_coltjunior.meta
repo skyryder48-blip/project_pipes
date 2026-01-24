@@ -54,7 +54,7 @@
     <Item>
       <Infos>
         <Item type="CWeaponInfo">
-          <n>WEAPON_COLTJUNIOR</n>
+          <Name>WEAPON_COLTJUNIOR</Name>
           <Model>w_pi_coltjunior</Model>
           <Audio>AUDIO_ITEM_SNSPISTOL</Audio>
           <Slot>SLOT_COLTJUNIOR</Slot>
@@ -76,8 +76,9 @@
           <!-- Colt Junior: 6+1 capacity -->
           <ClipSize value="7" />
 
-          <!-- Accuracy: Very poor due to tiny 2.25" barrel and minimal sights -->
-          <AccuracySpread value="2.200000" />
+          <!-- Accuracy: WORST IN CLASS - tiny 2.25" barrel, vestigial sights -->
+          <!-- BOTTOM TIER: Emergency backup only - inaccurate beyond arm's length -->
+          <AccuracySpread value="3.500000" />
           <AccurateModeAccuracyModifier value="0.350000" />
           <RunAndGunAccuracyModifier value="2.500000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
@@ -175,6 +176,27 @@
           <MinTimeBetweenRecoilShakes value="80" />
           <RecoilShakeAmplitude value="0.030000" />
           <ExplosionShakeAmplitude value="-1.000000" />
+
+          <!-- EFFECTS -->
+          <!-- Tiny muzzle flash - .25 ACP minimal powder charge -->
+          <Fx>
+            <EffectGroup />
+            <FlashFx>muz_pistol</FlashFx>
+            <FlashFxAlt />
+            <ShellFx>eject_pistol</ShellFx>
+            <TracerFx>bullet_tracer_small</TracerFx>
+            <PedDamageHash>BulletSmall</PedDamageHash>
+            <TracerFxChanceSP value="1.000000" />
+            <TracerFxChanceMP value="0.500000" />
+            <FlashFxChanceSP value="1.000000" />
+            <FlashFxChanceMP value="1.000000" />
+            <FlashFxAltChance value="0.000000" />
+            <FlashFxScale value="0.350000" />
+            <GroundDisturbFxNameDefault />
+            <GroundDisturbFxNameSand />
+            <GroundDisturbFxNameWater />
+          </Fx>
+
           <IkRecoilDisplacement value="0.000000" />
           <IkRecoilDisplacementScope value="0.000000" />
           <IkRecoilDisplacementScaleBackward value="1.000000" />
@@ -233,15 +255,15 @@
               <AttachBone>WAPClip</AttachBone>
               <Components>
                 <Item>
-                  <n>COMPONENT_COLTJUNIOR_CLIP_FMJ</n>
+                  <Name>COMPONENT_COLTJUNIOR_CLIP_FMJ</Name>
                   <Default value="true" />
                 </Item>
                 <Item>
-                  <n>COMPONENT_COLTJUNIOR_CLIP_HP</n>
+                  <Name>COMPONENT_COLTJUNIOR_CLIP_HP</Name>
                   <Default value="false" />
                 </Item>
                 <Item>
-                  <n>COMPONENT_COLTJUNIOR_CLIP_AP</n>
+                  <Name>COMPONENT_COLTJUNIOR_CLIP_AP</Name>
                   <Default value="false" />
                 </Item>
               </Components>

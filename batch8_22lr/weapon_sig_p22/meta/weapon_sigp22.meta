@@ -59,7 +59,7 @@
       <Infos>
         <Item type="CWeaponInfo">
           <!-- IDENTIFICATION -->
-          <n>WEAPON_SIGP22</n>
+          <Name>WEAPON_SIGP22</Name>
           <Model>w_pi_sig_p22</Model>
           <Audio>AUDIO_ITEM_PISTOL</Audio>
           <Slot>SLOT_SIGP22</Slot>
@@ -87,7 +87,8 @@
           
           <!-- ACCURACY PARAMETERS -->
           <!-- Short 3.42" barrel, ~4.8" sight radius = reduced precision -->
-          <AccuracySpread value="1.200000" />
+          <!-- BUDGET TIER: Worst .22 LR accuracy - short barrel, DA/SA first pull -->
+          <AccuracySpread value="2.200000" />
           <AccurateModeAccuracyModifier value="0.480000" />
           <RunAndGunAccuracyModifier value="1.500000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
@@ -239,6 +240,9 @@
           <MinTimeBetweenRecoilShakes value="50" />
           <RecoilShakeAmplitude value="0.055000" />
           <ExplosionShakeAmplitude value="0.000000" />
+
+          <!-- IK RECOIL - Minimal vertical rise for .22 LR -->
+          <IkRecoilDisplacementScaleVertical value="0.120000" />
           
           <!-- AIM OFFSETS -->
           <AimOffsetMin x="0.000000" y="0.500000" z="0.000000" />

@@ -40,11 +40,11 @@
       <FireType>INSTANT_HIT</FireType>
       <WheelSlot>WHEEL_PISTOL</WheelSlot>
       <Group>GROUP_PISTOL</Group>
-      <AmmoInfo ref="AMMO_9MM_FMJ" />
+      <AmmoInfo ref="AMMO_300BLK_SUBSONIC" />
       <AimingInfo ref="PISTOL_ACCURATE" />
 
-      <!-- Generic AR-9 Pistol: Budget AR platform, 4-5" barrel -->
-      <ClipSize value="17" />
+      <!-- AR Pistol in .300 Blackout: Budget AR platform, 4-5" barrel -->
+      <ClipSize value="10" />
 
       <!-- Accuracy: AR platform, good but below premium UDP-9 -->
       <AccuracySpread value="1.100000" />
@@ -222,33 +222,41 @@
       <KillshotImpulseScale value="1.000000" />
       <NmShotTuningSet>Normal</NmShotTuningSet>
 
-      <!-- Attach Points: Magazine components (Glock mags) -->
+      <!-- Attach Points: Magazine components (.300 Blackout) -->
       <AttachPoints>
         <Item>
           <AttachBone>WAPClip</AttachBone>
           <Components>
             <Item>
-              <Name>COMPONENT_BLUEARP_CLIP_FMJ</Name>
+              <Name>COMPONENT_BLUEARP_CLIP_SUBSONIC</Name>
               <Default value="true" />
             </Item>
             <Item>
-              <Name>COMPONENT_BLUEARP_CLIP_HP</Name>
+              <Name>COMPONENT_BLUEARP_CLIP_HUNTING</Name>
               <Default value="false" />
             </Item>
             <Item>
-              <Name>COMPONENT_BLUEARP_CLIP_AP</Name>
+              <Name>COMPONENT_BLUEARP_CLIP2_SUBSONIC</Name>
               <Default value="false" />
             </Item>
             <Item>
-              <Name>COMPONENT_BLUEARP_EXTCLIP_FMJ</Name>
+              <Name>COMPONENT_BLUEARP_CLIP2_HUNTING</Name>
               <Default value="false" />
             </Item>
             <Item>
-              <Name>COMPONENT_BLUEARP_EXTCLIP_HP</Name>
+              <Name>COMPONENT_BLUEARP_CLIP3_SUBSONIC</Name>
               <Default value="false" />
             </Item>
             <Item>
-              <Name>COMPONENT_BLUEARP_EXTCLIP_AP</Name>
+              <Name>COMPONENT_BLUEARP_CLIP3_HUNTING</Name>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <Name>COMPONENT_BLUEARP_CLIP4_SUBSONIC</Name>
+              <Default value="false" />
+            </Item>
+            <Item>
+              <Name>COMPONENT_BLUEARP_CLIP4_HUNTING</Name>
               <Default value="false" />
             </Item>
           </Components>
@@ -299,5 +307,5 @@
   </Infos>
   <VehicleWeaponInfos />
   <WeaponGroupDamageForArmouredVehicleGlass />
-  <Name>AR-9 Pistol</Name>
+  <Name>.300 BLK AR Pistol</Name>
 </CWeaponInfoBlob>

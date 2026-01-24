@@ -44,7 +44,7 @@
       <AimingInfo ref="PISTOL_ACCURATE" />
 
       <!-- SIG P226: Classic 9mm DA/SA, 4.4" barrel, 34 oz all-metal -->
-      <ClipSize value="15" />
+      <ClipSize value="10" />
 
       <!-- Accuracy: Full-size metal frame, excellent 6.3" sight radius -->
       <AccuracySpread value="1.200000" />

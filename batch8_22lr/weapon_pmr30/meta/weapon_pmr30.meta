@@ -61,7 +61,7 @@
       <Infos>
         <Item type="CWeaponInfo">
           <!-- IDENTIFICATION -->
-          <n>WEAPON_PMR30</n>
+          <Name>WEAPON_PMR30</Name>
           <Model>w_pi_pmr30</Model>
           <Audio>AUDIO_ITEM_PISTOL</Audio>
           <Slot>SLOT_PMR30</Slot>
@@ -89,8 +89,9 @@
           
           <!-- ACCURACY PARAMETERS -->
           <!-- Fiber optic sights, 4.3" barrel - good but not best -->
-          <!-- Ultra-light weight = slight movement penalty -->
-          <AccuracySpread value="1.000000" />
+          <!-- Ultra-light weight (14oz) = slight movement penalty -->
+          <!-- COMBAT TIER: Good accuracy, volume-of-fire focused -->
+          <AccuracySpread value="1.500000" />
           <AccurateModeAccuracyModifier value="0.420000" />
           <RunAndGunAccuracyModifier value="1.550000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
@@ -98,10 +99,10 @@
           <!-- RECOIL PARAMETERS -->
           <!-- .22 WMR characteristics = more recoil than .22 LR -->
           <!-- Ultra-light frame (14 oz) increases felt recoil -->
-          <!-- Still manageable but noticeably more than P22/FN502 -->
-          <RecoilAccuracyMax value="1.350000" />
-          <RecoilErrorTime value="0.300000" />
-          <RecoilRecoveryRate value="0.550000" />
+          <!-- COMBAT: More recoil than other .22s but acceptable for volume fire -->
+          <RecoilAccuracyMax value="1.600000" />
+          <RecoilErrorTime value="0.320000" />
+          <RecoilRecoveryRate value="0.480000" />
           <RecoilAccuracyToAllowHeadShotAI value="0.880000" />
           <MinHeadShotDistanceAI value="1.200000" />
           <MaxHeadShotDistanceAI value="45.000000" />
@@ -243,13 +244,17 @@
           <ZoomFactorForAccurateMode value="1.000000" />
           
           <!-- RECOIL SHAKE -->
-          <!-- More shake than .22 LR - magnum + ultra-light frame -->
+          <!-- Most shake in .22 category - .22 WMR + ultra-light 14oz frame -->
           <RecoilShakeHash>RECOIL_PISTOL</RecoilShakeHash>
           <RecoilShakeHashFirstPerson>RECOIL_PISTOL</RecoilShakeHashFirstPerson>
           <AccuracyOffsetShakeHash>ACCURACY_OFFSET_PISTOL</AccuracyOffsetShakeHash>
           <MinTimeBetweenRecoilShakes value="55" />
-          <RecoilShakeAmplitude value="0.095000" />
+          <RecoilShakeAmplitude value="0.110000" />
           <ExplosionShakeAmplitude value="0.000000" />
+
+          <!-- IK RECOIL - Highest vertical rise in .22 category -->
+          <!-- Ultra-light frame + magnum characteristics -->
+          <IkRecoilDisplacementScaleVertical value="0.200000" />
           
           <!-- AIM OFFSETS -->
           <AimOffsetMin x="0.000000" y="0.500000" z="0.000000" />

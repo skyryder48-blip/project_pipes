@@ -57,7 +57,7 @@
     <Item>
       <Infos>
         <Item type="CWeaponInfo">
-          <n>WEAPON_WALTHERP88</n>
+          <Name>WEAPON_WALTHERP88</Name>
           <Model>w_pi_waltherp88</Model>
           <Audio>AUDIO_ITEM_SNSPISTOL</Audio>
           <Slot>SLOT_WALTHERP88</Slot>
@@ -79,8 +79,10 @@
           <!-- Walther P88: 15+1 capacity (double-stack 9mm) -->
           <ClipSize value="16" />
 
-          <!-- Accuracy: Excellent - match-grade from factory -->
-          <AccuracySpread value="0.800000" />
+          <!-- Accuracy: PREMIUM TIER - Match-grade from factory -->
+          <!-- All-steel 31.7oz frame, 4" barrel, exceptional trigger -->
+          <!-- Best 9mm accuracy in pocket pistol batch -->
+          <AccuracySpread value="0.850000" />
           <AccurateModeAccuracyModifier value="0.200000" />
           <RunAndGunAccuracyModifier value="1.800000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
@@ -96,9 +98,9 @@
           <MaxHeadShotDistancePlayer value="6.000000" />
           <HeadShotDamageModifierPlayer value="5.000000" />
 
-          <!-- Damage: 9mm from 4" barrel = ~350 ft-lbs -->
-          <!-- 25 damage = 4 body shots close, 8 at range -->
-          <Damage value="25.000000" />
+          <!-- Damage: Full 9mm from 4" barrel = ~350 ft-lbs -->
+          <!-- PREMIUM: Standard 9mm damage -->
+          <Damage value="34.000000" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -134,8 +136,8 @@
           <AnimReloadRate value="1.000000" />
           <BulletsPerAnimLoop value="1" />
 
-          <!-- Fire Rate: DA/SA precision focus ~150 RPM practical -->
-          <TimeBetweenShots value="0.400000" />
+          <!-- Fire Rate: DA/SA with excellent SA trigger - ~200 RPM practical -->
+          <TimeBetweenShots value="0.300000" />
 
           <!-- Damage Falloff: 9mm effective range -->
           <DamageFallOffRangeMin value="10.000000" />
@@ -171,17 +173,39 @@
           <FirstPersonDofMaxNearInFocusDistanceBlendLevel value="0.300000" />
           <ZoomFactorForAccurateMode value="1.300000" />
 
-          <!-- Recoil: Moderate - heavy steel frame absorbs 9mm well -->
+          <!-- Recoil: PREMIUM - Heavy steel frame (31.7oz) absorbs 9mm excellently -->
           <RecoilShakeHash>PISTOL_RECOIL_SHAKE</RecoilShakeHash>
           <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
           <AccuracyOffsetShakeHash />
           <MinTimeBetweenRecoilShakes value="80" />
-          <RecoilShakeAmplitude value="0.180000" />
+          <RecoilShakeAmplitude value="0.165000" />
           <ExplosionShakeAmplitude value="-1.000000" />
+
+          <!-- EFFECTS -->
+          <!-- Standard 9mm muzzle flash -->
+          <Fx>
+            <EffectGroup />
+            <FlashFx>muz_pistol</FlashFx>
+            <FlashFxAlt />
+            <ShellFx>eject_pistol</ShellFx>
+            <TracerFx>bullet_tracer</TracerFx>
+            <PedDamageHash>BulletSmall</PedDamageHash>
+            <TracerFxChanceSP value="1.000000" />
+            <TracerFxChanceMP value="0.500000" />
+            <FlashFxChanceSP value="1.000000" />
+            <FlashFxChanceMP value="1.000000" />
+            <FlashFxAltChance value="0.000000" />
+            <FlashFxScale value="0.700000" />
+            <GroundDisturbFxNameDefault />
+            <GroundDisturbFxNameSand />
+            <GroundDisturbFxNameWater />
+          </Fx>
+
           <IkRecoilDisplacement value="0.000000" />
           <IkRecoilDisplacementScope value="0.000000" />
           <IkRecoilDisplacementScaleBackward value="1.000000" />
-          <IkRecoilDisplacementScaleVertical value="0.400000" />
+          <!-- PREMIUM: Low muzzle rise - heaviest frame in batch -->
+          <IkRecoilDisplacementScaleVertical value="0.380000" />
 
           <!-- Reticle -->
           <ReticuleHudPosition x="0.000000" y="0.000000" />
@@ -236,15 +260,15 @@
               <AttachBone>WAPClip</AttachBone>
               <Components>
                 <Item>
-                  <n>COMPONENT_WALTHERP88_CLIP_FMJ</n>
+                  <Name>COMPONENT_WALTHERP88_CLIP_FMJ</Name>
                   <Default value="true" />
                 </Item>
                 <Item>
-                  <n>COMPONENT_WALTHERP88_CLIP_HP</n>
+                  <Name>COMPONENT_WALTHERP88_CLIP_HP</Name>
                   <Default value="false" />
                 </Item>
                 <Item>
-                  <n>COMPONENT_WALTHERP88_CLIP_AP</n>
+                  <Name>COMPONENT_WALTHERP88_CLIP_AP</Name>
                   <Default value="false" />
                 </Item>
               </Components>
@@ -253,7 +277,7 @@
               <AttachBone>WAPSupp</AttachBone>
               <Components>
                 <Item>
-                  <n>COMPONENT_WALTHERP88_SUPPRESSOR</n>
+                  <Name>COMPONENT_WALTHERP88_SUPPRESSOR</Name>
                   <Default value="false" />
                 </Item>
               </Components>

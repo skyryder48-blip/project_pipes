@@ -59,7 +59,7 @@
       <Infos>
         <Item type="CWeaponInfo">
           <!-- IDENTIFICATION -->
-          <n>WEAPON_P22</n>
+          <Name>WEAPON_P22</Name>
           <Model>w_pi_p22</Model>
           <Audio>AUDIO_ITEM_PISTOL</Audio>
           <Slot>SLOT_P22</Slot>
@@ -87,7 +87,8 @@
           
           <!-- ACCURACY PARAMETERS -->
           <!-- Short 3.42" barrel and short sight radius = less precision -->
-          <AccuracySpread value="1.200000" />
+          <!-- BUDGET TIER: Poor .22 LR accuracy - short barrel, DA/SA -->
+          <AccuracySpread value="2.000000" />
           <AccurateModeAccuracyModifier value="0.450000" />
           <RunAndGunAccuracyModifier value="1.600000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
@@ -241,6 +242,9 @@
           <MinTimeBetweenRecoilShakes value="60" />
           <RecoilShakeAmplitude value="0.060000" />
           <ExplosionShakeAmplitude value="0.000000" />
+
+          <!-- IK RECOIL - Minimal vertical rise for .22 LR -->
+          <IkRecoilDisplacementScaleVertical value="0.140000" />
           
           <!-- AIM OFFSETS -->
           <AimOffsetMin x="0.000000" y="0.500000" z="0.000000" />

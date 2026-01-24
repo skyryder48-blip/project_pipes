@@ -46,14 +46,14 @@
       <!-- SIG P210 Target: Swiss Precision, 5.0" barrel, SAO, BEST ACCURACY -->
       <ClipSize value="8" />
 
-      <!-- Accuracy: BEST IN CLASS - slide rides inside frame -->
-      <AccuracySpread value="0.700000" />
-      <AccurateModeAccuracyModifier value="0.400000" />
-      <RunAndGunAccuracyModifier value="2.200000" />
+      <!-- Accuracy: BEST IN CLASS - slide rides inside frame, Swiss precision -->
+      <AccuracySpread value="0.550000" />
+      <AccurateModeAccuracyModifier value="0.300000" />
+      <RunAndGunAccuracyModifier value="1.800000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="0.900000" />
-      <RecoilErrorTime value="0.300000" />
-      <RecoilRecoveryRate value="0.380000" />
+      <RecoilAccuracyMax value="0.700000" />
+      <RecoilErrorTime value="0.220000" />
+      <RecoilRecoveryRate value="1.250000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.700000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="55.000000" />
@@ -163,17 +163,17 @@
       <AimCameraHash>DEFAULT_PISTOL_CAMERA</AimCameraHash>
       <FirstPersonAimCameraHash>DEFAULT_FIRST_PERSON_PISTOL_CAMERA</FirstPersonAimCameraHash>
 
-      <!-- Recoil: LOWEST - heavy steel frame (36.9 oz), target design -->
+      <!-- Recoil: LOWEST - heavy steel frame (36.9 oz), target design, exceptional control -->
       <RecoilShakeHash>PISTOL_RECOIL_SHAKE</RecoilShakeHash>
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="80" />
-      <RecoilShakeAmplitude value="0.140000" />
+      <RecoilShakeAmplitude value="0.100000" />
       <ExplosionShakeAmplitude value="-1.000000" />
       <IkRecoilDisplacement value="0.000000" />
       <IkRecoilDisplacementScope value="0.000000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
-      <IkRecoilDisplacementScaleVertical value="0.350000" />
+      <IkRecoilDisplacementScaleVertical value="0.220000" />
 
       <!-- Reticle -->
       <ReticuleHudPosition x="0.000000" y="0.000000" />

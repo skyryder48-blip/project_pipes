@@ -46,14 +46,14 @@
       <!-- PSA Dagger: Budget 9mm Glock clone, 3.9" barrel, 22.4 oz (lightest) -->
       <ClipSize value="15" />
 
-      <!-- Accuracy: Budget tier, lighter weight = more wobble -->
-      <AccuracySpread value="1.450000" />
-      <AccurateModeAccuracyModifier value="0.500000" />
-      <RunAndGunAccuracyModifier value="2.000000" />
+      <!-- Accuracy: BUDGET TIER - loose tolerances, light polymer = unstable -->
+      <AccuracySpread value="2.200000" />
+      <AccurateModeAccuracyModifier value="0.650000" />
+      <RunAndGunAccuracyModifier value="3.200000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="1.250000" />
-      <RecoilErrorTime value="0.380000" />
-      <RecoilRecoveryRate value="0.280000" />
+      <RecoilAccuracyMax value="2.800000" />
+      <RecoilErrorTime value="0.550000" />
+      <RecoilRecoveryRate value="0.500000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="40.000000" />
@@ -163,17 +163,17 @@
       <AimCameraHash>DEFAULT_PISTOL_CAMERA</AimCameraHash>
       <FirstPersonAimCameraHash>DEFAULT_FIRST_PERSON_PISTOL_CAMERA</FirstPersonAimCameraHash>
 
-      <!-- Recoil: LIGHTEST WEIGHT = HIGH recoil -->
+      <!-- Recoil: WORST IN CLASS - lightest weight, budget build quality -->
       <RecoilShakeHash>PISTOL_RECOIL_SHAKE</RecoilShakeHash>
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="80" />
-      <RecoilShakeAmplitude value="0.240000" />
+      <RecoilShakeAmplitude value="0.340000" />
       <ExplosionShakeAmplitude value="-1.000000" />
-      <IkRecoilDisplacement value="0.000000" />
-      <IkRecoilDisplacementScope value="0.000000" />
+      <IkRecoilDisplacement value="0.012000" />
+      <IkRecoilDisplacementScope value="0.012000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
-      <IkRecoilDisplacementScaleVertical value="0.400000" />
+      <IkRecoilDisplacementScaleVertical value="0.680000" />
 
       <!-- Reticle -->
       <ReticuleHudPosition x="0.000000" y="0.000000" />

@@ -46,14 +46,14 @@
       <!-- FN 509: 17+1 capacity, 4.0" barrel, LIGHTEST (763g empty) -->
       <ClipSize value="17" />
 
-      <!-- Accuracy: Lower due to shortest barrel (4.0") and shortest sight radius -->
-      <AccuracySpread value="1.700000" />
-      <AccurateModeAccuracyModifier value="0.530000" />
-      <RunAndGunAccuracyModifier value="1.850000" />
+      <!-- Accuracy: POOR - shortest barrel (4.0"), shortest sight radius, lightest = unstable -->
+      <AccuracySpread value="1.850000" />
+      <AccurateModeAccuracyModifier value="0.600000" />
+      <RunAndGunAccuracyModifier value="2.800000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="1.250000" />
-      <RecoilErrorTime value="0.400000" />
-      <RecoilRecoveryRate value="0.280000" />
+      <RecoilAccuracyMax value="2.200000" />
+      <RecoilErrorTime value="0.480000" />
+      <RecoilRecoveryRate value="0.650000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="40.000000" />
@@ -161,17 +161,17 @@
         <GroundDisturbFxAltFP />
       </Fx>
 
-      <!-- Recoil: MORE due to lightest weight - aggressive grip texture helps slightly -->
+      <!-- Recoil: HIGH - lightest pistol (763g) = significant muzzle flip -->
       <RecoilShakeHash>PISTOL_RECOIL_SHAKE</RecoilShakeHash>
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="80" />
-      <RecoilShakeAmplitude value="0.195000" />
+      <RecoilShakeAmplitude value="0.280000" />
       <ExplosionShakeAmplitude value="-1.000000" />
-      <IkRecoilDisplacement value="0.000000" />
-      <IkRecoilDisplacementScope value="0.000000" />
+      <IkRecoilDisplacement value="0.010000" />
+      <IkRecoilDisplacementScope value="0.010000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
-      <IkRecoilDisplacementScaleVertical value="0.420000" />
+      <IkRecoilDisplacementScaleVertical value="0.600000" />
 
       <ReticuleHudPosition x="0.000000" y="0.000000" />
       <ReticuleHudPositionOffsetForPOVTurret x="0.000000" y="0.000000" />

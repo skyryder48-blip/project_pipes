@@ -46,14 +46,14 @@
       <!-- Angstadt Arms UDP-9: Premium AR-9 pistol, 6.0" barrel, sub-5 lbs -->
       <ClipSize value="17" />
 
-      <!-- Accuracy: AR platform, very stable, excellent accuracy -->
-      <AccuracySpread value="0.900000" />
-      <AccurateModeAccuracyModifier value="0.450000" />
-      <RunAndGunAccuracyModifier value="1.800000" />
+      <!-- Accuracy: EXCEPTIONAL - AR platform, 6" barrel, brace stabilized -->
+      <AccuracySpread value="0.600000" />
+      <AccurateModeAccuracyModifier value="0.320000" />
+      <RunAndGunAccuracyModifier value="1.500000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="0.950000" />
-      <RecoilErrorTime value="0.300000" />
-      <RecoilRecoveryRate value="0.400000" />
+      <RecoilAccuracyMax value="0.650000" />
+      <RecoilErrorTime value="0.200000" />
+      <RecoilRecoveryRate value="1.200000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="55.000000" />
@@ -163,17 +163,17 @@
       <AimCameraHash>DEFAULT_PISTOL_CAMERA</AimCameraHash>
       <FirstPersonAimCameraHash>DEFAULT_FIRST_PERSON_PISTOL_CAMERA</FirstPersonAimCameraHash>
 
-      <!-- Recoil: AR platform with brace, stable -->
+      <!-- Recoil: EXCELLENT - AR platform, brace stabilized, minimal muzzle rise -->
       <RecoilShakeHash>PISTOL_RECOIL_SHAKE</RecoilShakeHash>
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="80" />
-      <RecoilShakeAmplitude value="0.160000" />
+      <RecoilShakeAmplitude value="0.105000" />
       <ExplosionShakeAmplitude value="-1.000000" />
       <IkRecoilDisplacement value="0.000000" />
       <IkRecoilDisplacementScope value="0.000000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
-      <IkRecoilDisplacementScaleVertical value="0.300000" />
+      <IkRecoilDisplacementScaleVertical value="0.220000" />
 
       <!-- Reticle -->
       <ReticuleHudPosition x="0.000000" y="0.000000" />

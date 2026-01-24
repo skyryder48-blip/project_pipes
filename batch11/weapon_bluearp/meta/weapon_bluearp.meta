@@ -46,14 +46,15 @@
       <!-- AR Pistol in .300 Blackout: Budget AR platform, 4-5" barrel -->
       <ClipSize value="10" />
 
-      <!-- Accuracy: AR platform, good but below premium UDP-9 -->
-      <AccuracySpread value="1.100000" />
+      <!-- AGGRESSIVE DIFFERENTIATION: Quality+ Tier - .300 BLK AR Pistol -->
+      <!-- AR platform accuracy, but higher recoil from rifle cartridge in short barrel -->
+      <AccuracySpread value="0.880000" />
       <AccurateModeAccuracyModifier value="0.480000" />
       <RunAndGunAccuracyModifier value="1.900000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
       <RecoilAccuracyMax value="1.050000" />
       <RecoilErrorTime value="0.320000" />
-      <RecoilRecoveryRate value="0.360000" />
+      <RecoilRecoveryRate value="1.050000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="50.000000" />
@@ -163,17 +164,17 @@
       <AimCameraHash>DEFAULT_PISTOL_CAMERA</AimCameraHash>
       <FirstPersonAimCameraHash>DEFAULT_FIRST_PERSON_PISTOL_CAMERA</FirstPersonAimCameraHash>
 
-      <!-- Recoil: Budget AR = slightly more than premium -->
+      <!-- Recoil: .300 BLK rifle cartridge = more punch than 9mm pistols -->
       <RecoilShakeHash>PISTOL_RECOIL_SHAKE</RecoilShakeHash>
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="80" />
-      <RecoilShakeAmplitude value="0.190000" />
+      <RecoilShakeAmplitude value="0.240000" />
       <ExplosionShakeAmplitude value="-1.000000" />
       <IkRecoilDisplacement value="0.000000" />
       <IkRecoilDisplacementScope value="0.000000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
-      <IkRecoilDisplacementScaleVertical value="0.320000" />
+      <IkRecoilDisplacementScaleVertical value="0.420000" />
 
       <!-- Reticle -->
       <ReticuleHudPosition x="0.000000" y="0.000000" />

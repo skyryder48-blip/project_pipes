@@ -48,13 +48,14 @@
 
       <!-- Accuracy: Good - longer barrel (4.9"), but DA/SA affects first shot -->
       <!-- DA first shot is harder to aim (heavier trigger 10-12 lb), SA follow-ups better (4.5-5.5 lb) -->
-      <AccuracySpread value="1.450000" />
-      <AccurateModeAccuracyModifier value="0.480000" />
-      <RunAndGunAccuracyModifier value="2.100000" />
+      <!-- AGGRESSIVE DIFFERENTIATION: Premium Tier - Heavy metal frame, excellent control -->
+      <AccuracySpread value="0.900000" />
+      <AccurateModeAccuracyModifier value="0.420000" />
+      <RunAndGunAccuracyModifier value="1.900000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="0.900000" />
-      <RecoilErrorTime value="0.300000" />
-      <RecoilRecoveryRate value="0.380000" />
+      <RecoilAccuracyMax value="0.800000" />
+      <RecoilErrorTime value="0.280000" />
+      <RecoilRecoveryRate value="1.120000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="48.000000" />
@@ -169,12 +170,12 @@
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="80" />
-      <RecoilShakeAmplitude value="0.130000" />
+      <RecoilShakeAmplitude value="0.115000" />
       <ExplosionShakeAmplitude value="-1.000000" />
       <IkRecoilDisplacement value="0.000000" />
       <IkRecoilDisplacementScope value="0.000000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
-      <IkRecoilDisplacementScaleVertical value="0.280000" />
+      <IkRecoilDisplacementScaleVertical value="0.260000" />
 
       <ReticuleHudPosition x="0.000000" y="0.000000" />
       <ReticuleHudPositionOffsetForPOVTurret x="0.000000" y="0.000000" />

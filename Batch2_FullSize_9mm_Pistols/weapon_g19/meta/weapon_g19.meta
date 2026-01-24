@@ -47,13 +47,14 @@
       <ClipSize value="15" />
 
       <!-- Accuracy: Slightly less than G17 due to shorter 4.02" barrel, 6.02" sight radius -->
+      <!-- AGGRESSIVE DIFFERENTIATION: Baseline Tier - Compact less accurate -->
       <AccuracySpread value="1.650000" />
-      <AccurateModeAccuracyModifier value="0.520000" />
-      <RunAndGunAccuracyModifier value="1.900000" />
+      <AccurateModeAccuracyModifier value="0.550000" />
+      <RunAndGunAccuracyModifier value="2.150000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="1.200000" />
-      <RecoilErrorTime value="0.380000" />
-      <RecoilRecoveryRate value="0.300000" />
+      <RecoilAccuracyMax value="1.300000" />
+      <RecoilErrorTime value="0.400000" />
+      <RecoilRecoveryRate value="0.720000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="42.000000" />
@@ -161,12 +162,12 @@
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="80" />
-      <RecoilShakeAmplitude value="0.175000" />
+      <RecoilShakeAmplitude value="0.210000" />
       <ExplosionShakeAmplitude value="-1.000000" />
       <IkRecoilDisplacement value="0.000000" />
       <IkRecoilDisplacementScope value="0.000000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
-      <IkRecoilDisplacementScaleVertical value="0.380000" />
+      <IkRecoilDisplacementScaleVertical value="0.480000" />
 
       <CameraHash>DEFAULT_SCRIPTED_FLY_CAMERA</CameraHash>
       <AlternateCameraHash>DEFAULT_SCRIPTED_FLY_CAMERA</AlternateCameraHash>

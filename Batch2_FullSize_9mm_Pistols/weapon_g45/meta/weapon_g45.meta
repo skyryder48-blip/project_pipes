@@ -47,13 +47,14 @@
       <ClipSize value="17" />
 
       <!-- Accuracy: Slightly less than G17 due to shorter 4.02" barrel, 6.02" sight radius -->
-      <AccuracySpread value="1.550000" />
-      <AccurateModeAccuracyModifier value="0.520000" />
-      <RunAndGunAccuracyModifier value="1.900000" />
+      <!-- AGGRESSIVE DIFFERENTIATION: Quality Tier - Crossover design -->
+      <AccuracySpread value="1.200000" />
+      <AccurateModeAccuracyModifier value="0.470000" />
+      <RunAndGunAccuracyModifier value="1.920000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="1.200000" />
-      <RecoilErrorTime value="0.380000" />
-      <RecoilRecoveryRate value="0.300000" />
+      <RecoilAccuracyMax value="1.020000" />
+      <RecoilErrorTime value="0.330000" />
+      <RecoilRecoveryRate value="0.950000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="42.000000" />
@@ -167,7 +168,7 @@
       <IkRecoilDisplacement value="0.000000" />
       <IkRecoilDisplacementScope value="0.000000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
-      <IkRecoilDisplacementScaleVertical value="0.380000" />
+      <IkRecoilDisplacementScaleVertical value="0.350000" />
 
       <CameraHash>DEFAULT_SCRIPTED_FLY_CAMERA</CameraHash>
       <CameraFPHash>DEFAULT_FIRST_PERSON_CAMERA</CameraFPHash>

@@ -33,14 +33,14 @@
           <!-- P320: 17+1, LONGEST barrel (4.7") -->
           <ClipSize value="17" />
 
-          <!-- BEST ACCURACY - longest barrel, low bore axis, military-grade -->
-          <AccuracySpread value="1.280000" />
-          <AccurateModeAccuracyModifier value="0.400000" />
-          <RunAndGunAccuracyModifier value="1.850000" />
+          <!-- AGGRESSIVE DIFFERENTIATION: Premium Tier - M17/M18 military winner -->
+          <AccuracySpread value="0.700000" />
+          <AccurateModeAccuracyModifier value="0.380000" />
+          <RunAndGunAccuracyModifier value="1.750000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
-          <RecoilAccuracyMax value="0.850000" />
-          <RecoilErrorTime value="0.280000" />
-          <RecoilRecoveryRate value="0.400000" />
+          <RecoilAccuracyMax value="0.750000" />
+          <RecoilErrorTime value="0.250000" />
+          <RecoilRecoveryRate value="1.180000" />
           <RecoilAccuracyToAllowHeadShotAI value="0.600000" />
           <MinHeadShotDistanceAI value="1.200000" />
           <MaxHeadShotDistanceAI value="55.000000" />
@@ -157,12 +157,12 @@
           <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
           <AccuracyOffsetShakeHash />
           <MinTimeBetweenRecoilShakes value="75" />
-          <RecoilShakeAmplitude value="0.140000" />
+          <RecoilShakeAmplitude value="0.105000" />
           <ExplosionShakeAmplitude value="-1.000000" />
           <IkRecoilDisplacement value="0.000000" />
           <IkRecoilDisplacementScope value="0.000000" />
           <IkRecoilDisplacementScaleBackward value="1.000000" />
-          <IkRecoilDisplacementScaleVertical value="0.300000" />
+          <IkRecoilDisplacementScaleVertical value="0.220000" />
 
           <ReticuleHudPosition x="0.000000" y="0.000000" />
           <ReticuleHudPositionOffsetForPOVTurret x="0.000000" y="0.000000" />

@@ -46,14 +46,15 @@
       <!-- SIG P226: Classic 9mm DA/SA, 4.4" barrel, 34 oz all-metal -->
       <ClipSize value="10" />
 
-      <!-- Accuracy: Full-size metal frame, excellent 6.3" sight radius -->
-      <AccuracySpread value="1.200000" />
+      <!-- AGGRESSIVE DIFFERENTIATION: Quality Tier - Classic metal DA/SA -->
+      <!-- Full-size metal frame, excellent 6.3" sight radius -->
+      <AccuracySpread value="0.950000" />
       <AccurateModeAccuracyModifier value="0.500000" />
       <RunAndGunAccuracyModifier value="2.000000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
       <RecoilAccuracyMax value="1.100000" />
       <RecoilErrorTime value="0.350000" />
-      <RecoilRecoveryRate value="0.320000" />
+      <RecoilRecoveryRate value="1.020000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="45.000000" />
@@ -168,12 +169,12 @@
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="80" />
-      <RecoilShakeAmplitude value="0.180000" />
+      <RecoilShakeAmplitude value="0.145000" />
       <ExplosionShakeAmplitude value="-1.000000" />
       <IkRecoilDisplacement value="0.000000" />
       <IkRecoilDisplacementScope value="0.000000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
-      <IkRecoilDisplacementScaleVertical value="0.350000" />
+      <IkRecoilDisplacementScaleVertical value="0.300000" />
 
       <!-- Reticle -->
       <ReticuleHudPosition x="0.000000" y="0.000000" />

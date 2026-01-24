@@ -47,13 +47,14 @@
       <ClipSize value="17" />
 
       <!-- Accuracy: Slightly less than G17 due to shorter 4.02" barrel, 6.02" sight radius -->
-      <AccuracySpread value="1.650000" />
-      <AccurateModeAccuracyModifier value="0.520000" />
-      <RunAndGunAccuracyModifier value="1.900000" />
+      <!-- AGGRESSIVE DIFFERENTIATION: Quality Tier - G17/G19 hybrid -->
+      <AccuracySpread value="1.300000" />
+      <AccurateModeAccuracyModifier value="0.480000" />
+      <RunAndGunAccuracyModifier value="1.950000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="1.200000" />
-      <RecoilErrorTime value="0.380000" />
-      <RecoilRecoveryRate value="0.300000" />
+      <RecoilAccuracyMax value="1.050000" />
+      <RecoilErrorTime value="0.340000" />
+      <RecoilRecoveryRate value="0.900000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="42.000000" />
@@ -172,7 +173,7 @@
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="80" />
-      <RecoilShakeAmplitude value="0.155000" />
+      <RecoilShakeAmplitude value="0.165000" />
       <ExplosionShakeAmplitude value="-1.000000" />
       <IkRecoilDisplacement value="0.000000" />
       <IkRecoilDisplacementScope value="0.000000" />

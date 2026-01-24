@@ -4,8 +4,8 @@
     <Item>
       <modelName>w_pi_px4storm</modelName>
       <txdName>w_pi_px4storm</txdName>
-      <ptfxAssetName>null</ptfxAssetName>
-      <lodDist value="50"/>
+      <ptfxAssetName>NULL</ptfxAssetName>
+      <lodDist value="70"/>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

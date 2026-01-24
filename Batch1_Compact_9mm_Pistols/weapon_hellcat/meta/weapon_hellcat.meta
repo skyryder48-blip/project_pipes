@@ -34,13 +34,14 @@
 					<AmmoInfo ref="AMMO_PISTOL"/>
 					<AimingInfo ref="PISTOL_2H_BASE_STRAFE"/>
 					<ClipSize value="13"/>
-					<AccuracySpread value="1.900000"/>
+					<!-- AGGRESSIVE DIFFERENTIATION: Quality+ Tier - Premium micro-compact, excellent sights -->
+					<AccuracySpread value="1.100000"/>
 					<AccurateModeAccuracyModifier value="0.500000"/>
 					<RunAndGunAccuracyModifier value="2.000000"/>
 					<RunAndGunAccuracyMaxModifier value="1.000000"/>
 					<RecoilAccuracyMax value="1.300000"/>
 					<RecoilErrorTime value="0.420000"/>
-					<RecoilRecoveryRate value="0.310000"/>
+					<RecoilRecoveryRate value="0.950000"/>
 					<RecoilAccuracyToAllowHeadShotAI value="0.650000"/>
 					<MinHeadShotDistanceAI value="1.200000"/>
 					<MaxHeadShotDistanceAI value="40.000000"/>
@@ -181,12 +182,12 @@
 					<RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
 					<AccuracyOffsetShakeHash/>
 					<MinTimeBetweenRecoilShakes value="80"/>
-					<RecoilShakeAmplitude value="0.195000"/>
+					<RecoilShakeAmplitude value="0.155000"/>
 					<ExplosionShakeAmplitude value="-1.000000"/>
 					<IkRecoilDisplacement value="0.005"/>
 					<IkRecoilDisplacementScope value="0.005"/>
 					<IkRecoilDisplacementScaleBackward value="1.000000"/>
-					<IkRecoilDisplacementScaleVertical value="0.420000"/>
+					<IkRecoilDisplacementScaleVertical value="0.380000"/>
 					<ReticuleHudPosition x="0.000000" y="0.000000"/>
 					<AimOffsetMin x="0.200000" y="0.100000" z="0.600000"/>
 					<AimProbeLengthMin value="0.300000"/>

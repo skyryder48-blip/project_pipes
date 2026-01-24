@@ -34,13 +34,14 @@
 					<AmmoInfo ref="AMMO_PISTOL"/>
 					<AimingInfo ref="PISTOL_2H_BASE_STRAFE"/>
 					<ClipSize value="10"/>
-					<AccuracySpread value="1.350000"/>
+					<!-- AGGRESSIVE DIFFERENTIATION: Quality Tier - Reliable Glock subcompact -->
+					<AccuracySpread value="1.150000"/>
 					<AccurateModeAccuracyModifier value="0.500000"/>
 					<RunAndGunAccuracyModifier value="2.000000"/>
 					<RunAndGunAccuracyMaxModifier value="1.000000"/>
 					<RecoilAccuracyMax value="1.200000"/>
 					<RecoilErrorTime value="0.400000"/>
-					<RecoilRecoveryRate value="0.340000"/>
+					<RecoilRecoveryRate value="0.880000"/>
 					<RecoilAccuracyToAllowHeadShotAI value="0.650000"/>
 					<MinHeadShotDistanceAI value="1.200000"/>
 					<MaxHeadShotDistanceAI value="45.000000"/>
@@ -181,7 +182,7 @@
 					<RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
 					<AccuracyOffsetShakeHash/>
 					<MinTimeBetweenRecoilShakes value="80"/>
-					<RecoilShakeAmplitude value="0.140000"/>
+					<RecoilShakeAmplitude value="0.175000"/>
 					<ExplosionShakeAmplitude value="-1.000000"/>
 					<IkRecoilDisplacement value="0.005"/>
 					<IkRecoilDisplacementScope value="0.005"/>

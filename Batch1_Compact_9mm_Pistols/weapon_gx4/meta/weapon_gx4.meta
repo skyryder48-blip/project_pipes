@@ -34,13 +34,14 @@
 					<AmmoInfo ref="AMMO_PISTOL"/>
 					<AimingInfo ref="PISTOL_2H_BASE_STRAFE"/>
 					<ClipSize value="13"/>
-					<AccuracySpread value="1.700000"/>
+					<!-- AGGRESSIVE DIFFERENTIATION: Budget Tier - Taurus budget micro-compact -->
+					<AccuracySpread value="2.200000"/>
 					<AccurateModeAccuracyModifier value="0.500000"/>
 					<RunAndGunAccuracyModifier value="2.000000"/>
 					<RunAndGunAccuracyMaxModifier value="1.000000"/>
 					<RecoilAccuracyMax value="1.350000"/>
 					<RecoilErrorTime value="0.430000"/>
-					<RecoilRecoveryRate value="0.280000"/>
+					<RecoilRecoveryRate value="0.520000"/>
 					<RecoilAccuracyToAllowHeadShotAI value="0.650000"/>
 					<MinHeadShotDistanceAI value="1.200000"/>
 					<MaxHeadShotDistanceAI value="42.000000"/>
@@ -181,12 +182,12 @@
 					<RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
 					<AccuracyOffsetShakeHash/>
 					<MinTimeBetweenRecoilShakes value="80"/>
-					<RecoilShakeAmplitude value="0.180000"/>
+					<RecoilShakeAmplitude value="0.320000"/>
 					<ExplosionShakeAmplitude value="-1.000000"/>
 					<IkRecoilDisplacement value="0.005"/>
 					<IkRecoilDisplacementScope value="0.005"/>
 					<IkRecoilDisplacementScaleBackward value="1.000000"/>
-					<IkRecoilDisplacementScaleVertical value="0.410000"/>
+					<IkRecoilDisplacementScaleVertical value="0.650000"/>
 					<ReticuleHudPosition x="0.000000" y="0.000000"/>
 					<AimOffsetMin x="0.200000" y="0.100000" z="0.600000"/>
 					<AimProbeLengthMin value="0.300000"/>

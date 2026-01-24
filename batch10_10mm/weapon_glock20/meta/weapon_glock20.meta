@@ -1,181 +1,335 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-    GLOCK 20 GEN 4 (10mm Auto)
-    ==========================
-    Full-power 10mm semi-automatic - .357 Magnum energy with 15+1 capacity
-    
-    Real-World Specs:
-    - Barrel: 4.61"
-    - Weight: 27.51 oz empty, 39.54 oz loaded
-    - Capacity: 15+1
-    - Trigger: ~5.5 lbs (Safe Action)
-    - Muzzle Velocity: 1,200-1,300 fps (180gr full-power)
-    - Muzzle Energy: 575-680 ft-lbs (full-power loads)
-    - MSRP: ~$550-660 (street price)
-    
-    Ballistic Notes:
-    - 10mm has dual personality: FBI-spec (~400 ft-lbs) vs full-power (~650 ft-lbs)
-    - Full-power 10mm matches .357 Magnum from 4" barrel
-    - Recoil ~44% higher than .45 ACP (11.4 vs 7.9 ft-lbs recoil energy)
-    - FBI adopted then abandoned due to S&W 1076 issues and grip size
-    - Led directly to .40 S&W development (FBI-spec 10mm in shorter case)
-    
-    Game Balance (Full-Power Configuration):
-    - Damage: 50 (between .40 S&W at 36 and .357 Mag at 56)
-    - 2 shots close, 5 at range
-    - High recoil penalty balances high damage
-    - Best semi-auto stopping power outside of magnums
--->
 <CWeaponInfoBlob>
+  <SlotNavigateOrder>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="125" />
+          <Entry>SLOT_GLOCK20</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+  </SlotNavigateOrder>
+  <SlotBestOrder>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="125" />
+        <Entry>SLOT_GLOCK20</Entry>
+      </Item>
+    </WeaponSlots>
+  </SlotBestOrder>
+  <TintSpecValues />
+  <FiringPatternAliases />
+  <UpperBodyFixupExpressionData />
+  <AimingInfos />
   <Infos>
     <Item type="CWeaponInfo">
-      <n>WEAPON_GLOCK20</n>
+      <Name>WEAPON_GLOCK20</Name>
       <Model>w_pi_glock20</Model>
-      <Audio>AUDIO_PISTOL</Audio>
-      <Slot>SLOT_UNARMED</Slot>
+      <Audio>AUDIO_ITEM_PISTOL</Audio>
+      <Slot>SLOT_GLOCK20</Slot>
       <DamageType>BULLET</DamageType>
+      <Explosion>
+        <Default>DONTCARE</Default>
+        <HitCar>DONTCARE</HitCar>
+        <HitTruck>DONTCARE</HitTruck>
+        <HitBike>DONTCARE</HitBike>
+        <HitBoat>DONTCARE</HitBoat>
+        <HitPlane>DONTCARE</HitPlane>
+      </Explosion>
       <FireType>INSTANT_HIT</FireType>
       <WheelSlot>WHEEL_PISTOL</WheelSlot>
       <Group>GROUP_PISTOL</Group>
-      <MovementModeConditionalIdle>1</MovementModeConditionalIdle>
       <AmmoInfo ref="AMMO_PISTOL" />
-      <AimingInfo ref="AI_GLOCK20" />
+      <AimingInfo ref="PISTOL_2H_BASE_STRAFE" />
       <ClipSize value="16" />
-      <AccuracySpread value="1.20" />
-      <AccurateModeAccuracyModifier value="0.30" />
-      <RunAndGunAccuracyModifier value="0.55" />
-      
-      <!-- DAMAGE: 10mm Full-Power = ~625 ft-lbs = ~1.85x 9mm -->
-      <!-- 50 damage = 2 body shots close, 5 at range -->
-      <Damage value="50.000000" />
-      <DamageType>BULLET</DamageType>
-      <DamageFallOffRangeMin value="18.000000" />
-      <DamageFallOffRangeMax value="60.000000" />
-      <DamageFallOffModifier value="0.400000" />
-      
-      <!-- HEADSHOTS: 1 shot at any practical range -->
-      <!-- 50 × 2.2 = 110 damage -->
-      <HeadShotDamageModifierPlayer value="2.200000" />
-      <HeadShotDamageModifierAI value="4.000000" />
+
+      <!-- GLOCK 20 GEN 4 (10mm Auto) -->
+      <!-- 4.61" barrel, 27.51 oz empty -->
+      <!-- Full-power 10mm = .357 Magnum energy with 15+1 capacity -->
+      <!-- FBI adopted then abandoned due to recoil concerns -->
+      <!-- 10mm is .40 S&W's parent cartridge -->
+
+      <!-- AGGRESSIVE DIFFERENTIATION: Premium Tier - Power & Control -->
+      <!-- Best semi-auto stopping power outside of magnums -->
+      <AccuracySpread value="0.850000" />
+      <AccurateModeAccuracyModifier value="0.300000" />
+      <RunAndGunAccuracyModifier value="2.400000" />
+      <RunAndGunAccuracyMaxModifier value="1.000000" />
+      <RecoilAccuracyMax value="1.800000" />
+      <RecoilErrorTime value="0.280000" />
+      <RecoilRecoveryRate value="0.750000" />
+      <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
+      <MinHeadShotDistanceAI value="1.200000" />
+      <MaxHeadShotDistanceAI value="45.000000" />
+      <HeadShotDamageModifierAI value="1.500000" />
+      <RecoilAccuracyToAllowHeadShotPlayer value="0.500000" />
       <MinHeadShotDistancePlayer value="0.000000" />
       <MaxHeadShotDistancePlayer value="12.000000" />
-      
-      <!-- LIMB DAMAGE -->
+      <HeadShotDamageModifierPlayer value="2.200000" />
+
+      <!-- Damage: 10mm Full-Power = ~625 ft-lbs = 1.85x 9mm -->
+      <!-- 50 damage = 2 body shots close, 5 at range -->
+      <Damage value="50.000000" />
+      <DamageTime value="0.000000" />
+      <DamageTimeInVehicle value="0.000000" />
+      <DamageTimeInVehicleHeadShot value="0.000000" />
       <HitLimbsDamageModifier value="0.500000" />
       <NetworkHitLimbsDamageModifier value="0.800000" />
-      <NetworkPlayerDamageModifier value="1.000000" />
-      <NetworkPedDamageModifier value="1.000000" />
-      
-      <!-- VELOCITY: ~400 m/s (1,300 fps full-power from 4.61" barrel) -->
-      <Speed value="400.000000" />
-      <BulletsInBatch value="1" />
-      <BatchSpread value="0.000000" />
-      <WeaponRange value="120.000000" />
-      
-      <!-- FIRE RATE: Semi-auto, ~180 RPM practical -->
-      <!-- Recoil management limits follow-up speed -->
-      <TimeBetweenShots value="0.333000" />
-      <ForceShootOnGround value="false" />
-      <BulletInPeriod value="1" />
-      
-      <!-- RECOIL: Heavy - 10mm has ~44% more recoil than .45 ACP -->
-      <!-- "Snappy" impulse rather than .45's "push" -->
-      <RecoilShakeAmplitude value="0.350000" />
-      <RecoilShakeFrequency value="0.000000" />
-      <RecoilShakeRumbleDuration value="450.000000" />
-      <RecoilErrorTime value="0.280000" />
-      <RecoilRecoveryTime value="0.200000" />
-      <RecoilAccuracyMax value="1.800000" />
-      <RecoilMagnitude value="0.380000" />
-      <RecoilRecoveryRate value="1.000000" />
-      <RecoilEnduranceTime value="0.650000" />
-      
-      <!-- PENETRATION: High - 10mm known for barrier penetration -->
-      <!-- Hard cast loads penetrate 32"+ in gel -->
-      <Penetration value="0.280000" />
-      <ArmorPenetration value="0.250000" />
-      
-      <!-- PHYSICS FORCE: Heavy projectile at high velocity -->
+      <LightlyArmouredDamageModifier value="1.000000" />
+      <VehicleDamageModifier value="1.000000" />
+
+      <!-- Force values: Heavy projectile at high velocity -->
       <Force value="75.000000" />
       <ForceHitPed value="60.000000" />
-      <ForceOnPlayer value="50.000000" />
+      <ForceHitVehicle value="180.000000" />
+      <ForceHitFlyingHeli value="120.000000" />
+      <OverrideForces />
       <ForceMaxStrengthMult value="1.400000" />
       <ForceFalloffRangeStart value="12.000000" />
       <ForceFalloffRangeEnd value="55.000000" />
       <ForceFalloffMin value="0.500000" />
-      
-      <!-- HANDLING -->
-      <AnimStyle>Pistol</AnimStyle>
-      <HumanNameHash>WT_GLOCK20</HumanNameHash>
+      <ProjectileForce value="0.000000" />
+      <FragImpulse value="60.000000" />
+      <Penetration value="0.280000" />
+      <VerticalLaunchAdjustment value="0.000000" />
+      <DropForwardVelocity value="0.000000" />
 
-      <!-- Attach Points: Configured for FMJ, HP, AP magazines and extended variants -->
+      <!-- Muzzle velocity: ~400 m/s (1,300 fps full-power) -->
+      <Speed value="400.000000" />
+
+      <BulletsInBatch value="1" />
+      <BatchSpread value="0.000000" />
+      <ReloadTimeMP value="-1.000000" />
+      <ReloadTimeSP value="-1.000000" />
+      <VehicleReloadTime value="1.000000" />
+      <AnimReloadRate value="1.000000" />
+      <BulletsPerAnimLoop value="1" />
+
+      <!-- Fire Rate: Semi-auto ~180 RPM practical -->
+      <!-- Recoil management limits follow-up speed -->
+      <TimeBetweenShots value="0.333000" />
+      <TimeLeftBetweenShotsWhereShouldFireIsCached value="0.250000" />
+      <SpinUpTime value="0.000000" />
+      <SpinTime value="0.000000" />
+      <SpinDownTime value="0.000000" />
+      <AlternateWaitTime value="-1.000000" />
+
+      <BulletBendingNearRadius value="0.000000" />
+      <BulletBendingFarRadius value="0.750000" />
+      <BulletBendingZoomedRadius value="0.375000" />
+      <FirstPersonBulletBendingNearRadius value="0.000000" />
+      <FirstPersonBulletBendingFarRadius value="0.750000" />
+      <FirstPersonBulletBendingZoomedRadius value="0.375000" />
+
+      <Fx>
+        <EffectGroup>WEAPON_EFFECT_GROUP_PISTOL_SMALL</EffectGroup>
+        <FlashFx>muz_pistol</FlashFx>
+        <FlashFxAlt />
+        <FlashFxFP>muz_pistol_fp</FlashFxFP>
+        <FlashFxAltFP />
+        <MuzzleSmokeFx>muz_smoking_barrel</MuzzleSmokeFx>
+        <MuzzleSmokeFxFP>muz_smoking_barrel_fp</MuzzleSmokeFxFP>
+        <MuzzleSmokeFxMinLevel value="0.350000" />
+        <MuzzleSmokeFxIncPerShot value="0.120000" />
+        <MuzzleSmokeFxDecPerSec value="0.250000" />
+        <ShellFx>eject_pistol</ShellFx>
+        <ShellFxFP>eject_pistol_fp</ShellFxFP>
+        <TracerFx>bullet_tracer</TracerFx>
+        <PedDamageHash>BulletSmall</PedDamageHash>
+        <TracerFxChanceSP value="0.200000" />
+        <TracerFxChanceMP value="0.750000" />
+        <FlashFxChanceSP value="1.000000" />
+        <FlashFxChanceMP value="1.000000" />
+        <FlashFxAltChance value="0.000000" />
+        <FlashFxScale value="1.000000" />
+        <FlashFxLightEnabled value="true" />
+        <FlashFxLightCastsShadows value="false" />
+        <FlashFxLightOffsetDist value="0.000000" />
+        <FlashFxLightRGBAMin x="255.000000" y="93.000000" z="25.000000" />
+        <FlashFxLightRGBAMax x="255.000000" y="100.000000" z="50.000000" />
+        <FlashFxLightIntensityMinMax x="1.100000" y="2.200000" />
+        <FlashFxLightRangeMinMax x="2.200000" y="2.800000" />
+        <FlashFxLightFalloffMinMax x="1024.000000" y="1536.000000" />
+        <GroundDisturbFxEnabled value="false" />
+        <GroundDisturbFxDist value="5.000000" />
+        <GroundDisturbFxNameDefault />
+        <GroundDisturbFxNameSand />
+        <GroundDisturbFxNameDirt />
+        <GroundDisturbFxNameWater />
+        <GroundDisturbFxNameFoliage />
+      </Fx>
+
+      <InitialRumbleDuration value="180" />
+      <InitialRumbleIntensity value="0.350000" />
+      <InitialRumbleIntensityTrigger value="0.920000" />
+      <RumbleDuration value="110" />
+      <RumbleIntensity value="0.350000" />
+      <RumbleIntensityTrigger value="0.880000" />
+      <RumbleDamageIntensity value="1.000000" />
+      <InitialRumbleDurationFps value="180" />
+      <InitialRumbleIntensityFps value="1.000000" />
+      <RumbleDurationFps value="110" />
+      <RumbleIntensityFps value="1.000000" />
+
+      <NetworkPlayerDamageModifier value="1.000000" />
+      <NetworkPedDamageModifier value="1.000000" />
+      <NetworkHeadShotPlayerDamageModifier value="1.000000" />
+      <LockOnRange value="110.000000" />
+      <WeaponRange value="120.000000" />
+      <BulletDirectionOffsetInDegrees value="0.000000" />
+      <AiSoundRange value="110.000000" />
+      <AiPotentialBlastEventRange value="-1.000000" />
+
+      <!-- Damage falloff: Extended range from 10mm power -->
+      <DamageFallOffRangeMin value="18.000000" />
+      <DamageFallOffRangeMax value="60.000000" />
+      <DamageFallOffModifier value="0.400000" />
+
+      <VehicleWeaponHash />
+      <DefaultCameraHash>DEFAULT_THIRD_PERSON_PED_AIM_CAMERA</DefaultCameraHash>
+      <CoverCameraHash>DEFAULT_THIRD_PERSON_PED_AIM_IN_COVER_CAMERA</CoverCameraHash>
+      <CoverReadyToFireCameraHash />
+      <RunAndGunCameraHash>DEFAULT_THIRD_PERSON_PED_RUN_AND_GUN_CAMERA</RunAndGunCameraHash>
+      <CinematicShootingCameraHash>DEFAULT_THIRD_PERSON_PED_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+      <AlternativeOrScopedCameraHash />
+      <RunAndGunAlternativeOrScopedCameraHash />
+      <CinematicShootingAlternativeOrScopedCameraHash />
+      <CameraFov value="45.000000" />
+      <FirstPersonScopeFov value="30.000000" />
+      <FirstPersonRNGOffset x="0.000000" y="0.000000" z="0.000000" />
+      <FirstPersonRNGRotationOffset x="0.000000" y="0.000000" z="0.000000" />
+      <FirstPersonLTOffset x="0.000000" y="0.000000" z="0.000000" />
+      <FirstPersonLTRotationOffset x="0.000000" y="0.000000" z="0.000000" />
+      <FirstPersonScopeOffset x="0.000000" y="0.000000" z="0.000000" />
+      <FirstPersonScopeAttachmentOffset x="0.000000" y="0.000000" z="0.000000" />
+      <FirstPersonScopeRotationOffset x="0.000000" y="0.000000" z="0.000000" />
+      <FirstPersonScopeAttachmentRotationOffset x="0.000000" y="0.000000" z="0.000000" />
+      <FirstPersonAsThirdPersonIdleOffset x="0.075000" y="0.000000" z="0.000000" />
+      <FirstPersonAsThirdPersonRNGOffset x="0.000000" y="0.000000" z="0.020000" />
+      <FirstPersonAsThirdPersonLTOffset x="0.050000" y="0.000000" z="0.010000" />
+      <FirstPersonAsThirdPersonScopeOffset x="0.070000" y="0.000000" z="0.000000" />
+      <FirstPersonAsThirdPersonWeaponBlockedOffset x="0.000000" y="0.000000" z="0.000000" />
+      <FirstPersonDofSubjectMagnificationPowerFactorNear value="1.025000" />
+      <FirstPersonDofMaxNearInFocusDistance value="0.000000" />
+      <FirstPersonDofMaxNearInFocusDistanceBlendLevel value="0.300000" />
+      <ZoomFactorForAccurateMode value="1.300000" />
+
+      <!-- Recoil: Heavy - 10mm has ~44% more recoil than .45 ACP -->
+      <!-- "Snappy" impulse rather than .45's "push" -->
+      <RecoilShakeHash>PISTOL_RECOIL_SHAKE</RecoilShakeHash>
+      <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
+      <AccuracyOffsetShakeHash />
+      <MinTimeBetweenRecoilShakes value="80" />
+      <RecoilShakeAmplitude value="0.350000" />
+      <ExplosionShakeAmplitude value="-1.000000" />
+      <IkRecoilDisplacement value="0.006" />
+      <IkRecoilDisplacementScope value="0.006" />
+      <IkRecoilDisplacementScaleBackward value="1.100000" />
+      <IkRecoilDisplacementScaleVertical value="0.580000" />
+
+      <ReticuleHudPosition x="0.000000" y="0.000000" />
+      <AimOffsetMin x="0.200000" y="0.100000" z="0.600000" />
+      <AimProbeLengthMin value="0.300000" />
+      <AimOffsetMax x="0.175000" y="-0.200000" z="0.500000" />
+      <AimProbeLengthMax value="0.275000" />
+      <AimOffsetMinFPSIdle x="0.178000" y="0.392000" z="0.135000" />
+      <AimOffsetMedFPSIdle x="0.169000" y="0.312000" z="0.420000" />
+      <AimOffsetMaxFPSIdle x="0.187000" y="0.064000" z="0.649000" />
+      <AimOffsetMinFPSLT x="0.009000" y="0.334000" z="0.555000" />
+      <AimOffsetMaxFPSLT x="0.062000" y="-0.164000" z="0.588000" />
+      <AimOffsetMinFPSRNG x="0.114000" y="0.390000" z="0.485000" />
+      <AimOffsetMaxFPSRNG x="0.113000" y="-0.263000" z="0.586000" />
+      <AimOffsetMinFPSScope x="0.009000" y="0.421000" z="0.462000" />
+      <AimOffsetMaxFPSScope x="0.037000" y="-0.224000" z="0.639000" />
+      <AimOffsetEndPosMinFPSIdle x="0.208000" y="0.700000" z="0.003000" />
+      <AimOffsetEndPosMedFPSIdle x="0.203000" y="0.604000" z="0.553000" />
+      <AimOffsetEndPosMaxFPSIdle x="0.207000" y="-0.040000" z="0.942000" />
+      <TorsoAimOffset x="-1.300000" y="0.550000" />
+      <TorsoCrouchedAimOffset x="0.200000" y="0.050000" />
+      <LeftHandIkOffset x="0.000000" y="0.000000" z="0.000000" />
+
+      <ReticuleMinSizeStanding value="0.700000" />
+      <ReticuleMinSizeCrouched value="0.600000" />
+      <ReticuleScale value="0.320000" />
+      <ReticuleStyleHash>WEAPON_PISTOL</ReticuleStyleHash>
+      <FirstPersonReticuleStyleHash />
+      <PickupHash>PICKUP_WEAPON_COMBATPISTOL</PickupHash>
+      <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
+      <HumanNameHash>WEAPON_GLOCK20</HumanNameHash>
+      <MovementModeConditionalIdle>MMI_1Handed</MovementModeConditionalIdle>
+      <StatName>GLOCK20</StatName>
+      <KnockdownCount value="3" />
+      <KillshotImpulseScale value="1.200000" />
+      <NmShotTuningSet>Normal</NmShotTuningSet>
+
       <AttachPoints>
         <Item>
           <AttachBone>WAPClip</AttachBone>
           <Components>
             <Item>
-              <n>COMPONENT_GLOCK20_CLIP_FMJ</n>
+              <Name>COMPONENT_GLOCK20_CLIP_FMJ</Name>
               <Default value="true" />
             </Item>
             <Item>
-              <n>COMPONENT_GLOCK20_CLIP_HP</n>
+              <Name>COMPONENT_GLOCK20_CLIP_HP</Name>
               <Default value="false" />
             </Item>
             <Item>
-              <n>COMPONENT_GLOCK20_CLIP_AP</n>
+              <Name>COMPONENT_GLOCK20_CLIP_AP</Name>
               <Default value="false" />
             </Item>
             <Item>
-              <n>COMPONENT_GLOCK20_EXTCLIP_FMJ</n>
+              <Name>COMPONENT_GLOCK20_EXTCLIP_FMJ</Name>
               <Default value="false" />
             </Item>
             <Item>
-              <n>COMPONENT_GLOCK20_EXTCLIP_HP</n>
+              <Name>COMPONENT_GLOCK20_EXTCLIP_HP</Name>
               <Default value="false" />
             </Item>
             <Item>
-              <n>COMPONENT_GLOCK20_EXTCLIP_AP</n>
+              <Name>COMPONENT_GLOCK20_EXTCLIP_AP</Name>
               <Default value="false" />
             </Item>
             <Item>
-              <n>COMPONENT_GLOCK20_DRUM_FMJ</n>
+              <Name>COMPONENT_GLOCK20_DRUM_FMJ</Name>
               <Default value="false" />
             </Item>
             <Item>
-              <n>COMPONENT_GLOCK20_DRUM_HP</n>
+              <Name>COMPONENT_GLOCK20_DRUM_HP</Name>
               <Default value="false" />
             </Item>
             <Item>
-              <n>COMPONENT_GLOCK20_DRUM_AP</n>
-              <Default value="false" />
-            </Item>
-            <Item>
-              <n>COMPONENT_GLOCK20_LGDRUM_FMJ</n>
-              <Default value="false" />
-            </Item>
-            <Item>
-              <n>COMPONENT_GLOCK20_LGDRUM_HP</n>
-              <Default value="false" />
-            </Item>
-            <Item>
-              <n>COMPONENT_GLOCK20_LGDRUM_AP</n>
-              <Default value="false" />
-            </Item>
-            <Item>
-              <n>COMPONENT_GLOCK20_STICK_FMJ</n>
-              <Default value="false" />
-            </Item>
-            <Item>
-              <n>COMPONENT_GLOCK20_STICK_HP</n>
-              <Default value="false" />
-            </Item>
-            <Item>
-              <n>COMPONENT_GLOCK20_STICK_AP</n>
+              <Name>COMPONENT_GLOCK20_DRUM_AP</Name>
               <Default value="false" />
             </Item>
           </Components>
         </Item>
       </AttachPoints>
+
+      <GunFeedBone />
+      <TargetSequenceGroup />
+      <WeaponFlags>CarriedInHand Gun CanLockonOnFoot CanLockonInVehicle CanFreeAim AnimReload AnimCrouchFire UsableOnFoot UsableClimbing UsableInCover AllowCloseQuarterKills HasLowCoverReloads HasLowCoverSwaps QuitTransitionToIdleIntroOnWeaponChange DisableLeftHandIkWhenOnFoot TorsoIKForWeaponBlock UseFPSAimIK UseFPSSecondaryMotion</WeaponFlags>
+      <TintSpecValues ref="TINT_DEFAULT" />
+      <FiringPatternAliases ref="FIRING_PATTERN_PISTOL" />
+      <ReloadUpperBodyFixupExpressionData ref="default" />
+      <AmmoDiminishingRate value="3" />
+      <AimingBreathingAdditiveWeight value="1.000000" />
+      <FiringBreathingAdditiveWeight value="1.000000" />
+      <StealthAimingBreathingAdditiveWeight value="1.000000" />
+      <StealthFiringBreathingAdditiveWeight value="1.000000" />
+      <AimingLeanAdditiveWeight value="1.000000" />
+      <FiringLeanAdditiveWeight value="1.000000" />
+      <StealthAimingLeanAdditiveWeight value="1.000000" />
+      <StealthFiringLeanAdditiveWeight value="1.000000" />
+      <ExpandPedCapsuleRadius value="0.000000" />
+      <AudioCollisionHash />
+      <HudDamage value="52" />
+      <HudSpeed value="35" />
+      <HudCapacity value="32" />
+      <HudAccuracy value="58" />
+      <HudRange value="42" />
     </Item>
   </Infos>
+  <Name>GLOCK20</Name>
 </CWeaponInfoBlob>

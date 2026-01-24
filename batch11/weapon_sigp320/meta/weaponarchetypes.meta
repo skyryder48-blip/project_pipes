@@ -4,8 +4,8 @@
     <Item>
       <modelName>w_pi_sigp320</modelName>
       <txdName>w_pi_sigp320</txdName>
-      <ptfxAssetName>null</ptfxAssetName>
-      <lodDist value="50"/>
+      <ptfxAssetName>NULL</ptfxAssetName>
+      <lodDist value="70"/>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

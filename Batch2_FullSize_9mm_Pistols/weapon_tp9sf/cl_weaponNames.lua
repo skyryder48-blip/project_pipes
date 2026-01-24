@@ -1,3 +1,1 @@
-Citizen.CreateThread(function()
-    AddTextEntry('WT_TP9SF', 'Tp9sf')
-end)
+AddTextEntry("WEAPON_TP9SF", "Canik TP9SF")

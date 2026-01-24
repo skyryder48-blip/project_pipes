@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
+    <!-- SIG P220 - Classic .45 ACP DA/SA Pistol -->
     <Item>
       <modelName>w_pi_sigp220</modelName>
       <txdName>w_pi_sigp220</txdName>
-      <ptfxAssetName>null</ptfxAssetName>
-      <lodDist value="50"/>
+      <ptfxAssetName>NULL</ptfxAssetName>
+      <lodDist value="70"/>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

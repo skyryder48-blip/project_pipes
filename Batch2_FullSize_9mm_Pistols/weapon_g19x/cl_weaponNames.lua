@@ -1,3 +1,1 @@
-Citizen.CreateThread(function()
-    AddTextEntry('WT_G19X', 'Glock 19X')
-end)
+AddTextEntry("WEAPON_G19X", "Glock 19X")

@@ -1,0 +1,1 @@
+AddTextEntry("WEAPON_SIGP226ELITE", "P226 Elite")

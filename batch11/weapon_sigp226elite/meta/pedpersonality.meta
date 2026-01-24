@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CPedModelInfo__PersonalityDataList>
+  <PersonalityData>
+    <Item>
+      <Name>WEAPON_SIGP226ELITE</Name>
+      <UnholsterClipData>
+        <UnholsterClipDefault>YOURGUNHERE</UnholsterClipDefault>
+        <UnholsterClipShoulder>YOURGUNHERE</UnholsterClipShoulder>
+        <UnholsterClipHip>YOURGUNHERE</UnholsterClipHip>
+        <UnholsterClipLeg>YOURGUNHERE</UnholsterClipLeg>
+        <UnholsterClipStealthDefault>YOURGUNHERE_STEALTH</UnholsterClipStealthDefault>
+        <UnholsterClipStealthShoulder>YOURGUNHERE_STEALTH</UnholsterClipStealthShoulder>
+        <UnholsterClipStealthHip>YOURGUNHERE_STEALTH</UnholsterClipStealthHip>
+        <UnholsterClipStealthLeg>YOURGUNHERE_STEALTH</UnholsterClipStealthLeg>
+        <UnholsterClipBiker>YOURGUNHERE</UnholsterClipBiker>
+      </UnholsterClipData>
+      <MovementModes>
+        <Item key="DEFAULT">
+          <MovementMode>
+            <Name>DEFAULT</Name>
+            <StealthMovementModeName>DEFAULT_STEALTH</StealthMovementModeName>
+          </MovementMode>
+        </Item>
+        <Item key="MP_FEMALE">
+          <MovementMode>
+            <Name>MP_FEMALE</Name>
+            <StealthMovementModeName>MP_FEMALE_STEALTH</StealthMovementModeName>
+          </MovementMode>
+        </Item>
+        <Item key="MICHAEL">
+          <MovementMode>
+            <Name>MICHAEL</Name>
+            <StealthMovementModeName>MICHAEL_STEALTH</StealthMovementModeName>
+          </MovementMode>
+        </Item>
+        <Item key="FRANKLIN">
+          <MovementMode>
+            <Name>FRANKLIN</Name>
+            <StealthMovementModeName>FRANKLIN_STEALTH</StealthMovementModeName>
+          </MovementMode>
+        </Item>
+        <Item key="TREVOR">
+          <MovementMode>
+            <Name>TREVOR</Name>
+            <StealthMovementModeName>TREVOR_STEALTH</StealthMovementModeName>
+          </MovementMode>
+        </Item>
+      </MovementModes>
+    </Item>
+  </PersonalityData>
+</CPedModelInfo__PersonalityDataList>

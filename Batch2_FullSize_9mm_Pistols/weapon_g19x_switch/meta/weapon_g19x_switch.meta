@@ -30,7 +30,7 @@
       <AmmoInfo ref="AMMO_9MM_FMJ" />
       <AimingInfo ref="PISTOL_ACCURATE" />
 
-      <ClipSize value="17" />
+      <ClipSize value="15" />
 
       <!-- SEVERELY DEGRADED accuracy due to full-auto fire -->
       <AccuracySpread value="2.400000" />

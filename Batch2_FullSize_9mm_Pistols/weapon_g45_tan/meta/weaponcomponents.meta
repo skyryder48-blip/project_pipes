@@ -12,7 +12,7 @@
       <Model />
       <LocName>WCT_CLIP_FMJ</LocName>
       <LocDesc>WCD_CLIP_FMJ</LocDesc>
-      <ClipSize value="33" />
+      <ClipSize value="17" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
@@ -22,7 +22,7 @@
       <Model />
       <LocName>WCT_CLIP_HP</LocName>
       <LocDesc>WCD_CLIP_HP</LocDesc>
-      <ClipSize value="33" />
+      <ClipSize value="17" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
@@ -32,7 +32,7 @@
       <Model />
       <LocName>WCT_CLIP_AP</LocName>
       <LocDesc>WCD_CLIP_AP</LocDesc>
-      <ClipSize value="33" />
+      <ClipSize value="17" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
@@ -42,7 +42,7 @@
       <Model />
       <LocName>WCT_MAG2_FMJ</LocName>
       <LocDesc>WCD_MAG2_FMJ</LocDesc>
-      <ClipSize value="37" />
+      <ClipSize value="33" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
@@ -52,7 +52,7 @@
       <Model />
       <LocName>WCT_MAG2_HP</LocName>
       <LocDesc>WCD_MAG2_HP</LocDesc>
-      <ClipSize value="37" />
+      <ClipSize value="33" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
@@ -62,7 +62,7 @@
       <Model />
       <LocName>WCT_MAG2_AP</LocName>
       <LocDesc>WCD_MAG2_AP</LocDesc>
-      <ClipSize value="37" />
+      <ClipSize value="33" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
@@ -132,7 +132,7 @@
       <Model />
       <LocName>WCT_MAG5_FMJ</LocName>
       <LocDesc>WCD_MAG5_FMJ</LocDesc>
-      <ClipSize value="28" />
+      <ClipSize value="27" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
@@ -142,7 +142,7 @@
       <Model />
       <LocName>WCT_MAG5_HP</LocName>
       <LocDesc>WCD_MAG5_HP</LocDesc>
-      <ClipSize value="28" />
+      <ClipSize value="27" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
@@ -152,7 +152,7 @@
       <Model />
       <LocName>WCT_MAG5_AP</LocName>
       <LocDesc>WCD_MAG5_AP</LocDesc>
-      <ClipSize value="28" />
+      <ClipSize value="27" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
   </Infos>

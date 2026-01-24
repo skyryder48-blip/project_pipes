@@ -43,8 +43,8 @@
       <AmmoInfo ref="AMMO_9MM_FMJ" />
       <AimingInfo ref="PISTOL_ACCURATE" />
 
-      <!-- Glock 19X Deluxe: 15+1 capacity, 4.02" barrel - COMPACT -->
-      <ClipSize value="17" />
+      <!-- Glock 19X Deluxe: 27+1 capacity, 4.02" barrel - COMPACT -->
+      <ClipSize value="27" />
 
       <!-- Accuracy: Slightly less than G17 due to shorter 4.02" barrel, 6.02" sight radius -->
       <AccuracySpread value="1.650000" />

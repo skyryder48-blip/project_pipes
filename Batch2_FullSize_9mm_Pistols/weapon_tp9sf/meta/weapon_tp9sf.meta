@@ -43,8 +43,8 @@
       <AmmoInfo ref="AMMO_9MM_FMJ" />
       <AimingInfo ref="PISTOL_ACCURATE" />
 
-      <!-- Canik TP9SF: 15+1 standard capacity, 4.46" barrel -->
-      <ClipSize value="15" />
+      <!-- Canik TP9SF: 18+1 standard capacity, 4.46" barrel -->
+      <ClipSize value="18" />
 
       <!-- Accuracy: Good - competition-grade trigger helps with precision -->
       <AccuracySpread value="1.450000" />

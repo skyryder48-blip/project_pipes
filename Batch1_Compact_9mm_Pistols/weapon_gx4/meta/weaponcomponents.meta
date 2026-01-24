@@ -42,7 +42,7 @@
       <Model />
       <LocName>WCT_EXTCLIP_FMJ</LocName>
       <LocDesc>WCD_EXTCLIP_FMJ</LocDesc>
-      <ClipSize value="33" />
+      <ClipSize value="30" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
@@ -52,7 +52,7 @@
       <Model />
       <LocName>WCT_EXTCLIP_HP</LocName>
       <LocDesc>WCD_EXTCLIP_HP</LocDesc>
-      <ClipSize value="33" />
+      <ClipSize value="30" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 
@@ -62,7 +62,7 @@
       <Model />
       <LocName>WCT_EXTCLIP_AP</LocName>
       <LocDesc>WCD_EXTCLIP_AP</LocDesc>
-      <ClipSize value="33" />
+      <ClipSize value="30" />
       <AmmoInfo ref="AMMO_PISTOL" />
     </Item>
 

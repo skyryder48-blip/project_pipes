@@ -33,14 +33,14 @@
 					<Group>GROUP_PISTOL</Group>
 					<AmmoInfo ref="AMMO_PISTOL"/>
 					<AimingInfo ref="PISTOL_2H_BASE_STRAFE"/>
-					<ClipSize value="12"/>
-					<AccuracySpread value="2.200000"/>
+					<ClipSize value="10"/>
+					<AccuracySpread value="2.400000"/>
 					<AccurateModeAccuracyModifier value="0.600000"/>
 					<RunAndGunAccuracyModifier value="2.500000"/>
 					<RunAndGunAccuracyMaxModifier value="1.000000"/>
 					<RecoilAccuracyMax value="2.000000"/>
 					<RecoilErrorTime value="0.600000"/>
-					<RecoilRecoveryRate value="0.250000"/>
+					<RecoilRecoveryRate value="0.200000"/>
 					<RecoilAccuracyToAllowHeadShotAI value="0.650000"/>
 					<MinHeadShotDistanceAI value="1.200000"/>
 					<MaxHeadShotDistanceAI value="35.000000"/>
@@ -78,8 +78,8 @@
 					<VehicleReloadTime value="1.000000"/>
 					<AnimReloadRate value="1.000000"/>
 					<BulletsPerAnimLoop value="1"/>
-					<TimeBetweenShots value="0.055000"/>
-					<TimeLeftBetweenShotsWhereShouldFireIsCached value="0.250000"/>
+					<TimeBetweenShots value="0.052000"/>
+					<TimeLeftBetweenShotsWhereShouldFireIsCached value="-1.000000"/>
 					<SpinUpTime value="0.000000"/>
 					<SpinTime value="0.000000"/>
 					<SpinDownTime value="0.000000"/>
@@ -146,8 +146,8 @@
 					<BulletDirectionOffsetInDegrees value="0.000000"/>
 					<AiSoundRange value="100.000000"/>
 					<AiPotentialBlastEventRange value="-1.000000"/>
-					<DamageFallOffRangeMin value="15.000000"/>
-					<DamageFallOffRangeMax value="50.000000"/>
+					<DamageFallOffRangeMin value="18.000000"/>
+					<DamageFallOffRangeMax value="55.000000"/>
 					<DamageFallOffModifier value="0.380000"/>
 					<VehicleWeaponHash/>
 					<DefaultCameraHash>DEFAULT_THIRD_PERSON_PED_AIM_CAMERA</DefaultCameraHash>
@@ -181,7 +181,7 @@
 					<RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
 					<AccuracyOffsetShakeHash/>
 					<MinTimeBetweenRecoilShakes value="40"/>
-					<RecoilShakeAmplitude value="0.350000"/>
+					<RecoilShakeAmplitude value="0.420000"/>
 					<ExplosionShakeAmplitude value="-1.000000"/>
 					<IkRecoilDisplacement value="0.005"/>
 					<IkRecoilDisplacementScope value="0.005"/>

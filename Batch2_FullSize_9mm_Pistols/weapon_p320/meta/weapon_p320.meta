@@ -2,7 +2,7 @@
 <!--
   Sig Sauer P320 Full-Size
   PREMIUM TIER - US Military M17/M18 winner
-  
+
   Unique Characteristics:
   - Longest barrel in class (4.7") = highest velocity/accuracy
   - Modular Fire Control Unit design
@@ -15,11 +15,10 @@
   <SlotBestOrder><WeaponSlots><Item><OrderNumber value="123" /><Entry>SLOT_P320</Entry></Item></WeaponSlots></SlotBestOrder>
   <TintSpecValues /><FiringPatternAliases /><UpperBodyFixupExpressionData /><AimingInfos />
   <Infos>
-    <Item><Infos /></Item>
     <Item>
       <Infos>
         <Item type="CWeaponInfo">
-          <n>WEAPON_P320</n>
+          <Name>WEAPON_P320</Name>
           <Model>w_pi_p320</Model>
           <Audio>AUDIO_ITEM_PISTOL</Audio>
           <Slot>SLOT_P320</Slot>
@@ -30,10 +29,10 @@
           <Group>GROUP_PISTOL</Group>
           <AmmoInfo ref="AMMO_9MM_FMJ" />
           <AimingInfo ref="PISTOL_ACCURATE" />
-          
+
           <!-- P320: 17+1, LONGEST barrel (4.7") -->
           <ClipSize value="17" />
-          
+
           <!-- BEST ACCURACY - longest barrel, low bore axis, military-grade -->
           <AccuracySpread value="1.280000" />
           <AccurateModeAccuracyModifier value="0.400000" />
@@ -50,7 +49,7 @@
           <MinHeadShotDistancePlayer value="0.000000" />
           <MaxHeadShotDistancePlayer value="7.000000" />
           <HeadShotDamageModifierPlayer value="2.900000" />
-          
+
           <Damage value="34.000000" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
@@ -59,7 +58,7 @@
           <NetworkHitLimbsDamageModifier value="0.800000" />
           <LightlyArmouredDamageModifier value="1.000000" />
           <VehicleDamageModifier value="1.000000" />
-          
+
           <Force value="50.000000" />
           <ForceHitPed value="40.000000" />
           <ForceHitVehicle value="200.000000" />
@@ -74,10 +73,10 @@
           <Penetration value="0.150000" />
           <VerticalLaunchAdjustment value="0.000000" />
           <DropForwardVelocity value="0.000000" />
-          
+
           <!-- HIGHEST velocity - longest barrel (4.7") = 360 m/s -->
           <Speed value="360.000000" />
-          
+
           <BulletsInBatch value="1" />
           <BatchSpread value="0.000000" />
           <ReloadTimeMP value="-1.000000" />
@@ -85,10 +84,10 @@
           <VehicleReloadTime value="0.000000" />
           <AnimReloadRate value="1.000000" />
           <BulletsPerAnimLoop value="1" />
-          
+
           <!-- Short trigger reset = fast follow-ups -->
           <TimeBetweenShots value="0.155000" />
-          
+
           <!-- BEST effective range -->
           <DamageFallOffRangeMin value="22.000000" />
           <DamageFallOffRangeMax value="65.000000" />
@@ -97,7 +96,7 @@
           <NetworkPedDamageModifier value="1.000000" />
           <NetworkHeadShotPlayerDamageModifier value="1.000000" />
           <LockonRange value="100.000000" />
-          
+
           <WeaponRange value="140.000000" />
           <BulletDirectionOffsetInDegrees value="0.000000" />
           <AiSoundRange value="140.000000" />
@@ -106,7 +105,16 @@
           <GunShotNormalRumbleProfile>LIGHT_GUNSHOT_PLAYER</GunShotNormalRumbleProfile>
           <ExplosionRumbleProfile>LIGHT_EXPLOSION</ExplosionRumbleProfile>
           <GunShotSlowMoRumbleProfile>SLOW_MO_GUNSHOT_PLAYER</GunShotSlowMoRumbleProfile>
-          
+
+          <DefaultCameraHash>DEFAULT_THIRD_PERSON_PED_AIM_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_THIRD_PERSON_PED_AIM_IN_COVER_CAMERA</CoverCameraHash>
+          <CoverReadyToFireCameraHash />
+          <RunAndGunCameraHash>DEFAULT_THIRD_PERSON_PED_RUN_AND_GUN_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash>DEFAULT_THIRD_PERSON_PED_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+          <AlternativeOrScopedCameraHash />
+          <RunAndGunAlternativeOrScopedCameraHash />
+          <CinematicShootingAlternativeOrScopedCameraHash />
+
           <FirstPersonScopeOffset x="0.000000" y="0.000000" z="0.000000" />
           <FirstPersonScopeAttachmentOffset x="0.000000" y="0.000000" z="0.000000" />
           <FirstPersonScopeRotationOffset x="0.000000" y="0.000000" z="0.000000" />
@@ -120,7 +128,30 @@
           <FirstPersonDofMaxNearInFocusDistance value="0.000000" />
           <FirstPersonDofMaxNearInFocusDistanceBlendLevel value="0.300000" />
           <ZoomFactorForAccurateMode value="1.350000" />
-          
+
+          <Fx>
+            <FlashFx>muz_pistol_fp</FlashFx>
+            <FlashFxAlt>muz_pistol</FlashFxAlt>
+            <FlashFxFP />
+            <FlashFxAltFP />
+            <SmokeFx />
+            <SmokeFxFP />
+            <SmokeFxIsBeingUsed value="false" />
+            <TracerFx>proj_tracer_youforyou</TracerFx>
+            <TracerFxFP />
+            <ShellFx>eject_pistol</ShellFx>
+            <ShellFxFP />
+            <MuzzleSmokeFx>muz_pistol_smoke</MuzzleSmokeFx>
+            <MuzzleSmokeFxFP />
+            <MuzzleSmokeFxMinLevel value="0.200000" />
+            <MuzzleSmokeFxIncPerShot value="0.050000" />
+            <MuzzleSmokeFxDecPerSec value="0.300000" />
+            <GroundDisturbFx />
+            <GroundDisturbFxAlt />
+            <GroundDisturbFxFP />
+            <GroundDisturbFxAltFP />
+          </Fx>
+
           <!-- Excellent recoil control - low bore axis, heavy weight (837g) -->
           <RecoilShakeHash>PISTOL_RECOIL_SHAKE</RecoilShakeHash>
           <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
@@ -132,7 +163,7 @@
           <IkRecoilDisplacementScope value="0.000000" />
           <IkRecoilDisplacementScaleBackward value="1.000000" />
           <IkRecoilDisplacementScaleVertical value="0.300000" />
-          
+
           <ReticuleHudPosition x="0.000000" y="0.000000" />
           <ReticuleHudPositionOffsetForPOVTurret x="0.000000" y="0.000000" />
           <AimOffsetMin x="0.215000" y="0.100000" z="0.600000" />
@@ -162,32 +193,32 @@
           <TorsoAimOffset x="-1.300000" y="0.550000" />
           <TorsoCrouchedAimOffset x="0.200000" y="0.050000" />
           <LeftHandIkOffset x="0.000000" y="0.000000" z="0.000000" />
-          
+
           <ReticuleMinSizeStanding value="0.520000" />
           <ReticuleMinSizeCrouched value="0.420000" />
           <ReticuleScale value="0.240000" />
           <ReticuleStyleHash>WEAPON_PISTOL</ReticuleStyleHash>
           <FirstPersonReticuleStyleHash />
-          <PickupHash>PICKUP_WEAPON_P320</PickupHash>
+          <PickupHash>PICKUP_WEAPON_COMBATPISTOL</PickupHash>
           <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
-          <HumanNameHash>WT_P320</HumanNameHash>
+          <HumanNameHash>WEAPON_P320</HumanNameHash>
           <MovementModeConditionalIdle>MMI_1Handed</MovementModeConditionalIdle>
           <StatName>P320</StatName>
           <KnockdownCount value="3" />
           <KillshotImpulseScale value="1.000000" />
-          <NmShotTuningSet>normal</NmShotTuningSet>
-          
+          <NmShotTuningSet>Normal</NmShotTuningSet>
+
           <AttachPoints>
             <Item>
               <AttachBone>WAPClip</AttachBone>
               <Components>
-                <Item><n>COMPONENT_P320_CLIP_FMJ</n><Default value="true" /></Item>
-                <Item><n>COMPONENT_P320_CLIP_HP</n><Default value="false" /></Item>
-                <Item><n>COMPONENT_P320_CLIP_AP</n><Default value="false" /></Item>
+                <Item><Name>COMPONENT_P320_CLIP_FMJ</Name><Default value="true" /></Item>
+                <Item><Name>COMPONENT_P320_CLIP_HP</Name><Default value="false" /></Item>
+                <Item><Name>COMPONENT_P320_CLIP_AP</Name><Default value="false" /></Item>
               </Components>
             </Item>
           </AttachPoints>
-          
+
           <GunFeedBone />
           <TargetSequenceGroup>Pistol</TargetSequenceGroup>
           <WeaponFlags>CarriedInHand Gun CanLockonOnFoot CanLockonInVehicle CanFreeAim AnimReload AnimCrouchFire UsableOnFoot UsableClimbing UsableInCover AllowCloseQuarterKills HasLowCoverReloads HasLowCoverSwaps QuitTransitionToIdleIntroOnWeaponChange DisableLeftHandIkWhenOnFoot TorsoIKForWeaponBlock UseFPSAimIK UseFPSSecondaryMotion</WeaponFlags>
@@ -205,7 +236,7 @@
           <StealthFiringLeanAdditiveWeight value="1.000000" />
           <ExpandPedCapsuleRadius value="0.000000" />
           <AudioCollisionHash />
-          
+
           <!-- PREMIUM HUD Stats -->
           <HudDamage value="35" />
           <HudSpeed value="52" />
@@ -231,10 +262,8 @@
         </Item>
       </Infos>
     </Item>
-    <Item><Infos /></Item>
-    <Item><Infos /></Item>
   </Infos>
   <VehicleWeaponInfos />
   <WeaponGroupDamageForArmouredVehicleGlass />
-  <n>Sig Sauer P320</n>
+  <Name>Sig Sauer P320</Name>
 </CWeaponInfoBlob>

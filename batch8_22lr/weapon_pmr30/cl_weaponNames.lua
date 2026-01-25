@@ -1,2 +1,2 @@
 --[[
-AddTextEntry("WT_PMR30", "Kel-Tec PMR-30")
+AddTextEntry("WEAPON_PMR30", "Kel-Tec PMR-30")

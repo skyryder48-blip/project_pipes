@@ -125,6 +125,16 @@
       <GunShotSlowMoRumbleProfile>SLOW_MO_GUNSHOT_PLAYER</GunShotSlowMoRumbleProfile>
 
       <!-- Camera and Aiming -->
+          <DefaultCameraHash>DEFAULT_THIRD_PERSON_PED_AIM_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_THIRD_PERSON_PED_AIM_IN_COVER_CAMERA</CoverCameraHash>
+          <CoverReadyToFireCameraHash />
+          <RunAndGunCameraHash>DEFAULT_THIRD_PERSON_PED_RUN_AND_GUN_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash>DEFAULT_THIRD_PERSON_PED_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+          <AlternativeOrScopedCameraHash />
+          <RunAndGunAlternativeOrScopedCameraHash />
+          <CinematicShootingAlternativeOrScopedCameraHash />
+          <CameraFov value="45.000000" />
+          <FirstPersonScopeFov value="30.000000" />
       <FirstPersonScopeOffset x="0.000000" y="0.000000" z="0.000000" />
       <FirstPersonScopeAttachmentOffset x="0.000000" y="0.000000" z="0.000000" />
       <FirstPersonScopeRotationOffset x="0.000000" y="0.000000" z="0.000000" />
@@ -138,28 +148,42 @@
       <FirstPersonDofMaxNearInFocusDistance value="0.000000" />
       <FirstPersonDofMaxNearInFocusDistanceBlendLevel value="0.300000" />
       <ZoomFactorForAccurateMode value="1.300000" />
-
       <Fx>
-        <FlashFx>muz_pistol_fp</FlashFx>
-        <FlashFxAlt>muz_pistol</FlashFxAlt>
-        <FlashFxFP />
-        <FlashFxAltFP />
-        <SmokeFx />
-        <SmokeFxFP />
-        <SmokeFxIsBeingUsed value="false" />
-        <TracerFx>proj_tracer_youforyou</TracerFx>
-        <TracerFxFP />
+        <EffectGroup>WEAPON_EFFECT_GROUP_PISTOL</EffectGroup>
+        <FlashFx>muz_pistol</FlashFx>
+        <FlashFxAlt/>
+        <FlashFxFP>muz_pistol_fp</FlashFxFP>
+        <FlashFxAltFP/>
+        <MuzzleSmokeFx>muz_smoking_barrel</MuzzleSmokeFx>
+        <MuzzleSmokeFxFP>muz_smoking_barrel_fp</MuzzleSmokeFxFP>
+        <MuzzleSmokeFxMinLevel value="0.300000"/>
+        <MuzzleSmokeFxIncPerShot value="0.100000"/>
+        <MuzzleSmokeFxDecPerSec value="0.275000"/>
         <ShellFx>eject_pistol</ShellFx>
-        <ShellFxFP />
-        <MuzzleSmokeFx>muz_pistol_smoke</MuzzleSmokeFx>
-        <MuzzleSmokeFxFP />
-        <MuzzleSmokeFxMinLevel value="0.200000" />
-        <MuzzleSmokeFxIncPerShot value="0.050000" />
-        <MuzzleSmokeFxDecPerSec value="0.300000" />
-        <GroundDisturbFx />
-        <GroundDisturbFxAlt />
-        <GroundDisturbFxFP />
-        <GroundDisturbFxAltFP />
+        <ShellFxFP>eject_pistol_fp</ShellFxFP>
+        <TracerFx>bullet_tracer</TracerFx>
+        <PedDamageHash>BulletSmall</PedDamageHash>
+        <TracerFxChanceSP value="0.200000"/>
+        <TracerFxChanceMP value="0.750000"/>
+        <FlashFxChanceSP value="1.000000"/>
+        <FlashFxChanceMP value="1.000000"/>
+        <FlashFxAltChance value="0.000000"/>
+        <FlashFxScale value="1.000000"/>
+        <FlashFxLightEnabled value="true"/>
+        <FlashFxLightCastsShadows value="false"/>
+        <FlashFxLightOffsetDist value="0.000000"/>
+        <FlashFxLightRGBAMin x="255.000000" y="93.000000" z="25.000000"/>
+        <FlashFxLightRGBAMax x="255.000000" y="100.000000" z="50.000000"/>
+        <FlashFxLightIntensityMinMax x="1.000000" y="2.000000"/>
+        <FlashFxLightRangeMinMax x="2.000000" y="2.500000"/>
+        <FlashFxLightFalloffMinMax x="1024.000000" y="1536.000000"/>
+        <GroundDisturbFxEnabled value="false"/>
+        <GroundDisturbFxDist value="5.000000"/>
+        <GroundDisturbFxNameDefault/>
+        <GroundDisturbFxNameSand/>
+        <GroundDisturbFxNameDirt/>
+        <GroundDisturbFxNameWater/>
+        <GroundDisturbFxNameFoliage/>
       </Fx>
 
       <AimCameraHash>DEFAULT_PISTOL_CAMERA</AimCameraHash>

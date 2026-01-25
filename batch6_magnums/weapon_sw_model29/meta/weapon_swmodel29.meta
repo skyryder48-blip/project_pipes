@@ -78,16 +78,16 @@
           
           <!-- ACCURACY PARAMETERS -->
           <!-- Long 6.5" barrel + 8" sight radius = excellent precision -->
-          <AccuracySpread value="0.550000" />
+          <AccuracySpread value="1.420000" />
           <AccurateModeAccuracyModifier value="0.400000" />
           <RunAndGunAccuracyModifier value="2.200000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
           
           <!-- RECOIL PARAMETERS -->
           <!-- Heavy .44 Mag recoil, but N-frame weight helps -->
-          <RecoilAccuracyMax value="2.400000" />
+          <RecoilAccuracyMax value="3.640000" />
           <RecoilErrorTime value="0.550000" />
-          <RecoilRecoveryRate value="0.280000" />
+          <RecoilRecoveryRate value="0.470000" />
           <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
           <MinHeadShotDistanceAI value="1.200000" />
           <MaxHeadShotDistanceAI value="45.000000" />
@@ -142,7 +142,7 @@
           
           <!-- FIRE RATE -->
           <!-- DA/SA revolver - deliberate shots, ~92 RPM max -->
-          <TimeBetweenShots value="0.650000" />
+          <TimeBetweenShots value="1.109000" />
           <TimeLeftBetweenShotsWhereShouldFireIsCached value="0.100000" />
           <SpinUpTime value="0.000000" />
           <SpinTime value="0.000000" />
@@ -222,7 +222,7 @@
           <RecoilShakeHashFirstPerson>RECOIL_PISTOL</RecoilShakeHashFirstPerson>
           <AccuracyOffsetShakeHash>ACCURACY_OFFSET_PISTOL</AccuracyOffsetShakeHash>
           <MinTimeBetweenRecoilShakes value="150" />
-          <RecoilShakeAmplitude value="0.560000" />
+          <RecoilShakeAmplitude value="3.190000" />
           <ExplosionShakeAmplitude value="0.000000" />
 
           <!-- IK RECOIL - .44 Magnum = 1.4x .357 baseline muzzle rise -->

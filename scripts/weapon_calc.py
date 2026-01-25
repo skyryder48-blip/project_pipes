@@ -11,6 +11,7 @@ Calculates weapon handling values based on:
 
 import os
 import re
+import glob
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from typing import Optional
@@ -613,13 +614,25 @@ def update_weapon_meta(file_path: str, values: dict) -> bool:
 
 
 def find_weapon_meta_file(base_path: str, weapon_name: str) -> Optional[str]:
-    """Find the weapon meta file for a given weapon"""
+    """Find the weapon meta file for a given weapon.
+
+    Handles naming variations where meta files may not have underscores
+    in the same positions as directory names (e.g., weapon_sw_657/meta/weapon_sw657.meta)
+    """
     weapon_dir = f"weapon_{weapon_name}"
     meta_file = f"weapon_{weapon_name}.meta"
     full_path = os.path.join(base_path, weapon_dir, "meta", meta_file)
 
     if os.path.exists(full_path):
         return full_path
+
+    # Fallback: search for any weapon_*.meta file in the directory
+    meta_dir = os.path.join(base_path, weapon_dir, "meta")
+    if os.path.isdir(meta_dir):
+        matches = glob.glob(os.path.join(meta_dir, "weapon_*.meta"))
+        if len(matches) == 1:
+            return matches[0]
+
     return None
 
 

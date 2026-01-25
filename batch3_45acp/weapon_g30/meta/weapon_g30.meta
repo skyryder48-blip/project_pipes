@@ -34,13 +34,13 @@
 					<AmmoInfo ref="AMMO_PISTOL"/>
 					<AimingInfo ref="PISTOL_2H_BASE_STRAFE"/>
 					<ClipSize value="10"/>
-					<AccuracySpread value="1.600000"/>
+					<AccuracySpread value="1.140000"/>
 					<AccurateModeAccuracyModifier value="0.550000"/>
 					<RunAndGunAccuracyModifier value="2.800000"/>
 					<RunAndGunAccuracyMaxModifier value="1.000000"/>
-					<RecoilAccuracyMax value="3.500000"/>
+					<RecoilAccuracyMax value="1.970000"/>
 					<RecoilErrorTime value="0.550000"/>
-					<RecoilRecoveryRate value="0.700000"/>
+					<RecoilRecoveryRate value="0.940000"/>
 					<RecoilAccuracyToAllowHeadShotAI value="0.650000"/>
 					<MinHeadShotDistanceAI value="1.200000"/>
 					<MaxHeadShotDistanceAI value="40.000000"/>
@@ -78,7 +78,7 @@
 					<VehicleReloadTime value="1.000000"/>
 					<AnimReloadRate value="1.000000"/>
 					<BulletsPerAnimLoop value="1"/>
-					<TimeBetweenShots value="0.290000"/>
+					<TimeBetweenShots value="0.259000"/>
 					<TimeLeftBetweenShotsWhereShouldFireIsCached value="0.250000"/>
 					<SpinUpTime value="0.000000"/>
 					<SpinTime value="0.000000"/>
@@ -181,9 +181,9 @@
 					<RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
 					<AccuracyOffsetShakeHash/>
 					<MinTimeBetweenRecoilShakes value="80"/>
-					<RecoilShakeAmplitude value="0.420000"/>
+					<RecoilShakeAmplitude value="0.290000"/>
 					<ExplosionShakeAmplitude value="-1.000000"/>
-					<IkRecoilDisplacement value="0.014"/>
+					<IkRecoilDisplacement value="0.031600"/>
 					<IkRecoilDisplacementScope value="0.014"/>
 					<IkRecoilDisplacementScaleBackward value="1.000000"/>
 					<IkRecoilDisplacementScaleVertical value="0.700000"/>

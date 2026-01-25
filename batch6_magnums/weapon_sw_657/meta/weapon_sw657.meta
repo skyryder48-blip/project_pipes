@@ -225,7 +225,7 @@
           <RecoilShakeHashFirstPerson>RECOIL_PISTOL</RecoilShakeHashFirstPerson>
           <AccuracyOffsetShakeHash>ACCURACY_OFFSET_PISTOL</AccuracyOffsetShakeHash>
           <MinTimeBetweenRecoilShakes value="120" />
-          <RecoilShakeAmplitude value="3.910000" />
+          <RecoilShakeAmplitude value="5.580000" />
           <ExplosionShakeAmplitude value="0.000000" />
 
           <!-- IK RECOIL - .41 Mag = 20-30% less than .44 Mag -->

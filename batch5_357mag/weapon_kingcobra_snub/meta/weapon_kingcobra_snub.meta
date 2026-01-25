@@ -168,7 +168,7 @@
           <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
           <AccuracyOffsetShakeHash />
           <MinTimeBetweenRecoilShakes value="180" />
-          <RecoilShakeAmplitude value="5.280000" />
+          <RecoilShakeAmplitude value="8.360000" />
           <ExplosionShakeAmplitude value="-1.000000" />
 
           <!-- EFFECTS -->
@@ -191,7 +191,7 @@
             <GroundDisturbFxNameWater />
           </Fx>
 
-          <IkRecoilDisplacement value="2.220500" />
+          <IkRecoilDisplacement value="4.060700" />
           <IkRecoilDisplacementScope value="0.018" />
           <IkRecoilDisplacementScaleBackward value="1.400000" />
           <IkRecoilDisplacementScaleVertical value="0.700000" />

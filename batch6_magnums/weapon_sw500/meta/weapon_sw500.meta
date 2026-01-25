@@ -238,7 +238,7 @@
           <RecoilShakeHashFirstPerson>RECOIL_PISTOL</RecoilShakeHashFirstPerson>
           <AccuracyOffsetShakeHash>ACCURACY_OFFSET_PISTOL</AccuracyOffsetShakeHash>
           <MinTimeBetweenRecoilShakes value="200" />
-          <RecoilShakeAmplitude value="4.380000" />
+          <RecoilShakeAmplitude value="6.280000" />
           <ExplosionShakeAmplitude value="0.000000" />
 
           <!-- IK RECOIL - EXTREME: .500 S&W = 3x .44 Magnum recoil -->

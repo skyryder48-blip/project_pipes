@@ -94,7 +94,7 @@ VALUE_FLOORS = {
 }
 
 VALUE_CEILINGS = {
-    "RecoilShakeAmplitude": 6.50,   # Maximum shake - screen shaking chaos
+    "RecoilShakeAmplitude": 10.00,  # Raised for heavy magnums
     "IkRecoilDisplacement": 10.00,  # No practical ceiling - allow extreme flip for magnums
     "RecoilRecoveryRate": 2.50,     # Maximum recovery - instant stabilization
     "TimeBetweenShots": 2.00,       # Maximum time - very slow deliberate fire
@@ -179,10 +179,10 @@ PARAMETER_RANGES = {
         "RecoilAccuracyMax": (1.40, 2.85),
     },
     ".357_mag": {
-        # Shake: increased for magnum punch
-        "RecoilShakeAmplitude": (2.50, 4.50),
-        # Flip: increased for revolver kick
-        "IkRecoilDisplacement": (0.280, 0.480),
+        # Shake: ~2x compact 9mm baseline
+        "RecoilShakeAmplitude": (5.00, 8.00),
+        # Flip: ~2x compact 9mm after 1.5x multiplier
+        "IkRecoilDisplacement": (1.20, 2.00),
         # Recovery: stretched (revolvers are slow)
         "RecoilRecoveryRate": (0.40, 0.08),
         # Fire rate: widened for DA/SA difference
@@ -191,10 +191,10 @@ PARAMETER_RANGES = {
         "RecoilAccuracyMax": (2.00, 3.50),
     },
     ".44_mag": {
-        # Shake: heavy magnum recoil
-        "RecoilShakeAmplitude": (3.40, 5.80),
-        # Flip: substantial muzzle rise
-        "IkRecoilDisplacement": (0.400, 0.650),
+        # Shake: ~2x+ compact 9mm baseline
+        "RecoilShakeAmplitude": (6.00, 9.00),
+        # Flip: ~2x compact 9mm after 1.5x multiplier
+        "IkRecoilDisplacement": (1.60, 2.40),
         # Recovery: very slow
         "RecoilRecoveryRate": (0.30, 0.06),
         # Fire rate: slow
@@ -203,11 +203,10 @@ PARAMETER_RANGES = {
         "RecoilAccuracyMax": (2.40, 3.80),
     },
     ".500_sw": {
-        # Shake: brutal hand cannon - even quality guns are punishing
-        # Range compressed high so quality tier still dominates other calibers
-        "RecoilShakeAmplitude": (6.00, 6.50),
-        # Flip: extreme muzzle rise - quality tier still dramatic
-        "IkRecoilDisplacement": (1.10, 1.50),
+        # Shake: 3x+ compact 9mm - brutal hand cannon (compensate for heavy weight)
+        "RecoilShakeAmplitude": (10.00, 12.00),
+        # Flip: 3x compact 9mm - extreme muzzle rise
+        "IkRecoilDisplacement": (3.50, 4.50),
         # Recovery: extremely slow
         "RecoilRecoveryRate": (0.20, 0.04),
         # Fire rate: very slow

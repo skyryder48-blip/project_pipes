@@ -227,7 +227,7 @@
           <RecoilShakeHashFirstPerson>RECOIL_PISTOL</RecoilShakeHashFirstPerson>
           <AccuracyOffsetShakeHash>ACCURACY_OFFSET_PISTOL</AccuracyOffsetShakeHash>
           <MinTimeBetweenRecoilShakes value="130" />
-          <RecoilShakeAmplitude value="4.230000" />
+          <RecoilShakeAmplitude value="5.830000" />
           <ExplosionShakeAmplitude value="0.000000" />
 
           <!-- IK RECOIL - Ported barrel reduces muzzle rise 30% -->

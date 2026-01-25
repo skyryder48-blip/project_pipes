@@ -75,8 +75,8 @@ PERCEPTION_MULTIPLIER = 4.0  # Increased from 2.5x for more noticeable effects
 # =============================================================================
 SHAKE_BASE_OFFSET = 0.80     # Base offset for shake
 SHAKE_TIER_SCALE = 0.40      # Additional per tier deviation from standard
-FLIP_BASE_OFFSET = 0.10      # Base offset for flip
-FLIP_TIER_SCALE = 0.05       # Additional per tier deviation
+FLIP_BASE_OFFSET = 0.25      # Base offset for flip - increased for perceptibility
+FLIP_TIER_SCALE = 0.08       # Additional per tier deviation - increased
 FIRE_RATE_BASE_OFFSET = 0.30 # Base offset for fire rate
 
 # =============================================================================

@@ -43,6 +43,12 @@ QUALITY_TIERS = {
 }
 
 # =============================================================================
+# WORN/SWITCH ACCURACY PENALTY (Option D - wild spread for degraded weapons)
+# =============================================================================
+WORN_ACCURACY_MULTIPLIER = 1.75  # Worn weapons have 75% worse accuracy spread
+SWITCH_ACCURACY_ALREADY_SET = True  # Switch ranges already include high spread
+
+# =============================================================================
 # SWITCH/FULL-AUTO MULTIPLIER
 # =============================================================================
 SWITCH_MULTIPLIER = 2.50  # Full-auto = exponential recoil increase
@@ -333,6 +339,13 @@ def calculate_weapon_values(spec: WeaponSpec) -> dict:
                 base_value /= weight_factor
 
             values[param] = base_value
+
+        # Option D: Apply worn accuracy penalty for wild spread on degraded weapons
+        if spec.quality_tier == "worn":
+            if "AccuracySpread" in values:
+                values["AccuracySpread"] *= WORN_ACCURACY_MULTIPLIER
+            if "RecoilAccuracyMax" in values:
+                values["RecoilAccuracyMax"] *= WORN_ACCURACY_MULTIPLIER
 
     # Round values appropriately
     for param in values:

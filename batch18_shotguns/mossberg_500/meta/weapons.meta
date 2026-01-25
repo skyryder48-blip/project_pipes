@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>RIFLE_LO_MOSS500_STRAFE</n>
+      <Name>RIFLE_LO_MOSS500_STRAFE</Name>
       <HeadingLimit value="60.000000" />
       <SweepPitchMin value="-77.500000" />
       <SweepPitchMax value="47.500000" />
@@ -65,11 +65,11 @@
                - Skeletonized shell lifter for easier malfunction clearing
                - Superior to 870 in military testing compliance
                ================================================================ -->
-          <n>WEAPON_MOSSBERG500</n>
+          <Name>WEAPON_MOSSBERG500</Name>
           <Model>w_sg_mossberg500</Model>
           <Audio>AUDIO_ITEM_PUMPSHOTGUN</Audio>
           <Slot>SLOT_MOSSBERG500</Slot>
-          <HumanNameHash>WT_MOSSBERG500</HumanNameHash>
+          <HumanNameHash>WEAPON_MOSSBERG500</HumanNameHash>
           <DamageType>BULLET</DamageType>
           <Explosion>
             <Default>DONTCARE</Default>

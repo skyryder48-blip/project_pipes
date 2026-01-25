@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>SHOTGUN_SHOCKWAVE_STRAFE</n>
+      <Name>SHOTGUN_SHOCKWAVE_STRAFE</Name>
       <HeadingLimit value="60.000000" />
       <SweepPitchMin value="-77.500000" />
       <SweepPitchMax value="47.500000" />
@@ -67,11 +67,11 @@
                - 55% accuracy (hip-fire), +50% spread vs standard
                - Devastating within 5m, ineffective beyond 15m
                ================================================================ -->
-          <n>WEAPON_SHOCKWAVE</n>
+          <Name>WEAPON_SHOCKWAVE</Name>
           <Model>w_sg_shockwave</Model>
           <Audio>AUDIO_ITEM_SAWNOFFSHOTGUN</Audio>
           <Slot>SLOT_SHOCKWAVE</Slot>
-          <HumanNameHash>WT_SHOCKWAVE</HumanNameHash>
+          <HumanNameHash>WEAPON_SHOCKWAVE</HumanNameHash>
           <DamageType>BULLET</DamageType>
           <Explosion>
             <Default>DONTCARE</Default>

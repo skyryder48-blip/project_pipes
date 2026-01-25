@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>AI_WATCHMAN</n>
+      <Name>AI_WATCHMAN</Name>
       <HeadingLimit value="90.000000" />
       <SweepPitchMin value="-45.000000" />
       <SweepPitchMax value="45.000000" />
@@ -71,11 +71,11 @@
                - Energy @ 500m: 1,600 ft-lbs (43% retained)
                - Energy @ 1,000m: 900 ft-lbs (24% retained)
                ================================================================ -->
-          <n>WEAPON_NEMOWATCHMAN</n>
+          <Name>WEAPON_NEMOWATCHMAN</Name>
           <Model>w_sr_watchman</Model>
           <Audio>AUDIO_ITEM_SNIPERRIFLE</Audio>
           <Slot>SLOT_NEMOWATCHMAN</Slot>
-          <HumanNameHash>WT_NEMOWATCHMAN</HumanNameHash>
+          <HumanNameHash>WEAPON_NEMOWATCHMAN</HumanNameHash>
           <DamageType>BULLET</DamageType>
           <Explosion>
             <Default>DONTCARE</Default>

@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>RIFLE_LO_1301_STRAFE</n>
+      <Name>RIFLE_LO_1301_STRAFE</Name>
       <HeadingLimit value="60.000000" />
       <SweepPitchMin value="-77.500000" />
       <SweepPitchMax value="47.500000" />
@@ -65,11 +65,11 @@
                - Higher felt recoil than pumps due to aggressive gas timing
                - Self-cleaning piston with elastic scraper band
                ================================================================ -->
-          <n>WEAPON_BERETTA1301</n>
+          <Name>WEAPON_BERETTA1301</Name>
           <Model>w_sg_beretta1301</Model>
           <Audio>AUDIO_ITEM_AUTOSHOTGUN</Audio>
           <Slot>SLOT_BERETTA1301</Slot>
-          <HumanNameHash>WT_BERETTA1301</HumanNameHash>
+          <HumanNameHash>WEAPON_BERETTA1301</HumanNameHash>
           <DamageType>BULLET</DamageType>
           <Explosion>
             <Default>DONTCARE</Default>

@@ -9,7 +9,7 @@
   </WeaponAnimationsSets>
   <Animations>
     <Item>
-      <n>WEAPON_REMINGTON_700_set</n>
+      <Name>WEAPON_REMINGTON_700_set</Name>
       <ClipSet>move_weapon@rifle@sniper</ClipSet>
       <MovementClipSet>move_m@rifle@sniper</MovementClipSet>
       <StrafeClipSet>move_strafe@rifle@sniper</StrafeClipSet>

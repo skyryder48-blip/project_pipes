@@ -1,42 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponInfoBlob>
   <SlotNavigateOrder>
-    <Item key="SLOT_SIG_SPEAR">SLOT_SIG_SPEAR</Item>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="322" />
+          <Entry>SLOT_SIG_SPEAR</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="322" />
+          <Entry>SLOT_SIG_SPEAR</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
   </SlotNavigateOrder>
   <SlotBestOrder>
-    <Item key="SLOT_SIG_SPEAR">SLOT_SIG_SPEAR</Item>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="172" />
+        <Entry>SLOT_SIG_SPEAR</Entry>
+      </Item>
+    </WeaponSlots>
   </SlotBestOrder>
   <TintSpecValues />
   <FiringPatternAliases />
   <UpperBodyFixupExpressionData />
-  <AimingInfos />
+  <AimingInfos>
+    <Item type="CAimingInfo">
+      <Name>AI_SIG_SPEAR</Name>
+      <HeadingLimit value="90.000000" />
+      <SweepPitchMin value="-45.000000" />
+      <SweepPitchMax value="45.000000" />
+    </Item>
+  </AimingInfos>
   <Infos>
-    <Item type="CWeaponInfo">
-      <Name>WEAPON_SIG_SPEAR</Name>
-      <Model>w_ar_sig_spear</Model>
-      <Audio>AUDIO_ASSAULT_RIFLE</Audio>
-      <Slot>SLOT_SIG_SPEAR</Slot>
-      <DamageType>BULLET</DamageType>
-      <FireType>INSTANT_HIT</FireType>
-      <EffectGroup>WEAPON_EFFECT_GROUP_RIFLE</EffectGroup>
-      <PedDamageHash>BulletLarge</PedDamageHash>
-      <WheelSlot>WHEEL_PISTOL</WheelSlot>
-      <Group>GROUP_PISTOL</Group>
-      <ClipSize value="20" />
-      <AccuracySpread value="0.85" />
-      <AccurateModeAccuracyModifier value="0.12" />
-      <RunAndGunAccuracyModifier value="0.55" />
-      <RunAndGunAccuracyMaxModifier value="0.30" />
-      <RecoilAccuracyMax value="2.20" />
-      <RecoilErrorTime value="0.45" />
-      <RecoilRecoveryRate value="0.48" />
-      <RecoilAccuracyToAllowHeadShotPlayer value="0.50" />
-      <MinHeadShotDistancePlayer value="0.0" />
-      <MaxHeadShotDistancePlayer value="55.0" />
-      <HeadShotDamageModifierPlayer value="2.5" />
-      <HeadShotDamageModifierAI value="4.0" />
-      
-      <!-- ================================================
+    <Item>
+      <Infos />
+    </Item>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+<!-- ================================================
            SIG MCX SPEAR - CIVILIAN 16" SEMI-AUTO RIFLE
            ================================================
            Real-world specifications:
@@ -58,59 +66,230 @@
            - Armor-defeating capability (Level IV)
            - 2-3 shots close range, 5-6 at max range
       -->
-      
-      <!-- 16" barrel = 100% damage (57 base for 6.8x51mm) -->
-      <Damage value="57.0" />
-      <DamageFallOffRangeMin value="90.0" />
-      <DamageFallOffRangeMax value="280.0" />
-      <DamageFallOffModifier value="0.40" />
-      
-      <!-- 6.8x51mm velocity: 3,000 fps = ~915 m/s -->
-      <Speed value="915.0" />
-      <BulletsInBatch value="1" />
-      <BulletBatchSpread value="0.0" />
-      
-      <Force value="180.0" />
-      <ForceHitPed value="160.0" />
-      <ForceHitVehicle value="90.0" />
-      <ForceHitFlyingHeli value="65.0" />
-      <OverrideForces />
-      
-      <!-- 6.8x51mm EXCELLENT armor penetration - defeats Level IV -->
-      <Penetration value="0.70" />
-      <ArmorPenetration value="0.65" />
-      
-      <!-- High recoil - powerful cartridge, semi-auto helps control -->
-      <RecoilShakeAmplitude value="0.32" />
-      <RecoilShakeFrequency value="0.55" />
-      <RecoilShakeHashKey />
-      
-      <NetworkHitLimbsDamageModifier value="0.80" />
-      <NetworkPlayerDamageModifier value="1.0" />
-      <HitLimbsDamageModifier value="0.50" />
-      
-      <!-- Semi-auto only - controlled fire rate -->
-      <TimeBetweenShots value="0.120" />
-      <AnimReloadRate value="1.0" />
-      <AnimPostSpecialFireRate value="1.0" />
-      <AimingTime value="0.42" />
-      <AimingTimeFromSprinting value="0.55" />
-      
-      <!-- Extended effective range - flat trajectory -->
-      <WeaponRange value="450.0" />
-      
-      <BulletDirectionOffsetInDegrees value="0.08" />
-      <WeaponFlags>Gun AnimReload AnimCrouchFire TwoHanded LongWeapon ApplyBulletForce</WeaponFlags>
-      <Recoil />
-      <FireAnimTime value="0.10" />
-      <RecoilAimOffsetInterpolation />
-      <PickupHash>PICKUP_WEAPON_ASSAULTRIFLE</PickupHash>
-      <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
-      <NmShotTuningSet>Normal</NmShotTuningSet>
+          <Name>WEAPON_SIG_SPEAR</Name>
+          <Model>w_ar_sig_spear</Model>
+          <Audio>AUDIO_ITEM_ASSAULTRIFLE</Audio>
+          <Slot>SLOT_SIG_SPEAR</Slot>
+          <HumanNameHash>WEAPON_SIG_SPEAR</HumanNameHash>
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FireType>INSTANT_HIT</FireType>
+          <EffectGroup>WEAPON_EFFECT_GROUP_RIFLE</EffectGroup>
+          <PedDamageHash>BulletLarge</PedDamageHash>
+          <WheelSlot>WHEEL_RIFLE</WheelSlot>
+          <Group>GROUP_RIFLE</Group>
+          <AmmoInfo ref="AMMO_RIFLE" />
+          <AimingInfo ref="AI_SIG_SPEAR" />
 
-      
-      <HumanNameHash>WEAPON_SIG_SPEAR</HumanNameHash>
-      <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
+          <ClipSize value="20" />
+
+          <AccuracySpread value="0.85" />
+          <AccurateModeAccuracyModifier value="0.150000" />
+          <RunAndGunAccuracyModifier value="0.550000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+          <RecoilAccuracyMax value="2.20" />
+          <RecoilErrorTime value="0.400000" />
+          <RecoilRecoveryRate value="0.48" />
+
+          <RecoilAccuracyToAllowHeadShotAI value="0.450000" />
+          <MinHeadShotDistanceAI value="5.000000" />
+          <MaxHeadShotDistanceAI value="200.000000" />
+          <HeadShotDamageModifierAI value="4.000000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.450000" />
+          <MinHeadShotDistancePlayer value="0.000000" />
+          <MaxHeadShotDistancePlayer value="200.000000" />
+          <HeadShotDamageModifierPlayer value="2.500000" />
+
+          <Damage value="57.0" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <HitLimbsDamageModifier value="0.500000" />
+          <NetworkHitLimbsDamageModifier value="0.800000" />
+          <LightlyArmouredDamageModifier value="0.700000" />
+
+          <Force value="180.0" />
+          <ForceHitPed value="100.000000" />
+          <ForceHitVehicle value="50.000000" />
+          <ForceHitFlyingHeli value="35.000000" />
+          <OverrideForces />
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="0.000000" />
+          <ForceFalloffRangeEnd value="200.000000" />
+          <ForceFalloffMin value="0.400000" />
+          <ProjectileForce value="0.000000" />
+          <FragImpulse value="350.000000" />
+
+          <Penetration value="0.70" />
+          <VerticalLaunchAdjustment value="0.000000" />
+          <DropForwardVelocity value="0.000000" />
+
+          <Speed value="915.0" />
+
+          <BulletsInBatch value="1" />
+          <BatchSpread value="0.000000" />
+
+          <ReloadTimeMP value="2.500000" />
+          <ReloadTimeSP value="2.500000" />
+
+          <TimeBetweenShots value="0.120" />
+
+          <DamageFallOffRangeMin value="90.0" />
+          <DamageFallOffRangeMax value="280.0" />
+          <DamageFallOffModifier value="0.40" />
+
+          <NetworkPlayerDamageModifier value="1.000000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          <NetworkHeadShotPlayerDamageModifier value="1.000000" />
+          <LockOnRange value="0.000000" />
+          <WeaponRange value="450.0" />
+
+          <BulletDirectionOffsetInDegrees value="0.080000" />
+          <RecoilShakeAmplitude value="0.32" />
+          <RecoilShakeFrequency value="0.55" />
+          <RecoilShakeRollMagnitude value="0.150000" />
+          <RecoilShakeDuration value="0.200000" />
+
+          <AiSoundRange value="180.000000" />
+          <AimingMod1 value="0.650000" />
+          <AimingModTime1 value="0.200000" />
+          <AimingMod2 value="0.400000" />
+          <AimingModTime2 value="0.350000" />
+
+          <Flags>WF_GUN, WF_GUN_2_HANDED, WF_NO_SHOOTING_BERSERK, WF_PED_GUN_2_HANDED, WF_WEAPON, WF_LOUDWEAPON, WF_TAKE_ARM_L_LONG_GUN_IMMEDIATE_DAMAGE_REACTIONS, WF_MAKE_PED_BACKUP</Flags>
+
+          <AltWheelSlot>WHEEL_UNARMED</AltWheelSlot>
+          <PickupGlowAsset />
+          <PickupTextRep />
+          <ModelHashKey>w_ar_sig_spear</ModelHashKey>
+          <DefaultCameraHash>DEFAULT_FOLLOW_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_FOLLOW_CAMERA</CoverCameraHash>
+          <RunAndGunCameraHash>DEFAULT_FOLLOW_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash>DEFAULT_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+          <PickupHash>PICKUP_WEAPON_ASSAULTRIFLE</PickupHash>
+          <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
+          <NmShotTuningSet>Normal</NmShotTuningSet>
+          <AimOffset>
+            <X value="0.000000" />
+            <Y value="0.020000" />
+            <Z value="0.000000" />
+          </AimOffset>
+          <FirstPersonAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonAimOffset>
+          <FirstPersonScopeOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonScopeOffset>
+          <CrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </CrouchAimOffset>
+          <FirstPersonCrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonCrouchAimOffset>
+          <ZoomFactorForAccurateMode value="1.000000" />
+          <ReticuleMinSizeStanding value="0.000000" />
+          <ReticuleMinSizeDucked value="0.000000" />
+          <ReticuleScale value="0.400000" />
+          <IronSightCameraZoomFactor value="1.000000" />
+          <WeaponSoundBoneTag />
+          <Hud>
+            <FlashColor value="0xFFFFFFFF" />
+            <ScrollSelect>true</ScrollSelect>
+          </Hud>
+          <AmmoPickup>
+            <AmmoType>AMMO_RIFLE</AmmoType>
+            <Amount value="30" />
+          </AmmoPickup>
+          <AmmoPickup2>
+            <AmmoType>AMMO_RIFLE</AmmoType>
+            <Amount value="60" />
+          </AmmoPickup2>
+          <FireFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>muz_assault_rifle_fp</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </FireFx>
+          <MuzzleFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.200000" />
+            <EffectName>muz_assault_rifle</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </MuzzleFx>
+          <ShellFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>weap_sh_ar</EffectName>
+            <FxBone>Gun_Shell</FxBone>
+          </ShellFx>
+          <TracerFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>proj_tracer</EffectName>
+            <FxBone />
+          </TracerFx>
+          <FlashFxLightEnabled value="true" />
+          <FlashFxLightCastsShadows value="false" />
+          <FlashFxLightOffsetDistance value="4.000000" />
+          <FlashFxLightRGBAMax value="0xFFFFE4C9" />
+          <FlashFxLightIntensityMax value="1.500000" />
+          <FlashFxLightFallOffMax value="8.000000" />
+          <FlashFxFadeOutTime value="0.050000" />
+          <FlashFxAltBone />
+          <ReloadUpperBodyFixupExpression></ReloadUpperBodyFixupExpression>
+        </Item>
+      </Infos>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

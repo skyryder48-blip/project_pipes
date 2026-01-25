@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>AI_SIG550</n>
+      <Name>AI_SIG550</Name>
       <HeadingLimit value="90.000000" />
       <SweepPitchMin value="-45.000000" />
       <SweepPitchMax value="45.000000" />
@@ -69,11 +69,11 @@
                - Fragmentation threshold ~150-200m from 20" barrel
                - Creates distinct close-range lethality advantage
                ================================================================ -->
-          <n>WEAPON_SIG550</n>
+          <Name>WEAPON_SIG550</Name>
           <Model>w_ar_sig550</Model>
           <Audio>AUDIO_ITEM_ASSAULTRIFLE</Audio>
           <Slot>SLOT_SIG550</Slot>
-          <HumanNameHash>WT_SIG550</HumanNameHash>
+          <HumanNameHash>WEAPON_SIG550</HumanNameHash>
           <DamageType>BULLET</DamageType>
           <Explosion>
             <Default>DONTCARE</Default>

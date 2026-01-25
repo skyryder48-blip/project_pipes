@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>AI_M82A1</n>
+      <Name>AI_M82A1</Name>
       <HeadingLimit value="90.000000" />
       <SweepPitchMin value="-45.000000" />
       <SweepPitchMax value="45.000000" />
@@ -74,11 +74,11 @@
                - Muzzle brake reduces felt recoil ~70%
                - "Kicks like a 12-gauge with 3" shells"
                ================================================================ -->
-          <n>WEAPON_BARRETTM82A1</n>
+          <Name>WEAPON_BARRETTM82A1</Name>
           <Model>w_sr_m82a1</Model>
           <Audio>AUDIO_ITEM_HEAVYSNIPER</Audio>
           <Slot>SLOT_BARRETTM82A1</Slot>
-          <HumanNameHash>WT_BARRETTM82A1</HumanNameHash>
+          <HumanNameHash>WEAPON_BARRETTM82A1</HumanNameHash>
           <DamageType>BULLET</DamageType>
           <Explosion>
             <Default>DONTCARE</Default>

@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>RIFLE_LO_MINISHOTTY_STRAFE</n>
+      <Name>RIFLE_LO_MINISHOTTY_STRAFE</Name>
       <HeadingLimit value="90.000000" />
       <SweepPitchMin value="-50.000000" />
       <SweepPitchMax value="60.000000" />
@@ -69,11 +69,11 @@
                - One-hand operation nearly impossible due to recoil
                - Pattern spreads 1.5-2x faster than full-length guns
                ================================================================ -->
-          <n>WEAPON_MINISHOTTY</n>
+          <Name>WEAPON_MINISHOTTY</Name>
           <Model>w_sg_minishotty</Model>
           <Audio>AUDIO_ITEM_SAWNOFFSHOTGUN</Audio>
           <Slot>SLOT_MINISHOTTY</Slot>
-          <HumanNameHash>WT_MINISHOTTY</HumanNameHash>
+          <HumanNameHash>WEAPON_MINISHOTTY</HumanNameHash>
           <DamageType>BULLET</DamageType>
           <Explosion>
             <Default>DONTCARE</Default>

@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>AI_M107A1</n>
+      <Name>AI_M107A1</Name>
       <HeadingLimit value="90.000000" />
       <SweepPitchMin value="-45.000000" />
       <SweepPitchMax value="45.000000" />
@@ -72,11 +72,11 @@
                - Muzzle Energy: 13,200 ft-lbs
                - Energy @ 1,000m: 6,700 ft-lbs (51% retained)
                ================================================================ -->
-          <n>WEAPON_BARRETTM107A1</n>
+          <Name>WEAPON_BARRETTM107A1</Name>
           <Model>w_sr_m107a1</Model>
           <Audio>AUDIO_ITEM_HEAVYSNIPER</Audio>
           <Slot>SLOT_BARRETTM107A1</Slot>
-          <HumanNameHash>WT_BARRETTM107A1</HumanNameHash>
+          <HumanNameHash>WEAPON_BARRETTM107A1</HumanNameHash>
           <DamageType>BULLET</DamageType>
           <Explosion>
             <Default>DONTCARE</Default>

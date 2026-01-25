@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>RIFLE_LO_REM870_STRAFE</n>
+      <Name>RIFLE_LO_REM870_STRAFE</Name>
       <HeadingLimit value="60.000000" />
       <SweepPitchMin value="-77.500000" />
       <SweepPitchMax value="47.500000" />
@@ -64,11 +64,11 @@
                - 0.3-0.5 second cycling time for trained shooters
                - Buckshot: 9 pellets × 54 grains each, ~1,550 ft-lbs total
                ================================================================ -->
-          <n>WEAPON_REMINGTON870</n>
+          <Name>WEAPON_REMINGTON870</Name>
           <Model>w_sg_rem870</Model>
           <Audio>AUDIO_ITEM_PUMPSHOTGUN</Audio>
           <Slot>SLOT_REMINGTON870</Slot>
-          <HumanNameHash>WT_REMINGTON870</HumanNameHash>
+          <HumanNameHash>WEAPON_REMINGTON870</HumanNameHash>
           <DamageType>BULLET</DamageType>
           <Explosion>
             <Default>DONTCARE</Default>

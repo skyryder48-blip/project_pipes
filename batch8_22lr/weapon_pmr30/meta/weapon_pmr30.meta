@@ -179,7 +179,7 @@
           <!-- SIGNIFICANT muzzle flash - unburned rifle powder -->
           <!-- Distinctive "fireball" effect from short barrel -->
           <Fx>
-            <EffectGroup />
+            <EffectGroup>WEAPON_EFFECT_GROUP_PISTOL_SMALL</EffectGroup>
             <FlashFx>muz_pistol</FlashFx>
             <FlashFxAlt />
             <ShellFx>eject_pistol</ShellFx>

@@ -174,7 +174,7 @@
           <!-- EFFECTS -->
           <!-- .38 Special muzzle flash - modest compared to .357 -->
           <Fx>
-            <EffectGroup />
+            <EffectGroup>WEAPON_EFFECT_GROUP_PISTOL_SMALL</EffectGroup>
             <FlashFx>muz_pistol</FlashFx>
             <FlashFxAlt />
             <ShellFx />

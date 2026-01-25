@@ -193,7 +193,7 @@
           <!-- EFFECTS -->
           <!-- Moderate muzzle flash for .380 ACP - locked breech -->
           <Fx>
-            <EffectGroup />
+            <EffectGroup>WEAPON_EFFECT_GROUP_PISTOL_SMALL</EffectGroup>
             <FlashFx>muz_pistol</FlashFx>
             <FlashFxAlt />
             <ShellFx>eject_pistol</ShellFx>

@@ -108,7 +108,7 @@
           
           <!-- Damage: 42 per pellet × 9 pellets = 378 max close range -->
           <!-- One-shot kill within 10m, rapid falloff beyond 35m -->
-          <Damage value="42.000000" />
+          <Damage value="37.38" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />

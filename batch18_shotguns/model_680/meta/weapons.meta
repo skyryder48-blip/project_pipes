@@ -111,7 +111,7 @@
           
           <!-- Damage: 40 per pellet × 8 pellets = 320 max close range -->
           <!-- Lowest damage - budget shotgun with 8-pellet loads -->
-          <Damage value="40.000000" />
+          <Damage value="35.60" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />

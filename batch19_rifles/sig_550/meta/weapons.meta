@@ -112,7 +112,7 @@
           <HeadShotDamageModifierPlayer value="2.400000" />
           
           <!-- Damage: 45 - 5.56 NATO, 2-3 shot close, 5-6 at range -->
-          <Damage value="45.000000" />
+          <Damage value="40.05" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />

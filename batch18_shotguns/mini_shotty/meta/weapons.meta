@@ -113,7 +113,7 @@
           
           <!-- Damage: 38 per pellet × 9 pellets = 342 max point-blank -->
           <!-- Lower per-pellet damage due to velocity loss from short barrel -->
-          <Damage value="38.000000" />
+          <Damage value="33.82" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />

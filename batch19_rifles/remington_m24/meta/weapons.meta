@@ -113,7 +113,7 @@
           <HeadShotDamageModifierPlayer value="2.200000" />
           
           <!-- Damage: 85 - Military sniper, 1-2 shot kills -->
-          <Damage value="85.000000" />
+          <Damage value="75.65" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />

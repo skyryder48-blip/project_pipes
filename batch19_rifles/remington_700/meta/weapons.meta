@@ -112,7 +112,7 @@
           <HeadShotDamageModifierPlayer value="2.100000" />
           
           <!-- Damage: 78 - Civilian version, 2 shot kills -->
-          <Damage value="78.000000" />
+          <Damage value="69.42" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />

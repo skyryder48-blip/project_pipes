@@ -109,7 +109,7 @@
           
           <!-- Damage: 44 per pellet × 9 pellets = 396 max close range -->
           <!-- Superior to 870 due to MIL-SPEC quality -->
-          <Damage value="44.000000" />
+          <Damage value="39.16" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />

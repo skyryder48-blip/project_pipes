@@ -114,7 +114,7 @@
           <HeadShotDamageModifierPlayer value="1.500000" />
           
           <!-- Damage: 135 - One-shot capability -->
-          <Damage value="135.000000" />
+          <Damage value="120.15" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />

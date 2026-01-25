@@ -114,7 +114,7 @@
           <HeadShotDamageModifierPlayer value="1.800000" />
           
           <!-- Damage: 92 - .300 Win Mag power -->
-          <Damage value="92.000000" />
+          <Damage value="81.88" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />

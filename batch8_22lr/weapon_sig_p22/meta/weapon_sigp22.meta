@@ -88,16 +88,16 @@
           <!-- ACCURACY PARAMETERS -->
           <!-- Short 3.42" barrel, ~4.8" sight radius = reduced precision -->
           <!-- BUDGET TIER: Worst .22 LR accuracy - short barrel, DA/SA first pull -->
-          <AccuracySpread value="2.200000" />
+          <AccuracySpread value="1.160000" />
           <AccurateModeAccuracyModifier value="0.480000" />
           <RunAndGunAccuracyModifier value="1.500000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
           
           <!-- RECOIL PARAMETERS -->
           <!-- .22 LR = minimal recoil, training pistol -->
-          <RecoilAccuracyMax value="1.000000" />
+          <RecoilAccuracyMax value="1.680000" />
           <RecoilErrorTime value="0.220000" />
-          <RecoilRecoveryRate value="0.650000" />
+          <RecoilRecoveryRate value="0.790000" />
           <RecoilAccuracyToAllowHeadShotAI value="0.900000" />
           <MinHeadShotDistanceAI value="1.200000" />
           <MaxHeadShotDistanceAI value="30.000000" />
@@ -111,7 +111,7 @@
           <!-- DAMAGE PARAMETERS -->
           <!-- .22 LR 40gr @ 967 fps from 3.42" = ~85 ft-lbs -->
           <!-- Lowest damage tier in rimfire category -->
-          <Damage value="12.000000" />
+          <Damage value="10.560000" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -155,7 +155,7 @@
           
           <!-- FIRE RATE -->
           <!-- DA/SA averages out - practical ~240 RPM -->
-          <TimeBetweenShots value="0.160000" />
+          <TimeBetweenShots value="0.654000" />
           <TimeLeftBetweenShotsWhereShouldFireIsCached value="0.100000" />
           <SpinUpTime value="0.000000" />
           <SpinTime value="0.000000" />
@@ -238,7 +238,7 @@
           <RecoilShakeHashFirstPerson>RECOIL_PISTOL</RecoilShakeHashFirstPerson>
           <AccuracyOffsetShakeHash>ACCURACY_OFFSET_PISTOL</AccuracyOffsetShakeHash>
           <MinTimeBetweenRecoilShakes value="50" />
-          <RecoilShakeAmplitude value="0.055000" />
+          <RecoilShakeAmplitude value="2.030000" />
           <ExplosionShakeAmplitude value="0.000000" />
 
           <!-- IK RECOIL - Minimal vertical rise for .22 LR -->

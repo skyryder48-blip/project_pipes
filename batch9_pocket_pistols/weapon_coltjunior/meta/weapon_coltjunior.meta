@@ -78,13 +78,13 @@
 
           <!-- Accuracy: WORST IN CLASS - tiny 2.25" barrel, vestigial sights -->
           <!-- BOTTOM TIER: Emergency backup only - inaccurate beyond arm's length -->
-          <AccuracySpread value="3.500000" />
+          <AccuracySpread value="4.190000" />
           <AccurateModeAccuracyModifier value="0.350000" />
           <RunAndGunAccuracyModifier value="2.500000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
-          <RecoilAccuracyMax value="1.200000" />
+          <RecoilAccuracyMax value="5.630000" />
           <RecoilErrorTime value="0.150000" />
-          <RecoilRecoveryRate value="1.500000" />
+          <RecoilRecoveryRate value="0.140000" />
           <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
           <MinHeadShotDistanceAI value="1.200000" />
           <MaxHeadShotDistanceAI value="20.000000" />
@@ -96,7 +96,7 @@
 
           <!-- Damage: .25 ACP = ~65 ft-lbs = 1/5 of 9mm -->
           <!-- 8 damage = 13 body shots close, 26+ at range -->
-          <Damage value="8.000000" />
+          <Damage value="7.040000" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -133,7 +133,7 @@
           <BulletsPerAnimLoop value="1" />
 
           <!-- Fire Rate: Semi-auto practical ~200 RPM -->
-          <TimeBetweenShots value="0.300000" />
+          <TimeBetweenShots value="1.058000" />
 
           <!-- Damage Falloff: Very short effective range -->
           <DamageFallOffRangeMin value="5.000000" />
@@ -184,7 +184,7 @@
           <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
           <AccuracyOffsetShakeHash />
           <MinTimeBetweenRecoilShakes value="80" />
-          <RecoilShakeAmplitude value="0.030000" />
+          <RecoilShakeAmplitude value="4.300000" />
           <ExplosionShakeAmplitude value="-1.000000" />
 
           <!-- EFFECTS -->
@@ -207,7 +207,7 @@
             <GroundDisturbFxNameWater />
           </Fx>
 
-          <IkRecoilDisplacement value="0.000000" />
+          <IkRecoilDisplacement value="2.100000" />
           <IkRecoilDisplacementScope value="0.000000" />
           <IkRecoilDisplacementScaleBackward value="1.000000" />
           <IkRecoilDisplacementScaleVertical value="0.400000" />
@@ -299,7 +299,7 @@
           <AudioCollisionHash />
 
           <!-- HUD Stats -->
-          <HudDamage value="10" />
+          <HudDamage value="9" />
           <HudSpeed value="40" />
           <HudCapacity value="15" />
           <HudAccuracy value="25" />

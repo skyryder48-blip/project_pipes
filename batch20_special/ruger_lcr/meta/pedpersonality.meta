@@ -2,7 +2,7 @@
 <CPedModelInfo__PersonalityDataList>
   <PersonalityDatas>
     <Item>
-      <n>WEAPON_RUGERLCR</n>
+      <Name>WEAPON_RUGERLCR</Name>
       <bCanBeTargetted value="true" />
       <bIsWeapon value="true" />
       <bCanUseCover value="true" />

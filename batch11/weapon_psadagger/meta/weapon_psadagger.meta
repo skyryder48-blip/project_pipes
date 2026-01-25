@@ -49,13 +49,13 @@
       <ClipSize value="15" />
 
       <!-- Accuracy: BUDGET TIER - loose tolerances, light polymer = unstable -->
-      <AccuracySpread value="2.200000" />
+      <AccuracySpread value="1.680000" />
       <AccurateModeAccuracyModifier value="0.650000" />
       <RunAndGunAccuracyModifier value="3.200000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="2.800000" />
+      <RecoilAccuracyMax value="2.330000" />
       <RecoilErrorTime value="0.550000" />
-      <RecoilRecoveryRate value="0.500000" />
+      <RecoilRecoveryRate value="0.970000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="40.000000" />
@@ -66,7 +66,7 @@
       <HeadShotDamageModifierPlayer value="3.000000" />
 
       <!-- Damage: Budget compact 9mm -->
-      <Damage value="34.000000" />
+      <Damage value="29.920000" />
       <DamageTime value="0.000000" />
       <DamageTimeInVehicle value="0.000000" />
       <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -103,7 +103,7 @@
       <BulletsPerAnimLoop value="1" />
 
       <!-- Fire Rate: Standard striker trigger -->
-      <TimeBetweenShots value="0.165000" />
+      <TimeBetweenShots value="0.692000" />
 
       <!-- Damage Falloff: Compact 9mm range -->
       <DamageFallOffRangeMin value="14.000000" />
@@ -194,9 +194,9 @@
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="80" />
-      <RecoilShakeAmplitude value="0.340000" />
+      <RecoilShakeAmplitude value="2.750000" />
       <ExplosionShakeAmplitude value="-1.000000" />
-      <IkRecoilDisplacement value="0.012000" />
+      <IkRecoilDisplacement value="1.803100" />
       <IkRecoilDisplacementScope value="0.012000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
       <IkRecoilDisplacementScaleVertical value="0.680000" />
@@ -300,7 +300,7 @@
       <AudioCollisionHash />
 
       <!-- HUD Stats -->
-      <HudDamage value="34" />
+      <HudDamage value="30" />
       <HudSpeed value="48" />
       <HudCapacity value="30" />
       <HudAccuracy value="48" />

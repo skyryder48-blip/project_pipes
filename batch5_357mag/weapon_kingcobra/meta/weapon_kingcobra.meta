@@ -71,13 +71,13 @@
           <AmmoInfo ref="AMMO_PISTOL" />
           <AimingInfo ref="PISTOL_2H_BASE_STRAFE" />
           <ClipSize value="6" />
-          <AccuracySpread value="0.700000" />
+          <AccuracySpread value="1.500000" />
           <AccurateModeAccuracyModifier value="0.400000" />
           <RunAndGunAccuracyModifier value="2.500000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
-          <RecoilAccuracyMax value="1.200000" />
+          <RecoilAccuracyMax value="3.380000" />
           <RecoilErrorTime value="0.400000" />
-          <RecoilRecoveryRate value="0.800000" />
+          <RecoilRecoveryRate value="0.500000" />
           <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
           <MinHeadShotDistanceAI value="6.000000" />
           <MaxHeadShotDistanceAI value="18.000000" />
@@ -86,7 +86,7 @@
           <MinHeadShotDistancePlayer value="0.000000" />
           <MaxHeadShotDistancePlayer value="18.000000" />
           <HeadShotDamageModifierPlayer value="2.000000" />
-          <Damage value="56.000000" />
+          <Damage value="49.280000" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -142,7 +142,7 @@
           <TurretShotAimPitchCap value="0.000000" />
           <TurretSwingAimTest value="0.000000" />
           <TurretSwingAimTestObjectSize value="0.000000" />
-          <TimeBetweenShots value="0.400000" />
+          <TimeBetweenShots value="1.055000" />
           <ReloadTimeMP value="3.500000" />
           <ReloadTimeSP value="3.500000" />
           <SpinUpTime value="0.000000" />
@@ -168,7 +168,7 @@
           <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
           <AccuracyOffsetShakeHash />
           <MinTimeBetweenRecoilShakes value="200" />
-          <RecoilShakeAmplitude value="0.450000" />
+          <RecoilShakeAmplitude value="5.440000" />
           <ExplosionShakeAmplitude value="-1.000000" />
 
           <!-- EFFECTS -->
@@ -191,7 +191,7 @@
             <GroundDisturbFxNameWater />
           </Fx>
 
-          <IkRecoilDisplacement value="0.012" />
+          <IkRecoilDisplacement value="2.982900" />
           <IkRecoilDisplacementScope value="0.012" />
           <IkRecoilDisplacementScaleBackward value="1.200000" />
           <IkRecoilDisplacementScaleVertical value="0.550000" />
@@ -256,7 +256,7 @@
           <StealthFiringLeanAdditiveWeight value="1.000000" />
           <ExpandPedCapsuleRadius value="0.000000" />
           <AudioCollisionHash />
-          <HudDamage value="70" />
+          <HudDamage value="62" />
           <HudSpeed value="25" />
           <HudCapacity value="6" />
           <HudAccuracy value="55" />

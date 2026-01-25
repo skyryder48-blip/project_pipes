@@ -50,13 +50,13 @@
 
       <!-- AGGRESSIVE DIFFERENTIATION: Premium Tier - M17/M18 military winner -->
       <!-- Full-size modular frame, excellent sight radius, battle-proven -->
-      <AccuracySpread value="0.680000" />
+      <AccuracySpread value="1.030000" />
       <AccurateModeAccuracyModifier value="0.500000" />
       <RunAndGunAccuracyModifier value="2.000000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="1.080000" />
+      <RecoilAccuracyMax value="1.480000" />
       <RecoilErrorTime value="0.350000" />
-      <RecoilRecoveryRate value="1.180000" />
+      <RecoilRecoveryRate value="1.400000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="46.000000" />
@@ -67,7 +67,7 @@
       <HeadShotDamageModifierPlayer value="3.000000" />
 
       <!-- Damage: Full-size 9mm military -->
-      <Damage value="35.500000" />
+      <Damage value="31.240000" />
       <DamageTime value="0.000000" />
       <DamageTimeInVehicle value="0.000000" />
       <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -104,7 +104,7 @@
       <BulletsPerAnimLoop value="1" />
 
       <!-- Fire Rate: Striker-fired consistent trigger -->
-      <TimeBetweenShots value="0.155000" />
+      <TimeBetweenShots value="0.487000" />
 
       <!-- Damage Falloff: Full-size 9mm military range -->
       <DamageFallOffRangeMin value="17.000000" />
@@ -195,9 +195,9 @@
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="80" />
-      <RecoilShakeAmplitude value="0.108000" />
+      <RecoilShakeAmplitude value="2.230000" />
       <ExplosionShakeAmplitude value="-1.000000" />
-      <IkRecoilDisplacement value="0.000000" />
+      <IkRecoilDisplacement value="1.697700" />
       <IkRecoilDisplacementScope value="0.000000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
       <IkRecoilDisplacementScaleVertical value="0.220000" />
@@ -301,7 +301,7 @@
       <AudioCollisionHash />
 
       <!-- HUD Stats -->
-      <HudDamage value="36" />
+      <HudDamage value="32" />
       <HudSpeed value="52" />
       <HudCapacity value="34" />
       <HudAccuracy value="58" />

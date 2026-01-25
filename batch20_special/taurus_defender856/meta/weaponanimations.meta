@@ -9,7 +9,7 @@
   </WeaponAnimationsSets>
   <Animations>
     <Item>
-      <n>WEAPON_TAURUS_DEFENDER856_set</n>
+      <Name>WEAPON_TAURUS_DEFENDER856_set</Name>
       <ClipSet>move_weapon@pistol@revolver</ClipSet>
       <MovementClipSet>move_m@pistol@revolver</MovementClipSet>
       <StrafeClipSet>move_strafe@pistol@revolver</StrafeClipSet>

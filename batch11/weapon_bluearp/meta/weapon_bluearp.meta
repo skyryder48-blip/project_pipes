@@ -50,13 +50,13 @@
 
       <!-- AGGRESSIVE DIFFERENTIATION: Quality+ Tier - .300 BLK AR Pistol -->
       <!-- AR platform accuracy, but higher recoil from rifle cartridge in short barrel -->
-      <AccuracySpread value="0.880000" />
+      <AccuracySpread value="1.050000" />
       <AccurateModeAccuracyModifier value="0.480000" />
       <RunAndGunAccuracyModifier value="1.900000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="1.050000" />
+      <RecoilAccuracyMax value="1.510000" />
       <RecoilErrorTime value="0.320000" />
-      <RecoilRecoveryRate value="1.050000" />
+      <RecoilRecoveryRate value="1.380000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="50.000000" />
@@ -67,7 +67,7 @@
       <HeadShotDamageModifierPlayer value="2.900000" />
 
       <!-- Damage: Good 9mm damage from longer barrel -->
-      <Damage value="36.000000" />
+      <Damage value="31.680000" />
       <DamageTime value="0.000000" />
       <DamageTimeInVehicle value="0.000000" />
       <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -104,7 +104,7 @@
       <BulletsPerAnimLoop value="1" />
 
       <!-- Fire Rate: AR trigger -->
-      <TimeBetweenShots value="0.150000" />
+      <TimeBetweenShots value="0.494000" />
 
       <!-- Damage Falloff: Extended PDW range -->
       <DamageFallOffRangeMin value="22.000000" />
@@ -195,9 +195,9 @@
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="80" />
-      <RecoilShakeAmplitude value="0.240000" />
+      <RecoilShakeAmplitude value="2.240000" />
       <ExplosionShakeAmplitude value="-1.000000" />
-      <IkRecoilDisplacement value="0.000000" />
+      <IkRecoilDisplacement value="1.699600" />
       <IkRecoilDisplacementScope value="0.000000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
       <IkRecoilDisplacementScaleVertical value="0.420000" />
@@ -309,7 +309,7 @@
       <AudioCollisionHash />
 
       <!-- HUD Stats -->
-      <HudDamage value="36" />
+      <HudDamage value="32" />
       <HudSpeed value="55" />
       <HudCapacity value="34" />
       <HudAccuracy value="65" />

@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>AI_MODEL442</n>
+      <Name>AI_MODEL442</Name>
       <HeadingLimit value="90.000000" />
       <SweepPitchMin value="-45.000000" />
       <SweepPitchMax value="45.000000" />
@@ -72,7 +72,7 @@
                - DAO only - no single-action capability
                - Aluminum frame: 66% lighter than steel J-frames
                ================================================================ -->
-          <n>WEAPON_SWMODEL442</n>
+          <Name>WEAPON_SWMODEL442</Name>
           <Model>w_pi_model442</Model>
           <Audio>AUDIO_ITEM_REVOLVER</Audio>
           <Slot>SLOT_SWMODEL442</Slot>
@@ -87,6 +87,8 @@
             <HitPlane>DONTCARE</HitPlane>
           </Explosion>
           <FireType>INSTANT_HIT</FireType>
+          <EffectGroup>WEAPON_EFFECT_GROUP_REVOLVER</EffectGroup>
+          <PedDamageHash>BulletSmall</PedDamageHash>
           <WheelSlot>WHEEL_PISTOL</WheelSlot>
           <Group>GROUP_PISTOL</Group>
           <AmmoInfo ref="AMMO_PISTOL" />
@@ -190,6 +192,10 @@
           <CoverCameraHash>DEFAULT_FOLLOW_CAMERA</CoverCameraHash>
           <RunAndGunCameraHash>DEFAULT_FOLLOW_CAMERA</RunAndGunCameraHash>
           <CinematicShootingCameraHash>DEFAULT_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+          <PickupHash>PICKUP_WEAPON_DOUBLEACTION</PickupHash>
+          <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
+          <NmShotTuningSet>Normal</NmShotTuningSet>
+
           <AimOffset>
             <X value="0.000000" />
             <Y value="0.008000" />

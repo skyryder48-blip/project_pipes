@@ -49,13 +49,13 @@
       <ClipSize value="17" />
 
       <!-- Accuracy: POOR - shortest barrel (4.0"), shortest sight radius, lightest = unstable -->
-      <AccuracySpread value="1.850000" />
+      <AccuracySpread value="1.130000" />
       <AccurateModeAccuracyModifier value="0.600000" />
       <RunAndGunAccuracyModifier value="2.800000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="2.200000" />
+      <RecoilAccuracyMax value="1.630000" />
       <RecoilErrorTime value="0.480000" />
-      <RecoilRecoveryRate value="0.650000" />
+      <RecoilRecoveryRate value="1.280000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="40.000000" />
@@ -66,7 +66,7 @@
       <HeadShotDamageModifierPlayer value="2.900000" />
 
       <!-- Damage: 9mm baseline -->
-      <Damage value="34.000000" />
+      <Damage value="29.920000" />
       <DamageTime value="0.000000" />
       <DamageTimeInVehicle value="0.000000" />
       <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -102,7 +102,7 @@
       <BulletsPerAnimLoop value="1" />
 
       <!-- Fire Rate: Moderate - heavier trigger (5.5-7.7 lb) -->
-      <TimeBetweenShots value="0.175000" />
+      <TimeBetweenShots value="0.524000" />
 
       <!-- Damage Falloff: Shortest effective range due to shortest barrel -->
       <DamageFallOffRangeMin value="14.000000" />
@@ -190,9 +190,9 @@
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="80" />
-      <RecoilShakeAmplitude value="0.280000" />
+      <RecoilShakeAmplitude value="2.290000" />
       <ExplosionShakeAmplitude value="-1.000000" />
-      <IkRecoilDisplacement value="0.010000" />
+      <IkRecoilDisplacement value="1.708100" />
       <IkRecoilDisplacementScope value="0.010000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
       <IkRecoilDisplacementScaleVertical value="0.600000" />
@@ -281,7 +281,7 @@
       <AudioCollisionHash />
 
       <!-- HUD Stats: FASTEST handling (lightest), lower accuracy/range -->
-      <HudDamage value="35" />
+      <HudDamage value="31" />
       <HudSpeed value="68" />
       <HudCapacity value="35" />
       <HudAccuracy value="48" />

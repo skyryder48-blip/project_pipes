@@ -86,7 +86,7 @@
           <!-- ACCURACY PARAMETERS -->
           <!-- QUALITY- TIER: DA/SA with heavy first pull hurts accuracy -->
           <!-- 3.3" barrel, short sight radius, blowback design -->
-          <AccuracySpread value="1.800000" />
+          <AccuracySpread value="1.510000" />
           <AccurateModeAccuracyModifier value="0.400000" />
           <RunAndGunAccuracyModifier value="2.200000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
@@ -94,9 +94,9 @@
           <!-- RECOIL PARAMETERS -->
           <!-- Straight blowback = more felt recoil than locked-breech -->
           <!-- DA/SA: Heavy 13.4 lb DA, light 6.1 lb SA -->
-          <RecoilAccuracyMax value="1.800000" />
+          <RecoilAccuracyMax value="2.200000" />
           <RecoilErrorTime value="0.280000" />
-          <RecoilRecoveryRate value="0.800000" />
+          <RecoilRecoveryRate value="0.810000" />
           <RecoilAccuracyToAllowHeadShotAI value="0.700000" />
           <MinHeadShotDistanceAI value="1.200000" />
           <MaxHeadShotDistanceAI value="30.000000" />
@@ -110,7 +110,7 @@
           <!-- DAMAGE PARAMETERS -->
           <!-- .380 ACP 90gr @ 880-950 fps from 3.3" = ~190 ft-lbs -->
           <!-- 60% of 9mm energy = 60% of ~34 damage baseline -->
-          <Damage value="20.000000" />
+          <Damage value="17.600000" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -155,7 +155,7 @@
           <!-- FIRE RATE -->
           <!-- DA/SA: Heavy first pull limits rapid fire -->
           <!-- ~160 RPM practical due to heavy DA -->
-          <TimeBetweenShots value="0.375000" />
+          <TimeBetweenShots value="0.706000" />
           <TimeLeftBetweenShotsWhereShouldFireIsCached value="0.100000" />
           <SpinUpTime value="0.000000" />
           <SpinTime value="0.000000" />
@@ -243,7 +243,7 @@
           <RecoilShakeHashFirstPerson>RECOIL_PISTOL</RecoilShakeHashFirstPerson>
           <AccuracyOffsetShakeHash>ACCURACY_OFFSET_PISTOL</AccuracyOffsetShakeHash>
           <MinTimeBetweenRecoilShakes value="75" />
-          <RecoilShakeAmplitude value="0.200000" />
+          <RecoilShakeAmplitude value="2.510000" />
           <ExplosionShakeAmplitude value="0.000000" />
 
           <!-- IK RECOIL - Higher due to straight blowback design -->

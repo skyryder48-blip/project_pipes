@@ -54,9 +54,9 @@
       <AccurateModeAccuracyModifier value="0.500000" />
       <RunAndGunAccuracyModifier value="2.000000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="1.100000" />
+      <RecoilAccuracyMax value="1.360000" />
       <RecoilErrorTime value="0.350000" />
-      <RecoilRecoveryRate value="1.020000" />
+      <RecoilRecoveryRate value="1.610000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="45.000000" />
@@ -67,7 +67,7 @@
       <HeadShotDamageModifierPlayer value="3.000000" />
 
       <!-- Damage: 9mm full-size baseline -->
-      <Damage value="35.000000" />
+      <Damage value="30.800000" />
       <DamageTime value="0.000000" />
       <DamageTimeInVehicle value="0.000000" />
       <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -104,7 +104,7 @@
       <BulletsPerAnimLoop value="1" />
 
       <!-- Fire Rate: DA/SA trigger, moderate rate -->
-      <TimeBetweenShots value="0.160000" />
+      <TimeBetweenShots value="0.457000" />
 
       <!-- Damage Falloff: Full-size 9mm range -->
       <DamageFallOffRangeMin value="16.000000" />
@@ -195,9 +195,9 @@
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="80" />
-      <RecoilShakeAmplitude value="0.145000" />
+      <RecoilShakeAmplitude value="2.150000" />
       <ExplosionShakeAmplitude value="-1.000000" />
-      <IkRecoilDisplacement value="0.000000" />
+      <IkRecoilDisplacement value="1.683500" />
       <IkRecoilDisplacementScope value="0.000000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
       <IkRecoilDisplacementScaleVertical value="0.300000" />
@@ -301,7 +301,7 @@
       <AudioCollisionHash />
 
       <!-- HUD Stats -->
-      <HudDamage value="35" />
+      <HudDamage value="31" />
       <HudSpeed value="50" />
       <HudCapacity value="30" />
       <HudAccuracy value="60" />

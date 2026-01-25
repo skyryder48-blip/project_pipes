@@ -51,13 +51,13 @@
           <ClipSize value="17" />
 
           <!-- Accuracy: Slightly less than G17 due to shorter 4.02" barrel, 6.02" sight radius -->
-          <AccuracySpread value="1.550000" />
+          <AccuracySpread value="1.010000" />
           <AccurateModeAccuracyModifier value="0.520000" />
           <RunAndGunAccuracyModifier value="1.900000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
-          <RecoilAccuracyMax value="1.200000" />
+          <RecoilAccuracyMax value="1.450000" />
           <RecoilErrorTime value="0.380000" />
-          <RecoilRecoveryRate value="0.300000" />
+          <RecoilRecoveryRate value="1.430000" />
           <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
           <MinHeadShotDistanceAI value="1.200000" />
           <MaxHeadShotDistanceAI value="42.000000" />
@@ -68,7 +68,7 @@
           <HeadShotDamageModifierPlayer value="2.900000" />
 
           <!-- Damage: 9mm baseline -->
-          <Damage value="34.000000" />
+          <Damage value="29.920000" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -104,7 +104,7 @@
           <BulletsPerAnimLoop value="1" />
 
           <!-- Fire Rate: Same as G17, 6.29 lb trigger -->
-          <TimeBetweenShots value="0.158000" />
+          <TimeBetweenShots value="0.480000" />
 
           <!-- Damage Falloff: Slightly reduced range due to shorter barrel -->
           <DamageFallOffRangeMin value="16.000000" />
@@ -191,9 +191,9 @@
           <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
           <AccuracyOffsetShakeHash />
           <MinTimeBetweenRecoilShakes value="80" />
-          <RecoilShakeAmplitude value="0.155000" />
+          <RecoilShakeAmplitude value="2.220000" />
           <ExplosionShakeAmplitude value="-1.000000" />
-          <IkRecoilDisplacement value="0.000000" />
+          <IkRecoilDisplacement value="1.695900" />
           <IkRecoilDisplacementScope value="0.000000" />
           <IkRecoilDisplacementScaleBackward value="1.000000" />
           <IkRecoilDisplacementScaleVertical value="0.380000" />
@@ -281,7 +281,7 @@
           <ExpandPedCapsuleRadius value="0.000000" />
           <AudioCollisionHash />
 
-          <HudDamage value="35" />
+          <HudDamage value="31" />
           <HudSpeed value="55" />
           <HudCapacity value="30" />
           <HudAccuracy value="55" />

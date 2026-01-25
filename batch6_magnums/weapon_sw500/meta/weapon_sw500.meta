@@ -86,7 +86,7 @@
           <!-- ACCURACY PARAMETERS -->
           <!-- Heavy recoil makes accurate follow-up difficult -->
           <!-- But single aimed shots are precise due to weight -->
-          <AccuracySpread value="0.700000" />
+          <AccuracySpread value="2.270000" />
           <AccurateModeAccuracyModifier value="0.380000" />
           <RunAndGunAccuracyModifier value="2.800000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
@@ -95,9 +95,9 @@
           <!-- EXTREME: 39.9-45 ft-lbs recoil energy -->
           <!-- 3x .44 Magnum, 2.2-2.5x .357 baseline -->
           <!-- Recovery between shots is SLOW -->
-          <RecoilAccuracyMax value="3.200000" />
+          <RecoilAccuracyMax value="4.830000" />
           <RecoilErrorTime value="0.750000" />
-          <RecoilRecoveryRate value="0.180000" />
+          <RecoilRecoveryRate value="0.340000" />
           <RecoilAccuracyToAllowHeadShotAI value="0.550000" />
           <MinHeadShotDistanceAI value="1.200000" />
           <MaxHeadShotDistanceAI value="40.000000" />
@@ -111,7 +111,7 @@
           <!-- .500 S&W 350gr XTP @ 1,700 fps = ~2,600 ft-lbs -->
           <!-- Energy equivalent to .308 Winchester rifle -->
           <!-- Near one-shot potential at close range -->
-          <Damage value="185.000000" />
+          <Damage value="162.800000" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -154,7 +154,7 @@
           <!-- FIRE RATE -->
           <!-- SLOWEST HANDGUN - 40-60 RPM max -->
           <!-- Shooters describe needing to "reset" between shots -->
-          <TimeBetweenShots value="1.200000" />
+          <TimeBetweenShots value="1.799000" />
           <TimeLeftBetweenShotsWhereShouldFireIsCached value="0.100000" />
           <SpinUpTime value="0.000000" />
           <SpinTime value="0.000000" />
@@ -238,7 +238,7 @@
           <RecoilShakeHashFirstPerson>RECOIL_PISTOL</RecoilShakeHashFirstPerson>
           <AccuracyOffsetShakeHash>ACCURACY_OFFSET_PISTOL</AccuracyOffsetShakeHash>
           <MinTimeBetweenRecoilShakes value="200" />
-          <RecoilShakeAmplitude value="0.950000" />
+          <RecoilShakeAmplitude value="6.280000" />
           <ExplosionShakeAmplitude value="0.000000" />
 
           <!-- IK RECOIL - EXTREME: .500 S&W = 3x .44 Magnum recoil -->

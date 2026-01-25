@@ -50,13 +50,13 @@
 
       <!-- Accuracy: IMPROVED - Glock Marksman Barrel (GMB), lighter trigger (5.84 lb) -->
       <!-- AGGRESSIVE DIFFERENTIATION: Quality Tier - GMB barrel upgrade -->
-      <AccuracySpread value="1.000000" />
+      <AccuracySpread value="0.950000" />
       <AccurateModeAccuracyModifier value="0.420000" />
       <RunAndGunAccuracyModifier value="1.850000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="0.900000" />
+      <RecoilAccuracyMax value="1.360000" />
       <RecoilErrorTime value="0.290000" />
-      <RecoilRecoveryRate value="1.000000" />
+      <RecoilRecoveryRate value="1.520000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="50.000000" />
@@ -67,7 +67,7 @@
       <HeadShotDamageModifierPlayer value="2.900000" />
 
       <!-- Damage: 9mm baseline -->
-      <Damage value="34.000000" />
+      <Damage value="29.920000" />
       <DamageTime value="0.000000" />
       <DamageTimeInVehicle value="0.000000" />
       <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -103,7 +103,7 @@
       <BulletsPerAnimLoop value="1" />
 
       <!-- Fire Rate: Slightly faster due to lighter 5.84 lb trigger -->
-      <TimeBetweenShots value="0.160000" />
+      <TimeBetweenShots value="0.457000" />
 
       <!-- Damage Falloff -->
       <DamageFallOffRangeMin value="18.000000" />
@@ -191,9 +191,9 @@
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="80" />
-      <RecoilShakeAmplitude value="0.145000" />
+      <RecoilShakeAmplitude value="2.180000" />
       <ExplosionShakeAmplitude value="-1.000000" />
-      <IkRecoilDisplacement value="0.000000" />
+      <IkRecoilDisplacement value="1.689300" />
       <IkRecoilDisplacementScope value="0.000000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
       <IkRecoilDisplacementScaleVertical value="0.320000" />
@@ -293,7 +293,7 @@
       <ExpandPedCapsuleRadius value="0.000000" />
       <AudioCollisionHash />
 
-      <HudDamage value="35" />
+      <HudDamage value="31" />
       <HudSpeed value="52" />
       <HudCapacity value="35" />
       <HudAccuracy value="68" />

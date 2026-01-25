@@ -181,9 +181,9 @@
 					<RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
 					<AccuracyOffsetShakeHash/>
 					<MinTimeBetweenRecoilShakes value="40"/>
-					<RecoilShakeAmplitude value="3.800000"/>
+					<RecoilShakeAmplitude value="4.500000"/>
 					<ExplosionShakeAmplitude value="-1.000000"/>
-					<IkRecoilDisplacement value="0.590000"/>
+					<IkRecoilDisplacement value="1.140000"/>
 					<IkRecoilDisplacementScope value="0.005"/>
 					<IkRecoilDisplacementScaleBackward value="1.000000"/>
 					<IkRecoilDisplacementScaleVertical value="0.500000"/>

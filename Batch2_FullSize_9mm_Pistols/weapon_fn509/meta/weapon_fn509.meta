@@ -23,7 +23,9 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos />
   <Infos>
-    <Item type="CWeaponInfo">
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
       <Name>WEAPON_FN509</Name>
       <Model>w_pi_fn509</Model>
       <Audio>AUDIO_ITEM_PISTOL</Audio>
@@ -278,6 +280,10 @@
         <CapsuleRadius value="0.000000" />
         <CapsuleLength value="0.000000" />
       </FrontClearTestParams>
+        </Item>
+
+      </Infos>
+
     </Item>
   </Infos>
   <VehicleWeaponInfos />

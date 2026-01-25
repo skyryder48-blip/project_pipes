@@ -23,7 +23,9 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos />
   <Infos>
-    <Item type="CWeaponInfo">
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
       <Name>WEAPON_G19XD</Name>
       <Model>w_pi_g19xd</Model>
       <Audio>AUDIO_ITEM_PISTOL</Audio>
@@ -279,6 +281,10 @@
         <CapsuleRadius value="0.000000" />
         <CapsuleLength value="0.000000" />
       </FrontClearTestParams>
+        </Item>
+
+      </Infos>
+
     </Item>
   </Infos>
   <VehicleWeaponInfos />

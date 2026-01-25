@@ -23,7 +23,9 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos />
   <Infos>
-    <Item type="CWeaponInfo">
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
       <Name>WEAPON_BG_MENACE</Name>
       <Model>w_pi_bg_menace</Model>
       <Audio>AUDIO_ITEM_SMG</Audio>

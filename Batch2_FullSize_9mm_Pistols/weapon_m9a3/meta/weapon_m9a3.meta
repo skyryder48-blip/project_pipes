@@ -23,7 +23,9 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos />
   <Infos>
-    <Item type="CWeaponInfo">
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
       <Name>WEAPON_M9A3</Name>
       <Model>w_pi_m9a3</Model>
       <Audio>AUDIO_ITEM_PISTOL</Audio>
@@ -282,6 +284,10 @@
         <CapsuleRadius value="0.000000" />
         <CapsuleLength value="0.000000" />
       </FrontClearTestParams>
+        </Item>
+
+      </Infos>
+
     </Item>
   </Infos>
   <VehicleWeaponInfos />

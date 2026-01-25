@@ -265,7 +265,7 @@
           <!-- IDENTIFICATION HASHES -->
           <PickupHash>PICKUP_WEAPON_P22</PickupHash>
           <MPPickupHash>PICKUP_WEAPON_P22</MPPickupHash>
-          <HumanNameHash>WT_P22</HumanNameHash>
+          <HumanNameHash>WEAPON_P22</HumanNameHash>
           <MovementModeConditionalIdle />
           <WeaponTypeSet>Small</WeaponTypeSet>
           <WeaponWheelSlot>Pistol</WeaponWheelSlot>

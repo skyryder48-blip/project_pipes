@@ -130,7 +130,7 @@
       <FirstPersonDofMaxNearInFocusDistanceBlendLevel value="0.300000" />
       <ZoomFactorForAccurateMode value="1.300000" />
       <Fx>
-        <EffectGroup>WEAPON_EFFECT_GROUP_PISTOL</EffectGroup>
+        <EffectGroup>WEAPON_EFFECT_GROUP_PISTOL_SMALL</EffectGroup>
         <FlashFx>muz_pistol</FlashFx>
         <FlashFxAlt/>
         <FlashFxFP>muz_pistol_fp</FlashFxFP>

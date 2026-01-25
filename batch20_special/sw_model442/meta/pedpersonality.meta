@@ -2,7 +2,7 @@
 <CPedModelInfo__PersonalityDataList>
   <PersonalityDatas>
     <Item>
-      <n>WEAPON_SWMODEL442</n>
+      <Name>WEAPON_SWMODEL442</Name>
       <bCanBeTargetted value="true" />
       <bIsWeapon value="true" />
       <bCanUseCover value="true" />

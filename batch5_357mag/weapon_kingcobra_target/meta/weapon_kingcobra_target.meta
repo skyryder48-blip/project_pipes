@@ -174,7 +174,7 @@
           <!-- EFFECTS -->
           <!-- .357 Magnum muzzle flash from 3" target barrel -->
           <Fx>
-            <EffectGroup />
+            <EffectGroup>WEAPON_EFFECT_GROUP_PISTOL_SMALL</EffectGroup>
             <FlashFx>muz_pistol_large</FlashFx>
             <FlashFxAlt />
             <ShellFx />
@@ -222,7 +222,7 @@
           <FirstPersonReticuleStyleHash />
           <PickupHash>PICKUP_WEAPON_KINGCOBRA_TARGET</PickupHash>
           <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
-          <HumanNameHash>WT_KINGCOBRA_TARGET</HumanNameHash>
+          <HumanNameHash>WEAPON_KINGCOBRA_TARGET</HumanNameHash>
           <MovementModeConditionalIdle>MMI_1Handed</MovementModeConditionalIdle>
           <StatName>KINGCOBRATGT</StatName>
           <KnockdownCount value="2" />

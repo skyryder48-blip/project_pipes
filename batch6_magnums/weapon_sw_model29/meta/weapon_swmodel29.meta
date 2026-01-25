@@ -156,7 +156,7 @@
           
           <!-- EFFECTS -->
           <Fx>
-            <EffectGroup />
+            <EffectGroup>WEAPON_EFFECT_GROUP_PISTOL_SMALL</EffectGroup>
             <FlashFx>muz_pistol_large</FlashFx>
             <FlashFxAlt />
             <ShellFx />
@@ -247,7 +247,7 @@
           <!-- IDENTIFICATION HASHES -->
           <PickupHash>PICKUP_WEAPON_SWMODEL29</PickupHash>
           <MPPickupHash>PICKUP_WEAPON_SWMODEL29</MPPickupHash>
-          <HumanNameHash>WT_SWMODEL29</HumanNameHash>
+          <HumanNameHash>WEAPON_SWMODEL29</HumanNameHash>
           <MovementModeConditionalIdle />
           <WeaponTypeSet>Small</WeaponTypeSet>
           <WeaponWheelSlot>Pistol</WeaponWheelSlot>

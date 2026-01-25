@@ -174,7 +174,7 @@
           <!-- EFFECTS -->
           <!-- .38 Special muzzle flash - modest compared to .357 -->
           <Fx>
-            <EffectGroup />
+            <EffectGroup>WEAPON_EFFECT_GROUP_PISTOL_SMALL</EffectGroup>
             <FlashFx>muz_pistol</FlashFx>
             <FlashFxAlt />
             <ShellFx />
@@ -222,7 +222,7 @@
           <FirstPersonReticuleStyleHash />
           <PickupHash>PICKUP_WEAPON_SW_MODEL15</PickupHash>
           <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
-          <HumanNameHash>WT_SW_MODEL15</HumanNameHash>
+          <HumanNameHash>WEAPON_SW_MODEL15</HumanNameHash>
           <MovementModeConditionalIdle>MMI_1Handed</MovementModeConditionalIdle>
           <StatName>SWMODEL15</StatName>
           <KnockdownCount value="3" />

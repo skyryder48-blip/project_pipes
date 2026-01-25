@@ -14,4 +14,4 @@
     - Trade-off: louder report, more visible flash
 ]]
 
-AddTextEntry("WT_RAGINGBULL", "Taurus Raging Bull")
+AddTextEntry("WEAPON_RAGINGBULL", "Taurus Raging Bull")

@@ -15,4 +15,4 @@
     WARNING: Extreme recoil - requires deliberate, aimed fire
 ]]
 
-AddTextEntry("WT_SW500", "S&W 500")
+AddTextEntry("WEAPON_SW500", "S&W 500")

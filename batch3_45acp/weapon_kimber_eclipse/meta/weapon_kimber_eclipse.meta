@@ -91,7 +91,7 @@
 					<FirstPersonBulletBendingFarRadius value="0.750000"/>
 					<FirstPersonBulletBendingZoomedRadius value="0.375000"/>
 					<Fx>
-						<EffectGroup>WEAPON_EFFECT_GROUP_PISTOL</EffectGroup>
+						<EffectGroup>WEAPON_EFFECT_GROUP_PISTOL_SMALL</EffectGroup>
 						<FlashFx>muz_pistol_lg</FlashFx>
 						<FlashFxAlt/>
 						<FlashFxFP>muz_pistol_fp</FlashFxFP>

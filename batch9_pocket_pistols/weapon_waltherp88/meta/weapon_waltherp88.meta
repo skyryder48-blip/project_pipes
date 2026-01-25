@@ -194,7 +194,7 @@
           <!-- EFFECTS -->
           <!-- Standard 9mm muzzle flash -->
           <Fx>
-            <EffectGroup />
+            <EffectGroup>WEAPON_EFFECT_GROUP_PISTOL_SMALL</EffectGroup>
             <FlashFx>muz_pistol</FlashFx>
             <FlashFxAlt />
             <ShellFx>eject_pistol</ShellFx>

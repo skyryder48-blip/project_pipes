@@ -160,7 +160,7 @@
           <!-- EFFECTS -->
           <!-- Porting creates more visible flash and louder report -->
           <Fx>
-            <EffectGroup />
+            <EffectGroup>WEAPON_EFFECT_GROUP_PISTOL_SMALL</EffectGroup>
             <FlashFx>muz_pistol_large</FlashFx>
             <FlashFxAlt />
             <ShellFx />
@@ -252,7 +252,7 @@
           <!-- IDENTIFICATION HASHES -->
           <PickupHash>PICKUP_WEAPON_RAGINGBULL</PickupHash>
           <MPPickupHash>PICKUP_WEAPON_RAGINGBULL</MPPickupHash>
-          <HumanNameHash>WT_RAGINGBULL</HumanNameHash>
+          <HumanNameHash>WEAPON_RAGINGBULL</HumanNameHash>
           <MovementModeConditionalIdle />
           <WeaponTypeSet>Small</WeaponTypeSet>
           <WeaponWheelSlot>Pistol</WeaponWheelSlot>

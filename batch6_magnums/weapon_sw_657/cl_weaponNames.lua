@@ -12,4 +12,4 @@
     but uses .357 Magnum ammunition for inventory simplicity
 ]]
 
-AddTextEntry("WT_SW657", "S&W 657")
+AddTextEntry("WEAPON_SW657", "S&W 657")

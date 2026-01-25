@@ -250,7 +250,7 @@
           <!-- IDENTIFICATION HASHES -->
           <PickupHash>PICKUP_WEAPON_SW657</PickupHash>
           <MPPickupHash>PICKUP_WEAPON_SW657</MPPickupHash>
-          <HumanNameHash>WT_SW657</HumanNameHash>
+          <HumanNameHash>WEAPON_SW657</HumanNameHash>
           <MovementModeConditionalIdle />
           <WeaponTypeSet>Small</WeaponTypeSet>
           <WeaponWheelSlot>Pistol</WeaponWheelSlot>

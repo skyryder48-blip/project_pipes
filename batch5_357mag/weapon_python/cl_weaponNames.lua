@@ -2,4 +2,4 @@
 -- Colt Python .357 Magnum (6" barrel)
 -- Batch 5: .357 Magnum & .38 Special Revolvers
 
-AddTextEntry('WT_PYTHON', 'Colt Python .357')
+AddTextEntry('WEAPON_PYTHON', 'Colt Python .357')

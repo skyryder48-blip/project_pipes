@@ -222,7 +222,7 @@
           <FirstPersonReticuleStyleHash />
           <PickupHash>PICKUP_WEAPON_PYTHON</PickupHash>
           <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
-          <HumanNameHash>WT_PYTHON</HumanNameHash>
+          <HumanNameHash>WEAPON_PYTHON</HumanNameHash>
           <MovementModeConditionalIdle>MMI_1Handed</MovementModeConditionalIdle>
           <StatName>PYTHON</StatName>
           <KnockdownCount value="2" />

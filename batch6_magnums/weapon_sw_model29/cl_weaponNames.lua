@@ -8,4 +8,4 @@
     Weight: 47.7 oz
 ]]
 
-AddTextEntry("WT_SWMODEL29", "S&W Model 29")
+AddTextEntry("WEAPON_SWMODEL29", "S&W Model 29")

@@ -25,7 +25,9 @@
   <Infos>
     <Item>
       <Infos>
-        <Item type="CWeaponInfo">
+        <Item>
+          <Infos>
+            <Item type="CWeaponInfo">
           <Name>WEAPON_G45_TAN</Name>
           <Model>w_pi_g45_tan</Model>
           <Audio>AUDIO_ITEM_PISTOL</Audio>
@@ -288,6 +290,10 @@
           </FrontClearTestParams>
         </Item>
       </Infos>
+        </Item>
+
+      </Infos>
+
     </Item>
   </Infos>
   <VehicleWeaponInfos />

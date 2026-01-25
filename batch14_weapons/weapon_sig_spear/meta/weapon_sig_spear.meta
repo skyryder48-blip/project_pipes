@@ -90,13 +90,13 @@
 
           <ClipSize value="20" />
 
-          <AccuracySpread value="0.85" />
+          <AccuracySpread value="0.5" />
           <AccurateModeAccuracyModifier value="0.150000" />
           <RunAndGunAccuracyModifier value="0.550000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
-          <RecoilAccuracyMax value="2.20" />
+          <RecoilAccuracyMax value="2.4" />
           <RecoilErrorTime value="0.400000" />
-          <RecoilRecoveryRate value="0.48" />
+          <RecoilRecoveryRate value="0.8" />
 
           <RecoilAccuracyToAllowHeadShotAI value="0.450000" />
           <MinHeadShotDistanceAI value="5.000000" />
@@ -115,7 +115,7 @@
           <NetworkHitLimbsDamageModifier value="0.800000" />
           <LightlyArmouredDamageModifier value="0.700000" />
 
-          <Force value="180.0" />
+          <Force value="175.0" />
           <ForceHitPed value="100.000000" />
           <ForceHitVehicle value="50.000000" />
           <ForceHitFlyingHeli value="35.000000" />
@@ -131,7 +131,7 @@
           <VerticalLaunchAdjustment value="0.000000" />
           <DropForwardVelocity value="0.000000" />
 
-          <Speed value="915.0" />
+          <Speed value="914.4" />
 
           <BulletsInBatch value="1" />
           <BatchSpread value="0.000000" />
@@ -141,19 +141,19 @@
 
           <TimeBetweenShots value="0.120" />
 
-          <DamageFallOffRangeMin value="90.0" />
-          <DamageFallOffRangeMax value="280.0" />
+          <DamageFallOffRangeMin value="150.0" />
+          <DamageFallOffRangeMax value="500.0" />
           <DamageFallOffModifier value="0.40" />
 
           <NetworkPlayerDamageModifier value="1.000000" />
           <NetworkPedDamageModifier value="1.000000" />
           <NetworkHeadShotPlayerDamageModifier value="1.000000" />
           <LockOnRange value="0.000000" />
-          <WeaponRange value="450.0" />
+          <WeaponRange value="600.0" />
 
           <BulletDirectionOffsetInDegrees value="0.080000" />
-          <RecoilShakeAmplitude value="0.32" />
-          <RecoilShakeFrequency value="0.55" />
+          <RecoilShakeAmplitude value="0.6" />
+          <RecoilShakeFrequency value="0.6" />
           <RecoilShakeRollMagnitude value="0.150000" />
           <RecoilShakeDuration value="0.200000" />
 

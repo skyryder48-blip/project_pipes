@@ -12,12 +12,14 @@
   <AimingInfos />
   <Infos>
     <Item type="CWeaponInfo">
-      <n>WEAPON_MK47</n>
+      <Name>WEAPON_MK47</Name>
       <Model>w_ar_mk47</Model>
       <Audio>AUDIO_ASSAULT_RIFLE</Audio>
       <Slot>SLOT_MK47</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
+      <EffectGroup>WEAPON_EFFECT_GROUP_RIFLE</EffectGroup>
+      <PedDamageHash>BulletLarge</PedDamageHash>
       <WheelSlot>WHEEL_PISTOL</WheelSlot>
       <Group>GROUP_PISTOL</Group>
       <ClipSize value="30" />
@@ -101,8 +103,12 @@
       <Recoil />
       <FireAnimTime value="0.10" />
       <RecoilAimOffsetInterpolation />
+      <PickupHash>PICKUP_WEAPON_ASSAULTRIFLE</PickupHash>
+      <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
+      <NmShotTuningSet>Normal</NmShotTuningSet>
+
       
-      <HumanNameHash>WT_MK47</HumanNameHash>
+      <HumanNameHash>WEAPON_MK47</HumanNameHash>
       <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
     </Item>
   </Infos>

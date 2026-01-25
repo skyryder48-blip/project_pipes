@@ -12,12 +12,14 @@
   <AimingInfos />
   <Infos>
     <Item type="CWeaponInfo">
-      <n>WEAPON_RAM7KNIGHT</n>
+      <Name>WEAPON_RAM7KNIGHT</Name>
       <Model>w_ar_ram7knight</Model>
       <Audio>AUDIO_ASSAULT_RIFLE</Audio>
       <Slot>SLOT_RAM7KNIGHT</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
+      <EffectGroup>WEAPON_EFFECT_GROUP_RIFLE</EffectGroup>
+      <PedDamageHash>BulletLarge</PedDamageHash>
       <WheelSlot>WHEEL_PISTOL</WheelSlot>
       <Group>GROUP_PISTOL</Group>
       <ClipSize value="30" />
@@ -98,8 +100,12 @@
       <Recoil />
       <FireAnimTime value="0.10" />
       <RecoilAimOffsetInterpolation />
+      <PickupHash>PICKUP_WEAPON_ASSAULTRIFLE</PickupHash>
+      <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
+      <NmShotTuningSet>Normal</NmShotTuningSet>
+
       
-      <HumanNameHash>WT_RAM7KNIGHT</HumanNameHash>
+      <HumanNameHash>WEAPON_RAM7KNIGHT</HumanNameHash>
       <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
     </Item>
   </Infos>

@@ -12,12 +12,14 @@
   <AimingInfos />
   <Infos>
     <Item type="CWeaponInfo">
-      <n>WEAPON_M7</n>
+      <Name>WEAPON_M7</Name>
       <Model>w_ar_m7</Model>
       <Audio>AUDIO_ASSAULT_RIFLE</Audio>
       <Slot>SLOT_M7</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
+      <EffectGroup>WEAPON_EFFECT_GROUP_RIFLE</EffectGroup>
+      <PedDamageHash>BulletLarge</PedDamageHash>
       <WheelSlot>WHEEL_PISTOL</WheelSlot>
       <Group>GROUP_PISTOL</Group>
       <ClipSize value="20" />
@@ -104,8 +106,12 @@
       <Recoil />
       <FireAnimTime value="0.10" />
       <RecoilAimOffsetInterpolation />
+      <PickupHash>PICKUP_WEAPON_ASSAULTRIFLE</PickupHash>
+      <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
+      <NmShotTuningSet>Normal</NmShotTuningSet>
+
       
-      <HumanNameHash>WT_M7</HumanNameHash>
+      <HumanNameHash>WEAPON_M7</HumanNameHash>
       <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
     </Item>
   </Infos>

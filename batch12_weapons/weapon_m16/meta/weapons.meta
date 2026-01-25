@@ -12,12 +12,14 @@
   <AimingInfos />
   <Infos>
     <Item type="CWeaponInfo">
-      <n>WEAPON_M16</n>
+      <Name>WEAPON_M16</Name>
       <Model>w_ar_m16</Model>
       <Audio>AUDIO_ASSAULT_RIFLE</Audio>
       <Slot>SLOT_M16</Slot>
       <DamageType>BULLET</DamageType>
       <FireType>INSTANT_HIT</FireType>
+      <EffectGroup>WEAPON_EFFECT_GROUP_RIFLE</EffectGroup>
+      <PedDamageHash>BulletLarge</PedDamageHash>
       <WheelSlot>WHEEL_PISTOL</WheelSlot>
       <Group>GROUP_PISTOL</Group>
       <ClipSize value="30" />
@@ -99,8 +101,12 @@
       <Recoil />
       <FireAnimTime value="0.10" />
       <RecoilAimOffsetInterpolation />
+      <PickupHash>PICKUP_WEAPON_ASSAULTRIFLE</PickupHash>
+      <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
+      <NmShotTuningSet>Normal</NmShotTuningSet>
+
       
-      <HumanNameHash>WT_M16</HumanNameHash>
+      <HumanNameHash>WEAPON_M16</HumanNameHash>
       <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
     </Item>
   </Infos>

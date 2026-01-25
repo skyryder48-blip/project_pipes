@@ -73,9 +73,9 @@ PERCEPTION_MULTIPLIER = 4.0  # Increased from 2.5x for more noticeable effects
 # =============================================================================
 # PROPORTIONAL OFFSETS - Scaled by parameter type
 # =============================================================================
-SHAKE_BASE_OFFSET = 0.80     # Base offset for shake
+SHAKE_BASE_OFFSET = 1.50     # Base offset for shake - increased
 SHAKE_TIER_SCALE = 0.40      # Additional per tier deviation from standard
-FLIP_BASE_OFFSET = 0.25      # Base offset for flip - increased for perceptibility
+FLIP_BASE_OFFSET = 0.80      # Base offset for flip - significantly increased
 FLIP_TIER_SCALE = 0.08       # Additional per tier deviation - increased
 FIRE_RATE_BASE_OFFSET = 0.30 # Base offset for fire rate
 
@@ -93,7 +93,7 @@ VALUE_FLOORS = {
 
 VALUE_CEILINGS = {
     "RecoilShakeAmplitude": 6.50,   # Maximum shake - screen shaking chaos
-    "IkRecoilDisplacement": 0.70,   # Maximum flip - gun pointing at sky
+    "IkRecoilDisplacement": 1.50,   # Maximum flip - gun pointing at sky (raised for offset)
     "RecoilRecoveryRate": 2.50,     # Maximum recovery - instant stabilization
     "TimeBetweenShots": 2.00,       # Maximum time - very slow deliberate fire
     "AccuracySpread": 6.00,         # Maximum spread - can't hit anything

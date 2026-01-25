@@ -304,6 +304,110 @@ BATCH3_WEAPONS = [
     WeaponSpec("m45a1", "45_acp", "match", False, 40.0, "USMC M45A1 MEUSOC"),
 ]
 
+# =============================================================================
+# WEAPON DEFINITIONS - BATCH 2 (Full-Size 9mm)
+# =============================================================================
+BATCH2_WEAPONS = [
+    WeaponSpec("fn509", "9mm", "quality", False, 26.9, "FN 509"),
+    WeaponSpec("g17", "9mm", "standard", False, 32.0, "Glock 17 Gen4"),
+    WeaponSpec("g17_blk", "9mm", "standard", False, 32.0, "Glock 17 Black"),
+    WeaponSpec("g17_gen5", "9mm", "quality", False, 32.0, "Glock 17 Gen5"),
+    WeaponSpec("g19", "9mm", "standard", False, 30.0, "Glock 19"),
+    WeaponSpec("g19x", "9mm", "quality", False, 31.0, "Glock 19X"),
+    WeaponSpec("g19x_switch", "9mm", "quality", True, 31.0, "Glock 19X with auto sear"),
+    WeaponSpec("g19xd", "9mm", "quality", False, 31.0, "Glock 19X Desert"),
+    WeaponSpec("g45", "9mm", "quality", False, 30.0, "Glock 45"),
+    WeaponSpec("g45_tan", "9mm", "quality", False, 30.0, "Glock 45 Tan"),
+    WeaponSpec("m9", "9mm", "standard", False, 33.0, "Beretta M9"),
+    WeaponSpec("m9a3", "9mm", "quality", False, 33.0, "Beretta M9A3"),
+    WeaponSpec("p320", "9mm", "quality", False, 29.5, "Sig P320"),
+    WeaponSpec("px4", "9mm", "standard", False, 27.0, "Beretta PX4 Storm"),
+    WeaponSpec("tp9sf", "9mm", "standard", False, 28.0, "Canik TP9SF"),
+]
+
+# =============================================================================
+# WEAPON DEFINITIONS - BATCH 4 (.40 S&W)
+# =============================================================================
+BATCH4_WEAPONS = [
+    WeaponSpec("bg_menace", "40_sw", "worn", False, 26.0, "Budget .40 pistol"),
+    WeaponSpec("g22_gen4", "40_sw", "standard", False, 34.0, "Glock 22 Gen4"),
+    WeaponSpec("g22_gen5", "40_sw", "quality", False, 34.0, "Glock 22 Gen5"),
+]
+
+# =============================================================================
+# WEAPON DEFINITIONS - BATCH 5 (.357 Magnum)
+# =============================================================================
+BATCH5_WEAPONS = [
+    WeaponSpec("kingcobra", "357_mag", "quality", False, 42.0, "Colt King Cobra"),
+    WeaponSpec("kingcobra_snub", "357_mag", "standard", False, 28.0, "Colt King Cobra Snub"),
+    WeaponSpec("kingcobra_target", "357_mag", "match", False, 45.0, "Colt King Cobra Target"),
+    WeaponSpec("python", "357_mag", "match", False, 46.0, "Colt Python"),
+    WeaponSpec("sw_model15", "357_mag", "worn", False, 36.0, "S&W Model 15 worn"),
+]
+
+# =============================================================================
+# WEAPON DEFINITIONS - BATCH 6 (Heavy Magnums - .44 Mag / .500 S&W)
+# =============================================================================
+BATCH6_WEAPONS = [
+    WeaponSpec("ragingbull", "44_mag", "standard", False, 53.0, "Taurus Raging Bull .44"),
+    WeaponSpec("sw500", "500_sw", "quality", False, 72.0, "S&W 500"),
+    WeaponSpec("sw_657", "44_mag", "quality", False, 48.0, "S&W 657 .41 Mag"),
+    WeaponSpec("sw_model29", "44_mag", "match", False, 47.0, "S&W Model 29"),
+]
+
+# =============================================================================
+# WEAPON DEFINITIONS - BATCH 7 (5.7x28mm)
+# =============================================================================
+BATCH7_WEAPONS = [
+    WeaponSpec("fn57", "5.7x28", "quality", False, 22.9, "FN Five-seveN"),
+    WeaponSpec("ruger57", "5.7x28", "standard", False, 24.5, "Ruger-57"),
+]
+
+# =============================================================================
+# WEAPON DEFINITIONS - BATCH 8 (.22 LR)
+# =============================================================================
+BATCH8_WEAPONS = [
+    WeaponSpec("fn502", "22_lr", "quality", False, 24.0, "FN 502"),
+    WeaponSpec("p22", "22_lr", "standard", False, 17.0, "Walther P22"),
+    WeaponSpec("pmr30", "22_lr", "quality", False, 19.0, "Kel-Tec PMR-30"),
+    WeaponSpec("sig_p22", "22_lr", "standard", False, 18.0, "Sig P22"),
+]
+
+# =============================================================================
+# WEAPON DEFINITIONS - BATCH 9 (Pocket Pistols - .25/.380)
+# =============================================================================
+BATCH9_WEAPONS = [
+    WeaponSpec("coltjunior", "380_acp", "worn", False, 12.0, "Colt Junior .25"),
+    WeaponSpec("sigp238", "380_acp", "quality", False, 15.0, "Sig P238"),
+    WeaponSpec("waltherp88", "9mm", "quality", False, 31.0, "Walther P88"),
+    WeaponSpec("waltherppk", "380_acp", "standard", False, 21.0, "Walther PPK"),
+]
+
+# =============================================================================
+# WEAPON DEFINITIONS - BATCH 10 (10mm)
+# =============================================================================
+BATCH10_WEAPONS = [
+    WeaponSpec("glock20", "10mm", "standard", False, 39.0, "Glock 20"),
+]
+
+# =============================================================================
+# WEAPON DEFINITIONS - BATCH 11 (Mixed 9mm / .45 ACP)
+# =============================================================================
+BATCH11_WEAPONS = [
+    WeaponSpec("bluearp", "9mm", "quality", False, 29.0, "Blue ARP"),
+    WeaponSpec("psadagger", "9mm", "standard", False, 27.0, "PSA Dagger"),
+    WeaponSpec("px4storm", "9mm", "standard", False, 27.5, "Beretta PX4 Storm"),
+    WeaponSpec("rugersr9", "9mm", "standard", False, 27.0, "Ruger SR9"),
+    WeaponSpec("sigp210", "9mm", "match", False, 37.0, "Sig P210"),
+    WeaponSpec("sigp220", "45_acp", "quality", False, 35.0, "Sig P220"),
+    WeaponSpec("sigp226", "9mm", "quality", False, 34.0, "Sig P226"),
+    WeaponSpec("sigp226elite", "9mm", "match", False, 34.0, "Sig P226 Elite"),
+    WeaponSpec("sigp226mk25", "9mm", "quality", False, 34.0, "Sig P226 MK25"),
+    WeaponSpec("sigp229", "9mm", "quality", False, 32.0, "Sig P229"),
+    WeaponSpec("sigp320", "9mm", "quality", False, 29.5, "Sig P320"),
+    WeaponSpec("udp9", "9mm", "quality", False, 26.0, "Angstadt UDP-9"),
+]
+
 
 def normalize_caliber(caliber: str) -> str:
     """Normalize caliber string for lookup"""
@@ -574,10 +678,55 @@ def main():
             "weapons": BATCH1_WEAPONS,
             "name": "Batch 1 - Compact 9mm Pistols",
         },
+        2: {
+            "path": os.path.join(base_path, "Batch2_FullSize_9mm_Pistols"),
+            "weapons": BATCH2_WEAPONS,
+            "name": "Batch 2 - Full-Size 9mm Pistols",
+        },
         3: {
             "path": os.path.join(base_path, "batch3_45acp"),
             "weapons": BATCH3_WEAPONS,
             "name": "Batch 3 - .45 ACP Pistols",
+        },
+        4: {
+            "path": os.path.join(base_path, "batch4_40sw"),
+            "weapons": BATCH4_WEAPONS,
+            "name": "Batch 4 - .40 S&W Pistols",
+        },
+        5: {
+            "path": os.path.join(base_path, "batch5_357mag"),
+            "weapons": BATCH5_WEAPONS,
+            "name": "Batch 5 - .357 Magnum Revolvers",
+        },
+        6: {
+            "path": os.path.join(base_path, "batch6_magnums"),
+            "weapons": BATCH6_WEAPONS,
+            "name": "Batch 6 - Heavy Magnums",
+        },
+        7: {
+            "path": os.path.join(base_path, "batch7_57x28"),
+            "weapons": BATCH7_WEAPONS,
+            "name": "Batch 7 - 5.7x28mm Pistols",
+        },
+        8: {
+            "path": os.path.join(base_path, "batch8_22lr"),
+            "weapons": BATCH8_WEAPONS,
+            "name": "Batch 8 - .22 LR Pistols",
+        },
+        9: {
+            "path": os.path.join(base_path, "batch9_pocket_pistols"),
+            "weapons": BATCH9_WEAPONS,
+            "name": "Batch 9 - Pocket Pistols",
+        },
+        10: {
+            "path": os.path.join(base_path, "batch10_10mm"),
+            "weapons": BATCH10_WEAPONS,
+            "name": "Batch 10 - 10mm Pistols",
+        },
+        11: {
+            "path": os.path.join(base_path, "batch11"),
+            "weapons": BATCH11_WEAPONS,
+            "name": "Batch 11 - Mixed Pistols",
         },
     }
 

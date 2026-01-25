@@ -51,7 +51,7 @@
       <Infos>
         <Item type="CWeaponInfo">
           <!-- IDENTIFICATION -->
-          <n>WEAPON_RAGINGBULL</n>
+          <Name>WEAPON_RAGINGBULL</Name>
           <Model>w_pi_ragingbull</Model>
           <Audio>AUDIO_ITEM_REVOLVER</Audio>
           <Slot>SLOT_RAGINGBULL</Slot>
@@ -229,6 +229,9 @@
           <MinTimeBetweenRecoilShakes value="130" />
           <RecoilShakeAmplitude value="0.480000" />
           <ExplosionShakeAmplitude value="0.000000" />
+
+          <!-- IK RECOIL - Ported barrel reduces muzzle rise 30% -->
+          <IkRecoilDisplacementScaleVertical value="0.520000" />
           
           <!-- AIM OFFSETS -->
           <AimOffsetMin x="0.000000" y="0.500000" z="0.000000" />
@@ -266,7 +269,7 @@
               <AttachBone>WAPClip</AttachBone>
               <Components>
                 <Item>
-                  <n>COMPONENT_RAGINGBULL_CLIP_01</n>
+                  <Name>COMPONENT_RAGINGBULL_CLIP_01</Name>
                   <Default value="true" />
                 </Item>
               </Components>

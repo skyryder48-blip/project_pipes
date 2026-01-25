@@ -73,7 +73,7 @@
           <Model>w_pi_model60</Model>
           <Audio>AUDIO_ITEM_REVOLVER</Audio>
           <Slot>SLOT_SWMODEL60</Slot>
-          <HumanNameHash>WT_SWMODEL60</HumanNameHash>
+          <HumanNameHash>WEAPON_SWMODEL60</HumanNameHash>
           <DamageType>BULLET</DamageType>
           <Explosion>
             <Default>DONTCARE</Default>
@@ -84,7 +84,7 @@
             <HitPlane>DONTCARE</HitPlane>
           </Explosion>
           <FireType>INSTANT_HIT</FireType>
-          <EffectGroup>WEAPON_EFFECT_GROUP_REVOLVER</EffectGroup>
+          <EffectGroup>WEAPON_EFFECT_GROUP_PISTOL_SMALL</EffectGroup>
           <PedDamageHash>BulletSmall</PedDamageHash>
           <WheelSlot>WHEEL_PISTOL</WheelSlot>
           <Group>GROUP_PISTOL</Group>
@@ -95,13 +95,13 @@
           <ClipSize value="5" />
           
           <!-- Accuracy: Premium J-frame with adjustable sights -->
-          <AccuracySpread value="0.280000" />
+          <AccuracySpread value="1.110000" />
           <AccurateModeAccuracyModifier value="0.250000" />
           <RunAndGunAccuracyModifier value="3.200000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
-          <RecoilAccuracyMax value="1.100000" />
+          <RecoilAccuracyMax value="2.090000" />
           <RecoilErrorTime value="0.200000" />
-          <RecoilRecoveryRate value="0.550000" />
+          <RecoilRecoveryRate value="0.880000" />
           
           <!-- Headshot Parameters -->
           <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
@@ -152,7 +152,7 @@
           <ReloadTimeSP value="2.800000" />
           
           <!-- Fire Rate: DA revolver, 0.45s between shots -->
-          <TimeBetweenShots value="0.450000" />
+          <TimeBetweenShots value="0.935000" />
           
           <!-- Damage Falloff: Full to 15m, minimum at 50m -->
           <DamageFallOffRangeMin value="15.000000" />
@@ -168,7 +168,7 @@
           
           <!-- Recoil: Steel frame absorbs well -->
           <BulletDirectionOffsetInDegrees value="0.000000" />
-          <RecoilShakeAmplitude value="0.280000" />
+          <RecoilShakeAmplitude value="2.270000" />
           <RecoilShakeFrequency value="0.000000" />
           <RecoilShakeRollMagnitude value="0.180000" />
           <RecoilShakeDuration value="0.250000" />

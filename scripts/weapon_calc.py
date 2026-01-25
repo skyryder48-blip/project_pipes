@@ -31,6 +31,7 @@ CALIBER_MULTIPLIERS = {
     ".500_sw": 5.00,
     "5.7x28": 0.60,
     ".380_acp": 0.70,
+    ".38_special": 0.80,  # .38 Special +P - slightly above .380, below 9mm
 }
 
 # =============================================================================
@@ -238,6 +239,18 @@ PARAMETER_RANGES = {
         "AccuracySpread": (0.60, 1.55),
         "RecoilAccuracyMax": (1.00, 2.00),
     },
+    ".38_special": {
+        # Shake: between .380 and 9mm, revolver characteristics
+        "RecoilShakeAmplitude": (0.45, 1.20),
+        # Flip: revolver muzzle rise, moderate
+        "IkRecoilDisplacement": (0.05, 0.15),
+        # Recovery: slower than semi-auto (DA trigger reset)
+        "RecoilRecoveryRate": (1.20, 0.25),
+        # Fire rate: DA revolver, 0.40-0.55s between shots
+        "TimeBetweenShots": (0.40, 0.80),
+        "AccuracySpread": (0.50, 1.40),
+        "RecoilAccuracyMax": (1.20, 2.40),
+    },
 }
 
 # =============================================================================
@@ -410,6 +423,24 @@ BATCH11_WEAPONS = [
     WeaponSpec("udp9", "9mm", "quality", False, 26.0, "Angstadt UDP-9"),
 ]
 
+# =============================================================================
+# WEAPON DEFINITIONS - BATCH 20 (.38 Special Revolvers)
+# =============================================================================
+BATCH20_WEAPONS = [
+    # S&W Model 60 - 3" J-Frame, premium with adjustable sights
+    WeaponSpec("sw_model60", "38_special", "quality", False, 24.5, "S&W Model 60"),
+    # S&W Model 10 - 4" K-Frame, police service revolver
+    WeaponSpec("sw_model10", "38_special", "quality", False, 34.4, "S&W Model 10"),
+    # S&W Model 442 - Airweight DAO snub, black
+    WeaponSpec("sw_model442", "38_special", "standard", False, 14.7, "S&W Model 442"),
+    # S&W Model 642 - Airweight DAO snub, stainless
+    WeaponSpec("sw_model642", "38_special", "standard", False, 14.6, "S&W Model 642"),
+    # Ruger LCR - Modern polymer/aluminum DAO, lightest
+    WeaponSpec("ruger_lcr", "38_special", "quality", False, 13.5, "Ruger LCR"),
+    # Taurus Defender 856 - Budget 6-shot, night sights
+    WeaponSpec("taurus_defender856", "38_special", "standard", False, 23.5, "Taurus Defender 856"),
+]
+
 
 def normalize_caliber(caliber: str) -> str:
     """Normalize caliber string for lookup"""
@@ -432,6 +463,8 @@ def normalize_caliber(caliber: str) -> str:
         return "5.7x28"
     if caliber in ["380_acp", ".380_acp", "380acp"]:
         return ".380_acp"
+    if caliber in ["38_special", ".38_special", "38spl", ".38spl", "38_spl"]:
+        return ".38_special"
     if caliber in ["10mm"]:
         return "10mm"
     return caliber
@@ -619,9 +652,12 @@ def update_weapon_meta(file_path: str, values: dict) -> bool:
 def find_weapon_meta_file(base_path: str, weapon_name: str) -> Optional[str]:
     """Find the weapon meta file for a given weapon.
 
-    Handles naming variations where meta files may not have underscores
-    in the same positions as directory names (e.g., weapon_sw_657/meta/weapon_sw657.meta)
+    Handles naming variations:
+    - weapon_{name}/meta/weapon_{name}.meta (standard)
+    - weapon_{name}/meta/weapon_{name_no_underscores}.meta
+    - {name}/meta/weapons.meta (batch 20 style)
     """
+    # Try standard format: weapon_{name}/meta/weapon_{name}.meta
     weapon_dir = f"weapon_{weapon_name}"
     meta_file = f"weapon_{weapon_name}.meta"
     full_path = os.path.join(base_path, weapon_dir, "meta", meta_file)
@@ -629,10 +665,23 @@ def find_weapon_meta_file(base_path: str, weapon_name: str) -> Optional[str]:
     if os.path.exists(full_path):
         return full_path
 
-    # Fallback: search for any weapon_*.meta file in the directory
+    # Fallback 1: search for any weapon_*.meta file in weapon_{name} directory
     meta_dir = os.path.join(base_path, weapon_dir, "meta")
     if os.path.isdir(meta_dir):
         matches = glob.glob(os.path.join(meta_dir, "weapon_*.meta"))
+        if len(matches) == 1:
+            return matches[0]
+
+    # Fallback 2: try {name}/meta/weapons.meta (batch 20 style without weapon_ prefix)
+    alt_dir = weapon_name
+    alt_path = os.path.join(base_path, alt_dir, "meta", "weapons.meta")
+    if os.path.exists(alt_path):
+        return alt_path
+
+    # Fallback 3: search for any .meta file in {name}/meta directory
+    alt_meta_dir = os.path.join(base_path, alt_dir, "meta")
+    if os.path.isdir(alt_meta_dir):
+        matches = glob.glob(os.path.join(alt_meta_dir, "weapon*.meta"))
         if len(matches) == 1:
             return matches[0]
 
@@ -743,6 +792,11 @@ def main():
             "path": os.path.join(base_path, "batch11"),
             "weapons": BATCH11_WEAPONS,
             "name": "Batch 11 - Mixed Pistols",
+        },
+        20: {
+            "path": os.path.join(base_path, "batch20_special"),
+            "weapons": BATCH20_WEAPONS,
+            "name": "Batch 20 - .38 Special Revolvers",
         },
     }
 

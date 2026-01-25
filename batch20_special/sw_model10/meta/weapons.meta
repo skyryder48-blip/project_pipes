@@ -74,7 +74,7 @@
           <Model>w_pi_model10</Model>
           <Audio>AUDIO_ITEM_REVOLVER</Audio>
           <Slot>SLOT_SWMODEL10</Slot>
-          <HumanNameHash>WT_SWMODEL10</HumanNameHash>
+          <HumanNameHash>WEAPON_SWMODEL10</HumanNameHash>
           <DamageType>BULLET</DamageType>
           <Explosion>
             <Default>DONTCARE</Default>
@@ -85,7 +85,7 @@
             <HitPlane>DONTCARE</HitPlane>
           </Explosion>
           <FireType>INSTANT_HIT</FireType>
-          <EffectGroup>WEAPON_EFFECT_GROUP_REVOLVER</EffectGroup>
+          <EffectGroup>WEAPON_EFFECT_GROUP_PISTOL_SMALL</EffectGroup>
           <PedDamageHash>BulletSmall</PedDamageHash>
           <WheelSlot>WHEEL_PISTOL</WheelSlot>
           <Group>GROUP_PISTOL</Group>
@@ -96,13 +96,13 @@
           <ClipSize value="6" />
           
           <!-- Accuracy: Best in class - 4" barrel, fixed sights -->
-          <AccuracySpread value="0.220000" />
+          <AccuracySpread value="0.820000" />
           <AccurateModeAccuracyModifier value="0.200000" />
           <RunAndGunAccuracyModifier value="2.800000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
-          <RecoilAccuracyMax value="0.950000" />
+          <RecoilAccuracyMax value="1.660000" />
           <RecoilErrorTime value="0.180000" />
-          <RecoilRecoveryRate value="0.600000" />
+          <RecoilRecoveryRate value="1.240000" />
           
           <!-- Headshot Parameters - service-grade accuracy -->
           <RecoilAccuracyToAllowHeadShotAI value="0.600000" />
@@ -153,7 +153,7 @@
           <ReloadTimeSP value="2.600000" />
           
           <!-- Fire Rate: DA revolver, 0.40s between shots -->
-          <TimeBetweenShots value="0.400000" />
+          <TimeBetweenShots value="0.828000" />
           
           <!-- Damage Falloff: Full to 20m, minimum at 60m -->
           <DamageFallOffRangeMin value="20.000000" />
@@ -169,7 +169,7 @@
           
           <!-- Recoil: Heavy steel frame, very manageable -->
           <BulletDirectionOffsetInDegrees value="0.000000" />
-          <RecoilShakeAmplitude value="0.220000" />
+          <RecoilShakeAmplitude value="2.070000" />
           <RecoilShakeFrequency value="0.000000" />
           <RecoilShakeRollMagnitude value="0.140000" />
           <RecoilShakeDuration value="0.220000" />

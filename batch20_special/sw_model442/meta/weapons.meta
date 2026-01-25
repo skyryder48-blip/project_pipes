@@ -76,7 +76,7 @@
           <Model>w_pi_model442</Model>
           <Audio>AUDIO_ITEM_REVOLVER</Audio>
           <Slot>SLOT_SWMODEL442</Slot>
-          <HumanNameHash>WT_SWMODEL442</HumanNameHash>
+          <HumanNameHash>WEAPON_SWMODEL442</HumanNameHash>
           <DamageType>BULLET</DamageType>
           <Explosion>
             <Default>DONTCARE</Default>
@@ -87,7 +87,7 @@
             <HitPlane>DONTCARE</HitPlane>
           </Explosion>
           <FireType>INSTANT_HIT</FireType>
-          <EffectGroup>WEAPON_EFFECT_GROUP_REVOLVER</EffectGroup>
+          <EffectGroup>WEAPON_EFFECT_GROUP_PISTOL_SMALL</EffectGroup>
           <PedDamageHash>BulletSmall</PedDamageHash>
           <WheelSlot>WHEEL_PISTOL</WheelSlot>
           <Group>GROUP_PISTOL</Group>
@@ -98,13 +98,13 @@
           <ClipSize value="5" />
           
           <!-- Accuracy: Snub-nose limitations, DAO trigger -->
-          <AccuracySpread value="0.380000" />
+          <AccuracySpread value="1.710000" />
           <AccurateModeAccuracyModifier value="0.350000" />
           <RunAndGunAccuracyModifier value="3.800000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
-          <RecoilAccuracyMax value="1.350000" />
+          <RecoilAccuracyMax value="2.950000" />
           <RecoilErrorTime value="0.250000" />
-          <RecoilRecoveryRate value="0.420000" />
+          <RecoilRecoveryRate value="0.410000" />
           
           <!-- Headshot Parameters - limited range -->
           <RecoilAccuracyToAllowHeadShotAI value="0.700000" />
@@ -155,7 +155,7 @@
           <ReloadTimeSP value="2.900000" />
           
           <!-- Fire Rate: DAO only, 0.50s between shots -->
-          <TimeBetweenShots value="0.500000" />
+          <TimeBetweenShots value="1.176000" />
           
           <!-- Damage Falloff: Full to 10m, minimum at 35m -->
           <DamageFallOffRangeMin value="10.000000" />
@@ -171,7 +171,7 @@
           
           <!-- Recoil: Lightweight frame = snappy recoil -->
           <BulletDirectionOffsetInDegrees value="0.000000" />
-          <RecoilShakeAmplitude value="0.380000" />
+          <RecoilShakeAmplitude value="3.290000" />
           <RecoilShakeFrequency value="0.000000" />
           <RecoilShakeRollMagnitude value="0.260000" />
           <RecoilShakeDuration value="0.300000" />

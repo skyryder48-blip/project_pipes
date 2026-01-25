@@ -73,10 +73,10 @@ PERCEPTION_MULTIPLIER = 4.0  # Increased from 2.5x for more noticeable effects
 # =============================================================================
 # PROPORTIONAL OFFSETS - Scaled by parameter type
 # =============================================================================
-SHAKE_BASE_OFFSET = 1.50     # Base offset for shake - increased
-SHAKE_TIER_SCALE = 0.40      # Additional per tier deviation from standard
-FLIP_BASE_OFFSET = 0.80      # Base offset for flip - significantly increased
-FLIP_TIER_SCALE = 0.08       # Additional per tier deviation - increased
+SHAKE_BASE_OFFSET = 1.80     # Base offset for shake - more intense
+SHAKE_TIER_SCALE = 0.50      # Additional per tier deviation from standard
+FLIP_BASE_OFFSET = 1.10      # Base offset for flip - set to 1.1 baseline
+FLIP_TIER_SCALE = 0.10       # Additional per tier deviation
 FIRE_RATE_BASE_OFFSET = 0.30 # Base offset for fire rate
 
 # =============================================================================
@@ -105,6 +105,12 @@ VALUE_CEILINGS = {
 # =============================================================================
 RECOVERY_FIRE_RATE_FACTOR = 0.30   # How much recovery affects fire rate
 RECOVERY_BASELINE = 1.50           # Recovery value considered "normal"
+
+# =============================================================================
+# FOLLOW-UP ACCURACY PENALTY - Poor recovery = worse accuracy on follow-up shots
+# =============================================================================
+ACCURACY_RECOVERY_FACTOR = 0.80    # How much recovery affects accuracy spread
+ACCURACY_MAX_RECOVERY_FACTOR = 1.20  # How much recovery affects max accuracy penalty
 
 # =============================================================================
 # PARAMETER RANGES BY CALIBER (with 4x perception multiplier applied)
@@ -418,6 +424,18 @@ def calculate_weapon_values(spec: WeaponSpec) -> dict:
         # If recovery is below baseline, add penalty to fire rate
         recovery_penalty = max(0, (RECOVERY_BASELINE - recovery) * RECOVERY_FIRE_RATE_FACTOR)
         values["TimeBetweenShots"] += recovery_penalty
+
+    # Link accuracy to recovery - poor recovery = worse follow-up accuracy
+    if "RecoilRecoveryRate" in values:
+        recovery = values["RecoilRecoveryRate"]
+        # If recovery is below baseline, increase accuracy spread and max penalty
+        if recovery < RECOVERY_BASELINE:
+            accuracy_penalty = (RECOVERY_BASELINE - recovery) * ACCURACY_RECOVERY_FACTOR
+            accuracy_max_penalty = (RECOVERY_BASELINE - recovery) * ACCURACY_MAX_RECOVERY_FACTOR
+            if "AccuracySpread" in values:
+                values["AccuracySpread"] += accuracy_penalty
+            if "RecoilAccuracyMax" in values:
+                values["RecoilAccuracyMax"] += accuracy_max_penalty
 
     # Apply floor/ceiling constraints to all values
     for param in values:

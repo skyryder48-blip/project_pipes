@@ -35,11 +35,11 @@
 					<AimingInfo ref="PISTOL_2H_BASE_STRAFE"/>
 					<ClipSize value="13"/>
 					<!-- AGGRESSIVE DIFFERENTIATION: Quality+ Tier - Premium micro-compact, excellent sights -->
-					<AccuracySpread value="0.950000"/>
+					<AccuracySpread value="1.470000"/>
 					<AccurateModeAccuracyModifier value="0.500000"/>
 					<RunAndGunAccuracyModifier value="2.000000"/>
 					<RunAndGunAccuracyMaxModifier value="1.000000"/>
-					<RecoilAccuracyMax value="1.360000"/>
+					<RecoilAccuracyMax value="2.140000"/>
 					<RecoilErrorTime value="0.420000"/>
 					<RecoilRecoveryRate value="0.850000"/>
 					<RecoilAccuracyToAllowHeadShotAI value="0.650000"/>
@@ -182,9 +182,9 @@
 					<RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
 					<AccuracyOffsetShakeHash/>
 					<MinTimeBetweenRecoilShakes value="80"/>
-					<RecoilShakeAmplitude value="2.370000"/>
+					<RecoilShakeAmplitude value="2.630000"/>
 					<ExplosionShakeAmplitude value="-1.000000"/>
-					<IkRecoilDisplacement value="0.885700"/>
+					<IkRecoilDisplacement value="1.177700"/>
 					<IkRecoilDisplacementScope value="0.005"/>
 					<IkRecoilDisplacementScaleBackward value="1.000000"/>
 					<IkRecoilDisplacementScaleVertical value="0.380000"/>

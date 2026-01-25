@@ -35,11 +35,11 @@
 					<AimingInfo ref="PISTOL_2H_BASE_STRAFE"/>
 					<ClipSize value="10"/>
 					<!-- AGGRESSIVE DIFFERENTIATION: Baseline Tier - Single-stack slimline, snappier -->
-					<AccuracySpread value="0.950000"/>
+					<AccuracySpread value="1.280000"/>
 					<AccurateModeAccuracyModifier value="0.500000"/>
 					<RunAndGunAccuracyModifier value="2.000000"/>
 					<RunAndGunAccuracyMaxModifier value="1.000000"/>
-					<RecoilAccuracyMax value="1.360000"/>
+					<RecoilAccuracyMax value="1.850000"/>
 					<RecoilErrorTime value="0.450000"/>
 					<RecoilRecoveryRate value="1.090000"/>
 					<RecoilAccuracyToAllowHeadShotAI value="0.650000"/>
@@ -182,9 +182,9 @@
 					<RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
 					<AccuracyOffsetShakeHash/>
 					<MinTimeBetweenRecoilShakes value="80"/>
-					<RecoilShakeAmplitude value="2.150000"/>
+					<RecoilShakeAmplitude value="2.410000"/>
 					<ExplosionShakeAmplitude value="-1.000000"/>
-					<IkRecoilDisplacement value="0.860100"/>
+					<IkRecoilDisplacement value="1.152100"/>
 					<IkRecoilDisplacementScope value="0.005"/>
 					<IkRecoilDisplacementScaleBackward value="1.000000"/>
 					<IkRecoilDisplacementScaleVertical value="0.520000"/>

@@ -71,6 +71,14 @@ BASE_VALUES = {
 PERCEPTION_MULTIPLIER = 4.0  # Increased from 2.5x for more noticeable effects
 
 # =============================================================================
+# FLAT OFFSETS - Added to final values to ensure minimum perceptibility
+# =============================================================================
+SHAKE_OFFSET = 0.70          # +0.7 to RecoilShakeAmplitude
+FLIP_OFFSET = 0.07           # +0.07 to IkRecoilDisplacement (scaled for smaller values)
+FIRE_RATE_OFFSET = 0.35      # +0.35 to TimeBetweenShots
+# Note: Recovery not offset (higher = better, offset would help bad weapons)
+
+# =============================================================================
 # PARAMETER RANGES BY CALIBER (with 4x perception multiplier applied)
 # =============================================================================
 PARAMETER_RANGES = {
@@ -346,6 +354,14 @@ def calculate_weapon_values(spec: WeaponSpec) -> dict:
                 values["AccuracySpread"] *= WORN_ACCURACY_MULTIPLIER
             if "RecoilAccuracyMax" in values:
                 values["RecoilAccuracyMax"] *= WORN_ACCURACY_MULTIPLIER
+
+    # Apply flat offsets to ensure minimum perceptibility
+    if "RecoilShakeAmplitude" in values:
+        values["RecoilShakeAmplitude"] += SHAKE_OFFSET
+    if "IkRecoilDisplacement" in values:
+        values["IkRecoilDisplacement"] += FLIP_OFFSET
+    if "TimeBetweenShots" in values:
+        values["TimeBetweenShots"] += FIRE_RATE_OFFSET
 
     # Round values appropriately
     for param in values:

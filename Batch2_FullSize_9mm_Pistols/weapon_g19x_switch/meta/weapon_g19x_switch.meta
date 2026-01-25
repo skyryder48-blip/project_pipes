@@ -13,7 +13,7 @@
   <SlotNavigateOrder><Item><WeaponSlots><Item><OrderNumber value="116" /><Entry>SLOT_G19X_SWITCH</Entry></Item></WeaponSlots></Item></SlotNavigateOrder>
   <SlotBestOrder><WeaponSlots><Item><OrderNumber value="116" /><Entry>SLOT_G19X_SWITCH</Entry></Item></WeaponSlots></SlotBestOrder>
   <TintSpecValues /><FiringPatternAliases>
-    <Item><Name>FIRING_PATTERN_FULL_AUTO</Name><Patterns><Item><Range value="100.000000" /><TimeBetweenShots value="0.055000" /></Item></Patterns></Item>
+    <Item><Name>FIRING_PATTERN_FULL_AUTO</Name><Patterns><Item><Range value="100.000000" /><TimeBetweenShots value="0.400000" /></Item></Patterns></Item>
   </FiringPatternAliases>
   <UpperBodyFixupExpressionData /><AimingInfos />
   <Infos>
@@ -35,13 +35,13 @@
       <ClipSize value="15" />
 
       <!-- SEVERELY DEGRADED accuracy due to full-auto fire -->
-      <AccuracySpread value="2.400000" />
+      <AccuracySpread value="5.650000" />
       <AccurateModeAccuracyModifier value="0.700000" />
       <RunAndGunAccuracyModifier value="2.800000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="2.500000" />
+      <RecoilAccuracyMax value="6.000000" />
       <RecoilErrorTime value="0.150000" />
-      <RecoilRecoveryRate value="0.180000" />
+      <RecoilRecoveryRate value="0.060000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.800000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="25.000000" />
@@ -51,7 +51,7 @@
       <MaxHeadShotDistancePlayer value="7.000000" />
       <HeadShotDamageModifierPlayer value="2.900000" />
 
-      <Damage value="34.000000" />
+      <Damage value="29.920000" />
       <DamageTime value="0.000000" />
       <DamageTimeInVehicle value="0.000000" />
       <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -85,7 +85,7 @@
       <BulletsPerAnimLoop value="1" />
 
       <!-- FULL-AUTO: ~1100 RPM -->
-      <TimeBetweenShots value="0.055000" />
+      <TimeBetweenShots value="0.400000" />
       <TimeLeftBetweenShotsWhereShouldFireIsCached value="-1.000000" />
 
       <DamageFallOffRangeMin value="12.000000" />
@@ -177,9 +177,9 @@
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="40" />
-      <RecoilShakeAmplitude value="0.380000" />
+      <RecoilShakeAmplitude value="4.600000" />
       <ExplosionShakeAmplitude value="-1.000000" />
-      <IkRecoilDisplacement value="0.000000" />
+      <IkRecoilDisplacement value="1.400000" />
       <IkRecoilDisplacementScope value="0.000000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
       <IkRecoilDisplacementScaleVertical value="0.650000" />
@@ -258,7 +258,7 @@
       <AudioCollisionHash />
 
       <!-- HUD: High fire rate, terrible accuracy -->
-      <HudDamage value="35" />
+      <HudDamage value="31" />
       <HudSpeed value="90" />
       <HudCapacity value="35" />
       <HudAccuracy value="25" />

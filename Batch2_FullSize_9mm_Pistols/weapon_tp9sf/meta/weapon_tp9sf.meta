@@ -49,13 +49,13 @@
       <ClipSize value="18" />
 
       <!-- Accuracy: VERY GOOD - competition-grade trigger, excellent sight picture -->
-      <AccuracySpread value="1.100000" />
+      <AccuracySpread value="1.650000" />
       <AccurateModeAccuracyModifier value="0.380000" />
       <RunAndGunAccuracyModifier value="1.700000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="0.850000" />
+      <RecoilAccuracyMax value="2.280000" />
       <RecoilErrorTime value="0.280000" />
-      <RecoilRecoveryRate value="1.050000" />
+      <RecoilRecoveryRate value="1.000000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="45.000000" />
@@ -66,7 +66,7 @@
       <HeadShotDamageModifierPlayer value="2.900000" />
 
       <!-- Damage: 9mm baseline -->
-      <Damage value="34.000000" />
+      <Damage value="29.920000" />
       <DamageTime value="0.000000" />
       <DamageTimeInVehicle value="0.000000" />
       <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -102,7 +102,7 @@
       <BulletsPerAnimLoop value="1" />
 
       <!-- Fire Rate: FASTEST - lightest trigger (3.5-4.5 lb), extremely short reset -->
-      <TimeBetweenShots value="0.140000" />
+      <TimeBetweenShots value="0.681000" />
 
       <!-- Damage Falloff -->
       <DamageFallOffRangeMin value="17.000000" />
@@ -192,9 +192,9 @@
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="70" />
-      <RecoilShakeAmplitude value="0.130000" />
+      <RecoilShakeAmplitude value="2.720000" />
       <ExplosionShakeAmplitude value="-1.000000" />
-      <IkRecoilDisplacement value="0.000000" />
+      <IkRecoilDisplacement value="1.198400" />
       <IkRecoilDisplacementScope value="0.000000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
       <IkRecoilDisplacementScaleVertical value="0.280000" />
@@ -295,7 +295,7 @@
       <AudioCollisionHash />
 
       <!-- HUD Stats: Highest capacity, fastest fire rate -->
-      <HudDamage value="35" />
+      <HudDamage value="31" />
       <HudSpeed value="70" />
       <HudCapacity value="40" />
       <HudAccuracy value="58" />

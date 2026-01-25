@@ -52,13 +52,13 @@
       <!-- Dual recoil spring, snappy .40 S&W recoil -->
 
       <!-- AGGRESSIVE DIFFERENTIATION: Quality Tier - LE Standard Duty -->
-      <AccuracySpread value="1.150000" />
+      <AccuracySpread value="1.520000" />
       <AccurateModeAccuracyModifier value="0.380000" />
       <RunAndGunAccuracyModifier value="2.200000" />
       <RunAndGunAccuracyMaxModifier value="1.000000" />
-      <RecoilAccuracyMax value="1.450000" />
+      <RecoilAccuracyMax value="2.270000" />
       <RecoilErrorTime value="0.420000" />
-      <RecoilRecoveryRate value="0.850000" />
+      <RecoilRecoveryRate value="1.170000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="40.000000" />
@@ -69,7 +69,7 @@
       <HeadShotDamageModifierPlayer value="2.900000" />
 
       <!-- Damage: .40 S&W - 28% more energy than 9mm -->
-      <Damage value="36.000000" />
+      <Damage value="31.680000" />
       <DamageTime value="0.000000" />
       <DamageTimeInVehicle value="0.000000" />
       <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -106,7 +106,7 @@
       <BulletsPerAnimLoop value="1" />
 
       <!-- Fire Rate: Semi-auto ~240 RPM -->
-      <TimeBetweenShots value="0.250000" />
+      <TimeBetweenShots value="0.666000" />
       <TimeLeftBetweenShotsWhereShouldFireIsCached value="0.250000" />
       <SpinUpTime value="0.000000" />
       <SpinTime value="0.000000" />
@@ -218,9 +218,9 @@
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="80" />
-      <RecoilShakeAmplitude value="0.285000" />
+      <RecoilShakeAmplitude value="2.810000" />
       <ExplosionShakeAmplitude value="-1.000000" />
-      <IkRecoilDisplacement value="0.005" />
+      <IkRecoilDisplacement value="1.205300" />
       <IkRecoilDisplacementScope value="0.005" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
       <IkRecoilDisplacementScaleVertical value="0.480000" />
@@ -321,7 +321,7 @@
       <StealthFiringLeanAdditiveWeight value="1.000000" />
       <ExpandPedCapsuleRadius value="0.000000" />
       <AudioCollisionHash />
-      <HudDamage value="38" />
+      <HudDamage value="33" />
       <HudSpeed value="42" />
       <HudCapacity value="30" />
       <HudAccuracy value="55" />

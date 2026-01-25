@@ -112,7 +112,7 @@
           <!-- DAMAGE PARAMETERS -->
           <!-- 4.94" barrel = 50-100 fps higher velocity than FN -->
           <!-- ~260-290 ft-lbs vs 242-268 ft-lbs -->
-          <Damage value="30.000000" />
+          <Damage value="26.400000" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />

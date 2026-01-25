@@ -81,13 +81,13 @@
           <!-- Accuracy: QUALITY TIER - Best .380 accuracy -->
           <!-- SAO trigger = consistent 7-8 lb pull, locked breech = less recoil disturbance -->
           <!-- Trades damage for handling vs PPK -->
-          <AccuracySpread value="1.400000" />
+          <AccuracySpread value="1.320000" />
           <AccurateModeAccuracyModifier value="0.300000" />
           <RunAndGunAccuracyModifier value="2.200000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
-          <RecoilAccuracyMax value="1.300000" />
+          <RecoilAccuracyMax value="2.030000" />
           <RecoilErrorTime value="0.180000" />
-          <RecoilRecoveryRate value="1.350000" />
+          <RecoilRecoveryRate value="0.740000" />
           <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
           <MinHeadShotDistanceAI value="1.200000" />
           <MaxHeadShotDistanceAI value="35.000000" />
@@ -99,7 +99,7 @@
 
           <!-- Damage: .380 ACP from 2.7" = ~180 ft-lbs -->
           <!-- 18 damage = 6 body shots close, 11-12 at range -->
-          <Damage value="18.000000" />
+          <Damage value="15.840000" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -136,7 +136,7 @@
           <BulletsPerAnimLoop value="1" />
 
           <!-- Fire Rate: SAO, ~180 RPM practical -->
-          <TimeBetweenShots value="0.333000" />
+          <TimeBetweenShots value="0.667000" />
 
           <!-- Damage Falloff: .380 ACP effective range -->
           <DamageFallOffRangeMin value="7.000000" />
@@ -187,7 +187,7 @@
           <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
           <AccuracyOffsetShakeHash />
           <MinTimeBetweenRecoilShakes value="80" />
-          <RecoilShakeAmplitude value="0.150000" />
+          <RecoilShakeAmplitude value="2.360000" />
           <ExplosionShakeAmplitude value="-1.000000" />
 
           <!-- EFFECTS -->
@@ -210,7 +210,7 @@
             <GroundDisturbFxNameWater />
           </Fx>
 
-          <IkRecoilDisplacement value="0.000000" />
+          <IkRecoilDisplacement value="1.136000" />
           <IkRecoilDisplacementScope value="0.000000" />
           <IkRecoilDisplacementScaleBackward value="1.000000" />
           <!-- QUALITY: Lower muzzle rise than PPK - locked breech advantage -->
@@ -303,7 +303,7 @@
           <AudioCollisionHash />
 
           <!-- HUD Stats -->
-          <HudDamage value="25" />
+          <HudDamage value="22" />
           <HudSpeed value="45" />
           <HudCapacity value="15" />
           <HudAccuracy value="50" />

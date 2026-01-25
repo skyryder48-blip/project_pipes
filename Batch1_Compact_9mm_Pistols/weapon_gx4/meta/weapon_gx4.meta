@@ -50,7 +50,7 @@
 					<MinHeadShotDistancePlayer value="0.000000"/>
 					<MaxHeadShotDistancePlayer value="7.000000"/>
 					<HeadShotDamageModifierPlayer value="3.000000"/>
-					<Damage value="34.000000"/>
+					<Damage value="29.920000"/>
 					<DamageTime value="0.000000"/>
 					<DamageTimeInVehicle value="0.000000"/>
 					<DamageTimeInVehicleHeadShot value="0.000000"/>
@@ -281,7 +281,7 @@
 					<StealthFiringLeanAdditiveWeight value="1.000000"/>
 					<ExpandPedCapsuleRadius value="0.000000"/>
 					<AudioCollisionHash/>
-					<HudDamage value="35"/>
+					<HudDamage value="31"/>
 					<HudSpeed value="42"/>
 					<HudCapacity value="25"/>
 					<HudAccuracy value="48"/>

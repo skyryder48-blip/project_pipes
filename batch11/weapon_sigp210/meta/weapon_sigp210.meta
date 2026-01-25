@@ -49,13 +49,13 @@
       <ClipSize value="8" />
 
       <!-- Accuracy: BEST IN CLASS - slide rides inside frame, Swiss precision -->
-      <AccuracySpread value="0.550000" />
+      <AccuracySpread value="0.800000" />
       <AccurateModeAccuracyModifier value="0.300000" />
       <RunAndGunAccuracyModifier value="1.800000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="0.700000" />
+      <RecoilAccuracyMax value="1.200000" />
       <RecoilErrorTime value="0.220000" />
-      <RecoilRecoveryRate value="1.250000" />
+      <RecoilRecoveryRate value="1.970000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.700000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="55.000000" />
@@ -66,7 +66,7 @@
       <HeadShotDamageModifierPlayer value="3.200000" />
 
       <!-- Damage: 9mm with 5" barrel velocity bonus -->
-      <Damage value="36.000000" />
+      <Damage value="31.680000" />
       <DamageTime value="0.000000" />
       <DamageTimeInVehicle value="0.000000" />
       <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -103,7 +103,7 @@
       <BulletsPerAnimLoop value="1" />
 
       <!-- Fire Rate: SAO target trigger, slightly slower for precision -->
-      <TimeBetweenShots value="0.175000" />
+      <TimeBetweenShots value="0.420000" />
 
       <!-- Damage Falloff: Extended range from 5" barrel -->
       <DamageFallOffRangeMin value="20.000000" />
@@ -194,9 +194,9 @@
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="80" />
-      <RecoilShakeAmplitude value="0.100000" />
+      <RecoilShakeAmplitude value="1.910000" />
       <ExplosionShakeAmplitude value="-1.000000" />
-      <IkRecoilDisplacement value="0.000000" />
+      <IkRecoilDisplacement value="1.088600" />
       <IkRecoilDisplacementScope value="0.000000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
       <IkRecoilDisplacementScaleVertical value="0.220000" />
@@ -288,7 +288,7 @@
       <AudioCollisionHash />
 
       <!-- HUD Stats -->
-      <HudDamage value="36" />
+      <HudDamage value="32" />
       <HudSpeed value="45" />
       <HudCapacity value="16" />
       <HudAccuracy value="90" />

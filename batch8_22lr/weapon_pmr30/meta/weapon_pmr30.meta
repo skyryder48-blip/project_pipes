@@ -91,7 +91,7 @@
           <!-- Fiber optic sights, 4.3" barrel - good but not best -->
           <!-- Ultra-light weight (14oz) = slight movement penalty -->
           <!-- COMBAT TIER: Good accuracy, volume-of-fire focused -->
-          <AccuracySpread value="1.500000" />
+          <AccuracySpread value="0.830000" />
           <AccurateModeAccuracyModifier value="0.420000" />
           <RunAndGunAccuracyModifier value="1.550000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
@@ -100,9 +100,9 @@
           <!-- .22 WMR characteristics = more recoil than .22 LR -->
           <!-- Ultra-light frame (14 oz) increases felt recoil -->
           <!-- COMBAT: More recoil than other .22s but acceptable for volume fire -->
-          <RecoilAccuracyMax value="1.600000" />
+          <RecoilAccuracyMax value="1.230000" />
           <RecoilErrorTime value="0.320000" />
-          <RecoilRecoveryRate value="0.480000" />
+          <RecoilRecoveryRate value="1.040000" />
           <RecoilAccuracyToAllowHeadShotAI value="0.880000" />
           <MinHeadShotDistanceAI value="1.200000" />
           <MaxHeadShotDistanceAI value="45.000000" />
@@ -118,7 +118,7 @@
           <!-- .22 WMR equivalent: 40gr @ 1,350 fps = ~160 ft-lbs -->
           <!-- 1.6x energy of .22 LR from pistol barrel -->
           <!-- Highest damage in rimfire category -->
-          <Damage value="20.000000" />
+          <Damage value="17.600000" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -163,7 +163,7 @@
           <!-- FIRE RATE -->
           <!-- SAO trigger, very fast practical rate -->
           <!-- ~300 RPM - fastest in rimfire category -->
-          <TimeBetweenShots value="0.120000" />
+          <TimeBetweenShots value="0.539000" />
           <TimeLeftBetweenShotsWhereShouldFireIsCached value="0.100000" />
           <SpinUpTime value="0.000000" />
           <SpinTime value="0.000000" />
@@ -249,7 +249,7 @@
           <RecoilShakeHashFirstPerson>RECOIL_PISTOL</RecoilShakeHashFirstPerson>
           <AccuracyOffsetShakeHash>ACCURACY_OFFSET_PISTOL</AccuracyOffsetShakeHash>
           <MinTimeBetweenRecoilShakes value="55" />
-          <RecoilShakeAmplitude value="0.110000" />
+          <RecoilShakeAmplitude value="1.760000" />
           <ExplosionShakeAmplitude value="0.000000" />
 
           <!-- IK RECOIL - Highest vertical rise in .22 category -->

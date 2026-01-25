@@ -50,13 +50,13 @@
       <ClipSize value="15" />
 
       <!-- Accuracy: EXCELLENT - Match-grade barrel, SAO trigger consistency -->
-      <AccuracySpread value="0.950000" />
+      <AccuracySpread value="0.800000" />
       <AccurateModeAccuracyModifier value="0.420000" />
       <RunAndGunAccuracyModifier value="2.000000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="0.950000" />
+      <RecoilAccuracyMax value="1.200000" />
       <RecoilErrorTime value="0.300000" />
-      <RecoilRecoveryRate value="0.400000" />
+      <RecoilRecoveryRate value="1.810000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="50.000000" />
@@ -67,7 +67,7 @@
       <HeadShotDamageModifierPlayer value="3.000000" />
 
       <!-- Damage: 9mm premium performance -->
-      <Damage value="35.500000" />
+      <Damage value="31.240000" />
       <DamageTime value="0.000000" />
       <DamageTimeInVehicle value="0.000000" />
       <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -104,7 +104,7 @@
       <BulletsPerAnimLoop value="1" />
 
       <!-- Fire Rate: SAO trigger = FASTER, more consistent (~4 lb pull) -->
-      <TimeBetweenShots value="0.145000" />
+      <TimeBetweenShots value="0.420000" />
 
       <!-- Damage Falloff: Excellent range from match barrel -->
       <DamageFallOffRangeMin value="18.000000" />
@@ -195,9 +195,9 @@
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="80" />
-      <RecoilShakeAmplitude value="0.145000" />
+      <RecoilShakeAmplitude value="1.940000" />
       <ExplosionShakeAmplitude value="-1.000000" />
-      <IkRecoilDisplacement value="0.000000" />
+      <IkRecoilDisplacement value="1.092900" />
       <IkRecoilDisplacementScope value="0.000000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
       <IkRecoilDisplacementScaleVertical value="0.300000" />
@@ -301,7 +301,7 @@
       <AudioCollisionHash />
 
       <!-- HUD Stats: Premium performance across the board -->
-      <HudDamage value="36" />
+      <HudDamage value="32" />
       <HudSpeed value="58" />
       <HudCapacity value="30" />
       <HudAccuracy value="68" />

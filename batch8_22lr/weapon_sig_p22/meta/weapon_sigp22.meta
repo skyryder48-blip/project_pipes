@@ -111,7 +111,7 @@
           <!-- DAMAGE PARAMETERS -->
           <!-- .22 LR 40gr @ 967 fps from 3.42" = ~85 ft-lbs -->
           <!-- Lowest damage tier in rimfire category -->
-          <Damage value="12.000000" />
+          <Damage value="10.560000" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />

@@ -100,7 +100,7 @@
           <!-- DAMAGE PARAMETERS -->
           <!-- .44 Magnum 240gr @ 1,350 fps = ~1,000 ft-lbs -->
           <!-- 2 shots close range, 3-4 at distance -->
-          <Damage value="100.000000" />
+          <Damage value="88.000000" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />

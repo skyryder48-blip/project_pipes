@@ -115,7 +115,7 @@
           <!-- 5.7x28mm 40gr @ 1,700 fps = ~250 ft-lbs -->
           <!-- ~60-70% of 9mm energy, but high velocity -->
           <!-- Light bullet fragments/tumbles rather than expanding -->
-          <Damage value="28.000000" />
+          <Damage value="24.640000" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />

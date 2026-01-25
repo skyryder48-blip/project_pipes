@@ -75,13 +75,13 @@
 
           <!-- Accuracy: Good - longest barrel (4.9"), heaviest steel frame = stable platform -->
           <!-- DA/SA: First shot slightly harder, but exceptional follow-up stability -->
-          <AccuracySpread value="1.250000" />
+          <AccuracySpread value="1.500000" />
           <AccurateModeAccuracyModifier value="0.400000" />
           <RunAndGunAccuracyModifier value="1.900000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
-          <RecoilAccuracyMax value="0.800000" />
+          <RecoilAccuracyMax value="2.070000" />
           <RecoilErrorTime value="0.250000" />
-          <RecoilRecoveryRate value="1.150000" />
+          <RecoilRecoveryRate value="1.180000" />
           <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
           <MinHeadShotDistanceAI value="1.200000" />
           <MaxHeadShotDistanceAI value="48.000000" />
@@ -92,7 +92,7 @@
           <HeadShotDamageModifierPlayer value="2.900000" />
 
           <!-- Damage: 9mm baseline -->
-          <Damage value="34.000000" />
+          <Damage value="29.920000" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -128,7 +128,7 @@
           <BulletsPerAnimLoop value="1" />
 
           <!-- Fire Rate: Slower first shot (DA), faster follow-ups (SA) - averaged -->
-          <TimeBetweenShots value="0.190000" />
+          <TimeBetweenShots value="0.628000" />
           <TimeLeftBetweenShotsWhereShouldFireIsCached value="0.300000" />
 
           <BulletBendingNearRadius value="0.000000" />
@@ -172,9 +172,9 @@
           <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
           <AccuracyOffsetShakeHash />
           <MinTimeBetweenRecoilShakes value="80" />
-          <RecoilShakeAmplitude value="0.095000" />
+          <RecoilShakeAmplitude value="2.580000" />
           <ExplosionShakeAmplitude value="-1.000000" />
-          <IkRecoilDisplacement value="0.003000" />
+          <IkRecoilDisplacement value="1.183500" />
           <IkRecoilDisplacementScope value="0.000000" />
           <IkRecoilDisplacementScaleBackward value="1.000000" />
           <IkRecoilDisplacementScaleVertical value="0.200000" />
@@ -275,7 +275,7 @@
           <AudioCollisionHash />
 
           <!-- HUD Stats: Emphasizes stability and range, lower speed due to weight -->
-          <HudDamage value="35" />
+          <HudDamage value="31" />
           <HudSpeed value="42" />
           <HudCapacity value="30" />
           <HudAccuracy value="62" />

@@ -50,13 +50,13 @@
 
       <!-- Accuracy: Good overall -->
       <!-- AGGRESSIVE DIFFERENTIATION: Premium Tier - Rotating barrel reduces recoil -->
-      <AccuracySpread value="1.000000" />
+      <AccuracySpread value="1.680000" />
       <AccurateModeAccuracyModifier value="0.440000" />
       <RunAndGunAccuracyModifier value="1.850000" />
       <RunAndGunAccuracyMinOverride value="-1.000000" />
-      <RecoilAccuracyMax value="0.850000" />
+      <RecoilAccuracyMax value="2.330000" />
       <RecoilErrorTime value="0.270000" />
-      <RecoilRecoveryRate value="1.080000" />
+      <RecoilRecoveryRate value="0.970000" />
       <RecoilAccuracyToAllowHeadShotAI value="0.650000" />
       <MinHeadShotDistanceAI value="1.200000" />
       <MaxHeadShotDistanceAI value="42.000000" />
@@ -67,7 +67,7 @@
       <HeadShotDamageModifierPlayer value="2.900000" />
 
       <!-- Damage: 9mm baseline -->
-      <Damage value="34.000000" />
+      <Damage value="29.920000" />
       <DamageTime value="0.000000" />
       <DamageTimeInVehicle value="0.000000" />
       <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -103,7 +103,7 @@
       <BulletsPerAnimLoop value="1" />
 
       <!-- Fire Rate: Fast follow-ups due to rotating barrel reducing muzzle flip -->
-      <TimeBetweenShots value="0.155000" />
+      <TimeBetweenShots value="0.692000" />
 
       <!-- Damage Falloff: Shorter barrel = slightly reduced range -->
       <DamageFallOffRangeMin value="15.000000" />
@@ -193,9 +193,9 @@
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>
       <AccuracyOffsetShakeHash />
       <MinTimeBetweenRecoilShakes value="70" />
-      <RecoilShakeAmplitude value="0.120000" />
+      <RecoilShakeAmplitude value="2.750000" />
       <ExplosionShakeAmplitude value="-1.000000" />
-      <IkRecoilDisplacement value="0.000000" />
+      <IkRecoilDisplacement value="1.202100" />
       <IkRecoilDisplacementScope value="0.000000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
       <IkRecoilDisplacementScaleVertical value="0.240000" />
@@ -284,7 +284,7 @@
       <AudioCollisionHash />
 
       <!-- HUD Stats: Excellent recoil control, good speed, lower range -->
-      <HudDamage value="35" />
+      <HudDamage value="31" />
       <HudSpeed value="58" />
       <HudCapacity value="35" />
       <HudAccuracy value="56" />

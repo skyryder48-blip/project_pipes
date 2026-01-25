@@ -33,19 +33,19 @@ CALIBER_MULTIPLIERS = {
 }
 
 # =============================================================================
-# QUALITY/CONDITION TIER MULTIPLIERS
+# QUALITY/CONDITION TIER MULTIPLIERS (More aggressive for profound feel)
 # =============================================================================
 QUALITY_TIERS = {
-    "worn": 1.80,      # Junk, neglected, worn weapons
-    "standard": 1.00,  # Most service pistols
-    "quality": 0.70,   # Premium brands, well-maintained
-    "match": 0.55,     # Competition/military grade precision
+    "worn": 2.00,      # Junk, neglected, worn weapons - significantly worse
+    "standard": 1.00,  # Most service pistols - baseline
+    "quality": 0.60,   # Premium brands, well-maintained - noticeably better
+    "match": 0.40,     # Competition/military grade precision - excellent
 }
 
 # =============================================================================
 # WORN/SWITCH ACCURACY PENALTY (Option D - wild spread for degraded weapons)
 # =============================================================================
-WORN_ACCURACY_MULTIPLIER = 1.75  # Worn weapons have 75% worse accuracy spread
+WORN_ACCURACY_MULTIPLIER = 2.00  # Worn weapons have 100% worse accuracy spread
 SWITCH_ACCURACY_ALREADY_SET = True  # Switch ranges already include high spread
 
 # =============================================================================
@@ -66,163 +66,199 @@ BASE_VALUES = {
 }
 
 # =============================================================================
-# GLOBAL MULTIPLIER - Apply 2.5x to make values perceptible
+# GLOBAL MULTIPLIER - Apply 4x to make values perceptible
 # =============================================================================
-PERCEPTION_MULTIPLIER = 2.5  # 2x-3x range, using middle value
+PERCEPTION_MULTIPLIER = 4.0  # Increased from 2.5x for more noticeable effects
 
 # =============================================================================
-# PARAMETER RANGES BY CALIBER (with 2.5x perception multiplier applied)
+# PROPORTIONAL OFFSETS - Scaled by parameter type
+# =============================================================================
+SHAKE_BASE_OFFSET = 0.80     # Base offset for shake
+SHAKE_TIER_SCALE = 0.40      # Additional per tier deviation from standard
+FLIP_BASE_OFFSET = 0.10      # Base offset for flip
+FLIP_TIER_SCALE = 0.05       # Additional per tier deviation
+FIRE_RATE_BASE_OFFSET = 0.30 # Base offset for fire rate
+
+# =============================================================================
+# FLOOR/CEILING VALUES - Ensures values stay in perceptible/reasonable range
+# =============================================================================
+VALUE_FLOORS = {
+    "RecoilShakeAmplitude": 1.00,   # Minimum shake - always noticeable
+    "IkRecoilDisplacement": 0.10,   # Minimum flip - always visible
+    "RecoilRecoveryRate": 0.03,     # Minimum recovery - nearly uncontrollable
+    "TimeBetweenShots": 0.40,       # Minimum time - prevents unrealistic speed
+    "AccuracySpread": 0.50,         # Minimum spread
+    "RecoilAccuracyMax": 1.00,      # Minimum accuracy penalty
+}
+
+VALUE_CEILINGS = {
+    "RecoilShakeAmplitude": 6.50,   # Maximum shake - screen shaking chaos
+    "IkRecoilDisplacement": 0.70,   # Maximum flip - gun pointing at sky
+    "RecoilRecoveryRate": 2.50,     # Maximum recovery - instant stabilization
+    "TimeBetweenShots": 2.00,       # Maximum time - very slow deliberate fire
+    "AccuracySpread": 6.00,         # Maximum spread - can't hit anything
+    "RecoilAccuracyMax": 6.00,      # Maximum accuracy penalty
+}
+
+# =============================================================================
+# FIRE RATE RECOVERY LINK - Poor recovery = slower effective fire rate
+# =============================================================================
+RECOVERY_FIRE_RATE_FACTOR = 0.30   # How much recovery affects fire rate
+RECOVERY_BASELINE = 1.50           # Recovery value considered "normal"
+
+# =============================================================================
+# PARAMETER RANGES BY CALIBER (with 4x perception multiplier applied)
 # =============================================================================
 PARAMETER_RANGES = {
     ".22_lr": {
-        # Shake: 0.02-0.06 * 2.5 = 0.05-0.15
-        "RecoilShakeAmplitude": (0.05, 0.15),
-        # Flip: 0.003-0.008 * 2.5 = 0.0075-0.02
-        "IkRecoilDisplacement": (0.008, 0.020),
-        # Recovery: inverted scale, 1.40-0.90 stretched to 1.60-0.60
-        "RecoilRecoveryRate": (1.60, 0.60),
-        # Fire rate: widened range 0.08-0.22 (was 0.10-0.18)
-        "TimeBetweenShots": (0.08, 0.22),
-        "AccuracySpread": (0.40, 0.80),
-        "RecoilAccuracyMax": (0.60, 1.00),
+        # Shake: base 0.02-0.06 * 4 = 0.08-0.24
+        "RecoilShakeAmplitude": (0.08, 0.24),
+        # Flip: base 0.003-0.008 * 4 = 0.012-0.032
+        "IkRecoilDisplacement": (0.012, 0.032),
+        # Recovery: stretched range
+        "RecoilRecoveryRate": (1.80, 0.50),
+        # Fire rate: widened
+        "TimeBetweenShots": (0.08, 0.24),
+        "AccuracySpread": (0.40, 0.90),
+        "RecoilAccuracyMax": (0.60, 1.20),
     },
     "9mm": {
-        # Shake: 0.12-0.35 * 2.5 = 0.30-0.875
-        "RecoilShakeAmplitude": (0.30, 0.90),
-        # Flip: 0.015-0.035 * 2.5 = 0.0375-0.0875
-        "IkRecoilDisplacement": (0.040, 0.090),
-        # Recovery: stretched range 1.40-0.25 (was 1.20-0.45)
-        "RecoilRecoveryRate": (1.40, 0.25),
-        # Fire rate: widened range 0.12-0.38 (was 0.15-0.28)
-        "TimeBetweenShots": (0.12, 0.38),
-        "AccuracySpread": (0.80, 1.80),
-        "RecoilAccuracyMax": (1.20, 2.20),
+        # Shake: base 0.12-0.35 * 4 = 0.48-1.40
+        "RecoilShakeAmplitude": (0.50, 1.45),
+        # Flip: base 0.015-0.035 * 4 = 0.06-0.14
+        "IkRecoilDisplacement": (0.060, 0.145),
+        # Recovery: stretched range
+        "RecoilRecoveryRate": (1.60, 0.20),
+        # Fire rate: widened
+        "TimeBetweenShots": (0.12, 0.42),
+        "AccuracySpread": (0.80, 2.00),
+        "RecoilAccuracyMax": (1.20, 2.50),
     },
     ".45_acp": {
-        # Shake: 0.20-0.55 * 2.5 = 0.50-1.375
-        "RecoilShakeAmplitude": (0.50, 1.40),
-        # Flip: 0.025-0.055 * 2.5 = 0.0625-0.1375
-        "IkRecoilDisplacement": (0.065, 0.140),
-        # Recovery: stretched range 1.30-0.18 (was 1.10-0.35)
-        "RecoilRecoveryRate": (1.30, 0.18),
-        # Fire rate: widened range 0.15-0.55 (was 0.18-0.40)
-        "TimeBetweenShots": (0.15, 0.55),
-        "AccuracySpread": (0.65, 2.00),
-        "RecoilAccuracyMax": (1.50, 2.80),
+        # Shake: base 0.20-0.55 * 4 = 0.80-2.20
+        "RecoilShakeAmplitude": (0.80, 2.25),
+        # Flip: base 0.025-0.055 * 4 = 0.10-0.22
+        "IkRecoilDisplacement": (0.100, 0.225),
+        # Recovery: stretched range
+        "RecoilRecoveryRate": (1.50, 0.15),
+        # Fire rate: widened
+        "TimeBetweenShots": (0.14, 0.60),
+        "AccuracySpread": (0.65, 2.20),
+        "RecoilAccuracyMax": (1.50, 3.00),
     },
     ".40_sw": {
-        # Shake: 0.18-0.45 * 2.5 = 0.45-1.125
-        "RecoilShakeAmplitude": (0.45, 1.15),
-        # Flip: 0.020-0.045 * 2.5 = 0.05-0.1125
-        "IkRecoilDisplacement": (0.050, 0.115),
+        # Shake: base 0.18-0.45 * 4 = 0.72-1.80
+        "RecoilShakeAmplitude": (0.72, 1.85),
+        # Flip: base 0.020-0.045 * 4 = 0.08-0.18
+        "IkRecoilDisplacement": (0.080, 0.185),
         # Recovery: stretched
-        "RecoilRecoveryRate": (1.35, 0.22),
+        "RecoilRecoveryRate": (1.55, 0.18),
         # Fire rate: widened
-        "TimeBetweenShots": (0.13, 0.45),
-        "AccuracySpread": (0.75, 1.90),
-        "RecoilAccuracyMax": (1.35, 2.50),
+        "TimeBetweenShots": (0.13, 0.50),
+        "AccuracySpread": (0.75, 2.10),
+        "RecoilAccuracyMax": (1.35, 2.75),
     },
     "10mm": {
-        # Shake: 0.22-0.50 * 2.5 = 0.55-1.25
-        "RecoilShakeAmplitude": (0.55, 1.25),
-        # Flip: 0.022-0.050 * 2.5 = 0.055-0.125
-        "IkRecoilDisplacement": (0.055, 0.125),
+        # Shake: base 0.22-0.50 * 4 = 0.88-2.00
+        "RecoilShakeAmplitude": (0.88, 2.00),
+        # Flip: base 0.022-0.050 * 4 = 0.088-0.20
+        "IkRecoilDisplacement": (0.088, 0.200),
         # Recovery: stretched
-        "RecoilRecoveryRate": (1.25, 0.20),
+        "RecoilRecoveryRate": (1.45, 0.16),
         # Fire rate: widened
-        "TimeBetweenShots": (0.14, 0.48),
-        "AccuracySpread": (0.70, 1.95),
-        "RecoilAccuracyMax": (1.40, 2.60),
+        "TimeBetweenShots": (0.14, 0.52),
+        "AccuracySpread": (0.70, 2.15),
+        "RecoilAccuracyMax": (1.40, 2.85),
     },
     ".357_mag": {
-        # Shake: 0.50-0.95 * 2.5 = 1.25-2.375
-        "RecoilShakeAmplitude": (1.25, 2.40),
-        # Flip: 0.045-0.090 * 2.5 = 0.1125-0.225
-        "IkRecoilDisplacement": (0.115, 0.225),
+        # Shake: base 0.50-0.95 * 4 = 2.00-3.80
+        "RecoilShakeAmplitude": (2.00, 3.85),
+        # Flip: base 0.045-0.090 * 4 = 0.18-0.36
+        "IkRecoilDisplacement": (0.180, 0.360),
         # Recovery: stretched (revolvers are slow)
-        "RecoilRecoveryRate": (0.45, 0.10),
+        "RecoilRecoveryRate": (0.40, 0.08),
         # Fire rate: widened for DA/SA difference
-        "TimeBetweenShots": (0.35, 1.10),
-        "AccuracySpread": (0.55, 1.60),
-        "RecoilAccuracyMax": (2.00, 3.20),
+        "TimeBetweenShots": (0.35, 1.20),
+        "AccuracySpread": (0.55, 1.80),
+        "RecoilAccuracyMax": (2.00, 3.50),
     },
     ".44_mag": {
-        # Shake: 0.65-1.20 * 2.5 = 1.625-3.0
-        "RecoilShakeAmplitude": (1.65, 3.00),
-        # Flip: 0.060-0.110 * 2.5 = 0.15-0.275
-        "IkRecoilDisplacement": (0.150, 0.280),
+        # Shake: base 0.65-1.20 * 4 = 2.60-4.80
+        "RecoilShakeAmplitude": (2.65, 4.80),
+        # Flip: base 0.060-0.110 * 4 = 0.24-0.44
+        "IkRecoilDisplacement": (0.240, 0.450),
         # Recovery: very slow
-        "RecoilRecoveryRate": (0.35, 0.08),
+        "RecoilRecoveryRate": (0.30, 0.06),
         # Fire rate: slow
-        "TimeBetweenShots": (0.50, 1.40),
-        "AccuracySpread": (0.60, 1.80),
-        "RecoilAccuracyMax": (2.40, 3.60),
+        "TimeBetweenShots": (0.50, 1.50),
+        "AccuracySpread": (0.60, 2.00),
+        "RecoilAccuracyMax": (2.40, 3.80),
     },
     ".500_sw": {
-        # Shake: 0.85-1.50 * 2.5 = 2.125-3.75
-        "RecoilShakeAmplitude": (2.15, 3.75),
-        # Flip: 0.080-0.150 * 2.5 = 0.20-0.375
-        "IkRecoilDisplacement": (0.200, 0.380),
+        # Shake: base 0.85-1.50 * 4 = 3.40-6.00
+        "RecoilShakeAmplitude": (3.40, 6.00),
+        # Flip: base 0.080-0.150 * 4 = 0.32-0.60
+        "IkRecoilDisplacement": (0.320, 0.600),
         # Recovery: extremely slow
-        "RecoilRecoveryRate": (0.25, 0.05),
+        "RecoilRecoveryRate": (0.20, 0.04),
         # Fire rate: very slow
-        "TimeBetweenShots": (0.70, 1.80),
-        "AccuracySpread": (0.70, 2.20),
-        "RecoilAccuracyMax": (2.80, 4.20),
+        "TimeBetweenShots": (0.70, 1.90),
+        "AccuracySpread": (0.70, 2.40),
+        "RecoilAccuracyMax": (2.80, 4.50),
     },
     "5.7x28": {
-        # Shake: 0.06-0.15 * 2.5 = 0.15-0.375
-        "RecoilShakeAmplitude": (0.15, 0.40),
-        # Flip: 0.006-0.015 * 2.5 = 0.015-0.0375
-        "IkRecoilDisplacement": (0.015, 0.040),
+        # Shake: base 0.06-0.15 * 4 = 0.24-0.60
+        "RecoilShakeAmplitude": (0.24, 0.65),
+        # Flip: base 0.006-0.015 * 4 = 0.024-0.06
+        "IkRecoilDisplacement": (0.024, 0.065),
         # Recovery: fast
-        "RecoilRecoveryRate": (1.50, 0.50),
+        "RecoilRecoveryRate": (1.70, 0.45),
         # Fire rate: fast
-        "TimeBetweenShots": (0.10, 0.28),
-        "AccuracySpread": (0.35, 0.90),
-        "RecoilAccuracyMax": (0.80, 1.40),
+        "TimeBetweenShots": (0.10, 0.30),
+        "AccuracySpread": (0.35, 1.00),
+        "RecoilAccuracyMax": (0.80, 1.60),
     },
     ".380_acp": {
-        # Shake: 0.08-0.20 * 2.5 = 0.20-0.50
-        "RecoilShakeAmplitude": (0.20, 0.50),
-        # Flip: 0.008-0.020 * 2.5 = 0.02-0.05
-        "IkRecoilDisplacement": (0.020, 0.050),
+        # Shake: base 0.08-0.20 * 4 = 0.32-0.80
+        "RecoilShakeAmplitude": (0.32, 0.80),
+        # Flip: base 0.008-0.020 * 4 = 0.032-0.08
+        "IkRecoilDisplacement": (0.032, 0.080),
         # Recovery: moderate
-        "RecoilRecoveryRate": (1.45, 0.40),
+        "RecoilRecoveryRate": (1.65, 0.35),
         # Fire rate: moderate
-        "TimeBetweenShots": (0.11, 0.32),
-        "AccuracySpread": (0.60, 1.40),
-        "RecoilAccuracyMax": (1.00, 1.80),
+        "TimeBetweenShots": (0.11, 0.35),
+        "AccuracySpread": (0.60, 1.55),
+        "RecoilAccuracyMax": (1.00, 2.00),
     },
 }
 
 # =============================================================================
-# SWITCH PARAMETER OVERRIDES (full-auto specific) - with 2.5x perception multiplier
+# SWITCH PARAMETER OVERRIDES (full-auto specific) - with 4x perception multiplier
 # =============================================================================
 SWITCH_RANGES = {
     "9mm": {
-        # Shake: 0.75 * 2.5 = 1.875
-        "RecoilShakeAmplitude": 1.90,
-        # Flip: 0.085 * 2.5 = 0.2125
-        "IkRecoilDisplacement": 0.215,
+        # Shake: 0.75 * 4 = 3.0
+        "RecoilShakeAmplitude": 3.00,
+        # Flip: 0.085 * 4 = 0.34
+        "IkRecoilDisplacement": 0.340,
         # Recovery: near zero control
-        "RecoilRecoveryRate": 0.08,
+        "RecoilRecoveryRate": 0.06,
         # Fire rate: full-auto ~1200 RPM
         "TimeBetweenShots": 0.052,
-        "AccuracySpread": 3.50,
-        "RecoilAccuracyMax": 3.50,
-    },
-    ".45_acp": {
-        # Shake: 1.20 * 2.5 = 3.0
-        "RecoilShakeAmplitude": 3.00,
-        # Flip: 0.130 * 2.5 = 0.325
-        "IkRecoilDisplacement": 0.325,
-        # Recovery: basically uncontrollable
-        "RecoilRecoveryRate": 0.05,
-        # Fire rate: full-auto ~900 RPM
-        "TimeBetweenShots": 0.065,
         "AccuracySpread": 4.50,
         "RecoilAccuracyMax": 4.50,
+    },
+    ".45_acp": {
+        # Shake: 1.20 * 4 = 4.8
+        "RecoilShakeAmplitude": 4.80,
+        # Flip: 0.130 * 4 = 0.52
+        "IkRecoilDisplacement": 0.520,
+        # Recovery: basically uncontrollable
+        "RecoilRecoveryRate": 0.04,
+        # Fire rate: full-auto ~900 RPM
+        "TimeBetweenShots": 0.065,
+        "AccuracySpread": 5.50,
+        "RecoilAccuracyMax": 5.50,
     },
 }
 
@@ -298,14 +334,28 @@ def calculate_weight_factor(weight_oz: float) -> float:
 def interpolate_value(min_val: float, max_val: float, quality_factor: float) -> float:
     """
     Interpolate between min and max based on quality factor.
-    Lower quality factor (match=0.55) = closer to min (better)
-    Higher quality factor (worn=1.80) = closer to max (worse)
+    Lower quality factor (match=0.40) = closer to min (better)
+    Higher quality factor (worn=2.00) = closer to max (worse)
     """
     # Normalize quality factor to 0-1 range
-    # worn=1.80 -> 1.0, match=0.55 -> 0.0
-    normalized = (quality_factor - 0.55) / (1.80 - 0.55)
+    # worn=2.00 -> 1.0, match=0.40 -> 0.0
+    normalized = (quality_factor - 0.40) / (2.00 - 0.40)
     normalized = max(0.0, min(1.0, normalized))
     return min_val + (max_val - min_val) * normalized
+
+
+def clamp_value(value: float, param: str) -> float:
+    """Clamp a value between its floor and ceiling"""
+    floor = VALUE_FLOORS.get(param, 0.0)
+    ceiling = VALUE_CEILINGS.get(param, float('inf'))
+    return max(floor, min(ceiling, value))
+
+
+def calculate_tier_offset(quality_tier: str) -> float:
+    """Calculate how far from standard this tier is (for proportional offsets)"""
+    # standard = 0, quality/match = negative, worn = positive
+    tier_values = {"worn": 1.0, "standard": 0.0, "quality": -0.4, "match": -0.6}
+    return tier_values.get(quality_tier, 0.0)
 
 
 def calculate_weapon_values(spec: WeaponSpec) -> dict:
@@ -318,6 +368,7 @@ def calculate_weapon_values(spec: WeaponSpec) -> dict:
     ranges = PARAMETER_RANGES[caliber]
     quality_factor = QUALITY_TIERS.get(spec.quality_tier, 1.0)
     weight_factor = calculate_weight_factor(spec.weight_oz)
+    tier_offset = calculate_tier_offset(spec.quality_tier)
 
     values = {}
 
@@ -346,6 +397,30 @@ def calculate_weapon_values(spec: WeaponSpec) -> dict:
                 values["AccuracySpread"] *= WORN_ACCURACY_MULTIPLIER
             if "RecoilAccuracyMax" in values:
                 values["RecoilAccuracyMax"] *= WORN_ACCURACY_MULTIPLIER
+
+    # Apply proportional offsets based on tier
+    if "RecoilShakeAmplitude" in values:
+        proportional_offset = SHAKE_BASE_OFFSET + (tier_offset * SHAKE_TIER_SCALE)
+        values["RecoilShakeAmplitude"] += proportional_offset
+
+    if "IkRecoilDisplacement" in values:
+        proportional_offset = FLIP_BASE_OFFSET + (tier_offset * FLIP_TIER_SCALE)
+        values["IkRecoilDisplacement"] += proportional_offset
+
+    # Apply base fire rate offset
+    if "TimeBetweenShots" in values:
+        values["TimeBetweenShots"] += FIRE_RATE_BASE_OFFSET
+
+    # Link fire rate to recovery - poor recovery = slower effective follow-up
+    if "RecoilRecoveryRate" in values and "TimeBetweenShots" in values:
+        recovery = values["RecoilRecoveryRate"]
+        # If recovery is below baseline, add penalty to fire rate
+        recovery_penalty = max(0, (RECOVERY_BASELINE - recovery) * RECOVERY_FIRE_RATE_FACTOR)
+        values["TimeBetweenShots"] += recovery_penalty
+
+    # Apply floor/ceiling constraints to all values
+    for param in values:
+        values[param] = clamp_value(values[param], param)
 
     # Round values appropriately
     for param in values:

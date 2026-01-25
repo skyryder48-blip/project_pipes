@@ -184,10 +184,10 @@
           
           <!-- Recoil: 72/100 - slightly better than 870 due to lighter weight -->
           <BulletDirectionOffsetInDegrees value="0.000000" />
-          <RecoilShakeAmplitude value="0.720000" />
-          <RecoilShakeFrequency value="0.000000" />
-          <RecoilShakeRollMagnitude value="0.330000" />
-          <RecoilShakeDuration value="0.520000" />
+          <RecoilShakeAmplitude value="3.00" />
+          <RecoilShakeFrequency value="0.00" />
+          <RecoilShakeRollMagnitude value="0.500" />
+          <RecoilShakeDuration value="0.580" />
           
           <AiSoundRange value="150.000000" />
           <AimingMod1 value="0.680000" />

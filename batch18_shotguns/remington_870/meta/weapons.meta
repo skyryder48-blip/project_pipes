@@ -183,10 +183,10 @@
           
           <!-- Recoil: 75/100 - full pump recoil impulse -->
           <BulletDirectionOffsetInDegrees value="0.000000" />
-          <RecoilShakeAmplitude value="0.750000" />
-          <RecoilShakeFrequency value="0.000000" />
-          <RecoilShakeRollMagnitude value="0.350000" />
-          <RecoilShakeDuration value="0.550000" />
+          <RecoilShakeAmplitude value="3.20" />
+          <RecoilShakeFrequency value="0.00" />
+          <RecoilShakeRollMagnitude value="0.550" />
+          <RecoilShakeDuration value="0.600" />
           
           <AiSoundRange value="150.000000" />
           <AimingMod1 value="0.650000" />

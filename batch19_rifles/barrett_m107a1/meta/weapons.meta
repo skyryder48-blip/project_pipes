@@ -169,10 +169,10 @@
           
           <!-- Recoil: Improved hydraulic buffer system -->
           <BulletDirectionOffsetInDegrees value="0.000000" />
-          <RecoilShakeAmplitude value="0.700000" />
-          <RecoilShakeFrequency value="0.000000" />
-          <RecoilShakeRollMagnitude value="0.420000" />
-          <RecoilShakeDuration value="0.550000" />
+          <RecoilShakeAmplitude value="4.50" />
+          <RecoilShakeFrequency value="0.00" />
+          <RecoilShakeRollMagnitude value="0.620" />
+          <RecoilShakeDuration value="0.800" />
           
           <AiSoundRange value="550.000000" />
           <AimingMod1 value="0.400000" />

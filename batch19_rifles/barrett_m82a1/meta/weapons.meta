@@ -171,10 +171,10 @@
           
           <!-- Recoil: Heavy but muzzle brake mitigated -->
           <BulletDirectionOffsetInDegrees value="0.000000" />
-          <RecoilShakeAmplitude value="0.750000" />
-          <RecoilShakeFrequency value="0.000000" />
-          <RecoilShakeRollMagnitude value="0.450000" />
-          <RecoilShakeDuration value="0.600000" />
+          <RecoilShakeAmplitude value="4.80" />
+          <RecoilShakeFrequency value="0.00" />
+          <RecoilShakeRollMagnitude value="0.650" />
+          <RecoilShakeDuration value="0.850" />
           
           <AiSoundRange value="550.000000" />
           <AimingMod1 value="0.380000" />

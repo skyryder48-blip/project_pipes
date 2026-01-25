@@ -187,10 +187,10 @@
           
           <!-- Recoil: 78/100 - full impulse, no ergonomic improvements -->
           <BulletDirectionOffsetInDegrees value="0.000000" />
-          <RecoilShakeAmplitude value="0.780000" />
-          <RecoilShakeFrequency value="0.000000" />
-          <RecoilShakeRollMagnitude value="0.380000" />
-          <RecoilShakeDuration value="0.580000" />
+          <RecoilShakeAmplitude value="2.80" />
+          <RecoilShakeFrequency value="0.00" />
+          <RecoilShakeRollMagnitude value="0.480" />
+          <RecoilShakeDuration value="0.550" />
           
           <AiSoundRange value="150.000000" />
           <AimingMod1 value="0.620000" />

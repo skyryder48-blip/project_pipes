@@ -187,10 +187,10 @@
           
           <!-- Recoil: 60/100 - long-recoil system absorbs impulse -->
           <BulletDirectionOffsetInDegrees value="0.000000" />
-          <RecoilShakeAmplitude value="0.600000" />
-          <RecoilShakeFrequency value="0.000000" />
-          <RecoilShakeRollMagnitude value="0.280000" />
-          <RecoilShakeDuration value="0.480000" />
+          <RecoilShakeAmplitude value="2.50" />
+          <RecoilShakeFrequency value="0.00" />
+          <RecoilShakeRollMagnitude value="0.450" />
+          <RecoilShakeDuration value="0.500" />
           
           <AiSoundRange value="150.000000" />
           <AimingMod1 value="0.700000" />

@@ -190,10 +190,10 @@
           
           <!-- Recoil: 98/100 - no stock, brutal impulse to wrist/arm -->
           <BulletDirectionOffsetInDegrees value="3.500000" />
-          <RecoilShakeAmplitude value="0.980000" />
-          <RecoilShakeFrequency value="0.000000" />
-          <RecoilShakeRollMagnitude value="0.550000" />
-          <RecoilShakeDuration value="0.750000" />
+          <RecoilShakeAmplitude value="4.20" />
+          <RecoilShakeFrequency value="0.00" />
+          <RecoilShakeRollMagnitude value="0.700" />
+          <RecoilShakeDuration value="0.650" />
           
           <AiSoundRange value="140.000000" />
           <AimingMod1 value="0.500000" />

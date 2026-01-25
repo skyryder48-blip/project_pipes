@@ -184,10 +184,10 @@
 
           <!-- Recoil: 55/100 - gas system absorbs impulse -->
           <BulletDirectionOffsetInDegrees value="0.000000" />
-          <RecoilShakeAmplitude value="0.550000" />
-          <RecoilShakeFrequency value="0.000000" />
-          <RecoilShakeRollMagnitude value="0.260000" />
-          <RecoilShakeDuration value="0.420000" />
+          <RecoilShakeAmplitude value="2.20" />
+          <RecoilShakeFrequency value="0.00" />
+          <RecoilShakeRollMagnitude value="0.400" />
+          <RecoilShakeDuration value="0.450" />
 
           <AiSoundRange value="150.000000" />
           <AimingMod1 value="0.720000" />

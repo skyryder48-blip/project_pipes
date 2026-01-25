@@ -178,10 +178,10 @@ PARAMETER_RANGES = {
         "RecoilAccuracyMax": (1.40, 2.85),
     },
     ".357_mag": {
-        # Shake: base 0.50-0.95 * 4 = 2.00-3.80
-        "RecoilShakeAmplitude": (2.00, 3.85),
-        # Flip: base 0.045-0.090 * 4 = 0.18-0.36
-        "IkRecoilDisplacement": (0.180, 0.360),
+        # Shake: increased for magnum punch
+        "RecoilShakeAmplitude": (2.50, 4.50),
+        # Flip: increased for revolver kick
+        "IkRecoilDisplacement": (0.280, 0.480),
         # Recovery: stretched (revolvers are slow)
         "RecoilRecoveryRate": (0.40, 0.08),
         # Fire rate: widened for DA/SA difference
@@ -190,10 +190,10 @@ PARAMETER_RANGES = {
         "RecoilAccuracyMax": (2.00, 3.50),
     },
     ".44_mag": {
-        # Shake: base 0.65-1.20 * 4 = 2.60-4.80
-        "RecoilShakeAmplitude": (2.65, 4.80),
-        # Flip: base 0.060-0.110 * 4 = 0.24-0.44
-        "IkRecoilDisplacement": (0.240, 0.450),
+        # Shake: heavy magnum recoil
+        "RecoilShakeAmplitude": (3.40, 5.80),
+        # Flip: substantial muzzle rise
+        "IkRecoilDisplacement": (0.400, 0.650),
         # Recovery: very slow
         "RecoilRecoveryRate": (0.30, 0.06),
         # Fire rate: slow
@@ -202,10 +202,11 @@ PARAMETER_RANGES = {
         "RecoilAccuracyMax": (2.40, 3.80),
     },
     ".500_sw": {
-        # Shake: base 0.85-1.50 * 4 = 3.40-6.00
-        "RecoilShakeAmplitude": (3.40, 6.00),
-        # Flip: base 0.080-0.150 * 4 = 0.32-0.60
-        "IkRecoilDisplacement": (0.320, 0.600),
+        # Shake: brutal hand cannon - even quality guns are punishing
+        # Range compressed high so quality tier still dominates other calibers
+        "RecoilShakeAmplitude": (6.00, 6.50),
+        # Flip: extreme muzzle rise - quality tier still dramatic
+        "IkRecoilDisplacement": (1.10, 1.50),
         # Recovery: extremely slow
         "RecoilRecoveryRate": (0.20, 0.04),
         # Fire rate: very slow

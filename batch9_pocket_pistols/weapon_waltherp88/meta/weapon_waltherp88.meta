@@ -211,7 +211,7 @@
             <GroundDisturbFxNameWater />
           </Fx>
 
-          <IkRecoilDisplacement value="1.128300" />
+          <IkRecoilDisplacement value="1.692500" />
           <IkRecoilDisplacementScope value="0.000000" />
           <IkRecoilDisplacementScaleBackward value="1.000000" />
           <!-- PREMIUM: Low muzzle rise - heaviest frame in batch -->

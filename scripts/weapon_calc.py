@@ -78,6 +78,7 @@ SHAKE_BASE_OFFSET = 1.80     # Base offset for shake - more intense
 SHAKE_TIER_SCALE = 0.50      # Additional per tier deviation from standard
 FLIP_BASE_OFFSET = 1.10      # Base offset for flip - set to 1.1 baseline
 FLIP_TIER_SCALE = 0.10       # Additional per tier deviation
+FLIP_GLOBAL_MULTIPLIER = 1.50  # Global multiplier for flip - more dramatic muzzle rise
 FIRE_RATE_BASE_OFFSET = 0.30 # Base offset for fire rate
 
 # =============================================================================
@@ -94,7 +95,7 @@ VALUE_FLOORS = {
 
 VALUE_CEILINGS = {
     "RecoilShakeAmplitude": 6.50,   # Maximum shake - screen shaking chaos
-    "IkRecoilDisplacement": 1.50,   # Maximum flip - gun pointing at sky (raised for offset)
+    "IkRecoilDisplacement": 10.00,  # No practical ceiling - allow extreme flip for magnums
     "RecoilRecoveryRate": 2.50,     # Maximum recovery - instant stabilization
     "TimeBetweenShots": 2.00,       # Maximum time - very slow deliberate fire
     "AccuracySpread": 6.00,         # Maximum spread - can't hit anything
@@ -352,7 +353,7 @@ BATCH5_WEAPONS = [
 # =============================================================================
 BATCH6_WEAPONS = [
     WeaponSpec("ragingbull", "44_mag", "standard", False, 53.0, "Taurus Raging Bull .44"),
-    WeaponSpec("sw500", "500_sw", "quality", False, 72.0, "S&W 500"),
+    WeaponSpec("sw500", "500_sw", "standard", False, 72.0, "S&W 500"),
     WeaponSpec("sw_657", "44_mag", "quality", False, 48.0, "S&W 657 .41 Mag"),
     WeaponSpec("sw_model29", "44_mag", "match", False, 47.0, "S&W Model 29"),
 ]
@@ -518,6 +519,8 @@ def calculate_weapon_values(spec: WeaponSpec) -> dict:
     if "IkRecoilDisplacement" in values:
         proportional_offset = FLIP_BASE_OFFSET + (tier_offset * FLIP_TIER_SCALE)
         values["IkRecoilDisplacement"] += proportional_offset
+        # Apply global flip multiplier for more dramatic muzzle rise
+        values["IkRecoilDisplacement"] *= FLIP_GLOBAL_MULTIPLIER
 
     # Apply base fire rate offset
     if "TimeBetweenShots" in values:

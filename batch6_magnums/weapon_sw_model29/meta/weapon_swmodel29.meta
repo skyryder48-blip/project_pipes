@@ -222,7 +222,7 @@
           <RecoilShakeHashFirstPerson>RECOIL_PISTOL</RecoilShakeHashFirstPerson>
           <AccuracyOffsetShakeHash>ACCURACY_OFFSET_PISTOL</AccuracyOffsetShakeHash>
           <MinTimeBetweenRecoilShakes value="150" />
-          <RecoilShakeAmplitude value="3.190000" />
+          <RecoilShakeAmplitude value="3.670000" />
           <ExplosionShakeAmplitude value="0.000000" />
 
           <!-- IK RECOIL - .44 Magnum = 1.4x .357 baseline muzzle rise -->

@@ -210,7 +210,7 @@
             <GroundDisturbFxNameWater />
           </Fx>
 
-          <IkRecoilDisplacement value="1.136000" />
+          <IkRecoilDisplacement value="1.704000" />
           <IkRecoilDisplacementScope value="0.000000" />
           <IkRecoilDisplacementScaleBackward value="1.000000" />
           <!-- QUALITY: Lower muzzle rise than PPK - locked breech advantage -->

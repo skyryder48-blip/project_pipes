@@ -220,7 +220,7 @@
       <MinTimeBetweenRecoilShakes value="80" />
       <RecoilShakeAmplitude value="2.810000" />
       <ExplosionShakeAmplitude value="-1.000000" />
-      <IkRecoilDisplacement value="1.205300" />
+      <IkRecoilDisplacement value="1.808000" />
       <IkRecoilDisplacementScope value="0.005" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
       <IkRecoilDisplacementScaleVertical value="0.480000" />

@@ -1,2 +1,1 @@
---[[
-AddTextEntry("WT_FN57", "FN Five-seveN")
+AddTextEntry("WEAPON_FN57", "FN Five-seveN")

@@ -246,7 +246,7 @@
           <FirstPersonReticuleStyleHash />
           <PickupHash>PICKUP_WEAPON_SIGP238</PickupHash>
           <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
-          <HumanNameHash>WT_SIGP238</HumanNameHash>
+          <HumanNameHash>WEAPON_SIGP238</HumanNameHash>
           <MovementModeConditionalIdle>MMI_1Handed</MovementModeConditionalIdle>
           <StatName>SIGP238</StatName>
           <KnockdownCount value="4" />

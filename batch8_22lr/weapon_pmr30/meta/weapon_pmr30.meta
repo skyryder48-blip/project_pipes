@@ -276,7 +276,7 @@
           <!-- IDENTIFICATION HASHES -->
           <PickupHash>PICKUP_WEAPON_PMR30</PickupHash>
           <MPPickupHash>PICKUP_WEAPON_PMR30</MPPickupHash>
-          <HumanNameHash>WT_PMR30</HumanNameHash>
+          <HumanNameHash>WEAPON_PMR30</HumanNameHash>
           <MovementModeConditionalIdle />
           <WeaponTypeSet>Small</WeaponTypeSet>
           <WeaponWheelSlot>Pistol</WeaponWheelSlot>

@@ -242,7 +242,7 @@
           <FirstPersonReticuleStyleHash />
           <PickupHash>PICKUP_WEAPON_COLTJUNIOR</PickupHash>
           <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
-          <HumanNameHash>WT_COLTJUNIOR</HumanNameHash>
+          <HumanNameHash>WEAPON_COLTJUNIOR</HumanNameHash>
           <MovementModeConditionalIdle>MMI_1Handed</MovementModeConditionalIdle>
           <StatName>COLTJUNIOR</StatName>
           <KnockdownCount value="5" />

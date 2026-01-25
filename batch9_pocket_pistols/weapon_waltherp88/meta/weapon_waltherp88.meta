@@ -247,7 +247,7 @@
           <FirstPersonReticuleStyleHash />
           <PickupHash>PICKUP_WEAPON_WALTHERP88</PickupHash>
           <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
-          <HumanNameHash>WT_WALTHERP88</HumanNameHash>
+          <HumanNameHash>WEAPON_WALTHERP88</HumanNameHash>
           <MovementModeConditionalIdle>MMI_1Handed</MovementModeConditionalIdle>
           <StatName>WALTHERP88</StatName>
           <KnockdownCount value="3" />

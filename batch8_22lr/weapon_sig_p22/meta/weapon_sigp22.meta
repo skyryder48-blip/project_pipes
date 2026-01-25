@@ -263,7 +263,7 @@
           <!-- IDENTIFICATION HASHES -->
           <PickupHash>PICKUP_WEAPON_SIGP22</PickupHash>
           <MPPickupHash>PICKUP_WEAPON_SIGP22</MPPickupHash>
-          <HumanNameHash>WT_SIGP22</HumanNameHash>
+          <HumanNameHash>WEAPON_SIGP22</HumanNameHash>
           <MovementModeConditionalIdle />
           <WeaponTypeSet>Small</WeaponTypeSet>
           <WeaponWheelSlot>Pistol</WeaponWheelSlot>

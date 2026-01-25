@@ -266,7 +266,7 @@
           <!-- IDENTIFICATION HASHES -->
           <PickupHash>PICKUP_WEAPON_FN502</PickupHash>
           <MPPickupHash>PICKUP_WEAPON_FN502</MPPickupHash>
-          <HumanNameHash>WT_FN502</HumanNameHash>
+          <HumanNameHash>WEAPON_FN502</HumanNameHash>
           <MovementModeConditionalIdle />
           <WeaponTypeSet>Small</WeaponTypeSet>
           <WeaponWheelSlot>Pistol</WeaponWheelSlot>

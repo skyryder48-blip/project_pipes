@@ -268,7 +268,7 @@
           <!-- IDENTIFICATION HASHES -->
           <PickupHash>PICKUP_WEAPON_WALTHERPPK</PickupHash>
           <MPPickupHash>PICKUP_WEAPON_WALTHERPPK</MPPickupHash>
-          <HumanNameHash>WT_WALTHERPPK</HumanNameHash>
+          <HumanNameHash>WEAPON_WALTHERPPK</HumanNameHash>
           <MovementModeConditionalIdle />
           <WeaponTypeSet>Small</WeaponTypeSet>
           <WeaponWheelSlot>Pistol</WeaponWheelSlot>

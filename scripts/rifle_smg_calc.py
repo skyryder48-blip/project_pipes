@@ -1,22 +1,20 @@
 #!/usr/bin/env python3
 """
-Rifle & SMG Damage/Handling Calculator
+Rifle & SMG Damage/Handling Calculator - AGGRESSIVE DIFFERENTIATION
 
-Applies realistic damage and handling values based on:
+Applies realistic damage and AGGRESSIVELY DIFFERENTIATED handling values based on:
 - Real-world caliber ballistics
 - Barrel length effects
 - Weight and ergonomics
-- Quality tier (budget/standard/quality/match)
+- Quality tier (budget/standard/quality/match) with DRAMATIC differences
 - Fire mode (semi/burst/full-auto)
+- Perception multipliers for noticeable in-game effects
 
-Calibers covered:
-- 5.56x45mm NATO (batch 12 - AR-15s, AUG, BREN)
-- 7.62x39mm (batch 13 - AK variants)
-- .308 Win / 7.62x51mm NATO (batch 14 - battle rifles)
-- 6.8x51mm / .277 Fury (batch 14 - SIG Spear)
-- 9mm Parabellum SMG (batch 15 - SMGs)
-- .45 ACP SMG (batch 16 - MAC-10, MAC-4A1)
-- 5.56x45mm PDW (batch 17 - short barrel rifles)
+Uses same aggressive tuning philosophy as handgun weapon_calc.py:
+- 4x perception multiplier for noticeable effects
+- Proportional offsets for shake and flip
+- Tier-based scaling with dramatic quality differences
+- Floor/ceiling constraints
 """
 
 import os
@@ -28,202 +26,225 @@ import glob
 BASE_PATH = "/home/user/project_pipes"
 
 # =============================================================================
+# PERCEPTION MULTIPLIERS - Make handling differences NOTICEABLE
+# =============================================================================
+PERCEPTION_MULTIPLIER = 3.5      # Global multiplier for handling values
+SHAKE_OFFSET_BASE = 1.20         # Base offset added to shake
+SHAKE_TIER_SCALE = 0.40          # Additional shake per tier deviation
+FLIP_OFFSET_BASE = 0.80          # Base offset added to flip (IkRecoilDisplacement)
+FLIP_TIER_SCALE = 0.15           # Additional flip per tier deviation
+FLIP_GLOBAL_MULTIPLIER = 1.40    # Global flip multiplier for dramatic muzzle rise
+
+# =============================================================================
+# FLOOR/CEILING VALUES - Keep values in reasonable game range
+# =============================================================================
+VALUE_FLOORS = {
+    "RecoilShakeAmplitude": 0.30,   # Minimum visible shake
+    "IkRecoilDisplacement": 0.08,   # Minimum visible flip
+    "RecoilRecoveryRate": 0.15,     # Minimum recovery
+    "AccuracySpread": 0.40,         # Minimum spread (match rifles)
+    "RecoilAccuracyMax": 1.50,      # Minimum accuracy degradation
+}
+
+VALUE_CEILINGS = {
+    "RecoilShakeAmplitude": 3.50,   # Maximum shake (full-auto .308)
+    "IkRecoilDisplacement": 2.50,   # Maximum flip
+    "RecoilRecoveryRate": 1.20,     # Maximum recovery (match quality)
+    "AccuracySpread": 5.00,         # Maximum spread (spray weapons)
+    "RecoilAccuracyMax": 6.00,      # Maximum accuracy loss
+}
+
+# =============================================================================
 # REAL-WORLD CALIBER DATA
 # =============================================================================
-# Based on actual ballistic data from manufacturer specs and testing
-
 CALIBER_DATA = {
     # 5.56x45mm NATO - Standard infantry rifle round
-    # M193: 55gr @ 3,250 fps = 1,290 ft-lbs
-    # M855: 62gr @ 3,020 fps = 1,255 ft-lbs
     "5.56x45": {
-        "base_damage": 42.0,        # 3-4 shots to kill at close range
-        "velocity_fps": 3100,       # Average from 20" barrel
-        "energy_ftlbs": 1275,       # Baseline energy
-        "penetration": 0.40,        # Moderate steel core penetration
-        "recoil_multiplier": 1.0,   # Baseline for rifles
-        "effective_range": 600,     # Meters
-        "barrel_20_velocity": 3250, # Full velocity from 20" barrel
+        "base_damage": 42.0,
+        "velocity_fps": 3100,
+        "energy_ftlbs": 1275,
+        "penetration": 0.40,
+        "recoil_base": 0.35,        # Low rifle recoil
+        "flip_base": 0.18,          # Moderate muzzle rise
+        "effective_range": 600,
+        "barrel_baseline": 20.0,
     },
     # 7.62x39mm - Soviet/Russian intermediate round
-    # 123gr @ 2,350 fps = 1,520 ft-lbs
     "7.62x39": {
-        "base_damage": 48.0,        # Higher damage than 5.56
-        "velocity_fps": 2350,       # From 16" barrel
-        "energy_ftlbs": 1520,       # More energy than 5.56
-        "penetration": 0.45,        # Better barrier penetration
-        "recoil_multiplier": 1.35,  # More recoil than 5.56
-        "effective_range": 400,     # Shorter effective range
-        "barrel_16_velocity": 2350,
+        "base_damage": 48.0,
+        "velocity_fps": 2350,
+        "energy_ftlbs": 1520,
+        "penetration": 0.45,
+        "recoil_base": 0.50,        # Higher recoil
+        "flip_base": 0.28,          # More muzzle rise
+        "effective_range": 400,
+        "barrel_baseline": 16.0,
     },
     # .308 Win / 7.62x51mm NATO - Full power rifle round
-    # 168gr @ 2,650 fps = 2,620 ft-lbs
     "7.62x51": {
-        "base_damage": 55.0,        # 2-3 shots to kill
-        "velocity_fps": 2650,       # From 20" barrel
-        "energy_ftlbs": 2620,       # Double 5.56 energy
-        "penetration": 0.60,        # Excellent penetration
-        "recoil_multiplier": 1.80,  # Significant recoil
-        "effective_range": 800,     # Extended range
-        "barrel_20_velocity": 2800,
+        "base_damage": 55.0,
+        "velocity_fps": 2650,
+        "energy_ftlbs": 2620,
+        "penetration": 0.60,
+        "recoil_base": 0.70,        # Significant recoil
+        "flip_base": 0.40,          # Heavy muzzle rise
+        "effective_range": 800,
+        "barrel_baseline": 20.0,
     },
-    # 6.8x51mm / .277 SIG Fury - Next-gen army round
-    # 135gr @ 3,000 fps = 2,697 ft-lbs (80,000 PSI!)
+    # 6.8x51mm / .277 SIG Fury - Next-gen army round (80,000 PSI!)
     "6.8x51": {
-        "base_damage": 57.0,        # Highest rifle damage
-        "velocity_fps": 3000,       # Exceptional velocity
-        "energy_ftlbs": 2700,       # Highest energy
-        "penetration": 0.70,        # Defeats Level IV armor
-        "recoil_multiplier": 2.00,  # High recoil (high pressure)
-        "effective_range": 1000,    # Extended effective range
-        "barrel_16_velocity": 3000,
+        "base_damage": 57.0,
+        "velocity_fps": 3000,
+        "energy_ftlbs": 2700,
+        "penetration": 0.70,
+        "recoil_base": 0.75,        # High recoil (extreme pressure)
+        "flip_base": 0.45,          # Heavy muzzle rise
+        "effective_range": 1000,
+        "barrel_baseline": 16.0,
     },
-    # 9mm Parabellum - SMG version (longer barrel = more velocity)
-    # 124gr @ 1,250 fps from SMG barrel = 430 ft-lbs
+    # 9mm Parabellum - SMG version
     "9mm_smg": {
-        "base_damage": 28.0,        # SMG damage lower than rifles
-        "velocity_fps": 1250,       # Higher than pistol due to barrel
-        "energy_ftlbs": 430,        # Modest energy
-        "penetration": 0.25,        # Limited penetration
-        "recoil_multiplier": 0.50,  # Low recoil, easy control
-        "effective_range": 100,     # Limited range
-        "barrel_8_velocity": 1250,
+        "base_damage": 28.0,
+        "velocity_fps": 1250,
+        "energy_ftlbs": 430,
+        "penetration": 0.25,
+        "recoil_base": 0.18,        # Low recoil
+        "flip_base": 0.10,          # Minimal flip
+        "effective_range": 100,
+        "barrel_baseline": 8.0,
     },
     # .45 ACP - SMG version
-    # 230gr @ 950 fps = 460 ft-lbs
     "45_acp_smg": {
-        "base_damage": 32.0,        # Higher than 9mm
-        "velocity_fps": 950,        # Subsonic
-        "energy_ftlbs": 460,        # Slightly more than 9mm
-        "penetration": 0.28,        # Limited penetration
-        "recoil_multiplier": 0.70,  # More recoil than 9mm
-        "effective_range": 75,      # Very limited range
-        "barrel_6_velocity": 950,
+        "base_damage": 32.0,
+        "velocity_fps": 950,
+        "energy_ftlbs": 460,
+        "penetration": 0.28,
+        "recoil_base": 0.28,        # More recoil than 9mm
+        "flip_base": 0.16,          # More flip
+        "effective_range": 75,
+        "barrel_baseline": 6.0,
     },
-    # .300 Blackout - Specialized PDW round
-    # 125gr @ 2,215 fps = 1,360 ft-lbs (supersonic)
-    # 220gr @ 1,010 fps = 498 ft-lbs (subsonic)
+    # .300 Blackout - PDW round
     "300_blk": {
-        "base_damage": 45.0,        # Between 5.56 and 7.62x39
-        "velocity_fps": 2215,       # Supersonic load
-        "energy_ftlbs": 1360,       # Good energy from short barrel
-        "penetration": 0.42,        # Similar to 7.62x39
-        "recoil_multiplier": 1.20,  # Moderate recoil
-        "effective_range": 300,     # Optimized for CQB
-        "barrel_9_velocity": 2215,
+        "base_damage": 45.0,
+        "velocity_fps": 2215,
+        "energy_ftlbs": 1360,
+        "penetration": 0.42,
+        "recoil_base": 0.40,        # Moderate recoil
+        "flip_base": 0.22,          # Moderate flip
+        "effective_range": 300,
+        "barrel_baseline": 9.0,
     },
 }
 
 # =============================================================================
-# QUALITY TIERS - Affects accuracy and handling
+# QUALITY TIERS - AGGRESSIVE differences between tiers
 # =============================================================================
 QUALITY_TIERS = {
     "budget": {
-        "accuracy_mult": 1.50,      # 50% worse accuracy
-        "recoil_mult": 1.30,        # 30% more recoil
-        "recovery_mult": 0.80,      # 20% slower recovery
-        "damage_mult": 1.00,        # Same damage
+        "tier_offset": 1.0,         # +1.0 tier deviation (worse)
+        "accuracy_mult": 2.00,      # 2x worse accuracy
+        "recoil_mult": 1.60,        # 60% more recoil
+        "recovery_mult": 0.60,      # 40% slower recovery
+        "shake_mult": 1.50,         # 50% more shake
+        "flip_mult": 1.40,          # 40% more flip
     },
     "standard": {
-        "accuracy_mult": 1.00,      # Baseline
+        "tier_offset": 0.0,         # Baseline
+        "accuracy_mult": 1.00,
         "recoil_mult": 1.00,
         "recovery_mult": 1.00,
-        "damage_mult": 1.00,
+        "shake_mult": 1.00,
+        "flip_mult": 1.00,
     },
     "quality": {
-        "accuracy_mult": 0.75,      # 25% better accuracy
-        "recoil_mult": 0.85,        # 15% less recoil
-        "recovery_mult": 1.15,      # 15% faster recovery
-        "damage_mult": 1.00,
+        "tier_offset": -0.5,        # -0.5 tier deviation (better)
+        "accuracy_mult": 0.70,      # 30% better accuracy
+        "recoil_mult": 0.80,        # 20% less recoil
+        "recovery_mult": 1.25,      # 25% faster recovery
+        "shake_mult": 0.75,         # 25% less shake
+        "flip_mult": 0.80,          # 20% less flip
     },
     "match": {
-        "accuracy_mult": 0.55,      # 45% better accuracy
-        "recoil_mult": 0.70,        # 30% less recoil
-        "recovery_mult": 1.30,      # 30% faster recovery
-        "damage_mult": 1.00,
+        "tier_offset": -0.8,        # -0.8 tier deviation (much better)
+        "accuracy_mult": 0.45,      # 55% better accuracy
+        "recoil_mult": 0.60,        # 40% less recoil
+        "recovery_mult": 1.50,      # 50% faster recovery
+        "shake_mult": 0.55,         # 45% less shake
+        "flip_mult": 0.60,          # 40% less flip
     },
 }
-
-# =============================================================================
-# BARREL LENGTH MODIFIERS
-# =============================================================================
-def calculate_barrel_modifier(barrel_inches: float, caliber: str) -> dict:
-    """Calculate damage/velocity modifiers based on barrel length"""
-    # Baseline barrel lengths for each caliber
-    baseline = {
-        "5.56x45": 20.0,    # M16 standard
-        "7.62x39": 16.0,    # AKM standard
-        "7.62x51": 20.0,    # M14/FAL standard
-        "6.8x51": 16.0,     # MCX Spear standard
-        "9mm_smg": 8.0,     # Typical SMG
-        "45_acp_smg": 6.0,  # MAC-10 standard
-        "300_blk": 9.0,     # Optimized barrel
-    }
-
-    base = baseline.get(caliber, 16.0)
-    ratio = barrel_inches / base
-
-    # Velocity loss: approximately 25-50 fps per inch below baseline
-    # More dramatic for rifle calibers
-    if caliber in ["5.56x45", "7.62x51", "6.8x51"]:
-        velocity_mult = 0.90 + (0.10 * ratio) if ratio < 1.0 else 1.0 + (0.02 * (ratio - 1.0))
-    else:
-        velocity_mult = 0.95 + (0.05 * ratio) if ratio < 1.0 else 1.0
-
-    # Damage scales with velocity (kinetic energy = 1/2 * m * v^2)
-    # But we use a more moderate scaling for game balance
-    damage_mult = 0.85 + (0.15 * ratio) if ratio < 1.0 else 1.0 + (0.05 * (ratio - 1.0))
-    damage_mult = min(1.10, max(0.75, damage_mult))  # Clamp 75%-110%
-
-    # Shorter barrels = more muzzle blast, harder to control
-    recoil_mult = 1.20 - (0.20 * ratio) if ratio < 1.0 else 1.0 - (0.05 * (ratio - 1.0))
-    recoil_mult = min(1.30, max(0.90, recoil_mult))
-
-    return {
-        "velocity_mult": velocity_mult,
-        "damage_mult": damage_mult,
-        "recoil_mult": recoil_mult,
-    }
-
 
 # =============================================================================
 # FIRE MODE MODIFIERS
 # =============================================================================
-FIRE_MODE = {
+FIRE_MODES = {
     "semi": {
-        "time_between_shots": 0.12,  # ~500 RPM max practical
+        "rpm_max": 500,
         "accuracy_mult": 1.00,
-        "recoil_recovery_bonus": 0.20,
+        "recoil_mult": 1.00,
+        "recovery_bonus": 0.15,
     },
     "burst": {
-        "time_between_shots": 0.075,  # ~800 RPM in burst
-        "accuracy_mult": 1.15,
-        "recoil_recovery_bonus": 0.10,
+        "rpm_max": 800,
+        "accuracy_mult": 1.20,
+        "recoil_mult": 1.15,
+        "recovery_bonus": 0.08,
     },
     "auto": {
-        "time_between_shots": 0.070,  # ~857 RPM
-        "accuracy_mult": 1.40,        # Significantly worse accuracy
-        "recoil_recovery_bonus": 0.00,
+        "rpm_max": 900,
+        "accuracy_mult": 1.50,
+        "recoil_mult": 1.30,
+        "recovery_bonus": 0.00,
     },
     "auto_fast": {
-        "time_between_shots": 0.055,  # ~1,090 RPM (MAC-10 speed)
-        "accuracy_mult": 1.80,        # Much worse accuracy
-        "recoil_recovery_bonus": -0.10,
+        "rpm_max": 1200,
+        "accuracy_mult": 2.20,       # Much worse accuracy
+        "recoil_mult": 1.60,         # Much more recoil
+        "recovery_bonus": -0.15,     # Recovery penalty
     },
 }
+
+
+def clamp(value: float, floor: float, ceiling: float) -> float:
+    """Clamp value between floor and ceiling"""
+    return max(floor, min(ceiling, value))
+
+
+def calculate_barrel_modifier(barrel_inches: float, caliber: str) -> dict:
+    """Calculate damage/velocity modifiers based on barrel length"""
+    cal_data = CALIBER_DATA.get(caliber, {})
+    baseline = cal_data.get("barrel_baseline", 16.0)
+    ratio = barrel_inches / baseline
+
+    # Velocity and damage scale with barrel
+    if ratio < 1.0:
+        velocity_mult = 0.88 + (0.12 * ratio)
+        damage_mult = 0.82 + (0.18 * ratio)
+        recoil_mult = 1.30 - (0.30 * ratio)  # Short barrels = more blast/recoil
+    else:
+        velocity_mult = 1.0 + (0.03 * (ratio - 1.0))
+        damage_mult = 1.0 + (0.05 * (ratio - 1.0))
+        recoil_mult = 1.0 - (0.08 * (ratio - 1.0))  # Long barrels = less recoil
+
+    return {
+        "velocity_mult": clamp(velocity_mult, 0.75, 1.15),
+        "damage_mult": clamp(damage_mult, 0.75, 1.12),
+        "recoil_mult": clamp(recoil_mult, 0.85, 1.40),
+    }
 
 
 @dataclass
 class RifleSMGSpec:
     """Specification for a rifle or SMG"""
-    name: str                    # Weapon folder name (e.g., "cz_bren")
-    display_name: str            # Human readable name
-    caliber: str                 # Caliber key
-    barrel_inches: float         # Barrel length
-    weight_lbs: float            # Empty weight
-    quality: str                 # Quality tier
-    fire_mode: str               # Primary fire mode
-    rpm: int = 0                 # Cyclic rate if known
+    name: str
+    display_name: str
+    caliber: str
+    barrel_inches: float
+    weight_lbs: float
+    quality: str
+    fire_mode: str
+    rpm: int = 0
     notes: str = ""
 
 
@@ -311,123 +332,150 @@ BATCH17_PDWS = [
 
 
 def calculate_weapon_stats(spec: RifleSMGSpec) -> dict:
-    """Calculate all weapon stats based on specifications"""
+    """Calculate all weapon stats with AGGRESSIVE differentiation"""
 
-    # Get base caliber data
     cal_data = CALIBER_DATA.get(spec.caliber)
     if not cal_data:
         raise ValueError(f"Unknown caliber: {spec.caliber}")
 
-    # Get quality modifiers
     quality = QUALITY_TIERS.get(spec.quality, QUALITY_TIERS["standard"])
-
-    # Get barrel modifiers
+    fire = FIRE_MODES.get(spec.fire_mode, FIRE_MODES["semi"])
     barrel = calculate_barrel_modifier(spec.barrel_inches, spec.caliber)
 
-    # Get fire mode data
-    fire = FIRE_MODE.get(spec.fire_mode, FIRE_MODE["semi"])
-
-    # Calculate base stats
-    base_damage = cal_data["base_damage"] * barrel["damage_mult"] * quality["damage_mult"]
-
-    # Weight factor: lighter = more felt recoil, heavier = more stable
-    weight_baseline = 7.0  # Average rifle weight
+    # Weight factor: lighter = more felt recoil
+    weight_baseline = 7.0
     weight_factor = weight_baseline / spec.weight_lbs
-    weight_factor = max(0.80, min(1.30, weight_factor))  # Clamp
+    weight_factor = clamp(weight_factor, 0.75, 1.40)
 
-    # Calculate recoil values
-    base_recoil = cal_data["recoil_multiplier"]
-    total_recoil_mult = base_recoil * barrel["recoil_mult"] * quality["recoil_mult"] * weight_factor
+    # =========================================================================
+    # DAMAGE CALCULATION
+    # =========================================================================
+    base_damage = cal_data["base_damage"] * barrel["damage_mult"]
 
-    # RecoilShakeAmplitude: 0.15-0.50 for SMGs, 0.20-0.45 for rifles
-    if "smg" in spec.caliber:
-        shake_base = 0.12
-        shake_scale = 0.30
-    else:
-        shake_base = 0.18
-        shake_scale = 0.35
-    recoil_shake = shake_base + (shake_scale * total_recoil_mult)
-    recoil_shake = min(0.60, max(0.10, recoil_shake))
+    # =========================================================================
+    # RECOIL SHAKE AMPLITUDE - with perception multiplier and tier offsets
+    # =========================================================================
+    shake_base = cal_data["recoil_base"] * PERCEPTION_MULTIPLIER
+    shake_base *= barrel["recoil_mult"]
+    shake_base *= quality["shake_mult"]
+    shake_base *= fire["recoil_mult"]
+    shake_base *= weight_factor
 
-    # RecoilShakeFrequency: higher for faster firing weapons
-    rpm = spec.rpm if spec.rpm > 0 else 500
-    shake_freq = 0.30 + (rpm / 2000)  # Scale with RPM
-    shake_freq = min(0.75, max(0.35, shake_freq))
+    # Add tier offset
+    tier_shake_offset = SHAKE_OFFSET_BASE + (quality["tier_offset"] * SHAKE_TIER_SCALE)
+    shake_final = shake_base + tier_shake_offset
 
-    # AccuracySpread: affected by quality and caliber
-    base_spread = 1.0 if "smg" in spec.caliber else 0.75
-    accuracy_spread = base_spread * quality["accuracy_mult"] * fire["accuracy_mult"]
-    accuracy_spread = min(4.00, max(0.50, accuracy_spread))
+    shake_final = clamp(shake_final, VALUE_FLOORS["RecoilShakeAmplitude"],
+                        VALUE_CEILINGS["RecoilShakeAmplitude"])
 
-    # RecoilAccuracyMax: how much accuracy degrades during sustained fire
-    recoil_acc_max = 1.50 + (total_recoil_mult * 0.80)
-    recoil_acc_max *= fire["accuracy_mult"]
-    recoil_acc_max = min(5.00, max(1.20, recoil_acc_max))
+    # =========================================================================
+    # IK RECOIL DISPLACEMENT (FLIP) - with perception multiplier
+    # =========================================================================
+    flip_base = cal_data["flip_base"] * PERCEPTION_MULTIPLIER
+    flip_base *= barrel["recoil_mult"]
+    flip_base *= quality["flip_mult"]
+    flip_base *= fire["recoil_mult"]
+    flip_base *= weight_factor
 
-    # RecoilRecoveryRate: how fast you regain accuracy after firing
-    base_recovery = 0.55  # Rifles recover faster than pistols
-    recovery = base_recovery * quality["recovery_mult"]
-    recovery += fire["recoil_recovery_bonus"]
-    recovery /= weight_factor  # Heavier = slower recovery but more stable
-    recovery = min(0.85, max(0.25, recovery))
+    # Add tier offset and global multiplier
+    tier_flip_offset = FLIP_OFFSET_BASE + (quality["tier_offset"] * FLIP_TIER_SCALE)
+    flip_final = (flip_base + tier_flip_offset) * FLIP_GLOBAL_MULTIPLIER
 
-    # TimeBetweenShots: from fire mode, adjusted by weight
-    time_between = fire["time_between_shots"]
-    if spec.rpm > 0:
-        time_between = 60.0 / spec.rpm  # Use actual RPM if known
+    flip_final = clamp(flip_final, VALUE_FLOORS["IkRecoilDisplacement"],
+                       VALUE_CEILINGS["IkRecoilDisplacement"])
 
-    # Penetration: from caliber, slightly affected by barrel
-    penetration = cal_data["penetration"] * (0.95 + (0.05 * barrel["velocity_mult"]))
+    # =========================================================================
+    # ACCURACY SPREAD - dramatic quality differences
+    # =========================================================================
+    spread_base = 0.80 if "smg" not in spec.caliber else 1.20
+    spread = spread_base * quality["accuracy_mult"] * fire["accuracy_mult"]
 
-    # Velocity (Speed): from caliber modified by barrel
-    velocity = cal_data["velocity_fps"] * barrel["velocity_mult"]
-    velocity_ms = velocity * 0.3048  # Convert to m/s
+    # Budget tier gets extra penalty
+    if spec.quality == "budget":
+        spread *= 1.30
 
-    # Damage falloff ranges: based on effective range
+    spread = clamp(spread, VALUE_FLOORS["AccuracySpread"],
+                   VALUE_CEILINGS["AccuracySpread"])
+
+    # =========================================================================
+    # RECOIL ACCURACY MAX - how bad accuracy gets during sustained fire
+    # =========================================================================
+    acc_max_base = 2.00 if "smg" not in spec.caliber else 2.50
+    acc_max = acc_max_base * quality["recoil_mult"] * fire["accuracy_mult"]
+
+    # Full-auto modes degrade accuracy significantly more
+    if spec.fire_mode in ["auto", "auto_fast"]:
+        acc_max *= 1.40
+
+    acc_max = clamp(acc_max, VALUE_FLOORS["RecoilAccuracyMax"],
+                    VALUE_CEILINGS["RecoilAccuracyMax"])
+
+    # =========================================================================
+    # RECOIL RECOVERY RATE - how fast you regain accuracy
+    # =========================================================================
+    recovery_base = 0.50
+    recovery = recovery_base * quality["recovery_mult"]
+    recovery += fire["recovery_bonus"]
+
+    # Heavy weapons recover slower but are more stable
+    recovery /= (weight_factor * 0.7 + 0.3)
+
+    recovery = clamp(recovery, VALUE_FLOORS["RecoilRecoveryRate"],
+                     VALUE_CEILINGS["RecoilRecoveryRate"])
+
+    # =========================================================================
+    # SHAKE FREQUENCY - higher for faster firing weapons
+    # =========================================================================
+    rpm = spec.rpm if spec.rpm > 0 else fire["rpm_max"]
+    shake_freq = 0.40 + (rpm / 1800)
+    shake_freq = clamp(shake_freq, 0.40, 0.95)
+
+    # =========================================================================
+    # FIRE RATE - from RPM
+    # =========================================================================
+    time_between = 60.0 / rpm if rpm > 0 else 0.12
+
+    # =========================================================================
+    # OTHER VALUES
+    # =========================================================================
+    velocity_ms = cal_data["velocity_fps"] * barrel["velocity_mult"] * 0.3048
     eff_range = cal_data["effective_range"]
-    falloff_min = eff_range * 0.15  # Start falloff at 15% of effective range
-    falloff_max = eff_range * 0.50  # Full falloff at 50% of effective range
-    falloff_modifier = 0.35 if "smg" in spec.caliber else 0.40  # SMGs lose more at range
-
-    # Weapon range
-    weapon_range = eff_range * 0.60  # Game range is 60% of real effective range
-
-    # Force values: based on energy
-    energy = cal_data["energy_ftlbs"]
-    force = 40 + (energy / 20)  # Scale force with energy
-    force = min(200, max(50, force))
+    falloff_min = eff_range * 0.15
+    falloff_max = eff_range * 0.50
+    falloff_mod = 0.35 if "smg" in spec.caliber else 0.40
+    weapon_range = eff_range * 0.60
+    force = 40 + (cal_data["energy_ftlbs"] / 20)
+    penetration = cal_data["penetration"] * (0.95 + (0.05 * barrel["velocity_mult"]))
 
     return {
         "Damage": round(base_damage, 1),
         "DamageFallOffRangeMin": round(falloff_min, 1),
         "DamageFallOffRangeMax": round(falloff_max, 1),
-        "DamageFallOffModifier": round(falloff_modifier, 2),
+        "DamageFallOffModifier": round(falloff_mod, 2),
         "Speed": round(velocity_ms, 1),
-        "Force": round(force, 1),
-        "Penetration": round(penetration, 2),
+        "Force": round(clamp(force, 50, 180), 1),
+        "Penetration": round(clamp(penetration, 0.20, 0.75), 2),
         "WeaponRange": round(weapon_range, 1),
         "TimeBetweenShots": round(time_between, 3),
-        "AccuracySpread": round(accuracy_spread, 2),
-        "RecoilAccuracyMax": round(recoil_acc_max, 2),
+        "AccuracySpread": round(spread, 2),
+        "RecoilAccuracyMax": round(acc_max, 2),
         "RecoilRecoveryRate": round(recovery, 2),
-        "RecoilShakeAmplitude": round(recoil_shake, 2),
+        "RecoilShakeAmplitude": round(shake_final, 2),
         "RecoilShakeFrequency": round(shake_freq, 2),
+        "IkRecoilDisplacement": round(flip_final, 3),
     }
 
 
 def find_weapon_meta(batch_path: str, weapon_name: str) -> Optional[str]:
     """Find the weapon meta file"""
-    # Try weapon_{name}/meta/weapon_{name}.meta
     path1 = os.path.join(batch_path, f"weapon_{weapon_name}", "meta", f"weapon_{weapon_name}.meta")
     if os.path.exists(path1):
         return path1
 
-    # Try weapon_{name}/meta/weapons.meta
     path2 = os.path.join(batch_path, f"weapon_{weapon_name}", "meta", "weapons.meta")
     if os.path.exists(path2):
         return path2
 
-    # Glob for any meta file
     pattern = os.path.join(batch_path, f"weapon_{weapon_name}", "meta", "*.meta")
     matches = glob.glob(pattern)
     for m in matches:
@@ -450,12 +498,15 @@ def update_weapon_meta(file_path: str, values: dict) -> bool:
                 if param == "TimeBetweenShots":
                     pattern = rf'(<{param} value=")[^"]*(")'
                     replacement = rf'\g<1>{value:.3f}\2'
+                elif param == "IkRecoilDisplacement":
+                    pattern = rf'(<{param} value=")[^"]*(")'
+                    replacement = rf'\g<1>{value:.3f}\2'
                 elif param in ["DamageFallOffModifier", "Penetration"]:
                     pattern = rf'(<{param} value=")[^"]*(")'
                     replacement = rf'\g<1>{value:.2f}\2'
                 else:
                     pattern = rf'(<{param} value=")[^"]*(")'
-                    replacement = rf'\g<1>{value:.1f}\2'
+                    replacement = rf'\g<1>{value:.2f}\2'
                 content = re.sub(pattern, replacement, content)
 
         if content != original:
@@ -470,14 +521,14 @@ def update_weapon_meta(file_path: str, values: dict) -> bool:
 
 def process_batch(batch_path: str, weapons: list, batch_name: str, dry_run: bool = True):
     """Process all weapons in a batch"""
-    print(f"\n{'='*60}")
+    print(f"\n{'='*70}")
     print(f"Processing {batch_name}")
     print(f"Path: {batch_path}")
     print(f"Mode: {'DRY RUN' if dry_run else 'APPLYING'}")
-    print('='*60)
+    print('='*70)
 
     for spec in weapons:
-        print(f"\n  {spec.display_name} ({spec.caliber}, {spec.barrel_inches}\" barrel)")
+        print(f"\n  {spec.display_name} ({spec.caliber}, {spec.quality} tier)")
 
         meta_path = find_weapon_meta(batch_path, spec.name)
         if not meta_path:
@@ -486,25 +537,24 @@ def process_batch(batch_path: str, weapons: list, batch_name: str, dry_run: bool
 
         values = calculate_weapon_stats(spec)
 
-        print(f"    Damage: {values['Damage']}")
-        print(f"    Speed: {values['Speed']} m/s")
-        print(f"    Range: {values['WeaponRange']}m (falloff {values['DamageFallOffRangeMin']}-{values['DamageFallOffRangeMax']})")
+        print(f"    Damage: {values['Damage']} | Range: {values['WeaponRange']}m")
         print(f"    Fire Rate: {values['TimeBetweenShots']}s ({int(60/values['TimeBetweenShots'])} RPM)")
-        print(f"    Recoil: shake={values['RecoilShakeAmplitude']}, spread={values['AccuracySpread']}")
+        print(f"    Shake: {values['RecoilShakeAmplitude']} | Flip: {values['IkRecoilDisplacement']}")
+        print(f"    Spread: {values['AccuracySpread']} | AccMax: {values['RecoilAccuracyMax']}")
         print(f"    Recovery: {values['RecoilRecoveryRate']}")
 
         if not dry_run:
             if update_weapon_meta(meta_path, values):
-                print(f"    ✓ Updated {os.path.basename(meta_path)}")
+                print(f"    ✓ Updated")
             else:
-                print(f"    - No changes to {os.path.basename(meta_path)}")
+                print(f"    - No changes")
 
 
 def main():
     import argparse
 
     parser = argparse.ArgumentParser(description="Rifle & SMG Damage/Handling Calculator")
-    parser.add_argument("--apply", action="store_true", help="Apply changes (default is dry-run)")
+    parser.add_argument("--apply", action="store_true", help="Apply changes")
     parser.add_argument("--batch", type=int, help="Process specific batch (12-17)")
     args = parser.parse_args()
 
@@ -519,8 +569,11 @@ def main():
         17: (os.path.join(BASE_PATH, "batch17_weapons"), BATCH17_PDWS, "Batch 17 - PDWs/SBRs"),
     }
 
-    print("Rifle & SMG Damage/Handling Calculator")
-    print("="*60)
+    print("="*70)
+    print("Rifle & SMG Handling Calculator - AGGRESSIVE DIFFERENTIATION")
+    print("="*70)
+    print(f"Perception Multiplier: {PERCEPTION_MULTIPLIER}x")
+    print(f"Flip Global Multiplier: {FLIP_GLOBAL_MULTIPLIER}x")
 
     if args.batch:
         if args.batch in batch_configs:
@@ -534,9 +587,9 @@ def main():
             process_batch(path, weapons, name, dry_run)
 
     if dry_run:
-        print("\n" + "="*60)
+        print("\n" + "="*70)
         print("DRY RUN COMPLETE - Run with --apply to make changes")
-        print("="*60)
+        print("="*70)
 
 
 if __name__ == "__main__":

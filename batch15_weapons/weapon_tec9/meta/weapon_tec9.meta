@@ -92,13 +92,13 @@
 
           <ClipSize value="32" />
 
-          <AccuracySpread value="1.5" />
+          <AccuracySpread value="3.12" />
           <AccurateModeAccuracyModifier value="0.200000" />
           <RunAndGunAccuracyModifier value="0.500000" />
           <RunAndGunAccuracyMinOverride value="-1.000000" />
-          <RecoilAccuracyMax value="2.2" />
+          <RecoilAccuracyMax value="4.00" />
           <RecoilErrorTime value="0.350000" />
-          <RecoilRecoveryRate value="0.5" />
+          <RecoilRecoveryRate value="0.35" />
 
           <RecoilAccuracyToAllowHeadShotAI value="0.500000" />
           <MinHeadShotDistanceAI value="3.000000" />
@@ -109,7 +109,7 @@
           <MaxHeadShotDistancePlayer value="50.000000" />
           <HeadShotDamageModifierPlayer value="2.500000" />
 
-          <Damage value="26.4" />
+          <Damage value="26.10" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -117,7 +117,7 @@
           <NetworkHitLimbsDamageModifier value="0.800000" />
           <LightlyArmouredDamageModifier value="0.600000" />
 
-          <Force value="61.5" />
+          <Force value="61.50" />
           <ForceHitPed value="50.0" />
           <ForceHitVehicle value="25.0" />
           <ForceHitFlyingHeli value="15.0" />
@@ -133,7 +133,7 @@
           <VerticalLaunchAdjustment value="0.000000" />
           <DropForwardVelocity value="0.000000" />
 
-          <Speed value="373.9" />
+          <Speed value="363.90" />
 
           <BulletsInBatch value="1" />
           <BatchSpread value="0.000000" />
@@ -143,19 +143,19 @@
 
           <TimeBetweenShots value="0.120" />
 
-          <DamageFallOffRangeMin value="15.0" />
-          <DamageFallOffRangeMax value="50.0" />
+          <DamageFallOffRangeMin value="15.00" />
+          <DamageFallOffRangeMax value="50.00" />
           <DamageFallOffModifier value="0.35" />
 
           <NetworkPlayerDamageModifier value="1.000000" />
           <NetworkPedDamageModifier value="1.000000" />
           <NetworkHeadShotPlayerDamageModifier value="1.000000" />
           <LockOnRange value="0.000000" />
-          <WeaponRange value="60.0" />
+          <WeaponRange value="60.00" />
 
           <BulletDirectionOffsetInDegrees value="0.35" />
-          <RecoilShakeAmplitude value="0.4" />
-          <RecoilShakeFrequency value="0.6" />
+          <RecoilShakeAmplitude value="3.07" />
+          <RecoilShakeFrequency value="0.68" />
           <RecoilShakeRollMagnitude value="0.120000" />
           <RecoilShakeDuration value="0.180000" />
 

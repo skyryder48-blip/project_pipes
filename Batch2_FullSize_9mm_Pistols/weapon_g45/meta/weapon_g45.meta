@@ -171,8 +171,16 @@
       <IkRecoilDisplacementScope value="0.000000" />
       <IkRecoilDisplacementScaleBackward value="1.000000" />
       <IkRecoilDisplacementScaleVertical value="0.350000" />
-
-      <CameraHash>DEFAULT_SCRIPTED_FLY_CAMERA</CameraHash>
+      <!-- Camera and Aiming -->
+      <DefaultCameraHash>DEFAULT_THIRD_PERSON_PED_AIM_CAMERA</DefaultCameraHash>
+      <CoverCameraHash>DEFAULT_THIRD_PERSON_PED_AIM_IN_COVER_CAMERA</CoverCameraHash>
+      <CoverReadyToFireCameraHash />
+      <RunAndGunCameraHash>DEFAULT_THIRD_PERSON_PED_RUN_AND_GUN_CAMERA</RunAndGunCameraHash>
+      <CinematicShootingCameraHash>DEFAULT_THIRD_PERSON_PED_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+      <AlternativeOrScopedCameraHash />
+      <RunAndGunAlternativeOrScopedCameraHash />
+      <CinematicShootingAlternativeOrScopedCameraHash />
+      <CameraFov value="45.000000" />
       <CameraFPHash>DEFAULT_FIRST_PERSON_CAMERA</CameraFPHash>
       <CameraFPAimHash>DEFAULT_FIRST_PERSON_AIM_CAMERA_ONFOOT</CameraFPAimHash>
 

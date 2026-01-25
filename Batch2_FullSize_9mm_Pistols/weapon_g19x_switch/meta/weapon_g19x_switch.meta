@@ -119,6 +119,18 @@
       <FirstPersonDofMaxNearInFocusDistanceBlendLevel value="0.300000" />
       <ZoomFactorForAccurateMode value="1.200000" />
 
+      <!-- Camera Hashes -->
+      <DefaultCameraHash>DEFAULT_THIRD_PERSON_PED_AIM_CAMERA</DefaultCameraHash>
+      <CoverCameraHash>DEFAULT_THIRD_PERSON_PED_AIM_IN_COVER_CAMERA</CoverCameraHash>
+      <CoverReadyToFireCameraHash />
+      <RunAndGunCameraHash>DEFAULT_THIRD_PERSON_PED_RUN_AND_GUN_CAMERA</RunAndGunCameraHash>
+      <CinematicShootingCameraHash>DEFAULT_THIRD_PERSON_PED_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+      <AlternativeOrScopedCameraHash />
+      <RunAndGunAlternativeOrScopedCameraHash />
+      <CinematicShootingAlternativeOrScopedCameraHash />
+      <CameraFov value="45.000000" />
+      <FirstPersonScopeFov value="30.000000" />
+
       <Fx>
         <FlashFx>muz_pistol_fp</FlashFx>
         <FlashFxAlt>muz_pistol</FlashFxAlt>

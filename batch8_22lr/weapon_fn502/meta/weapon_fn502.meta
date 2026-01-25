@@ -283,15 +283,15 @@
               <AttachBone>WAPClip</AttachBone>
               <Components>
                 <Item>
-                  <n>COMPONENT_FN502_CLIP_FMJ</n>
+                  <Name>COMPONENT_FN502_CLIP_FMJ</Name>
                   <Default value="true" />
                 </Item>
                 <Item>
-                  <n>COMPONENT_FN502_CLIP_HP</n>
+                  <Name>COMPONENT_FN502_CLIP_HP</Name>
                   <Default value="false" />
                 </Item>
                 <Item>
-                  <n>COMPONENT_FN502_CLIP_AP</n>
+                  <Name>COMPONENT_FN502_CLIP_AP</Name>
                   <Default value="false" />
                 </Item>
               </Components>

@@ -160,8 +160,16 @@
         <GroundDisturbFxFP />
         <GroundDisturbFxAltFP />
       </Fx>
-
-      <CameraHash>DEFAULT_PISTOL_CAMERA</CameraHash>
+      <!-- Camera and Aiming -->
+      <DefaultCameraHash>DEFAULT_THIRD_PERSON_PED_AIM_CAMERA</DefaultCameraHash>
+      <CoverCameraHash>DEFAULT_THIRD_PERSON_PED_AIM_IN_COVER_CAMERA</CoverCameraHash>
+      <CoverReadyToFireCameraHash />
+      <RunAndGunCameraHash>DEFAULT_THIRD_PERSON_PED_RUN_AND_GUN_CAMERA</RunAndGunCameraHash>
+      <CinematicShootingCameraHash>DEFAULT_THIRD_PERSON_PED_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+      <AlternativeOrScopedCameraHash />
+      <RunAndGunAlternativeOrScopedCameraHash />
+      <CinematicShootingAlternativeOrScopedCameraHash />
+      <CameraFov value="45.000000" />
       <FirstPersonCameraHash>DEFAULT_FIRST_PERSON_PISTOL_CAMERA</FirstPersonCameraHash>
       <CoverCameraHash>DEFAULT_COVER_PISTOL_CAMERA</CoverCameraHash>
       <RunAndGunCameraHash>DEFAULT_RUN_AND_GUN_PISTOL_CAMERA</RunAndGunCameraHash>

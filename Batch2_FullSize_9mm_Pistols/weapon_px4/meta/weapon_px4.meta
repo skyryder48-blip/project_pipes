@@ -122,8 +122,16 @@
       <GunShotNormalRumbleProfile>LIGHT_GUNSHOT_PLAYER</GunShotNormalRumbleProfile>
       <ExplosionRumbleProfile>LIGHT_EXPLOSION</ExplosionRumbleProfile>
       <GunShotSlowMoRumbleProfile>SLOW_MO_GUNSHOT_PLAYER</GunShotSlowMoRumbleProfile>
-
-      <CameraHash>DEFAULT_PISTOL_CAMERA</CameraHash>
+      <!-- Camera and Aiming -->
+      <DefaultCameraHash>DEFAULT_THIRD_PERSON_PED_AIM_CAMERA</DefaultCameraHash>
+      <CoverCameraHash>DEFAULT_THIRD_PERSON_PED_AIM_IN_COVER_CAMERA</CoverCameraHash>
+      <CoverReadyToFireCameraHash />
+      <RunAndGunCameraHash>DEFAULT_THIRD_PERSON_PED_RUN_AND_GUN_CAMERA</RunAndGunCameraHash>
+      <CinematicShootingCameraHash>DEFAULT_THIRD_PERSON_PED_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+      <AlternativeOrScopedCameraHash />
+      <RunAndGunAlternativeOrScopedCameraHash />
+      <CinematicShootingAlternativeOrScopedCameraHash />
+      <CameraFov value="45.000000" />
       <FirstPersonCameraHash>DEFAULT_FIRST_PERSON_PISTOL_CAMERA</FirstPersonCameraHash>
       <FirstPersonAlternateCameraHash />
       <FirstPersonScopeCameraHash />

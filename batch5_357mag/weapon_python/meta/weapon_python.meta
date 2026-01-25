@@ -52,7 +52,7 @@
     <Item>
       <Infos>
         <Item type="CWeaponInfo">
-          <n>WEAPON_PYTHON</n>
+          <Name>WEAPON_PYTHON</Name>
           <Model>w_pi_python</Model>
           <Audio>AUDIO_ITEM_REVOLVER</Audio>
           <Slot>SLOT_PYTHON</Slot>
@@ -170,6 +170,27 @@
           <MinTimeBetweenRecoilShakes value="200" />
           <RecoilShakeAmplitude value="0.400000" />
           <ExplosionShakeAmplitude value="-1.000000" />
+
+          <!-- EFFECTS -->
+          <!-- .357 Magnum muzzle flash - significant fireball from 6" barrel -->
+          <Fx>
+            <EffectGroup />
+            <FlashFx>muz_pistol_large</FlashFx>
+            <FlashFxAlt />
+            <ShellFx />
+            <TracerFx>bullet_tracer</TracerFx>
+            <PedDamageHash>BulletLarge</PedDamageHash>
+            <TracerFxChanceSP value="1.000000" />
+            <TracerFxChanceMP value="0.500000" />
+            <FlashFxChanceSP value="1.000000" />
+            <FlashFxChanceMP value="1.000000" />
+            <FlashFxAltChance value="0.000000" />
+            <FlashFxScale value="1.200000" />
+            <GroundDisturbFxNameDefault />
+            <GroundDisturbFxNameSand />
+            <GroundDisturbFxNameWater />
+          </Fx>
+
           <IkRecoilDisplacement value="0.010" />
           <IkRecoilDisplacementScope value="0.010" />
           <IkRecoilDisplacementScaleBackward value="1.100000" />
@@ -212,7 +233,7 @@
               <AttachBone>WAPClip</AttachBone>
               <Components>
                 <Item>
-                  <n>COMPONENT_PYTHON_CLIP_01</n>
+                  <Name>COMPONENT_PYTHON_CLIP_01</Name>
                   <Default value="true" />
                 </Item>
               </Components>

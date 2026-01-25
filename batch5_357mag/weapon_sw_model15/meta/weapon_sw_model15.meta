@@ -52,7 +52,7 @@
     <Item>
       <Infos>
         <Item type="CWeaponInfo">
-          <n>WEAPON_SW_MODEL15</n>
+          <Name>WEAPON_SW_MODEL15</Name>
           <Model>w_pi_sw_model15</Model>
           <Audio>AUDIO_ITEM_REVOLVER</Audio>
           <Slot>SLOT_SW_MODEL15</Slot>
@@ -170,6 +170,27 @@
           <MinTimeBetweenRecoilShakes value="180" />
           <RecoilShakeAmplitude value="0.280000" />
           <ExplosionShakeAmplitude value="-1.000000" />
+
+          <!-- EFFECTS -->
+          <!-- .38 Special muzzle flash - modest compared to .357 -->
+          <Fx>
+            <EffectGroup />
+            <FlashFx>muz_pistol</FlashFx>
+            <FlashFxAlt />
+            <ShellFx />
+            <TracerFx>bullet_tracer</TracerFx>
+            <PedDamageHash>BulletSmall</PedDamageHash>
+            <TracerFxChanceSP value="1.000000" />
+            <TracerFxChanceMP value="0.500000" />
+            <FlashFxChanceSP value="1.000000" />
+            <FlashFxChanceMP value="1.000000" />
+            <FlashFxAltChance value="0.000000" />
+            <FlashFxScale value="0.800000" />
+            <GroundDisturbFxNameDefault />
+            <GroundDisturbFxNameSand />
+            <GroundDisturbFxNameWater />
+          </Fx>
+
           <IkRecoilDisplacement value="0.006" />
           <IkRecoilDisplacementScope value="0.006" />
           <IkRecoilDisplacementScaleBackward value="0.900000" />
@@ -212,7 +233,7 @@
               <AttachBone>WAPClip</AttachBone>
               <Components>
                 <Item>
-                  <n>COMPONENT_SW_MODEL15_CLIP_01</n>
+                  <Name>COMPONENT_SW_MODEL15_CLIP_01</Name>
                   <Default value="true" />
                 </Item>
               </Components>

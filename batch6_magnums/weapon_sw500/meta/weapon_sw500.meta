@@ -57,7 +57,7 @@
       <Infos>
         <Item type="CWeaponInfo">
           <!-- IDENTIFICATION -->
-          <n>WEAPON_SW500</n>
+          <Name>WEAPON_SW500</Name>
           <Model>w_pi_sw_500</Model>
           <Audio>AUDIO_ITEM_REVOLVER_MK2</Audio>
           <Slot>SLOT_SW500</Slot>
@@ -240,6 +240,9 @@
           <MinTimeBetweenRecoilShakes value="200" />
           <RecoilShakeAmplitude value="0.950000" />
           <ExplosionShakeAmplitude value="0.000000" />
+
+          <!-- IK RECOIL - EXTREME: .500 S&W = 3x .44 Magnum recoil -->
+          <IkRecoilDisplacementScaleVertical value="0.950000" />
           
           <!-- AIM OFFSETS -->
           <AimOffsetMin x="0.000000" y="0.500000" z="0.000000" />
@@ -277,7 +280,7 @@
               <AttachBone>WAPClip</AttachBone>
               <Components>
                 <Item>
-                  <n>COMPONENT_SW500_CLIP_01</n>
+                  <Name>COMPONENT_SW500_CLIP_01</Name>
                   <Default value="true" />
                 </Item>
               </Components>

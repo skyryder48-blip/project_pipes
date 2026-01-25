@@ -52,7 +52,7 @@
     <Item>
       <Infos>
         <Item type="CWeaponInfo">
-          <n>WEAPON_KINGCOBRA</n>
+          <Name>WEAPON_KINGCOBRA</Name>
           <Model>w_pi_kingcobra</Model>
           <Audio>AUDIO_ITEM_REVOLVER</Audio>
           <Slot>SLOT_KINGCOBRA</Slot>
@@ -170,6 +170,27 @@
           <MinTimeBetweenRecoilShakes value="200" />
           <RecoilShakeAmplitude value="0.450000" />
           <ExplosionShakeAmplitude value="-1.000000" />
+
+          <!-- EFFECTS -->
+          <!-- .357 Magnum muzzle flash from 4.25" barrel -->
+          <Fx>
+            <EffectGroup />
+            <FlashFx>muz_pistol_large</FlashFx>
+            <FlashFxAlt />
+            <ShellFx />
+            <TracerFx>bullet_tracer</TracerFx>
+            <PedDamageHash>BulletLarge</PedDamageHash>
+            <TracerFxChanceSP value="1.000000" />
+            <TracerFxChanceMP value="0.500000" />
+            <FlashFxChanceSP value="1.000000" />
+            <FlashFxChanceMP value="1.000000" />
+            <FlashFxAltChance value="0.000000" />
+            <FlashFxScale value="1.100000" />
+            <GroundDisturbFxNameDefault />
+            <GroundDisturbFxNameSand />
+            <GroundDisturbFxNameWater />
+          </Fx>
+
           <IkRecoilDisplacement value="0.012" />
           <IkRecoilDisplacementScope value="0.012" />
           <IkRecoilDisplacementScaleBackward value="1.200000" />
@@ -212,7 +233,7 @@
               <AttachBone>WAPClip</AttachBone>
               <Components>
                 <Item>
-                  <n>COMPONENT_KINGCOBRA_CLIP_01</n>
+                  <Name>COMPONENT_KINGCOBRA_CLIP_01</Name>
                   <Default value="true" />
                 </Item>
               </Components>

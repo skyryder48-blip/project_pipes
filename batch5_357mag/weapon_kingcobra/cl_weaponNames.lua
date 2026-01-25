@@ -2,6 +2,4 @@
 -- Colt King Cobra .357 Magnum (4.25" barrel)
 -- Batch 5: .357 Magnum & .38 Special Revolvers
 
-Citizen.CreateThread(function()
-    AddTextEntry('WT_KINGCOBRA', 'Colt King Cobra .357')
-end)
+AddTextEntry('WT_KINGCOBRA', 'Colt King Cobra .357')

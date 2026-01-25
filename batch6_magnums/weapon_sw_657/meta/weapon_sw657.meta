@@ -51,7 +51,7 @@
       <Infos>
         <Item type="CWeaponInfo">
           <!-- IDENTIFICATION -->
-          <n>WEAPON_SW657</n>
+          <Name>WEAPON_SW657</Name>
           <Model>w_pi_sw_657</Model>
           <Audio>AUDIO_ITEM_REVOLVER</Audio>
           <Slot>SLOT_SW657</Slot>
@@ -227,6 +227,9 @@
           <MinTimeBetweenRecoilShakes value="120" />
           <RecoilShakeAmplitude value="0.420000" />
           <ExplosionShakeAmplitude value="0.000000" />
+
+          <!-- IK RECOIL - .41 Mag = 20-30% less than .44 Mag -->
+          <IkRecoilDisplacementScaleVertical value="0.480000" />
           
           <!-- AIM OFFSETS -->
           <AimOffsetMin x="0.000000" y="0.500000" z="0.000000" />
@@ -264,7 +267,7 @@
               <AttachBone>WAPClip</AttachBone>
               <Components>
                 <Item>
-                  <n>COMPONENT_SW657_CLIP_01</n>
+                  <Name>COMPONENT_SW657_CLIP_01</Name>
                   <Default value="true" />
                 </Item>
               </Components>

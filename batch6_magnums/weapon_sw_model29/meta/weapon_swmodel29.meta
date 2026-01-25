@@ -224,7 +224,10 @@
           <MinTimeBetweenRecoilShakes value="150" />
           <RecoilShakeAmplitude value="0.560000" />
           <ExplosionShakeAmplitude value="0.000000" />
-          
+
+          <!-- IK RECOIL - .44 Magnum = 1.4x .357 baseline muzzle rise -->
+          <IkRecoilDisplacementScaleVertical value="0.580000" />
+
           <!-- AIM OFFSETS -->
           <AimOffsetMin x="0.000000" y="0.500000" z="0.000000" />
           <AimProbeLengthMin value="0.500000" />

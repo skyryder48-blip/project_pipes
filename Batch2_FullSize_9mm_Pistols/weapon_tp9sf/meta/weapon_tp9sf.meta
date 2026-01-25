@@ -171,6 +171,7 @@
         <GroundDisturbFxAlt />
         <GroundDisturbFxFP />
         <GroundDisturbFxAltFP />
+              <PedDamageHash>BulletSmall</PedDamageHash>
       </Fx>
 
       <!-- Recoil: GOOD - competition-tuned, smooth reset for rapid follow-ups -->

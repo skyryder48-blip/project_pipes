@@ -152,7 +152,8 @@
             <GroundDisturbFxAlt />
             <GroundDisturbFxFP />
             <GroundDisturbFxAltFP />
-          </Fx>
+                  <PedDamageHash>BulletSmall</PedDamageHash>
+      </Fx>
 
           <!-- Excellent recoil control - low bore axis, heavy weight (837g) -->
           <RecoilShakeHash>PISTOL_RECOIL_SHAKE</RecoilShakeHash>

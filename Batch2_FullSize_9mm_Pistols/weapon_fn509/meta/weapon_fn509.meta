@@ -169,6 +169,7 @@
         <GroundDisturbFxAlt />
         <GroundDisturbFxFP />
         <GroundDisturbFxAltFP />
+              <PedDamageHash>BulletSmall</PedDamageHash>
       </Fx>
 
       <!-- Recoil: HIGH - lightest pistol (763g) = significant muzzle flip -->

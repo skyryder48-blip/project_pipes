@@ -159,6 +159,7 @@
         <GroundDisturbFxAlt />
         <GroundDisturbFxFP />
         <GroundDisturbFxAltFP />
+              <PedDamageHash>BulletSmall</PedDamageHash>
       </Fx>
       <!-- Camera and Aiming -->
       <DefaultCameraHash>DEFAULT_THIRD_PERSON_PED_AIM_CAMERA</DefaultCameraHash>

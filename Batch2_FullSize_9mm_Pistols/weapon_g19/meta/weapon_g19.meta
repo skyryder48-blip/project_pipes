@@ -157,6 +157,7 @@
         <GroundDisturbFxAlt />
         <GroundDisturbFxFP />
         <GroundDisturbFxAltFP />
+              <PedDamageHash>BulletSmall</PedDamageHash>
       </Fx>
 
       <!-- Recoil: Slightly more than G17 due to lighter weight (600g vs 625g) -->

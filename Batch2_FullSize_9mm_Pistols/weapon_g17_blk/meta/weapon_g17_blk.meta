@@ -150,6 +150,7 @@
         <GroundDisturbFxAlt />
         <GroundDisturbFxFP />
         <GroundDisturbFxAltFP />
+              <PedDamageHash>BulletSmall</PedDamageHash>
       </Fx>
       <RecoilShakeHash>PISTOL_RECOIL_SHAKE</RecoilShakeHash>
       <RecoilShakeHashFirstPerson>FPS_PISTOL_RECOIL_SHAKE</RecoilShakeHashFirstPerson>

@@ -171,6 +171,7 @@
         <GroundDisturbFxAlt />
         <GroundDisturbFxFP />
         <GroundDisturbFxAltFP />
+              <PedDamageHash>BulletSmall</PedDamageHash>
       </Fx>
 
       <!-- Recoil: REDUCED despite lighter weight due to ROTATING BARREL -->

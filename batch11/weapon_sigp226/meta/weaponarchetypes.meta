@@ -6,7 +6,7 @@
       <modelName>w_pi_sigp226</modelName>
       <txdName>w_pi_sigp226</txdName>
       <ptfxAssetName>NULL</ptfxAssetName>
-      <lodDist value="70"/>
+      <lodDist value="500"/>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

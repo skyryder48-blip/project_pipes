@@ -5,7 +5,7 @@
       <modelName>w_sr_victusxmr</modelName>
       <txdName>w_sr_victusxmr</txdName>
       <ptfxAssetName>NULL</ptfxAssetName>
-      <lodDist value="70"/>
+      <lodDist value="500"/>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

@@ -5,7 +5,7 @@
       <modelName>w_sg_model680</modelName>
       <txdName>w_sg_model680</txdName>
       <ptfxAssetName>NULL</ptfxAssetName>
-      <lodDist value="70"/>
+      <lodDist value="500"/>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

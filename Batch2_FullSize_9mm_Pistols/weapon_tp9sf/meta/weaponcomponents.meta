@@ -9,7 +9,7 @@
     <!-- FMJ MAGAZINE - Standard 15 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_TP9SF_CLIP_FMJ</Name>
-      <Model />
+      <Model>w_pi_tp9sf_mag1</Model>
       <LocName>WCT_CLIP_FMJ</LocName>
       <LocDesc>WCD_CLIP_FMJ</LocDesc>
       <ClipSize value="18" />
@@ -19,7 +19,7 @@
     <!-- HOLLOW POINT MAGAZINE - Standard 15 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_TP9SF_CLIP_HP</Name>
-      <Model />
+      <Model>w_pi_tp9sf_mag1</Model>
       <LocName>WCT_CLIP_HP</LocName>
       <LocDesc>WCD_CLIP_HP</LocDesc>
       <ClipSize value="18" />
@@ -29,7 +29,7 @@
     <!-- ARMOR PIERCING MAGAZINE - Standard 15 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_TP9SF_CLIP_AP</Name>
-      <Model />
+      <Model>w_pi_tp9sf_mag1</Model>
       <LocName>WCT_CLIP_AP</LocName>
       <LocDesc>WCD_CLIP_AP</LocDesc>
       <ClipSize value="18" />
@@ -39,7 +39,7 @@
     <!-- EXTENDED FMJ MAGAZINE (MAG2) - 10 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_TP9SF_EXTCLIP_FMJ</Name>
-      <Model />
+      <Model>w_pi_tp9sf_mag2</Model>
       <LocName>WCT_EXTCLIP_FMJ</LocName>
       <LocDesc>WCD_EXTCLIP_FMJ</LocDesc>
       <ClipSize value="10" />
@@ -49,7 +49,7 @@
     <!-- EXTENDED HOLLOW POINT MAGAZINE (MAG2) - 10 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_TP9SF_EXTCLIP_HP</Name>
-      <Model />
+      <Model>w_pi_tp9sf_mag2</Model>
       <LocName>WCT_EXTCLIP_HP</LocName>
       <LocDesc>WCD_EXTCLIP_HP</LocDesc>
       <ClipSize value="10" />
@@ -59,7 +59,7 @@
     <!-- EXTENDED ARMOR PIERCING MAGAZINE (MAG2) - 10 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_TP9SF_EXTCLIP_AP</Name>
-      <Model />
+      <Model>w_pi_tp9sf_mag2</Model>
       <LocName>WCT_EXTCLIP_AP</LocName>
       <LocDesc>WCD_EXTCLIP_AP</LocDesc>
       <ClipSize value="10" />

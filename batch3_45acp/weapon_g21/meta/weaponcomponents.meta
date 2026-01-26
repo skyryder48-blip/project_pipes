@@ -9,7 +9,7 @@
     <!-- FMJ MAGAZINE - Standard 13 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G21_CLIP_FMJ</Name>
-      <Model />
+      <Model>w_pi_g21_mag1</Model>
       <LocName>WCT_CLIP_FMJ</LocName>
       <LocDesc>WCD_CLIP_FMJ</LocDesc>
       <ClipSize value="13" />
@@ -19,7 +19,7 @@
     <!-- HOLLOW POINT MAGAZINE - Standard 13 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G21_CLIP_HP</Name>
-      <Model />
+      <Model>w_pi_g21_mag1</Model>
       <LocName>WCT_CLIP_HP</LocName>
       <LocDesc>WCD_CLIP_HP</LocDesc>
       <ClipSize value="13" />
@@ -29,7 +29,7 @@
     <!-- ARMOR PIERCING MAGAZINE - Standard 13 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G21_CLIP_AP</Name>
-      <Model />
+      <Model>w_pi_g21_mag1</Model>
       <LocName>WCT_CLIP_AP</LocName>
       <LocDesc>WCD_CLIP_AP</LocDesc>
       <ClipSize value="13" />
@@ -39,7 +39,7 @@
     <!-- EXTENDED FMJ MAGAZINE - 17 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G21_EXTCLIP_FMJ</Name>
-      <Model />
+      <Model>w_pi_g21_mag2</Model>
       <LocName>WCT_EXTCLIP_FMJ</LocName>
       <LocDesc>WCD_EXTCLIP_FMJ</LocDesc>
       <ClipSize value="17" />
@@ -49,7 +49,7 @@
     <!-- EXTENDED HOLLOW POINT MAGAZINE - 17 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G21_EXTCLIP_HP</Name>
-      <Model />
+      <Model>w_pi_g21_mag2</Model>
       <LocName>WCT_EXTCLIP_HP</LocName>
       <LocDesc>WCD_EXTCLIP_HP</LocDesc>
       <ClipSize value="17" />
@@ -59,7 +59,7 @@
     <!-- EXTENDED ARMOR PIERCING MAGAZINE - 17 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G21_EXTCLIP_AP</Name>
-      <Model />
+      <Model>w_pi_g21_mag2</Model>
       <LocName>WCT_EXTCLIP_AP</LocName>
       <LocDesc>WCD_EXTCLIP_AP</LocDesc>
       <ClipSize value="17" />

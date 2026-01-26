@@ -9,7 +9,7 @@
     <!-- FMJ MAGAZINE - Standard 20 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_FN57_CLIP_FMJ</Name>
-      <Model />
+      <Model>w_pi_fn57_mag1</Model>
       <LocName>WCT_CLIP_FMJ</LocName>
       <LocDesc>WCD_CLIP_FMJ</LocDesc>
       <ClipSize value="20" />
@@ -19,7 +19,7 @@
     <!-- HOLLOW POINT MAGAZINE - Standard 20 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_FN57_CLIP_HP</Name>
-      <Model />
+      <Model>w_pi_fn57_mag1</Model>
       <LocName>WCT_CLIP_HP</LocName>
       <LocDesc>WCD_CLIP_HP</LocDesc>
       <ClipSize value="20" />
@@ -29,7 +29,7 @@
     <!-- ARMOR PIERCING MAGAZINE - Standard 20 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_FN57_CLIP_AP</Name>
-      <Model />
+      <Model>w_pi_fn57_mag1</Model>
       <LocName>WCT_CLIP_AP</LocName>
       <LocDesc>WCD_CLIP_AP</LocDesc>
       <ClipSize value="20" />

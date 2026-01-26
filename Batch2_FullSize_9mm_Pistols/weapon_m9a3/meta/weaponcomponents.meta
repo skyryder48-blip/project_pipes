@@ -10,7 +10,7 @@
     <!-- FMJ MAGAZINE - Standard 15 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_M9A3_CLIP_FMJ</Name>
-      <Model />
+      <Model>w_pi_m9a3_mag1</Model>
       <LocName>WCT_CLIP_FMJ</LocName>
       <LocDesc>WCD_CLIP_FMJ</LocDesc>
       <ClipSize value="17" />
@@ -20,7 +20,7 @@
     <!-- HOLLOW POINT MAGAZINE - Standard 15 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_M9A3_CLIP_HP</Name>
-      <Model />
+      <Model>w_pi_m9a3_mag1</Model>
       <LocName>WCT_CLIP_HP</LocName>
       <LocDesc>WCD_CLIP_HP</LocDesc>
       <ClipSize value="17" />
@@ -30,7 +30,7 @@
     <!-- ARMOR PIERCING MAGAZINE - Standard 15 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_M9A3_CLIP_AP</Name>
-      <Model />
+      <Model>w_pi_m9a3_mag1</Model>
       <LocName>WCT_CLIP_AP</LocName>
       <LocDesc>WCD_CLIP_AP</LocDesc>
       <ClipSize value="17" />
@@ -40,7 +40,7 @@
     <!-- EXTENDED FMJ MAGAZINE - 18 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_M9A3_EXTCLIP_FMJ</Name>
-      <Model />
+      <Model>w_pi_m9a3_mag2</Model>
       <LocName>WCT_EXTCLIP_FMJ</LocName>
       <LocDesc>WCD_EXTCLIP_FMJ</LocDesc>
       <ClipSize value="20" />
@@ -50,7 +50,7 @@
     <!-- EXTENDED HOLLOW POINT MAGAZINE - 18 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_M9A3_EXTCLIP_HP</Name>
-      <Model />
+      <Model>w_pi_m9a3_mag2</Model>
       <LocName>WCT_EXTCLIP_HP</LocName>
       <LocDesc>WCD_EXTCLIP_HP</LocDesc>
       <ClipSize value="20" />
@@ -60,7 +60,7 @@
     <!-- EXTENDED ARMOR PIERCING MAGAZINE - 18 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_M9A3_EXTCLIP_AP</Name>
-      <Model />
+      <Model>w_pi_m9a3_mag2</Model>
       <LocName>WCT_EXTCLIP_AP</LocName>
       <LocDesc>WCD_EXTCLIP_AP</LocDesc>
       <ClipSize value="20" />
@@ -70,7 +70,7 @@
     <!-- FLASHLIGHT COMPONENT -->
     <Item type="CWeaponComponentFlashLightInfo">
       <Name>COMPONENT_M9A3_FLASHLIGHT</Name>
-      <Model />
+      <Model>w_pi_m9a3_mag1</Model>
       <LocName>WCT_FLASH</LocName>
       <LocDesc>WCD_FLASH</LocDesc>
     </Item>
@@ -78,7 +78,7 @@
     <!-- SUPPRESSOR COMPONENT -->
     <Item type="CWeaponComponentSuppressorInfo">
       <Name>COMPONENT_M9A3_SUPPRESSOR</Name>
-      <Model />
+      <Model>w_pi_m9a3_mag1</Model>
       <LocName>WCT_SUPP</LocName>
       <LocDesc>WCD_SUPP</LocDesc>
     </Item>

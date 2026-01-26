@@ -9,7 +9,7 @@
     <!-- FMJ MAGAZINE - Standard 16 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_GLOCK20_CLIP_FMJ</Name>
-      <Model />
+      <Model>w_pi_glock20_mag1</Model>
       <LocName>WCT_CLIP_FMJ</LocName>
       <LocDesc>WCD_CLIP_FMJ</LocDesc>
       <ClipSize value="16" />
@@ -19,7 +19,7 @@
     <!-- HOLLOW POINT MAGAZINE - Standard 16 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_GLOCK20_CLIP_HP</Name>
-      <Model />
+      <Model>w_pi_glock20_mag1</Model>
       <LocName>WCT_CLIP_HP</LocName>
       <LocDesc>WCD_CLIP_HP</LocDesc>
       <ClipSize value="16" />
@@ -29,7 +29,7 @@
     <!-- ARMOR PIERCING MAGAZINE - Standard 16 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_GLOCK20_CLIP_AP</Name>
-      <Model />
+      <Model>w_pi_glock20_mag1</Model>
       <LocName>WCT_CLIP_AP</LocName>
       <LocDesc>WCD_CLIP_AP</LocDesc>
       <ClipSize value="16" />
@@ -39,7 +39,7 @@
     <!-- EXTENDED FMJ MAGAZINE (MAG2) - 20 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_GLOCK20_EXTCLIP_FMJ</Name>
-      <Model />
+      <Model>w_pi_glock20_mag2</Model>
       <LocName>WCT_EXTCLIP_FMJ</LocName>
       <LocDesc>WCD_EXTCLIP_FMJ</LocDesc>
       <ClipSize value="20" />
@@ -49,7 +49,7 @@
     <!-- EXTENDED HOLLOW POINT MAGAZINE (MAG2) - 20 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_GLOCK20_EXTCLIP_HP</Name>
-      <Model />
+      <Model>w_pi_glock20_mag2</Model>
       <LocName>WCT_EXTCLIP_HP</LocName>
       <LocDesc>WCD_EXTCLIP_HP</LocDesc>
       <ClipSize value="20" />
@@ -59,7 +59,7 @@
     <!-- EXTENDED ARMOR PIERCING MAGAZINE (MAG2) - 20 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_GLOCK20_EXTCLIP_AP</Name>
-      <Model />
+      <Model>w_pi_glock20_mag2</Model>
       <LocName>WCT_EXTCLIP_AP</LocName>
       <LocDesc>WCD_EXTCLIP_AP</LocDesc>
       <ClipSize value="20" />
@@ -69,7 +69,7 @@
     <!-- DRUM FMJ MAGAZINE (MAG3) - 40 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_GLOCK20_DRUM_FMJ</Name>
-      <Model />
+      <Model>w_pi_glock20_mag3</Model>
       <LocName>WCT_DRUM_FMJ</LocName>
       <LocDesc>WCD_DRUM_FMJ</LocDesc>
       <ClipSize value="40" />
@@ -79,7 +79,7 @@
     <!-- DRUM HOLLOW POINT MAGAZINE (MAG3) - 40 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_GLOCK20_DRUM_HP</Name>
-      <Model />
+      <Model>w_pi_glock20_mag3</Model>
       <LocName>WCT_DRUM_HP</LocName>
       <LocDesc>WCD_DRUM_HP</LocDesc>
       <ClipSize value="40" />
@@ -89,7 +89,7 @@
     <!-- DRUM ARMOR PIERCING MAGAZINE (MAG3) - 40 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_GLOCK20_DRUM_AP</Name>
-      <Model />
+      <Model>w_pi_glock20_mag3</Model>
       <LocName>WCT_DRUM_AP</LocName>
       <LocDesc>WCD_DRUM_AP</LocDesc>
       <ClipSize value="40" />
@@ -99,7 +99,7 @@
     <!-- LARGE DRUM FMJ MAGAZINE (MAG4) - 80 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_GLOCK20_LGDRUM_FMJ</Name>
-      <Model />
+      <Model>w_pi_glock20_mag4</Model>
       <LocName>WCT_LGDRUM_FMJ</LocName>
       <LocDesc>WCD_LGDRUM_FMJ</LocDesc>
       <ClipSize value="80" />
@@ -109,7 +109,7 @@
     <!-- LARGE DRUM HOLLOW POINT MAGAZINE (MAG4) - 80 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_GLOCK20_LGDRUM_HP</Name>
-      <Model />
+      <Model>w_pi_glock20_mag4</Model>
       <LocName>WCT_LGDRUM_HP</LocName>
       <LocDesc>WCD_LGDRUM_HP</LocDesc>
       <ClipSize value="80" />
@@ -119,7 +119,7 @@
     <!-- LARGE DRUM ARMOR PIERCING MAGAZINE (MAG4) - 80 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_GLOCK20_LGDRUM_AP</Name>
-      <Model />
+      <Model>w_pi_glock20_mag4</Model>
       <LocName>WCT_LGDRUM_AP</LocName>
       <LocDesc>WCD_LGDRUM_AP</LocDesc>
       <ClipSize value="80" />
@@ -129,7 +129,7 @@
     <!-- STICK FMJ MAGAZINE (MAG5) - 30 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_GLOCK20_STICK_FMJ</Name>
-      <Model />
+      <Model>w_pi_glock20_mag5</Model>
       <LocName>WCT_STICK_FMJ</LocName>
       <LocDesc>WCD_STICK_FMJ</LocDesc>
       <ClipSize value="30" />
@@ -139,7 +139,7 @@
     <!-- STICK HOLLOW POINT MAGAZINE (MAG5) - 30 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_GLOCK20_STICK_HP</Name>
-      <Model />
+      <Model>w_pi_glock20_mag5</Model>
       <LocName>WCT_STICK_HP</LocName>
       <LocDesc>WCD_STICK_HP</LocDesc>
       <ClipSize value="30" />
@@ -149,7 +149,7 @@
     <!-- STICK ARMOR PIERCING MAGAZINE (MAG5) - 30 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_GLOCK20_STICK_AP</Name>
-      <Model />
+      <Model>w_pi_glock20_mag5</Model>
       <LocName>WCT_STICK_AP</LocName>
       <LocDesc>WCD_STICK_AP</LocDesc>
       <ClipSize value="30" />

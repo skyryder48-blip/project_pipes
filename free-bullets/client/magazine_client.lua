@@ -227,6 +227,11 @@ end
 
 --[[
     Equip a loaded magazine to currently held weapon
+
+    Supports shared magazine compatibility:
+    - Magazines can be compatible with multiple weapons (e.g., Glock mags fit G17, G19, G26)
+    - Each weapon has its own physical capacity limit (ClipSize in weaponcomponents.meta)
+    - If magazine has more rounds than weapon can hold, excess stays in magazine
 ]]
 function EquipMagazine(magazineItem, magazineSlot, metadata)
     local ped = PlayerPedId()
@@ -252,6 +257,10 @@ function EquipMagazine(magazineItem, magazineSlot, metadata)
     -- Get current magazine if any (to return to inventory)
     local currentMag = equippedMagazines[currentWeapon]
 
+    -- Get the weapon's actual clip size (from weaponcomponents.meta)
+    -- This respects per-weapon physical magazine capacity
+    local weaponClipSize = GetWeaponClipSize(currentWeapon)
+
     -- Calculate swap time based on magazine type
     local magInfo = Config.Magazines[magazineItem]
     local swapTime = Config.MagazineSystem.swapTime[magInfo.type] or 1.5
@@ -274,6 +283,7 @@ function EquipMagazine(magazineItem, magazineSlot, metadata)
     }) then
         TriggerServerEvent('ammo:equipMagazine', {
             weaponHash = currentWeapon,
+            weaponClipSize = weaponClipSize,  -- Send weapon's physical capacity limit
             newMagazine = {
                 item = magazineItem,
                 slot = magazineSlot,
@@ -286,6 +296,7 @@ end
 
 --[[
     Server callback - Magazine equipped successfully
+    Uses weapon's actual clip size for tracking (not magazine's theoretical capacity)
 ]]
 RegisterNetEvent('ammo:magazineEquipped', function(data)
     local weaponHash = data.weaponHash
@@ -294,12 +305,16 @@ RegisterNetEvent('ammo:magazineEquipped', function(data)
 
     if not magInfo or not weaponInfo then return end
 
-    -- Store equipped magazine data
+    -- Get the weapon's actual clip size (physical limit)
+    local weaponClipSize = GetWeaponClipSize(weaponHash)
+
+    -- Store equipped magazine data with weapon's actual capacity
     equippedMagazines[weaponHash] = {
         item = data.magazineItem,
         ammoType = data.ammoType,
         count = data.count,
-        maxCount = magInfo.capacity,
+        maxCount = weaponClipSize,  -- Use weapon's physical capacity, not magazine's
+        magazineCapacity = magInfo.capacity,  -- Keep magazine's capacity for reference
     }
 
     -- Build and apply the correct weapon component
@@ -460,16 +475,21 @@ end
 
 --[[
     Perform combat reload with selected magazine
+    Respects weapon's physical capacity limit (weaponClipSize from meta)
 ]]
 function PerformCombatReload(weaponHash, selectedMag)
     local magInfo = Config.Magazines[selectedMag.item]
     local swapTime = Config.MagazineSystem.swapTime[magInfo.type] or 1.5
+
+    -- Get the weapon's actual clip size for capacity limiting
+    local weaponClipSize = GetWeaponClipSize(weaponHash)
 
     -- Return current empty magazine to inventory first
     local currentMag = equippedMagazines[weaponHash]
 
     TriggerServerEvent('ammo:combatReload', {
         weaponHash = weaponHash,
+        weaponClipSize = weaponClipSize,  -- Send weapon's physical capacity limit
         newMagazine = selectedMag,
         emptyMagazine = currentMag and {
             item = currentMag.item,
@@ -497,6 +517,62 @@ function ReturnEmptyMagazine(weaponHash)
         equippedMagazines[weaponHash] = nil
     end
 end
+
+--[[
+    Manually eject magazine from weapon (even if it has rounds remaining)
+    This allows single-magazine players to:
+    1. Eject their mag
+    2. Load it with ammo from inventory
+    3. Re-insert it
+
+    Returns magazine to inventory with current round count preserved.
+]]
+function EjectMagazine()
+    local ped = PlayerPedId()
+    local currentWeapon = GetSelectedPedWeapon(ped)
+
+    if currentWeapon == `WEAPON_UNARMED` then
+        lib.notify({ title = 'No Weapon', description = 'No weapon equipped', type = 'error' })
+        return false
+    end
+
+    local currentMag = equippedMagazines[currentWeapon]
+    if not currentMag then
+        lib.notify({ title = 'No Magazine', description = 'No magazine in weapon', type = 'error' })
+        return false
+    end
+
+    -- Get current ammo count from weapon (may have changed from firing)
+    local currentAmmo = GetAmmoInPedWeapon(ped, currentWeapon)
+    currentMag.count = currentAmmo
+
+    -- Trigger server to return magazine to inventory
+    TriggerServerEvent('ammo:ejectMagazine', {
+        weaponHash = currentWeapon,
+        magazineItem = currentMag.item,
+        ammoType = currentMag.ammoType,
+        count = currentAmmo,
+    })
+
+    -- Clear local tracking
+    equippedMagazines[currentWeapon] = nil
+
+    -- Remove ammo from weapon (mag is ejected)
+    SetPedAmmo(ped, currentWeapon, 0)
+
+    return true
+end
+
+-- Export for external use (keybinds, other scripts)
+exports('EjectMagazine', EjectMagazine)
+
+-- Command to manually eject magazine
+RegisterCommand('ejectmag', function()
+    EjectMagazine()
+end, false)
+
+-- Optional keybind (K by default, can be rebound in FiveM settings)
+RegisterKeyMapping('ejectmag', 'Eject Magazine from Weapon', 'keyboard', 'k')
 
 -- ============================================================================
 -- INVENTORY CONTEXT MENU INTEGRATION

@@ -9,7 +9,7 @@
     <!-- FMJ MAGAZINE - Standard 33 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G19XD_CLIP_FMJ</Name>
-      <Model />
+      <Model>w_pi_g19xd_mag1</Model>
       <LocName>WCT_CLIP_FMJ</LocName>
       <LocDesc>WCD_CLIP_FMJ</LocDesc>
       <ClipSize value="27" />
@@ -19,7 +19,7 @@
     <!-- HOLLOW POINT MAGAZINE - Standard 33 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G19XD_CLIP_HP</Name>
-      <Model />
+      <Model>w_pi_g19xd_mag1</Model>
       <LocName>WCT_CLIP_HP</LocName>
       <LocDesc>WCD_CLIP_HP</LocDesc>
       <ClipSize value="27" />
@@ -29,7 +29,7 @@
     <!-- ARMOR PIERCING MAGAZINE - Standard 33 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G19XD_CLIP_AP</Name>
-      <Model />
+      <Model>w_pi_g19xd_mag1</Model>
       <LocName>WCT_CLIP_AP</LocName>
       <LocDesc>WCD_CLIP_AP</LocDesc>
       <ClipSize value="27" />
@@ -39,7 +39,7 @@
     <!-- MAG2 FMJ MAGAZINE - 37 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G19XD_MAG2_FMJ</Name>
-      <Model />
+      <Model>w_pi_g19xd_mag1</Model>
       <LocName>WCT_MAG2_FMJ</LocName>
       <LocDesc>WCD_MAG2_FMJ</LocDesc>
       <ClipSize value="33" />
@@ -49,7 +49,7 @@
     <!-- MAG2 HOLLOW POINT MAGAZINE - 37 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G19XD_MAG2_HP</Name>
-      <Model />
+      <Model>w_pi_g19xd_mag1</Model>
       <LocName>WCT_MAG2_HP</LocName>
       <LocDesc>WCD_MAG2_HP</LocDesc>
       <ClipSize value="33" />
@@ -59,7 +59,7 @@
     <!-- MAG2 ARMOR PIERCING MAGAZINE - 37 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G19XD_MAG2_AP</Name>
-      <Model />
+      <Model>w_pi_g19xd_mag2</Model>
       <LocName>WCT_MAG2_AP</LocName>
       <LocDesc>WCD_MAG2_AP</LocDesc>
       <ClipSize value="33" />
@@ -69,7 +69,7 @@
     <!-- MAG3 FMJ MAGAZINE - 50 round drum -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G19XD_MAG3_FMJ</Name>
-      <Model />
+      <Model>w_pi_g19xd_mag3</Model>
       <LocName>WCT_MAG3_FMJ</LocName>
       <LocDesc>WCD_MAG3_FMJ</LocDesc>
       <ClipSize value="50" />
@@ -79,7 +79,7 @@
     <!-- MAG3 HOLLOW POINT MAGAZINE - 50 round drum -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G19XD_MAG3_HP</Name>
-      <Model />
+      <Model>w_pi_g19xd_mag3</Model>
       <LocName>WCT_MAG3_HP</LocName>
       <LocDesc>WCD_MAG3_HP</LocDesc>
       <ClipSize value="50" />
@@ -89,7 +89,7 @@
     <!-- MAG3 ARMOR PIERCING MAGAZINE - 50 round drum -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G19XD_MAG3_AP</Name>
-      <Model />
+      <Model>w_pi_g19xd_mag3</Model>
       <LocName>WCT_MAG3_AP</LocName>
       <LocDesc>WCD_MAG3_AP</LocDesc>
       <ClipSize value="50" />
@@ -99,7 +99,7 @@
     <!-- MAG4 FMJ MAGAZINE - 100 round drum -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G19XD_MAG4_FMJ</Name>
-      <Model />
+      <Model>w_pi_g19xd_mag4</Model>
       <LocName>WCT_MAG4_FMJ</LocName>
       <LocDesc>WCD_MAG4_FMJ</LocDesc>
       <ClipSize value="100" />
@@ -109,7 +109,7 @@
     <!-- MAG4 HOLLOW POINT MAGAZINE - 100 round drum -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G19XD_MAG4_HP</Name>
-      <Model />
+      <Model>w_pi_g19xd_mag4</Model>
       <LocName>WCT_MAG4_HP</LocName>
       <LocDesc>WCD_MAG4_HP</LocDesc>
       <ClipSize value="100" />
@@ -119,7 +119,7 @@
     <!-- MAG4 ARMOR PIERCING MAGAZINE - 100 round drum -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G19XD_MAG4_AP</Name>
-      <Model />
+      <Model>w_pi_g19xd_mag4</Model>
       <LocName>WCT_MAG4_AP</LocName>
       <LocDesc>WCD_MAG4_AP</LocDesc>
       <ClipSize value="100" />
@@ -129,7 +129,7 @@
     <!-- MAG5 FMJ MAGAZINE - 28 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G19XD_MAG5_FMJ</Name>
-      <Model />
+      <Model>w_pi_g19xd_mag5</Model>
       <LocName>WCT_MAG5_FMJ</LocName>
       <LocDesc>WCD_MAG5_FMJ</LocDesc>
       <ClipSize value="22" />
@@ -139,7 +139,7 @@
     <!-- MAG5 HOLLOW POINT MAGAZINE - 28 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G19XD_MAG5_HP</Name>
-      <Model />
+      <Model>w_pi_g19xd_mag5</Model>
       <LocName>WCT_MAG5_HP</LocName>
       <LocDesc>WCD_MAG5_HP</LocDesc>
       <ClipSize value="22" />
@@ -149,7 +149,7 @@
     <!-- MAG5 ARMOR PIERCING MAGAZINE - 28 round -->
     <Item type="CWeaponComponentClipInfo">
       <Name>COMPONENT_G19XD_MAG5_AP</Name>
-      <Model />
+      <Model>w_pi_g19xd_mag5</Model>
       <LocName>WCT_MAG5_AP</LocName>
       <LocDesc>WCD_MAG5_AP</LocDesc>
       <ClipSize value="22" />

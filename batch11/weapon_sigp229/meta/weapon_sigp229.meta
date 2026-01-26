@@ -42,7 +42,7 @@
       <FireType>INSTANT_HIT</FireType>
       <WheelSlot>WHEEL_PISTOL</WheelSlot>
       <Group>GROUP_PISTOL</Group>
-      <AmmoInfo ref="AMMO_9MM_FMJ" />
+      <AmmoInfo ref="AMMO_PISTOL" />
       <AimingInfo ref="PISTOL_ACCURATE" />
 
       <!-- SIG P229: Compact 9mm DA/SA, 3.9" barrel, 32 oz -->

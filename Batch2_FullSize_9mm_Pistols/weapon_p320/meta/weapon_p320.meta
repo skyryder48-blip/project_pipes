@@ -29,7 +29,7 @@
           <FireType>INSTANT_HIT</FireType>
           <WheelSlot>WHEEL_PISTOL</WheelSlot>
           <Group>GROUP_PISTOL</Group>
-          <AmmoInfo ref="AMMO_9MM_FMJ" />
+          <AmmoInfo ref="AMMO_PISTOL" />
           <AimingInfo ref="PISTOL_ACCURATE" />
 
           <!-- P320: 17+1, LONGEST barrel (4.7") -->

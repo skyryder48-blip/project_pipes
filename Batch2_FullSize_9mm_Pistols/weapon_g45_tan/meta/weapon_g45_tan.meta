@@ -44,7 +44,7 @@
           <FireType>INSTANT_HIT</FireType>
           <WheelSlot>WHEEL_PISTOL</WheelSlot>
           <Group>GROUP_PISTOL</Group>
-          <AmmoInfo ref="AMMO_9MM_FMJ" />
+          <AmmoInfo ref="AMMO_PISTOL" />
           <AimingInfo ref="PISTOL_ACCURATE" />
 
           <!-- Glock 45 Tan: 15+1 capacity, 4.02" barrel - COMPACT -->

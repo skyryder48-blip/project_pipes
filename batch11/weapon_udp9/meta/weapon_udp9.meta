@@ -42,7 +42,7 @@
       <FireType>INSTANT_HIT</FireType>
       <WheelSlot>WHEEL_PISTOL</WheelSlot>
       <Group>GROUP_PISTOL</Group>
-      <AmmoInfo ref="AMMO_9MM_FMJ" />
+      <AmmoInfo ref="AMMO_SMG" />
       <AimingInfo ref="PISTOL_ACCURATE" />
 
       <!-- Angstadt Arms UDP-9: Premium AR-9 pistol, 6.0" barrel, sub-5 lbs -->

@@ -42,7 +42,7 @@
       <FireType>INSTANT_HIT</FireType>
       <WheelSlot>WHEEL_PISTOL</WheelSlot>
       <Group>GROUP_PISTOL</Group>
-      <AmmoInfo ref="AMMO_45ACP_FMJ" />
+      <AmmoInfo ref="AMMO_PISTOL" />
       <AimingInfo ref="PISTOL_ACCURATE" />
 
       <!-- SIG P220: Classic .45 ACP DA/SA, 4.4" barrel, 30.4 oz -->

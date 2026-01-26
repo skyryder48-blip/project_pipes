@@ -42,7 +42,7 @@
       <FireType>INSTANT_HIT</FireType>
       <WheelSlot>WHEEL_PISTOL</WheelSlot>
       <Group>GROUP_PISTOL</Group>
-      <AmmoInfo ref="AMMO_9MM_FMJ" />
+      <AmmoInfo ref="AMMO_PISTOL" />
       <AimingInfo ref="PISTOL_ACCURATE" />
 
       <!-- Glock 17 Gen 4: 17+1 capacity, 4.49" barrel -->

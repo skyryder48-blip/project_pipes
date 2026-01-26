@@ -42,7 +42,7 @@
       <FireType>INSTANT_HIT</FireType>
       <WheelSlot>WHEEL_PISTOL</WheelSlot>
       <Group>GROUP_PISTOL</Group>
-      <AmmoInfo ref="AMMO_9MM_FMJ" />
+      <AmmoInfo ref="AMMO_PISTOL" />
       <AimingInfo ref="PISTOL_ACCURATE" />
 
       <!-- SIG P226 MK25: Navy SEAL Sidearm, 4.4" barrel, phosphate internals -->

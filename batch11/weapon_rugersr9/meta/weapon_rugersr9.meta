@@ -42,7 +42,7 @@
       <FireType>INSTANT_HIT</FireType>
       <WheelSlot>WHEEL_PISTOL</WheelSlot>
       <Group>GROUP_PISTOL</Group>
-      <AmmoInfo ref="AMMO_9MM_FMJ" />
+      <AmmoInfo ref="AMMO_PISTOL" />
       <AimingInfo ref="PISTOL_ACCURATE" />
 
       <!-- Ruger SR9: Slim-grip 9mm striker-fired, 4.14" barrel, 26 oz -->

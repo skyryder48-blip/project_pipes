@@ -2,13 +2,13 @@
     Ammunition Damage Modifiers - COMPLETE DIFFERENTIATION
     =======================================================
 
-    EVERY caliber + ammo type combination has UNIQUE values.
-    No two bullets are the same.
+    FMJ = BASELINE (1.0) - Weapon meta defines actual damage per caliber
+    HP/JHP = ENHANCED - Represents +P performance (expansion + energy)
+    AP = ARMOR FOCUS - Penetration over raw damage
 
     Based on real-world ballistic research:
     - FBI Ammunition Protocol (12-18" penetration standard)
     - Terminal ballistics (permanent/temporary cavity)
-    - Muzzle energy comparisons per caliber
     - Armor interaction (NIJ levels)
 
     See BALLISTICS_RESEARCH.md for complete methodology.
@@ -18,31 +18,31 @@ Config = Config or {}
 
 -- =============================================================================
 -- COMPLETE AMMO MODIFIERS BY CALIBER
--- Every single caliber/ammo combination with unique values
+-- FMJ = 1.0 baseline, HP/JHP = enhanced damage variant
 -- =============================================================================
 
 Config.AmmoModifiers = {
 
     -- =========================================================================
-    -- 9mm PARABELLUM (Baseline Caliber)
+    -- 9mm PARABELLUM (Reference Caliber)
     -- Energy: 350 ft-lbs | Velocity: 1,150 fps
     -- =========================================================================
     ['9mm_fmj'] = {
-        damageMult = 1.00,
+        damageMult = 1.00,      -- BASELINE
         armorMult = 1.00,
         penetration = 0.75,
         armorBypass = false,
         effects = {},
     },
     ['9mm_hp'] = {
-        damageMult = 1.15,
-        armorMult = 0.50,
+        damageMult = 1.18,      -- +P JHP performance
+        armorMult = 0.50,       -- Expansion defeats armor penetration
         penetration = 0.48,
         armorBypass = false,
         effects = {},
     },
     ['9mm_ap'] = {
-        damageMult = 0.92,
+        damageMult = 0.92,      -- Penetration focus, less tissue damage
         armorMult = 1.75,
         penetration = 0.88,
         armorBypass = true,
@@ -52,17 +52,17 @@ Config.AmmoModifiers = {
     -- =========================================================================
     -- .45 ACP
     -- Energy: 356 ft-lbs | Velocity: 830 fps (subsonic)
-    -- Big slow bullet, excellent expansion, poor armor performance
+    -- Big slow bullet, excellent expansion
     -- =========================================================================
     ['45acp_fmj'] = {
-        damageMult = 1.02,      -- Slightly more mass than 9mm
+        damageMult = 1.00,      -- BASELINE
         armorMult = 0.95,       -- Slow velocity = worse vs armor
         penetration = 0.70,
         armorBypass = false,
         effects = {},
     },
     ['45acp_jhp'] = {
-        damageMult = 1.22,      -- Excellent expansion (.45 mushrooms huge)
+        damageMult = 1.22,      -- +P JHP - .45 mushrooms huge
         armorMult = 0.42,       -- Terrible vs armor
         penetration = 0.52,
         armorBypass = false,
@@ -72,17 +72,17 @@ Config.AmmoModifiers = {
     -- =========================================================================
     -- .40 S&W
     -- Energy: 420 ft-lbs | Velocity: 990 fps
-    -- "Snappy" recoil, compromise between 9mm and .45
+    -- Compromise between 9mm and .45
     -- =========================================================================
     ['40sw_fmj'] = {
-        damageMult = 1.08,      -- More energy than 9mm
-        armorMult = 1.02,       -- Slightly better velocity
+        damageMult = 1.00,      -- BASELINE
+        armorMult = 1.02,
         penetration = 0.72,
         armorBypass = false,
         effects = {},
     },
     ['40sw_jhp'] = {
-        damageMult = 1.26,      -- Good expansion + energy
+        damageMult = 1.20,      -- +P JHP performance
         armorMult = 0.48,
         penetration = 0.55,
         armorBypass = false,
@@ -95,14 +95,14 @@ Config.AmmoModifiers = {
     -- Legendary "man-stopper", velocity-dependent expansion
     -- =========================================================================
     ['357mag_fmj'] = {
-        damageMult = 1.18,      -- Significant energy advantage
+        damageMult = 1.00,      -- BASELINE
         armorMult = 1.08,       -- High velocity helps
-        penetration = 0.85,     -- Deep penetration
+        penetration = 0.85,
         armorBypass = false,
         effects = {},
     },
     ['357mag_jhp'] = {
-        damageMult = 1.42,      -- Devastating at velocity
+        damageMult = 1.28,      -- +P JHP - devastating at velocity
         armorMult = 0.52,
         penetration = 0.55,
         armorBypass = false,
@@ -112,18 +112,18 @@ Config.AmmoModifiers = {
     -- =========================================================================
     -- .38 SPECIAL
     -- Energy: 165-250 ft-lbs | Velocity: 755-945 fps
-    -- Weak caliber, only 57% of 9mm energy
+    -- Weaker caliber - weapon meta accounts for this
     -- =========================================================================
     ['38spl_fmj'] = {
-        damageMult = 0.72,      -- Significantly weaker than 9mm
+        damageMult = 1.00,      -- BASELINE
         armorMult = 0.85,
         penetration = 0.65,
         armorBypass = false,
         effects = {},
     },
     ['38spl_jhp'] = {
-        damageMult = 0.88,      -- +P loads help, still weak
-        armorMult = 0.40,       -- Poor expansion at low velocity
+        damageMult = 1.15,      -- +P JHP - modest improvement
+        armorMult = 0.40,
         penetration = 0.50,
         armorBypass = false,
         effects = {},
@@ -132,17 +132,17 @@ Config.AmmoModifiers = {
     -- =========================================================================
     -- .44 MAGNUM
     -- Energy: 971-1,200 ft-lbs | Velocity: 1,350-1,500 fps
-    -- "Dirty Harry" - massive power, 2x+ the energy of 9mm
+    -- "Dirty Harry" - massive power
     -- =========================================================================
     ['44mag_fmj'] = {
-        damageMult = 1.52,      -- Massive energy
+        damageMult = 1.00,      -- BASELINE
         armorMult = 1.12,       -- Sheer power helps
-        penetration = 0.88,     -- Deep penetration
+        penetration = 0.88,
         armorBypass = false,
         effects = {},
     },
     ['44mag_jhp'] = {
-        damageMult = 1.85,      -- Devastating expansion
+        damageMult = 1.25,      -- +P JHP - devastating expansion
         armorMult = 0.58,
         penetration = 0.68,
         armorBypass = false,
@@ -152,24 +152,24 @@ Config.AmmoModifiers = {
     -- =========================================================================
     -- .500 S&W MAGNUM
     -- Energy: 2,418-3,032 ft-lbs | Velocity: 1,650-1,800 fps
-    -- MOST POWERFUL PRODUCTION HANDGUN - equals rifle cartridges
+    -- MOST POWERFUL PRODUCTION HANDGUN
     -- =========================================================================
     ['500sw_fmj'] = {
-        damageMult = 1.95,      -- Rifle-level power
+        damageMult = 1.00,      -- BASELINE
         armorMult = 1.25,       -- Sheer energy defeats soft armor
         penetration = 0.92,
         armorBypass = false,
         effects = {},
     },
     ['500sw_jhp'] = {
-        damageMult = 2.35,      -- Catastrophic wound channel
+        damageMult = 1.22,      -- +P JHP - catastrophic wound channel
         armorMult = 0.65,
         penetration = 0.75,
         armorBypass = false,
         effects = {},
     },
     ['500sw_bear'] = {
-        damageMult = 1.88,      -- Penetration over expansion
+        damageMult = 1.35,      -- Hard cast deep penetrator
         armorMult = 1.42,       -- Hard cast defeats barriers
         penetration = 0.98,     -- Maximum penetration
         armorBypass = false,
@@ -179,24 +179,24 @@ Config.AmmoModifiers = {
     -- =========================================================================
     -- 5.7x28mm
     -- Energy: 250-340 ft-lbs | Velocity: 1,700-2,100 fps
-    -- PDW cartridge - high velocity, low recoil, armor-defeating AP
+    -- PDW cartridge - armor-defeating design
     -- =========================================================================
     ['57x28_fmj'] = {
-        damageMult = 0.82,      -- Less energy than 9mm
-        armorMult = 1.05,       -- Velocity helps slightly
+        damageMult = 1.00,      -- BASELINE
+        armorMult = 1.05,       -- Velocity helps
         penetration = 0.70,
         armorBypass = false,
         effects = {},
     },
     ['57x28_jhp'] = {
-        damageMult = 0.98,      -- Small diameter limits expansion
+        damageMult = 1.12,      -- +P JHP - small diameter limits expansion
         armorMult = 0.45,
         penetration = 0.55,
         armorBypass = false,
         effects = {},
     },
     ['57x28_ap'] = {
-        damageMult = 0.78,      -- SS190 - armor focus
+        damageMult = 0.88,      -- SS190 - armor focus
         armorMult = 2.20,       -- Defeats Level IIIA
         penetration = 0.96,
         armorBypass = true,
@@ -205,18 +205,18 @@ Config.AmmoModifiers = {
 
     -- =========================================================================
     -- 10mm AUTO
-    -- Dual personality: FBI spec (400 ft-lbs) vs Full power (650 ft-lbs)
+    -- FBI spec vs Full power variants
     -- =========================================================================
-    ['10mm_fbi'] = {
-        damageMult = 1.05,      -- Downloaded = .40 S&W equivalent
+    ['10mm_fmj'] = {
+        damageMult = 1.00,      -- BASELINE (FBI spec)
         armorMult = 1.00,
         penetration = 0.72,
         armorBypass = false,
         effects = {},
     },
-    ['10mm_fullpower'] = {
-        damageMult = 1.38,      -- Full Norma spec = .357 Mag
-        armorMult = 1.08,
+    ['10mm_jhp'] = {
+        damageMult = 1.32,      -- Full power JHP = .357 Mag performance
+        armorMult = 0.55,
         penetration = 0.68,
         armorBypass = false,
         effects = {},
@@ -232,17 +232,17 @@ Config.AmmoModifiers = {
     -- =========================================================================
     -- .22 LR
     -- Energy: 80-115 ft-lbs | Velocity: 1,000-1,200 fps
-    -- WEAKEST handgun cartridge - training/plinking
+    -- Weakest handgun - weapon meta accounts for this
     -- =========================================================================
     ['22lr_fmj'] = {
-        damageMult = 0.38,      -- Very weak
+        damageMult = 1.00,      -- BASELINE
         armorMult = 0.65,
         penetration = 0.50,
         armorBypass = false,
         effects = {},
     },
     ['22lr_jhp'] = {
-        damageMult = 0.45,      -- Unreliable expansion
+        damageMult = 1.15,      -- +P JHP - unreliable expansion
         armorMult = 0.35,
         penetration = 0.35,
         armorBypass = false,
@@ -251,10 +251,10 @@ Config.AmmoModifiers = {
 
     -- =========================================================================
     -- 12 GAUGE SHOTGUN
-    -- Unique pellet-based system
+    -- Pellet-based system
     -- =========================================================================
     ['12ga_00buck'] = {
-        damageMult = 1.00,      -- 8 pellets × base
+        damageMult = 1.00,      -- BASELINE - 8 pellets × base
         armorMult = 0.60,
         penetration = 0.65,
         pellets = 8,
@@ -348,14 +348,14 @@ Config.AmmoModifiers = {
     -- Standard AR-15/M4 cartridge
     -- =========================================================================
     ['556_fmj'] = {
-        damageMult = 1.00,      -- Rifle baseline
+        damageMult = 1.00,      -- BASELINE
         armorMult = 1.15,       -- High velocity
         penetration = 0.72,
         armorBypass = false,
         effects = {},
     },
-    ['556_sp'] = {
-        damageMult = 1.14,      -- Soft point expansion
+    ['556_hp'] = {
+        damageMult = 1.18,      -- +P HP - soft point expansion
         armorMult = 0.75,
         penetration = 0.58,
         armorBypass = false,
@@ -375,14 +375,14 @@ Config.AmmoModifiers = {
     -- Next-gen military - designed to defeat Level IV
     -- =========================================================================
     ['68x51_fmj'] = {
-        damageMult = 1.28,      -- More powerful than 5.56
+        damageMult = 1.00,      -- BASELINE
         armorMult = 1.45,       -- Designed for armor defeat
         penetration = 0.88,
         armorBypass = true,     -- Even FMJ defeats body armor
         effects = {},
     },
     ['68x51_ap'] = {
-        damageMult = 1.22,
+        damageMult = 0.95,      -- Penetration focus
         armorMult = 2.10,       -- Maximum armor defeat
         penetration = 0.98,
         armorBypass = true,
@@ -395,14 +395,14 @@ Config.AmmoModifiers = {
     -- Suppressor-optimized cartridge
     -- =========================================================================
     ['300blk_supersonic'] = {
-        damageMult = 1.05,      -- 7.62x39 equivalent
+        damageMult = 1.00,      -- BASELINE
         armorMult = 1.08,
         penetration = 0.72,
         armorBypass = false,
         effects = {},
     },
     ['300blk_subsonic'] = {
-        damageMult = 0.85,      -- Much less energy
+        damageMult = 0.82,      -- Much less energy
         armorMult = 0.88,
         penetration = 0.68,
         armorBypass = false,
@@ -415,24 +415,24 @@ Config.AmmoModifiers = {
     -- =========================================================================
     -- 7.62x39mm
     -- Energy: 1,508 ft-lbs | Velocity: 2,350 fps
-    -- Soviet AK cartridge - 14% more energy than 5.56
+    -- Soviet AK cartridge
     -- =========================================================================
     ['762x39_fmj'] = {
-        damageMult = 1.12,      -- More mass than 5.56
-        armorMult = 1.05,       -- Slower velocity
+        damageMult = 1.00,      -- BASELINE
+        armorMult = 1.05,
         penetration = 0.74,
         armorBypass = false,
         effects = {},
     },
-    ['762x39_sp'] = {
-        damageMult = 1.28,      -- Good expansion
+    ['762x39_hp'] = {
+        damageMult = 1.18,      -- +P HP - good expansion
         armorMult = 0.68,
         penetration = 0.56,
         armorBypass = false,
         effects = {},
     },
     ['762x39_ap'] = {
-        damageMult = 1.02,      -- 7N23 BP penetrator
+        damageMult = 0.90,      -- 7N23 BP penetrator
         armorMult = 1.85,
         penetration = 0.92,
         armorBypass = true,
@@ -445,14 +445,14 @@ Config.AmmoModifiers = {
     -- Full-power battle rifle cartridge
     -- =========================================================================
     ['762x51_fmj'] = {
-        damageMult = 1.35,      -- Much more than 5.56
+        damageMult = 1.00,      -- BASELINE
         armorMult = 1.22,
         penetration = 0.78,
         armorBypass = false,
         effects = {},
     },
     ['762x51_match'] = {
-        damageMult = 1.42,      -- Premium precision
+        damageMult = 1.08,      -- Premium precision load
         armorMult = 1.18,
         penetration = 0.76,
         armorBypass = false,
@@ -461,7 +461,7 @@ Config.AmmoModifiers = {
         },
     },
     ['762x51_ap'] = {
-        damageMult = 1.28,      -- M993 tungsten
+        damageMult = 0.92,      -- M993 tungsten
         armorMult = 2.05,       -- Defeats Level III+
         penetration = 0.95,
         armorBypass = true,
@@ -474,14 +474,14 @@ Config.AmmoModifiers = {
     -- Long-range precision/hunting magnum
     -- =========================================================================
     ['300wm_fmj'] = {
-        damageMult = 1.58,      -- Magnum power
+        damageMult = 1.00,      -- BASELINE
         armorMult = 1.32,
         penetration = 0.82,
         armorBypass = false,
         effects = {},
     },
     ['300wm_match'] = {
-        damageMult = 1.65,      -- Competition precision
+        damageMult = 1.08,      -- Competition precision
         armorMult = 1.28,
         penetration = 0.80,
         armorBypass = false,
@@ -496,14 +496,14 @@ Config.AmmoModifiers = {
     -- ANTI-MATERIEL - 36x the energy of 9mm
     -- =========================================================================
     ['50bmg_ball'] = {
-        damageMult = 2.20,      -- Massive baseline
+        damageMult = 1.00,      -- BASELINE
         armorMult = 1.65,
         penetration = 0.95,
         armorBypass = true,     -- Defeats ALL body armor
         effects = {},
     },
     ['50bmg_api'] = {
-        damageMult = 2.10,      -- Armor Piercing Incendiary
+        damageMult = 0.95,      -- Armor Piercing Incendiary
         armorMult = 2.25,
         penetration = 1.00,
         armorBypass = true,
@@ -587,8 +587,8 @@ Config.CaliberAmmoMap = {
         ['ap'] = '57x28_ap',
     },
     ['10mm'] = {
-        ['fbi'] = '10mm_fbi',
-        ['fullpower'] = '10mm_fullpower',
+        ['fmj'] = '10mm_fmj',
+        ['jhp'] = '10mm_jhp',
         ['bear'] = '10mm_bear',
     },
     ['.22lr'] = {
@@ -607,7 +607,7 @@ Config.CaliberAmmoMap = {
     },
     ['5.56'] = {
         ['fmj'] = '556_fmj',
-        ['sp'] = '556_sp',
+        ['hp'] = '556_hp',
         ['ap'] = '556_ap',
     },
     ['6.8x51'] = {
@@ -620,7 +620,7 @@ Config.CaliberAmmoMap = {
     },
     ['7.62x39'] = {
         ['fmj'] = '762x39_fmj',
-        ['sp'] = '762x39_sp',
+        ['hp'] = '762x39_hp',
         ['ap'] = '762x39_ap',
     },
     ['7.62x51'] = {
@@ -655,7 +655,7 @@ Config.DefaultAmmoModifier = {
     ['.44mag'] = 'fmj',
     ['.500sw'] = 'fmj',
     ['5.7x28'] = 'fmj',
-    ['10mm'] = 'fbi',
+    ['10mm'] = 'fmj',
     ['.22lr'] = 'fmj',
     ['5.56'] = 'fmj',
     ['6.8x51'] = 'fmj',

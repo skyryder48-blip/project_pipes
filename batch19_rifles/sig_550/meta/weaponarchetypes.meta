@@ -2,11 +2,10 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <Name>w_ar_sig550</Name>
-      <Model>w_ar_sig550</Model>
-      <Audio>AUDIO_ITEM_ASSAULTRIFLE</Audio>
-      <Slot>SLOT_SIG550</Slot>
-      <WeaponFlags>WF_FIREARM, WF_GUN, WF_GUN_2_HANDED, WF_PED_GUN_2_HANDED, WF_WEAPON, WF_LOUDWEAPON, WF_TAKE_ARM_L_LONG_GUN_IMMEDIATE_DAMAGE_REACTIONS, WF_MAKE_PED_BACKUP, WF_DEFAULT_SCOPE_ON</WeaponFlags>
+      <modelName>w_ar_sig550</modelName>
+      <txdName>w_ar_sig550</txdName>
+      <ptfxAssetName>NULL</ptfxAssetName>
+      <lodDist value="70"/>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

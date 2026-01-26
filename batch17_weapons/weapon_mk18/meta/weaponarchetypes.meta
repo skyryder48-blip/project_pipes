@@ -2,15 +2,10 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <Model>w_ar_mk18</Model>
-      <Texture>W_AR_MK18</Texture>
-      <Archetype>W_AR_MK18</Archetype>
-      <Audio>AUDIO_RIFLE</Audio>
-      <SlotPosition />
-      <SlotRotation />
-      <Vfx />
-      <AnimOverride />
-      <CanPickUp value="true" />
+      <modelName>w_ar_mk18</modelName>
+      <txdName>w_ar_mk18</txdName>
+      <ptfxAssetName>NULL</ptfxAssetName>
+      <lodDist value="70"/>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

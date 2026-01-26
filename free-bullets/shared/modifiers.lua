@@ -46,7 +46,10 @@ Config.AmmoModifiers = {
         armorMult = 1.75,
         penetration = 0.88,
         armorBypass = true,
-        effects = {},
+        effects = {
+            tracer = true,
+            tracerFrequency = 5,      -- Every 5th round (realistic)
+        },
     },
 
     -- =========================================================================
@@ -200,7 +203,10 @@ Config.AmmoModifiers = {
         armorMult = 2.20,       -- Defeats Level IIIA
         penetration = 0.96,
         armorBypass = true,
-        effects = {},
+        effects = {
+            tracer = true,
+            tracerFrequency = 5,      -- Every 5th round (realistic)
+        },
     },
 
     -- =========================================================================
@@ -299,7 +305,7 @@ Config.AmmoModifiers = {
         effects = {
             fire = true,
             fireTrail = true,
-            fireDuration = 3500,
+            fireDuration = 6000,      -- 6 seconds burn
             fireDamage = 5,
         },
     },
@@ -366,7 +372,10 @@ Config.AmmoModifiers = {
         armorMult = 1.95,
         penetration = 0.92,
         armorBypass = true,
-        effects = {},
+        effects = {
+            tracer = true,
+            tracerFrequency = 5,      -- Every 5th round (realistic)
+        },
     },
 
     -- =========================================================================
@@ -386,7 +395,10 @@ Config.AmmoModifiers = {
         armorMult = 2.10,       -- Maximum armor defeat
         penetration = 0.98,
         armorBypass = true,
-        effects = {},
+        effects = {
+            tracer = true,
+            tracerFrequency = 5,      -- Every 5th round (realistic)
+        },
     },
 
     -- =========================================================================
@@ -436,7 +448,10 @@ Config.AmmoModifiers = {
         armorMult = 1.85,
         penetration = 0.92,
         armorBypass = true,
-        effects = {},
+        effects = {
+            tracer = true,
+            tracerFrequency = 5,      -- Every 5th round (realistic)
+        },
     },
 
     -- =========================================================================
@@ -465,7 +480,10 @@ Config.AmmoModifiers = {
         armorMult = 2.05,       -- Defeats Level III+
         penetration = 0.95,
         armorBypass = true,
-        effects = {},
+        effects = {
+            tracer = true,
+            tracerFrequency = 5,      -- Every 5th round (realistic)
+        },
     },
 
     -- =========================================================================
@@ -510,7 +528,9 @@ Config.AmmoModifiers = {
         effects = {
             fire = true,
             vehicleFire = true,
-            fireDuration = 5500,
+            fireDuration = 6000,      -- 6 seconds burn
+            tracer = true,            -- API rounds have tracer element
+            tracerFrequency = 5,      -- Every 5th round
         },
     },
     ['50bmg_boom'] = {
@@ -731,6 +751,174 @@ function GetAmmoTypesForCaliber(caliber)
     end
     return types
 end
+
+-- =============================================================================
+-- VISUAL & AUDIO EFFECT CONFIGURATION
+-- Phase 2: Muzzle Flash, Sound, Fire, Tracers
+-- =============================================================================
+
+Config.VisualEffects = {
+    -- Tracer configuration (AP rounds only, realistic frequency)
+    tracer = {
+        -- Clear/wind tracer attempt using subtle distortion particle
+        -- Falls back to faint white if unavailable
+        particleFx = 'proj_tracer',           -- Base tracer particle
+        particleAsset = 'core',               -- Particle asset dictionary
+        color = { r = 240, g = 240, b = 245 }, -- Near-white/clear appearance
+        scale = 0.6,                          -- Smaller = more subtle
+        alpha = 0.4,                          -- Semi-transparent for "wind" effect
+        duration = 150,                       -- Short trail duration (ms)
+    },
+
+    -- Muzzle flash variations by caliber class
+    muzzleFlash = {
+        -- Subsonic: Minimal flash (suppressor-ready)
+        subsonic = {
+            scale = 0.25,                     -- 25% of normal flash
+            duration = 0.6,                   -- Shorter duration
+            brightness = 0.3,                 -- Dim
+        },
+        -- Standard pistol calibers
+        pistol = {
+            scale = 1.0,
+            duration = 1.0,
+            brightness = 1.0,
+        },
+        -- Magnum handguns (.357, .44, .500 S&W)
+        magnum = {
+            scale = 1.8,                      -- Much larger fireball
+            duration = 1.4,                   -- Longer visible
+            brightness = 1.5,                 -- Brighter
+        },
+        -- Standard rifle calibers
+        rifle = {
+            scale = 1.2,
+            duration = 1.0,
+            brightness = 1.1,
+        },
+        -- Sniper/precision rifles (.308, .300 WM, .50 BMG)
+        sniper = {
+            scale = 2.2,                      -- Large concussive flash
+            duration = 1.6,
+            brightness = 1.8,
+        },
+        -- Incendiary rounds
+        incendiary = {
+            scale = 1.5,
+            duration = 1.8,
+            brightness = 1.6,
+            color = { r = 255, g = 180, b = 50 }, -- Orange tint
+        },
+        -- Shotgun
+        shotgun = {
+            scale = 1.6,
+            duration = 1.2,
+            brightness = 1.3,
+        },
+        -- Dragon's breath
+        dragonsbreath = {
+            scale = 2.5,                      -- Massive fireball
+            duration = 2.5,
+            brightness = 2.0,
+            color = { r = 255, g = 100, b = 30 }, -- Deep orange/red
+        },
+    },
+
+    -- Fire effect configuration
+    fire = {
+        particleAsset = 'core',
+        particleFx = 'fire_object_md',        -- Medium fire particle
+        damageInterval = 500,                 -- Damage tick every 500ms
+        defaultDuration = 6000,               -- 6 seconds burn (user specified)
+        defaultDamage = 5,                    -- Damage per tick
+    },
+}
+
+-- =============================================================================
+-- AUDIO EFFECT CONFIGURATION
+-- Sound modifications by caliber/ammo type
+-- =============================================================================
+
+Config.AudioEffects = {
+    -- Sound volume multipliers (1.0 = default)
+    volumeMultiplier = {
+        -- Subsonic: 70% reduction (user specified)
+        subsonic = 0.30,                      -- 30% of normal volume
+
+        -- Standard calibers (baseline)
+        pistol_standard = 1.0,
+        rifle_standard = 1.0,
+
+        -- Enhanced volume for powerful calibers
+        magnum_357 = 1.35,                    -- .357 Mag - sharp crack
+        magnum_44 = 1.50,                     -- .44 Mag - thunderous
+        magnum_500 = 1.75,                    -- .500 S&W - deafening
+        sniper_308 = 1.40,                    -- .308/7.62x51 - heavy report
+        sniper_300wm = 1.55,                  -- .300 Win Mag - concussive
+        sniper_50bmg = 2.00,                  -- .50 BMG - ear-splitting boom
+    },
+
+    -- Caliber to sound profile mapping
+    caliberSoundProfile = {
+        -- Subsonic rounds
+        ['.300blk_subsonic'] = 'subsonic',
+
+        -- Magnum pistols
+        ['.357mag'] = 'magnum_357',
+        ['.44mag'] = 'magnum_44',
+        ['.500sw'] = 'magnum_500',
+
+        -- Sniper/precision rifles
+        ['7.62x51'] = 'sniper_308',
+        ['.300wm'] = 'sniper_300wm',
+        ['.50bmg'] = 'sniper_50bmg',
+
+        -- Standard (explicit for completeness)
+        ['9mm'] = 'pistol_standard',
+        ['.45acp'] = 'pistol_standard',
+        ['.40sw'] = 'pistol_standard',
+        ['5.56'] = 'rifle_standard',
+        ['7.62x39'] = 'rifle_standard',
+    },
+}
+
+-- =============================================================================
+-- CALIBER CLASS MAPPING
+-- Maps calibers to muzzle flash profiles
+-- =============================================================================
+
+Config.CaliberClass = {
+    -- Subsonic
+    ['300blk_subsonic'] = 'subsonic',
+
+    -- Magnum pistols
+    ['.357mag'] = 'magnum',
+    ['.44mag'] = 'magnum',
+    ['.500sw'] = 'magnum',
+
+    -- Sniper/precision
+    ['7.62x51'] = 'sniper',
+    ['.300wm'] = 'sniper',
+    ['.50bmg'] = 'sniper',
+
+    -- Shotgun
+    ['12ga'] = 'shotgun',
+
+    -- Standard pistols
+    ['9mm'] = 'pistol',
+    ['.45acp'] = 'pistol',
+    ['.40sw'] = 'pistol',
+    ['.38spl'] = 'pistol',
+    ['5.7x28'] = 'pistol',
+    ['10mm'] = 'pistol',
+    ['.22lr'] = 'pistol',
+
+    -- Standard rifles
+    ['5.56'] = 'rifle',
+    ['6.8x51'] = 'rifle',
+    ['.300blk'] = 'rifle',
+    ['7.62x39'] = 'rifle',
+}
 
 -- =============================================================================
 -- EXPORTS

@@ -2,11 +2,10 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <Name>w_ar_desert_ar15</Name>
-      <Model>w_ar_desert_ar15</Model>
-      <Audio>AUDIO_ITEM_ASSAULTRIFLE</Audio>
-      <Slot>SLOT_DESERT_AR15</Slot>
-      <WeaponFlags>WF_FIREARM, WF_GUN, WF_GUN_2_HANDED, WF_PED_GUN_2_HANDED, WF_WEAPON, WF_LOUDWEAPON, WF_TAKE_ARM_L_LONG_GUN_IMMEDIATE_DAMAGE_REACTIONS, WF_MAKE_PED_BACKUP</WeaponFlags>
+      <modelName>w_ar_desert_ar15</modelName>
+      <txdName>w_ar_desert_ar15</txdName>
+      <ptfxAssetName>NULL</ptfxAssetName>
+      <lodDist value="70"/>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

@@ -2,15 +2,10 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <Model>w_sb_mac4a1</Model>
-      <Texture>W_SB_MAC4A1</Texture>
-      <Archetype>W_SB_MAC4A1</Archetype>
-      <Audio>AUDIO_SMG</Audio>
-      <SlotPosition />
-      <SlotRotation />
-      <Vfx />
-      <AnimOverride />
-      <CanPickUp value="true" />
+      <modelName>w_sb_mac4a1</modelName>
+      <txdName>w_sb_mac4a1</txdName>
+      <ptfxAssetName>NULL</ptfxAssetName>
+      <lodDist value="70"/>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

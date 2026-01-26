@@ -2,11 +2,10 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <Name>w_pi_model60</Name>
-      <Model>w_pi_model60</Model>
-      <Audio>AUDIO_ITEM_REVOLVER</Audio>
-      <Slot>SLOT_SWMODEL60</Slot>
-      <WeaponFlags>WF_FIREARM, WF_GUN, WF_WEAPON, WF_LOUDWEAPON, WF_TAKE_ARM_L_HAND_DAMAGE_REACTIONS, WF_MAKE_PED_BACKUP</WeaponFlags>
+      <modelName>w_pi_model60</modelName>
+      <txdName>w_pi_model60</txdName>
+      <ptfxAssetName>NULL</ptfxAssetName>
+      <lodDist value="70"/>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

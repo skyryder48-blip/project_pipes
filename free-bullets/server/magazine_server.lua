@@ -391,6 +391,55 @@ RegisterNetEvent('ammo:returnEmptyMagazine', function(data)
 end)
 
 -- ============================================================================
+-- MANUAL MAGAZINE EJECT
+-- ============================================================================
+
+--[[
+    Manually eject magazine from weapon (player-initiated)
+    Returns magazine to inventory with current ammo count preserved.
+    This allows single-magazine players to reload their only mag.
+]]
+RegisterNetEvent('ammo:ejectMagazine', function(data)
+    local source = source
+
+    if not data.magazineItem then return end
+
+    local magInfo = Config.Magazines[data.magazineItem]
+    local roundCount = data.count or 0
+
+    if roundCount > 0 then
+        -- Magazine has ammo - return with metadata
+        local metadata = {
+            ammoType = data.ammoType,
+            count = roundCount,
+            maxCount = magInfo and magInfo.capacity or roundCount,
+            label = string.format('%s (%d/%d %s)',
+                magInfo and magInfo.label or data.magazineItem,
+                roundCount,
+                magInfo and magInfo.capacity or roundCount,
+                string.upper(data.ammoType or 'fmj')
+            ),
+        }
+        ox_inventory:AddItem(source, data.magazineItem, 1, metadata)
+
+        TriggerClientEvent('ox_lib:notify', source, {
+            title = 'Magazine Ejected',
+            description = string.format('Magazine returned with %d rounds', roundCount),
+            type = 'success'
+        })
+    else
+        -- Empty magazine - no metadata (stackable)
+        ox_inventory:AddItem(source, data.magazineItem, 1)
+
+        TriggerClientEvent('ox_lib:notify', source, {
+            title = 'Magazine Ejected',
+            description = 'Empty magazine returned to inventory',
+            type = 'inform'
+        })
+    end
+end)
+
+-- ============================================================================
 -- UTILITY FUNCTIONS
 -- ============================================================================
 

@@ -518,6 +518,62 @@ function ReturnEmptyMagazine(weaponHash)
     end
 end
 
+--[[
+    Manually eject magazine from weapon (even if it has rounds remaining)
+    This allows single-magazine players to:
+    1. Eject their mag
+    2. Load it with ammo from inventory
+    3. Re-insert it
+
+    Returns magazine to inventory with current round count preserved.
+]]
+function EjectMagazine()
+    local ped = PlayerPedId()
+    local currentWeapon = GetSelectedPedWeapon(ped)
+
+    if currentWeapon == `WEAPON_UNARMED` then
+        lib.notify({ title = 'No Weapon', description = 'No weapon equipped', type = 'error' })
+        return false
+    end
+
+    local currentMag = equippedMagazines[currentWeapon]
+    if not currentMag then
+        lib.notify({ title = 'No Magazine', description = 'No magazine in weapon', type = 'error' })
+        return false
+    end
+
+    -- Get current ammo count from weapon (may have changed from firing)
+    local currentAmmo = GetAmmoInPedWeapon(ped, currentWeapon)
+    currentMag.count = currentAmmo
+
+    -- Trigger server to return magazine to inventory
+    TriggerServerEvent('ammo:ejectMagazine', {
+        weaponHash = currentWeapon,
+        magazineItem = currentMag.item,
+        ammoType = currentMag.ammoType,
+        count = currentAmmo,
+    })
+
+    -- Clear local tracking
+    equippedMagazines[currentWeapon] = nil
+
+    -- Remove ammo from weapon (mag is ejected)
+    SetPedAmmo(ped, currentWeapon, 0)
+
+    return true
+end
+
+-- Export for external use (keybinds, other scripts)
+exports('EjectMagazine', EjectMagazine)
+
+-- Command to manually eject magazine
+RegisterCommand('ejectmag', function()
+    EjectMagazine()
+end, false)
+
+-- Optional keybind (K by default, can be rebound in FiveM settings)
+RegisterKeyMapping('ejectmag', 'Eject Magazine from Weapon', 'keyboard', 'k')
+
 -- ============================================================================
 -- INVENTORY CONTEXT MENU INTEGRATION
 -- ============================================================================

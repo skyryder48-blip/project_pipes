@@ -2,11 +2,10 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <Name>w_sr_watchman</Name>
-      <Model>w_sr_watchman</Model>
-      <Audio>AUDIO_ITEM_SNIPERRIFLE</Audio>
-      <Slot>SLOT_NEMOWATCHMAN</Slot>
-      <WeaponFlags>WF_FIREARM, WF_GUN, WF_GUN_2_HANDED, WF_PED_GUN_2_HANDED, WF_WEAPON, WF_LOUDWEAPON, WF_TAKE_ARM_L_LONG_GUN_IMMEDIATE_DAMAGE_REACTIONS, WF_MAKE_PED_BACKUP, WF_DEFAULT_SCOPE_ON</WeaponFlags>
+      <modelName>w_sr_watchman</modelName>
+      <txdName>w_sr_watchman</txdName>
+      <ptfxAssetName>NULL</ptfxAssetName>
+      <lodDist value="70"/>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

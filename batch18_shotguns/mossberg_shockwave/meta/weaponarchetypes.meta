@@ -5,7 +5,7 @@
       <modelName>w_sg_shockwave</modelName>
       <txdName>w_sg_shockwave</txdName>
       <ptfxAssetName>NULL</ptfxAssetName>
-      <lodDist value="70"/>
+      <lodDist value="500"/>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

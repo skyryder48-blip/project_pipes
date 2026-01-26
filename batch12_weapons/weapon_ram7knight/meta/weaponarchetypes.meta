@@ -5,7 +5,7 @@
       <modelName>w_ar_ram7knight</modelName>
       <txdName>w_ar_ram7knight</txdName>
       <ptfxAssetName>NULL</ptfxAssetName>
-      <lodDist value="70"/>
+      <lodDist value="500"/>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

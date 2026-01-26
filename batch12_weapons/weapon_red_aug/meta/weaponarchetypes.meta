@@ -5,7 +5,7 @@
       <modelName>w_ar_red_aug</modelName>
       <txdName>w_ar_red_aug</txdName>
       <ptfxAssetName>NULL</ptfxAssetName>
-      <lodDist value="70"/>
+      <lodDist value="500"/>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

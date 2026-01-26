@@ -6,7 +6,7 @@
       <modelName>w_pi_g45_tan</modelName>
       <txdName>w_pi_g45_tan</txdName>
       <ptfxAssetName>NULL</ptfxAssetName>
-      <lodDist value="70"/>
+      <lodDist value="500"/>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

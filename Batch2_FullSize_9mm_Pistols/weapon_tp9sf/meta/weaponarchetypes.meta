@@ -6,7 +6,7 @@
       <modelName>w_pi_tp9sf</modelName>
       <txdName>w_pi_tp9sf</txdName>
       <ptfxAssetName>NULL</ptfxAssetName>
-      <lodDist value="70"/>
+      <lodDist value="500"/>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

@@ -390,21 +390,21 @@ Config.AmmoTypes = {
     },
 
     -- ==================== .300 BLACKOUT AMMUNITION ====================
-    -- Batch 14: .300 BLK Rifles (MCX 300)
+    -- Batch 14: .300 BLK Rifles (MCX 300), Batch 11: Blue ARP
     ['.300blk'] = {
-        ['supersonic'] = {
-            item = 'ammo_300blk_super',
-            label = '.300 BLK Supersonic',
-            componentSuffix = '_CLIP_SUPER',
-            ammoInfo = 'AMMO_300BLK_SUPER',
-            description = '.300 BLK 110gr @ 2,350 fps. Standard supersonic, 7.62x39 equivalent.',
+        ['hunting'] = {
+            item = 'ammo_300blk_hunting',
+            label = '.300 BLK Hunting',
+            componentSuffix = '_CLIP_HUNTING',
+            ammoInfo = 'AMMO_300BLK_HUNTING',
+            description = '.300 BLK 110gr V-MAX @ 2,350 fps. Supersonic expanding, max terminal effect.',
         },
         ['subsonic'] = {
-            item = 'ammo_300blk_sub',
+            item = 'ammo_300blk_subsonic',
             label = '.300 BLK Subsonic',
-            componentSuffix = '_CLIP_SUB',
-            ammoInfo = 'AMMO_300BLK_SUB',
-            description = '.300 BLK 220gr @ 1,010 fps. Suppressor-optimized, reduced velocity/range.',
+            componentSuffix = '_CLIP_SUBSONIC',
+            ammoInfo = 'AMMO_300BLK_SUBSONIC',
+            description = '.300 BLK 220gr OTM @ 1,050 fps. Below speed of sound, suppressor-optimized.',
         },
     },
 

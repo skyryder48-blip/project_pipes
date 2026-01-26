@@ -205,7 +205,7 @@ Config.Magazines = {
 
     ['mag_sig_standard'] = {
         label = "SIG 9mm Magazine (15rd)",
-        weapons = { 'WEAPON_P320', 'WEAPON_SIGP320', 'WEAPON_SIGP226', 'WEAPON_SIGP226MK25', 'WEAPON_SIGP229' },
+        weapons = { 'WEAPON_P320', 'WEAPON_SIGP320', 'WEAPON_SIGP226', 'WEAPON_SIGP226MK25', 'WEAPON_SIGP226ELITE', 'WEAPON_SIGP229' },
         capacity = 15,
         type = 'standard',
         componentSuffix = '_CLIP_',
@@ -215,7 +215,7 @@ Config.Magazines = {
 
     ['mag_sig_extended'] = {
         label = "SIG 9mm Extended (21rd)",
-        weapons = { 'WEAPON_P320', 'WEAPON_SIGP320', 'WEAPON_SIGP226', 'WEAPON_SIGP226MK25', 'WEAPON_SIGP229' },
+        weapons = { 'WEAPON_P320', 'WEAPON_SIGP320', 'WEAPON_SIGP226', 'WEAPON_SIGP226MK25', 'WEAPON_SIGP226ELITE', 'WEAPON_SIGP229' },
         capacity = 21,
         type = 'extended',
         componentSuffix = '_EXTCLIP_',
@@ -662,13 +662,33 @@ Config.Magazines = {
         price = 45,
     },
 
+    ['mag_bluearp_standard'] = {
+        label = "Blue ARP Magazine (10rd)",
+        weapons = { 'WEAPON_BLUEARP' },
+        capacity = 10,
+        type = 'standard',
+        componentSuffix = '_CLIP_',
+        weight = 95,
+        price = 30,
+    },
+
+    ['mag_bluearp_extended'] = {
+        label = "Blue ARP Extended (40rd)",
+        weapons = { 'WEAPON_BLUEARP' },
+        capacity = 40,
+        type = 'extended',
+        componentSuffix = '_CLIP2_',
+        weight = 185,
+        price = 85,
+    },
+
     -- ========================================================================
     -- AR-9 PISTOLS/PCCs (Use Glock mags)
     -- ========================================================================
 
     ['mag_ar9_standard'] = {
         label = "AR-9 Magazine (17rd)",
-        weapons = { 'WEAPON_UDP9', 'WEAPON_BLUEARP' },
+        weapons = { 'WEAPON_UDP9' },
         capacity = 17,
         type = 'standard',
         componentSuffix = '_CLIP_',
@@ -678,7 +698,7 @@ Config.Magazines = {
 
     ['mag_ar9_extended'] = {
         label = "AR-9 Extended (33rd)",
-        weapons = { 'WEAPON_UDP9', 'WEAPON_BLUEARP' },
+        weapons = { 'WEAPON_UDP9' },
         capacity = 33,
         type = 'extended',
         componentSuffix = '_EXTCLIP_',

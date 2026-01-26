@@ -404,6 +404,13 @@ Config.Weapons = {
         clipSize = 15,
     },
 
+    -- SIG Sauer P226 Elite - Enhanced Target Model (15 rounds, 4.4" barrel)
+    [`WEAPON_SIGP226ELITE`] = {
+        caliber = '9mm',
+        componentBase = 'COMPONENT_SIGP226ELITE',
+        clipSize = 15,
+    },
+
     -- SIG Sauer P210 Target - Swiss Precision (8 rounds, 5.0" barrel)
     [`WEAPON_SIGP210`] = {
         caliber = '9mm',
@@ -453,11 +460,11 @@ Config.Weapons = {
         clipSize = 17,
     },
 
-    -- Blue ARP - Budget AR-9 Platform (17 rounds, 4-6" barrel)
+    -- Blue ARP - Budget .300 BLK AR Pistol (10 rounds, 4-5" barrel)
     [`WEAPON_BLUEARP`] = {
-        caliber = '9mm',
+        caliber = '.300blk',
         componentBase = 'COMPONENT_BLUEARP',
-        clipSize = 17,
+        clipSize = 10,
     },
 
     -- ======================================================================

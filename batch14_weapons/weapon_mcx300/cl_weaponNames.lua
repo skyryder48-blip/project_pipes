@@ -1,0 +1,1 @@
+AddTextEntry("WEAPON_MCX300", "SIG MCX .300")

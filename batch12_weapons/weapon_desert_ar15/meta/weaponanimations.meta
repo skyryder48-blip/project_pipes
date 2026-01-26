@@ -9,7 +9,7 @@
   </WeaponAnimationsSets>
   <Animations>
     <Item>
-      <n>WEAPON_DESERT_AR15_set</n>
+      <Name>WEAPON_DESERT_AR15_set</Name>
       <ClipSet>move_weapon@rifle@assault</ClipSet>
       <MovementClipSet>move_m@rifle@assault</MovementClipSet>
       <StrafeClipSet>move_strafe@rifle@assault</StrafeClipSet>

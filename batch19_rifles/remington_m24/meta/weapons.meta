@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>AI_M24</n>
+      <Name>AI_M24</Name>
       <HeadingLimit value="90.000000" />
       <SweepPitchMin value="-45.000000" />
       <SweepPitchMax value="45.000000" />
@@ -70,11 +70,11 @@
                - Still in service with reserve/National Guard units
                - Based on Remington 700 long-action receiver
                ================================================================ -->
-          <n>WEAPON_REMINGTONM24</n>
+          <Name>WEAPON_REMINGTONM24</Name>
           <Model>w_sr_m24</Model>
           <Audio>AUDIO_ITEM_SNIPERRIFLE</Audio>
           <Slot>SLOT_REMINGTONM24</Slot>
-          <HumanNameHash>WT_REMINGTONM24</HumanNameHash>
+          <HumanNameHash>WEAPON_REMINGTONM24</HumanNameHash>
           <DamageType>BULLET</DamageType>
           <Explosion>
             <Default>DONTCARE</Default>
@@ -113,7 +113,7 @@
           <HeadShotDamageModifierPlayer value="2.200000" />
           
           <!-- Damage: 85 - Military sniper, 1-2 shot kills -->
-          <Damage value="85.000000" />
+          <Damage value="75.65" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />

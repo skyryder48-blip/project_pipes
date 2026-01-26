@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>AI_M107A1</n>
+      <Name>AI_M107A1</Name>
       <HeadingLimit value="90.000000" />
       <SweepPitchMin value="-45.000000" />
       <SweepPitchMax value="45.000000" />
@@ -72,11 +72,11 @@
                - Muzzle Energy: 13,200 ft-lbs
                - Energy @ 1,000m: 6,700 ft-lbs (51% retained)
                ================================================================ -->
-          <n>WEAPON_BARRETTM107A1</n>
+          <Name>WEAPON_BARRETTM107A1</Name>
           <Model>w_sr_m107a1</Model>
           <Audio>AUDIO_ITEM_HEAVYSNIPER</Audio>
           <Slot>SLOT_BARRETTM107A1</Slot>
-          <HumanNameHash>WT_BARRETTM107A1</HumanNameHash>
+          <HumanNameHash>WEAPON_BARRETTM107A1</HumanNameHash>
           <DamageType>BULLET</DamageType>
           <Explosion>
             <Default>DONTCARE</Default>
@@ -115,7 +115,7 @@
           <HeadShotDamageModifierPlayer value="1.450000" />
           
           <!-- Damage: 150 - Same power as M82A1 -->
-          <Damage value="150.000000" />
+          <Damage value="133.50" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -169,10 +169,10 @@
           
           <!-- Recoil: Improved hydraulic buffer system -->
           <BulletDirectionOffsetInDegrees value="0.000000" />
-          <RecoilShakeAmplitude value="0.700000" />
-          <RecoilShakeFrequency value="0.000000" />
-          <RecoilShakeRollMagnitude value="0.420000" />
-          <RecoilShakeDuration value="0.550000" />
+          <RecoilShakeAmplitude value="4.50" />
+          <RecoilShakeFrequency value="0.00" />
+          <RecoilShakeRollMagnitude value="0.620" />
+          <RecoilShakeDuration value="0.800" />
           
           <AiSoundRange value="550.000000" />
           <AimingMod1 value="0.400000" />

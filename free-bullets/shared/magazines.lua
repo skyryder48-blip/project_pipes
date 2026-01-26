@@ -916,15 +916,10 @@ end
 
 function GetCompatibleMagazines(weaponHash)
     local compatible = {}
-    local weaponName = type(weaponHash) == 'number' and GetWeaponNameFromHash(weaponHash) or weaponHash
 
     for magName, magInfo in pairs(Config.Magazines) do
-        local weapons = type(magInfo.weapons) == 'table' and magInfo.weapons or { magInfo.weapons }
-        for _, weapon in ipairs(weapons) do
-            if weapon == weaponName then
-                compatible[magName] = magInfo
-                break
-            end
+        if IsMagazineCompatible(weaponHash, magName) then
+            compatible[magName] = magInfo
         end
     end
 
@@ -935,24 +930,36 @@ function IsMagazineCompatible(weaponHash, magazineItem)
     local magInfo = Config.Magazines[magazineItem]
     if not magInfo then return false end
 
-    local weaponName = type(weaponHash) == 'number' and GetWeaponNameFromHash(weaponHash) or weaponHash
     local weapons = type(magInfo.weapons) == 'table' and magInfo.weapons or { magInfo.weapons }
 
-    for _, weapon in ipairs(weapons) do
-        if weapon == weaponName then
-            return true
+    -- If weaponHash is a number, compare against joaat of weapon names in magazine config
+    if type(weaponHash) == 'number' then
+        for _, weaponName in ipairs(weapons) do
+            if joaat(weaponName) == weaponHash then
+                return true
+            end
+        end
+    else
+        -- If weaponHash is a string, compare directly (case-insensitive)
+        local upperHash = string.upper(tostring(weaponHash))
+        for _, weaponName in ipairs(weapons) do
+            if string.upper(weaponName) == upperHash then
+                return true
+            end
         end
     end
 
     return false
 end
 
+--- Get weapon name string from hash
+-- Note: Config.Weapons keys ARE hashes (from backticks like [`WEAPON_G17`])
+-- We derive the string name from the componentBase field
 function GetWeaponNameFromHash(hash)
-    for name, info in pairs(Config.Weapons) do
-        -- Use joaat for cross-context compatibility (works on client and server)
-        if joaat(name) == hash then
-            return name
-        end
+    local weaponInfo = Config.Weapons[hash]
+    if weaponInfo and weaponInfo.componentBase then
+        -- Convert COMPONENT_G17 -> WEAPON_G17
+        return weaponInfo.componentBase:gsub('COMPONENT_', 'WEAPON_')
     end
     return nil
 end

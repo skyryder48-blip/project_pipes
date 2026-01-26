@@ -1,40 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponInfoBlob>
   <SlotNavigateOrder>
-    <Item key="SLOT_MINI_AK47">SLOT_MINI_AK47</Item>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="310" />
+          <Entry>SLOT_MINI_AK47</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="310" />
+          <Entry>SLOT_MINI_AK47</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
   </SlotNavigateOrder>
   <SlotBestOrder>
-    <Item key="SLOT_MINI_AK47">SLOT_MINI_AK47</Item>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="160" />
+        <Entry>SLOT_MINI_AK47</Entry>
+      </Item>
+    </WeaponSlots>
   </SlotBestOrder>
   <TintSpecValues />
   <FiringPatternAliases />
   <UpperBodyFixupExpressionData />
-  <AimingInfos />
+  <AimingInfos>
+    <Item type="CAimingInfo">
+      <Name>AI_MINI_AK47</Name>
+      <HeadingLimit value="90.000000" />
+      <SweepPitchMin value="-45.000000" />
+      <SweepPitchMax value="45.000000" />
+    </Item>
+  </AimingInfos>
   <Infos>
-    <Item type="CWeaponInfo">
-      <n>WEAPON_MINI_AK47</n>
-      <Model>w_ar_mini_ak47</Model>
-      <Audio>AUDIO_ASSAULT_RIFLE</Audio>
-      <Slot>SLOT_MINI_AK47</Slot>
-      <DamageType>BULLET</DamageType>
-      <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>WHEEL_PISTOL</WheelSlot>
-      <Group>GROUP_PISTOL</Group>
-      <ClipSize value="30" />
-      <AccuracySpread value="2.20" />
-      <AccurateModeAccuracyModifier value="0.45" />
-      <RunAndGunAccuracyModifier value="0.70" />
-      <RunAndGunAccuracyMaxModifier value="0.50" />
-      <RecoilAccuracyMax value="3.50" />
-      <RecoilErrorTime value="0.55" />
-      <RecoilRecoveryRate value="0.35" />
-      <RecoilAccuracyToAllowHeadShotPlayer value="0.65" />
-      <MinHeadShotDistancePlayer value="0.0" />
-      <MaxHeadShotDistancePlayer value="25.0" />
-      <HeadShotDamageModifierPlayer value="2.5" />
-      <HeadShotDamageModifierAI value="4.0" />
-      
-      <!-- ================================================
+    <Item>
+      <Infos />
+    </Item>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+<!-- ================================================
            MICRO DRACO - 6.25" COMPACT AK PISTOL
            ================================================
            Real-world specifications:
@@ -54,55 +64,230 @@
            - 7.62x39 maintains effectiveness from short barrel
            - 3 shots close range, 7-8 at max range
       -->
-      
-      <!-- 6.25" barrel = 92% of 16" damage (45 from 48 base) -->
-      <Damage value="45.0" />
-      <DamageFallOffRangeMin value="40.0" />
-      <DamageFallOffRangeMax value="120.0" />
-      <DamageFallOffModifier value="0.32" />
-      
-      <!-- 7.62x39 velocity: 1,900 fps = ~580 m/s -->
-      <Speed value="580.0" />
-      <BulletsInBatch value="1" />
-      <BulletBatchSpread value="0.0" />
-      
-      <Force value="140.0" />
-      <ForceHitPed value="120.0" />
-      <ForceHitVehicle value="65.0" />
-      <ForceHitFlyingHeli value="45.0" />
-      <OverrideForces />
-      
-      <!-- 7.62x39 good barrier penetration -->
-      <Penetration value="0.50" />
-      <ArmorPenetration value="0.35" />
-      
-      <!-- EXTREME RECOIL - short gas system, no stock, light weight -->
-      <RecoilShakeAmplitude value="0.42" />
-      <RecoilShakeFrequency value="0.70" />
-      <RecoilShakeHashKey />
-      
-      <NetworkHitLimbsDamageModifier value="0.80" />
-      <NetworkPlayerDamageModifier value="1.0" />
-      <HitLimbsDamageModifier value="0.50" />
-      
-      <!-- ~600 RPM cyclic -->
-      <TimeBetweenShots value="0.100" />
-      <AnimReloadRate value="0.95" />
-      <AnimPostSpecialFireRate value="1.0" />
-      <AimingTime value="0.25" />
-      <AimingTimeFromSprinting value="0.32" />
-      
-      <!-- Short effective range due to accuracy limitations -->
-      <WeaponRange value="150.0" />
-      
-      <BulletDirectionOffsetInDegrees value="0.25" />
-      <WeaponFlags>Gun, SafeToFire, Thrown, NoWhilstRunning, BulletDealsDamage, HandGun</WeaponFlags>
-      <Recoil />
-      <FireAnimTime value="0.10" />
-      <RecoilAimOffsetInterpolation />
-      
-      <HumanNameHash>WT_MINI_AK47</HumanNameHash>
-      <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
+          <Name>WEAPON_MINI_AK47</Name>
+          <Model>w_ar_mini_ak47</Model>
+          <Audio>AUDIO_ITEM_ASSAULTRIFLE</Audio>
+          <Slot>SLOT_MINI_AK47</Slot>
+          <HumanNameHash>WEAPON_MINI_AK47</HumanNameHash>
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FireType>INSTANT_HIT</FireType>
+          <EffectGroup>WEAPON_EFFECT_GROUP_RIFLE</EffectGroup>
+          <PedDamageHash>BulletLarge</PedDamageHash>
+          <WheelSlot>WHEEL_RIFLE</WheelSlot>
+          <Group>GROUP_RIFLE</Group>
+          <AmmoInfo ref="AMMO_RIFLE" />
+          <AimingInfo ref="AI_MINI_AK47" />
+
+          <ClipSize value="30" />
+
+          <AccuracySpread value="1.20" />
+          <AccurateModeAccuracyModifier value="0.150000" />
+          <RunAndGunAccuracyModifier value="0.550000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+          <RecoilAccuracyMax value="4.20" />
+          <RecoilErrorTime value="0.400000" />
+          <RecoilRecoveryRate value="0.42" />
+
+          <RecoilAccuracyToAllowHeadShotAI value="0.450000" />
+          <MinHeadShotDistanceAI value="5.000000" />
+          <MaxHeadShotDistanceAI value="200.000000" />
+          <HeadShotDamageModifierAI value="4.000000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.450000" />
+          <MinHeadShotDistancePlayer value="0.000000" />
+          <MaxHeadShotDistancePlayer value="200.000000" />
+          <HeadShotDamageModifierPlayer value="2.500000" />
+
+          <Damage value="40.05" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <HitLimbsDamageModifier value="0.500000" />
+          <NetworkHitLimbsDamageModifier value="0.800000" />
+          <LightlyArmouredDamageModifier value="0.700000" />
+
+          <Force value="116.00" />
+          <ForceHitPed value="100.000000" />
+          <ForceHitVehicle value="50.000000" />
+          <ForceHitFlyingHeli value="35.000000" />
+          <OverrideForces />
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="0.000000" />
+          <ForceFalloffRangeEnd value="200.000000" />
+          <ForceFalloffMin value="0.400000" />
+          <ProjectileForce value="0.000000" />
+          <FragImpulse value="350.000000" />
+
+          <Penetration value="0.45" />
+          <VerticalLaunchAdjustment value="0.000000" />
+          <DropForwardVelocity value="0.000000" />
+
+          <Speed value="686.70" />
+
+          <BulletsInBatch value="1" />
+          <BatchSpread value="0.000000" />
+
+          <ReloadTimeMP value="2.500000" />
+          <ReloadTimeSP value="2.500000" />
+
+          <TimeBetweenShots value="0.100" />
+
+          <DamageFallOffRangeMin value="60.00" />
+          <DamageFallOffRangeMax value="200.00" />
+          <DamageFallOffModifier value="0.40" />
+
+          <NetworkPlayerDamageModifier value="1.000000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          <NetworkHeadShotPlayerDamageModifier value="1.000000" />
+          <LockOnRange value="0.000000" />
+          <WeaponRange value="240.00" />
+
+          <BulletDirectionOffsetInDegrees value="0.080000" />
+          <RecoilShakeAmplitude value="3.50" />
+          <RecoilShakeFrequency value="0.73" />
+          <RecoilShakeRollMagnitude value="0.150000" />
+          <RecoilShakeDuration value="0.200000" />
+
+          <AiSoundRange value="180.000000" />
+          <AimingMod1 value="0.650000" />
+          <AimingModTime1 value="0.200000" />
+          <AimingMod2 value="0.400000" />
+          <AimingModTime2 value="0.350000" />
+
+          <Flags>WF_GUN, WF_GUN_2_HANDED, WF_NO_SHOOTING_BERSERK, WF_PED_GUN_2_HANDED, WF_WEAPON, WF_LOUDWEAPON, WF_TAKE_ARM_L_LONG_GUN_IMMEDIATE_DAMAGE_REACTIONS, WF_MAKE_PED_BACKUP</Flags>
+
+          <AltWheelSlot>WHEEL_UNARMED</AltWheelSlot>
+          <PickupGlowAsset />
+          <PickupTextRep />
+          <ModelHashKey>w_ar_mini_ak47</ModelHashKey>
+          <DefaultCameraHash>DEFAULT_FOLLOW_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_FOLLOW_CAMERA</CoverCameraHash>
+          <RunAndGunCameraHash>DEFAULT_FOLLOW_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash>DEFAULT_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+          <PickupHash>PICKUP_WEAPON_ASSAULTRIFLE</PickupHash>
+          <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
+          <NmShotTuningSet>Normal</NmShotTuningSet>
+          <AimOffset>
+            <X value="0.000000" />
+            <Y value="0.020000" />
+            <Z value="0.000000" />
+          </AimOffset>
+          <FirstPersonAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonAimOffset>
+          <FirstPersonScopeOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonScopeOffset>
+          <CrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </CrouchAimOffset>
+          <FirstPersonCrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonCrouchAimOffset>
+          <ZoomFactorForAccurateMode value="1.000000" />
+          <ReticuleMinSizeStanding value="0.000000" />
+          <ReticuleMinSizeDucked value="0.000000" />
+          <ReticuleScale value="0.400000" />
+          <IronSightCameraZoomFactor value="1.000000" />
+          <WeaponSoundBoneTag />
+          <Hud>
+            <FlashColor value="0xFFFFFFFF" />
+            <ScrollSelect>true</ScrollSelect>
+          </Hud>
+          <AmmoPickup>
+            <AmmoType>AMMO_RIFLE</AmmoType>
+            <Amount value="30" />
+          </AmmoPickup>
+          <AmmoPickup2>
+            <AmmoType>AMMO_RIFLE</AmmoType>
+            <Amount value="60" />
+          </AmmoPickup2>
+          <FireFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>muz_assault_rifle_fp</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </FireFx>
+          <MuzzleFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.200000" />
+            <EffectName>muz_assault_rifle</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </MuzzleFx>
+          <ShellFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>weap_sh_ar</EffectName>
+            <FxBone>Gun_Shell</FxBone>
+          </ShellFx>
+          <TracerFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>proj_tracer</EffectName>
+            <FxBone />
+          </TracerFx>
+          <FlashFxLightEnabled value="true" />
+          <FlashFxLightCastsShadows value="false" />
+          <FlashFxLightOffsetDistance value="4.000000" />
+          <FlashFxLightRGBAMax value="0xFFFFE4C9" />
+          <FlashFxLightIntensityMax value="1.500000" />
+          <FlashFxLightFallOffMax value="8.000000" />
+          <FlashFxFadeOutTime value="0.050000" />
+          <FlashFxAltBone />
+          <ReloadUpperBodyFixupExpression></ReloadUpperBodyFixupExpression>
+        </Item>
+      </Infos>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

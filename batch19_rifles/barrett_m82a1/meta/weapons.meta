@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>AI_M82A1</n>
+      <Name>AI_M82A1</Name>
       <HeadingLimit value="90.000000" />
       <SweepPitchMin value="-45.000000" />
       <SweepPitchMax value="45.000000" />
@@ -74,11 +74,11 @@
                - Muzzle brake reduces felt recoil ~70%
                - "Kicks like a 12-gauge with 3" shells"
                ================================================================ -->
-          <n>WEAPON_BARRETTM82A1</n>
+          <Name>WEAPON_BARRETTM82A1</Name>
           <Model>w_sr_m82a1</Model>
           <Audio>AUDIO_ITEM_HEAVYSNIPER</Audio>
           <Slot>SLOT_BARRETTM82A1</Slot>
-          <HumanNameHash>WT_BARRETTM82A1</HumanNameHash>
+          <HumanNameHash>WEAPON_BARRETTM82A1</HumanNameHash>
           <DamageType>BULLET</DamageType>
           <Explosion>
             <Default>DONTCARE</Default>
@@ -117,7 +117,7 @@
           <HeadShotDamageModifierPlayer value="1.400000" />
           
           <!-- Damage: 150 - Maximum, guaranteed one-shot -->
-          <Damage value="150.000000" />
+          <Damage value="133.50" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -171,10 +171,10 @@
           
           <!-- Recoil: Heavy but muzzle brake mitigated -->
           <BulletDirectionOffsetInDegrees value="0.000000" />
-          <RecoilShakeAmplitude value="0.750000" />
-          <RecoilShakeFrequency value="0.000000" />
-          <RecoilShakeRollMagnitude value="0.450000" />
-          <RecoilShakeDuration value="0.600000" />
+          <RecoilShakeAmplitude value="4.80" />
+          <RecoilShakeFrequency value="0.00" />
+          <RecoilShakeRollMagnitude value="0.650" />
+          <RecoilShakeDuration value="0.850" />
           
           <AiSoundRange value="550.000000" />
           <AimingMod1 value="0.380000" />

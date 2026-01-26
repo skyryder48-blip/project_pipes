@@ -188,6 +188,13 @@ Config.AmmoTypes = {
             ammoInfo = 'AMMO_500SW_JHP',
             description = '.500 S&W JHP. 192-258 damage (+20%), 0.75 penetration. Extreme recoil - 3x .44 Magnum.',
         },
+        ['bear'] = {
+            item = 'ammo_500sw_bear',
+            label = '.500 S&W Bear Defense',
+            componentSuffix = '_CLIP_BEAR',
+            ammoInfo = 'AMMO_500SW_BEAR',
+            description = '.500 S&W Hard Cast 440gr @ 1,625 fps. MAXIMUM PENETRATION - defeats anything. Anti-dangerous game.',
+        },
     },
 
     -- ==================== 5.7x28mm AMMUNITION ====================

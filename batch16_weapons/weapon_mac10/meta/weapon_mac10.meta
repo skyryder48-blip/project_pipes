@@ -1,40 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponInfoBlob>
   <SlotNavigateOrder>
-    <Item key="SLOT_MAC10">SLOT_MAC10</Item>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="410" />
+          <Entry>SLOT_MAC10</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="410" />
+          <Entry>SLOT_MAC10</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
   </SlotNavigateOrder>
   <SlotBestOrder>
-    <Item key="SLOT_MAC10">SLOT_MAC10</Item>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="210" />
+        <Entry>SLOT_MAC10</Entry>
+      </Item>
+    </WeaponSlots>
   </SlotBestOrder>
   <TintSpecValues />
   <FiringPatternAliases />
   <UpperBodyFixupExpressionData />
-  <AimingInfos />
+  <AimingInfos>
+    <Item type="CAimingInfo">
+      <Name>AI_MAC10</Name>
+      <HeadingLimit value="90.000000" />
+      <SweepPitchMin value="-45.000000" />
+      <SweepPitchMax value="45.000000" />
+    </Item>
+  </AimingInfos>
   <Infos>
-    <Item type="CWeaponInfo">
-      <n>WEAPON_MAC10</n>
-      <Model>w_sb_mac10</Model>
-      <Audio>AUDIO_SMG</Audio>
-      <Slot>SLOT_MAC10</Slot>
-      <DamageType>BULLET</DamageType>
-      <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>WHEEL_PISTOL</WheelSlot>
-      <Group>GROUP_PISTOL</Group>
-      <ClipSize value="30" />
-      <AccuracySpread value="2.80" />
-      <AccurateModeAccuracyModifier value="0.50" />
-      <RunAndGunAccuracyModifier value="0.78" />
-      <RunAndGunAccuracyMaxModifier value="0.60" />
-      <RecoilAccuracyMax value="4.20" />
-      <RecoilErrorTime value="0.58" />
-      <RecoilRecoveryRate value="0.32" />
-      <RecoilAccuracyToAllowHeadShotPlayer value="0.75" />
-      <MinHeadShotDistancePlayer value="0.0" />
-      <MaxHeadShotDistancePlayer value="20.0" />
-      <HeadShotDamageModifierPlayer value="2.5" />
-      <HeadShotDamageModifierAI value="4.0" />
-      
-      <!-- ================================================
+    <Item>
+      <Infos />
+    </Item>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+<!-- ================================================
            INGRAM MAC-10 - CLASSIC .45 ACP MACHINE PISTOL
            ================================================
            Real-world specifications:
@@ -60,56 +70,230 @@
            - Criminal/action movie aesthetic
            - 3 shots close range, 10+ at max range (if you hit)
       -->
-      
-      <!-- 5.75" barrel .45 ACP = 40 damage -->
-      <Damage value="40.0" />
-      <DamageFallOffRangeMin value="18.0" />
-      <DamageFallOffRangeMax value="55.0" />
-      <DamageFallOffModifier value="0.25" />
-      
-      <!-- .45 ACP velocity from 5.75": ~890 fps = ~271 m/s -->
-      <Speed value="271.0" />
-      <BulletsInBatch value="1" />
-      <BulletBatchSpread value="0.0" />
-      
-      <Force value="85.0" />
-      <ForceHitPed value="75.0" />
-      <ForceHitVehicle value="40.0" />
-      <ForceHitFlyingHeli value="28.0" />
-      <OverrideForces />
-      
-      <!-- .45 ACP moderate penetration -->
-      <Penetration value="0.28" />
-      <ArmorPenetration value="0.20" />
-      
-      <!-- EXTREME RECOIL - high RPM + .45 ACP + light weight -->
-      <RecoilShakeAmplitude value="0.38" />
-      <RecoilShakeFrequency value="0.62" />
-      <RecoilShakeHashKey />
-      
-      <NetworkHitLimbsDamageModifier value="0.80" />
-      <NetworkPlayerDamageModifier value="1.0" />
-      <HitLimbsDamageModifier value="0.50" />
-      
-      <!-- ~1,100 RPM = 0.0545s between shots (FASTEST SMG!) -->
-      <TimeBetweenShots value="0.055" />
-      <AnimReloadRate value="0.95" />
-      <AnimPostSpecialFireRate value="1.0" />
-      <AimingTime value="0.26" />
-      <AimingTimeFromSprinting value="0.34" />
-      
-      <!-- Very limited effective range - accuracy issues -->
-      <WeaponRange value="70.0" />
-      
-      <BulletDirectionOffsetInDegrees value="0.38" />
-      <!-- AUTOMATIC - Full-auto -->
-      <WeaponFlags>Gun Automatic AnimReload AnimCrouchFire TwoHanded ApplyBulletForce</WeaponFlags>
-      <Recoil />
-      <FireAnimTime value="0.10" />
-      <RecoilAimOffsetInterpolation />
-      
-      <HumanNameHash>WT_MAC10</HumanNameHash>
-      <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
+          <Name>WEAPON_MAC10</Name>
+          <Model>w_sb_mac10</Model>
+          <Audio>AUDIO_ITEM_SMG</Audio>
+          <Slot>SLOT_MAC10</Slot>
+          <HumanNameHash>WEAPON_MAC10</HumanNameHash>
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FireType>INSTANT_HIT</FireType>
+          <EffectGroup>WEAPON_EFFECT_GROUP_SMG</EffectGroup>
+          <PedDamageHash>BulletSmall</PedDamageHash>
+          <WheelSlot>WHEEL_SMG</WheelSlot>
+          <Group>GROUP_SMG</Group>
+          <AmmoInfo ref="AMMO_SMG" />
+          <AimingInfo ref="AI_MAC10" />
+
+          <ClipSize value="30" />
+
+          <AccuracySpread value="2.64" />
+          <AccurateModeAccuracyModifier value="0.200000" />
+          <RunAndGunAccuracyModifier value="0.500000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+          <RecoilAccuracyMax value="6.00" />
+          <RecoilErrorTime value="0.350000" />
+          <RecoilRecoveryRate value="0.32" />
+
+          <RecoilAccuracyToAllowHeadShotAI value="0.500000" />
+          <MinHeadShotDistanceAI value="3.000000" />
+          <MaxHeadShotDistanceAI value="50.000000" />
+          <HeadShotDamageModifierAI value="4.000000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.450000" />
+          <MinHeadShotDistancePlayer value="0.000000" />
+          <MaxHeadShotDistancePlayer value="50.000000" />
+          <HeadShotDamageModifierPlayer value="2.500000" />
+
+          <Damage value="28.30" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <HitLimbsDamageModifier value="0.500000" />
+          <NetworkHitLimbsDamageModifier value="0.800000" />
+          <LightlyArmouredDamageModifier value="0.600000" />
+
+          <Force value="63.00" />
+          <ForceHitPed value="75.0" />
+          <ForceHitVehicle value="40.0" />
+          <ForceHitFlyingHeli value="28.0" />
+          <OverrideForces />
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="0.000000" />
+          <ForceFalloffRangeEnd value="80.000000" />
+          <ForceFalloffMin value="0.400000" />
+          <ProjectileForce value="0.000000" />
+          <FragImpulse value="200.000000" />
+
+          <Penetration value="0.28" />
+          <VerticalLaunchAdjustment value="0.000000" />
+          <DropForwardVelocity value="0.000000" />
+
+          <Speed value="288.10" />
+
+          <BulletsInBatch value="1" />
+          <BatchSpread value="0.000000" />
+
+          <ReloadTimeMP value="2.200000" />
+          <ReloadTimeSP value="2.200000" />
+
+          <TimeBetweenShots value="0.055" />
+
+          <DamageFallOffRangeMin value="11.20" />
+          <DamageFallOffRangeMax value="37.50" />
+          <DamageFallOffModifier value="0.35" />
+
+          <NetworkPlayerDamageModifier value="1.000000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          <NetworkHeadShotPlayerDamageModifier value="1.000000" />
+          <LockOnRange value="0.000000" />
+          <WeaponRange value="45.00" />
+
+          <BulletDirectionOffsetInDegrees value="0.38" />
+          <RecoilShakeAmplitude value="2.98" />
+          <RecoilShakeFrequency value="0.95" />
+          <RecoilShakeRollMagnitude value="0.120000" />
+          <RecoilShakeDuration value="0.180000" />
+
+          <AiSoundRange value="140.000000" />
+          <AimingMod1 value="0.700000" />
+          <AimingModTime1 value="0.180000" />
+          <AimingMod2 value="0.450000" />
+          <AimingModTime2 value="0.300000" />
+
+          <Flags>WF_GUN, WF_GUN_2_HANDED, WF_NO_SHOOTING_BERSERK, WF_PED_GUN_2_HANDED, WF_WEAPON, WF_LOUDWEAPON, WF_TAKE_ARM_L_LONG_GUN_IMMEDIATE_DAMAGE_REACTIONS, WF_MAKE_PED_BACKUP</Flags>
+
+          <AltWheelSlot>WHEEL_UNARMED</AltWheelSlot>
+          <PickupGlowAsset />
+          <PickupTextRep />
+          <ModelHashKey>w_sb_mac10</ModelHashKey>
+          <DefaultCameraHash>DEFAULT_FOLLOW_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_FOLLOW_CAMERA</CoverCameraHash>
+          <RunAndGunCameraHash>DEFAULT_FOLLOW_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash>DEFAULT_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+          <PickupHash>PICKUP_WEAPON_SMG</PickupHash>
+          <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
+          <NmShotTuningSet>Normal</NmShotTuningSet>
+          <AimOffset>
+            <X value="0.000000" />
+            <Y value="0.015000" />
+            <Z value="0.000000" />
+          </AimOffset>
+          <FirstPersonAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonAimOffset>
+          <FirstPersonScopeOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonScopeOffset>
+          <CrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </CrouchAimOffset>
+          <FirstPersonCrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonCrouchAimOffset>
+          <ZoomFactorForAccurateMode value="1.000000" />
+          <ReticuleMinSizeStanding value="0.000000" />
+          <ReticuleMinSizeDucked value="0.000000" />
+          <ReticuleScale value="0.400000" />
+          <IronSightCameraZoomFactor value="1.000000" />
+          <WeaponSoundBoneTag />
+          <Hud>
+            <FlashColor value="0xFFFFFFFF" />
+            <ScrollSelect>true</ScrollSelect>
+          </Hud>
+          <AmmoPickup>
+            <AmmoType>AMMO_SMG</AmmoType>
+            <Amount value="30" />
+          </AmmoPickup>
+          <AmmoPickup2>
+            <AmmoType>AMMO_SMG</AmmoType>
+            <Amount value="60" />
+          </AmmoPickup2>
+          <FireFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>muz_smg_fp</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </FireFx>
+          <MuzzleFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>muz_smg</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </MuzzleFx>
+          <ShellFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>weap_sh_smg</EffectName>
+            <FxBone>Gun_Shell</FxBone>
+          </ShellFx>
+          <TracerFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>proj_tracer</EffectName>
+            <FxBone />
+          </TracerFx>
+          <FlashFxLightEnabled value="true" />
+          <FlashFxLightCastsShadows value="false" />
+          <FlashFxLightOffsetDistance value="3.000000" />
+          <FlashFxLightRGBAMax value="0xFFFFE4C9" />
+          <FlashFxLightIntensityMax value="1.200000" />
+          <FlashFxLightFallOffMax value="6.000000" />
+          <FlashFxFadeOutTime value="0.040000" />
+          <FlashFxAltBone />
+          <ReloadUpperBodyFixupExpression></ReloadUpperBodyFixupExpression>
+        </Item>
+      </Infos>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

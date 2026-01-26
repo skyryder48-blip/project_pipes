@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>RIFLE_LO_M680_STRAFE</n>
+      <Name>RIFLE_LO_M680_STRAFE</Name>
       <HeadingLimit value="60.000000" />
       <SweepPitchMin value="-77.500000" />
       <SweepPitchMax value="47.500000" />
@@ -67,11 +67,11 @@
                - Slower cycling due to action design
                - Lower price point than 870/500 series
                ================================================================ -->
-          <n>WEAPON_MODEL680</n>
+          <Name>WEAPON_MODEL680</Name>
           <Model>w_sg_model680</Model>
           <Audio>AUDIO_ITEM_PUMPSHOTGUN</Audio>
           <Slot>SLOT_MODEL680</Slot>
-          <HumanNameHash>WT_MODEL680</HumanNameHash>
+          <HumanNameHash>WEAPON_MODEL680</HumanNameHash>
           <DamageType>BULLET</DamageType>
           <Explosion>
             <Default>DONTCARE</Default>
@@ -111,7 +111,7 @@
           
           <!-- Damage: 40 per pellet × 8 pellets = 320 max close range -->
           <!-- Lowest damage - budget shotgun with 8-pellet loads -->
-          <Damage value="40.000000" />
+          <Damage value="35.60" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -187,10 +187,10 @@
           
           <!-- Recoil: 78/100 - full impulse, no ergonomic improvements -->
           <BulletDirectionOffsetInDegrees value="0.000000" />
-          <RecoilShakeAmplitude value="0.780000" />
-          <RecoilShakeFrequency value="0.000000" />
-          <RecoilShakeRollMagnitude value="0.380000" />
-          <RecoilShakeDuration value="0.580000" />
+          <RecoilShakeAmplitude value="2.80" />
+          <RecoilShakeFrequency value="0.00" />
+          <RecoilShakeRollMagnitude value="0.480" />
+          <RecoilShakeDuration value="0.550" />
           
           <AiSoundRange value="150.000000" />
           <AimingMod1 value="0.620000" />

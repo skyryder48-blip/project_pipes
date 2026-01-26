@@ -61,18 +61,29 @@ shared_scripts {
     'shared/config.lua',
     'shared/weapons.lua',
     'shared/magazines.lua',
+    'shared/modifiers.lua',  -- Ammo damage modifiers
 }
 
 -- Client-side scripts
 client_scripts {
     'client/cl_ammo.lua',
     'client/magazine_client.lua',
+    'client/cl_sync.lua',        -- StateBag synchronization
+    'client/cl_effects.lua',     -- Visual & audio effects (Phase 2)
+    'client/cl_lesslethal.lua',  -- Beanbag, pepperball, tranquilizer effects
+    'client/cl_penetration.lua', -- Bullet penetration system
+    'client/cl_limbdamage.lua',  -- Limb damage effects & med script integration
+    'client/cl_environment.lua', -- Environmental interactions
 }
 
 -- Server-side scripts
 server_scripts {
     'server/sv_ammo.lua',
     'server/magazine_server.lua',
+    'server/sv_damage.lua',      -- Damage modifier handler
+    'server/sv_penetration.lua', -- Bullet penetration system
+    'server/sv_environment.lua', -- Environmental interactions
+    'server/sv_admin.lua',       -- Admin commands
 }
 
 -- Meta files for ammunition definitions and components

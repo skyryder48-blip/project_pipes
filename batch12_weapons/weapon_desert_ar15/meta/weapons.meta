@@ -1,40 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponInfoBlob>
   <SlotNavigateOrder>
-    <Item key="SLOT_DESERT_AR15">SLOT_DESERT_AR15</Item>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="301" />
+          <Entry>SLOT_DESERT_AR15</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
+    <Item>
+      <WeaponSlots>
+        <Item>
+          <OrderNumber value="301" />
+          <Entry>SLOT_DESERT_AR15</Entry>
+        </Item>
+      </WeaponSlots>
+    </Item>
   </SlotNavigateOrder>
   <SlotBestOrder>
-    <Item key="SLOT_DESERT_AR15">SLOT_DESERT_AR15</Item>
+    <WeaponSlots>
+      <Item>
+        <OrderNumber value="151" />
+        <Entry>SLOT_DESERT_AR15</Entry>
+      </Item>
+    </WeaponSlots>
   </SlotBestOrder>
   <TintSpecValues />
   <FiringPatternAliases />
   <UpperBodyFixupExpressionData />
-  <AimingInfos />
+  <AimingInfos>
+    <Item type="CAimingInfo">
+      <Name>AI_DESERT_AR15</Name>
+      <HeadingLimit value="90.000000" />
+      <SweepPitchMin value="-45.000000" />
+      <SweepPitchMax value="45.000000" />
+    </Item>
+  </AimingInfos>
   <Infos>
-    <Item type="CWeaponInfo">
-      <n>WEAPON_DESERT_AR15</n>
-      <Model>w_ar_desert_ar15</Model>
-      <Audio>AUDIO_ASSAULT_RIFLE</Audio>
-      <Slot>SLOT_DESERT_AR15</Slot>
-      <DamageType>BULLET</DamageType>
-      <FireType>INSTANT_HIT</FireType>
-      <WheelSlot>WHEEL_PISTOL</WheelSlot>
-      <Group>GROUP_PISTOL</Group>
-      <ClipSize value="30" />
-      <AccuracySpread value="1.05" />
-      <AccurateModeAccuracyModifier value="0.18" />
-      <RunAndGunAccuracyModifier value="0.55" />
-      <RunAndGunAccuracyMaxModifier value="0.30" />
-      <RecoilAccuracyMax value="1.90" />
-      <RecoilErrorTime value="0.40" />
-      <RecoilRecoveryRate value="0.52" />
-      <RecoilAccuracyToAllowHeadShotPlayer value="0.46" />
-      <MinHeadShotDistancePlayer value="0.0" />
-      <MaxHeadShotDistancePlayer value="42.0" />
-      <HeadShotDamageModifierPlayer value="2.5" />
-      <HeadShotDamageModifierAI value="4.0" />
-      
-      <!-- ================================================
+    <Item>
+      <Infos />
+    </Item>
+    <Item>
+      <Infos>
+        <Item type="CWeaponInfo">
+<!-- ================================================
            DESERT AR-15 - MID-TIER FDE 16" RIFLE
            ================================================
            Real-world specifications:
@@ -53,53 +63,230 @@
            - Semi-auto civilian variant
            - 3 shots close range, 7 at max range
       -->
-      
-      <!-- 16" barrel = 93% damage (39 from 42 base) -->
-      <Damage value="39.0" />
-      <DamageFallOffRangeMin value="68.0" />
-      <DamageFallOffRangeMax value="210.0" />
-      <DamageFallOffModifier value="0.37" />
-      
-      <!-- 5.56 NATO velocity: 3,000 fps = ~915 m/s -->
-      <Speed value="915.0" />
-      <BulletsInBatch value="1" />
-      <BulletBatchSpread value="0.0" />
-      
-      <Force value="110.0" />
-      <ForceHitPed value="92.0" />
-      <ForceHitVehicle value="45.0" />
-      <ForceHitFlyingHeli value="32.0" />
-      <OverrideForces />
-      
-      <Penetration value="0.38" />
-      <ArmorPenetration value="0.28" />
-      
-      <!-- Mid-tier quality = better recoil control -->
-      <RecoilShakeAmplitude value="0.23" />
-      <RecoilShakeFrequency value="0.48" />
-      <RecoilShakeHashKey />
-      
-      <NetworkHitLimbsDamageModifier value="0.80" />
-      <NetworkPlayerDamageModifier value="1.0" />
-      <HitLimbsDamageModifier value="0.50" />
-      
-      <!-- Semi-auto, slightly better trigger -->
-      <TimeBetweenShots value="0.095" />
-      <AnimReloadRate value="1.0" />
-      <AnimPostSpecialFireRate value="1.0" />
-      <AimingTime value="0.36" />
-      <AimingTimeFromSprinting value="0.48" />
-      
-      <WeaponRange value="460.0" />
-      
-      <BulletDirectionOffsetInDegrees value="0.10" />
-      <WeaponFlags>Gun, SafeToFire, Thrown, NoWhilstRunning, BulletDealsDamage, HandGun</WeaponFlags>
-      <Recoil />
-      <FireAnimTime value="0.10" />
-      <RecoilAimOffsetInterpolation />
-      
-      <HumanNameHash>WT_DESERT_AR15</HumanNameHash>
-      <PlayerControllerType>PLAYER_CONTROL</PlayerControllerType>
+          <Name>WEAPON_DESERT_AR15</Name>
+          <Model>w_ar_desert_ar15</Model>
+          <Audio>AUDIO_ITEM_CARBINERIFLE</Audio>
+          <Slot>SLOT_DESERT_AR15</Slot>
+          <HumanNameHash>WEAPON_DESERT_AR15</HumanNameHash>
+          <DamageType>BULLET</DamageType>
+          <Explosion>
+            <Default>DONTCARE</Default>
+            <HitCar>DONTCARE</HitCar>
+            <HitTruck>DONTCARE</HitTruck>
+            <HitBike>DONTCARE</HitBike>
+            <HitBoat>DONTCARE</HitBoat>
+            <HitPlane>DONTCARE</HitPlane>
+          </Explosion>
+          <FireType>INSTANT_HIT</FireType>
+          <EffectGroup>WEAPON_EFFECT_GROUP_RIFLE</EffectGroup>
+          <PedDamageHash>BulletLarge</PedDamageHash>
+          <WheelSlot>WHEEL_RIFLE</WheelSlot>
+          <Group>GROUP_RIFLE</Group>
+          <AmmoInfo ref="AMMO_RIFLE" />
+          <AimingInfo ref="AI_DESERT_AR15" />
+
+          <ClipSize value="30" />
+
+          <AccuracySpread value="0.80" />
+          <AccurateModeAccuracyModifier value="0.150000" />
+          <RunAndGunAccuracyModifier value="0.550000" />
+          <RunAndGunAccuracyMinOverride value="-1.000000" />
+          <RecoilAccuracyMax value="2.00" />
+          <RecoilErrorTime value="0.400000" />
+          <RecoilRecoveryRate value="0.62" />
+
+          <RecoilAccuracyToAllowHeadShotAI value="0.450000" />
+          <MinHeadShotDistanceAI value="5.000000" />
+          <MaxHeadShotDistanceAI value="200.000000" />
+          <HeadShotDamageModifierAI value="4.000000" />
+          <RecoilAccuracyToAllowHeadShotPlayer value="0.450000" />
+          <MinHeadShotDistancePlayer value="0.000000" />
+          <MaxHeadShotDistancePlayer value="200.000000" />
+          <HeadShotDamageModifierPlayer value="2.500000" />
+
+          <Damage value="36.05" />
+          <DamageTime value="0.000000" />
+          <DamageTimeInVehicle value="0.000000" />
+          <DamageTimeInVehicleHeadShot value="0.000000" />
+          <HitLimbsDamageModifier value="0.500000" />
+          <NetworkHitLimbsDamageModifier value="0.800000" />
+          <LightlyArmouredDamageModifier value="0.700000" />
+
+          <Force value="103.80" />
+          <ForceHitPed value="100.000000" />
+          <ForceHitVehicle value="50.000000" />
+          <ForceHitFlyingHeli value="35.000000" />
+          <OverrideForces />
+          <ForceMaxStrengthMult value="1.000000" />
+          <ForceFalloffRangeStart value="0.000000" />
+          <ForceFalloffRangeEnd value="200.000000" />
+          <ForceFalloffMin value="0.400000" />
+          <ProjectileForce value="0.000000" />
+          <FragImpulse value="350.000000" />
+
+          <Penetration value="0.40" />
+          <VerticalLaunchAdjustment value="0.000000" />
+          <DropForwardVelocity value="0.000000" />
+
+          <Speed value="922.20" />
+
+          <BulletsInBatch value="1" />
+          <BatchSpread value="0.000000" />
+
+          <ReloadTimeMP value="2.500000" />
+          <ReloadTimeSP value="2.500000" />
+
+          <TimeBetweenShots value="0.120" />
+
+          <DamageFallOffRangeMin value="90.00" />
+          <DamageFallOffRangeMax value="300.00" />
+          <DamageFallOffModifier value="0.40" />
+
+          <NetworkPlayerDamageModifier value="1.000000" />
+          <NetworkPedDamageModifier value="1.000000" />
+          <NetworkHeadShotPlayerDamageModifier value="1.000000" />
+          <LockOnRange value="0.000000" />
+          <WeaponRange value="360.00" />
+
+          <BulletDirectionOffsetInDegrees value="0.080000" />
+          <RecoilShakeAmplitude value="2.60" />
+          <RecoilShakeFrequency value="0.68" />
+          <RecoilShakeRollMagnitude value="0.150000" />
+          <RecoilShakeDuration value="0.200000" />
+
+          <AiSoundRange value="180.000000" />
+          <AimingMod1 value="0.650000" />
+          <AimingModTime1 value="0.200000" />
+          <AimingMod2 value="0.400000" />
+          <AimingModTime2 value="0.350000" />
+
+          <Flags>WF_GUN, WF_GUN_2_HANDED, WF_NO_SHOOTING_BERSERK, WF_PED_GUN_2_HANDED, WF_WEAPON, WF_LOUDWEAPON, WF_TAKE_ARM_L_LONG_GUN_IMMEDIATE_DAMAGE_REACTIONS, WF_MAKE_PED_BACKUP</Flags>
+
+          <AltWheelSlot>WHEEL_UNARMED</AltWheelSlot>
+          <PickupGlowAsset />
+          <PickupTextRep />
+          <ModelHashKey>w_ar_desert_ar15</ModelHashKey>
+          <DefaultCameraHash>DEFAULT_FOLLOW_CAMERA</DefaultCameraHash>
+          <CoverCameraHash>DEFAULT_FOLLOW_CAMERA</CoverCameraHash>
+          <RunAndGunCameraHash>DEFAULT_FOLLOW_CAMERA</RunAndGunCameraHash>
+          <CinematicShootingCameraHash>DEFAULT_CINEMATIC_SHOOTING_CAMERA</CinematicShootingCameraHash>
+          <PickupHash>PICKUP_WEAPON_ASSAULTRIFLE</PickupHash>
+          <MPPickupHash>PICKUP_AMMO_BULLET_MP</MPPickupHash>
+          <NmShotTuningSet>Normal</NmShotTuningSet>
+          <AimOffset>
+            <X value="0.000000" />
+            <Y value="0.020000" />
+            <Z value="0.000000" />
+          </AimOffset>
+          <FirstPersonAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonAimOffset>
+          <FirstPersonScopeOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonScopeOffset>
+          <CrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </CrouchAimOffset>
+          <FirstPersonCrouchAimOffset>
+            <X value="0.000000" />
+            <Y value="0.000000" />
+            <Z value="0.000000" />
+          </FirstPersonCrouchAimOffset>
+          <ZoomFactorForAccurateMode value="1.000000" />
+          <ReticuleMinSizeStanding value="0.000000" />
+          <ReticuleMinSizeDucked value="0.000000" />
+          <ReticuleScale value="0.400000" />
+          <IronSightCameraZoomFactor value="1.000000" />
+          <WeaponSoundBoneTag />
+          <Hud>
+            <FlashColor value="0xFFFFFFFF" />
+            <ScrollSelect>true</ScrollSelect>
+          </Hud>
+          <AmmoPickup>
+            <AmmoType>AMMO_RIFLE</AmmoType>
+            <Amount value="30" />
+          </AmmoPickup>
+          <AmmoPickup2>
+            <AmmoType>AMMO_RIFLE</AmmoType>
+            <Amount value="60" />
+          </AmmoPickup2>
+          <FireFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>muz_assault_rifle_fp</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </FireFx>
+          <MuzzleFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="5.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.200000" />
+            <EffectName>muz_assault_rifle</EffectName>
+            <FxBone>Gun_Muzzle</FxBone>
+          </MuzzleFx>
+          <ShellFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>weap_sh_ar</EffectName>
+            <FxBone>Gun_Shell</FxBone>
+          </ShellFx>
+          <TracerFx>
+            <Direction>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Direction>
+            <Rotation>
+              <X value="0.000000" />
+              <Y value="0.000000" />
+              <Z value="0.000000" />
+            </Rotation>
+            <Scale value="1.000000" />
+            <EffectName>proj_tracer</EffectName>
+            <FxBone />
+          </TracerFx>
+          <FlashFxLightEnabled value="true" />
+          <FlashFxLightCastsShadows value="false" />
+          <FlashFxLightOffsetDistance value="4.000000" />
+          <FlashFxLightRGBAMax value="0xFFFFE4C9" />
+          <FlashFxLightIntensityMax value="1.500000" />
+          <FlashFxLightFallOffMax value="8.000000" />
+          <FlashFxFadeOutTime value="0.050000" />
+          <FlashFxAltBone />
+          <ReloadUpperBodyFixupExpression></ReloadUpperBodyFixupExpression>
+        </Item>
+      </Infos>
     </Item>
   </Infos>
 </CWeaponInfoBlob>

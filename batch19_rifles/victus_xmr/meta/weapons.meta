@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>AI_VICTUSXMR</n>
+      <Name>AI_VICTUSXMR</Name>
       <HeadingLimit value="90.000000" />
       <SweepPitchMin value="-45.000000" />
       <SweepPitchMax value="45.000000" />
@@ -71,11 +71,11 @@
                - 9" concrete penetration
                - Defeats all body armor
                ================================================================ -->
-          <n>WEAPON_VICTUSXMR</n>
+          <Name>WEAPON_VICTUSXMR</Name>
           <Model>w_sr_victusxmr</Model>
           <Audio>AUDIO_ITEM_HEAVYSNIPER</Audio>
           <Slot>SLOT_VICTUSXMR</Slot>
-          <HumanNameHash>WT_VICTUSXMR</HumanNameHash>
+          <HumanNameHash>WEAPON_VICTUSXMR</HumanNameHash>
           <DamageType>BULLET</DamageType>
           <Explosion>
             <Default>DONTCARE</Default>
@@ -114,7 +114,7 @@
           <HeadShotDamageModifierPlayer value="1.500000" />
           
           <!-- Damage: 135 - One-shot capability -->
-          <Damage value="135.000000" />
+          <Damage value="120.15" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />

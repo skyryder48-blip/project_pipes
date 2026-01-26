@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>SHOTGUN_SHOCKWAVE_STRAFE</n>
+      <Name>SHOTGUN_SHOCKWAVE_STRAFE</Name>
       <HeadingLimit value="60.000000" />
       <SweepPitchMin value="-77.500000" />
       <SweepPitchMax value="47.500000" />
@@ -67,11 +67,11 @@
                - 55% accuracy (hip-fire), +50% spread vs standard
                - Devastating within 5m, ineffective beyond 15m
                ================================================================ -->
-          <n>WEAPON_SHOCKWAVE</n>
+          <Name>WEAPON_SHOCKWAVE</Name>
           <Model>w_sg_shockwave</Model>
           <Audio>AUDIO_ITEM_SAWNOFFSHOTGUN</Audio>
           <Slot>SLOT_SHOCKWAVE</Slot>
-          <HumanNameHash>WT_SHOCKWAVE</HumanNameHash>
+          <HumanNameHash>WEAPON_SHOCKWAVE</HumanNameHash>
           <DamageType>BULLET</DamageType>
           <Explosion>
             <Default>DONTCARE</Default>
@@ -110,7 +110,7 @@
           <HeadShotDamageModifierPlayer value="1.500000" />
 
           <!-- Damage: 40 per pellet × 9 pellets = 360 max close range -->
-          <Damage value="40.000000" />
+          <Damage value="35.60" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />
@@ -187,10 +187,10 @@
 
           <!-- Recoil: 95/100 - brutal without stock -->
           <BulletDirectionOffsetInDegrees value="0.000000" />
-          <RecoilShakeAmplitude value="0.950000" />
-          <RecoilShakeFrequency value="0.000000" />
-          <RecoilShakeRollMagnitude value="0.450000" />
-          <RecoilShakeDuration value="0.700000" />
+          <RecoilShakeAmplitude value="4.50" />
+          <RecoilShakeFrequency value="0.00" />
+          <RecoilShakeRollMagnitude value="0.750" />
+          <RecoilShakeDuration value="0.700" />
 
           <AiSoundRange value="150.000000" />
           <AimingMod1 value="0.500000" />

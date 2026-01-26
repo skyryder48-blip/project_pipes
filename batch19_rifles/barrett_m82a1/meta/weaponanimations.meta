@@ -9,7 +9,7 @@
   </WeaponAnimationsSets>
   <Animations>
     <Item>
-      <n>WEAPON_BARRETT_M82A1_set</n>
+      <Name>WEAPON_BARRETT_M82A1_set</Name>
       <ClipSet>move_weapon@rifle@heavy</ClipSet>
       <MovementClipSet>move_m@rifle@heavy</MovementClipSet>
       <StrafeClipSet>move_strafe@rifle@heavy</StrafeClipSet>

@@ -31,7 +31,7 @@
   <UpperBodyFixupExpressionData />
   <AimingInfos>
     <Item type="CAimingInfo">
-      <n>AI_R700</n>
+      <Name>AI_R700</Name>
       <HeadingLimit value="90.000000" />
       <SweepPitchMin value="-45.000000" />
       <SweepPitchMax value="45.000000" />
@@ -69,11 +69,11 @@
                - 5R Gen 2: Premium precision ($1,100-1,400)
                - 700P Police: LE variant ($950-1,100)
                ================================================================ -->
-          <n>WEAPON_REMINGTON700</n>
+          <Name>WEAPON_REMINGTON700</Name>
           <Model>w_sr_r700</Model>
           <Audio>AUDIO_ITEM_SNIPERRIFLE</Audio>
           <Slot>SLOT_REMINGTON700</Slot>
-          <HumanNameHash>WT_REMINGTON700</HumanNameHash>
+          <HumanNameHash>WEAPON_REMINGTON700</HumanNameHash>
           <DamageType>BULLET</DamageType>
           <Explosion>
             <Default>DONTCARE</Default>
@@ -112,7 +112,7 @@
           <HeadShotDamageModifierPlayer value="2.100000" />
           
           <!-- Damage: 78 - Civilian version, 2 shot kills -->
-          <Damage value="78.000000" />
+          <Damage value="69.42" />
           <DamageTime value="0.000000" />
           <DamageTimeInVehicle value="0.000000" />
           <DamageTimeInVehicleHeadShot value="0.000000" />

@@ -42,7 +42,7 @@
       <FireType>INSTANT_HIT</FireType>
       <WheelSlot>WHEEL_PISTOL</WheelSlot>
       <Group>GROUP_PISTOL</Group>
-      <AmmoInfo ref="AMMO_PISTOL" />
+      <AmmoInfo ref="AMMO_9MM_FMJ" />
       <AimingInfo ref="PISTOL_ACCURATE" />
 
       <!-- SIG P210 Target: Swiss Precision, 5.0" barrel, SAO, BEST ACCURACY -->

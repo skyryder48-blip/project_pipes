@@ -42,7 +42,7 @@
       <FireType>INSTANT_HIT</FireType>
       <WheelSlot>WHEEL_PISTOL</WheelSlot>
       <Group>GROUP_PISTOL</Group>
-      <AmmoInfo ref="AMMO_PISTOL" />
+      <AmmoInfo ref="AMMO_9MM_FMJ" />
       <AimingInfo ref="PISTOL_ACCURATE" />
 
       <!-- Beretta M9A3: 15+1 capacity, 4.9" barrel, HEAVIEST pistol (944g empty) -->

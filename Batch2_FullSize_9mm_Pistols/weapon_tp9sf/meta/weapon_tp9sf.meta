@@ -42,7 +42,7 @@
       <FireType>INSTANT_HIT</FireType>
       <WheelSlot>WHEEL_PISTOL</WheelSlot>
       <Group>GROUP_PISTOL</Group>
-      <AmmoInfo ref="AMMO_PISTOL" />
+      <AmmoInfo ref="AMMO_9MM_FMJ" />
       <AimingInfo ref="PISTOL_ACCURATE" />
 
       <!-- Canik TP9SF: 18+1 standard capacity, 4.46" barrel -->

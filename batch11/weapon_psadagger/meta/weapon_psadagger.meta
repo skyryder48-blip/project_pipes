@@ -42,7 +42,7 @@
       <FireType>INSTANT_HIT</FireType>
       <WheelSlot>WHEEL_PISTOL</WheelSlot>
       <Group>GROUP_PISTOL</Group>
-      <AmmoInfo ref="AMMO_PISTOL" />
+      <AmmoInfo ref="AMMO_9MM_FMJ" />
       <AimingInfo ref="PISTOL_ACCURATE" />
 
       <!-- PSA Dagger: Budget 9mm Glock clone, 3.9" barrel, 22.4 oz (lightest) -->

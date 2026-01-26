@@ -13,7 +13,7 @@
       <LocName>WCT_CLIP_FMJ</LocName>
       <LocDesc>WCD_CLIP_FMJ</LocDesc>
       <ClipSize value="17" />
-      <AmmoInfo ref="AMMO_PISTOL" />
+      <AmmoInfo ref="AMMO_9MM_FMJ" />
     </Item>
 
     <!-- HOLLOW POINT MAGAZINE - Standard 17 round -->
@@ -23,7 +23,7 @@
       <LocName>WCT_CLIP_HP</LocName>
       <LocDesc>WCD_CLIP_HP</LocDesc>
       <ClipSize value="17" />
-      <AmmoInfo ref="AMMO_PISTOL" />
+      <AmmoInfo ref="AMMO_9MM_HP" />
     </Item>
 
     <!-- ARMOR PIERCING MAGAZINE - Standard 17 round -->
@@ -33,7 +33,7 @@
       <LocName>WCT_CLIP_AP</LocName>
       <LocDesc>WCD_CLIP_AP</LocDesc>
       <ClipSize value="17" />
-      <AmmoInfo ref="AMMO_PISTOL" />
+      <AmmoInfo ref="AMMO_9MM_AP" />
     </Item>
 
     <!-- EXTENDED FMJ MAGAZINE - 24 round -->
@@ -43,7 +43,7 @@
       <LocName>WCT_EXTCLIP_FMJ</LocName>
       <LocDesc>WCD_EXTCLIP_FMJ</LocDesc>
       <ClipSize value="24" />
-      <AmmoInfo ref="AMMO_PISTOL" />
+      <AmmoInfo ref="AMMO_9MM_FMJ" />
     </Item>
 
     <!-- EXTENDED HOLLOW POINT MAGAZINE - 24 round -->
@@ -53,7 +53,7 @@
       <LocName>WCT_EXTCLIP_HP</LocName>
       <LocDesc>WCD_EXTCLIP_HP</LocDesc>
       <ClipSize value="24" />
-      <AmmoInfo ref="AMMO_PISTOL" />
+      <AmmoInfo ref="AMMO_9MM_HP" />
     </Item>
 
     <!-- EXTENDED ARMOR PIERCING MAGAZINE - 24 round -->
@@ -63,7 +63,7 @@
       <LocName>WCT_EXTCLIP_AP</LocName>
       <LocDesc>WCD_EXTCLIP_AP</LocDesc>
       <ClipSize value="24" />
-      <AmmoInfo ref="AMMO_PISTOL" />
+      <AmmoInfo ref="AMMO_9MM_AP" />
     </Item>
   </Infos>
 </CWeaponComponentInfoBlob>

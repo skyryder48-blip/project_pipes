@@ -1697,10 +1697,571 @@ function CalculateArmorDegradation(caliber, ammoType)
 end
 
 -- =============================================================================
+-- ENVIRONMENTAL INTERACTION SYSTEM
+-- Bullet interactions with world objects and surfaces
+-- =============================================================================
+
+Config.EnvironmentalEffects = {
+    enabled = true,
+
+    -- ==========================================================================
+    -- 1. FUEL/EXPLOSIVE INTERACTIONS
+    -- ==========================================================================
+    fuel = {
+        enabled = true,
+
+        -- Ammo types that can ignite fuel sources
+        ignitionAmmo = {
+            -- Incendiary/fire rounds
+            ['12ga_dragonsbreath'] = { chance = 1.00, explosionScale = 1.0 },
+            ['50bmg_api'] = { chance = 0.95, explosionScale = 1.5 },
+
+            -- High-power rounds (added per request)
+            ['50bmg_ball'] = { chance = 0.75, explosionScale = 1.3 },
+            ['50bmg_boom'] = { chance = 1.00, explosionScale = 2.0 },
+            ['12ga_slug'] = { chance = 0.60, explosionScale = 0.9 },
+
+            -- AP rounds with sparks
+            ['556_ap'] = { chance = 0.35, explosionScale = 0.8 },
+            ['762x39_ap'] = { chance = 0.40, explosionScale = 0.9 },
+            ['762x51_ap'] = { chance = 0.50, explosionScale = 1.0 },
+            ['68x51_ap'] = { chance = 0.55, explosionScale = 1.1 },
+        },
+
+        -- Target objects
+        targets = {
+            gasPump = {
+                models = {
+                    'prop_gas_pump_1a', 'prop_gas_pump_1b', 'prop_gas_pump_1c',
+                    'prop_gas_pump_1d', 'prop_gas_pump_old1', 'prop_gas_pump_old2',
+                    'prop_gas_pump_old3', 'prop_vintage_pump',
+                },
+                explosionType = 'EXPLOSION_PETROL_PUMP',
+                baseRadius = 8.0,
+                baseDamage = 200,
+                fireSpread = true,
+                fireDuration = 15000,
+            },
+            propaneTank = {
+                models = {
+                    'prop_propane_tank01a', 'prop_propane_tank01b',
+                    'prop_propane_tank02a', 'prop_propane_tank02b',
+                    'ng_proc_tank_01', 'prop_gas_tank_01a',
+                },
+                explosionType = 'EXPLOSION_PROPANE',
+                baseRadius = 6.0,
+                baseDamage = 150,
+                fireSpread = false,
+            },
+            gasCan = {
+                models = {
+                    'prop_jerrycan_01a', 'prop_ld_jerrycan_01',
+                    'w_am_jerrycan', 'prop_barrel_exp_01a',
+                },
+                explosionType = 'EXPLOSION_MOLOTOV',
+                baseRadius = 3.0,
+                baseDamage = 50,
+                fireSpread = true,
+                fireDuration = 8000,
+            },
+            vehicleFuelTank = {
+                -- Detected via entity type, not model
+                explosionType = 'EXPLOSION_CAR',
+                fireChance = 0.70,       -- Fire first, then explode
+                fireToExplosionTime = 5000,
+                baseRadius = 5.0,
+            },
+        },
+    },
+
+    -- ==========================================================================
+    -- 2. ELECTRICAL INTERACTIONS
+    -- ==========================================================================
+    electrical = {
+        enabled = true,
+
+        -- Ammo types that affect electrical systems
+        disruptionAmmo = {
+            -- Sniper/high-power (added per request)
+            ['762x51_fmj'] = { chance = 0.70, disableEngine = true },
+            ['762x51_ap'] = { chance = 0.85, disableEngine = true },
+            ['762x51_match'] = { chance = 0.70, disableEngine = true },
+            ['300wm_fmj'] = { chance = 0.80, disableEngine = true },
+            ['300wm_match'] = { chance = 0.80, disableEngine = true },
+            ['50bmg_ball'] = { chance = 0.95, disableEngine = true },
+            ['50bmg_api'] = { chance = 1.00, disableEngine = true },
+            ['50bmg_boom'] = { chance = 1.00, disableEngine = true },
+
+            -- Slugs (added per request)
+            ['12ga_slug'] = { chance = 0.65, disableEngine = true },
+
+            -- AP rounds
+            ['556_ap'] = { chance = 0.50, disableEngine = false },
+            ['762x39_ap'] = { chance = 0.55, disableEngine = false },
+            ['9mm_ap'] = { chance = 0.30, disableEngine = false },
+            ['57x28_ap'] = { chance = 0.40, disableEngine = false },
+
+            -- Standard rifle FMJ
+            ['556_fmj'] = { chance = 0.35, disableEngine = false },
+            ['762x39_fmj'] = { chance = 0.40, disableEngine = false },
+        },
+
+        targets = {
+            powerBox = {
+                models = {
+                    'prop_elecbox_01a', 'prop_elecbox_02a', 'prop_elecbox_02b',
+                    'prop_elecbox_03a', 'prop_elecbox_04a', 'prop_elecbox_05a',
+                    'prop_elecbox_06a', 'prop_elecbox_07a', 'prop_elecbox_08',
+                    'prop_elecbox_09', 'prop_elecbox_10', 'prop_elecbox_11',
+                    'prop_elecbox_12', 'prop_elecbox_13', 'prop_elecbox_14',
+                    'prop_sub_trans_01a', 'prop_sub_trans_02a',
+                },
+                sparkDuration = 3000,
+                blackoutRadius = 50.0,
+                blackoutDuration = 30000,   -- 30 seconds
+            },
+            streetLight = {
+                models = {
+                    'prop_streetlight_01', 'prop_streetlight_01b',
+                    'prop_streetlight_02', 'prop_streetlight_03a',
+                    'prop_streetlight_03b', 'prop_streetlight_03c',
+                    'prop_streetlight_03d', 'prop_streetlight_03e',
+                    'prop_streetlight_04', 'prop_streetlight_05',
+                    'prop_streetlight_06', 'prop_streetlight_07a',
+                    'prop_streetlight_07b', 'prop_streetlight_08',
+                    'prop_streetlight_09', 'prop_streetlight_10',
+                    'prop_streetlight_11a', 'prop_streetlight_11b',
+                    'prop_streetlight_11c', 'prop_streetlight_12a',
+                    'prop_streetlight_12b', 'prop_streetlight_14a',
+                    'prop_streetlight_15a', 'prop_streetlight_16a',
+                },
+                disableDuration = 0,        -- Permanent until respawn
+            },
+            neonSign = {
+                models = {
+                    'prop_neon_sign_01', 'prop_neon_sign_02',
+                },
+                sparkChance = 0.80,
+                disableDuration = 0,
+            },
+            vehicleBattery = {
+                -- Detected via hitting engine area of vehicle
+                sparkChance = 0.60,
+                disableElectronics = true,
+                disableEnginePermanent = false,  -- Can restart after delay
+                restartDelay = 15000,
+            },
+        },
+    },
+
+    -- ==========================================================================
+    -- 3. GLASS/WINDOW INTERACTIONS
+    -- ==========================================================================
+    glass = {
+        enabled = true,
+
+        -- Shatter behavior by ammo type
+        shatterBehavior = {
+            -- HP/JHP = full shatter (expansion)
+            ['hp'] = { fullShatter = true, holeSize = 0 },
+            ['jhp'] = { fullShatter = true, holeSize = 0 },
+
+            -- FMJ = penetration hole
+            ['fmj'] = { fullShatter = false, holeSize = 0.05 },
+            ['ball'] = { fullShatter = false, holeSize = 0.08 },
+
+            -- AP = clean small hole
+            ['ap'] = { fullShatter = false, holeSize = 0.03 },
+            ['api'] = { fullShatter = false, holeSize = 0.04 },
+
+            -- Shotgun
+            ['00buck'] = { fullShatter = true, holeSize = 0 },
+            ['slug'] = { fullShatter = true, holeSize = 0 },
+            ['birdshot'] = { fullShatter = true, holeSize = 0 },
+        },
+
+        -- Bulletproof glass (banks, armored vehicles)
+        bulletproofGlass = {
+            hitsToBreak = {
+                -- Pistol calibers
+                ['9mm'] = 15,
+                ['.45acp'] = 12,
+                ['.40sw'] = 13,
+                ['.357mag'] = 8,
+                ['.44mag'] = 6,
+                ['.500sw'] = 4,
+
+                -- Rifle calibers
+                ['5.56'] = 5,
+                ['7.62x39'] = 4,
+                ['7.62x51'] = 3,
+                ['.300wm'] = 2,
+                ['.50bmg'] = 1,   -- One shot
+
+                -- AP modifier (halves hits required)
+                apModifier = 0.5,
+            },
+        },
+    },
+
+    -- ==========================================================================
+    -- 4. WATER/LIQUID INTERACTIONS
+    -- ==========================================================================
+    water = {
+        enabled = true,
+
+        -- Bullet velocity loss in water (per meter)
+        velocityLossPerMeter = {
+            -- Light/fast rounds lose velocity quickly
+            ['5.56'] = 0.35,
+            ['5.7x28'] = 0.40,
+            ['9mm'] = 0.25,
+
+            -- Heavy/slow rounds penetrate better
+            ['.45acp'] = 0.20,
+            ['.44mag'] = 0.18,
+            ['.500sw'] = 0.15,
+            ['7.62x51'] = 0.22,
+            ['.50bmg'] = 0.12,
+
+            -- Shotgun
+            ['12ga'] = 0.45,    -- Pellets stop fast
+        },
+
+        -- Maximum underwater range (meters)
+        maxUnderwaterRange = {
+            ['9mm'] = 2.0,
+            ['.45acp'] = 2.5,
+            ['5.56'] = 1.5,
+            ['7.62x51'] = 3.0,
+            ['.50bmg'] = 5.0,
+        },
+
+        -- Fire hydrant interaction
+        fireHydrant = {
+            models = {
+                'prop_fire_hydrant_1', 'prop_fire_hydrant_2',
+                'prop_fire_hydrant_3', 'prop_fire_hydrant_4',
+            },
+            minCaliberPower = 0.65,     -- Magnum+ or rifle
+            waterSprayDuration = 60000, -- 1 minute
+            slipperyRadius = 5.0,
+            slipperyDuration = 45000,
+        },
+
+        -- Water tower
+        waterTower = {
+            models = {
+                'prop_watertower02', 'prop_watertower03a',
+            },
+            hitsToLeak = 5,
+            hitsToCollapse = 15,
+            leakParticle = 'water_cannon_jet',
+        },
+    },
+
+    -- ==========================================================================
+    -- 5. COVER DESTRUCTION (Extends penetration system)
+    -- ==========================================================================
+    coverDestruction = {
+        enabled = true,
+
+        -- Destructible cover objects
+        destructibles = {
+            woodenFurniture = {
+                models = {
+                    'prop_chair_01a', 'prop_chair_01b', 'prop_chair_02',
+                    'prop_chair_03', 'prop_chair_04a', 'prop_chair_04b',
+                    'prop_table_01', 'prop_table_02', 'prop_table_03',
+                    'prop_table_04', 'prop_table_05', 'prop_table_06',
+                    'v_ilev_fos_sofa', 'v_ilev_fos_sofa2',
+                },
+                hitsToDestroy = 8,
+                materialType = 'wood_thin',
+                debrisOnDestroy = true,
+            },
+            thinWalls = {
+                -- Detected via material, not model
+                materialHashes = { -1903687135 }, -- PLASTER/drywall
+                penetrationThreshold = 0.40,
+                leaveHoles = true,
+                holeDecal = 'BulletHole_Plaster',
+            },
+            concreteBarrier = {
+                models = {
+                    'prop_barrier_work01a', 'prop_barrier_work02a',
+                    'prop_mp_barrier_01', 'prop_mp_barrier_02',
+                },
+                hitsToChip = 3,
+                hitsToBreak = 20,     -- Only .50 BMG realistically
+                chipDecal = 'BulletHole_Concrete',
+            },
+        },
+    },
+
+    -- ==========================================================================
+    -- 6. FIRE SPREAD
+    -- ==========================================================================
+    fireSpread = {
+        enabled = true,
+
+        -- Surfaces that can catch fire
+        flammableSurfaces = {
+            dryGrass = {
+                materialHashes = { 1109728704, -461750719 }, -- GRASS_DRY
+                spreadRate = 2.0,          -- Meters per second
+                maxSpreadRadius = 15.0,
+                burnDuration = 20000,
+            },
+            trash = {
+                models = {
+                    'prop_rub_binbag_01', 'prop_rub_binbag_03',
+                    'prop_rub_binbag_04', 'prop_rub_binbag_05',
+                    'prop_dumpster_01a', 'prop_dumpster_02a',
+                },
+                spreadRate = 0.5,
+                maxSpreadRadius = 3.0,
+                burnDuration = 30000,
+            },
+            oilSpill = {
+                -- Created dynamically or from vehicle damage
+                spreadRate = 5.0,
+                maxSpreadRadius = 8.0,
+                burnDuration = 15000,
+                explosionChance = 0.20,
+            },
+        },
+
+        -- Incendiary ammo types
+        incendiaryAmmo = {
+            ['12ga_dragonsbreath'] = { spreadChance = 0.90, intensity = 1.5 },
+            ['50bmg_api'] = { spreadChance = 0.70, intensity = 1.2 },
+        },
+    },
+
+    -- ==========================================================================
+    -- 7. RICOCHET SYSTEM
+    -- ==========================================================================
+    ricochet = {
+        enabled = true,
+
+        -- Surface ricochet properties
+        surfaces = {
+            metal = {
+                materialHashes = { 488148577, -1833215086, -1913017724 },
+                ricochetChance = 0.45,
+                maxAngle = 30,              -- Degrees from surface
+                damageRetention = 0.35,
+                sparkEffect = true,
+            },
+            concrete = {
+                materialHashes = { -1595148316, 1109728704, -1942898710 },
+                ricochetChance = 0.25,
+                maxAngle = 20,
+                damageRetention = 0.25,
+                sparkEffect = false,
+                dustEffect = true,
+            },
+            armorPlate = {
+                -- Vehicle armor, ballistic shields
+                ricochetChance = 0.70,
+                maxAngle = 45,
+                damageRetention = 0.20,
+                sparkEffect = true,
+                loudDeflection = true,
+            },
+        },
+
+        -- Ammo types that don't ricochet
+        noRicochet = {
+            ['hp'] = true,      -- Expansion prevents
+            ['jhp'] = true,
+            ['00buck'] = true,  -- Pellets
+            ['birdshot'] = true,
+            ['dragonsbreath'] = true,
+        },
+
+        -- AP rounds have reduced ricochet (designed to penetrate)
+        apRicochetModifier = 0.30,
+    },
+
+    -- ==========================================================================
+    -- 8. SPECIAL ENVIRONMENT OBJECTS
+    -- ==========================================================================
+    specialObjects = {
+        enabled = true,
+
+        fireExtinguisher = {
+            models = {
+                'prop_fire_exting_1a', 'prop_fire_exting_1b',
+                'prop_fire_exting_2a', 'prop_fire_exting_3a',
+            },
+            sprayDuration = 5000,
+            sprayRadius = 4.0,
+            visionObscure = true,
+            extinguishesFire = true,
+        },
+
+        acUnit = {
+            models = {
+                'prop_ac_unit_01', 'prop_ac_unit_02',
+                'prop_ac_unit_03', 'prop_ac_unit_04',
+            },
+            steamDuration = 8000,
+            steamRadius = 3.0,
+            minDamageToTrigger = 50,
+        },
+
+        barrel = {
+            models = {
+                'prop_barrel_01a', 'prop_barrel_02a',
+                'prop_barrel_02b', 'prop_barrel_03a',
+                'prop_barrel_04a', 'prop_barrel_05',
+            },
+            knockbackForce = {
+                -- Force based on caliber power
+                ['.22lr'] = 0,
+                ['9mm'] = 50,
+                ['.45acp'] = 80,
+                ['.357mag'] = 120,
+                ['.44mag'] = 180,
+                ['5.56'] = 150,
+                ['7.62x51'] = 250,
+                ['.50bmg'] = 500,
+            },
+        },
+
+        tire = {
+            -- Enhanced tire deflation (GTA handles base, we add sound/effects)
+            deflateSound = 'TYRE_BURST',
+            slowLeakChance = 0.40,  -- Partial deflation over time
+            slowLeakDuration = 30000,
+        },
+    },
+}
+
+-- =============================================================================
+-- ENVIRONMENTAL HELPER FUNCTIONS
+-- =============================================================================
+
+--- Check if ammo can ignite fuel
+-- @param ammoKey string Full ammo key (e.g., '50bmg_api')
+-- @return boolean, table Whether it can ignite and the properties
+function CanIgniteFuel(ammoKey)
+    local ignition = Config.EnvironmentalEffects.fuel.ignitionAmmo[ammoKey]
+    if ignition then
+        return true, ignition
+    end
+    return false, nil
+end
+
+--- Check if ammo can disrupt electrical
+-- @param ammoKey string Full ammo key
+-- @return boolean, table Whether it can disrupt and the properties
+function CanDisruptElectrical(ammoKey)
+    local disruption = Config.EnvironmentalEffects.electrical.disruptionAmmo[ammoKey]
+    if disruption then
+        return true, disruption
+    end
+    return false, nil
+end
+
+--- Get glass shatter behavior
+-- @param ammoType string The ammo type (fmj, hp, ap, etc.)
+-- @return table Shatter behavior
+function GetGlassShatterBehavior(ammoType)
+    return Config.EnvironmentalEffects.glass.shatterBehavior[ammoType] or
+           { fullShatter = false, holeSize = 0.05 }
+end
+
+--- Calculate ricochet chance
+-- @param materialHash number GTA material hash
+-- @param bulletAngle number Angle of impact (degrees from surface)
+-- @param ammoType string The ammo type
+-- @return boolean, number, number Whether ricochet occurs, reflected angle, damage retention
+function CalculateRicochet(materialHash, bulletAngle, ammoType)
+    if not Config.EnvironmentalEffects.ricochet.enabled then
+        return false, 0, 0
+    end
+
+    -- Check if ammo type can ricochet
+    if Config.EnvironmentalEffects.ricochet.noRicochet[ammoType] then
+        return false, 0, 0
+    end
+
+    -- Find matching surface
+    local surfaceData = nil
+    for surfaceType, data in pairs(Config.EnvironmentalEffects.ricochet.surfaces) do
+        if data.materialHashes then
+            for _, hash in ipairs(data.materialHashes) do
+                if hash == materialHash then
+                    surfaceData = data
+                    break
+                end
+            end
+        end
+        if surfaceData then break end
+    end
+
+    if not surfaceData then
+        return false, 0, 0
+    end
+
+    -- Check angle threshold
+    if bulletAngle > surfaceData.maxAngle then
+        return false, 0, 0
+    end
+
+    -- Calculate ricochet chance
+    local chance = surfaceData.ricochetChance
+
+    -- AP rounds less likely to ricochet
+    if ammoType == 'ap' or ammoType == 'api' then
+        chance = chance * Config.EnvironmentalEffects.ricochet.apRicochetModifier
+    end
+
+    -- Steeper angles = higher ricochet chance
+    local angleModifier = 1.0 - (bulletAngle / surfaceData.maxAngle)
+    chance = chance * (0.5 + angleModifier * 0.5)
+
+    if math.random() < chance then
+        local reflectedAngle = bulletAngle -- Simplified reflection
+        return true, reflectedAngle, surfaceData.damageRetention
+    end
+
+    return false, 0, 0
+end
+
+--- Get barrel knockback force for caliber
+-- @param caliber string The caliber
+-- @return number Knockback force
+function GetBarrelKnockback(caliber)
+    return Config.EnvironmentalEffects.specialObjects.barrel.knockbackForce[caliber] or 0
+end
+
+-- =============================================================================
 -- EXPORTS
 -- =============================================================================
 
 exports('GetAmmoModifier', GetAmmoModifier)
+exports('GetDefaultAmmoType', GetDefaultAmmoType)
+exports('IsValidAmmoType', IsValidAmmoType)
+exports('GetAmmoTypesForCaliber', GetAmmoTypesForCaliber)
+exports('GetOverpenetrationStats', GetOverpenetrationStats)
+exports('CanPenetrateMaterial', CanPenetrateMaterial)
+exports('GetMaterialFromHash', GetMaterialFromHash)
+exports('GetEffectivePenetration', GetEffectivePenetration)
+exports('CalculateRangeFalloff', CalculateRangeFalloff)
+exports('GetSuppressorModifiers', GetSuppressorModifiers)
+exports('GetBodyRegion', GetBodyRegion)
+exports('CalculateLimbDamage', CalculateLimbDamage)
+exports('GetArmorEffectiveness', GetArmorEffectiveness)
+exports('CalculateArmorDegradation', CalculateArmorDegradation)
+exports('CanIgniteFuel', CanIgniteFuel)
+exports('CanDisruptElectrical', CanDisruptElectrical)
+exports('GetGlassShatterBehavior', GetGlassShatterBehavior)
+exports('CalculateRicochet', CalculateRicochet)
+exports('GetBarrelKnockback', GetBarrelKnockback)
 exports('GetDefaultAmmoType', GetDefaultAmmoType)
 exports('IsValidAmmoType', IsValidAmmoType)
 exports('GetAmmoTypesForCaliber', GetAmmoTypesForCaliber)

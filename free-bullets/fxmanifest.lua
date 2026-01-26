@@ -73,6 +73,7 @@ client_scripts {
     'client/cl_lesslethal.lua',  -- Beanbag, pepperball, tranquilizer effects
     'client/cl_penetration.lua', -- Bullet penetration system
     'client/cl_limbdamage.lua',  -- Limb damage effects & med script integration
+    'client/cl_environment.lua', -- Environmental interactions
 }
 
 -- Server-side scripts
@@ -81,6 +82,7 @@ server_scripts {
     'server/magazine_server.lua',
     'server/sv_damage.lua',      -- Damage modifier handler
     'server/sv_penetration.lua', -- Bullet penetration system
+    'server/sv_environment.lua', -- Environmental interactions
 }
 
 -- Meta files for ammunition definitions and components

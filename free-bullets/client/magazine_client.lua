@@ -430,27 +430,31 @@ end
 
 --[[
     Select best magazine based on priority setting
+    Priority: Highest round count first, then same ammo type as tiebreaker
 ]]
 function SelectBestMagazine(loadedMags, currentMag)
     if #loadedMags == 0 then return nil end
 
-    local priority = Config.MagazineSystem.autoReloadPriority
+    -- Sort by count (highest first), then by matching ammo type
+    table.sort(loadedMags, function(a, b)
+        -- Primary: highest round count
+        if a.metadata.count ~= b.metadata.count then
+            return a.metadata.count > b.metadata.count
+        end
 
-    if priority == 'same_ammo_first' and currentMag then
-        -- Prefer same ammo type
-        for _, mag in ipairs(loadedMags) do
-            if mag.metadata.ammoType == currentMag.ammoType then
-                return mag
+        -- Secondary: prefer same ammo type as current mag
+        if currentMag and currentMag.ammoType then
+            local aMatches = a.metadata.ammoType == currentMag.ammoType
+            local bMatches = b.metadata.ammoType == currentMag.ammoType
+            if aMatches ~= bMatches then
+                return aMatches
             end
         end
-    elseif priority == 'highest_capacity' then
-        -- Sort by capacity
-        table.sort(loadedMags, function(a, b)
-            return a.metadata.count > b.metadata.count
-        end)
-    end
 
-    -- Return first available
+        -- Tertiary: alphabetical ammo type for consistency
+        return a.metadata.ammoType < b.metadata.ammoType
+    end)
+
     return loadedMags[1]
 end
 

@@ -195,6 +195,91 @@ AddEventHandler('onResourceStop', function(resourceName)
 end)
 
 -- =============================================================================
+-- ADMIN COMMAND HANDLERS
+-- =============================================================================
+
+-- Handle status request from admin
+RegisterNetEvent('ammo:requestStatus', function(requesterId)
+    local ped = PlayerPedId()
+    local weapon = GetSelectedPedWeapon(ped)
+
+    local data = {
+        playerId = GetPlayerServerId(PlayerId()),
+        weaponName = 'None',
+        caliber = nil,
+        ammoType = nil,
+        ammoCount = 0,
+        magazineInfo = nil,
+        hasSuppressor = false,
+    }
+
+    if weapon ~= `WEAPON_UNARMED` then
+        local weaponInfo = Config.Weapons and Config.Weapons[weapon]
+
+        data.weaponName = GetLabelText(GetWeapontypeSlot(weapon)) or tostring(weapon)
+        data.ammoCount = GetAmmoInPedWeapon(ped, weapon)
+
+        if weaponInfo then
+            data.caliber = weaponInfo.caliber
+            data.ammoType = GetAmmoType(weapon)
+        end
+
+        -- Check suppressor
+        data.hasSuppressor = HasPedGotWeaponComponent(ped, weapon, `COMPONENT_AT_PI_SUPP`) or
+                             HasPedGotWeaponComponent(ped, weapon, `COMPONENT_AT_AR_SUPP`) or
+                             HasPedGotWeaponComponent(ped, weapon, `COMPONENT_AT_AR_SUPP_02`) or
+                             HasPedGotWeaponComponent(ped, weapon, `COMPONENT_AT_SR_SUPP`)
+
+        -- Get equipped magazine info
+        local equippedMag = exports['free-bullets']:GetEquippedMagazine(weapon)
+        if equippedMag then
+            data.magazineInfo = equippedMag
+        end
+    end
+
+    TriggerServerEvent('ammo:sendStatus', data, requesterId)
+end)
+
+-- Handle force ammo type change from admin
+RegisterNetEvent('ammo:forceSetAmmoType', function(ammoType)
+    local ped = PlayerPedId()
+    local weapon = GetSelectedPedWeapon(ped)
+
+    if weapon ~= `WEAPON_UNARMED` then
+        SetAmmoType(weapon, ammoType)
+
+        if lib and lib.notify then
+            lib.notify({
+                title = 'Ammo Changed',
+                description = 'Ammo type set to ' .. string.upper(ammoType),
+                type = 'inform'
+            })
+        end
+    end
+end)
+
+-- Update current caliber state for effects system
+CreateThread(function()
+    while true do
+        local ped = PlayerPedId()
+        local weapon = GetSelectedPedWeapon(ped)
+
+        if weapon ~= `WEAPON_UNARMED` then
+            local weaponInfo = Config.Weapons and Config.Weapons[weapon]
+            if weaponInfo then
+                LocalPlayer.state:set('currentCaliber', weaponInfo.caliber, false)
+                LocalPlayer.state:set('currentAmmoType', GetAmmoType(weapon), false)
+            end
+        else
+            LocalPlayer.state:set('currentCaliber', nil, false)
+            LocalPlayer.state:set('currentAmmoType', nil, false)
+        end
+
+        Wait(250)
+    end
+end)
+
+-- =============================================================================
 -- EXPORTS
 -- =============================================================================
 

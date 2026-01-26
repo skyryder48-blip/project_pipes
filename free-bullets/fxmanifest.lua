@@ -83,6 +83,7 @@ server_scripts {
     'server/sv_damage.lua',      -- Damage modifier handler
     'server/sv_penetration.lua', -- Bullet penetration system
     'server/sv_environment.lua', -- Environmental interactions
+    'server/sv_admin.lua',       -- Admin commands
 }
 
 -- Meta files for ammunition definitions and components

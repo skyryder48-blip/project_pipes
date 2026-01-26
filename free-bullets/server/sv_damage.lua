@@ -480,30 +480,11 @@ AddEventHandler('weaponDamageEvent', function(attackerSource, data)
         end
     end
 
-    -- Trigger limb damage effects for medical script integration
+    -- Trigger limb damage data for medical script integration
+    -- Only passes bleed/wound data - gameplay effects handled by med script
     if limbEffects and victimSource and victimSource > 0 then
         -- Send limb damage event to victim for med script
         TriggerClientEvent('ammo:limbDamage', victimSource, limbEffects)
-
-        -- Also trigger the specific medical event if defined
-        if limbEffects.event then
-            TriggerClientEvent(limbEffects.event, victimSource, limbEffects)
-        end
-
-        -- Handle special limb effects
-        if limbEffects.canDropWeapon and math.random() < (limbEffects.dropChance or 0) then
-            TriggerClientEvent('ammo:forceDropWeapon', victimSource)
-        end
-
-        if limbEffects.canCauseFall and math.random() < (limbEffects.fallChance or 0) then
-            TriggerClientEvent('ammo:causeFall', victimSource)
-        end
-
-        if limbEffects.canKnockout and math.random() < (limbEffects.knockoutChance or 0) then
-            TriggerClientEvent('ammo:knockout', victimSource, {
-                duration = 5000 + math.random(0, 5000),
-            })
-        end
     end
 
     -- Trigger special effects

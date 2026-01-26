@@ -235,7 +235,7 @@ RegisterNetEvent('ammo:equipMagazine', function(data)
     end
 
     -- If there are excess rounds that couldn't fit in the weapon,
-    -- return them as LOOSE AMMO (not a partial magazine)
+    -- return them as LOOSE AMMO only (magazine is now IN the weapon)
     if excessRounds > 0 then
         -- Get the caliber from the magazine's compatible weapons
         local caliber = nil
@@ -273,8 +273,9 @@ RegisterNetEvent('ammo:equipMagazine', function(data)
             })
         end
 
-        -- Return empty magazine (the loaded magazine is now empty after transferring rounds)
-        ox_inventory:AddItem(source, newMag.item, 1)  -- No metadata = empty = stackable
+        -- NOTE: Do NOT return empty magazine here!
+        -- The magazine is now physically inside the weapon.
+        -- It only comes back when player reloads/swaps magazines.
     end
 
     -- Tell client to apply the new magazine (with clamped count)
@@ -330,7 +331,7 @@ RegisterNetEvent('ammo:combatReload', function(data)
     end
 
     -- If there are excess rounds that couldn't fit in the weapon,
-    -- return them as LOOSE AMMO (not a partial magazine)
+    -- return them as LOOSE AMMO only (magazine is now IN the weapon)
     if excessRounds > 0 then
         -- Get the caliber from the magazine's compatible weapons
         local caliber = nil
@@ -353,8 +354,9 @@ RegisterNetEvent('ammo:combatReload', function(data)
             ox_inventory:AddItem(source, ammoConfig.item, excessRounds)
         end
 
-        -- Return empty magazine (the loaded magazine is now empty after transferring rounds)
-        ox_inventory:AddItem(source, newMag.item, 1)  -- No metadata = empty = stackable
+        -- NOTE: Do NOT return empty magazine here!
+        -- The new magazine is now physically inside the weapon.
+        -- The OLD magazine (emptyMag) was already returned above.
     end
 
     -- Apply new magazine (with clamped count)

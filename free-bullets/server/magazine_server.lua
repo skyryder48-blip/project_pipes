@@ -173,6 +173,12 @@ end)
 
 --[[
     Equip a magazine to weapon (swap if one already equipped)
+
+    Supports shared magazine compatibility with per-weapon capacity limits:
+    - If magazine has more rounds than weapon can physically hold (weaponClipSize),
+      only loads what the weapon can accept
+    - Excess rounds remain in magazine (returned to inventory as partial mag)
+    - Example: 17rd G17 mag in G26 (10rd capacity) → G26 loads 10, mag returned with 7
 ]]
 RegisterNetEvent('ammo:equipMagazine', function(data)
     local source = source
@@ -183,6 +189,14 @@ RegisterNetEvent('ammo:equipMagazine', function(data)
 
     local newMag = data.newMagazine
     local currentMag = data.currentMagazine
+    local weaponClipSize = data.weaponClipSize or 999  -- Fallback if not provided
+
+    local magInfo = Config.Magazines[newMag.item]
+    local magazineRounds = newMag.metadata.count or 0
+
+    -- Calculate how many rounds the weapon can actually accept
+    local actualLoad = math.min(magazineRounds, weaponClipSize)
+    local excessRounds = magazineRounds - actualLoad
 
     -- Remove the new magazine from inventory
     local removed = ox_inventory:RemoveItem(source, newMag.item, 1, nil, newMag.slot)
@@ -197,7 +211,7 @@ RegisterNetEvent('ammo:equipMagazine', function(data)
 
     -- If there was a magazine already equipped, return it to inventory
     if currentMag and currentMag.item then
-        local magInfo = Config.Magazines[currentMag.item]
+        local currentMagInfo = Config.Magazines[currentMag.item]
         local metadata = nil
 
         if currentMag.count and currentMag.count > 0 then
@@ -205,11 +219,11 @@ RegisterNetEvent('ammo:equipMagazine', function(data)
             metadata = {
                 ammoType = currentMag.ammoType,
                 count = currentMag.count,
-                maxCount = magInfo and magInfo.capacity or currentMag.count,
+                maxCount = currentMagInfo and currentMagInfo.capacity or currentMag.count,
                 label = string.format('%s (%d/%d %s)',
-                    magInfo and magInfo.label or currentMag.item,
+                    currentMagInfo and currentMagInfo.label or currentMag.item,
                     currentMag.count,
-                    magInfo and magInfo.capacity or currentMag.count,
+                    currentMagInfo and currentMagInfo.capacity or currentMag.count,
                     string.upper(currentMag.ammoType)
                 ),
             }
@@ -219,12 +233,36 @@ RegisterNetEvent('ammo:equipMagazine', function(data)
         ox_inventory:AddItem(source, currentMag.item, 1, metadata)
     end
 
-    -- Tell client to apply the new magazine
+    -- If there are excess rounds that couldn't fit in the weapon,
+    -- return a partial magazine to inventory
+    if excessRounds > 0 then
+        local excessMetadata = {
+            ammoType = newMag.metadata.ammoType,
+            count = excessRounds,
+            maxCount = magInfo and magInfo.capacity or newMag.metadata.maxCount,
+            label = string.format('%s (%d/%d %s)',
+                magInfo and magInfo.label or newMag.item,
+                excessRounds,
+                magInfo and magInfo.capacity or newMag.metadata.maxCount,
+                string.upper(newMag.metadata.ammoType)
+            ),
+        }
+        ox_inventory:AddItem(source, newMag.item, 1, excessMetadata)
+
+        TriggerClientEvent('ox_lib:notify', source, {
+            title = 'Capacity Limited',
+            description = string.format('Weapon holds %d rounds. %d rounds remain in magazine.',
+                actualLoad, excessRounds),
+            type = 'inform'
+        })
+    end
+
+    -- Tell client to apply the new magazine (with clamped count)
     TriggerClientEvent('ammo:magazineEquipped', source, {
         weaponHash = data.weaponHash,
         magazineItem = newMag.item,
         ammoType = newMag.metadata.ammoType,
-        count = newMag.metadata.count,
+        count = actualLoad,  -- Only load what weapon can hold
     })
 end)
 
@@ -234,6 +272,7 @@ end)
 
 --[[
     Handle combat reload - swap magazines during fight
+    Respects weapon's physical capacity limit (excess rounds stay in magazine)
 ]]
 RegisterNetEvent('ammo:combatReload', function(data)
     local source = source
@@ -244,6 +283,14 @@ RegisterNetEvent('ammo:combatReload', function(data)
 
     local newMag = data.newMagazine
     local emptyMag = data.emptyMagazine
+    local weaponClipSize = data.weaponClipSize or 999  -- Fallback if not provided
+
+    local magInfo = Config.Magazines[newMag.item]
+    local magazineRounds = newMag.metadata.count or 0
+
+    -- Calculate how many rounds the weapon can actually accept
+    local actualLoad = math.min(magazineRounds, weaponClipSize)
+    local excessRounds = magazineRounds - actualLoad
 
     -- Remove new magazine from inventory
     local removed = ox_inventory:RemoveItem(source, newMag.item, 1, nil, newMag.slot)
@@ -261,12 +308,29 @@ RegisterNetEvent('ammo:combatReload', function(data)
         ox_inventory:AddItem(source, emptyMag.item, 1)
     end
 
-    -- Apply new magazine
+    -- If there are excess rounds that couldn't fit in the weapon,
+    -- return a partial magazine to inventory
+    if excessRounds > 0 then
+        local excessMetadata = {
+            ammoType = newMag.metadata.ammoType,
+            count = excessRounds,
+            maxCount = magInfo and magInfo.capacity or newMag.metadata.maxCount,
+            label = string.format('%s (%d/%d %s)',
+                magInfo and magInfo.label or newMag.item,
+                excessRounds,
+                magInfo and magInfo.capacity or newMag.metadata.maxCount,
+                string.upper(newMag.metadata.ammoType)
+            ),
+        }
+        ox_inventory:AddItem(source, newMag.item, 1, excessMetadata)
+    end
+
+    -- Apply new magazine (with clamped count)
     TriggerClientEvent('ammo:magazineEquipped', source, {
         weaponHash = data.weaponHash,
         magazineItem = newMag.item,
         ammoType = newMag.metadata.ammoType,
-        count = newMag.metadata.count,
+        count = actualLoad,  -- Only load what weapon can hold
     })
 end)
 

@@ -177,8 +177,9 @@ end)
     Supports shared magazine compatibility with per-weapon capacity limits:
     - If magazine has more rounds than weapon can physically hold (weaponClipSize),
       only loads what the weapon can accept
-    - Excess rounds remain in magazine (returned to inventory as partial mag)
-    - Example: 17rd G17 mag in G26 (10rd capacity) → G26 loads 10, mag returned with 7
+    - Excess rounds returned as LOOSE AMMO (not partial magazine) to prevent exploits
+    - Empty magazine returned to inventory
+    - Example: 17rd G17 mag in G26 (10rd capacity) → G26 loads 10, empty mag + 7 loose rounds returned
 ]]
 RegisterNetEvent('ammo:equipMagazine', function(data)
     local source = source
@@ -234,27 +235,46 @@ RegisterNetEvent('ammo:equipMagazine', function(data)
     end
 
     -- If there are excess rounds that couldn't fit in the weapon,
-    -- return a partial magazine to inventory
+    -- return them as LOOSE AMMO (not a partial magazine)
     if excessRounds > 0 then
-        local excessMetadata = {
-            ammoType = newMag.metadata.ammoType,
-            count = excessRounds,
-            maxCount = magInfo and magInfo.capacity or newMag.metadata.maxCount,
-            label = string.format('%s (%d/%d %s)',
-                magInfo and magInfo.label or newMag.item,
-                excessRounds,
-                magInfo and magInfo.capacity or newMag.metadata.maxCount,
-                string.upper(newMag.metadata.ammoType)
-            ),
-        }
-        ox_inventory:AddItem(source, newMag.item, 1, excessMetadata)
+        -- Get the caliber from the magazine's compatible weapons
+        local caliber = nil
+        if magInfo and magInfo.weapons then
+            for _, weaponName in ipairs(magInfo.weapons) do
+                local weaponInfo = Config.Weapons[GetHashKey(weaponName)]
+                if weaponInfo and weaponInfo.caliber then
+                    caliber = weaponInfo.caliber
+                    break
+                end
+            end
+        end
 
-        TriggerClientEvent('ox_lib:notify', source, {
-            title = 'Capacity Limited',
-            description = string.format('Weapon holds %d rounds. %d rounds remain in magazine.',
-                actualLoad, excessRounds),
-            type = 'inform'
-        })
+        -- Get the ammo item name for this caliber/type
+        local ammoType = newMag.metadata.ammoType
+        local ammoConfig = caliber and Config.AmmoTypes[caliber] and Config.AmmoTypes[caliber][ammoType]
+
+        if ammoConfig and ammoConfig.item then
+            -- Return excess as loose ammo
+            ox_inventory:AddItem(source, ammoConfig.item, excessRounds)
+
+            TriggerClientEvent('ox_lib:notify', source, {
+                title = 'Capacity Limited',
+                description = string.format('Weapon holds %d rounds. %d loose rounds returned.',
+                    actualLoad, excessRounds),
+                type = 'inform'
+            })
+        else
+            -- Fallback: if we can't determine ammo item, notify player (ammo lost)
+            TriggerClientEvent('ox_lib:notify', source, {
+                title = 'Warning',
+                description = string.format('Weapon holds %d rounds. %d rounds could not be returned.',
+                    actualLoad, excessRounds),
+                type = 'warning'
+            })
+        end
+
+        -- Return empty magazine (the loaded magazine is now empty after transferring rounds)
+        ox_inventory:AddItem(source, newMag.item, 1)  -- No metadata = empty = stackable
     end
 
     -- Tell client to apply the new magazine (with clamped count)
@@ -272,7 +292,8 @@ end)
 
 --[[
     Handle combat reload - swap magazines during fight
-    Respects weapon's physical capacity limit (excess rounds stay in magazine)
+    Respects weapon's physical capacity limit
+    Excess rounds returned as LOOSE AMMO (not partial magazine) to prevent exploits
 ]]
 RegisterNetEvent('ammo:combatReload', function(data)
     local source = source
@@ -309,20 +330,31 @@ RegisterNetEvent('ammo:combatReload', function(data)
     end
 
     -- If there are excess rounds that couldn't fit in the weapon,
-    -- return a partial magazine to inventory
+    -- return them as LOOSE AMMO (not a partial magazine)
     if excessRounds > 0 then
-        local excessMetadata = {
-            ammoType = newMag.metadata.ammoType,
-            count = excessRounds,
-            maxCount = magInfo and magInfo.capacity or newMag.metadata.maxCount,
-            label = string.format('%s (%d/%d %s)',
-                magInfo and magInfo.label or newMag.item,
-                excessRounds,
-                magInfo and magInfo.capacity or newMag.metadata.maxCount,
-                string.upper(newMag.metadata.ammoType)
-            ),
-        }
-        ox_inventory:AddItem(source, newMag.item, 1, excessMetadata)
+        -- Get the caliber from the magazine's compatible weapons
+        local caliber = nil
+        if magInfo and magInfo.weapons then
+            for _, weaponName in ipairs(magInfo.weapons) do
+                local weaponInfo = Config.Weapons[GetHashKey(weaponName)]
+                if weaponInfo and weaponInfo.caliber then
+                    caliber = weaponInfo.caliber
+                    break
+                end
+            end
+        end
+
+        -- Get the ammo item name for this caliber/type
+        local ammoType = newMag.metadata.ammoType
+        local ammoConfig = caliber and Config.AmmoTypes[caliber] and Config.AmmoTypes[caliber][ammoType]
+
+        if ammoConfig and ammoConfig.item then
+            -- Return excess as loose ammo
+            ox_inventory:AddItem(source, ammoConfig.item, excessRounds)
+        end
+
+        -- Return empty magazine (the loaded magazine is now empty after transferring rounds)
+        ox_inventory:AddItem(source, newMag.item, 1)  -- No metadata = empty = stackable
     end
 
     -- Apply new magazine (with clamped count)

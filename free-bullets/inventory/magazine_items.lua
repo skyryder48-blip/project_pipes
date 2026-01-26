@@ -727,3 +727,144 @@
         image = 'speedloader_500.png',
     }
 },
+
+['speedloader_38_5rd'] = {
+    label = '.38 Special Speedloader (5rd)',
+    weight = 85,
+    stack = true,
+    close = true,
+    description = '5-round speedloader for compact .38 Special revolvers',
+    client = {
+        image = 'speedloader_38_5rd.png',
+    }
+},
+
+['speedloader_taurus856'] = {
+    label = 'Taurus 856 Speedloader',
+    weight = 90,
+    stack = true,
+    close = true,
+    description = '6-round speedloader for Taurus 856',
+    client = {
+        image = 'speedloader_taurus856.png',
+    }
+},
+
+-- ============================================================================
+-- 7.62x39mm AK PLATFORMS (Batch 13)
+-- ============================================================================
+
+['mag_762x39_standard'] = {
+    label = 'AK Magazine (30rd)',
+    weight = 350,
+    stack = true,
+    close = true,
+    description = 'Standard 7.62x39mm steel AK magazine',
+    client = {
+        image = 'mag_762x39_standard.png',
+    }
+},
+
+['mag_762x39_extended'] = {
+    label = 'AK Extended Magazine (40rd)',
+    weight = 480,
+    stack = true,
+    close = true,
+    description = '40-round RPK-style magazine for AK platforms',
+    client = {
+        image = 'mag_762x39_extended.png',
+    }
+},
+
+['mag_762x39_drum'] = {
+    label = 'AK Drum Magazine (75rd)',
+    weight = 1200,
+    stack = false,
+    close = true,
+    description = '75-round drum magazine for AK rifles',
+    client = {
+        image = 'mag_762x39_drum.png',
+    }
+},
+
+-- ============================================================================
+-- SIG 550 5.56 NATO (Batch 19 - NOT STANAG Compatible)
+-- ============================================================================
+
+['mag_sig550_standard'] = {
+    label = 'SIG 550 Magazine (20rd)',
+    weight = 140,
+    stack = true,
+    close = true,
+    description = 'Proprietary 5.56 magazine for SIG 550',
+    client = {
+        image = 'mag_sig550_standard.png',
+    }
+},
+
+['mag_sig550_extended'] = {
+    label = 'SIG 550 Magazine (30rd)',
+    weight = 195,
+    stack = true,
+    close = true,
+    description = 'Extended magazine for SIG 550',
+    client = {
+        image = 'mag_sig550_extended.png',
+    }
+},
+
+-- ============================================================================
+-- .300 WIN MAG (Batch 19 - NEMO Watchman)
+-- ============================================================================
+
+['mag_300wm_standard'] = {
+    label = '.300 WM Magazine (14rd)',
+    weight = 320,
+    stack = true,
+    close = true,
+    description = 'High-capacity magazine for NEMO Watchman',
+    client = {
+        image = 'mag_300wm_standard.png',
+    }
+},
+
+-- ============================================================================
+-- .50 BMG ANTI-MATERIEL RIFLES (Batch 19)
+-- ============================================================================
+
+['mag_50bmg_barrett'] = {
+    label = 'Barrett .50 BMG Magazine (10rd)',
+    weight = 850,
+    stack = false,
+    close = true,
+    description = 'Heavy magazine for Barrett M82A1/M107A1',
+    client = {
+        image = 'mag_50bmg_barrett.png',
+    }
+},
+
+['mag_50bmg_victus'] = {
+    label = 'Victus .50 BMG Magazine (5rd)',
+    weight = 480,
+    stack = true,
+    close = true,
+    description = 'Precision magazine for Victus XMR',
+    client = {
+        image = 'mag_50bmg_victus.png',
+    }
+},
+
+-- ============================================================================
+-- TRANQUILIZER DART GUN (Batch 20)
+-- ============================================================================
+
+['mag_dart_standard'] = {
+    label = 'Dart Gun Magazine (3rd)',
+    weight = 45,
+    stack = true,
+    close = true,
+    description = '3-dart magazine for non-lethal dart gun',
+    client = {
+        image = 'mag_dart_standard.png',
+    }
+},

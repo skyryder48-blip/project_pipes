@@ -2,11 +2,10 @@
 <CWeaponModelInfo__InitDataList>
   <InitDatas>
     <Item>
-      <Name>w_sg_beretta1301</Name>
-      <Model>w_sg_beretta1301</Model>
-      <Audio>AUDIO_ITEM_AUTOSHOTGUN</Audio>
-      <Slot>SLOT_BERETTA1301</Slot>
-      <DLC>mpassault</DLC>
+      <modelName>w_sg_beretta1301</modelName>
+      <txdName>w_sg_beretta1301</txdName>
+      <ptfxAssetName>NULL</ptfxAssetName>
+      <lodDist value="70"/>
     </Item>
   </InitDatas>
 </CWeaponModelInfo__InitDataList>

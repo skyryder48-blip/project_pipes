@@ -61,6 +61,7 @@ shared_scripts {
     'shared/config.lua',
     'shared/weapons.lua',
     'shared/magazines.lua',
+    'shared/modifiers.lua',  -- Ammo damage modifiers
 }
 
 -- Client-side scripts
@@ -73,6 +74,7 @@ client_scripts {
 server_scripts {
     'server/sv_ammo.lua',
     'server/magazine_server.lua',
+    'server/sv_damage.lua',  -- Damage modifier handler
 }
 
 -- Meta files for ammunition definitions and components

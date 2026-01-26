@@ -1143,6 +1143,560 @@ function GetEffectivePenetration(caliber, ammoModifier)
 end
 
 -- =============================================================================
+-- RANGE FALLOFF SYSTEM
+-- Damage decreases over distance based on caliber ballistics
+-- =============================================================================
+
+Config.RangeFalloff = {
+    enabled = true,
+
+    -- Caliber effective ranges (meters)
+    -- effectiveRange: Full damage up to this distance
+    -- maxRange: Zero damage beyond this distance
+    -- falloffCurve: How quickly damage drops (1.0 = linear, 2.0 = steep, 0.5 = gradual)
+    calibers = {
+        -- Weak pistol calibers - short range
+        ['.22lr'] = {
+            effectiveRange = 25,
+            maxRange = 75,
+            falloffCurve = 1.5,
+            minDamagePercent = 0.20,   -- Minimum 20% damage at max range
+        },
+        ['.38spl'] = {
+            effectiveRange = 35,
+            maxRange = 100,
+            falloffCurve = 1.3,
+            minDamagePercent = 0.25,
+        },
+
+        -- Standard pistol calibers
+        ['9mm'] = {
+            effectiveRange = 50,
+            maxRange = 150,
+            falloffCurve = 1.2,
+            minDamagePercent = 0.30,
+        },
+        ['.40sw'] = {
+            effectiveRange = 50,
+            maxRange = 150,
+            falloffCurve = 1.2,
+            minDamagePercent = 0.30,
+        },
+        ['.45acp'] = {
+            effectiveRange = 45,
+            maxRange = 125,
+            falloffCurve = 1.3,
+            minDamagePercent = 0.28,
+        },
+        ['5.7x28'] = {
+            effectiveRange = 75,
+            maxRange = 200,
+            falloffCurve = 1.0,
+            minDamagePercent = 0.35,
+        },
+        ['10mm'] = {
+            effectiveRange = 60,
+            maxRange = 175,
+            falloffCurve = 1.1,
+            minDamagePercent = 0.32,
+        },
+
+        -- Magnum pistols - extended range
+        ['.357mag'] = {
+            effectiveRange = 75,
+            maxRange = 200,
+            falloffCurve = 1.0,
+            minDamagePercent = 0.35,
+        },
+        ['.44mag'] = {
+            effectiveRange = 100,
+            maxRange = 250,
+            falloffCurve = 0.9,
+            minDamagePercent = 0.38,
+        },
+        ['.500sw'] = {
+            effectiveRange = 125,
+            maxRange = 300,
+            falloffCurve = 0.8,
+            minDamagePercent = 0.40,
+        },
+
+        -- Intermediate rifle calibers
+        ['5.56'] = {
+            effectiveRange = 300,
+            maxRange = 600,
+            falloffCurve = 0.8,
+            minDamagePercent = 0.40,
+        },
+        ['7.62x39'] = {
+            effectiveRange = 250,
+            maxRange = 500,
+            falloffCurve = 0.9,
+            minDamagePercent = 0.38,
+        },
+        ['.300blk'] = {
+            effectiveRange = 200,
+            maxRange = 400,
+            falloffCurve = 1.0,
+            minDamagePercent = 0.35,
+        },
+        ['6.8x51'] = {
+            effectiveRange = 400,
+            maxRange = 800,
+            falloffCurve = 0.7,
+            minDamagePercent = 0.45,
+        },
+
+        -- Full power rifle calibers
+        ['7.62x51'] = {
+            effectiveRange = 500,
+            maxRange = 1000,
+            falloffCurve = 0.6,
+            minDamagePercent = 0.50,
+        },
+        ['.300wm'] = {
+            effectiveRange = 800,
+            maxRange = 1500,
+            falloffCurve = 0.5,
+            minDamagePercent = 0.55,
+        },
+
+        -- Anti-materiel
+        ['.50bmg'] = {
+            effectiveRange = 1200,
+            maxRange = 2500,
+            falloffCurve = 0.4,
+            minDamagePercent = 0.60,
+        },
+
+        -- Shotgun (buckshot spreads, slug maintains)
+        ['12ga'] = {
+            effectiveRange = 30,       -- Buckshot effective
+            maxRange = 75,
+            falloffCurve = 2.0,        -- Steep falloff for pellets
+            minDamagePercent = 0.15,
+        },
+    },
+
+    -- Slug override for shotgun (better range than buckshot)
+    slugOverride = {
+        effectiveRange = 100,
+        maxRange = 200,
+        falloffCurve = 1.2,
+        minDamagePercent = 0.35,
+    },
+}
+
+-- =============================================================================
+-- SUPPRESSOR SYNERGY SYSTEM
+-- Combines suppressor attachment with ammo type for enhanced effects
+-- =============================================================================
+
+Config.SuppressorSynergy = {
+    enabled = true,
+
+    -- Base suppressor effects (without special ammo)
+    baseSuppressor = {
+        soundReduction = 0.40,        -- 40% quieter
+        muzzleFlashReduction = 0.60,  -- 60% less flash
+        damageModifier = 1.0,         -- No damage change
+        rangeModifier = 0.95,         -- Slight range reduction
+    },
+
+    -- Subsonic + Suppressor (optimal combination)
+    subsonicSuppressed = {
+        soundReduction = 0.85,        -- 85% quieter (near silent)
+        muzzleFlashReduction = 0.90,  -- Minimal flash
+        damageModifier = 0.95,        -- Slight damage reduction
+        rangeModifier = 0.85,         -- Reduced range
+        eliminatesCrack = true,       -- No supersonic crack
+    },
+
+    -- Supersonic + Suppressor (still has crack)
+    supersonicSuppressed = {
+        soundReduction = 0.35,        -- Only 35% quieter (crack remains)
+        muzzleFlashReduction = 0.60,
+        damageModifier = 1.0,
+        rangeModifier = 0.98,
+        eliminatesCrack = false,
+    },
+
+    -- Suppressor-compatible calibers (velocity below ~1100 fps is subsonic)
+    subsonicCapable = {
+        ['.45acp'] = true,            -- Naturally subsonic
+        ['.300blk'] = true,           -- Designed for suppression
+        ['9mm'] = true,               -- With subsonic loads
+        ['.22lr'] = true,             -- Standard velocity is subsonic
+    },
+
+    -- Calibers that cannot effectively use suppressors
+    unsuppressible = {
+        ['.357mag'] = true,           -- Too much pressure
+        ['.500sw'] = true,            -- Way too loud regardless
+        ['.50bmg'] = true,            -- Anti-materiel, no practical suppression
+    },
+}
+
+-- =============================================================================
+-- LIMB DAMAGE SYSTEM
+-- Damage modifiers and effects based on hit location
+-- For integration with medical scripts
+-- =============================================================================
+
+Config.LimbDamage = {
+    enabled = true,
+
+    -- GTA bone IDs mapped to body regions
+    boneToRegion = {
+        -- Head
+        [31086] = 'head',       -- SKEL_Head
+        [39317] = 'head',       -- SKEL_Neck_1
+
+        -- Torso (center mass)
+        [24818] = 'torso',      -- SKEL_Spine3
+        [24817] = 'torso',      -- SKEL_Spine2
+        [24816] = 'torso',      -- SKEL_Spine1
+        [11816] = 'torso',      -- SKEL_Pelvis
+        [57597] = 'torso',      -- SKEL_ROOT
+
+        -- Arms
+        [61163] = 'arm_left',   -- SKEL_L_UpperArm
+        [45509] = 'arm_left',   -- SKEL_L_Forearm
+        [18905] = 'arm_left',   -- SKEL_L_Hand
+        [40269] = 'arm_right',  -- SKEL_R_UpperArm
+        [28252] = 'arm_right',  -- SKEL_R_Forearm
+        [57005] = 'arm_right',  -- SKEL_R_Hand
+
+        -- Legs
+        [58271] = 'leg_left',   -- SKEL_L_Thigh
+        [63931] = 'leg_left',   -- SKEL_L_Calf
+        [14201] = 'leg_left',   -- SKEL_L_Foot
+        [51826] = 'leg_right',  -- SKEL_R_Thigh
+        [36864] = 'leg_right',  -- SKEL_R_Calf
+        [52301] = 'leg_right',  -- SKEL_R_Foot
+    },
+
+    -- Damage multipliers per region
+    damageMultipliers = {
+        ['head'] = 2.50,          -- Headshots are devastating
+        ['torso'] = 1.00,         -- Baseline
+        ['arm_left'] = 0.65,      -- Reduced damage
+        ['arm_right'] = 0.65,
+        ['leg_left'] = 0.70,
+        ['leg_right'] = 0.70,
+    },
+
+    -- Effects triggered per region (for med script integration)
+    -- These are event names that will be triggered with hit data
+    regionEffects = {
+        ['head'] = {
+            event = 'medical:headTrauma',
+            bleedRate = 'severe',       -- For med script
+            canKnockout = true,
+            knockoutChance = 0.35,      -- 35% chance to knock unconscious
+            visionImpairment = true,
+        },
+        ['torso'] = {
+            event = 'medical:torsoWound',
+            bleedRate = 'moderate',
+            organDamageChance = 0.20,   -- 20% chance of organ damage
+            canCauseInternalBleeding = true,
+        },
+        ['arm_left'] = {
+            event = 'medical:armWound',
+            bleedRate = 'light',
+            limbSide = 'left',
+            aimPenalty = 0.30,          -- 30% worse aim
+            canDropWeapon = true,
+            dropChance = 0.15,
+        },
+        ['arm_right'] = {
+            event = 'medical:armWound',
+            bleedRate = 'light',
+            limbSide = 'right',
+            aimPenalty = 0.40,          -- Primary arm, worse penalty
+            canDropWeapon = true,
+            dropChance = 0.25,
+        },
+        ['leg_left'] = {
+            event = 'medical:legWound',
+            bleedRate = 'moderate',
+            limbSide = 'left',
+            movementPenalty = 0.35,     -- 35% slower
+            canCauseLimp = true,
+            canCauseFall = true,
+            fallChance = 0.20,
+        },
+        ['leg_right'] = {
+            event = 'medical:legWound',
+            bleedRate = 'moderate',
+            limbSide = 'right',
+            movementPenalty = 0.35,
+            canCauseLimp = true,
+            canCauseFall = true,
+            fallChance = 0.20,
+        },
+    },
+
+    -- Ammo type modifiers to bleed rate
+    ammoBleedModifiers = {
+        ['fmj'] = 1.0,            -- Baseline
+        ['hp'] = 1.50,            -- 50% more bleeding (expansion)
+        ['jhp'] = 1.60,           -- 60% more bleeding
+        ['ap'] = 0.70,            -- 30% less bleeding (clean holes)
+        ['match'] = 1.0,
+        ['subsonic'] = 0.90,
+        ['bear'] = 1.20,          -- Hard cast, decent wound channel
+    },
+
+    -- Caliber base bleed multiplier (bigger = more bleeding)
+    caliberBleedMultiplier = {
+        ['.22lr'] = 0.50,
+        ['.38spl'] = 0.70,
+        ['9mm'] = 0.85,
+        ['.40sw'] = 0.95,
+        ['.45acp'] = 1.00,
+        ['5.7x28'] = 0.75,
+        ['10mm'] = 1.10,
+        ['.357mag'] = 1.25,
+        ['.44mag'] = 1.50,
+        ['.500sw'] = 2.00,
+        ['5.56'] = 1.20,
+        ['7.62x39'] = 1.40,
+        ['7.62x51'] = 1.60,
+        ['.300wm'] = 1.80,
+        ['.50bmg'] = 3.00,        -- Catastrophic
+        ['12ga'] = 1.50,          -- Shotgun, varies by load
+    },
+}
+
+-- =============================================================================
+-- ARMOR DEGRADATION SYSTEM
+-- Armor takes damage and becomes less effective
+-- =============================================================================
+
+Config.ArmorDegradation = {
+    enabled = true,
+
+    -- Degradation rates per ammo type (% integrity lost per hit)
+    degradationRates = {
+        ['fmj'] = 8,              -- 8% per hit
+        ['hp'] = 15,              -- 15% - expansion tears material
+        ['jhp'] = 18,             -- 18% - maximum shredding
+        ['ap'] = 3,               -- 3% - clean penetrating holes
+        ['match'] = 8,
+        ['subsonic'] = 6,
+        ['bear'] = 12,            -- Hard cast does damage
+    },
+
+    -- Caliber multiplier to degradation (bigger = more armor damage)
+    caliberDegradation = {
+        ['.22lr'] = 0.3,
+        ['.38spl'] = 0.5,
+        ['9mm'] = 0.8,
+        ['.40sw'] = 0.9,
+        ['.45acp'] = 1.0,
+        ['5.7x28'] = 0.6,         -- Small, less material damage
+        ['10mm'] = 1.1,
+        ['.357mag'] = 1.3,
+        ['.44mag'] = 1.6,
+        ['.500sw'] = 2.2,
+        ['5.56'] = 1.4,
+        ['7.62x39'] = 1.6,
+        ['7.62x51'] = 2.0,
+        ['.300wm'] = 2.4,
+        ['.50bmg'] = 5.0,         -- Destroys armor
+        ['12ga'] = 1.8,
+    },
+
+    -- Armor effectiveness based on integrity
+    integrityEffectiveness = {
+        { min = 80, max = 100, effectiveness = 1.00 },  -- Full protection
+        { min = 60, max = 79,  effectiveness = 0.85 },  -- 85% effective
+        { min = 40, max = 59,  effectiveness = 0.65 },  -- 65% effective
+        { min = 20, max = 39,  effectiveness = 0.40 },  -- Compromised
+        { min = 0,  max = 19,  effectiveness = 0.15 },  -- Nearly destroyed
+    },
+}
+
+-- =============================================================================
+-- HELPER FUNCTIONS - RANGE FALLOFF
+-- =============================================================================
+
+--- Calculate damage multiplier based on distance
+-- @param caliber string The weapon caliber
+-- @param distance number Distance in meters
+-- @param ammoType string The ammo type (for slug override)
+-- @return number Damage multiplier (0.0 - 1.0)
+function CalculateRangeFalloff(caliber, distance, ammoType)
+    if not Config.RangeFalloff.enabled then
+        return 1.0
+    end
+
+    local rangeData = Config.RangeFalloff.calibers[caliber]
+    if not rangeData then
+        return 1.0
+    end
+
+    -- Check for shotgun slug override
+    if caliber == '12ga' and ammoType == 'slug' then
+        rangeData = Config.RangeFalloff.slugOverride
+    end
+
+    -- Within effective range = full damage
+    if distance <= rangeData.effectiveRange then
+        return 1.0
+    end
+
+    -- Beyond max range = minimum damage
+    if distance >= rangeData.maxRange then
+        return rangeData.minDamagePercent
+    end
+
+    -- Calculate falloff
+    local falloffDistance = distance - rangeData.effectiveRange
+    local falloffRange = rangeData.maxRange - rangeData.effectiveRange
+    local falloffPercent = falloffDistance / falloffRange
+
+    -- Apply curve
+    local curvedFalloff = math.pow(falloffPercent, rangeData.falloffCurve)
+
+    -- Interpolate between full and minimum damage
+    local damagePercent = 1.0 - (curvedFalloff * (1.0 - rangeData.minDamagePercent))
+
+    return math.max(rangeData.minDamagePercent, damagePercent)
+end
+
+-- =============================================================================
+-- HELPER FUNCTIONS - SUPPRESSOR
+-- =============================================================================
+
+--- Get suppressor synergy modifiers
+-- @param caliber string The weapon caliber
+-- @param ammoType string The ammo type
+-- @param hasSuppressor boolean Whether weapon has suppressor
+-- @return table Modifier values
+function GetSuppressorModifiers(caliber, ammoType, hasSuppressor)
+    if not Config.SuppressorSynergy.enabled or not hasSuppressor then
+        return {
+            soundReduction = 0,
+            muzzleFlashReduction = 0,
+            damageModifier = 1.0,
+            rangeModifier = 1.0,
+            eliminatesCrack = false,
+        }
+    end
+
+    -- Check if caliber can be suppressed
+    if Config.SuppressorSynergy.unsuppressible[caliber] then
+        return {
+            soundReduction = 0.10,        -- Minimal effect
+            muzzleFlashReduction = 0.20,
+            damageModifier = 1.0,
+            rangeModifier = 1.0,
+            eliminatesCrack = false,
+        }
+    end
+
+    -- Check for subsonic ammo
+    local isSubsonic = ammoType == 'subsonic' or
+                       (caliber == '.45acp') or  -- Naturally subsonic
+                       (caliber == '.300blk' and ammoType == 'subsonic')
+
+    if isSubsonic and Config.SuppressorSynergy.subsonicCapable[caliber] then
+        return Config.SuppressorSynergy.subsonicSuppressed
+    else
+        return Config.SuppressorSynergy.supersonicSuppressed
+    end
+end
+
+-- =============================================================================
+-- HELPER FUNCTIONS - LIMB DAMAGE
+-- =============================================================================
+
+--- Get body region from bone index
+-- @param boneIndex number The GTA bone index
+-- @return string Body region name
+function GetBodyRegion(boneIndex)
+    return Config.LimbDamage.boneToRegion[boneIndex] or 'torso'
+end
+
+--- Calculate limb damage modifier and effects
+-- @param boneIndex number The hit bone
+-- @param caliber string The weapon caliber
+-- @param ammoType string The ammo type
+-- @return number, table Damage multiplier and effect data
+function CalculateLimbDamage(boneIndex, caliber, ammoType)
+    if not Config.LimbDamage.enabled then
+        return 1.0, nil
+    end
+
+    local region = GetBodyRegion(boneIndex)
+    local damageMult = Config.LimbDamage.damageMultipliers[region] or 1.0
+    local effectData = Config.LimbDamage.regionEffects[region]
+
+    if not effectData then
+        return damageMult, nil
+    end
+
+    -- Calculate bleed severity
+    local ammoBleedMod = Config.LimbDamage.ammoBleedModifiers[ammoType] or 1.0
+    local caliberBleedMod = Config.LimbDamage.caliberBleedMultiplier[caliber] or 1.0
+    local totalBleedMod = ammoBleedMod * caliberBleedMod
+
+    -- Build effect package for med script
+    local effects = {
+        region = region,
+        event = effectData.event,
+        bleedRate = effectData.bleedRate,
+        bleedMultiplier = totalBleedMod,
+        caliber = caliber,
+        ammoType = ammoType,
+    }
+
+    -- Copy all effect properties
+    for key, value in pairs(effectData) do
+        if key ~= 'event' and key ~= 'bleedRate' then
+            effects[key] = value
+        end
+    end
+
+    return damageMult, effects
+end
+
+--- Get armor effectiveness based on integrity
+-- @param integrity number Armor integrity (0-100)
+-- @return number Effectiveness multiplier
+function GetArmorEffectiveness(integrity)
+    if not Config.ArmorDegradation.enabled then
+        return 1.0
+    end
+
+    for _, tier in ipairs(Config.ArmorDegradation.integrityEffectiveness) do
+        if integrity >= tier.min and integrity <= tier.max then
+            return tier.effectiveness
+        end
+    end
+
+    return 0.15  -- Nearly destroyed
+end
+
+--- Calculate armor degradation from a hit
+-- @param caliber string The weapon caliber
+-- @param ammoType string The ammo type
+-- @return number Integrity points lost
+function CalculateArmorDegradation(caliber, ammoType)
+    if not Config.ArmorDegradation.enabled then
+        return 0
+    end
+
+    local baseRate = Config.ArmorDegradation.degradationRates[ammoType] or 8
+    local caliberMult = Config.ArmorDegradation.caliberDegradation[caliber] or 1.0
+
+    return math.floor(baseRate * caliberMult)
+end
+
+-- =============================================================================
 -- EXPORTS
 -- =============================================================================
 
@@ -1154,3 +1708,9 @@ exports('GetOverpenetrationStats', GetOverpenetrationStats)
 exports('CanPenetrateMaterial', CanPenetrateMaterial)
 exports('GetMaterialFromHash', GetMaterialFromHash)
 exports('GetEffectivePenetration', GetEffectivePenetration)
+exports('CalculateRangeFalloff', CalculateRangeFalloff)
+exports('GetSuppressorModifiers', GetSuppressorModifiers)
+exports('GetBodyRegion', GetBodyRegion)
+exports('CalculateLimbDamage', CalculateLimbDamage)
+exports('GetArmorEffectiveness', GetArmorEffectiveness)
+exports('CalculateArmorDegradation', CalculateArmorDegradation)

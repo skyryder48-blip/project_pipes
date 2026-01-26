@@ -124,40 +124,141 @@ local function CheckPedArmor(pedNetId)
     return false, 0
 end
 
---- Calculate final damage with modifiers applied
+-- =============================================================================
+-- ARMOR INTEGRITY TRACKING
+-- =============================================================================
+
+local playerArmorIntegrity = {}  -- { [source] = integrity (0-100) }
+
+local function GetArmorIntegrity(source)
+    return playerArmorIntegrity[source] or 100
+end
+
+local function SetArmorIntegrity(source, integrity)
+    playerArmorIntegrity[source] = math.max(0, math.min(100, integrity))
+    Player(source).state:set('armorIntegrity', playerArmorIntegrity[source], true)
+end
+
+local function DegradeArmor(source, caliber, ammoType)
+    if not Config.ArmorDegradation or not Config.ArmorDegradation.enabled then
+        return
+    end
+
+    local degradation = CalculateArmorDegradation(caliber, ammoType)
+    local currentIntegrity = GetArmorIntegrity(source)
+    local newIntegrity = currentIntegrity - degradation
+
+    SetArmorIntegrity(source, newIntegrity)
+
+    if DamageConfig.Debug then
+        print(('[ARMOR] Player %d: %d%% → %d%% (-%d from %s %s)'):format(
+            source, currentIntegrity, newIntegrity, degradation, caliber, ammoType
+        ))
+    end
+
+    -- Notify client of armor damage
+    TriggerClientEvent('ammo:armorDamaged', source, {
+        integrity = newIntegrity,
+        degradation = degradation,
+    })
+end
+
+-- =============================================================================
+-- DAMAGE CALCULATION (ENHANCED)
+-- =============================================================================
+
+--- Calculate final damage with all modifiers applied
 -- @param baseDamage number Original damage value
 -- @param ammoType string The ammo type used
 -- @param caliber string The weapon's caliber
 -- @param hasArmor boolean Whether target has armor
 -- @param armorAmount number Amount of armor (0-100)
--- @return number Modified damage value
-local function CalculateDamage(baseDamage, ammoType, caliber, hasArmor, armorAmount)
+-- @param distance number Distance from attacker to target (meters)
+-- @param boneIndex number Hit bone for limb damage
+-- @param hasSuppressor boolean Whether weapon has suppressor
+-- @param victimSource number Victim's server ID (for armor degradation)
+-- @return number, table Modified damage value and limb effect data
+local function CalculateDamage(baseDamage, ammoType, caliber, hasArmor, armorAmount, distance, boneIndex, hasSuppressor, victimSource)
     local modifier = GetAmmoModifier(ammoType, caliber)
+    local limbEffects = nil
 
     -- Start with base damage × ammo damage multiplier
     local damage = baseDamage * modifier.damageMult
 
-    -- Apply armor modifier if target is armored
-    if hasArmor and armorAmount > 0 then
-        if modifier.armorBypass then
-            -- AP rounds bypass armor entirely
-            -- Damage goes through at full modified value
-            if DamageConfig.Debug then
-                print(('[AMMO DAMAGE] Armor BYPASSED by %s'):format(ammoType))
-            end
-        else
-            -- Apply armor multiplier (reduces damage vs armor)
-            damage = damage * modifier.armorMult
+    if DamageConfig.Debug then
+        print(('[DAMAGE CALC] Base: %.1f × %.2f = %.1f'):format(baseDamage, modifier.damageMult, damage))
+    end
 
-            if DamageConfig.Debug then
-                print(('[AMMO DAMAGE] Armor reduced damage: %.1f × %.2f = %.1f'):format(
-                    baseDamage * modifier.damageMult, modifier.armorMult, damage
-                ))
-            end
+    -- ==========================================================================
+    -- 1. RANGE FALLOFF
+    -- ==========================================================================
+    if distance and distance > 0 then
+        local rangeMult = CalculateRangeFalloff(caliber, distance, ammoType)
+        damage = damage * rangeMult
+
+        if DamageConfig.Debug and rangeMult < 1.0 then
+            print(('[DAMAGE CALC] Range falloff: %.0fm → %.0f%% damage'):format(distance, rangeMult * 100))
         end
     end
 
-    return math.floor(damage + 0.5)  -- Round to nearest integer
+    -- ==========================================================================
+    -- 2. LIMB DAMAGE
+    -- ==========================================================================
+    if boneIndex and boneIndex > 0 then
+        local limbMult, effects = CalculateLimbDamage(boneIndex, caliber, ammoType)
+        damage = damage * limbMult
+        limbEffects = effects
+
+        if DamageConfig.Debug then
+            local region = GetBodyRegion(boneIndex)
+            print(('[DAMAGE CALC] Limb hit: %s → %.0f%% damage'):format(region, limbMult * 100))
+        end
+    end
+
+    -- ==========================================================================
+    -- 3. SUPPRESSOR EFFECTS
+    -- ==========================================================================
+    if hasSuppressor then
+        local suppressorMods = GetSuppressorModifiers(caliber, ammoType, true)
+        damage = damage * suppressorMods.damageModifier
+
+        if DamageConfig.Debug and suppressorMods.damageModifier ~= 1.0 then
+            print(('[DAMAGE CALC] Suppressor: %.0f%% damage'):format(suppressorMods.damageModifier * 100))
+        end
+    end
+
+    -- ==========================================================================
+    -- 4. ARMOR INTERACTION
+    -- ==========================================================================
+    if hasArmor and armorAmount > 0 then
+        -- Get armor effectiveness based on integrity
+        local armorIntegrity = victimSource and GetArmorIntegrity(victimSource) or 100
+        local armorEffectiveness = GetArmorEffectiveness(armorIntegrity)
+
+        if modifier.armorBypass then
+            -- AP rounds bypass armor entirely
+            if DamageConfig.Debug then
+                print(('[DAMAGE CALC] Armor BYPASSED by %s'):format(ammoType))
+            end
+        else
+            -- Apply armor multiplier × effectiveness
+            local effectiveArmorMult = 1.0 - ((1.0 - modifier.armorMult) * armorEffectiveness)
+            damage = damage * effectiveArmorMult
+
+            if DamageConfig.Debug then
+                print(('[DAMAGE CALC] Armor: %.0f%% integrity, %.0f%% effective → %.0f%% damage through'):format(
+                    armorIntegrity, armorEffectiveness * 100, effectiveArmorMult * 100
+                ))
+            end
+        end
+
+        -- Degrade armor on hit
+        if victimSource then
+            DegradeArmor(victimSource, caliber, ammoType)
+        end
+    end
+
+    return math.floor(damage + 0.5), limbEffects  -- Round to nearest integer
 end
 
 -- =============================================================================
@@ -298,6 +399,31 @@ AddEventHandler('weaponDamageEvent', function(attackerSource, data)
     local ammoType = GetPlayerAmmoType(attackerSource, weaponHash)
     local modifier = GetAmmoModifier(ammoType, caliber)
 
+    -- Get additional data for enhanced damage calculation
+    local boneIndex = data.hitComponent or 0
+    local hasSuppressor = Player(attackerSource).state.hasSuppressor or false
+
+    -- Calculate distance between attacker and victim
+    local distance = 0
+    local attackerPed = GetPlayerPed(attackerSource)
+    if attackerPed and victimNetId then
+        local victim = NetworkGetEntityFromNetworkId(victimNetId)
+        if DoesEntityExist(attackerPed) and DoesEntityExist(victim) then
+            local attackerCoords = GetEntityCoords(attackerPed)
+            local victimCoords = GetEntityCoords(victim)
+            distance = #(attackerCoords - victimCoords)
+        end
+    end
+
+    -- Get victim source for armor tracking
+    local victimSource = nil
+    if victimNetId then
+        local victim = NetworkGetEntityFromNetworkId(victimNetId)
+        if DoesEntityExist(victim) then
+            victimSource = NetworkGetEntityOwner(victim)
+        end
+    end
+
     -- Debug output
     if DamageConfig.Debug then
         print(('=== WEAPON DAMAGE EVENT ==='):format())
@@ -305,6 +431,9 @@ AddEventHandler('weaponDamageEvent', function(attackerSource, data)
         print(('  Weapon: %d (%s)'):format(weaponHash, caliber))
         print(('  Ammo Type: %s'):format(ammoType))
         print(('  Base Damage: %.1f'):format(baseDamage))
+        print(('  Distance: %.1fm'):format(distance))
+        print(('  Bone: %d'):format(boneIndex))
+        print(('  Suppressor: %s'):format(hasSuppressor and 'YES' or 'NO'))
     end
 
     -- Check for blanks (no damage ammo)
@@ -319,8 +448,18 @@ AddEventHandler('weaponDamageEvent', function(attackerSource, data)
     -- Check target armor status
     local hasArmor, armorAmount = CheckPedArmor(victimNetId)
 
-    -- Calculate modified damage
-    local newDamage = CalculateDamage(baseDamage, ammoType, caliber, hasArmor, armorAmount)
+    -- Calculate modified damage with all systems
+    local newDamage, limbEffects = CalculateDamage(
+        baseDamage,
+        ammoType,
+        caliber,
+        hasArmor,
+        armorAmount,
+        distance,
+        boneIndex,
+        hasSuppressor,
+        victimSource
+    )
 
     -- Apply the modified damage
     data.weaponDamage = newDamage
@@ -336,6 +475,35 @@ AddEventHandler('weaponDamageEvent', function(attackerSource, data)
     if DamageConfig.Debug then
         print(('  Modified Damage: %.1f'):format(newDamage))
         print(('  Armor: %s (%d)'):format(hasArmor and 'YES' or 'NO', armorAmount))
+        if limbEffects then
+            print(('  Limb: %s (bleed mult: %.2f)'):format(limbEffects.region, limbEffects.bleedMultiplier))
+        end
+    end
+
+    -- Trigger limb damage effects for medical script integration
+    if limbEffects and victimSource and victimSource > 0 then
+        -- Send limb damage event to victim for med script
+        TriggerClientEvent('ammo:limbDamage', victimSource, limbEffects)
+
+        -- Also trigger the specific medical event if defined
+        if limbEffects.event then
+            TriggerClientEvent(limbEffects.event, victimSource, limbEffects)
+        end
+
+        -- Handle special limb effects
+        if limbEffects.canDropWeapon and math.random() < (limbEffects.dropChance or 0) then
+            TriggerClientEvent('ammo:forceDropWeapon', victimSource)
+        end
+
+        if limbEffects.canCauseFall and math.random() < (limbEffects.fallChance or 0) then
+            TriggerClientEvent('ammo:causeFall', victimSource)
+        end
+
+        if limbEffects.canKnockout and math.random() < (limbEffects.knockoutChance or 0) then
+            TriggerClientEvent('ammo:knockout', victimSource, {
+                duration = 5000 + math.random(0, 5000),
+            })
+        end
     end
 
     -- Trigger special effects
@@ -391,12 +559,53 @@ RegisterNetEvent('ammo:magazineEquipped', function(data)
 end)
 
 -- =============================================================================
+-- SUPPRESSOR SYNC
+-- =============================================================================
+
+-- Called when player equips/unequips suppressor
+RegisterNetEvent('ammo:setSuppressor', function(hasSuppressor)
+    local src = source
+    Player(src).state:set('hasSuppressor', hasSuppressor == true, true)
+
+    if DamageConfig.Debug then
+        print(('[AMMO] Player %d suppressor: %s'):format(src, hasSuppressor and 'EQUIPPED' or 'REMOVED'))
+    end
+end)
+
+-- =============================================================================
+-- ARMOR MANAGEMENT
+-- =============================================================================
+
+-- Reset armor integrity (when armor is replaced/repaired)
+RegisterNetEvent('ammo:resetArmorIntegrity', function()
+    local src = source
+    SetArmorIntegrity(src, 100)
+
+    if DamageConfig.Debug then
+        print(('[ARMOR] Player %d armor integrity reset to 100%%'):format(src))
+    end
+end)
+
+-- Repair armor (partial restoration)
+RegisterNetEvent('ammo:repairArmor', function(repairAmount)
+    local src = source
+    local currentIntegrity = GetArmorIntegrity(src)
+    local newIntegrity = math.min(100, currentIntegrity + (repairAmount or 25))
+    SetArmorIntegrity(src, newIntegrity)
+
+    if DamageConfig.Debug then
+        print(('[ARMOR] Player %d armor repaired: %d%% → %d%%'):format(src, currentIntegrity, newIntegrity))
+    end
+end)
+
+-- =============================================================================
 -- PLAYER STATE MANAGEMENT
 -- =============================================================================
 
 -- Clean up on player disconnect
 AddEventHandler('playerDropped', function()
     ClearPlayerState(source)
+    playerArmorIntegrity[source] = nil
 end)
 
 -- Clean up on character unload (framework integration)

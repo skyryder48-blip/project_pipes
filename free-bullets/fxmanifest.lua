@@ -68,10 +68,11 @@ shared_scripts {
 client_scripts {
     'client/cl_ammo.lua',
     'client/magazine_client.lua',
-    'client/cl_sync.lua',       -- StateBag synchronization
-    'client/cl_effects.lua',    -- Visual & audio effects (Phase 2)
-    'client/cl_lesslethal.lua', -- Beanbag, pepperball, tranquilizer effects
+    'client/cl_sync.lua',        -- StateBag synchronization
+    'client/cl_effects.lua',     -- Visual & audio effects (Phase 2)
+    'client/cl_lesslethal.lua',  -- Beanbag, pepperball, tranquilizer effects
     'client/cl_penetration.lua', -- Bullet penetration system
+    'client/cl_limbdamage.lua',  -- Limb damage effects & med script integration
 }
 
 -- Server-side scripts

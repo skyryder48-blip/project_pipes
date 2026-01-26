@@ -342,6 +342,26 @@ AddEventHandler('weaponDamageEvent', function(attackerSource, data)
     if modifier.effects and next(modifier.effects) then
         TriggerSpecialEffects(attackerSource, victimNetId, modifier.effects, weaponHash)
     end
+
+    -- Check for bullet penetration (overpenetration through target)
+    if Config.Penetration and Config.Penetration.enabled then
+        local effectivePen = GetEffectivePenetration(caliber, modifier)
+
+        -- Only check overpenetration if penetration value is high enough
+        if effectivePen >= 0.50 then
+            -- Get impact coordinates from client via callback or estimate
+            TriggerClientEvent('ammo:requestImpactCoords', attackerSource, {
+                victimNetId = victimNetId,
+                caliber = caliber,
+                ammoType = ammoType,
+                baseDamage = newDamage,
+            })
+        end
+
+        if DamageConfig.Debug then
+            print(('  Penetration Value: %.2f'):format(effectivePen))
+        end
+    end
 end)
 
 -- =============================================================================

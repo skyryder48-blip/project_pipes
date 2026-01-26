@@ -71,13 +71,15 @@ client_scripts {
     'client/cl_sync.lua',       -- StateBag synchronization
     'client/cl_effects.lua',    -- Visual & audio effects (Phase 2)
     'client/cl_lesslethal.lua', -- Beanbag, pepperball, tranquilizer effects
+    'client/cl_penetration.lua', -- Bullet penetration system
 }
 
 -- Server-side scripts
 server_scripts {
     'server/sv_ammo.lua',
     'server/magazine_server.lua',
-    'server/sv_damage.lua',  -- Damage modifier handler
+    'server/sv_damage.lua',      -- Damage modifier handler
+    'server/sv_penetration.lua', -- Bullet penetration system
 }
 
 -- Meta files for ammunition definitions and components

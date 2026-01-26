@@ -921,6 +921,228 @@ Config.CaliberClass = {
 }
 
 -- =============================================================================
+-- BULLET PENETRATION SYSTEM
+-- Material penetration and overpenetration (pass-through) mechanics
+-- =============================================================================
+
+Config.Penetration = {
+    -- Enable/disable penetration system
+    enabled = true,
+
+    -- ==========================================================================
+    -- MATERIAL PENETRATION THRESHOLDS
+    -- Minimum penetration value required to pass through material
+    -- ==========================================================================
+    materials = {
+        -- Soft materials (easy to penetrate)
+        ['glass'] = 0.20,           -- Car windows, building glass
+        ['plastic'] = 0.25,         -- Thin plastic panels
+        ['cloth'] = 0.15,           -- Fabric, curtains
+        ['cardboard'] = 0.10,       -- Boxes, paper products
+
+        -- Medium materials
+        ['wood_thin'] = 0.45,       -- Interior doors, plywood
+        ['wood_thick'] = 0.65,      -- Exterior doors, furniture
+        ['drywall'] = 0.40,         -- Interior walls
+        ['sheet_metal'] = 0.55,     -- Car body panels, ductwork
+        ['aluminum'] = 0.60,        -- Light metal panels
+
+        -- Hard materials (difficult to penetrate)
+        ['car_door'] = 0.70,        -- Vehicle doors (sheet metal + frame)
+        ['car_body'] = 0.75,        -- Vehicle body panels
+        ['steel_thin'] = 0.80,      -- Thin steel plate
+        ['steel_thick'] = 0.92,     -- Thick steel, shipping containers
+        ['concrete_thin'] = 0.85,   -- Thin concrete, cinder blocks
+        ['concrete_thick'] = 0.98,  -- Thick concrete walls
+        ['brick'] = 0.88,           -- Brick walls
+
+        -- Impenetrable (requires explosives)
+        ['reinforced'] = 1.10,      -- Reinforced concrete, vault doors
+        ['armor_plate'] = 1.20,     -- Military armor plating
+    },
+
+    -- ==========================================================================
+    -- OVERPENETRATION (PASS-THROUGH TARGETS)
+    -- Based on penetration value, determines if bullet exits target
+    -- ==========================================================================
+    overpenetration = {
+        -- Penetration thresholds for target pass-through
+        thresholds = {
+            -- { minPen, maxPen, chance, damageRetained, maxTargets }
+            { 0.00, 0.50, 0.00, 0.00, 1 },   -- No overpenetration (HP, weak rounds)
+            { 0.51, 0.65, 0.15, 0.30, 1 },   -- 15% chance, 30% damage (pistol FMJ)
+            { 0.66, 0.75, 0.35, 0.45, 2 },   -- 35% chance, 45% damage (magnum, rifle)
+            { 0.76, 0.85, 0.55, 0.55, 2 },   -- 55% chance, 55% damage (strong rifle)
+            { 0.86, 0.92, 0.75, 0.65, 3 },   -- 75% chance, 65% damage (AP rounds)
+            { 0.93, 0.98, 0.90, 0.75, 3 },   -- 90% chance, 75% damage (bear, .50 cal)
+            { 0.99, 1.00, 1.00, 0.85, 4 },   -- 100% chance, 85% damage (.50 BMG AP)
+        },
+
+        -- Maximum range to check for secondary targets (meters)
+        maxRange = 50.0,
+
+        -- Angle cone for secondary target detection (degrees)
+        coneAngle = 5.0,
+    },
+
+    -- ==========================================================================
+    -- MATERIAL DAMAGE RETENTION
+    -- How much damage is retained after penetrating material
+    -- ==========================================================================
+    damageRetention = {
+        ['glass'] = 0.95,           -- Almost full damage
+        ['plastic'] = 0.92,
+        ['cloth'] = 0.98,
+        ['cardboard'] = 0.98,
+        ['wood_thin'] = 0.75,
+        ['wood_thick'] = 0.55,
+        ['drywall'] = 0.80,
+        ['sheet_metal'] = 0.60,
+        ['aluminum'] = 0.65,
+        ['car_door'] = 0.50,
+        ['car_body'] = 0.55,
+        ['steel_thin'] = 0.40,
+        ['steel_thick'] = 0.25,
+        ['concrete_thin'] = 0.35,
+        ['concrete_thick'] = 0.15,
+        ['brick'] = 0.30,
+    },
+
+    -- ==========================================================================
+    -- GTA MATERIAL MAPPING
+    -- Maps GTA material hashes to our penetration categories
+    -- ==========================================================================
+    gtaMaterialMap = {
+        -- Glass
+        [1482427218] = 'glass',         --فLASS
+        [2147483647] = 'glass',         -- DEFAULT (fallback for some glass)
+        [-1461680979] = 'glass',        -- CAR_GLASS
+
+        -- Metal/Vehicle
+        [-1913017724] = 'car_body',     -- CAR_METAL
+        [-893254096] = 'car_door',      -- VEHICLE_DOOR
+        [488148577] = 'sheet_metal',    -- METAL
+        [-1833215086] = 'aluminum',     -- METAL_HOLLOW
+
+        -- Wood
+        [-1055417819] = 'wood_thin',    -- WOOD_LIGHT
+        [1141996760] = 'wood_thick',    -- WOOD_HEAVY
+        [-901136114] = 'wood_thin',     -- WOOD_HOLLOW
+
+        -- Concrete/Stone
+        [-1595148316] = 'concrete_thin', -- CONCRETE
+        [1109728704] = 'concrete_thick', -- CONCRETE_DUSTY
+        [581794674] = 'brick',          -- BRICK
+        [-1942898710] = 'concrete_thick', -- STONE
+
+        -- Cloth/Soft
+        [1019530692] = 'cloth',         -- CLOTH
+        [-1820030605] = 'cloth',        -- CARPET
+        [2137197282] = 'plastic',       -- PLASTIC
+
+        -- Drywall/Interior
+        [-1903687135] = 'drywall',      -- PLASTER
+    },
+}
+
+-- ==========================================================================
+-- CALIBER POWER CLASSIFICATION
+-- Used for overpenetration calculations - higher = more penetration potential
+-- ==========================================================================
+Config.CaliberPower = {
+    -- Weak calibers (no/minimal overpenetration)
+    ['.22lr'] = 0.25,
+    ['.38spl'] = 0.45,
+
+    -- Standard pistol calibers
+    ['9mm'] = 0.55,
+    ['.40sw'] = 0.60,
+    ['.45acp'] = 0.58,
+    ['5.7x28'] = 0.52,
+    ['10mm'] = 0.65,
+
+    -- Magnum pistols
+    ['.357mag'] = 0.72,
+    ['.44mag'] = 0.78,
+    ['.500sw'] = 0.88,
+
+    -- Intermediate rifle
+    ['5.56'] = 0.70,
+    ['7.62x39'] = 0.75,
+    ['.300blk'] = 0.68,
+    ['6.8x51'] = 0.82,
+
+    -- Full power rifle
+    ['7.62x51'] = 0.85,
+    ['.300wm'] = 0.90,
+
+    -- Anti-materiel
+    ['.50bmg'] = 1.00,
+
+    -- Shotgun (varies by load)
+    ['12ga'] = 0.50,  -- Base, modified by specific load
+}
+
+-- ==========================================================================
+-- HELPER FUNCTIONS
+-- ==========================================================================
+
+--- Get overpenetration stats for a penetration value
+-- @param penValue number The penetration value (0.0-1.0)
+-- @return table { chance, damageRetained, maxTargets }
+function GetOverpenetrationStats(penValue)
+    for _, threshold in ipairs(Config.Penetration.overpenetration.thresholds) do
+        if penValue >= threshold[1] and penValue <= threshold[2] then
+            return {
+                chance = threshold[3],
+                damageRetained = threshold[4],
+                maxTargets = threshold[5],
+            }
+        end
+    end
+    -- Default: no overpenetration
+    return { chance = 0, damageRetained = 0, maxTargets = 1 }
+end
+
+--- Check if a round can penetrate a material
+-- @param penValue number The penetration value
+-- @param material string The material type
+-- @return boolean, number Whether it penetrates and damage retention
+function CanPenetrateMaterial(penValue, material)
+    local threshold = Config.Penetration.materials[material]
+    if not threshold then
+        return false, 0
+    end
+
+    if penValue >= threshold then
+        local retention = Config.Penetration.damageRetention[material] or 0.5
+        return true, retention
+    end
+
+    return false, 0
+end
+
+--- Get material type from GTA material hash
+-- @param materialHash number The GTA material hash
+-- @return string The material category
+function GetMaterialFromHash(materialHash)
+    return Config.Penetration.gtaMaterialMap[materialHash] or 'concrete_thick'
+end
+
+--- Calculate effective penetration (caliber power + ammo modifier)
+-- @param caliber string The caliber
+-- @param ammoModifier table The ammo modifier table
+-- @return number Effective penetration value
+function GetEffectivePenetration(caliber, ammoModifier)
+    local caliberPower = Config.CaliberPower[caliber] or 0.5
+    local ammoPen = ammoModifier.penetration or 0.7
+
+    -- Combine caliber power and ammo penetration
+    -- Weighted: 40% caliber, 60% ammo type
+    return (caliberPower * 0.4) + (ammoPen * 0.6)
+end
+
+-- =============================================================================
 -- EXPORTS
 -- =============================================================================
 
@@ -928,3 +1150,7 @@ exports('GetAmmoModifier', GetAmmoModifier)
 exports('GetDefaultAmmoType', GetDefaultAmmoType)
 exports('IsValidAmmoType', IsValidAmmoType)
 exports('GetAmmoTypesForCaliber', GetAmmoTypesForCaliber)
+exports('GetOverpenetrationStats', GetOverpenetrationStats)
+exports('CanPenetrateMaterial', CanPenetrateMaterial)
+exports('GetMaterialFromHash', GetMaterialFromHash)
+exports('GetEffectivePenetration', GetEffectivePenetration)

@@ -28,6 +28,7 @@
     description = 'Standard 10-round magazine for Glock 26/G43X',
     client = {
         image = 'mag_g26_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -39,6 +40,7 @@
     description = 'Extended 17-round magazine with basepad for Glock 26',
     client = {
         image = 'mag_g26_extended.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -50,6 +52,7 @@
     description = '33-round stick magazine for compact Glocks',
     client = {
         image = 'mag_g26_stick.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -61,6 +64,7 @@
     description = 'Standard magazine for GX4/Hellcat',
     client = {
         image = 'mag_compact9_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -72,6 +76,7 @@
     description = 'Extended magazine for GX4/Hellcat',
     client = {
         image = 'mag_compact9_extended.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -87,6 +92,7 @@
     description = 'Standard 17-round magazine for full-size Glocks',
     client = {
         image = 'mag_glock9_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -98,6 +104,7 @@
     description = '33-round stick magazine for Glock 9mm pistols',
     client = {
         image = 'mag_glock9_extended.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -109,6 +116,7 @@
     description = '50-round drum magazine for Glock 9mm pistols',
     client = {
         image = 'mag_glock9_drum.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -124,6 +132,7 @@
     description = 'Standard magazine for Beretta M9/PX4',
     client = {
         image = 'mag_beretta_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -135,6 +144,7 @@
     description = '17-round magazine for Beretta M9A3',
     client = {
         image = 'mag_beretta_m9a3.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -146,6 +156,7 @@
     description = 'Extended magazine for Beretta pistols',
     client = {
         image = 'mag_beretta_extended.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -161,6 +172,7 @@
     description = 'Premium Swiss magazine for SIG P210',
     client = {
         image = 'mag_sig_p210.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -172,6 +184,7 @@
     description = 'Standard magazine for SIG P226/P229/P320',
     client = {
         image = 'mag_sig_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -183,6 +196,7 @@
     description = 'Extended magazine for SIG 9mm pistols',
     client = {
         image = 'mag_sig_extended.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -198,6 +212,7 @@
     description = 'Standard magazine for FN 509',
     client = {
         image = 'mag_fn509_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -209,6 +224,7 @@
     description = 'Extended magazine for FN 509',
     client = {
         image = 'mag_fn509_extended.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -220,6 +236,7 @@
     description = 'Standard magazine for Canik TP9SF',
     client = {
         image = 'mag_tp9sf_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -231,6 +248,7 @@
     description = 'Standard magazine for Walther P88',
     client = {
         image = 'mag_walther_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -242,6 +260,7 @@
     description = 'Standard magazine for Ruger SR9',
     client = {
         image = 'mag_rugersr9_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -253,6 +272,7 @@
     description = 'Budget Glock-compatible magazine',
     client = {
         image = 'mag_psadagger_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -268,6 +288,7 @@
     description = 'Standard magazine for Glock 21/41',
     client = {
         image = 'mag_glock45_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -279,6 +300,7 @@
     description = 'Compact magazine for Glock 30',
     client = {
         image = 'mag_glock45_compact.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -290,6 +312,7 @@
     description = 'Extended magazine for Glock .45 pistols',
     client = {
         image = 'mag_glock45_extended.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -305,6 +328,7 @@
     description = 'Standard 7-round 1911 magazine',
     client = {
         image = 'mag_1911_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -316,6 +340,7 @@
     description = '8-round 1911 magazine',
     client = {
         image = 'mag_1911_8rd.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -327,6 +352,7 @@
     description = 'Extended 10-round 1911 magazine',
     client = {
         image = 'mag_1911_extended.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -338,6 +364,7 @@
     description = 'Standard magazine for SIG P220',
     client = {
         image = 'mag_sigp220_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -353,6 +380,7 @@
     description = 'Standard magazine for Glock 22',
     client = {
         image = 'mag_glock40_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -364,6 +392,7 @@
     description = 'Compact magazine for Glock Demon',
     client = {
         image = 'mag_glock40_compact.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -375,6 +404,7 @@
     description = 'Extended magazine for Glock .40 pistols',
     client = {
         image = 'mag_glock40_extended.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -390,6 +420,7 @@
     description = 'Standard magazine for FN Five-seveN / Ruger-57',
     client = {
         image = 'mag_57_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -401,6 +432,7 @@
     description = 'Extended magazine for 5.7x28mm pistols',
     client = {
         image = 'mag_57_extended.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -416,6 +448,7 @@
     description = 'Standard magazine for .22 LR pistols',
     client = {
         image = 'mag_22_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -427,6 +460,7 @@
     description = 'Standard magazine for FN 502 Tactical',
     client = {
         image = 'mag_fn502_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -438,6 +472,7 @@
     description = '30-round magazine for Kel-Tec PMR-30',
     client = {
         image = 'mag_pmr30_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -453,6 +488,7 @@
     description = 'Standard 10mm magazine for Glock 20',
     client = {
         image = 'mag_10mm_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -464,6 +500,7 @@
     description = 'Extended 10mm magazine for Glock 20',
     client = {
         image = 'mag_10mm_extended.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -479,6 +516,7 @@
     description = 'Standard curved magazine for H&K MP5',
     client = {
         image = 'mag_mp5_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -490,6 +528,7 @@
     description = 'Standard magazine for SIG MPX',
     client = {
         image = 'mag_mpx_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -501,6 +540,7 @@
     description = 'Standard magazine for CZ Scorpion EVO 3',
     client = {
         image = 'mag_scorpion_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -512,6 +552,7 @@
     description = '50-round drum for CZ Scorpion EVO 3',
     client = {
         image = 'mag_scorpion_drum.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -523,6 +564,7 @@
     description = 'Standard magazine for Intratec TEC-9',
     client = {
         image = 'mag_tec9_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -534,6 +576,7 @@
     description = 'Standard magazine for MasterPiece Arms MPA30',
     client = {
         image = 'mag_mpa30_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -545,6 +588,7 @@
     description = 'Glock-compatible magazine for Kel-Tec SUB-2000',
     client = {
         image = 'mag_sub2000_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -556,6 +600,7 @@
     description = 'Magazine for RAM-9 Desert',
     client = {
         image = 'mag_ram9_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -571,6 +616,7 @@
     description = 'Standard .45 ACP magazine for MAC-10',
     client = {
         image = 'mag_mac_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -582,6 +628,7 @@
     description = 'Extended .45 ACP magazine for MAC-10',
     client = {
         image = 'mag_mac_extended.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -597,6 +644,7 @@
     description = 'Standard 5.56 NATO STANAG magazine',
     client = {
         image = 'mag_556_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -608,6 +656,7 @@
     description = 'Extended 5.56 NATO magazine',
     client = {
         image = 'mag_556_extended.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -619,6 +668,7 @@
     description = '60-round drum for 5.56 NATO rifles',
     client = {
         image = 'mag_556_drum.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -634,6 +684,7 @@
     description = 'Magazine for SIG SPEAR / XM7',
     client = {
         image = 'mag_68x51_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -649,6 +700,31 @@
     description = 'Magazine for .300 Blackout rifles',
     client = {
         image = 'mag_300blk_standard.png',
+        export = 'free-bullets.magazineContextMenu',
+    }
+},
+
+['mag_bluearp_standard'] = {
+    label = 'Blue ARP Magazine (10rd)',
+    weight = 95,
+    stack = true,
+    close = true,
+    description = 'Standard magazine for Blue ARP',
+    client = {
+        image = 'mag_bluearp_standard.png',
+        export = 'free-bullets.magazineContextMenu',
+    }
+},
+
+['mag_bluearp_extended'] = {
+    label = 'Blue ARP Extended (40rd)',
+    weight = 185,
+    stack = true,
+    close = true,
+    description = 'Extended magazine for Blue ARP',
+    client = {
+        image = 'mag_bluearp_extended.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -664,6 +740,7 @@
     description = 'Glock-style magazine for AR-9 pistols',
     client = {
         image = 'mag_ar9_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -675,6 +752,7 @@
     description = 'Extended magazine for AR-9 pistols',
     client = {
         image = 'mag_ar9_extended.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -762,6 +840,7 @@
     description = 'Standard 7.62x39mm steel AK magazine',
     client = {
         image = 'mag_762x39_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -773,6 +852,7 @@
     description = '40-round RPK-style magazine for AK platforms',
     client = {
         image = 'mag_762x39_extended.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -784,6 +864,7 @@
     description = '75-round drum magazine for AK rifles',
     client = {
         image = 'mag_762x39_drum.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -799,6 +880,7 @@
     description = 'Proprietary 5.56 magazine for SIG 550',
     client = {
         image = 'mag_sig550_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -810,6 +892,7 @@
     description = 'Extended magazine for SIG 550',
     client = {
         image = 'mag_sig550_extended.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -825,6 +908,7 @@
     description = 'High-capacity magazine for NEMO Watchman',
     client = {
         image = 'mag_300wm_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -840,6 +924,7 @@
     description = 'Heavy magazine for Barrett M82A1/M107A1',
     client = {
         image = 'mag_50bmg_barrett.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -851,6 +936,7 @@
     description = 'Precision magazine for Victus XMR',
     client = {
         image = 'mag_50bmg_victus.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },
 
@@ -866,5 +952,6 @@
     description = '3-dart magazine for non-lethal dart gun',
     client = {
         image = 'mag_dart_standard.png',
+        export = 'free-bullets.magazineContextMenu',
     }
 },

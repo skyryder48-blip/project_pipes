@@ -358,6 +358,33 @@ end)
 local isReloading = false
 
 --[[
+    Block GTA's native reload mechanic (R key and auto-reload on empty)
+    Forces players to manually reload through the magazine/speedloader system
+]]
+CreateThread(function()
+    while true do
+        if Config.MagazineSystem.disableNativeReload then
+            local ped = PlayerPedId()
+            local weapon = GetSelectedPedWeapon(ped)
+
+            if weapon ~= `WEAPON_UNARMED` then
+                -- Block R key reload (INPUT_RELOAD = 45)
+                DisableControlAction(0, 45, true)
+
+                -- If the game started a reload animation anyway, cancel it
+                if IsPedReloading(ped) then
+                    ClearPedTasks(ped)
+                end
+            end
+
+            Wait(0) -- Must run every frame to block input
+        else
+            Wait(500)
+        end
+    end
+end)
+
+--[[
     Monitor ammo consumption and trigger reloads
 ]]
 CreateThread(function()

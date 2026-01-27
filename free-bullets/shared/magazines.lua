@@ -31,8 +31,9 @@ Config.MagazineSystem = {
         drum = 3.0,
     },
     allowPartialLoad = true,
-    autoReloadFromInventory = true,
+    autoReloadFromInventory = false,
     autoReloadPriority = 'same_ammo_first',
+    disableNativeReload = true,   -- Block GTA's built-in reload (R key / auto-reload on empty)
 }
 
 -- Speedloader system settings (revolvers)
@@ -40,7 +41,7 @@ Config.SpeedloaderSystem = {
     enabled = true,
     loadTimePerRound = 0.3,      -- Time to load one round into speedloader (seconds)
     equipTime = 1.0,             -- Time to dump speedloader into cylinder (faster than mag swap)
-    autoReloadFromInventory = true,
+    autoReloadFromInventory = false,
 }
 
 --[[

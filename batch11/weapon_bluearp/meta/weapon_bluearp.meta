@@ -42,7 +42,7 @@
       <FireType>INSTANT_HIT</FireType>
       <WheelSlot>WHEEL_PISTOL</WheelSlot>
       <Group>GROUP_PISTOL</Group>
-      <AmmoInfo ref="AMMO_300BLK_SUBSONIC" />
+      <AmmoInfo ref="AMMO_300BLK_HUNTING" />
       <AimingInfo ref="PISTOL_ACCURATE" />
 
       <!-- AR Pistol in .300 Blackout: Budget AR platform, 4-5" barrel -->

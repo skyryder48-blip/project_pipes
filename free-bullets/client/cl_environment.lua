@@ -101,7 +101,7 @@ CreateThread(function()
 
     -- Special objects
     for objectType, data in pairs(Config.EnvironmentalEffects.specialObjects) do
-        if data.models then
+        if type(data) == 'table' and data.models then
             for _, model in ipairs(data.models) do
                 specialObjectModels[GetHashKey(model)] = objectType
             end

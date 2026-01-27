@@ -440,6 +440,232 @@ RegisterNetEvent('ammo:ejectMagazine', function(data)
 end)
 
 -- ============================================================================
+-- SPEEDLOADER SYSTEM (Revolvers)
+-- ============================================================================
+
+--[[
+    Load ammo into an empty speedloader
+    Speedloaders are always fully loaded (all cylinder rounds at once)
+]]
+RegisterNetEvent('ammo:loadSpeedloader', function(data)
+    local source = source
+
+    if not data.speedloaderItem or not data.ammoItem or not data.capacity then
+        return
+    end
+
+    local slInfo = Config.Speedloaders[data.speedloaderItem]
+    if not slInfo then
+        TriggerClientEvent('ox_lib:notify', source, {
+            title = 'Error',
+            description = 'Invalid speedloader type',
+            type = 'error'
+        })
+        return
+    end
+
+    -- Check player has the speedloader
+    local slCount = ox_inventory:Search(source, 'count', data.speedloaderItem)
+    if slCount <= 0 then
+        TriggerClientEvent('ox_lib:notify', source, {
+            title = 'Error',
+            description = 'Speedloader not found in inventory',
+            type = 'error'
+        })
+        return
+    end
+
+    -- Check player has enough ammo (need full cylinder)
+    local ammoCount = ox_inventory:Search(source, 'count', data.ammoItem)
+    local loadAmount = math.min(data.capacity, ammoCount)
+
+    if loadAmount <= 0 then
+        TriggerClientEvent('ox_lib:notify', source, {
+            title = 'Error',
+            description = 'Not enough ammunition',
+            type = 'error'
+        })
+        return
+    end
+
+    -- Remove empty speedloader
+    local removed = ox_inventory:RemoveItem(source, data.speedloaderItem, 1, nil, data.speedloaderSlot)
+    if not removed then
+        TriggerClientEvent('ox_lib:notify', source, {
+            title = 'Error',
+            description = 'Failed to access speedloader',
+            type = 'error'
+        })
+        return
+    end
+
+    -- Remove ammo
+    local ammoRemoved = ox_inventory:RemoveItem(source, data.ammoItem, loadAmount)
+    if not ammoRemoved then
+        ox_inventory:AddItem(source, data.speedloaderItem, 1)
+        TriggerClientEvent('ox_lib:notify', source, {
+            title = 'Error',
+            description = 'Failed to access ammunition',
+            type = 'error'
+        })
+        return
+    end
+
+    -- Add loaded speedloader with metadata
+    local metadata = {
+        ammoType = data.ammoType,
+        count = loadAmount,
+        maxCount = data.capacity,
+        label = string.format('%s (%d/%d %s)', slInfo.label, loadAmount, data.capacity, string.upper(data.ammoType)),
+    }
+
+    local added = ox_inventory:AddItem(source, data.speedloaderItem, 1, metadata)
+    if added then
+        TriggerClientEvent('ox_lib:notify', source, {
+            title = 'Speedloader Loaded',
+            description = string.format('Loaded %d %s rounds', loadAmount, string.upper(data.ammoType)),
+            type = 'success'
+        })
+    else
+        ox_inventory:AddItem(source, data.speedloaderItem, 1)
+        ox_inventory:AddItem(source, data.ammoItem, loadAmount)
+        TriggerClientEvent('ox_lib:notify', source, {
+            title = 'Error',
+            description = 'Failed to create loaded speedloader',
+            type = 'error'
+        })
+    end
+end)
+
+--[[
+    Unload ammo from a loaded speedloader back to loose rounds
+]]
+RegisterNetEvent('ammo:unloadSpeedloader', function(data)
+    local source = source
+
+    if not data.speedloaderItem or not data.ammoType or not data.count then
+        return
+    end
+
+    local slInfo = Config.Speedloaders[data.speedloaderItem]
+    if not slInfo then return end
+
+    -- Get the ammo item for this caliber/type
+    local weaponInfo = nil
+    for _, weaponName in ipairs(slInfo.weapons) do
+        weaponInfo = Config.Weapons[GetHashKey(weaponName)]
+        if weaponInfo then break end
+    end
+
+    if not weaponInfo then return end
+
+    local ammoConfig = Config.AmmoTypes[weaponInfo.caliber] and Config.AmmoTypes[weaponInfo.caliber][data.ammoType]
+    if not ammoConfig then return end
+
+    -- Remove loaded speedloader
+    local removed = ox_inventory:RemoveItem(source, data.speedloaderItem, 1, nil, data.speedloaderSlot)
+    if not removed then
+        TriggerClientEvent('ox_lib:notify', source, {
+            title = 'Error',
+            description = 'Failed to access speedloader',
+            type = 'error'
+        })
+        return
+    end
+
+    -- Add empty speedloader back
+    ox_inventory:AddItem(source, data.speedloaderItem, 1)
+
+    -- Add loose ammo
+    ox_inventory:AddItem(source, ammoConfig.item, data.count)
+
+    TriggerClientEvent('ox_lib:notify', source, {
+        title = 'Speedloader Unloaded',
+        description = string.format('Recovered %d %s rounds', data.count, string.upper(data.ammoType)),
+        type = 'success'
+    })
+end)
+
+--[[
+    Equip speedloader to revolver - dump rounds into cylinder
+]]
+RegisterNetEvent('ammo:equipSpeedloader', function(data)
+    local source = source
+
+    if not data.speedloader or not data.weaponHash then
+        return
+    end
+
+    local sl = data.speedloader
+    local weaponClipSize = data.weaponClipSize or 999
+
+    local slInfo = Config.Speedloaders[sl.item]
+    local slRounds = sl.metadata.count or 0
+    local actualLoad = math.min(slRounds, weaponClipSize)
+
+    -- Remove loaded speedloader from inventory
+    local removed = ox_inventory:RemoveItem(source, sl.item, 1, nil, sl.slot)
+    if not removed then
+        TriggerClientEvent('ox_lib:notify', source, {
+            title = 'Error',
+            description = 'Failed to access speedloader',
+            type = 'error'
+        })
+        return
+    end
+
+    -- Return empty speedloader to inventory (no metadata = stackable)
+    ox_inventory:AddItem(source, sl.item, 1)
+
+    -- Tell client to apply the ammo
+    TriggerClientEvent('ammo:speedloaderEquipped', source, {
+        weaponHash = data.weaponHash,
+        speedloaderItem = sl.item,
+        ammoType = sl.metadata.ammoType,
+        count = actualLoad,
+    })
+end)
+
+--[[
+    Combat reload with speedloader - automatic reload when cylinder empties
+]]
+RegisterNetEvent('ammo:combatReloadSpeedloader', function(data)
+    local source = source
+
+    if not data.newSpeedloader or not data.weaponHash then
+        return
+    end
+
+    local sl = data.newSpeedloader
+    local weaponClipSize = data.weaponClipSize or 999
+
+    local slRounds = sl.metadata.count or 0
+    local actualLoad = math.min(slRounds, weaponClipSize)
+
+    -- Remove loaded speedloader
+    local removed = ox_inventory:RemoveItem(source, sl.item, 1, nil, sl.slot)
+    if not removed then
+        TriggerClientEvent('ox_lib:notify', source, {
+            title = 'Reload Failed',
+            description = 'Speedloader not available',
+            type = 'error'
+        })
+        return
+    end
+
+    -- Return empty speedloader
+    ox_inventory:AddItem(source, sl.item, 1)
+
+    -- Apply new ammo
+    TriggerClientEvent('ammo:speedloaderEquipped', source, {
+        weaponHash = data.weaponHash,
+        speedloaderItem = sl.item,
+        ammoType = sl.metadata.ammoType,
+        count = actualLoad,
+    })
+end)
+
+-- ============================================================================
 -- UTILITY FUNCTIONS
 -- ============================================================================
 

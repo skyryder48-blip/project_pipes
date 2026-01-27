@@ -770,6 +770,7 @@
     description = '6-round speedloader for .357 Magnum revolvers',
     client = {
         image = 'speedloader_357.png',
+        export = 'free-bullets.speedloaderContextMenu',
     }
 },
 
@@ -781,6 +782,7 @@
     description = '6-round speedloader for .38 Special revolvers',
     client = {
         image = 'speedloader_38.png',
+        export = 'free-bullets.speedloaderContextMenu',
     }
 },
 
@@ -792,6 +794,7 @@
     description = '6-round speedloader for .44 Magnum revolvers',
     client = {
         image = 'speedloader_44.png',
+        export = 'free-bullets.speedloaderContextMenu',
     }
 },
 
@@ -803,6 +806,7 @@
     description = '5-round speedloader for S&W 500',
     client = {
         image = 'speedloader_500.png',
+        export = 'free-bullets.speedloaderContextMenu',
     }
 },
 
@@ -814,6 +818,7 @@
     description = '5-round speedloader for compact .38 Special revolvers',
     client = {
         image = 'speedloader_38_5rd.png',
+        export = 'free-bullets.speedloaderContextMenu',
     }
 },
 
@@ -825,6 +830,7 @@
     description = '6-round speedloader for Taurus 856',
     client = {
         image = 'speedloader_taurus856.png',
+        export = 'free-bullets.speedloaderContextMenu',
     }
 },
 

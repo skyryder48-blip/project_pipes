@@ -358,6 +358,109 @@ end)
 local isReloading = false
 
 --[[
+    Block GTA's native reload and handle keybind reload
+    - Blocks native R key auto-reload behavior
+    - Detects keybind press to trigger manual reload from inventory
+]]
+CreateThread(function()
+    local keybindCfg = Config.MagazineSystem.keybindReload
+    local reloadKey = keybindCfg and keybindCfg.key or 45
+
+    while true do
+        local ped = PlayerPedId()
+        local weapon = GetSelectedPedWeapon(ped)
+
+        if weapon ~= `WEAPON_UNARMED` then
+            -- Always block native reload when disableNativeReload is on
+            if Config.MagazineSystem.disableNativeReload then
+                DisableControlAction(0, reloadKey, true)
+
+                if IsPedReloading(ped) then
+                    ClearPedTasks(ped)
+                end
+            end
+
+            -- Keybind reload: detect disabled control press to trigger manual reload
+            if keybindCfg and keybindCfg.enabled and not isReloading then
+                if IsDisabledControlJustPressed(0, reloadKey) then
+                    KeybindReload(weapon)
+                end
+            end
+
+            Wait(0) -- Must run every frame to block input
+        else
+            Wait(200)
+        end
+    end
+end)
+
+--[[
+    Keybind reload: select best mag or speedloader and reload
+]]
+function KeybindReload(weaponHash)
+    -- Try speedloader first (revolvers)
+    local slData = equippedSpeedloaders and equippedSpeedloaders[weaponHash]
+    local isRevolver = false
+    for slName, slInfo in pairs(Config.Speedloaders) do
+        if IsSpeedloaderCompatible(weaponHash, slName) then
+            isRevolver = true
+            break
+        end
+    end
+
+    if isRevolver then
+        local loadedSLs = GetLoadedSpeedloadersFromInventory(weaponHash)
+        if #loadedSLs == 0 then
+            lib.notify({ title = 'No Speedloaders', description = 'No loaded speedloaders available', type = 'error' })
+            return
+        end
+        local selected = SelectBestSpeedloader(loadedSLs, equippedSpeedloaders[weaponHash])
+        if selected then
+            isReloading = true
+            local weaponClipSize = GetWeaponClipSize(weaponHash)
+            TriggerServerEvent('ammo:combatReloadSpeedloader', {
+                weaponHash = weaponHash,
+                weaponClipSize = weaponClipSize,
+                newSpeedloader = selected,
+            })
+            Wait(Config.SpeedloaderSystem.equipTime * 1000)
+            isReloading = false
+        end
+        return
+    end
+
+    -- Magazine weapons
+    local loadedMags = GetLoadedMagazinesFromInventory(weaponHash)
+    if #loadedMags == 0 then
+        lib.notify({ title = 'No Magazines', description = 'No loaded magazines available', type = 'error' })
+        return
+    end
+
+    local currentMag = equippedMagazines[weaponHash]
+    local selected = SelectBestMagazine(loadedMags, currentMag)
+    if selected then
+        isReloading = true
+        ReturnEmptyMagazine(weaponHash)
+        PerformCombatReload(weaponHash, selected)
+    end
+end
+
+--[[
+    Select best speedloader using the same priority config as magazines
+]]
+function SelectBestSpeedloader(loadedSLs, currentSL)
+    if #loadedSLs == 0 then return nil end
+    local priority = Config.MagazineSystem.keybindReload and Config.MagazineSystem.keybindReload.priority
+        or { 'same_ammo', 'highest_count' }
+
+    table.sort(loadedSLs, function(a, b)
+        return ComparePriority(a, b, currentSL and currentSL.item, currentSL and currentSL.ammoType, priority)
+    end)
+
+    return loadedSLs[1]
+end
+
+--[[
     Monitor ammo consumption and trigger reloads
 ]]
 CreateThread(function()
@@ -453,30 +556,56 @@ function GetLoadedMagazinesFromInventory(weaponHash)
 end
 
 --[[
-    Select best magazine based on priority setting
-    Priority: Highest round count first, then same ammo type as tiebreaker
+    Compare two candidates using the configurable priority hierarchy.
+    Each priority rule returns true/false/nil (nil = tie, continue to next rule).
+    Options: 'same_ammo', 'same_mag', 'highest_count', 'lowest_count', 'fifo'
+]]
+function ComparePriority(a, b, currentItemName, currentAmmoType, priority)
+    for _, rule in ipairs(priority) do
+        if rule == 'same_ammo' and currentAmmoType then
+            local aMatch = a.metadata.ammoType == currentAmmoType
+            local bMatch = b.metadata.ammoType == currentAmmoType
+            if aMatch ~= bMatch then return aMatch end
+
+        elseif rule == 'same_mag' and currentItemName then
+            local aMatch = a.item == currentItemName
+            local bMatch = b.item == currentItemName
+            if aMatch ~= bMatch then return aMatch end
+
+        elseif rule == 'highest_count' then
+            if a.metadata.count ~= b.metadata.count then
+                return a.metadata.count > b.metadata.count
+            end
+
+        elseif rule == 'lowest_count' then
+            if a.metadata.count ~= b.metadata.count then
+                return a.metadata.count < b.metadata.count
+            end
+
+        elseif rule == 'fifo' then
+            if a.slot ~= b.slot then
+                return a.slot < b.slot
+            end
+        end
+    end
+
+    -- Final fallback: lowest slot
+    return a.slot < b.slot
+end
+
+--[[
+    Select best magazine using configurable priority hierarchy
 ]]
 function SelectBestMagazine(loadedMags, currentMag)
     if #loadedMags == 0 then return nil end
 
-    -- Sort by count (highest first), then by matching ammo type
+    local priority = Config.MagazineSystem.keybindReload and Config.MagazineSystem.keybindReload.priority
+        or { 'same_ammo', 'highest_count' }
+    local currentItem = currentMag and currentMag.item
+    local currentAmmo = currentMag and currentMag.ammoType
+
     table.sort(loadedMags, function(a, b)
-        -- Primary: highest round count
-        if a.metadata.count ~= b.metadata.count then
-            return a.metadata.count > b.metadata.count
-        end
-
-        -- Secondary: prefer same ammo type as current mag
-        if currentMag and currentMag.ammoType then
-            local aMatches = a.metadata.ammoType == currentMag.ammoType
-            local bMatches = b.metadata.ammoType == currentMag.ammoType
-            if aMatches ~= bMatches then
-                return aMatches
-            end
-        end
-
-        -- Tertiary: alphabetical ammo type for consistency
-        return a.metadata.ammoType < b.metadata.ammoType
+        return ComparePriority(a, b, currentItem, currentAmmo, priority)
     end)
 
     return loadedMags[1]
@@ -665,4 +794,399 @@ exports('UnloadMagazine', UnloadMagazine)
 exports('EquipMagazine', EquipMagazine)
 exports('GetEquippedMagazine', function(weaponHash)
     return equippedMagazines[weaponHash]
+end)
+
+-- ============================================================================
+-- SPEEDLOADER SYSTEM (Revolvers)
+-- ============================================================================
+
+local equippedSpeedloaders = {} -- Per-weapon equipped speedloader tracking
+
+--[[
+    Load ammo into an empty speedloader
+    Called when player right-clicks empty speedloader in inventory
+
+    @param speedloaderItem - The speedloader item name (e.g., 'speedloader_357')
+    @param speedloaderSlot - The inventory slot of the speedloader
+]]
+function LoadSpeedloader(speedloaderItem, speedloaderSlot)
+    local slInfo = Config.Speedloaders[speedloaderItem]
+    if not slInfo then
+        lib.notify({ title = 'Error', description = 'Unknown speedloader type', type = 'error' })
+        return
+    end
+
+    -- Get the caliber for this speedloader's compatible weapons
+    local caliber = nil
+    for _, weaponName in ipairs(slInfo.weapons) do
+        local weaponInfo = Config.Weapons[GetHashKey(weaponName)]
+        if weaponInfo then
+            caliber = weaponInfo.caliber
+            break
+        end
+    end
+
+    if not caliber then
+        lib.notify({ title = 'Error', description = 'Cannot determine ammo type', type = 'error' })
+        return
+    end
+
+    -- Get available ammo types for this caliber
+    local ammoTypes = Config.AmmoTypes[caliber]
+    if not ammoTypes then
+        lib.notify({ title = 'Error', description = 'No ammo types for this caliber', type = 'error' })
+        return
+    end
+
+    -- Build options menu for ammo selection
+    local options = {}
+    for ammoType, ammoConfig in pairs(ammoTypes) do
+        local ammoCount = exports.ox_inventory:Search('count', ammoConfig.item)
+        if ammoCount > 0 then
+            table.insert(options, {
+                title = ammoConfig.label,
+                description = string.format('Available: %d rounds (need %d)', ammoCount, slInfo.capacity),
+                icon = 'bullet',
+                onSelect = function()
+                    PerformSpeedloaderLoad({
+                        speedloaderItem = speedloaderItem,
+                        speedloaderSlot = speedloaderSlot,
+                        ammoType = ammoType,
+                        ammoItem = ammoConfig.item,
+                        capacity = slInfo.capacity,
+                    })
+                end
+            })
+        end
+    end
+
+    if #options == 0 then
+        lib.notify({ title = 'No Ammo', description = 'You have no compatible ammunition', type = 'error' })
+        return
+    end
+
+    lib.registerContext({
+        id = 'speedloader_load_ammo',
+        title = 'Load Speedloader - Select Ammo',
+        options = options,
+    })
+
+    lib.showContext('speedloader_load_ammo')
+end
+
+--[[
+    Perform speedloader loading with progress bar
+    Speedloaders are always fully loaded (all rounds at once)
+]]
+function PerformSpeedloaderLoad(args)
+    local loadTime = args.capacity * Config.SpeedloaderSystem.loadTimePerRound * 1000
+
+    if lib.progressCircle({
+        duration = loadTime,
+        label = 'Loading speedloader...',
+        position = 'bottom',
+        useWhileDead = false,
+        canCancel = true,
+        disable = {
+            car = true,
+            move = false,
+            combat = true,
+        },
+        anim = {
+            dict = 'weapons@pistol@',
+            clip = 'reload_aim',
+        },
+    }) then
+        TriggerServerEvent('ammo:loadSpeedloader', {
+            speedloaderItem = args.speedloaderItem,
+            speedloaderSlot = args.speedloaderSlot,
+            ammoItem = args.ammoItem,
+            ammoType = args.ammoType,
+            capacity = args.capacity,
+        })
+    else
+        lib.notify({ title = 'Cancelled', description = 'Speedloader loading cancelled', type = 'error' })
+    end
+end
+
+--[[
+    Unload ammo from a loaded speedloader back to loose rounds
+]]
+function UnloadSpeedloader(speedloaderItem, speedloaderSlot, metadata)
+    if not metadata or not metadata.count or metadata.count <= 0 then
+        lib.notify({ title = 'Empty', description = 'Speedloader is already empty', type = 'error' })
+        return
+    end
+
+    local unloadTime = metadata.count * (Config.SpeedloaderSystem.loadTimePerRound * 0.5) * 1000
+
+    if lib.progressCircle({
+        duration = unloadTime,
+        label = 'Unloading speedloader...',
+        position = 'bottom',
+        useWhileDead = false,
+        canCancel = true,
+        disable = {
+            car = true,
+            move = false,
+            combat = true,
+        },
+    }) then
+        TriggerServerEvent('ammo:unloadSpeedloader', {
+            speedloaderItem = speedloaderItem,
+            speedloaderSlot = speedloaderSlot,
+            ammoType = metadata.ammoType,
+            count = metadata.count,
+        })
+    else
+        lib.notify({ title = 'Cancelled', description = 'Unloading cancelled', type = 'error' })
+    end
+end
+
+--[[
+    Equip a loaded speedloader to currently held revolver
+    Dumps all rounds into the cylinder at once
+]]
+function EquipSpeedloader(speedloaderItem, speedloaderSlot, metadata)
+    local ped = PlayerPedId()
+    local currentWeapon = GetSelectedPedWeapon(ped)
+
+    if currentWeapon == `WEAPON_UNARMED` then
+        lib.notify({ title = 'No Weapon', description = 'Equip a revolver first', type = 'error' })
+        return
+    end
+
+    -- Check compatibility
+    if not IsSpeedloaderCompatible(currentWeapon, speedloaderItem) then
+        lib.notify({ title = 'Incompatible', description = 'Speedloader does not fit this revolver', type = 'error' })
+        return
+    end
+
+    -- Check if speedloader is loaded
+    if not metadata or not metadata.count or metadata.count <= 0 then
+        lib.notify({ title = 'Empty', description = 'Speedloader is empty - load it first', type = 'error' })
+        return
+    end
+
+    local weaponClipSize = GetWeaponClipSize(currentWeapon)
+    local equipTime = Config.SpeedloaderSystem.equipTime
+
+    if lib.progressCircle({
+        duration = equipTime * 1000,
+        label = 'Loading cylinder...',
+        position = 'bottom',
+        useWhileDead = false,
+        canCancel = false,
+        disable = {
+            car = true,
+            move = true,
+            combat = true,
+        },
+        anim = {
+            dict = 'weapons@pistol@',
+            clip = 'reload_aim',
+        },
+    }) then
+        TriggerServerEvent('ammo:equipSpeedloader', {
+            weaponHash = currentWeapon,
+            weaponClipSize = weaponClipSize,
+            speedloader = {
+                item = speedloaderItem,
+                slot = speedloaderSlot,
+                metadata = metadata,
+            },
+        })
+    end
+end
+
+--[[
+    Server callback - Speedloader equipped successfully
+]]
+RegisterNetEvent('ammo:speedloaderEquipped', function(data)
+    local weaponHash = data.weaponHash
+    local slInfo = Config.Speedloaders[data.speedloaderItem]
+    local weaponInfo = Config.Weapons[weaponHash]
+
+    if not slInfo or not weaponInfo then return end
+
+    -- Track equipped speedloader data
+    equippedSpeedloaders[weaponHash] = {
+        item = data.speedloaderItem,
+        ammoType = data.ammoType,
+        count = data.count,
+        maxCount = slInfo.capacity,
+    }
+
+    -- Build and apply the correct weapon component
+    local componentName = GetMagazineComponentName(weaponHash, nil, data.ammoType)
+    -- For revolvers, use weapon's componentBase directly with ammo type suffix
+    local revolverComponent = weaponInfo.componentBase .. '_CLIP_' .. string.upper(data.ammoType)
+    local componentHash = GetHashKey(revolverComponent)
+
+    -- Remove any existing clip components first
+    RemoveAllClipComponents(weaponHash)
+
+    -- Apply new component
+    GiveWeaponComponentToPed(PlayerPedId(), weaponHash, componentHash)
+
+    -- Set ammo count
+    SetPedAmmo(PlayerPedId(), weaponHash, data.count)
+
+    lib.notify({
+        title = 'Cylinder Loaded',
+        description = string.format('%d %s rounds loaded', data.count, string.upper(data.ammoType)),
+        type = 'success'
+    })
+end)
+
+--[[
+    Combat reload monitoring for revolvers with speedloaders
+    Integrates into the existing ammo monitoring thread
+]]
+CreateThread(function()
+    while true do
+        Wait(100)
+
+        if Config.SpeedloaderSystem.enabled then
+            local ped = PlayerPedId()
+            local weapon = GetSelectedPedWeapon(ped)
+
+            if weapon ~= `WEAPON_UNARMED` and equippedSpeedloaders[weapon] then
+                local currentAmmo = GetAmmoInPedWeapon(ped, weapon)
+                local slData = equippedSpeedloaders[weapon]
+
+                if currentAmmo < slData.count then
+                    slData.count = currentAmmo
+
+                    -- Cylinder empty - auto-reload with speedloader if available
+                    if currentAmmo <= 0 and not isReloading and Config.SpeedloaderSystem.autoReloadFromInventory then
+                        HandleEmptyCylinder(weapon)
+                    end
+                end
+            end
+        end
+    end
+end)
+
+--[[
+    Handle empty cylinder - find loaded speedloader and auto-reload
+]]
+function HandleEmptyCylinder(weaponHash)
+    isReloading = true
+
+    local loadedSpeedloaders = GetLoadedSpeedloadersFromInventory(weaponHash)
+
+    if #loadedSpeedloaders == 0 then
+        lib.notify({
+            title = 'No Speedloaders',
+            description = 'No loaded speedloaders available!',
+            type = 'error'
+        })
+        equippedSpeedloaders[weaponHash] = nil
+        isReloading = false
+        return
+    end
+
+    -- Auto-select best speedloader (highest count, then same ammo type)
+    local selected = loadedSpeedloaders[1]
+    local currentSl = equippedSpeedloaders[weaponHash]
+
+    for _, sl in ipairs(loadedSpeedloaders) do
+        if sl.metadata.count > selected.metadata.count then
+            selected = sl
+        elseif sl.metadata.count == selected.metadata.count and currentSl and sl.metadata.ammoType == currentSl.ammoType then
+            selected = sl
+        end
+    end
+
+    local weaponClipSize = GetWeaponClipSize(weaponHash)
+
+    TriggerServerEvent('ammo:combatReloadSpeedloader', {
+        weaponHash = weaponHash,
+        weaponClipSize = weaponClipSize,
+        newSpeedloader = selected,
+    })
+
+    Wait(Config.SpeedloaderSystem.equipTime * 1000)
+    isReloading = false
+end
+
+--[[
+    Get all loaded speedloaders compatible with weapon from inventory
+]]
+function GetLoadedSpeedloadersFromInventory(weaponHash)
+    local loaded = {}
+    local items = exports.ox_inventory:GetPlayerItems()
+
+    for _, item in ipairs(items) do
+        local slInfo = Config.Speedloaders[item.name]
+        if slInfo and IsSpeedloaderCompatible(weaponHash, item.name) then
+            if item.metadata and item.metadata.count and item.metadata.count > 0 then
+                table.insert(loaded, {
+                    item = item.name,
+                    slot = item.slot,
+                    metadata = item.metadata,
+                    slInfo = slInfo,
+                })
+            end
+        end
+    end
+
+    return loaded
+end
+
+-- ============================================================================
+-- SPEEDLOADER CONTEXT MENU
+-- ============================================================================
+
+exports('speedloaderContextMenu', function(data)
+    local item = data.item
+    local slInfo = Config.Speedloaders[item.name]
+
+    if not slInfo then return end
+
+    local options = {}
+    local isLoaded = item.metadata and item.metadata.count and item.metadata.count > 0
+
+    if isLoaded then
+        table.insert(options, {
+            title = 'Load into Revolver',
+            description = string.format('%d/%d %s rounds', item.metadata.count, slInfo.capacity, string.upper(item.metadata.ammoType)),
+            icon = 'gun',
+            onSelect = function()
+                EquipSpeedloader(item.name, item.slot, item.metadata)
+            end
+        })
+
+        table.insert(options, {
+            title = 'Unload Speedloader',
+            description = 'Remove ammo from speedloader',
+            icon = 'arrow-down',
+            onSelect = function()
+                UnloadSpeedloader(item.name, item.slot, item.metadata)
+            end
+        })
+    else
+        table.insert(options, {
+            title = 'Load Speedloader',
+            description = 'Load ammo into speedloader',
+            icon = 'arrow-up',
+            onSelect = function()
+                LoadSpeedloader(item.name, item.slot)
+            end
+        })
+    end
+
+    return options
+end)
+
+-- ============================================================================
+-- SPEEDLOADER EXPORTS
+-- ============================================================================
+
+exports('LoadSpeedloader', LoadSpeedloader)
+exports('UnloadSpeedloader', UnloadSpeedloader)
+exports('EquipSpeedloader', EquipSpeedloader)
+exports('GetEquippedSpeedloader', function(weaponHash)
+    return equippedSpeedloaders[weaponHash]
 end)

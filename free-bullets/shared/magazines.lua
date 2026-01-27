@@ -31,8 +31,25 @@ Config.MagazineSystem = {
         drum = 3.0,
     },
     allowPartialLoad = true,
-    autoReloadFromInventory = true,
-    autoReloadPriority = 'same_ammo_first',
+    autoReloadFromInventory = false,
+    disableNativeReload = true,   -- Block GTA's built-in reload (R key / auto-reload on empty)
+
+    -- Keybind reload: press to manually reload from best inventory mag/speedloader
+    keybindReload = {
+        enabled = true,
+        key = 45,                 -- GTA control ID (45 = R key / INPUT_RELOAD)
+        -- Priority order for selecting next magazine (first match wins)
+        -- Options: 'same_ammo', 'same_mag', 'highest_count', 'lowest_count', 'fifo'
+        priority = { 'same_ammo', 'same_mag', 'highest_count', 'fifo' },
+    },
+}
+
+-- Speedloader system settings (revolvers)
+Config.SpeedloaderSystem = {
+    enabled = true,
+    loadTimePerRound = 0.3,      -- Time to load one round into speedloader (seconds)
+    equipTime = 1.0,             -- Time to dump speedloader into cylinder (faster than mag swap)
+    autoReloadFromInventory = false,
 }
 
 --[[
@@ -982,6 +999,40 @@ function GetWeaponNameFromHash(hash)
         return weaponInfo.componentBase:gsub('COMPONENT_', 'WEAPON_')
     end
     return nil
+end
+
+function IsSpeedloaderCompatible(weaponHash, speedloaderItem)
+    local slInfo = Config.Speedloaders[speedloaderItem]
+    if not slInfo then return false end
+
+    local weapons = type(slInfo.weapons) == 'table' and slInfo.weapons or { slInfo.weapons }
+
+    if type(weaponHash) == 'number' then
+        for _, weaponName in ipairs(weapons) do
+            if joaat(weaponName) == weaponHash then
+                return true
+            end
+        end
+    else
+        local upperHash = string.upper(tostring(weaponHash))
+        for _, weaponName in ipairs(weapons) do
+            if string.upper(weaponName) == upperHash then
+                return true
+            end
+        end
+    end
+
+    return false
+end
+
+function GetCompatibleSpeedloaders(weaponHash)
+    local compatible = {}
+    for slName, slInfo in pairs(Config.Speedloaders) do
+        if IsSpeedloaderCompatible(weaponHash, slName) then
+            compatible[slName] = slInfo
+        end
+    end
+    return compatible
 end
 
 function GetMagazineComponentName(weaponHash, magazineItem, ammoType)

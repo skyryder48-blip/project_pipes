@@ -31,7 +31,7 @@
 					<FireType>INSTANT_HIT</FireType>
 					<WheelSlot>WHEEL_PISTOL</WheelSlot>
 					<Group>GROUP_PISTOL</Group>
-					<AmmoInfo ref="AMMO_PISTOL"/>
+					<AmmoInfo ref="AMMO_9MM_FMJ"/>
 					<AimingInfo ref="PISTOL_2H_BASE_STRAFE"/>
 					<ClipSize value="10"/>
 					<!-- AGGRESSIVE DIFFERENTIATION: Quality Tier - Reliable Glock subcompact -->

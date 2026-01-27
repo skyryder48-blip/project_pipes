@@ -445,6 +445,9 @@
     stack = false,
     close = true,
     description = 'Standard 10-round magazine for Glock 26/43X.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_g26_extended'] = {
@@ -453,6 +456,9 @@
     stack = false,
     close = true,
     description = 'Extended 17-round magazine for Glock 26/43X.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_g26_stick'] = {
@@ -461,6 +467,9 @@
     stack = false,
     close = true,
     description = '33-round stick magazine for compact Glocks.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_compact9_standard'] = {
@@ -469,6 +478,9 @@
     stack = false,
     close = true,
     description = 'Standard magazine for GX4/Hellcat.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_compact9_extended'] = {
@@ -477,6 +489,9 @@
     stack = false,
     close = true,
     description = 'Extended magazine for GX4/Hellcat.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- Full-Size Glock 9mm Magazines
@@ -486,6 +501,9 @@
     stack = false,
     close = true,
     description = 'Standard 17-round Glock 9mm magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_glock9_extended'] = {
@@ -494,6 +512,9 @@
     stack = false,
     close = true,
     description = '33-round stick magazine for full-size Glocks.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_glock9_drum'] = {
@@ -502,6 +523,9 @@
     stack = false,
     close = true,
     description = '50-round drum magazine for Glocks.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- Beretta 9mm Magazines
@@ -511,6 +535,9 @@
     stack = false,
     close = true,
     description = 'Standard 15-round Beretta magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_beretta_m9a3'] = {
@@ -519,6 +546,9 @@
     stack = false,
     close = true,
     description = '17-round M9A3 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_beretta_extended'] = {
@@ -527,6 +557,9 @@
     stack = false,
     close = true,
     description = '30-round extended Beretta magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- SIG 9mm Magazines
@@ -536,6 +569,9 @@
     stack = false,
     close = true,
     description = 'Standard 8-round P210 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_sig_standard'] = {
@@ -544,6 +580,9 @@
     stack = false,
     close = true,
     description = 'Standard SIG 9mm magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_sig_extended'] = {
@@ -552,6 +591,9 @@
     stack = false,
     close = true,
     description = '21-round extended SIG magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- Other 9mm Pistol Magazines
@@ -561,6 +603,9 @@
     stack = false,
     close = true,
     description = 'Standard 17-round FN 509 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_fn509_extended'] = {
@@ -569,6 +614,9 @@
     stack = false,
     close = true,
     description = '24-round extended FN 509 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_tp9sf_standard'] = {
@@ -577,6 +625,9 @@
     stack = false,
     close = true,
     description = 'Standard 18-round TP9SF magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_walther_standard'] = {
@@ -585,6 +636,9 @@
     stack = false,
     close = true,
     description = 'Standard 15-round P88 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_rugersr9_standard'] = {
@@ -593,6 +647,9 @@
     stack = false,
     close = true,
     description = 'Standard 17-round SR9 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_psadagger_standard'] = {
@@ -601,6 +658,9 @@
     stack = false,
     close = true,
     description = 'Standard 15-round Dagger magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- Glock .45 ACP Magazines
@@ -610,6 +670,9 @@
     stack = false,
     close = true,
     description = 'Standard 13-round Glock .45 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_glock45_compact'] = {
@@ -618,6 +681,9 @@
     stack = false,
     close = true,
     description = 'Standard 10-round Glock 30 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_glock45_extended'] = {
@@ -626,6 +692,9 @@
     stack = false,
     close = true,
     description = '26-round extended Glock .45 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- 1911 .45 ACP Magazines
@@ -635,6 +704,9 @@
     stack = false,
     close = true,
     description = 'Standard 7-round 1911 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_1911_8rd'] = {
@@ -643,6 +715,9 @@
     stack = false,
     close = true,
     description = '8-round 1911 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_1911_extended'] = {
@@ -651,6 +726,9 @@
     stack = false,
     close = true,
     description = '10-round extended 1911 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_sigp220_standard'] = {
@@ -659,6 +737,9 @@
     stack = false,
     close = true,
     description = 'Standard 8-round P220 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- Glock .40 S&W Magazines
@@ -668,6 +749,9 @@
     stack = false,
     close = true,
     description = 'Standard 15-round Glock .40 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_glock40_compact'] = {
@@ -676,6 +760,9 @@
     stack = false,
     close = true,
     description = 'Standard 13-round Demon magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_glock40_extended'] = {
@@ -684,6 +771,9 @@
     stack = false,
     close = true,
     description = '22-round extended Glock .40 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- 5.7x28mm Magazines
@@ -693,6 +783,9 @@
     stack = false,
     close = true,
     description = 'Standard 20-round 5.7 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_57_extended'] = {
@@ -701,6 +794,9 @@
     stack = false,
     close = true,
     description = '30-round extended 5.7 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- .22 LR Magazines
@@ -710,6 +806,9 @@
     stack = false,
     close = true,
     description = 'Standard 10-round .22 LR magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_fn502_standard'] = {
@@ -718,6 +817,9 @@
     stack = false,
     close = true,
     description = 'Standard 15-round FN 502 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_pmr30_standard'] = {
@@ -726,6 +828,9 @@
     stack = false,
     close = true,
     description = 'Standard 30-round PMR-30 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- 10mm Auto Magazines
@@ -735,6 +840,9 @@
     stack = false,
     close = true,
     description = 'Standard 15-round Glock 20 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_10mm_extended'] = {
@@ -743,6 +851,9 @@
     stack = false,
     close = true,
     description = '30-round extended Glock 20 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- 9mm SMG Magazines
@@ -752,6 +863,9 @@
     stack = false,
     close = true,
     description = 'Standard 30-round MP5 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_mpx_standard'] = {
@@ -760,6 +874,9 @@
     stack = false,
     close = true,
     description = 'Standard 30-round MPX magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_scorpion_standard'] = {
@@ -768,6 +885,9 @@
     stack = false,
     close = true,
     description = 'Standard 30-round Scorpion magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_scorpion_drum'] = {
@@ -776,6 +896,9 @@
     stack = false,
     close = true,
     description = '50-round drum for Scorpion EVO.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_tec9_standard'] = {
@@ -784,6 +907,9 @@
     stack = false,
     close = true,
     description = 'Standard 32-round TEC-9 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_mpa30_standard'] = {
@@ -792,6 +918,9 @@
     stack = false,
     close = true,
     description = 'Standard 30-round MPA30 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_sub2000_standard'] = {
@@ -800,6 +929,9 @@
     stack = false,
     close = true,
     description = 'Standard 33-round SUB-2000 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_ram9_standard'] = {
@@ -808,6 +940,9 @@
     stack = false,
     close = true,
     description = 'Standard 33-round RAM-9 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- .45 ACP SMG Magazines (MAC)
@@ -817,6 +952,9 @@
     stack = false,
     close = true,
     description = 'Standard 30-round MAC magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_mac_extended'] = {
@@ -825,6 +963,9 @@
     stack = false,
     close = true,
     description = '50-round extended MAC magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- 5.56 NATO Rifle Magazines
@@ -834,6 +975,9 @@
     stack = false,
     close = true,
     description = 'Standard 30-round STANAG magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_556_extended'] = {
@@ -842,6 +986,9 @@
     stack = false,
     close = true,
     description = '40-round extended STANAG magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_556_drum'] = {
@@ -850,6 +997,9 @@
     stack = false,
     close = true,
     description = '60-round 5.56 drum magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- 6.8x51mm Rifle Magazines
@@ -859,6 +1009,9 @@
     stack = false,
     close = true,
     description = 'Standard 20-round NGSW magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- .300 Blackout Magazines
@@ -868,6 +1021,9 @@
     stack = false,
     close = true,
     description = 'Standard 30-round .300 BLK magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- AR-9 Magazines
@@ -877,6 +1033,9 @@
     stack = false,
     close = true,
     description = 'Standard 17-round AR-9 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_ar9_extended'] = {
@@ -885,6 +1044,9 @@
     stack = false,
     close = true,
     description = '33-round extended AR-9 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- 7.62x39mm AK Magazines
@@ -894,6 +1056,9 @@
     stack = false,
     close = true,
     description = 'Standard 30-round AK magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_762x39_extended'] = {
@@ -902,6 +1067,9 @@
     stack = false,
     close = true,
     description = '40-round extended AK magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_762x39_drum'] = {
@@ -910,6 +1078,9 @@
     stack = false,
     close = true,
     description = '75-round AK drum magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- SIG 550 Magazines
@@ -919,6 +1090,9 @@
     stack = false,
     close = true,
     description = 'Standard 20-round SIG 550 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_sig550_extended'] = {
@@ -927,6 +1101,9 @@
     stack = false,
     close = true,
     description = '30-round SIG 550 magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- .300 Win Mag Magazines
@@ -936,6 +1113,9 @@
     stack = false,
     close = true,
     description = 'Standard 14-round NEMO Watchman magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- .50 BMG Magazines
@@ -945,6 +1125,9 @@
     stack = false,
     close = true,
     description = 'Standard 10-round Barrett magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 ['mag_50bmg_victus'] = {
@@ -953,6 +1136,9 @@
     stack = false,
     close = true,
     description = 'Standard 5-round Victus magazine.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- Tranquilizer Dart Magazine
@@ -962,6 +1148,9 @@
     stack = false,
     close = true,
     description = '3-dart magazine for tranquilizer gun.',
+    client = {
+        export = 'free-bullets.magazineContextMenu',
+    }
 },
 
 -- ============================================================================

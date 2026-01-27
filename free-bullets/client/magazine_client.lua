@@ -12,6 +12,15 @@
 local currentMagazine = nil -- Currently equipped magazine data
 local equippedMagazines = {} -- Per-weapon equipped magazine tracking
 
+-- Get weapon's physical clip size from Config.Weapons
+function GetWeaponClipSize(weaponHash)
+    local weaponInfo = Config.Weapons[weaponHash]
+    if weaponInfo and weaponInfo.clipSize then
+        return weaponInfo.clipSize
+    end
+    return 17 -- default fallback
+end
+
 -- ============================================================================
 -- MAGAZINE LOADING (From Inventory)
 -- ============================================================================

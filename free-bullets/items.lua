@@ -21,9 +21,6 @@ return {
         stack = true,
         close = true,
         description = 'Standard 9mm full metal jacket ammunition. Balanced penetration and damage.',
-        client = {
-            image = 'ammo_9mm_fmj.png'
-        }
     },
     ['ammo_9mm_hp'] = {
         label = '9mm Hollow Point',
@@ -31,9 +28,6 @@ return {
         stack = true,
         close = true,
         description = '9mm hollow point ammunition. +10% damage to unarmored targets, reduced armor effectiveness.',
-        client = {
-            image = 'ammo_9mm_hp.png'
-        }
     },
     ['ammo_9mm_ap'] = {
         label = '9mm Armor Piercing',
@@ -41,9 +35,6 @@ return {
         stack = true,
         close = true,
         description = '9mm armor piercing ammunition. Bypasses body armor, -10% base damage, -2 mag capacity.',
-        client = {
-            image = 'ammo_9mm_ap.png'
-        }
     },
 
     -- ============================================
@@ -55,9 +46,6 @@ return {
         stack = true,
         close = true,
         description = 'Standard .45 ACP full metal jacket. 38 base damage, 0.20 penetration. Reliable feeding, over-penetration risk.',
-        client = {
-            image = 'ammo_45acp_fmj.png'
-        }
     },
     ['ammo_45acp_jhp'] = {
         label = '.45 ACP JHP',
@@ -65,9 +53,6 @@ return {
         stack = true,
         close = true,
         description = '.45 ACP jacketed hollow point. +15.8% damage (44), 0.12 penetration. Expansion: 0.85-0.95". Premium defensive ammunition.',
-        client = {
-            image = 'ammo_45acp_jhp.png'
-        }
     },
 
     -- ============================================
@@ -79,9 +64,6 @@ return {
         stack = true,
         close = true,
         description = '.40 S&W full metal jacket. 41 damage (~420 ft-lbs), 0.72 penetration. 990 fps, 25-32" gel penetration. "Snappy" recoil - 25% higher than 9mm.',
-        client = {
-            image = 'ammo_40sw_fmj.png'
-        }
     },
     ['ammo_40sw_jhp'] = {
         label = '.40 S&W JHP',
@@ -89,9 +71,6 @@ return {
         stack = true,
         close = true,
         description = '.40 S&W jacketed hollow point. 49 damage (+20%), 0.55 penetration. Federal HST 180gr: 0.72" expansion, 14.5-18.5" FBI gel standard.',
-        client = {
-            image = 'ammo_40sw_jhp.png'
-        }
     },
 
     -- ============================================
@@ -104,9 +83,6 @@ return {
         stack = true,
         close = true,
         description = '.357 Magnum full metal jacket. 49-58 damage (barrel-dependent), 0.82-0.90 penetration. 1400-1650 fps. Devastating power - 545-710 ft-lbs energy.',
-        client = {
-            image = 'ammo_357mag_fmj.png'
-        }
     },
     ['ammo_357mag_jhp'] = {
         label = '.357 Magnum JHP',
@@ -114,9 +90,6 @@ return {
         stack = true,
         close = true,
         description = '.357 Magnum JHP. 59-70 damage (+20%), 0.52-0.55 penetration. The legendary 125gr "man-stopper" - 96% one-shot rating from 4"+ barrels.',
-        client = {
-            image = 'ammo_357mag_jhp.png'
-        }
     },
 
     -- ============================================
@@ -129,9 +102,6 @@ return {
         stack = true,
         close = true,
         description = '.38 Special full metal jacket. 20 base damage (200 ft-lbs), 0.65 penetration. 755 fps. Classic 158gr police load - light recoil, controlled penetration.',
-        client = {
-            image = 'ammo_38spl_fmj.png'
-        }
     },
     ['ammo_38spl_jhp'] = {
         label = '.38 Special +P JHP',
@@ -139,9 +109,6 @@ return {
         stack = true,
         close = true,
         description = '.38 Special +P JHP. 27 damage (+35%), 0.50 penetration. WARNING: Most JHP fails from short barrels. Federal HST Micro recommended.',
-        client = {
-            image = 'ammo_38spl_jhp.png'
-        }
     },
 
     -- ============================================
@@ -154,9 +121,6 @@ return {
         stack = true,
         close = true,
         description = '.44 Magnum full metal jacket. 82-115 damage (barrel-dependent), 0.85 penetration. 1050-1500 fps. OVERKILL for defense - 20-30" gel penetration.',
-        client = {
-            image = 'ammo_44mag_fmj.png'
-        }
     },
     ['ammo_44mag_jhp'] = {
         label = '.44 Magnum JHP',
@@ -164,9 +128,6 @@ return {
         stack = true,
         close = true,
         description = '.44 Magnum JHP. 98-138 damage (+20%), 0.70 penetration. Hornady 240gr XTP: 0.628" expansion, 25" penetration. Devastating terminal performance.',
-        client = {
-            image = 'ammo_44mag_jhp.png'
-        }
     },
 
     -- ============================================
@@ -180,9 +141,6 @@ return {
         stack = true,
         close = true,
         description = '.500 S&W FMJ. 160-215 damage (barrel-dependent), 0.90 penetration. RIFLE-LEVEL POWER - 3,032 ft-lbs @ 8.375". 700gr hard cast: 5-6 FEET penetration.',
-        client = {
-            image = 'ammo_500sw_fmj.png'
-        }
     },
     ['ammo_500sw_jhp'] = {
         label = '.500 S&W JHP',
@@ -190,9 +148,6 @@ return {
         stack = true,
         close = true,
         description = '.500 S&W JHP. 192-258 damage (+20%), 0.75 penetration. 350gr XTP: 19.5" gel. EXTREME RECOIL - 3x .44 Magnum. Fire rate: 40-60 RPM max.',
-        client = {
-            image = 'ammo_500sw_jhp.png'
-        }
     },
 
     -- ============================================
@@ -206,9 +161,6 @@ return {
         stack = true,
         close = true,
         description = '5.7x28mm V-MAX (SS197SR). 28 damage, 0.70 penetration. 1,700 fps, 250 ft-lbs. Civilian hunting/sporting load - fragmenting polymer tip.',
-        client = {
-            image = 'ammo_57x28_fmj.png'
-        }
     },
     ['ammo_57x28_jhp'] = {
         label = '5.7x28mm JHP',
@@ -216,9 +168,6 @@ return {
         stack = true,
         close = true,
         description = '5.7x28mm Speer Gold Dot. 35 damage (+25%), 0.55 penetration. 1,800 fps, 288 ft-lbs. BEST defensive choice - controlled expansion, 12-20" gel.',
-        client = {
-            image = 'ammo_57x28_jhp.png'
-        }
     },
     ['ammo_57x28_ap'] = {
         label = '5.7x28mm AP',
@@ -226,9 +175,6 @@ return {
         stack = true,
         close = true,
         description = '5.7x28mm SS190 AP. 30 damage, 0.96 penetration. 2,100 fps, 315 ft-lbs. DEFEATS Level IIIA armor. Military/LE RESTRICTED - black tip.',
-        client = {
-            image = 'ammo_57x28_ap.png'
-        }
     },
 
     -- ============================================
@@ -243,9 +189,6 @@ return {
         stack = true,
         close = true,
         description = '10mm FBI-spec 180gr @ 1,000 fps. 42 damage, 0.72 penetration. ~400 ft-lbs - matches .40 S&W. Federal Hydra-Shok standard defensive load.',
-        client = {
-            image = 'ammo_10mm_fbi.png'
-        }
     },
     ['ammo_10mm_fullpower'] = {
         label = '10mm Full Power',
@@ -253,9 +196,6 @@ return {
         stack = true,
         close = true,
         description = '10mm Full Power 180gr @ 1,300 fps. 52 damage (+24%), 0.65 penetration. ~650 ft-lbs - equals .357 Magnum. Underwood/Buffalo Bore premium.',
-        client = {
-            image = 'ammo_10mm_fullpower.png'
-        }
     },
     ['ammo_10mm_bear'] = {
         label = '10mm Bear Defense',
@@ -263,9 +203,6 @@ return {
         stack = true,
         close = true,
         description = '10mm Hard Cast 220gr @ 1,200 fps. 50 damage, 0.95 penetration. ~700 ft-lbs, 32"+ gel penetration. Denmark issues G20 for polar bears.',
-        client = {
-            image = 'ammo_10mm_bear.png'
-        }
     },
 
     -- ============================================
@@ -280,9 +217,6 @@ return {
         stack = true,
         close = true,
         description = '.22 LR CCI Mini-Mag 40gr. 12-15 damage, 0.50 penetration. ~1,000 fps from pistol barrel. Reliable cycling, suppressor-friendly.',
-        client = {
-            image = 'ammo_22lr_fmj.png'
-        }
     },
     ['ammo_22lr_jhp'] = {
         label = '.22 LR JHP',
@@ -290,9 +224,6 @@ return {
         stack = true,
         close = true,
         description = '.22 LR CCI Velocitor 40gr HP. +20% damage, 0.35 penetration. ~1,100 fps. WARNING: Hollow points rarely expand from pistol barrels.',
-        client = {
-            image = 'ammo_22lr_jhp.png'
-        }
     },
 
     -- ============================================
@@ -304,9 +235,6 @@ return {
         stack = true,
         close = true,
         description = '12 gauge 00 buckshot. 8 pellets per shell - standard defensive load.',
-        client = {
-            image = 'ammo_12ga_buckshot.png'
-        }
     },
     ['ammo_12ga_slug'] = {
         label = '12 Gauge Slug',
@@ -314,9 +242,6 @@ return {
         stack = true,
         close = true,
         description = '12 gauge slug. Single heavy projectile for extended range accuracy.',
-        client = {
-            image = 'ammo_12ga_slug.png'
-        }
     },
     ['ammo_12ga_birdshot'] = {
         label = '12 Gauge Birdshot',
@@ -324,9 +249,6 @@ return {
         stack = true,
         close = true,
         description = '12 gauge birdshot. Many small pellets, wide spread, close range only.',
-        client = {
-            image = 'ammo_12ga_birdshot.png'
-        }
     },
     ['ammo_12ga_dragon'] = {
         label = '12 Gauge Dragon\'s Breath',
@@ -334,9 +256,6 @@ return {
         stack = true,
         close = true,
         description = '12 gauge incendiary rounds. Sets targets on fire.',
-        client = {
-            image = 'ammo_12ga_dragon.png'
-        }
     },
 
     -- ============================================
@@ -348,9 +267,6 @@ return {
         stack = true,
         close = true,
         description = 'Standard 5.56 NATO rifle ammunition.',
-        client = {
-            image = 'ammo_556_fmj.png'
-        }
     },
     ['ammo_556_hp'] = {
         label = '5.56 NATO HP',
@@ -358,9 +274,6 @@ return {
         stack = true,
         close = true,
         description = '5.56 NATO hollow point. Increased soft tissue damage.',
-        client = {
-            image = 'ammo_556_hp.png'
-        }
     },
     ['ammo_556_ap'] = {
         label = '5.56 NATO AP',
@@ -368,9 +281,6 @@ return {
         stack = true,
         close = true,
         description = '5.56 NATO armor piercing. Penetrator rounds for armored targets.',
-        client = {
-            image = 'ammo_556_ap.png'
-        }
     },
     ['ammo_556_tracer'] = {
         label = '5.56 NATO Tracer',
@@ -378,9 +288,6 @@ return {
         stack = true,
         close = true,
         description = '5.56 NATO tracer rounds. Visible bullet path for target marking.',
-        client = {
-            image = 'ammo_556_tracer.png'
-        }
     },
 
     -- ============================================
@@ -392,9 +299,6 @@ return {
         stack = true,
         close = true,
         description = 'Standard 7.62x39mm rifle ammunition.',
-        client = {
-            image = 'ammo_762x39_fmj.png'
-        }
     },
     ['ammo_762x39_hp'] = {
         label = '7.62x39mm HP',
@@ -402,9 +306,6 @@ return {
         stack = true,
         close = true,
         description = '7.62x39mm hollow point ammunition.',
-        client = {
-            image = 'ammo_762x39_hp.png'
-        }
     },
     ['ammo_762x39_ap'] = {
         label = '7.62x39mm AP',
@@ -412,8 +313,5 @@ return {
         stack = true,
         close = true,
         description = '7.62x39mm armor piercing ammunition.',
-        client = {
-            image = 'ammo_762x39_ap.png'
-        }
     },
 }

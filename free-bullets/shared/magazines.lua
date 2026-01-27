@@ -32,8 +32,16 @@ Config.MagazineSystem = {
     },
     allowPartialLoad = true,
     autoReloadFromInventory = false,
-    autoReloadPriority = 'same_ammo_first',
     disableNativeReload = true,   -- Block GTA's built-in reload (R key / auto-reload on empty)
+
+    -- Keybind reload: press to manually reload from best inventory mag/speedloader
+    keybindReload = {
+        enabled = true,
+        key = 45,                 -- GTA control ID (45 = R key / INPUT_RELOAD)
+        -- Priority order for selecting next magazine (first match wins)
+        -- Options: 'same_ammo', 'same_mag', 'highest_count', 'lowest_count', 'fifo'
+        priority = { 'same_ammo', 'same_mag', 'highest_count', 'fifo' },
+    },
 }
 
 -- Speedloader system settings (revolvers)

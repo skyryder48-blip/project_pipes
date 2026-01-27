@@ -358,31 +358,107 @@ end)
 local isReloading = false
 
 --[[
-    Block GTA's native reload mechanic (R key and auto-reload on empty)
-    Forces players to manually reload through the magazine/speedloader system
+    Block GTA's native reload and handle keybind reload
+    - Blocks native R key auto-reload behavior
+    - Detects keybind press to trigger manual reload from inventory
 ]]
 CreateThread(function()
+    local keybindCfg = Config.MagazineSystem.keybindReload
+    local reloadKey = keybindCfg and keybindCfg.key or 45
+
     while true do
-        if Config.MagazineSystem.disableNativeReload then
-            local ped = PlayerPedId()
-            local weapon = GetSelectedPedWeapon(ped)
+        local ped = PlayerPedId()
+        local weapon = GetSelectedPedWeapon(ped)
 
-            if weapon ~= `WEAPON_UNARMED` then
-                -- Block R key reload (INPUT_RELOAD = 45)
-                DisableControlAction(0, 45, true)
+        if weapon ~= `WEAPON_UNARMED` then
+            -- Always block native reload when disableNativeReload is on
+            if Config.MagazineSystem.disableNativeReload then
+                DisableControlAction(0, reloadKey, true)
 
-                -- If the game started a reload animation anyway, cancel it
                 if IsPedReloading(ped) then
                     ClearPedTasks(ped)
                 end
             end
 
+            -- Keybind reload: detect disabled control press to trigger manual reload
+            if keybindCfg and keybindCfg.enabled and not isReloading then
+                if IsDisabledControlJustPressed(0, reloadKey) then
+                    KeybindReload(weapon)
+                end
+            end
+
             Wait(0) -- Must run every frame to block input
         else
-            Wait(500)
+            Wait(200)
         end
     end
 end)
+
+--[[
+    Keybind reload: select best mag or speedloader and reload
+]]
+function KeybindReload(weaponHash)
+    -- Try speedloader first (revolvers)
+    local slData = equippedSpeedloaders and equippedSpeedloaders[weaponHash]
+    local isRevolver = false
+    for slName, slInfo in pairs(Config.Speedloaders) do
+        if IsSpeedloaderCompatible(weaponHash, slName) then
+            isRevolver = true
+            break
+        end
+    end
+
+    if isRevolver then
+        local loadedSLs = GetLoadedSpeedloadersFromInventory(weaponHash)
+        if #loadedSLs == 0 then
+            lib.notify({ title = 'No Speedloaders', description = 'No loaded speedloaders available', type = 'error' })
+            return
+        end
+        local selected = SelectBestSpeedloader(loadedSLs, equippedSpeedloaders[weaponHash])
+        if selected then
+            isReloading = true
+            local weaponClipSize = GetWeaponClipSize(weaponHash)
+            TriggerServerEvent('ammo:combatReloadSpeedloader', {
+                weaponHash = weaponHash,
+                weaponClipSize = weaponClipSize,
+                newSpeedloader = selected,
+            })
+            Wait(Config.SpeedloaderSystem.equipTime * 1000)
+            isReloading = false
+        end
+        return
+    end
+
+    -- Magazine weapons
+    local loadedMags = GetLoadedMagazinesFromInventory(weaponHash)
+    if #loadedMags == 0 then
+        lib.notify({ title = 'No Magazines', description = 'No loaded magazines available', type = 'error' })
+        return
+    end
+
+    local currentMag = equippedMagazines[weaponHash]
+    local selected = SelectBestMagazine(loadedMags, currentMag)
+    if selected then
+        isReloading = true
+        ReturnEmptyMagazine(weaponHash)
+        PerformCombatReload(weaponHash, selected)
+    end
+end
+
+--[[
+    Select best speedloader using the same priority config as magazines
+]]
+function SelectBestSpeedloader(loadedSLs, currentSL)
+    if #loadedSLs == 0 then return nil end
+    local priority = Config.MagazineSystem.keybindReload and Config.MagazineSystem.keybindReload.priority
+        or { 'same_ammo', 'highest_count' }
+
+    table.sort(loadedSLs, function(a, b)
+        return ComparePriority(a, b, currentSL and currentSL.item, currentSL and currentSL.ammoType, priority)
+    end)
+
+    return loadedSLs[1]
+end
 
 --[[
     Monitor ammo consumption and trigger reloads
@@ -480,30 +556,56 @@ function GetLoadedMagazinesFromInventory(weaponHash)
 end
 
 --[[
-    Select best magazine based on priority setting
-    Priority: Highest round count first, then same ammo type as tiebreaker
+    Compare two candidates using the configurable priority hierarchy.
+    Each priority rule returns true/false/nil (nil = tie, continue to next rule).
+    Options: 'same_ammo', 'same_mag', 'highest_count', 'lowest_count', 'fifo'
+]]
+function ComparePriority(a, b, currentItemName, currentAmmoType, priority)
+    for _, rule in ipairs(priority) do
+        if rule == 'same_ammo' and currentAmmoType then
+            local aMatch = a.metadata.ammoType == currentAmmoType
+            local bMatch = b.metadata.ammoType == currentAmmoType
+            if aMatch ~= bMatch then return aMatch end
+
+        elseif rule == 'same_mag' and currentItemName then
+            local aMatch = a.item == currentItemName
+            local bMatch = b.item == currentItemName
+            if aMatch ~= bMatch then return aMatch end
+
+        elseif rule == 'highest_count' then
+            if a.metadata.count ~= b.metadata.count then
+                return a.metadata.count > b.metadata.count
+            end
+
+        elseif rule == 'lowest_count' then
+            if a.metadata.count ~= b.metadata.count then
+                return a.metadata.count < b.metadata.count
+            end
+
+        elseif rule == 'fifo' then
+            if a.slot ~= b.slot then
+                return a.slot < b.slot
+            end
+        end
+    end
+
+    -- Final fallback: lowest slot
+    return a.slot < b.slot
+end
+
+--[[
+    Select best magazine using configurable priority hierarchy
 ]]
 function SelectBestMagazine(loadedMags, currentMag)
     if #loadedMags == 0 then return nil end
 
-    -- Sort by count (highest first), then by matching ammo type
+    local priority = Config.MagazineSystem.keybindReload and Config.MagazineSystem.keybindReload.priority
+        or { 'same_ammo', 'highest_count' }
+    local currentItem = currentMag and currentMag.item
+    local currentAmmo = currentMag and currentMag.ammoType
+
     table.sort(loadedMags, function(a, b)
-        -- Primary: highest round count
-        if a.metadata.count ~= b.metadata.count then
-            return a.metadata.count > b.metadata.count
-        end
-
-        -- Secondary: prefer same ammo type as current mag
-        if currentMag and currentMag.ammoType then
-            local aMatches = a.metadata.ammoType == currentMag.ammoType
-            local bMatches = b.metadata.ammoType == currentMag.ammoType
-            if aMatches ~= bMatches then
-                return aMatches
-            end
-        end
-
-        -- Tertiary: alphabetical ammo type for consistency
-        return a.metadata.ammoType < b.metadata.ammoType
+        return ComparePriority(a, b, currentItem, currentAmmo, priority)
     end)
 
     return loadedMags[1]

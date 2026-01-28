@@ -67,21 +67,20 @@ function LoadMagazine(magazineItem, magazineSlot)
         -- Check player's inventory for this ammo type
         local ammoCount = exports.ox_inventory:Search('count', ammoConfig.item)
         if ammoCount > 0 then
-            local optionArgs = {
-                magazineItem = magazineItem,
-                magazineSlot = magazineSlot,
-                ammoType = ammoType,
-                ammoItem = ammoConfig.item,
-                maxCapacity = magInfo.capacity,
-                available = ammoCount,
-            }
+            local loadAmount = math.min(magInfo.capacity, ammoCount)
             table.insert(options, {
                 title = ammoConfig.label,
-                description = string.format('Available: %d rounds', ammoCount),
+                description = string.format('Load %d rounds (%d available)', loadAmount, ammoCount),
                 icon = 'bullet',
-                arrow = true,
                 onSelect = function()
-                    SelectLoadAmount(optionArgs)
+                    PerformMagazineLoad({
+                        magazineItem = magazineItem,
+                        magazineSlot = magazineSlot,
+                        ammoType = ammoType,
+                        ammoItem = ammoConfig.item,
+                        maxCapacity = magInfo.capacity,
+                        available = ammoCount,
+                    }, loadAmount)
                 end
             })
         end
@@ -103,7 +102,7 @@ function LoadMagazine(magazineItem, magazineSlot)
 end
 
 --[[
-    Select how many rounds to load
+    Select how many rounds to load (for partial loading)
 ]]
 function SelectLoadAmount(args)
     local maxLoad = math.min(args.maxCapacity, args.available)
@@ -130,7 +129,7 @@ function SelectLoadAmount(args)
         })
     end
 
-    if Config.MagazineSystem.allowPartialLoad then
+    if Config.MagazineSystem and Config.MagazineSystem.allowPartialLoad then
         table.insert(options, {
             title = 'Custom Amount...',
             description = 'Enter specific number of rounds',

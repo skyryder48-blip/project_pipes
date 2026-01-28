@@ -720,7 +720,7 @@ RegisterKeyMapping('ejectmag', 'Eject Magazine from Weapon', 'keyboard', 'k')
     Register context menu options for magazines in ox_inventory
 ]]
 exports('magazineContextMenu', function(data)
-    local item = data.item
+    local item = data
     local magInfo = Config.Magazines[item.name]
 
     if not magInfo then return end
@@ -1140,7 +1140,7 @@ end
 -- ============================================================================
 
 exports('speedloaderContextMenu', function(data)
-    local item = data.item
+    local item = data
     local slInfo = Config.Speedloaders[item.name]
 
     if not slInfo then return end

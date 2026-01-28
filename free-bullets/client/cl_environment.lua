@@ -110,7 +110,7 @@ CreateThread(function()
 
     -- Destructibles
     for coverType, data in pairs(Config.EnvironmentalEffects.coverDestruction.destructibles) do
-        if data.models then
+        if type(data) == 'table' and data.models then
             for _, model in ipairs(data.models) do
                 destructibleModels[GetHashKey(model)] = coverType
             end

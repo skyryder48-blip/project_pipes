@@ -67,21 +67,20 @@ function LoadMagazine(magazineItem, magazineSlot)
         -- Check player's inventory for this ammo type
         local ammoCount = exports.ox_inventory:Search('count', ammoConfig.item)
         if ammoCount > 0 then
-            local optionArgs = {
-                magazineItem = magazineItem,
-                magazineSlot = magazineSlot,
-                ammoType = ammoType,
-                ammoItem = ammoConfig.item,
-                maxCapacity = magInfo.capacity,
-                available = ammoCount,
-            }
+            local loadAmount = math.min(magInfo.capacity, ammoCount)
             table.insert(options, {
                 title = ammoConfig.label,
-                description = string.format('Available: %d rounds', ammoCount),
+                description = string.format('Load %d rounds (%d available)', loadAmount, ammoCount),
                 icon = 'bullet',
-                arrow = true,
                 onSelect = function()
-                    SelectLoadAmount(optionArgs)
+                    PerformMagazineLoad({
+                        magazineItem = magazineItem,
+                        magazineSlot = magazineSlot,
+                        ammoType = ammoType,
+                        ammoItem = ammoConfig.item,
+                        maxCapacity = magInfo.capacity,
+                        available = ammoCount,
+                    }, loadAmount)
                 end
             })
         end
@@ -103,7 +102,7 @@ function LoadMagazine(magazineItem, magazineSlot)
 end
 
 --[[
-    Select how many rounds to load
+    Select how many rounds to load (for partial loading)
 ]]
 function SelectLoadAmount(args)
     local maxLoad = math.min(args.maxCapacity, args.available)
@@ -130,7 +129,7 @@ function SelectLoadAmount(args)
         })
     end
 
-    if Config.MagazineSystem.allowPartialLoad then
+    if Config.MagazineSystem and Config.MagazineSystem.allowPartialLoad then
         table.insert(options, {
             title = 'Custom Amount...',
             description = 'Enter specific number of rounds',
@@ -720,15 +719,32 @@ RegisterKeyMapping('ejectmag', 'Eject Magazine from Weapon', 'keyboard', 'k')
     Register context menu options for magazines in ox_inventory
 ]]
 exports('magazineContextMenu', function(data)
-    local item = data
-    local magInfo = Config.Magazines[item.name]
+    -- Debug: Show that export was called
+    print('[DEBUG] magazineContextMenu called')
+    print('[DEBUG] data type: ' .. type(data))
 
-    if not magInfo then return end
+    if not data then
+        print('[DEBUG] data is nil!')
+        lib.notify({ title = 'DEBUG', description = 'Export called but data is nil', type = 'error' })
+        return
+    end
+
+    local item = data
+    print('[DEBUG] item.name: ' .. tostring(item.name))
+
+    local magInfo = Config.Magazines[item.name]
+    print('[DEBUG] magInfo: ' .. tostring(magInfo))
+
+    if not magInfo then
+        lib.notify({ title = 'DEBUG', description = 'Magazine not in Config: ' .. tostring(item.name), type = 'error' })
+        return
+    end
 
     local options = {}
 
     -- Check if magazine is loaded or empty
     local isLoaded = item.metadata and item.metadata.count and item.metadata.count > 0
+    print('[DEBUG] isLoaded: ' .. tostring(isLoaded))
 
     if isLoaded then
         -- Loaded magazine options
@@ -761,6 +777,7 @@ exports('magazineContextMenu', function(data)
         })
     end
 
+    print('[DEBUG] Returning ' .. #options .. ' options')
     return options
 end)
 

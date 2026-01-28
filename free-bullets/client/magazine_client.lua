@@ -719,15 +719,32 @@ RegisterKeyMapping('ejectmag', 'Eject Magazine from Weapon', 'keyboard', 'k')
     Register context menu options for magazines in ox_inventory
 ]]
 exports('magazineContextMenu', function(data)
-    local item = data
-    local magInfo = Config.Magazines[item.name]
+    -- Debug: Show that export was called
+    print('[DEBUG] magazineContextMenu called')
+    print('[DEBUG] data type: ' .. type(data))
 
-    if not magInfo then return end
+    if not data then
+        print('[DEBUG] data is nil!')
+        lib.notify({ title = 'DEBUG', description = 'Export called but data is nil', type = 'error' })
+        return
+    end
+
+    local item = data
+    print('[DEBUG] item.name: ' .. tostring(item.name))
+
+    local magInfo = Config.Magazines[item.name]
+    print('[DEBUG] magInfo: ' .. tostring(magInfo))
+
+    if not magInfo then
+        lib.notify({ title = 'DEBUG', description = 'Magazine not in Config: ' .. tostring(item.name), type = 'error' })
+        return
+    end
 
     local options = {}
 
     -- Check if magazine is loaded or empty
     local isLoaded = item.metadata and item.metadata.count and item.metadata.count > 0
+    print('[DEBUG] isLoaded: ' .. tostring(isLoaded))
 
     if isLoaded then
         -- Loaded magazine options
@@ -760,6 +777,7 @@ exports('magazineContextMenu', function(data)
         })
     end
 
+    print('[DEBUG] Returning ' .. #options .. ' options')
     return options
 end)
 

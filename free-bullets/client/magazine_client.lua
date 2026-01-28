@@ -67,19 +67,22 @@ function LoadMagazine(magazineItem, magazineSlot)
         -- Check player's inventory for this ammo type
         local ammoCount = exports.ox_inventory:Search('count', ammoConfig.item)
         if ammoCount > 0 then
+            local optionArgs = {
+                magazineItem = magazineItem,
+                magazineSlot = magazineSlot,
+                ammoType = ammoType,
+                ammoItem = ammoConfig.item,
+                maxCapacity = magInfo.capacity,
+                available = ammoCount,
+            }
             table.insert(options, {
                 title = ammoConfig.label,
                 description = string.format('Available: %d rounds', ammoCount),
                 icon = 'bullet',
                 arrow = true,
-                args = {
-                    magazineItem = magazineItem,
-                    magazineSlot = magazineSlot,
-                    ammoType = ammoType,
-                    ammoItem = ammoConfig.item,
-                    maxCapacity = magInfo.capacity,
-                    available = ammoCount,
-                }
+                onSelect = function()
+                    SelectLoadAmount(optionArgs)
+                end
             })
         end
     end
@@ -94,9 +97,6 @@ function LoadMagazine(magazineItem, magazineSlot)
         id = 'magazine_load_ammo',
         title = 'Load Magazine - Select Ammo',
         options = options,
-        onSelect = function(selected, args)
-            SelectLoadAmount(args)
-        end
     })
 
     lib.showContext('magazine_load_ammo')
@@ -113,15 +113,20 @@ function SelectLoadAmount(args)
         {
             title = 'Load Full (' .. maxLoad .. ' rounds)',
             description = string.format('Load maximum %d rounds', maxLoad),
-            args = { amount = maxLoad, base = args }
+            onSelect = function()
+                PerformMagazineLoad(args, maxLoad)
+            end
         },
     }
 
     -- Add partial load options
     if maxLoad > 10 then
+        local halfLoad = math.floor(maxLoad / 2)
         table.insert(options, {
-            title = 'Load Half (' .. math.floor(maxLoad / 2) .. ' rounds)',
-            args = { amount = math.floor(maxLoad / 2), base = args }
+            title = 'Load Half (' .. halfLoad .. ' rounds)',
+            onSelect = function()
+                PerformMagazineLoad(args, halfLoad)
+            end
         })
     end
 
@@ -129,7 +134,14 @@ function SelectLoadAmount(args)
         table.insert(options, {
             title = 'Custom Amount...',
             description = 'Enter specific number of rounds',
-            args = { amount = 'custom', base = args }
+            onSelect = function()
+                local input = lib.inputDialog('Load Magazine', {
+                    { type = 'number', label = 'Rounds to Load', default = maxLoad, min = 1, max = maxLoad }
+                })
+                if input and input[1] then
+                    PerformMagazineLoad(args, input[1])
+                end
+            end
         })
     end
 
@@ -138,18 +150,6 @@ function SelectLoadAmount(args)
         title = 'Load ' .. args.magazineItem,
         menu = 'magazine_load_ammo',
         options = options,
-        onSelect = function(selected, data)
-            if data.amount == 'custom' then
-                local input = lib.inputDialog('Load Magazine', {
-                    { type = 'number', label = 'Rounds to Load', default = maxLoad, min = 1, max = maxLoad }
-                })
-                if input and input[1] then
-                    PerformMagazineLoad(data.base, input[1])
-                end
-            else
-                PerformMagazineLoad(data.base, data.amount)
-            end
-        end
     })
 
     lib.showContext('magazine_load_amount')

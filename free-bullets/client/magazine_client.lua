@@ -1047,7 +1047,7 @@ CreateThread(function()
     while true do
         Wait(100)
 
-        if Config.SpeedloaderSystem.enabled then
+        if Config.SpeedloaderSystem and Config.SpeedloaderSystem.enabled then
             local ped = PlayerPedId()
             local weapon = GetSelectedPedWeapon(ped)
 

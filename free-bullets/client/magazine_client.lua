@@ -42,7 +42,7 @@ function LoadMagazine(magazineItem, magazineSlot)
     -- Get the caliber for this magazine's compatible weapons
     local caliber = nil
     for _, weaponName in ipairs(magInfo.weapons) do
-        local wHash = Config._WeaponNameToHash[weaponName]
+        local wHash = Config._WeaponNameToHash[weaponName] or GetHashKey(weaponName)
         local weaponInfo = wHash and Config.Weapons[wHash]
         if weaponInfo then
             caliber = weaponInfo.caliber
@@ -210,7 +210,7 @@ function UnloadMagazine(magazineItem, magazineSlot, metadata)
     local ammoItem = nil
     if magInfo then
         for _, weaponName in ipairs(magInfo.weapons) do
-            local wHash = Config._WeaponNameToHash[weaponName]
+            local wHash = Config._WeaponNameToHash[weaponName] or GetHashKey(weaponName)
             local weaponInfo = wHash and Config.Weapons[wHash]
             if weaponInfo then
                 local ammoConfig = Config.AmmoTypes[weaponInfo.caliber] and Config.AmmoTypes[weaponInfo.caliber][metadata.ammoType]
@@ -867,7 +867,7 @@ function LoadSpeedloader(speedloaderItem, speedloaderSlot)
     -- Get the caliber for this speedloader's compatible weapons
     local caliber = nil
     for _, weaponName in ipairs(slInfo.weapons) do
-        local wHash = Config._WeaponNameToHash[weaponName]
+        local wHash = Config._WeaponNameToHash[weaponName] or GetHashKey(weaponName)
         local weaponInfo = wHash and Config.Weapons[wHash]
         if weaponInfo then
             caliber = weaponInfo.caliber
@@ -972,7 +972,7 @@ function UnloadSpeedloader(speedloaderItem, speedloaderSlot, metadata)
     local ammoItem = nil
     if slInfo then
         for _, weaponName in ipairs(slInfo.weapons) do
-            local wHash = Config._WeaponNameToHash[weaponName]
+            local wHash = Config._WeaponNameToHash[weaponName] or GetHashKey(weaponName)
             local weaponInfo = wHash and Config.Weapons[wHash]
             if weaponInfo then
                 local ammoConfig = Config.AmmoTypes[weaponInfo.caliber] and Config.AmmoTypes[weaponInfo.caliber][metadata.ammoType]

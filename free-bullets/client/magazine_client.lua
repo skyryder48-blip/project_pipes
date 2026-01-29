@@ -716,38 +716,19 @@ RegisterKeyMapping('ejectmag', 'Eject Magazine from Weapon', 'keyboard', 'k')
 -- ============================================================================
 
 --[[
-    Register context menu options for magazines in ox_inventory
+    Register context menu for magazines in ox_inventory
+    ox_inventory export items expect this function to handle its own UI
 ]]
 exports('magazineContextMenu', function(data)
-    -- Debug: Show that export was called
-    print('[DEBUG] magazineContextMenu called')
-    print('[DEBUG] data type: ' .. type(data))
-
-    if not data then
-        print('[DEBUG] data is nil!')
-        lib.notify({ title = 'DEBUG', description = 'Export called but data is nil', type = 'error' })
-        return
-    end
-
     local item = data
-    print('[DEBUG] item.name: ' .. tostring(item.name))
-
     local magInfo = Config.Magazines[item.name]
-    print('[DEBUG] magInfo: ' .. tostring(magInfo))
 
-    if not magInfo then
-        lib.notify({ title = 'DEBUG', description = 'Magazine not in Config: ' .. tostring(item.name), type = 'error' })
-        return
-    end
+    if not magInfo then return end
 
     local options = {}
-
-    -- Check if magazine is loaded or empty
     local isLoaded = item.metadata and item.metadata.count and item.metadata.count > 0
-    print('[DEBUG] isLoaded: ' .. tostring(isLoaded))
 
     if isLoaded then
-        -- Loaded magazine options
         table.insert(options, {
             title = 'Equip to Weapon',
             description = string.format('%d/%d %s rounds', item.metadata.count, magInfo.capacity, string.upper(item.metadata.ammoType)),
@@ -766,7 +747,6 @@ exports('magazineContextMenu', function(data)
             end
         })
     else
-        -- Empty magazine options
         table.insert(options, {
             title = 'Load Magazine',
             description = 'Load ammo into magazine',
@@ -777,8 +757,13 @@ exports('magazineContextMenu', function(data)
         })
     end
 
-    print('[DEBUG] Returning ' .. #options .. ' options')
-    return options
+    lib.registerContext({
+        id = 'magazine_context_menu',
+        title = magInfo.label or item.name,
+        options = options,
+    })
+
+    lib.showContext('magazine_context_menu')
 end)
 
 -- ============================================================================
@@ -1194,7 +1179,13 @@ exports('speedloaderContextMenu', function(data)
         })
     end
 
-    return options
+    lib.registerContext({
+        id = 'speedloader_context_menu',
+        title = slInfo.label or item.name,
+        options = options,
+    })
+
+    lib.showContext('speedloader_context_menu')
 end)
 
 -- ============================================================================

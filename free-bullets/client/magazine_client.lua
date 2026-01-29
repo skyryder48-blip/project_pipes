@@ -11,17 +11,21 @@
 
 local currentMagazine = nil -- Currently equipped magazine data
 
--- Hash-keyed table that normalizes number keys to integers.
--- In Lua 5.4, weapon hashes can become floats when round-tripping through
--- network events (msgpack). 3221225319 ~= 3221225319.0 as table keys,
--- so we normalize all number keys via math.floor to prevent lookup misses.
+-- Hash-keyed table that normalizes number keys to unsigned 32-bit integers.
+-- Fixes two Lua 5.4 issues with weapon hashes used as table keys:
+-- 1. Float/integer: msgpack can deserialize hashes as floats (3221225319.0 ~= 3221225319)
+-- 2. Signed/unsigned: hashes > 2^31 flip sign during msgpack round-trip
+--    (client sends 3221225319, server returns -1073741977 — same bits, different Lua value)
+-- The bitwise AND with 0xFFFFFFFF normalizes both to the same unsigned 32-bit integer.
 local function HashKeyTable()
     return setmetatable({}, {
         __index = function(t, k)
-            return rawget(t, type(k) == 'number' and math.floor(k) or k)
+            if type(k) == 'number' then k = math.floor(k) & 0xFFFFFFFF end
+            return rawget(t, k)
         end,
         __newindex = function(t, k, v)
-            rawset(t, type(k) == 'number' and math.floor(k) or k, v)
+            if type(k) == 'number' then k = math.floor(k) & 0xFFFFFFFF end
+            rawset(t, k, v)
         end
     })
 end
@@ -345,28 +349,40 @@ RegisterNetEvent('ammo:magazineEquipped', function(data)
     }
     chamberedRounds[weaponHash] = nil  -- Magazine supersedes any chambered round
 
-    -- Build and apply the correct weapon component
-    -- Only swap clip components if the new one is valid on this weapon model.
-    -- If the new component doesn't exist (e.g. HP clip not in weapon meta),
-    -- keep the existing clip to preserve correct clip size.
+    -- Build and apply the correct weapon component.
+    -- Add the new component first, then remove only OTHER clip components.
+    -- This ensures the weapon always has a valid clip (never zero components).
     local componentName = GetMagazineComponentName(weaponHash, data.magazineItem, data.ammoType)
+    local ped = PlayerPedId()
     if componentName then
-        local ped = PlayerPedId()
         local componentHash = GetHashKey(componentName)
 
-        -- Test if weapon supports this component before removing old ones
+        -- Add new component (GTA auto-replaces clips in some weapon models)
         GiveWeaponComponentToPed(ped, weaponHash, componentHash)
+
         if HasPedGotWeaponComponent(ped, weaponHash, componentHash) then
-            -- Component is valid - do clean swap (remove others, re-add new)
-            RemoveAllClipComponents(weaponHash)
-            GiveWeaponComponentToPed(ped, weaponHash, componentHash)
+            -- New component applied - remove only OTHER clip components
+            local weaponInfo = Config.Weapons[weaponHash]
+            if weaponInfo and weaponInfo.caliber then
+                local ammoTypes = Config.AmmoTypes[weaponInfo.caliber]
+                if ammoTypes then
+                    for ammoType, _ in pairs(ammoTypes) do
+                        for _, suffix in ipairs({ '_CLIP_', '_EXTCLIP_', '_DRUM_' }) do
+                            local otherName = weaponInfo.componentBase .. suffix .. string.upper(ammoType)
+                            local otherHash = GetHashKey(otherName)
+                            if otherHash ~= componentHash and HasPedGotWeaponComponent(ped, weaponHash, otherHash) then
+                                RemoveWeaponComponentFromPed(ped, weaponHash, otherHash)
+                            end
+                        end
+                    end
+                end
+            end
         end
         -- If component doesn't exist, keep whatever clip is already on the weapon
     end
 
     -- Always set ammo count regardless of component success
     -- SetPedAmmo sets total ammo pool, SetAmmoInClip loads rounds into the weapon's clip
-    local ped = PlayerPedId()
     SetPedAmmo(ped, weaponHash, data.count)
     SetAmmoInClip(ped, weaponHash, data.count)
 
@@ -1173,11 +1189,23 @@ RegisterNetEvent('ammo:speedloaderEquipped', function(data)
     local componentHash = GetHashKey(revolverComponent)
     local ped = PlayerPedId()
 
-    -- Only swap clip components if the new one is valid on this weapon model
+    -- Add new component first, then remove only others (never leave weapon clip-less)
     GiveWeaponComponentToPed(ped, weaponHash, componentHash)
     if HasPedGotWeaponComponent(ped, weaponHash, componentHash) then
-        RemoveAllClipComponents(weaponHash)
-        GiveWeaponComponentToPed(ped, weaponHash, componentHash)
+        if weaponInfo.caliber then
+            local ammoTypes = Config.AmmoTypes[weaponInfo.caliber]
+            if ammoTypes then
+                for ammoType, _ in pairs(ammoTypes) do
+                    for _, suffix in ipairs({ '_CLIP_', '_EXTCLIP_', '_DRUM_' }) do
+                        local otherName = weaponInfo.componentBase .. suffix .. string.upper(ammoType)
+                        local otherHash = GetHashKey(otherName)
+                        if otherHash ~= componentHash and HasPedGotWeaponComponent(ped, weaponHash, otherHash) then
+                            RemoveWeaponComponentFromPed(ped, weaponHash, otherHash)
+                        end
+                    end
+                end
+            end
+        end
     end
 
     -- Set ammo count (total + clip)

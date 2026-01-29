@@ -725,6 +725,17 @@ exports('magazineContextMenu', function(data)
 
     if not magInfo then return end
 
+    -- Debug: dump metadata to F8
+    print('[MAG-DEBUG] item.name=' .. tostring(item.name) .. ' slot=' .. tostring(item.slot))
+    print('[MAG-DEBUG] metadata type=' .. type(item.metadata))
+    if item.metadata then
+        for k, v in pairs(item.metadata) do
+            print('[MAG-DEBUG]   metadata.' .. tostring(k) .. ' = ' .. tostring(v) .. ' (' .. type(v) .. ')')
+        end
+    else
+        print('[MAG-DEBUG]   metadata is nil')
+    end
+
     local options = {}
     local isLoaded = item.metadata and item.metadata.count and item.metadata.count > 0
 

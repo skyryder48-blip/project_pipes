@@ -10,7 +10,23 @@
 ]]
 
 local currentMagazine = nil -- Currently equipped magazine data
-local equippedMagazines = {} -- Per-weapon equipped magazine tracking
+
+-- Hash-keyed table that normalizes number keys to integers.
+-- In Lua 5.4, weapon hashes can become floats when round-tripping through
+-- network events (msgpack). 3221225319 ~= 3221225319.0 as table keys,
+-- so we normalize all number keys via math.floor to prevent lookup misses.
+local function HashKeyTable()
+    return setmetatable({}, {
+        __index = function(t, k)
+            return rawget(t, type(k) == 'number' and math.floor(k) or k)
+        end,
+        __newindex = function(t, k, v)
+            rawset(t, type(k) == 'number' and math.floor(k) or k, v)
+        end
+    })
+end
+
+local equippedMagazines = HashKeyTable() -- Per-weapon equipped magazine tracking
 
 -- Get weapon's physical clip size from Config.Weapons
 function GetWeaponClipSize(weaponHash)
@@ -159,7 +175,8 @@ end
     Unload ammo from a loaded magazine back to loose rounds
 ]]
 function UnloadMagazine(magazineItem, magazineSlot, metadata, selectAmount)
-    if not metadata or not metadata.count or metadata.count <= 0 then
+    local metaCount = metadata and tonumber(metadata.count)
+    if not metaCount or metaCount <= 0 then
         lib.notify({ title = 'Empty', description = 'Magazine is already empty', type = 'error' })
         return
     end
@@ -252,7 +269,8 @@ function EquipMagazine(magazineItem, magazineSlot, metadata)
     end
 
     -- Check if magazine is loaded
-    if not metadata or not metadata.count or metadata.count <= 0 then
+    local metaCount = metadata and tonumber(metadata.count)
+    if not metaCount or metaCount <= 0 then
         lib.notify({ title = 'Empty', description = 'Magazine is empty - load it first', type = 'error' })
         return
     end
@@ -548,11 +566,12 @@ function GetLoadedMagazinesFromInventory(weaponHash)
     local loadedMags = {}
     local items = exports.ox_inventory:GetPlayerItems()
 
-    for _, item in ipairs(items) do
+    for _, item in pairs(items) do
         local magInfo = Config.Magazines[item.name]
         if magInfo and IsMagazineCompatible(weaponHash, item.name) then
             -- Check if magazine is loaded (has ammo)
-            if item.metadata and item.metadata.count and item.metadata.count > 0 then
+            local count = item.metadata and tonumber(item.metadata.count)
+            if count and count > 0 then
                 table.insert(loadedMags, {
                     item = item.name,
                     slot = item.slot,
@@ -743,32 +762,38 @@ RegisterKeyMapping('ejectmag', 'Eject Magazine from Weapon', 'keyboard', 'k')
 
 --[[
     Register context menu for magazines in ox_inventory
-    ox_inventory export passes item definition, not instance data.
-    We look up the actual inventory slot to get metadata.
+    Checks export data first for metadata, then falls back to inventory lookup.
+    Uses pairs() for sparse slot-indexed tables from GetPlayerItems().
 ]]
 exports('magazineContextMenu', function(data)
     local magInfo = Config.Magazines[data.name]
     if not magInfo then return end
 
-    -- ox_inventory exports don't include instance metadata -
-    -- look up the real item from inventory using the slot
-    local playerItems = exports.ox_inventory:GetPlayerItems()
+    -- Prefer data.metadata from ox_inventory export (includes instance metadata
+    -- in newer versions). Fall back to inventory slot lookup if not available.
     local item = nil
-    if data.slot then
-        for _, invItem in ipairs(playerItems) do
-            if invItem.slot == data.slot then
-                item = invItem
-                break
+
+    if data.metadata and data.metadata.count then
+        item = data
+    else
+        local playerItems = exports.ox_inventory:GetPlayerItems()
+        if data.slot then
+            for _, invItem in pairs(playerItems) do
+                if invItem.slot == data.slot then
+                    item = invItem
+                    break
+                end
             end
         end
     end
 
     if not item then
-        item = data -- fallback
+        item = data -- final fallback
     end
 
     local options = {}
-    local isLoaded = item.metadata and item.metadata.count and item.metadata.count > 0
+    local count = item.metadata and tonumber(item.metadata.count)
+    local isLoaded = count and count > 0
 
     if isLoaded then
         table.insert(options, {
@@ -862,7 +887,7 @@ end)
 -- SPEEDLOADER SYSTEM (Revolvers)
 -- ============================================================================
 
-local equippedSpeedloaders = {} -- Per-weapon equipped speedloader tracking
+local equippedSpeedloaders = HashKeyTable() -- Per-weapon equipped speedloader tracking
 
 --[[
     Load ammo into an empty speedloader
@@ -976,7 +1001,8 @@ end
     Unload ammo from a loaded speedloader back to loose rounds
 ]]
 function UnloadSpeedloader(speedloaderItem, speedloaderSlot, metadata)
-    if not metadata or not metadata.count or metadata.count <= 0 then
+    local metaCount = metadata and tonumber(metadata.count)
+    if not metaCount or metaCount <= 0 then
         lib.notify({ title = 'Empty', description = 'Speedloader is already empty', type = 'error' })
         return
     end
@@ -1049,7 +1075,8 @@ function EquipSpeedloader(speedloaderItem, speedloaderSlot, metadata)
     end
 
     -- Check if speedloader is loaded
-    if not metadata or not metadata.count or metadata.count <= 0 then
+    local metaCount = metadata and tonumber(metadata.count)
+    if not metaCount or metaCount <= 0 then
         lib.notify({ title = 'Empty', description = 'Speedloader is empty - load it first', type = 'error' })
         return
     end
@@ -1206,10 +1233,11 @@ function GetLoadedSpeedloadersFromInventory(weaponHash)
     local loaded = {}
     local items = exports.ox_inventory:GetPlayerItems()
 
-    for _, item in ipairs(items) do
+    for _, item in pairs(items) do
         local slInfo = Config.Speedloaders[item.name]
         if slInfo and IsSpeedloaderCompatible(weaponHash, item.name) then
-            if item.metadata and item.metadata.count and item.metadata.count > 0 then
+            local count = item.metadata and tonumber(item.metadata.count)
+            if count and count > 0 then
                 table.insert(loaded, {
                     item = item.name,
                     slot = item.slot,
@@ -1231,14 +1259,19 @@ exports('speedloaderContextMenu', function(data)
     local slInfo = Config.Speedloaders[data.name]
     if not slInfo then return end
 
-    -- Look up the real item instance from inventory for metadata
-    local playerItems = exports.ox_inventory:GetPlayerItems()
+    -- Prefer data.metadata from ox_inventory export, fall back to slot lookup
     local item = nil
-    if data.slot then
-        for _, invItem in ipairs(playerItems) do
-            if invItem.slot == data.slot then
-                item = invItem
-                break
+
+    if data.metadata and data.metadata.count then
+        item = data
+    else
+        local playerItems = exports.ox_inventory:GetPlayerItems()
+        if data.slot then
+            for _, invItem in pairs(playerItems) do
+                if invItem.slot == data.slot then
+                    item = invItem
+                    break
+                end
             end
         end
     end
@@ -1248,7 +1281,8 @@ exports('speedloaderContextMenu', function(data)
     end
 
     local options = {}
-    local isLoaded = item.metadata and item.metadata.count and item.metadata.count > 0
+    local count = item.metadata and tonumber(item.metadata.count)
+    local isLoaded = count and count > 0
 
     if isLoaded then
         table.insert(options, {

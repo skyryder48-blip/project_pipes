@@ -229,7 +229,8 @@ RegisterNetEvent('ammo:equipMagazine', function(data)
         local caliber = nil
         if magInfo and magInfo.weapons then
             for _, weaponName in ipairs(magInfo.weapons) do
-                local weaponInfo = Config.Weapons[GetHashKey(weaponName)]
+                local wHash = Config._WeaponNameToHash[weaponName]
+                local weaponInfo = wHash and Config.Weapons[wHash]
                 if weaponInfo and weaponInfo.caliber then
                     caliber = weaponInfo.caliber
                     break
@@ -325,7 +326,8 @@ RegisterNetEvent('ammo:combatReload', function(data)
         local caliber = nil
         if magInfo and magInfo.weapons then
             for _, weaponName in ipairs(magInfo.weapons) do
-                local weaponInfo = Config.Weapons[GetHashKey(weaponName)]
+                local wHash = Config._WeaponNameToHash[weaponName]
+                local weaponInfo = wHash and Config.Weapons[wHash]
                 if weaponInfo and weaponInfo.caliber then
                     caliber = weaponInfo.caliber
                     break

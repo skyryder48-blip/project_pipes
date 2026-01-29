@@ -204,6 +204,27 @@ function UnloadMagazine(magazineItem, magazineSlot, metadata)
         return
     end
 
+    -- Resolve the ammo item on client side to avoid server hash lookups
+    local magInfo = Config.Magazines[magazineItem]
+    local ammoItem = nil
+    if magInfo then
+        for _, weaponName in ipairs(magInfo.weapons) do
+            local weaponInfo = Config.Weapons[GetHashKey(weaponName)]
+            if weaponInfo then
+                local ammoConfig = Config.AmmoTypes[weaponInfo.caliber] and Config.AmmoTypes[weaponInfo.caliber][metadata.ammoType]
+                if ammoConfig then
+                    ammoItem = ammoConfig.item
+                end
+                break
+            end
+        end
+    end
+
+    if not ammoItem then
+        lib.notify({ title = 'Error', description = 'Cannot determine ammo type', type = 'error' })
+        return
+    end
+
     local unloadTime = metadata.count * (Config.MagazineSystem.loadTimePerRound * 0.5) * 1000
 
     if lib.progressCircle({
@@ -222,6 +243,7 @@ function UnloadMagazine(magazineItem, magazineSlot, metadata)
             magazineItem = magazineItem,
             magazineSlot = magazineSlot,
             ammoType = metadata.ammoType,
+            ammoItem = ammoItem,
             count = metadata.count,
         })
     else
@@ -382,7 +404,6 @@ CreateThread(function()
             -- Keybind reload: detect disabled control press to trigger manual reload
             if keybindCfg and keybindCfg.enabled and not isReloading then
                 if IsDisabledControlJustPressed(0, reloadKey) then
-                    print('[RELOAD-DEBUG] R pressed, weapon hash: ' .. tostring(weapon))
                     KeybindReload(weapon)
                 end
             end
@@ -398,8 +419,6 @@ end)
     Keybind reload: select best mag or speedloader and reload
 ]]
 function KeybindReload(weaponHash)
-    print('[RELOAD-DEBUG] KeybindReload called, hash=' .. tostring(weaponHash))
-
     -- Try speedloader first (revolvers)
     local slData = equippedSpeedloaders and equippedSpeedloaders[weaponHash]
     local isRevolver = false
@@ -410,11 +429,8 @@ function KeybindReload(weaponHash)
         end
     end
 
-    print('[RELOAD-DEBUG] isRevolver=' .. tostring(isRevolver))
-
     if isRevolver then
         local loadedSLs = GetLoadedSpeedloadersFromInventory(weaponHash)
-        print('[RELOAD-DEBUG] found ' .. #loadedSLs .. ' loaded speedloaders')
         if #loadedSLs == 0 then
             lib.notify({ title = 'No Speedloaders', description = 'No loaded speedloaders available', type = 'error' })
             return
@@ -436,7 +452,6 @@ function KeybindReload(weaponHash)
 
     -- Magazine weapons
     local loadedMags = GetLoadedMagazinesFromInventory(weaponHash)
-    print('[RELOAD-DEBUG] found ' .. #loadedMags .. ' loaded magazines')
     if #loadedMags == 0 then
         lib.notify({ title = 'No Magazines', description = 'No loaded magazines available', type = 'error' })
         return
@@ -444,7 +459,6 @@ function KeybindReload(weaponHash)
 
     local currentMag = equippedMagazines[weaponHash]
     local selected = SelectBestMagazine(loadedMags, currentMag)
-    print('[RELOAD-DEBUG] selected mag: ' .. tostring(selected and selected.item))
     if selected then
         isReloading = true
         ReturnEmptyMagazine(weaponHash)
@@ -944,6 +958,27 @@ function UnloadSpeedloader(speedloaderItem, speedloaderSlot, metadata)
         return
     end
 
+    -- Resolve the ammo item on client side to avoid server hash lookups
+    local slInfo = Config.Speedloaders[speedloaderItem]
+    local ammoItem = nil
+    if slInfo then
+        for _, weaponName in ipairs(slInfo.weapons) do
+            local weaponInfo = Config.Weapons[GetHashKey(weaponName)]
+            if weaponInfo then
+                local ammoConfig = Config.AmmoTypes[weaponInfo.caliber] and Config.AmmoTypes[weaponInfo.caliber][metadata.ammoType]
+                if ammoConfig then
+                    ammoItem = ammoConfig.item
+                end
+                break
+            end
+        end
+    end
+
+    if not ammoItem then
+        lib.notify({ title = 'Error', description = 'Cannot determine ammo type', type = 'error' })
+        return
+    end
+
     local unloadTime = metadata.count * (Config.SpeedloaderSystem.loadTimePerRound * 0.5) * 1000
 
     if lib.progressCircle({
@@ -962,6 +997,7 @@ function UnloadSpeedloader(speedloaderItem, speedloaderSlot, metadata)
             speedloaderItem = speedloaderItem,
             speedloaderSlot = speedloaderSlot,
             ammoType = metadata.ammoType,
+            ammoItem = ammoItem,
             count = metadata.count,
         })
     else

@@ -7,6 +7,7 @@
     This file provides:
     - Helper functions for component name generation
     - Weapon info lookups
+    - joaat hash function
 
     IMPORTANT: Direct ammo loading is DISABLED.
     All ammunition must be loaded via the magazine system.
@@ -14,15 +15,28 @@
 ]]
 
 -- ============================================
--- HASH FUNCTION
+-- JOAAT HASH FUNCTION
 -- ============================================
 
--- Use FiveM's built-in GetHashKey native instead of custom joaat.
--- Custom Lua joaat implementations produce incorrect hashes under
--- lua54's 64-bit integer arithmetic (no 32-bit wrapping per step).
--- GetHashKey is a C++ native with correct 32-bit arithmetic.
+-- Standard joaat hash (matches GTA's GetHashKey)
 function joaat(s)
-    return GetHashKey(s)
+    local hash = 0
+    s = string.lower(s)
+    for i = 1, #s do
+        hash = hash + string.byte(s, i)
+        hash = hash + (hash << 10)
+        hash = hash ~ (hash >> 6)
+    end
+    hash = hash + (hash << 3)
+    hash = hash ~ (hash >> 11)
+    hash = hash + (hash << 15)
+
+    -- Convert to signed 32-bit integer
+    if hash >= 2147483648 then
+        hash = hash - 4294967296
+    end
+
+    return hash
 end
 
 -- ============================================

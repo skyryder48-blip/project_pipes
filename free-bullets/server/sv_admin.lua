@@ -411,12 +411,24 @@ end, false)
 -- HELPER FUNCTIONS
 -- =============================================================================
 
--- Use FiveM's built-in joaat (available server-side).
--- Custom Lua joaat implementations produce incorrect hashes under
--- lua54's 64-bit integer arithmetic (no 32-bit wrapping per step).
 function joaat(s)
     if type(s) ~= 'string' then return 0 end
-    return GetHashKey(s)
+    local hash = 0
+    s = string.lower(s)
+    for i = 1, #s do
+        hash = hash + string.byte(s, i)
+        hash = hash + (hash << 10)
+        hash = hash ~ (hash >> 6)
+    end
+    hash = hash + (hash << 3)
+    hash = hash ~ (hash >> 11)
+    hash = hash + (hash << 15)
+
+    if hash >= 2147483648 then
+        hash = hash - 4294967296
+    end
+
+    return hash
 end
 
 -- =============================================================================

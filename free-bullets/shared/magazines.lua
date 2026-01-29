@@ -924,8 +924,19 @@ Config.Speedloaders = {
 -- ============================================================================
 -- HELPER FUNCTIONS
 -- ============================================================================
--- Uses FiveM's built-in joaat() which is available in shared/client/server contexts
--- and produces hashes consistent with GetSelectedPedWeapon and backtick syntax
+
+-- Pre-build weapon name → hash lookup from Config.Weapons backtick keys.
+-- Backtick syntax (e.g., [`WEAPON_G26`]) is compiled at parse time by FiveM
+-- and produces hashes identical to GetSelectedPedWeapon(). This lookup
+-- eliminates runtime dependency on joaat() which can produce incorrect
+-- results under lua54's 64-bit integer arithmetic.
+Config._WeaponNameToHash = {}
+for hash, info in pairs(Config.Weapons) do
+    if info.componentBase then
+        local name = info.componentBase:gsub('COMPONENT_', 'WEAPON_')
+        Config._WeaponNameToHash[name] = hash
+    end
+end
 
 function GetMagazineInfo(itemName)
     return Config.Magazines[itemName]
@@ -953,15 +964,14 @@ function IsMagazineCompatible(weaponHash, magazineItem)
 
     local weapons = type(magInfo.weapons) == 'table' and magInfo.weapons or { magInfo.weapons }
 
-    -- If weaponHash is a number, compare against joaat of weapon names in magazine config
     if type(weaponHash) == 'number' then
         for _, weaponName in ipairs(weapons) do
-            if joaat(weaponName) == weaponHash then
+            local wHash = Config._WeaponNameToHash[weaponName]
+            if wHash and wHash == weaponHash then
                 return true
             end
         end
     else
-        -- If weaponHash is a string, compare directly (case-insensitive)
         local upperHash = string.upper(tostring(weaponHash))
         for _, weaponName in ipairs(weapons) do
             if string.upper(weaponName) == upperHash then
@@ -993,7 +1003,8 @@ function IsSpeedloaderCompatible(weaponHash, speedloaderItem)
 
     if type(weaponHash) == 'number' then
         for _, weaponName in ipairs(weapons) do
-            if joaat(weaponName) == weaponHash then
+            local wHash = Config._WeaponNameToHash[weaponName]
+            if wHash and wHash == weaponHash then
                 return true
             end
         end

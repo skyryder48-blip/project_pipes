@@ -32,7 +32,7 @@ end
     @param magazineItem - The magazine item name (e.g., 'mag_g26_extended')
     @param magazineSlot - The inventory slot of the magazine
 ]]
-function LoadMagazine(magazineItem, magazineSlot)
+function LoadMagazine(magazineItem, magazineSlot, selectAmount)
     local magInfo = Config.Magazines[magazineItem]
     if not magInfo then
         lib.notify({ title = 'Error', description = 'Unknown magazine type', type = 'error' })
@@ -68,20 +68,32 @@ function LoadMagazine(magazineItem, magazineSlot)
         -- Check player's inventory for this ammo type
         local ammoCount = exports.ox_inventory:Search('count', ammoConfig.item)
         if ammoCount > 0 then
-            local loadAmount = math.min(magInfo.capacity, ammoCount)
+            local maxLoad = math.min(magInfo.capacity, ammoCount)
             table.insert(options, {
                 title = ammoConfig.label,
-                description = string.format('Load %d rounds (%d available)', loadAmount, ammoCount),
+                description = string.format('%s (%d available)', selectAmount and 'Choose amount' or string.format('Load %d rounds', maxLoad), ammoCount),
                 icon = 'bullet',
                 onSelect = function()
-                    PerformMagazineLoad({
+                    local loadArgs = {
                         magazineItem = magazineItem,
                         magazineSlot = magazineSlot,
                         ammoType = ammoType,
                         ammoItem = ammoConfig.item,
                         maxCapacity = magInfo.capacity,
                         available = ammoCount,
-                    }, loadAmount)
+                    }
+                    if selectAmount then
+                        -- Show input dialog for custom amount
+                        local input = lib.inputDialog('Load Magazine', {
+                            { type = 'number', label = 'Rounds to load (max ' .. maxLoad .. ')', default = maxLoad, min = 1, max = maxLoad }
+                        })
+                        if input and input[1] then
+                            PerformMagazineLoad(loadArgs, math.floor(input[1]))
+                        end
+                    else
+                        -- Full load
+                        PerformMagazineLoad(loadArgs, maxLoad)
+                    end
                 end
             })
         end
@@ -95,64 +107,11 @@ function LoadMagazine(magazineItem, magazineSlot)
     -- Show ammo selection menu
     lib.registerContext({
         id = 'magazine_load_ammo',
-        title = 'Load Magazine - Select Ammo',
+        title = selectAmount and 'Select Ammo Type' or 'Full Load - Select Ammo',
         options = options,
     })
 
     lib.showContext('magazine_load_ammo')
-end
-
---[[
-    Select how many rounds to load (for partial loading)
-]]
-function SelectLoadAmount(args)
-    local maxLoad = math.min(args.maxCapacity, args.available)
-
-    -- Quick load options
-    local options = {
-        {
-            title = 'Load Full (' .. maxLoad .. ' rounds)',
-            description = string.format('Load maximum %d rounds', maxLoad),
-            onSelect = function()
-                PerformMagazineLoad(args, maxLoad)
-            end
-        },
-    }
-
-    -- Add partial load options
-    if maxLoad > 10 then
-        local halfLoad = math.floor(maxLoad / 2)
-        table.insert(options, {
-            title = 'Load Half (' .. halfLoad .. ' rounds)',
-            onSelect = function()
-                PerformMagazineLoad(args, halfLoad)
-            end
-        })
-    end
-
-    if Config.MagazineSystem and Config.MagazineSystem.allowPartialLoad then
-        table.insert(options, {
-            title = 'Custom Amount...',
-            description = 'Enter specific number of rounds',
-            onSelect = function()
-                local input = lib.inputDialog('Load Magazine', {
-                    { type = 'number', label = 'Rounds to Load', default = maxLoad, min = 1, max = maxLoad }
-                })
-                if input and input[1] then
-                    PerformMagazineLoad(args, input[1])
-                end
-            end
-        })
-    end
-
-    lib.registerContext({
-        id = 'magazine_load_amount',
-        title = 'Load ' .. args.magazineItem,
-        menu = 'magazine_load_ammo',
-        options = options,
-    })
-
-    lib.showContext('magazine_load_amount')
 end
 
 --[[
@@ -199,7 +158,7 @@ end
 --[[
     Unload ammo from a loaded magazine back to loose rounds
 ]]
-function UnloadMagazine(magazineItem, magazineSlot, metadata)
+function UnloadMagazine(magazineItem, magazineSlot, metadata, selectAmount)
     if not metadata or not metadata.count or metadata.count <= 0 then
         lib.notify({ title = 'Empty', description = 'Magazine is already empty', type = 'error' })
         return
@@ -211,7 +170,7 @@ function UnloadMagazine(magazineItem, magazineSlot, metadata)
     if magInfo then
         for _, weaponName in ipairs(magInfo.weapons) do
             local wHash = Config._WeaponNameToHash[weaponName]
-        local weaponInfo = wHash and Config.Weapons[wHash]
+            local weaponInfo = wHash and Config.Weapons[wHash]
             if weaponInfo then
                 local ammoConfig = Config.AmmoTypes[weaponInfo.caliber] and Config.AmmoTypes[weaponInfo.caliber][metadata.ammoType]
                 if ammoConfig then
@@ -227,7 +186,18 @@ function UnloadMagazine(magazineItem, magazineSlot, metadata)
         return
     end
 
-    local unloadTime = metadata.count * (Config.MagazineSystem.loadTimePerRound * 0.5) * 1000
+    -- Determine unload amount
+    local unloadAmount = metadata.count  -- Default: full unload
+
+    if selectAmount then
+        local input = lib.inputDialog('Unload Magazine', {
+            { type = 'number', label = 'Rounds to unload (max ' .. metadata.count .. ')', default = metadata.count, min = 1, max = metadata.count }
+        })
+        if not input or not input[1] then return end
+        unloadAmount = math.floor(input[1])
+    end
+
+    local unloadTime = unloadAmount * (Config.MagazineSystem.loadTimePerRound * 0.5) * 1000
 
     if lib.progressCircle({
         duration = unloadTime,
@@ -246,7 +216,8 @@ function UnloadMagazine(magazineItem, magazineSlot, metadata)
             magazineSlot = magazineSlot,
             ammoType = metadata.ammoType,
             ammoItem = ammoItem,
-            count = metadata.count,
+            count = metadata.count,        -- Total rounds in magazine
+            unloadAmount = unloadAmount,    -- How many to remove
         })
     else
         lib.notify({ title = 'Cancelled', description = 'Unloading cancelled', type = 'error' })
@@ -810,20 +781,38 @@ exports('magazineContextMenu', function(data)
         })
 
         table.insert(options, {
-            title = 'Unload Magazine',
-            description = 'Remove ammo from magazine',
+            title = 'Full Unload',
+            description = string.format('Remove all %d rounds', item.metadata.count),
             icon = 'arrow-down',
             onSelect = function()
-                UnloadMagazine(item.name, item.slot, item.metadata)
+                UnloadMagazine(item.name, item.slot, item.metadata, false)
+            end
+        })
+
+        table.insert(options, {
+            title = 'Select Amount to Unload',
+            description = 'Choose how many rounds to remove',
+            icon = 'hashtag',
+            onSelect = function()
+                UnloadMagazine(item.name, item.slot, item.metadata, true)
             end
         })
     else
         table.insert(options, {
-            title = 'Load Magazine',
-            description = 'Load ammo into magazine',
+            title = 'Full Load',
+            description = string.format('Load to full capacity (%d rounds)', magInfo.capacity),
             icon = 'arrow-up',
             onSelect = function()
-                LoadMagazine(item.name, item.slot)
+                LoadMagazine(item.name, item.slot, false)
+            end
+        })
+
+        table.insert(options, {
+            title = 'Select Amount to Load',
+            description = 'Choose how many rounds to load',
+            icon = 'hashtag',
+            onSelect = function()
+                LoadMagazine(item.name, item.slot, true)
             end
         })
     end

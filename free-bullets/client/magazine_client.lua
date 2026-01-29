@@ -211,7 +211,7 @@ function UnloadMagazine(magazineItem, magazineSlot, metadata)
     if magInfo then
         for _, weaponName in ipairs(magInfo.weapons) do
             local wHash = Config._WeaponNameToHash[weaponName]
-        local weaponInfo = wHash and Config.Weapons[wHash]
+            local weaponInfo = wHash and Config.Weapons[wHash]
             if weaponInfo then
                 local ammoConfig = Config.AmmoTypes[weaponInfo.caliber] and Config.AmmoTypes[weaponInfo.caliber][metadata.ammoType]
                 if ammoConfig then
@@ -548,8 +548,14 @@ function HandleEmptyMagazine(weaponHash)
             PerformCombatReload(weaponHash, selectedMag)
         end
     else
-        -- Show magazine selection menu
-        ShowMagazineSelectionMenu(weaponHash, loadedMags)
+        -- Manual reload mode: return empty mag and wait for player to press R
+        lib.notify({
+            title = 'Magazine Empty',
+            description = 'Press R to reload, K to eject magazine',
+            type = 'inform'
+        })
+        ReturnEmptyMagazine(weaponHash)
+        isReloading = false
     end
 end
 
@@ -967,7 +973,7 @@ function UnloadSpeedloader(speedloaderItem, speedloaderSlot, metadata)
     if slInfo then
         for _, weaponName in ipairs(slInfo.weapons) do
             local wHash = Config._WeaponNameToHash[weaponName]
-        local weaponInfo = wHash and Config.Weapons[wHash]
+            local weaponInfo = wHash and Config.Weapons[wHash]
             if weaponInfo then
                 local ammoConfig = Config.AmmoTypes[weaponInfo.caliber] and Config.AmmoTypes[weaponInfo.caliber][metadata.ammoType]
                 if ammoConfig then

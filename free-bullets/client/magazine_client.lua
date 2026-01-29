@@ -12,6 +12,80 @@
 local currentMagazine = nil -- Currently equipped magazine data
 local equippedMagazines = {} -- Per-weapon equipped magazine tracking
 
+-- DEBUG: Temporary diagnostic command - remove after testing
+RegisterCommand('debugmag', function()
+    local ped = PlayerPedId()
+    local weapon = GetSelectedPedWeapon(ped)
+    print('^3[DEBUG] ===== Magazine Debug =====^7')
+    print('^3[DEBUG] Current weapon hash (native): ' .. tostring(weapon) .. ' type: ' .. type(weapon) .. '^7')
+    print('^3[DEBUG] WEAPON_UNARMED backtick: ' .. tostring(`WEAPON_UNARMED`) .. '^7')
+
+    -- Check Config.Weapons lookup
+    local weaponInfo = Config.Weapons[weapon]
+    print('^3[DEBUG] Config.Weapons[native hash]: ' .. tostring(weaponInfo ~= nil) .. '^7')
+
+    -- Show a few lookup table entries
+    local count = 0
+    for name, hash in pairs(Config._WeaponNameToHash) do
+        if count < 5 then
+            print('^3[DEBUG] Lookup: ' .. name .. ' => ' .. tostring(hash) .. ' type: ' .. type(hash) .. '^7')
+            -- Check if this hash matches the weapon
+            if hash == weapon then
+                print('^2[DEBUG] *** MATCH with native weapon hash ***^7')
+            end
+            count = count + 1
+        end
+    end
+
+    -- Check GetHashKey
+    if weaponInfo and weaponInfo.componentBase then
+        local wName = weaponInfo.componentBase:gsub('COMPONENT_', 'WEAPON_')
+        local ghk = GetHashKey(wName)
+        print('^3[DEBUG] GetHashKey("' .. wName .. '"): ' .. tostring(ghk) .. ' type: ' .. type(ghk) .. '^7')
+        print('^3[DEBUG] GetHashKey == native: ' .. tostring(ghk == weapon) .. '^7')
+    else
+        print('^1[DEBUG] No weaponInfo found - trying GetHashKey for common weapons^7')
+        local testWeapons = {'WEAPON_G26', 'WEAPON_G17', 'WEAPON_PISTOL'}
+        for _, wn in ipairs(testWeapons) do
+            local ghk = GetHashKey(wn)
+            local lookup = Config._WeaponNameToHash[wn]
+            print('^3[DEBUG] ' .. wn .. ': GetHashKey=' .. tostring(ghk) .. ' lookup=' .. tostring(lookup) .. ' native=' .. tostring(weapon) .. '^7')
+            if ghk == weapon then print('^2[DEBUG] *** GetHashKey MATCH ***^7') end
+            if lookup == weapon then print('^2[DEBUG] *** Lookup MATCH ***^7') end
+            -- Check Config.Weapons directly
+            if lookup then
+                print('^3[DEBUG] Config.Weapons[lookup]: ' .. tostring(Config.Weapons[lookup] ~= nil) .. '^7')
+            end
+            if ghk then
+                print('^3[DEBUG] Config.Weapons[ghk]: ' .. tostring(Config.Weapons[ghk] ~= nil) .. '^7')
+            end
+        end
+    end
+
+    -- Check inventory for loaded magazines
+    local items = exports.ox_inventory:GetPlayerItems()
+    local magCount = 0
+    for _, item in ipairs(items) do
+        local magInfo = Config.Magazines[item.name]
+        if magInfo then
+            local isLoaded = item.metadata and item.metadata.count and item.metadata.count > 0
+            local isCompat = IsMagazineCompatible(weapon, item.name)
+            print('^3[DEBUG] Mag: ' .. item.name .. ' slot=' .. tostring(item.slot) .. ' loaded=' .. tostring(isLoaded) .. ' compatible=' .. tostring(isCompat) .. '^7')
+            if isLoaded then
+                print('^3[DEBUG]   metadata.count=' .. tostring(item.metadata.count) .. ' ammoType=' .. tostring(item.metadata.ammoType) .. '^7')
+            end
+            magCount = magCount + 1
+        end
+    end
+    if magCount == 0 then
+        print('^1[DEBUG] No magazine items found in inventory^7')
+    end
+
+    -- Check isReloading
+    print('^3[DEBUG] isReloading: ' .. tostring(isReloading) .. '^7')
+    print('^3[DEBUG] ===== End Debug =====^7')
+end, false)
+
 -- Get weapon's physical clip size from Config.Weapons
 function GetWeaponClipSize(weaponHash)
     local weaponInfo = Config.Weapons[weaponHash]

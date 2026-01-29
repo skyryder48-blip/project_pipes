@@ -382,6 +382,7 @@ CreateThread(function()
             -- Keybind reload: detect disabled control press to trigger manual reload
             if keybindCfg and keybindCfg.enabled and not isReloading then
                 if IsDisabledControlJustPressed(0, reloadKey) then
+                    print('[RELOAD-DEBUG] R pressed, weapon hash: ' .. tostring(weapon))
                     KeybindReload(weapon)
                 end
             end
@@ -397,6 +398,8 @@ end)
     Keybind reload: select best mag or speedloader and reload
 ]]
 function KeybindReload(weaponHash)
+    print('[RELOAD-DEBUG] KeybindReload called, hash=' .. tostring(weaponHash))
+
     -- Try speedloader first (revolvers)
     local slData = equippedSpeedloaders and equippedSpeedloaders[weaponHash]
     local isRevolver = false
@@ -407,8 +410,11 @@ function KeybindReload(weaponHash)
         end
     end
 
+    print('[RELOAD-DEBUG] isRevolver=' .. tostring(isRevolver))
+
     if isRevolver then
         local loadedSLs = GetLoadedSpeedloadersFromInventory(weaponHash)
+        print('[RELOAD-DEBUG] found ' .. #loadedSLs .. ' loaded speedloaders')
         if #loadedSLs == 0 then
             lib.notify({ title = 'No Speedloaders', description = 'No loaded speedloaders available', type = 'error' })
             return
@@ -430,6 +436,7 @@ function KeybindReload(weaponHash)
 
     -- Magazine weapons
     local loadedMags = GetLoadedMagazinesFromInventory(weaponHash)
+    print('[RELOAD-DEBUG] found ' .. #loadedMags .. ' loaded magazines')
     if #loadedMags == 0 then
         lib.notify({ title = 'No Magazines', description = 'No loaded magazines available', type = 'error' })
         return
@@ -437,6 +444,7 @@ function KeybindReload(weaponHash)
 
     local currentMag = equippedMagazines[weaponHash]
     local selected = SelectBestMagazine(loadedMags, currentMag)
+    print('[RELOAD-DEBUG] selected mag: ' .. tostring(selected and selected.item))
     if selected then
         isReloading = true
         ReturnEmptyMagazine(weaponHash)
@@ -717,23 +725,28 @@ RegisterKeyMapping('ejectmag', 'Eject Magazine from Weapon', 'keyboard', 'k')
 
 --[[
     Register context menu for magazines in ox_inventory
-    ox_inventory export items expect this function to handle its own UI
+    ox_inventory export passes item definition, not instance data.
+    We look up the actual inventory slot to get metadata.
 ]]
 exports('magazineContextMenu', function(data)
-    local item = data
-    local magInfo = Config.Magazines[item.name]
-
+    local magInfo = Config.Magazines[data.name]
     if not magInfo then return end
 
-    -- Debug: dump metadata to F8
-    print('[MAG-DEBUG] item.name=' .. tostring(item.name) .. ' slot=' .. tostring(item.slot))
-    print('[MAG-DEBUG] metadata type=' .. type(item.metadata))
-    if item.metadata then
-        for k, v in pairs(item.metadata) do
-            print('[MAG-DEBUG]   metadata.' .. tostring(k) .. ' = ' .. tostring(v) .. ' (' .. type(v) .. ')')
+    -- ox_inventory exports don't include instance metadata -
+    -- look up the real item from inventory using the slot
+    local playerItems = exports.ox_inventory:GetPlayerItems()
+    local item = nil
+    if data.slot then
+        for _, invItem in ipairs(playerItems) do
+            if invItem.slot == data.slot then
+                item = invItem
+                break
+            end
         end
-    else
-        print('[MAG-DEBUG]   metadata is nil')
+    end
+
+    if not item then
+        item = data -- fallback
     end
 
     local options = {}
@@ -1153,10 +1166,24 @@ end
 -- ============================================================================
 
 exports('speedloaderContextMenu', function(data)
-    local item = data
-    local slInfo = Config.Speedloaders[item.name]
-
+    local slInfo = Config.Speedloaders[data.name]
     if not slInfo then return end
+
+    -- Look up the real item instance from inventory for metadata
+    local playerItems = exports.ox_inventory:GetPlayerItems()
+    local item = nil
+    if data.slot then
+        for _, invItem in ipairs(playerItems) do
+            if invItem.slot == data.slot then
+                item = invItem
+                break
+            end
+        end
+    end
+
+    if not item then
+        item = data
+    end
 
     local options = {}
     local isLoaded = item.metadata and item.metadata.count and item.metadata.count > 0

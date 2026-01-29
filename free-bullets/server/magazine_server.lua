@@ -124,24 +124,12 @@ end)
 RegisterNetEvent('ammo:unloadMagazine', function(data)
     local source = source
 
-    if not data.magazineItem or not data.ammoType or not data.count then
+    if not data.magazineItem or not data.ammoType or not data.ammoItem or not data.count then
         return
     end
 
     local magInfo = Config.Magazines[data.magazineItem]
     if not magInfo then return end
-
-    -- Get the ammo item name for this caliber/type
-    local weaponInfo = nil
-    for _, weaponName in ipairs(magInfo.weapons) do
-        weaponInfo = Config.Weapons[GetHashKey(weaponName)]
-        if weaponInfo then break end
-    end
-
-    if not weaponInfo then return end
-
-    local ammoConfig = Config.AmmoTypes[weaponInfo.caliber] and Config.AmmoTypes[weaponInfo.caliber][data.ammoType]
-    if not ammoConfig then return end
 
     -- Remove the loaded magazine
     local removed = ox_inventory:RemoveItem(source, data.magazineItem, 1, nil, data.magazineSlot)
@@ -157,8 +145,8 @@ RegisterNetEvent('ammo:unloadMagazine', function(data)
     -- Add empty magazine back
     ox_inventory:AddItem(source, data.magazineItem, 1)
 
-    -- Add loose ammo
-    ox_inventory:AddItem(source, ammoConfig.item, data.count)
+    -- Add loose ammo (ammo item resolved by client)
+    ox_inventory:AddItem(source, data.ammoItem, data.count)
 
     TriggerClientEvent('ox_lib:notify', source, {
         title = 'Magazine Unloaded',
@@ -543,24 +531,12 @@ end)
 RegisterNetEvent('ammo:unloadSpeedloader', function(data)
     local source = source
 
-    if not data.speedloaderItem or not data.ammoType or not data.count then
+    if not data.speedloaderItem or not data.ammoType or not data.ammoItem or not data.count then
         return
     end
 
     local slInfo = Config.Speedloaders[data.speedloaderItem]
     if not slInfo then return end
-
-    -- Get the ammo item for this caliber/type
-    local weaponInfo = nil
-    for _, weaponName in ipairs(slInfo.weapons) do
-        weaponInfo = Config.Weapons[GetHashKey(weaponName)]
-        if weaponInfo then break end
-    end
-
-    if not weaponInfo then return end
-
-    local ammoConfig = Config.AmmoTypes[weaponInfo.caliber] and Config.AmmoTypes[weaponInfo.caliber][data.ammoType]
-    if not ammoConfig then return end
 
     -- Remove loaded speedloader
     local removed = ox_inventory:RemoveItem(source, data.speedloaderItem, 1, nil, data.speedloaderSlot)
@@ -576,8 +552,8 @@ RegisterNetEvent('ammo:unloadSpeedloader', function(data)
     -- Add empty speedloader back
     ox_inventory:AddItem(source, data.speedloaderItem, 1)
 
-    -- Add loose ammo
-    ox_inventory:AddItem(source, ammoConfig.item, data.count)
+    -- Add loose ammo (ammo item resolved by client)
+    ox_inventory:AddItem(source, data.ammoItem, data.count)
 
     TriggerClientEvent('ox_lib:notify', source, {
         title = 'Speedloader Unloaded',
@@ -669,35 +645,9 @@ end)
 -- UTILITY FUNCTIONS
 -- ============================================================================
 
---[[
-    Get weapon hash from name (server-side utility)
-]]
-function GetHashKey(name)
-    return joaat(name)
-end
-
---[[
-    joaat hash function
-]]
-function joaat(s)
-    local hash = 0
-    s = string.lower(s)
-    for i = 1, #s do
-        hash = hash + string.byte(s, i)
-        hash = hash + (hash << 10)
-        hash = hash ~ (hash >> 6)
-    end
-    hash = hash + (hash << 3)
-    hash = hash ~ (hash >> 11)
-    hash = hash + (hash << 15)
-
-    -- Convert to signed 32-bit integer
-    if hash >= 2147483648 then
-        hash = hash - 4294967296
-    end
-
-    return hash
-end
+-- NOTE: GetHashKey and joaat are provided by FiveM as built-in functions.
+-- Custom implementations were removed because lua54's 64-bit integers
+-- cause incorrect hashes without proper 32-bit masking at each step.
 
 -- ============================================================================
 -- WEAPON MODIFICATIONS (Switches, Bump Stocks, Binary Triggers)

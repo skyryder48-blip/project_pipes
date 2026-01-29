@@ -924,24 +924,8 @@ Config.Speedloaders = {
 -- ============================================================================
 -- HELPER FUNCTIONS
 -- ============================================================================
-
--- Local joaat hash function (for shared context where native isn't available)
-local function joaat(s)
-    local hash = 0
-    s = string.lower(s)
-    for i = 1, #s do
-        hash = hash + string.byte(s, i)
-        hash = hash + (hash << 10)
-        hash = hash ~ (hash >> 6)
-    end
-    hash = hash + (hash << 3)
-    hash = hash ~ (hash >> 11)
-    hash = hash + (hash << 15)
-    if hash >= 2147483648 then
-        hash = hash - 4294967296
-    end
-    return hash
-end
+-- Uses FiveM's built-in joaat() which is available in shared/client/server contexts
+-- and produces hashes consistent with GetSelectedPedWeapon and backtick syntax
 
 function GetMagazineInfo(itemName)
     return Config.Magazines[itemName]

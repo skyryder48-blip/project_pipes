@@ -183,9 +183,9 @@ RegisterNetEvent('ammo:equipMagazine', function(data)
     local magInfo = Config.Magazines[newMag.item]
     local magazineRounds = newMag.metadata.count or 0
 
-    -- Calculate how many rounds the weapon can actually accept
-    local actualLoad = math.min(magazineRounds, weaponClipSize)
-    local excessRounds = magazineRounds - actualLoad
+    -- Calculate how many rounds the weapon's clip can accept from the new magazine
+    local takenFromMag = math.min(magazineRounds, weaponClipSize)
+    local excessRounds = magazineRounds - takenFromMag
 
     -- Remove the new magazine from inventory
     local removed = ox_inventory:RemoveItem(source, newMag.item, 1, nil, newMag.slot)
@@ -198,29 +198,41 @@ RegisterNetEvent('ammo:equipMagazine', function(data)
         return
     end
 
-    -- If there was a magazine already equipped, return it to inventory
+    -- Chambered round: if the old magazine had rounds, 1 stays in the chamber
+    -- The returned magazine gets (count - 1) since the chambered round stays in the weapon
+    local hasChamberedRound = false
+
     if currentMag and currentMag.item then
         local currentMagInfo = Config.Magazines[currentMag.item]
         local metadata = nil
+        local returnCount = currentMag.count or 0
 
-        if currentMag.count and currentMag.count > 0 then
-            -- Return with remaining ammo
+        if returnCount > 0 then
+            hasChamberedRound = true
+            returnCount = returnCount - 1  -- 1 round stays chambered
+        end
+
+        if returnCount > 0 then
+            -- Return with remaining ammo (minus chambered round)
             metadata = {
                 ammoType = currentMag.ammoType,
-                count = currentMag.count,
-                maxCount = currentMagInfo and currentMagInfo.capacity or currentMag.count,
+                count = returnCount,
+                maxCount = currentMagInfo and currentMagInfo.capacity or returnCount,
                 label = string.format('%s (%d/%d %s)',
                     currentMagInfo and currentMagInfo.label or currentMag.item,
-                    currentMag.count,
-                    currentMagInfo and currentMagInfo.capacity or currentMag.count,
+                    returnCount,
+                    currentMagInfo and currentMagInfo.capacity or returnCount,
                     string.upper(currentMag.ammoType)
                 ),
             }
         end
-        -- Empty mags have no metadata (stackable)
+        -- Empty mags (returnCount == 0) have no metadata (stackable)
 
         ox_inventory:AddItem(source, currentMag.item, 1, metadata)
     end
+
+    -- Total rounds loaded: magazine rounds + chambered round (if applicable)
+    local actualLoad = takenFromMag + (hasChamberedRound and 1 or 0)
 
     -- If there are excess rounds that couldn't fit in the weapon,
     -- return them as LOOSE AMMO only (magazine is now IN the weapon)
@@ -293,15 +305,15 @@ RegisterNetEvent('ammo:combatReload', function(data)
     end
 
     local newMag = data.newMagazine
-    local emptyMag = data.emptyMagazine
+    local currentMag = data.currentMagazine  -- Contains actual remaining ammo count
     local weaponClipSize = data.weaponClipSize or 999  -- Fallback if not provided
 
     local magInfo = Config.Magazines[newMag.item]
     local magazineRounds = newMag.metadata.count or 0
 
-    -- Calculate how many rounds the weapon can actually accept
-    local actualLoad = math.min(magazineRounds, weaponClipSize)
-    local excessRounds = magazineRounds - actualLoad
+    -- Calculate how many rounds the weapon's clip can accept from the new magazine
+    local takenFromMag = math.min(magazineRounds, weaponClipSize)
+    local excessRounds = magazineRounds - takenFromMag
 
     -- Remove new magazine from inventory
     local removed = ox_inventory:RemoveItem(source, newMag.item, 1, nil, newMag.slot)
@@ -314,10 +326,40 @@ RegisterNetEvent('ammo:combatReload', function(data)
         return
     end
 
-    -- Return empty magazine to inventory (no metadata = empty = stackable)
-    if emptyMag and emptyMag.item then
-        ox_inventory:AddItem(source, emptyMag.item, 1)
+    -- Chambered round: if the old magazine had rounds, 1 stays in the chamber
+    local hasChamberedRound = false
+
+    if currentMag and currentMag.item then
+        local currentMagInfo = Config.Magazines[currentMag.item]
+        local returnCount = currentMag.count or 0
+
+        if returnCount > 0 then
+            hasChamberedRound = true
+            returnCount = returnCount - 1  -- 1 round stays chambered
+        end
+
+        if returnCount > 0 then
+            -- Return magazine with remaining ammo (minus chambered round)
+            local metadata = {
+                ammoType = currentMag.ammoType,
+                count = returnCount,
+                maxCount = currentMagInfo and currentMagInfo.capacity or returnCount,
+                label = string.format('%s (%d/%d %s)',
+                    currentMagInfo and currentMagInfo.label or currentMag.item,
+                    returnCount,
+                    currentMagInfo and currentMagInfo.capacity or returnCount,
+                    string.upper(currentMag.ammoType or 'fmj')
+                ),
+            }
+            ox_inventory:AddItem(source, currentMag.item, 1, metadata)
+        else
+            -- Empty magazine - no metadata (stackable)
+            ox_inventory:AddItem(source, currentMag.item, 1)
+        end
     end
+
+    -- Total rounds loaded: magazine rounds + chambered round (if applicable)
+    local actualLoad = takenFromMag + (hasChamberedRound and 1 or 0)
 
     -- If there are excess rounds that couldn't fit in the weapon,
     -- return them as LOOSE AMMO only (magazine is now IN the weapon)
@@ -343,18 +385,14 @@ RegisterNetEvent('ammo:combatReload', function(data)
             -- Return excess as loose ammo
             ox_inventory:AddItem(source, ammoConfig.item, excessRounds)
         end
-
-        -- NOTE: Do NOT return empty magazine here!
-        -- The new magazine is now physically inside the weapon.
-        -- The OLD magazine (emptyMag) was already returned above.
     end
 
-    -- Apply new magazine (with clamped count)
+    -- Apply new magazine (with clamped count, includes chambered round)
     TriggerClientEvent('ammo:magazineEquipped', source, {
         weaponHash = data.weaponHash,
         magazineItem = newMag.item,
         ammoType = newMag.metadata.ammoType,
-        count = actualLoad,  -- Only load what weapon can hold
+        count = actualLoad,  -- Clip rounds + chambered round
     })
 end)
 

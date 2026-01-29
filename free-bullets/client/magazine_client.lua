@@ -289,6 +289,11 @@ function EquipMagazine(magazineItem, magazineSlot, metadata)
     -- Get current magazine if any (to return to inventory)
     local currentMag = equippedMagazines[currentWeapon]
 
+    -- Update current magazine with live ammo count for chambered round calculation
+    if currentMag then
+        currentMag.count = GetAmmoInPedWeapon(ped, currentWeapon)
+    end
+
     -- Get the weapon's actual clip size (from weaponcomponents.meta)
     -- This respects per-weapon physical magazine capacity
     local weaponClipSize = GetWeaponClipSize(currentWeapon)
@@ -466,7 +471,8 @@ function KeybindReload(weaponHash)
     local selected = SelectBestMagazine(loadedMags, currentMag)
     if selected then
         isReloading = true
-        ReturnEmptyMagazine(weaponHash)
+        -- Don't call ReturnEmptyMagazine separately - PerformCombatReload
+        -- sends current mag data to server for chambered round accounting
         PerformCombatReload(weaponHash, selected)
     end
 end
@@ -656,17 +662,18 @@ function PerformCombatReload(weaponHash, selectedMag)
     -- Get the weapon's actual clip size for capacity limiting
     local weaponClipSize = GetWeaponClipSize(weaponHash)
 
-    -- Return current empty magazine to inventory first
+    -- Get current magazine and live ammo count for chambered round calculation
     local currentMag = equippedMagazines[weaponHash]
+    local currentAmmo = GetAmmoInPedWeapon(PlayerPedId(), weaponHash)
 
     TriggerServerEvent('ammo:combatReload', {
         weaponHash = weaponHash,
         weaponClipSize = weaponClipSize,  -- Send weapon's physical capacity limit
         newMagazine = selectedMag,
-        emptyMagazine = currentMag and {
+        currentMagazine = currentMag and {
             item = currentMag.item,
             ammoType = currentMag.ammoType,
-            count = 0, -- Empty
+            count = currentAmmo,  -- Actual remaining rounds for chambered round calc
         } or nil,
     })
 
@@ -716,21 +723,34 @@ function EjectMagazine()
 
     -- Get current ammo count from weapon (may have changed from firing)
     local currentAmmo = GetAmmoInPedWeapon(ped, currentWeapon)
-    currentMag.count = currentAmmo
+
+    -- Chambered round: if weapon has ammo, 1 round stays in the chamber
+    -- Magazine is returned with (count - 1) since the chambered round stays
+    local magReturnCount = currentAmmo
+    local hasChamberedRound = false
+    if currentAmmo > 0 then
+        hasChamberedRound = true
+        magReturnCount = currentAmmo - 1
+    end
 
     -- Trigger server to return magazine to inventory
     TriggerServerEvent('ammo:ejectMagazine', {
         weaponHash = currentWeapon,
         magazineItem = currentMag.item,
         ammoType = currentMag.ammoType,
-        count = currentAmmo,
+        count = magReturnCount,
     })
 
     -- Clear local tracking
     equippedMagazines[currentWeapon] = nil
 
-    -- Remove ammo from weapon (mag is ejected)
-    SetPedAmmo(ped, currentWeapon, 0)
+    -- Keep chambered round in weapon or clear completely
+    if hasChamberedRound then
+        SetPedAmmo(ped, currentWeapon, 1)
+        SetAmmoInClip(ped, currentWeapon, 1)
+    else
+        SetPedAmmo(ped, currentWeapon, 0)
+    end
 
     return true
 end

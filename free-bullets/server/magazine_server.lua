@@ -131,6 +131,11 @@ RegisterNetEvent('ammo:unloadMagazine', function(data)
     local magInfo = Config.Magazines[data.magazineItem]
     if not magInfo then return end
 
+    -- Determine how many rounds to unload (default: all)
+    local unloadAmount = data.unloadAmount or data.count
+    unloadAmount = math.min(unloadAmount, data.count)  -- Can't unload more than magazine has
+    local remaining = data.count - unloadAmount
+
     -- Remove the loaded magazine
     local removed = ox_inventory:RemoveItem(source, data.magazineItem, 1, nil, data.magazineSlot)
     if not removed then
@@ -142,15 +147,27 @@ RegisterNetEvent('ammo:unloadMagazine', function(data)
         return
     end
 
-    -- Add empty magazine back
-    ox_inventory:AddItem(source, data.magazineItem, 1)
+    if remaining > 0 then
+        -- Partial unload: return magazine with remaining rounds
+        local metadata = {
+            ammoType = data.ammoType,
+            count = remaining,
+            maxCount = magInfo.capacity,
+            label = string.format('%s (%d/%d %s)', magInfo.label, remaining, magInfo.capacity, string.upper(data.ammoType)),
+        }
+        ox_inventory:AddItem(source, data.magazineItem, 1, metadata)
+    else
+        -- Full unload: return empty magazine (no metadata = stackable)
+        ox_inventory:AddItem(source, data.magazineItem, 1)
+    end
 
-    -- Add loose ammo (ammo item resolved by client)
-    ox_inventory:AddItem(source, data.ammoItem, data.count)
+    -- Add unloaded rounds as loose ammo
+    ox_inventory:AddItem(source, data.ammoItem, unloadAmount)
 
     TriggerClientEvent('ox_lib:notify', source, {
         title = 'Magazine Unloaded',
-        description = string.format('Recovered %d %s rounds', data.count, string.upper(data.ammoType)),
+        description = string.format('Recovered %d %s rounds%s', unloadAmount, string.upper(data.ammoType),
+            remaining > 0 and string.format(' (%d remaining)', remaining) or ''),
         type = 'success'
     })
 end)

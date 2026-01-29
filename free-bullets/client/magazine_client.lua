@@ -359,10 +359,13 @@ RegisterNetEvent('ammo:magazineEquipped', function(data)
 
         -- Apply new component
         GiveWeaponComponentToPed(PlayerPedId(), weaponHash, componentHash)
-
-        -- Set ammo count
-        SetPedAmmo(PlayerPedId(), weaponHash, data.count)
     end
+
+    -- Always set ammo count regardless of component success
+    -- SetPedAmmo sets total ammo pool, SetAmmoInClip loads rounds into the weapon's clip
+    local ped = PlayerPedId()
+    SetPedAmmo(ped, weaponHash, data.count)
+    SetAmmoInClip(ped, weaponHash, data.count)
 
     lib.notify({
         title = 'Magazine Loaded',
@@ -1103,8 +1106,10 @@ RegisterNetEvent('ammo:speedloaderEquipped', function(data)
     -- Apply new component
     GiveWeaponComponentToPed(PlayerPedId(), weaponHash, componentHash)
 
-    -- Set ammo count
-    SetPedAmmo(PlayerPedId(), weaponHash, data.count)
+    -- Set ammo count (total + clip)
+    local ped = PlayerPedId()
+    SetPedAmmo(ped, weaponHash, data.count)
+    SetAmmoInClip(ped, weaponHash, data.count)
 
     lib.notify({
         title = 'Cylinder Loaded',

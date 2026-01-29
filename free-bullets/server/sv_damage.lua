@@ -522,9 +522,15 @@ RegisterNetEvent('ammo:setAmmoType', function(weaponHash, ammoType)
     local src = source
     if type(weaponHash) ~= 'number' or type(ammoType) ~= 'string' then return end
 
-    -- Validate ammo type exists
-    if not Config.AmmoModifiers[ammoType] then
-        print(('[AMMO DAMAGE] Invalid ammo type from player %d: %s'):format(src, ammoType))
+    -- Validate ammo type exists for this weapon's caliber
+    -- Note: ammoType is a plain type like 'fmj', 'hp', 'ap'
+    -- Config.AmmoModifiers uses caliber-prefixed keys like '9mm_fmj'
+    -- so validate via Config.AmmoTypes[caliber][ammoType] instead
+    local weaponInfo = Config.Weapons[weaponHash]
+    if not weaponInfo or not weaponInfo.caliber then return end
+
+    if not Config.AmmoTypes[weaponInfo.caliber] or not Config.AmmoTypes[weaponInfo.caliber][ammoType] then
+        print(('[AMMO DAMAGE] Invalid ammo type from player %d: %s (caliber: %s)'):format(src, ammoType, weaponInfo.caliber))
         return
     end
 

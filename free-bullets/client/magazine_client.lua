@@ -27,6 +27,7 @@ local function HashKeyTable()
 end
 
 local equippedMagazines = HashKeyTable() -- Per-weapon equipped magazine tracking
+local chamberedRounds = HashKeyTable()   -- Tracks weapons with a chambered round after eject
 
 -- Get weapon's physical clip size from Config.Weapons
 function GetWeaponClipSize(weaponHash)
@@ -342,17 +343,25 @@ RegisterNetEvent('ammo:magazineEquipped', function(data)
         maxCount = weaponClipSize,  -- Use weapon's physical capacity, not magazine's
         magazineCapacity = magInfo.capacity,  -- Keep magazine's capacity for reference
     }
+    chamberedRounds[weaponHash] = nil  -- Magazine supersedes any chambered round
 
     -- Build and apply the correct weapon component
+    -- Only swap clip components if the new one is valid on this weapon model.
+    -- If the new component doesn't exist (e.g. HP clip not in weapon meta),
+    -- keep the existing clip to preserve correct clip size.
     local componentName = GetMagazineComponentName(weaponHash, data.magazineItem, data.ammoType)
     if componentName then
+        local ped = PlayerPedId()
         local componentHash = GetHashKey(componentName)
 
-        -- Remove any existing clip components first
-        RemoveAllClipComponents(weaponHash)
-
-        -- Apply new component
-        GiveWeaponComponentToPed(PlayerPedId(), weaponHash, componentHash)
+        -- Test if weapon supports this component before removing old ones
+        GiveWeaponComponentToPed(ped, weaponHash, componentHash)
+        if HasPedGotWeaponComponent(ped, weaponHash, componentHash) then
+            -- Component is valid - do clean swap (remove others, re-add new)
+            RemoveAllClipComponents(weaponHash)
+            GiveWeaponComponentToPed(ped, weaponHash, componentHash)
+        end
+        -- If component doesn't exist, keep whatever clip is already on the weapon
     end
 
     -- Always set ammo count regardless of component success
@@ -482,9 +491,11 @@ function SelectBestSpeedloader(loadedSLs, currentSL)
 end
 
 --[[
-    Monitor ammo consumption and trigger reloads
+    Monitor ammo consumption, enforce magazine-only loading, and trigger reloads
 ]]
 CreateThread(function()
+    local lastMonitoredWeapon = nil
+
     while true do
         Wait(100)
 
@@ -492,19 +503,44 @@ CreateThread(function()
             local ped = PlayerPedId()
             local weapon = GetSelectedPedWeapon(ped)
 
-            if weapon ~= `WEAPON_UNARMED` and equippedMagazines[weapon] then
-                local currentAmmo = GetAmmoInPedWeapon(ped, weapon)
-                local magData = equippedMagazines[weapon]
+            if weapon ~= `WEAPON_UNARMED` then
+                -- Weapon just drawn or switched
+                if weapon ~= lastMonitoredWeapon then
+                    lastMonitoredWeapon = weapon
 
-                -- Update tracked count
-                if currentAmmo < magData.count then
-                    magData.count = currentAmmo
-
-                    -- Magazine empty - need to reload
-                    if currentAmmo <= 0 and not isReloading then
-                        HandleEmptyMagazine(weapon)
+                    -- Enforce magazine-only loading: zero ammo for weapons with no
+                    -- tracked magazine, speedloader, or chambered round. This prevents
+                    -- GTA/weapon meta from giving default ammo on draw.
+                    if not equippedMagazines[weapon] and not equippedSpeedloaders[weapon] then
+                        if chamberedRounds[weapon] then
+                            -- Chambered round from a previous eject - check if still valid
+                            if GetAmmoInPedWeapon(ped, weapon) <= 0 then
+                                chamberedRounds[weapon] = nil
+                            end
+                        else
+                            -- No tracking at all - zero the weapon
+                            SetPedAmmo(ped, weapon, 0)
+                        end
                     end
                 end
+
+                -- Track ammo consumption for weapons with equipped magazines
+                if equippedMagazines[weapon] then
+                    local currentAmmo = GetAmmoInPedWeapon(ped, weapon)
+                    local magData = equippedMagazines[weapon]
+
+                    -- Update tracked count
+                    if currentAmmo < magData.count then
+                        magData.count = currentAmmo
+
+                        -- Magazine empty - need to reload
+                        if currentAmmo <= 0 and not isReloading then
+                            HandleEmptyMagazine(weapon)
+                        end
+                    end
+                end
+            else
+                lastMonitoredWeapon = nil
             end
         end
     end
@@ -731,8 +767,9 @@ function EjectMagazine()
         count = magReturnCount,
     })
 
-    -- Clear local tracking
+    -- Clear magazine tracking, set chambered round flag
     equippedMagazines[currentWeapon] = nil
+    chamberedRounds[currentWeapon] = hasChamberedRound or nil
 
     -- Keep chambered round in weapon or clear completely
     if hasChamberedRound then
@@ -1131,19 +1168,19 @@ RegisterNetEvent('ammo:speedloaderEquipped', function(data)
     }
 
     -- Build and apply the correct weapon component
-    local componentName = GetMagazineComponentName(weaponHash, nil, data.ammoType)
     -- For revolvers, use weapon's componentBase directly with ammo type suffix
     local revolverComponent = weaponInfo.componentBase .. '_CLIP_' .. string.upper(data.ammoType)
     local componentHash = GetHashKey(revolverComponent)
+    local ped = PlayerPedId()
 
-    -- Remove any existing clip components first
-    RemoveAllClipComponents(weaponHash)
-
-    -- Apply new component
-    GiveWeaponComponentToPed(PlayerPedId(), weaponHash, componentHash)
+    -- Only swap clip components if the new one is valid on this weapon model
+    GiveWeaponComponentToPed(ped, weaponHash, componentHash)
+    if HasPedGotWeaponComponent(ped, weaponHash, componentHash) then
+        RemoveAllClipComponents(weaponHash)
+        GiveWeaponComponentToPed(ped, weaponHash, componentHash)
+    end
 
     -- Set ammo count (total + clip)
-    local ped = PlayerPedId()
     SetPedAmmo(ped, weaponHash, data.count)
     SetAmmoInClip(ped, weaponHash, data.count)
 

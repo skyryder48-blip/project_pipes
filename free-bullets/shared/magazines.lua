@@ -966,7 +966,7 @@ function IsMagazineCompatible(weaponHash, magazineItem)
 
     if type(weaponHash) == 'number' then
         for _, weaponName in ipairs(weapons) do
-            local wHash = Config._WeaponNameToHash[weaponName] or GetHashKey(weaponName)
+            local wHash = Config._WeaponNameToHash[weaponName]
             if wHash and wHash == weaponHash then
                 return true
             end
@@ -1003,7 +1003,7 @@ function IsSpeedloaderCompatible(weaponHash, speedloaderItem)
 
     if type(weaponHash) == 'number' then
         for _, weaponName in ipairs(weapons) do
-            local wHash = Config._WeaponNameToHash[weaponName] or GetHashKey(weaponName)
+            local wHash = Config._WeaponNameToHash[weaponName]
             if wHash and wHash == weaponHash then
                 return true
             end

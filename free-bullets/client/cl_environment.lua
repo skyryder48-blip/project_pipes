@@ -172,13 +172,10 @@ function ProcessBulletImpact(ped, weapon)
     local ammoKey = GetAmmoKey(caliber, ammoType)
 
     -- Check what was hit
-    if hitEntity and hitEntity ~= 0 and DoesEntityExist(hitEntity) then
-        -- pcall protects against native exceptions when entity model data
-        -- is not yet streamed in (gta-streaming-five.dll crash)
-        local ok, entityType, modelHash, entityNetId = pcall(function()
-            return GetEntityType(hitEntity), GetEntityModel(hitEntity), NetworkGetNetworkIdFromEntity(hitEntity)
-        end)
-        if not ok then return end
+    if hitEntity and hitEntity ~= 0 then
+        local entityType = GetEntityType(hitEntity)
+        local modelHash = GetEntityModel(hitEntity)
+        local entityNetId = NetworkGetNetworkIdFromEntity(hitEntity)
 
         -- Check fuel targets
         local fuelTarget = fuelTargetModels[modelHash]

@@ -524,34 +524,70 @@ CreateThread(function()
                 if weapon ~= lastMonitoredWeapon then
                     lastMonitoredWeapon = weapon
 
-                    -- Enforce magazine-only loading: zero ammo for weapons with no
-                    -- tracked magazine, speedloader, or chambered round. This prevents
-                    -- GTA/weapon meta from giving default ammo on draw.
-                    if not equippedMagazines[weapon] and not equippedSpeedloaders[weapon] then
-                        if chamberedRounds[weapon] then
-                            -- Chambered round from a previous eject - check if still valid
-                            if GetAmmoInPedWeapon(ped, weapon) <= 0 then
-                                chamberedRounds[weapon] = nil
-                            end
-                        else
-                            -- No tracking at all - zero the weapon
-                            SetPedAmmo(ped, weapon, 0)
+                    if equippedMagazines[weapon] then
+                        -- Re-apply tracked ammo when re-drawing weapon with magazine.
+                        -- GTA resets ammo to weapon-meta defaults during draw, which
+                        -- corrupts our count and causes eject to return empty mags.
+                        local magData = equippedMagazines[weapon]
+                        SetPedAmmo(ped, weapon, magData.count)
+                        SetAmmoInClip(ped, weapon, magData.count)
+                    elseif equippedSpeedloaders[weapon] then
+                        -- Same re-apply for speedloader-loaded revolvers
+                        local slData = equippedSpeedloaders[weapon]
+                        SetPedAmmo(ped, weapon, slData.count)
+                        SetAmmoInClip(ped, weapon, slData.count)
+                    elseif chamberedRounds[weapon] then
+                        -- Chambered round from a previous eject - validate and enforce
+                        local currentAmmo = GetAmmoInPedWeapon(ped, weapon)
+                        if currentAmmo <= 0 then
+                            chamberedRounds[weapon] = nil
+                        elseif currentAmmo > 1 then
+                            SetPedAmmo(ped, weapon, 1)
+                            SetAmmoInClip(ped, weapon, 1)
                         end
+                    else
+                        -- No tracking at all - zero the weapon (pool + clip)
+                        SetPedAmmo(ped, weapon, 0)
+                        SetAmmoInClip(ped, weapon, 0)
                     end
                 end
 
-                -- Track ammo consumption for weapons with equipped magazines
+                -- Track ammo for weapons with equipped magazines
                 if equippedMagazines[weapon] then
                     local currentAmmo = GetAmmoInPedWeapon(ped, weapon)
                     local magData = equippedMagazines[weapon]
 
-                    -- Update tracked count
-                    if currentAmmo < magData.count then
+                    if currentAmmo > magData.count then
+                        -- GTA re-applied default ammo above tracked count - correct it
+                        SetPedAmmo(ped, weapon, magData.count)
+                        SetAmmoInClip(ped, weapon, magData.count)
+                    elseif currentAmmo < magData.count then
+                        -- Rounds consumed by firing - update tracking
                         magData.count = currentAmmo
 
                         -- Magazine empty - need to reload
                         if currentAmmo <= 0 and not isReloading then
                             HandleEmptyMagazine(weapon)
+                        end
+                    end
+                end
+
+                -- Ongoing enforcement: GTA can re-apply default ammo after our
+                -- initial zero during the draw animation. Keep enforcing for
+                -- weapons with no tracked magazine, speedloader, or chambered round.
+                if not equippedMagazines[weapon] and not equippedSpeedloaders[weapon] then
+                    if chamberedRounds[weapon] then
+                        local currentAmmo = GetAmmoInPedWeapon(ped, weapon)
+                        if currentAmmo <= 0 then
+                            chamberedRounds[weapon] = nil
+                        elseif currentAmmo > 1 then
+                            SetPedAmmo(ped, weapon, 1)
+                            SetAmmoInClip(ped, weapon, 1)
+                        end
+                    else
+                        if GetAmmoInPedWeapon(ped, weapon) > 0 then
+                            SetPedAmmo(ped, weapon, 0)
+                            SetAmmoInClip(ped, weapon, 0)
                         end
                     end
                 end
@@ -793,6 +829,7 @@ function EjectMagazine()
         SetAmmoInClip(ped, currentWeapon, 1)
     else
         SetPedAmmo(ped, currentWeapon, 0)
+        SetAmmoInClip(ped, currentWeapon, 0)
     end
 
     return true
@@ -1235,7 +1272,11 @@ CreateThread(function()
                 local currentAmmo = GetAmmoInPedWeapon(ped, weapon)
                 local slData = equippedSpeedloaders[weapon]
 
-                if currentAmmo < slData.count then
+                if currentAmmo > slData.count then
+                    -- GTA re-applied default ammo above tracked count - correct it
+                    SetPedAmmo(ped, weapon, slData.count)
+                    SetAmmoInClip(ped, weapon, slData.count)
+                elseif currentAmmo < slData.count then
                     slData.count = currentAmmo
 
                     -- Cylinder empty - auto-reload with speedloader if available

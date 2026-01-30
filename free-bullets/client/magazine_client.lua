@@ -32,6 +32,7 @@ end
 
 local equippedMagazines = HashKeyTable() -- Per-weapon equipped magazine tracking
 local chamberedRounds = HashKeyTable()   -- Tracks weapons with a chambered round after eject
+local equippedSpeedloaders = HashKeyTable() -- Per-weapon equipped speedloader tracking
 
 -- Get weapon's physical clip size from Config.Weapons
 function GetWeaponClipSize(weaponHash)
@@ -976,8 +977,6 @@ end)
 -- ============================================================================
 -- SPEEDLOADER SYSTEM (Revolvers)
 -- ============================================================================
-
-local equippedSpeedloaders = HashKeyTable() -- Per-weapon equipped speedloader tracking
 
 --[[
     Load ammo into an empty speedloader

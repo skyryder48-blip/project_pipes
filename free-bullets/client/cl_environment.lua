@@ -172,7 +172,7 @@ function ProcessBulletImpact(ped, weapon)
     local ammoKey = GetAmmoKey(caliber, ammoType)
 
     -- Check what was hit
-    if hitEntity and hitEntity ~= 0 then
+    if hitEntity and hitEntity ~= 0 and DoesEntityExist(hitEntity) then
         local entityType = GetEntityType(hitEntity)
         local modelHash = GetEntityModel(hitEntity)
         local entityNetId = NetworkGetNetworkIdFromEntity(hitEntity)

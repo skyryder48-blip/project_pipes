@@ -508,6 +508,54 @@ function SelectBestSpeedloader(loadedSLs, currentSL)
 end
 
 --[[
+    Immediate weapon draw enforcement via ox_inventory event.
+    GTA re-applies default ammo over multiple frames during the draw animation.
+    The 100ms monitoring thread cannot catch this fast enough, so the player
+    can see and fire a phantom round. This handler enforces the correct ammo
+    state every frame for the first 10 frames after draw.
+]]
+AddEventHandler('ox_inventory:currentWeapon', function(weapon)
+    if not Config.MagazineSystem.enabled then return end
+    if not weapon then return end
+
+    local weaponHash = weapon.hash
+
+    CreateThread(function()
+        for i = 1, 10 do
+            Wait(0)
+            local ped = PlayerPedId()
+            if GetSelectedPedWeapon(ped) ~= weaponHash then break end
+
+            local currentAmmo = GetAmmoInPedWeapon(ped, weaponHash)
+
+            if equippedMagazines[weaponHash] then
+                local magData = equippedMagazines[weaponHash]
+                if currentAmmo > magData.count then
+                    SetPedAmmo(ped, weaponHash, magData.count)
+                    SetAmmoInClip(ped, weaponHash, magData.count)
+                end
+            elseif equippedSpeedloaders[weaponHash] then
+                local slData = equippedSpeedloaders[weaponHash]
+                if currentAmmo > slData.count then
+                    SetPedAmmo(ped, weaponHash, slData.count)
+                    SetAmmoInClip(ped, weaponHash, slData.count)
+                end
+            elseif chamberedRounds[weaponHash] then
+                if currentAmmo > 1 then
+                    SetPedAmmo(ped, weaponHash, 1)
+                    SetAmmoInClip(ped, weaponHash, 1)
+                end
+            else
+                if currentAmmo > 0 then
+                    SetPedAmmo(ped, weaponHash, 0)
+                    SetAmmoInClip(ped, weaponHash, 0)
+                end
+            end
+        end
+    end)
+end)
+
+--[[
     Monitor ammo consumption, enforce magazine-only loading, and trigger reloads
 ]]
 CreateThread(function()

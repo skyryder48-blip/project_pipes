@@ -285,10 +285,8 @@ function EquipMagazine(magazineItem, magazineSlot, metadata)
     -- Get current magazine if any (to return to inventory)
     local currentMag = equippedMagazines[currentWeapon]
 
-    -- Update current magazine with live ammo count for chambered round calculation
-    if currentMag then
-        currentMag.count = GetAmmoInPedWeapon(ped, currentWeapon)
-    end
+    -- Use tracked count (authoritative) — do not overwrite with GTA native
+    -- The monitoring thread keeps currentMag.count in sync with actual firing
 
     -- Get the weapon's actual clip size (from weaponcomponents.meta)
     -- This respects per-weapon physical magazine capacity
@@ -805,9 +803,8 @@ function PerformCombatReload(weaponHash, selectedMag)
     -- Get the weapon's actual clip size for capacity limiting
     local weaponClipSize = GetWeaponClipSize(weaponHash)
 
-    -- Get current magazine and live ammo count for chambered round calculation
+    -- Use tracked count (authoritative) instead of GTA native which is unreliable
     local currentMag = equippedMagazines[weaponHash]
-    local currentAmmo = GetAmmoInPedWeapon(PlayerPedId(), weaponHash)
 
     TriggerServerEvent('ammo:combatReload', {
         weaponHash = weaponHash,
@@ -816,7 +813,7 @@ function PerformCombatReload(weaponHash, selectedMag)
         currentMagazine = currentMag and {
             item = currentMag.item,
             ammoType = currentMag.ammoType,
-            count = currentAmmo,  -- Actual remaining rounds for chambered round calc
+            count = currentMag.count or 0,  -- Tracked count for chambered round calc
         } or nil,
     })
 
@@ -864,16 +861,16 @@ function EjectMagazine()
         return false
     end
 
-    -- Get current ammo count from weapon (may have changed from firing)
-    local currentAmmo = GetAmmoInPedWeapon(ped, currentWeapon)
+    -- Use tracked count (authoritative) instead of GTA native which is unreliable
+    local trackedCount = currentMag.count or 0
 
     -- Chambered round: if weapon has ammo, 1 round stays in the chamber
     -- Magazine is returned with (count - 1) since the chambered round stays
-    local magReturnCount = currentAmmo
+    local magReturnCount = trackedCount
     local hasChamberedRound = false
-    if currentAmmo > 0 then
+    if trackedCount > 0 then
         hasChamberedRound = true
-        magReturnCount = currentAmmo - 1
+        magReturnCount = trackedCount - 1
     end
 
     -- Trigger server to return magazine to inventory

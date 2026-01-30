@@ -405,6 +405,25 @@ RegisterNetEvent('ammo:magazineEquipped', function(data)
     SetPedAmmo(ped, weaponHash, data.count)
     SetAmmoInClip(ped, weaponHash, data.count)
 
+    -- GTA processes component changes asynchronously and zeros ammo every frame
+    -- during that window. The monitoring thread (100ms) can't keep up with per-frame
+    -- zeroing. Spawn a temporary per-frame thread that fights GTA frame-for-frame
+    -- until the component processing settles and ammo sticks.
+    local applyCount = data.count
+    CreateThread(function()
+        for i = 1, 30 do  -- ~500ms at 60fps
+            Wait(0)
+            local p = PlayerPedId()
+            if GetSelectedPedWeapon(p) ~= weaponHash then break end
+            if not equippedMagazines[weaponHash] then break end
+            -- If ammo is between 1 and applyCount-1, player has fired - stop enforcing
+            local curAmmo = GetAmmoInPedWeapon(p, weaponHash)
+            if curAmmo > 0 and curAmmo < applyCount then break end
+            SetPedAmmo(p, weaponHash, applyCount)
+            SetAmmoInClip(p, weaponHash, applyCount)
+        end
+    end)
+
     lib.notify({
         title = 'Magazine Loaded',
         description = string.format('%s loaded with %d %s rounds', magInfo.label, data.count, string.upper(data.ammoType)),
@@ -858,6 +877,14 @@ function PerformCombatReload(weaponHash, selectedMag)
     Wait(swapTime * 1000)
 
     isReloading = false
+
+    -- Refresh grace period: ammo:magazineEquipped set magazineEquipTime during
+    -- the Wait (while isReloading blocked the monitoring thread). By now the
+    -- original grace period has expired. Give the monitoring thread a fresh
+    -- window to handle any remaining GTA ammo resets from component changes.
+    if equippedMagazines[weaponHash] then
+        magazineEquipTime[weaponHash] = GetGameTimer()
+    end
 end
 
 --[[

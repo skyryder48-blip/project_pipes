@@ -411,7 +411,7 @@ RegisterNetEvent('ammo:magazineEquipped', function(data)
     -- until the component processing settles and ammo sticks.
     local applyCount = data.count
     CreateThread(function()
-        for i = 1, 30 do  -- ~500ms at 60fps
+        for i = 1, 120 do  -- ~2000ms at 60fps
             Wait(0)
             local p = PlayerPedId()
             if GetSelectedPedWeapon(p) ~= weaponHash then break end
@@ -508,7 +508,7 @@ CreateThread(function()
                     -- Allow GTA to finish its internal reload during the
                     -- grace window after equip.
                     local equipTime = magazineEquipTime[weapon]
-                    if not equipTime or (GetGameTimer() - equipTime) > 1000 then
+                    if not equipTime or (GetGameTimer() - equipTime) > 3000 then
                         ClearPedTasks(ped)
                     end
                 end
@@ -667,6 +667,12 @@ CreateThread(function()
                         if isReloading then
                             -- Do nothing - reload in progress, ammo will be
                             -- re-applied when the new magazine is equipped
+                        elseif IsPedReloading(ped) and magazineEquipTime[weapon] and (GetGameTimer() - magazineEquipTime[weapon]) < 3000 then
+                            -- GTA is performing its native reload animation after
+                            -- a component change. Ammo is zeroed during the animation.
+                            -- Re-apply tracked count so we don't false-detect empty.
+                            SetPedAmmo(ped, weapon, magData.count)
+                            SetAmmoInClip(ped, weapon, magData.count)
                         elseif currentAmmo == 0 and magazineEquipTime[weapon] and (GetGameTimer() - magazineEquipTime[weapon]) < 500 then
                             -- GTA zeroes ammo when processing clip component changes
                             -- (e.g. switching ammo types). Re-apply within grace period.

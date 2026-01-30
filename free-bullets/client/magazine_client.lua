@@ -433,6 +433,16 @@ CreateThread(function()
                 end
             end
 
+            -- Per-frame ammo enforcement: weapons with no magazine, speedloader,
+            -- or chambered round must not fire. SetPedAmmo(0) drains the pool and
+            -- DisableControlAction blocks the trigger so the phantom clip round
+            -- left by GTA's draw animation can never be fired.
+            if not equippedMagazines[weapon] and not equippedSpeedloaders[weapon] and not chamberedRounds[weapon] then
+                SetPedAmmo(ped, weapon, 0)
+                DisableControlAction(0, 24, true)   -- Attack
+                DisableControlAction(0, 257, true)  -- Attack 2 (aim+fire)
+            end
+
             Wait(0) -- Must run every frame to block input
         else
             Wait(200)
@@ -506,54 +516,6 @@ function SelectBestSpeedloader(loadedSLs, currentSL)
 
     return loadedSLs[1]
 end
-
---[[
-    Immediate weapon draw enforcement via ox_inventory event.
-    GTA re-applies default ammo over multiple frames during the draw animation.
-    The 100ms monitoring thread cannot catch this fast enough, so the player
-    can see and fire a phantom round. This handler enforces the correct ammo
-    state every frame for the first 10 frames after draw.
-]]
-AddEventHandler('ox_inventory:currentWeapon', function(weapon)
-    if not Config.MagazineSystem.enabled then return end
-    if not weapon then return end
-
-    local weaponHash = weapon.hash
-
-    CreateThread(function()
-        for i = 1, 10 do
-            Wait(0)
-            local ped = PlayerPedId()
-            if GetSelectedPedWeapon(ped) ~= weaponHash then break end
-
-            local currentAmmo = GetAmmoInPedWeapon(ped, weaponHash)
-
-            if equippedMagazines[weaponHash] then
-                local magData = equippedMagazines[weaponHash]
-                if currentAmmo > magData.count then
-                    SetPedAmmo(ped, weaponHash, magData.count)
-                    SetAmmoInClip(ped, weaponHash, magData.count)
-                end
-            elseif equippedSpeedloaders[weaponHash] then
-                local slData = equippedSpeedloaders[weaponHash]
-                if currentAmmo > slData.count then
-                    SetPedAmmo(ped, weaponHash, slData.count)
-                    SetAmmoInClip(ped, weaponHash, slData.count)
-                end
-            elseif chamberedRounds[weaponHash] then
-                if currentAmmo > 1 then
-                    SetPedAmmo(ped, weaponHash, 1)
-                    SetAmmoInClip(ped, weaponHash, 1)
-                end
-            else
-                if currentAmmo > 0 then
-                    SetPedAmmo(ped, weaponHash, 0)
-                    SetAmmoInClip(ped, weaponHash, 0)
-                end
-            end
-        end
-    end)
-end)
 
 --[[
     Monitor ammo consumption, enforce magazine-only loading, and trigger reloads

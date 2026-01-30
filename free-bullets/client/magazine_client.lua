@@ -33,6 +33,7 @@ end
 local equippedMagazines = HashKeyTable() -- Per-weapon equipped magazine tracking
 local chamberedRounds = HashKeyTable()   -- Tracks weapons with a chambered round after eject
 local equippedSpeedloaders = HashKeyTable() -- Per-weapon equipped speedloader tracking
+local magazineEquipTime = HashKeyTable()   -- Timestamp of last magazine/speedloader equip per weapon
 
 -- Get weapon's physical clip size from Config.Weapons
 function GetWeaponClipSize(weaponHash)
@@ -349,6 +350,7 @@ RegisterNetEvent('ammo:magazineEquipped', function(data)
         magazineCapacity = magInfo.capacity,  -- Keep magazine's capacity for reference
     }
     chamberedRounds[weaponHash] = nil  -- Magazine supersedes any chambered round
+    magazineEquipTime[weaponHash] = GetGameTimer()  -- Mark equip time for component-swap grace period
 
     -- Build and apply the correct weapon component.
     -- Add the new component first, then remove only OTHER clip components.
@@ -445,7 +447,7 @@ CreateThread(function()
 
             Wait(0) -- Must run every frame to block input
         else
-            Wait(200)
+            Wait(0) -- Must also run every frame when unarmed to catch weapon draw immediately
         end
     end
 end)
@@ -573,12 +575,22 @@ CreateThread(function()
                         SetPedAmmo(ped, weapon, magData.count)
                         SetAmmoInClip(ped, weapon, magData.count)
                     elseif currentAmmo < magData.count then
-                        -- Rounds consumed by firing - update tracking
-                        magData.count = currentAmmo
+                        -- GTA zeroes ammo when processing clip component changes
+                        -- (e.g. switching ammo types). If ammo drops to 0 within
+                        -- 500ms of equipping a magazine, re-apply instead of
+                        -- treating it as rounds consumed.
+                        local equipTime = magazineEquipTime[weapon]
+                        if currentAmmo == 0 and equipTime and (GetGameTimer() - equipTime) < 500 then
+                            SetPedAmmo(ped, weapon, magData.count)
+                            SetAmmoInClip(ped, weapon, magData.count)
+                        else
+                            -- Rounds consumed by firing - update tracking
+                            magData.count = currentAmmo
 
-                        -- Magazine empty - need to reload
-                        if currentAmmo <= 0 and not isReloading then
-                            HandleEmptyMagazine(weapon)
+                            -- Magazine empty - need to reload
+                            if currentAmmo <= 0 and not isReloading then
+                                HandleEmptyMagazine(weapon)
+                            end
                         end
                     end
                 end
@@ -1228,6 +1240,7 @@ RegisterNetEvent('ammo:speedloaderEquipped', function(data)
         count = data.count,
         maxCount = slInfo.capacity,
     }
+    magazineEquipTime[weaponHash] = GetGameTimer()  -- Mark equip time for component-swap grace period
 
     -- Build and apply the correct weapon component
     -- For revolvers, use weapon's componentBase directly with ammo type suffix
@@ -1286,11 +1299,18 @@ CreateThread(function()
                     SetPedAmmo(ped, weapon, slData.count)
                     SetAmmoInClip(ped, weapon, slData.count)
                 elseif currentAmmo < slData.count then
-                    slData.count = currentAmmo
+                    -- Same component-swap grace period as magazines
+                    local equipTime = magazineEquipTime[weapon]
+                    if currentAmmo == 0 and equipTime and (GetGameTimer() - equipTime) < 500 then
+                        SetPedAmmo(ped, weapon, slData.count)
+                        SetAmmoInClip(ped, weapon, slData.count)
+                    else
+                        slData.count = currentAmmo
 
-                    -- Cylinder empty - auto-reload with speedloader if available
-                    if currentAmmo <= 0 and not isReloading and Config.SpeedloaderSystem.autoReloadFromInventory then
-                        HandleEmptyCylinder(weapon)
+                        -- Cylinder empty - auto-reload with speedloader if available
+                        if currentAmmo <= 0 and not isReloading and Config.SpeedloaderSystem.autoReloadFromInventory then
+                            HandleEmptyCylinder(weapon)
+                        end
                     end
                 end
             end

@@ -427,9 +427,9 @@ AddEventHandler('ox_inventory:currentWeapon', function(weapon)
     -- Immediately zero ammo pool (safe during draw)
     SetPedAmmo(PlayerPedId(), weaponHash, 0)
 
-    -- Block attack until the main per-frame thread wakes from Wait(200)
+    -- Block attack until the main per-frame thread wakes from Wait(600)
     CreateThread(function()
-        for i = 1, 30 do
+        for i = 1, 120 do
             Wait(0)
             local ped = PlayerPedId()
             if GetSelectedPedWeapon(ped) ~= weaponHash then break end

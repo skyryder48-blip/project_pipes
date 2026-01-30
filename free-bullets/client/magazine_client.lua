@@ -331,6 +331,13 @@ function EquipMagazine(magazineItem, magazineSlot, metadata)
             },
             currentMagazine = currentMagSnapshot,
         })
+
+        -- Clear old magazine tracking immediately after sending the event.
+        -- The snapshot already captured the old magazine data for the server.
+        -- This prevents the monitoring thread from seeing GTA's zeroed ammo
+        -- (from the animation) and calling HandleEmptyMagazine before the
+        -- server response (ammo:magazineEquipped) arrives with new tracking.
+        equippedMagazines[currentWeapon] = nil
     end
 
     isReloading = false
@@ -638,11 +645,27 @@ CreateThread(function()
                             SetPedAmmo(ped, weapon, magData.count)
                             SetAmmoInClip(ped, weapon, magData.count)
                         else
-                            -- Rounds consumed by firing - update tracking
-                            magData.count = currentAmmo
-
-                            -- Magazine empty - need to reload
-                            if currentAmmo <= 0 then
+                            if currentAmmo > 0 then
+                                -- Rounds consumed by firing - update tracking
+                                magData.count = currentAmmo
+                                magData.emptyVerified = nil
+                            elseif magData.count <= 1 then
+                                -- Last round fired (count was 0 or 1) - genuine empty
+                                magData.count = 0
+                                magData.emptyVerified = nil
+                                HandleEmptyMagazine(weapon)
+                            elseif not magData.emptyVerified then
+                                -- Ammo dropped to 0 but tracked count was > 1.
+                                -- GTA can transiently zero ammo (component reprocessing,
+                                -- streaming, animation states). Re-apply once and verify
+                                -- on the next cycle - if still 0, it's genuine.
+                                magData.emptyVerified = true
+                                SetPedAmmo(ped, weapon, magData.count)
+                                SetAmmoInClip(ped, weapon, magData.count)
+                            else
+                                -- Second consecutive cycle at 0 after re-apply - genuine empty
+                                magData.count = 0
+                                magData.emptyVerified = nil
                                 HandleEmptyMagazine(weapon)
                             end
                         end

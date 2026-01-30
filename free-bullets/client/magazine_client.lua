@@ -285,8 +285,15 @@ function EquipMagazine(magazineItem, magazineSlot, metadata)
     -- Get current magazine if any (to return to inventory)
     local currentMag = equippedMagazines[currentWeapon]
 
-    -- Use tracked count (authoritative) — do not overwrite with GTA native
-    -- The monitoring thread keeps currentMag.count in sync with actual firing
+    -- Snapshot current magazine data BEFORE the progress circle blocks.
+    -- currentMag is a reference to equippedMagazines[weapon]; the monitoring
+    -- thread will corrupt magData.count to 0 during the animation (GTA zeros
+    -- ammo during reload), so we must capture the count now as a value copy.
+    local currentMagSnapshot = currentMag and {
+        item = currentMag.item,
+        ammoType = currentMag.ammoType,
+        count = currentMag.count or 0,
+    } or nil
 
     -- Get the weapon's actual clip size (from weaponcomponents.meta)
     -- This respects per-weapon physical magazine capacity
@@ -295,6 +302,8 @@ function EquipMagazine(magazineItem, magazineSlot, metadata)
     -- Calculate swap time based on magazine type
     local magInfo = Config.Magazines[magazineItem]
     local swapTime = Config.MagazineSystem.swapTime[magInfo.type] or 1.5
+
+    isReloading = true
 
     if lib.progressCircle({
         duration = swapTime * 1000,
@@ -320,9 +329,11 @@ function EquipMagazine(magazineItem, magazineSlot, metadata)
                 slot = magazineSlot,
                 metadata = metadata,
             },
-            currentMagazine = currentMag,
+            currentMagazine = currentMagSnapshot,
         })
     end
+
+    isReloading = false
 end
 
 --[[
@@ -615,12 +626,15 @@ CreateThread(function()
                         SetPedAmmo(ped, weapon, magData.count)
                         SetAmmoInClip(ped, weapon, magData.count)
                     elseif currentAmmo < magData.count then
-                        -- GTA zeroes ammo when processing clip component changes
-                        -- (e.g. switching ammo types). If ammo drops to 0 within
-                        -- 500ms of equipping a magazine, re-apply instead of
-                        -- treating it as rounds consumed.
-                        local equipTime = magazineEquipTime[weapon]
-                        if currentAmmo == 0 and equipTime and (GetGameTimer() - equipTime) < 500 then
+                        -- During reload animations, GTA zeros ammo as part of
+                        -- the swap. Skip count updates while reloading to avoid
+                        -- corrupting the tracked count.
+                        if isReloading then
+                            -- Do nothing - reload in progress, ammo will be
+                            -- re-applied when the new magazine is equipped
+                        elseif currentAmmo == 0 and magazineEquipTime[weapon] and (GetGameTimer() - magazineEquipTime[weapon]) < 500 then
+                            -- GTA zeroes ammo when processing clip component changes
+                            -- (e.g. switching ammo types). Re-apply within grace period.
                             SetPedAmmo(ped, weapon, magData.count)
                             SetAmmoInClip(ped, weapon, magData.count)
                         else
@@ -628,7 +642,7 @@ CreateThread(function()
                             magData.count = currentAmmo
 
                             -- Magazine empty - need to reload
-                            if currentAmmo <= 0 and not isReloading then
+                            if currentAmmo <= 0 then
                                 HandleEmptyMagazine(weapon)
                             end
                         end

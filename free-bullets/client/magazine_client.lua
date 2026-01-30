@@ -400,6 +400,48 @@ end)
 -- This file uses the shared function from cl_ammo.lua
 
 -- ============================================================================
+-- WEAPON DRAW ENFORCEMENT (Event-Driven)
+-- ============================================================================
+
+--[[
+    Enforce ammo state the instant a weapon is drawn via ox_inventory event.
+    For untracked weapons (no magazine/speedloader/chambered round), immediately
+    zeros the ammo pool and spawns a short-lived thread to block attack input
+    until the main per-frame reload thread (which sleeps at Wait(200) while
+    unarmed) wakes up and takes over enforcement.
+
+    Uses only SetPedAmmo (safe during draw) — never SetAmmoInClip (crashes on
+    weapons mid-draw animation).
+]]
+AddEventHandler('ox_inventory:currentWeapon', function(weapon)
+    if not Config.MagazineSystem.enabled then return end
+    if not weapon then return end
+
+    local weaponHash = weapon.hash
+
+    -- Tracked weapons are handled by the monitoring thread on weapon change
+    if equippedMagazines[weaponHash] or equippedSpeedloaders[weaponHash] or chamberedRounds[weaponHash] then
+        return
+    end
+
+    -- Immediately zero ammo pool (safe during draw)
+    SetPedAmmo(PlayerPedId(), weaponHash, 0)
+
+    -- Block attack until the main per-frame thread wakes from Wait(200)
+    CreateThread(function()
+        for i = 1, 30 do
+            Wait(0)
+            local ped = PlayerPedId()
+            if GetSelectedPedWeapon(ped) ~= weaponHash then break end
+            if equippedMagazines[weaponHash] or equippedSpeedloaders[weaponHash] or chamberedRounds[weaponHash] then break end
+            SetPedAmmo(ped, weaponHash, 0)
+            DisableControlAction(0, 24, true)   -- Attack
+            DisableControlAction(0, 257, true)  -- Attack 2 (aim+fire)
+        end
+    end)
+end)
+
+-- ============================================================================
 -- COMBAT RELOAD MANAGEMENT
 -- ============================================================================
 
@@ -447,7 +489,7 @@ CreateThread(function()
 
             Wait(0) -- Must run every frame to block input
         else
-            Wait(0) -- Must also run every frame when unarmed to catch weapon draw immediately
+            Wait(200)
         end
     end
 end)

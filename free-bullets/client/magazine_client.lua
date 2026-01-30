@@ -489,7 +489,7 @@ CreateThread(function()
 
             Wait(0) -- Must run every frame to block input
         else
-            Wait(200)
+            Wait(600) -- Safety fallback; primary draw enforcement is event-driven
         end
     end
 end)

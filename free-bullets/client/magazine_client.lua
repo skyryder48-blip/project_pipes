@@ -175,6 +175,92 @@ function PerformMagazineLoad(args, amount)
 end
 
 -- ============================================================================
+-- MAGAZINE FILL (TOP OFF)
+-- ============================================================================
+
+--[[
+    Fill a partially loaded magazine to capacity using the same ammo type.
+    Pulls loose rounds from inventory to top off.
+]]
+function FillMagazine(magazineItem, magazineSlot, metadata)
+    local magInfo = Config.Magazines[magazineItem]
+    if not magInfo then return end
+
+    local currentCount = metadata and tonumber(metadata.count) or 0
+    local ammoType = metadata and metadata.ammoType
+    if currentCount <= 0 or not ammoType then
+        lib.notify({ title = 'Error', description = 'Magazine has no ammo type set', type = 'error' })
+        return
+    end
+
+    if currentCount >= magInfo.capacity then
+        lib.notify({ title = 'Full', description = 'Magazine is already at full capacity', type = 'inform' })
+        return
+    end
+
+    -- Find the ammo item for this ammo type
+    local caliber = nil
+    for _, weaponName in ipairs(magInfo.weapons) do
+        local wHash = Config._WeaponNameToHash[weaponName]
+        local weaponInfo = wHash and Config.Weapons[wHash]
+        if weaponInfo then
+            caliber = weaponInfo.caliber
+            break
+        end
+    end
+
+    if not caliber then
+        lib.notify({ title = 'Error', description = 'Cannot determine caliber', type = 'error' })
+        return
+    end
+
+    local ammoConfig = Config.AmmoTypes[caliber] and Config.AmmoTypes[caliber][ammoType]
+    if not ammoConfig then
+        lib.notify({ title = 'Error', description = 'Unknown ammo type', type = 'error' })
+        return
+    end
+
+    local available = exports.ox_inventory:Search('count', ammoConfig.item)
+    if available <= 0 then
+        lib.notify({ title = 'No Ammo', description = string.format('No %s rounds available', string.upper(ammoType)), type = 'error' })
+        return
+    end
+
+    local needed = magInfo.capacity - currentCount
+    local toLoad = math.min(needed, available)
+    local loadTime = toLoad * Config.MagazineSystem.loadTimePerRound * 1000
+
+    if lib.progressCircle({
+        duration = loadTime,
+        label = 'Filling magazine...',
+        position = 'bottom',
+        useWhileDead = false,
+        canCancel = true,
+        disable = {
+            car = true,
+            move = false,
+            combat = true,
+        },
+        anim = {
+            dict = 'weapons@pistol@',
+            clip = 'reload_aim',
+        },
+    }) then
+        TriggerServerEvent('ammo:fillMagazine', {
+            magazineItem = magazineItem,
+            magazineSlot = magazineSlot,
+            ammoItem = ammoConfig.item,
+            ammoType = ammoType,
+            currentCount = currentCount,
+            fillAmount = toLoad,
+            maxCapacity = magInfo.capacity,
+        })
+    else
+        lib.notify({ title = 'Cancelled', description = 'Magazine fill cancelled', type = 'error' })
+    end
+end
+
+-- ============================================================================
 -- MAGAZINE UNLOADING
 -- ============================================================================
 
@@ -1040,6 +1126,18 @@ exports('magazineContextMenu', function(data)
                 UnloadMagazine(item.name, item.slot, item.metadata, true)
             end
         })
+
+        -- Fill option: show only if magazine is not already full
+        if count < magInfo.capacity then
+            table.insert(options, {
+                title = 'Fill Magazine',
+                description = string.format('Top off to %d/%d (%d needed)', magInfo.capacity, magInfo.capacity, magInfo.capacity - count),
+                icon = 'fill-drip',
+                onSelect = function()
+                    FillMagazine(item.name, item.slot, item.metadata)
+                end
+            })
+        end
     else
         table.insert(options, {
             title = 'Full Load',

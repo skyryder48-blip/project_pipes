@@ -115,6 +115,102 @@ RegisterNetEvent('ammo:loadMagazine', function(data)
 end)
 
 -- ============================================================================
+-- MAGAZINE FILL (TOP OFF)
+-- ============================================================================
+
+--[[
+    Fill a partially loaded magazine to capacity using the same ammo type.
+    Removes the partial magazine and loose ammo, returns a fuller magazine.
+]]
+RegisterNetEvent('ammo:fillMagazine', function(data)
+    local source = source
+
+    if not data.magazineItem or not data.ammoItem or not data.fillAmount or not data.currentCount then
+        return
+    end
+
+    local magInfo = Config.Magazines[data.magazineItem]
+    if not magInfo then return end
+
+    local fillAmount = math.min(data.fillAmount, data.maxCapacity - data.currentCount)
+    if fillAmount <= 0 then return end
+
+    -- Check player has enough loose ammo
+    local ammoCount = ox_inventory:Search(source, 'count', data.ammoItem)
+    if ammoCount < fillAmount then
+        TriggerClientEvent('ox_lib:notify', source, {
+            title = 'Error',
+            description = 'Not enough ammunition',
+            type = 'error'
+        })
+        return
+    end
+
+    -- Remove the partially loaded magazine
+    local removed = ox_inventory:RemoveItem(source, data.magazineItem, 1, nil, data.magazineSlot)
+    if not removed then
+        TriggerClientEvent('ox_lib:notify', source, {
+            title = 'Error',
+            description = 'Failed to access magazine',
+            type = 'error'
+        })
+        return
+    end
+
+    -- Remove the loose ammo
+    local ammoRemoved = ox_inventory:RemoveItem(source, data.ammoItem, fillAmount)
+    if not ammoRemoved then
+        -- Refund the magazine with its original metadata
+        local refundMeta = {
+            ammoType = data.ammoType,
+            count = data.currentCount,
+            maxCount = data.maxCapacity,
+            label = string.format('%s (%d/%d %s)', magInfo.label, data.currentCount, data.maxCapacity, string.upper(data.ammoType)),
+        }
+        ox_inventory:AddItem(source, data.magazineItem, 1, refundMeta)
+        TriggerClientEvent('ox_lib:notify', source, {
+            title = 'Error',
+            description = 'Failed to access ammunition',
+            type = 'error'
+        })
+        return
+    end
+
+    -- Create the topped-off magazine
+    local newCount = data.currentCount + fillAmount
+    local metadata = {
+        ammoType = data.ammoType,
+        count = newCount,
+        maxCount = data.maxCapacity,
+        label = string.format('%s (%d/%d %s)', magInfo.label, newCount, data.maxCapacity, string.upper(data.ammoType)),
+    }
+
+    local added = ox_inventory:AddItem(source, data.magazineItem, 1, metadata)
+    if added then
+        TriggerClientEvent('ox_lib:notify', source, {
+            title = 'Magazine Filled',
+            description = string.format('Added %d rounds (%d/%d %s)', fillAmount, newCount, data.maxCapacity, string.upper(data.ammoType)),
+            type = 'success'
+        })
+    else
+        -- Refund everything
+        local refundMeta = {
+            ammoType = data.ammoType,
+            count = data.currentCount,
+            maxCount = data.maxCapacity,
+            label = string.format('%s (%d/%d %s)', magInfo.label, data.currentCount, data.maxCapacity, string.upper(data.ammoType)),
+        }
+        ox_inventory:AddItem(source, data.magazineItem, 1, refundMeta)
+        ox_inventory:AddItem(source, data.ammoItem, fillAmount)
+        TriggerClientEvent('ox_lib:notify', source, {
+            title = 'Error',
+            description = 'Failed to create filled magazine',
+            type = 'error'
+        })
+    end
+end)
+
+-- ============================================================================
 -- MAGAZINE UNLOADING
 -- ============================================================================
 

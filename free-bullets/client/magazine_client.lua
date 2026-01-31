@@ -456,6 +456,10 @@ AddEventHandler('ox_inventory:currentWeapon', function(weapon)
         return
     end
 
+    -- Only enforce on weapons managed by the magazine system.
+    -- Base game weapons and melee are not in Config.Weapons and must be left alone.
+    if not Config.Weapons[weaponHash] then return end
+
     -- Immediately zero ammo pool (safe during draw)
     SetPedAmmo(PlayerPedId(), weaponHash, 0)
 
@@ -531,11 +535,11 @@ CreateThread(function()
                 end
             end
 
-            -- Per-frame ammo enforcement: weapons with no magazine, speedloader,
-            -- or chambered round must not fire. SetPedAmmo(0) drains the pool and
-            -- DisableControlAction blocks the trigger so the phantom clip round
-            -- left by GTA's draw animation can never be fired.
-            if not equippedMagazines[weapon] and not equippedSpeedloaders[weapon] and not chamberedRounds[weapon] then
+            -- Per-frame ammo enforcement: managed weapons with no magazine,
+            -- speedloader, or chambered round must not fire. Only applies to
+            -- weapons in Config.Weapons — base game weapons and melee are
+            -- left alone.
+            if Config.Weapons[weapon] and not equippedMagazines[weapon] and not equippedSpeedloaders[weapon] and not chamberedRounds[weapon] then
                 SetPedAmmo(ped, weapon, 0)
                 DisableControlAction(0, 24, true)   -- Attack
                 DisableControlAction(0, 257, true)  -- Attack 2 (aim+fire)
@@ -654,11 +658,12 @@ CreateThread(function()
                             SetPedAmmo(ped, weapon, 1)
                             SetAmmoInClip(ped, weapon, 1)
                         end
-                    else
-                        -- No tracking at all - zero the weapon (pool + clip)
+                    elseif Config.Weapons[weapon] then
+                        -- Managed weapon with no tracking - zero it (pool + clip)
                         SetPedAmmo(ped, weapon, 0)
                         SetAmmoInClip(ped, weapon, 0)
                     end
+                    -- Base game weapons / melee not in Config.Weapons: left alone
                 end
 
                 -- Magazine ammo management: our tracked magData.count is the
@@ -686,10 +691,11 @@ CreateThread(function()
                     end
                 end
 
-                -- Ongoing enforcement: GTA can re-apply default ammo after our
-                -- initial zero during the draw animation. Keep enforcing for
-                -- weapons with no tracked magazine, speedloader, or chambered round.
-                if not equippedMagazines[weapon] and not equippedSpeedloaders[weapon] then
+                -- Ongoing enforcement for managed weapons only: GTA can re-apply
+                -- default ammo after our initial zero during the draw animation.
+                -- Base game weapons and melee are not in Config.Weapons and are
+                -- left alone.
+                if Config.Weapons[weapon] and not equippedMagazines[weapon] and not equippedSpeedloaders[weapon] then
                     if chamberedRounds[weapon] then
                         local currentAmmo = GetAmmoInPedWeapon(ped, weapon)
                         if currentAmmo <= 0 then

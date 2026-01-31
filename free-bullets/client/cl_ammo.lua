@@ -142,8 +142,8 @@ function RemoveAllClipComponents(weaponHash)
 
     -- Remove all possible clip components for this weapon
     for ammoType, _ in pairs(ammoTypes) do
-        -- Try standard, extended, and drum variants
-        for _, suffix in ipairs({ '_CLIP_', '_EXTCLIP_', '_DRUM_' }) do
+        -- Try standard, extended, drum, stick, and clip2 variants
+        for _, suffix in ipairs({ '_CLIP_', '_EXTCLIP_', '_DRUM_', '_STICK_', '_CLIP2_' }) do
             local componentName = weaponInfo.componentBase .. suffix .. string.upper(ammoType)
             local componentHash = GetHashKey(componentName)
             if HasPedGotWeaponComponent(ped, weaponHash, componentHash) then
@@ -205,7 +205,7 @@ if Config.Debug then
             print('Checking components:')
             local ammoTypes = Config.AmmoTypes[weaponInfo.caliber] or {}
             for ammoType, _ in pairs(ammoTypes) do
-                for _, suffix in ipairs({ '_CLIP_', '_EXTCLIP_', '_DRUM_' }) do
+                for _, suffix in ipairs({ '_CLIP_', '_EXTCLIP_', '_DRUM_', '_STICK_', '_CLIP2_' }) do
                     local componentName = weaponInfo.componentBase .. suffix .. string.upper(ammoType)
                     local hasIt = HasPedGotWeaponComponent(ped, weaponHash, GetHashKey(componentName))
                     if hasIt then

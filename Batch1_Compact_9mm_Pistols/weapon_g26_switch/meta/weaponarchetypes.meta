@@ -8,5 +8,17 @@
 			<ptfxAssetName>NULL</ptfxAssetName>
 			<lodDist value="500"/>
 		</Item>
+		<Item>
+			<modelName>w_pi_g26_switch_mag1</modelName>
+			<txdName>w_pi_g26_switch</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="500"/>
+		</Item>
+		<Item>
+			<modelName>w_pi_g26_switch_mag2</modelName>
+			<txdName>w_pi_g26_switch</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="500"/>
+		</Item>
 	</InitDatas>
 </CWeaponModelInfo__InitDataList>

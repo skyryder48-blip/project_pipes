@@ -538,8 +538,25 @@ AddEventHandler('ox_inventory:currentWeapon', function(weapon)
 
     local weaponHash = weapon.hash
 
-    -- Tracked weapons are handled by the monitoring thread on weapon change
-    if equippedMagazines[weaponHash] or equippedSpeedloaders[weaponHash] or chamberedRounds[weaponHash] then
+    -- Tracked weapons: re-apply clip component immediately on draw.
+    -- ox_inventory re-gives the weapon fresh, stripping all components.
+    -- The monitoring thread also re-applies on weapon-switch but this
+    -- fires first, giving immediate visual feedback.
+    if equippedMagazines[weaponHash] then
+        local magData = equippedMagazines[weaponHash]
+        local componentName = GetMagazineComponentName(weaponHash, magData.item, magData.ammoType)
+        if componentName then
+            GiveWeaponComponentToPed(PlayerPedId(), weaponHash, GetHashKey(componentName))
+        end
+        return
+    elseif equippedSpeedloaders[weaponHash] then
+        local slData = equippedSpeedloaders[weaponHash]
+        local componentName = GetMagazineComponentName(weaponHash, slData.item, slData.ammoType)
+        if componentName then
+            GiveWeaponComponentToPed(PlayerPedId(), weaponHash, GetHashKey(componentName))
+        end
+        return
+    elseif chamberedRounds[weaponHash] then
         return
     end
 
@@ -730,15 +747,24 @@ CreateThread(function()
                     lastMonitoredWeapon = weapon
 
                     if equippedMagazines[weapon] then
-                        -- Re-apply tracked ammo when re-drawing weapon with magazine.
-                        -- GTA resets ammo to weapon-meta defaults during draw, which
-                        -- corrupts our count and causes eject to return empty mags.
+                        -- Re-apply tracked ammo AND clip component when re-drawing.
+                        -- ox_inventory re-gives the weapon fresh on each draw,
+                        -- stripping all components. Without re-applying, the
+                        -- magazine model won't be visible on the weapon.
                         local magData = equippedMagazines[weapon]
+                        local componentName = GetMagazineComponentName(weapon, magData.item, magData.ammoType)
+                        if componentName then
+                            GiveWeaponComponentToPed(ped, weapon, GetHashKey(componentName))
+                        end
                         SetPedAmmo(ped, weapon, magData.count)
                         SetAmmoInClip(ped, weapon, magData.count)
                     elseif equippedSpeedloaders[weapon] then
                         -- Same re-apply for speedloader-loaded revolvers
                         local slData = equippedSpeedloaders[weapon]
+                        local componentName = GetMagazineComponentName(weapon, slData.item, slData.ammoType)
+                        if componentName then
+                            GiveWeaponComponentToPed(ped, weapon, GetHashKey(componentName))
+                        end
                         SetPedAmmo(ped, weapon, slData.count)
                         SetAmmoInClip(ped, weapon, slData.count)
                     elseif chamberedRounds[weapon] then

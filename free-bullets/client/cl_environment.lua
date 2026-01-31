@@ -173,9 +173,11 @@ function ProcessBulletImpact(ped, weapon)
 
     -- Check what was hit
     if hitEntity and hitEntity ~= 0 and DoesEntityExist(hitEntity) then
-        local entityType = GetEntityType(hitEntity)
-        local modelHash = GetEntityModel(hitEntity)
-        local entityNetId = NetworkGetNetworkIdFromEntity(hitEntity)
+        local ok, entityType, modelHash, entityNetId = pcall(function()
+            return GetEntityType(hitEntity), GetEntityModel(hitEntity), NetworkGetNetworkIdFromEntity(hitEntity)
+        end)
+
+        if not ok or not modelHash then return end
 
         -- Check fuel targets
         local fuelTarget = fuelTargetModels[modelHash]

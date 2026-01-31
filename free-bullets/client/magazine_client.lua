@@ -330,6 +330,7 @@ function EquipMagazine(magazineItem, magazineSlot, metadata)
                 metadata = metadata,
             },
             currentMagazine = currentMagSnapshot,
+            hasChamberedRound = chamberedRounds[currentWeapon] and true or false,
         })
 
         -- Clear old magazine tracking immediately after sending the event.
@@ -526,6 +527,11 @@ CreateThread(function()
                         magData.count = math.max(0, magData.count - 1)
                     end
                 end
+            elseif chamberedRounds[weapon] then
+                -- Chambered round fired - clear the flag
+                if IsPedShooting(ped) then
+                    chamberedRounds[weapon] = nil
+                end
             end
 
             -- Keybind reload: detect disabled control press to trigger manual reload
@@ -650,14 +656,11 @@ CreateThread(function()
                         SetPedAmmo(ped, weapon, slData.count)
                         SetAmmoInClip(ped, weapon, slData.count)
                     elseif chamberedRounds[weapon] then
-                        -- Chambered round from a previous eject - validate and enforce
-                        local currentAmmo = GetAmmoInPedWeapon(ped, weapon)
-                        if currentAmmo <= 0 then
-                            chamberedRounds[weapon] = nil
-                        elseif currentAmmo > 1 then
-                            SetPedAmmo(ped, weapon, 1)
-                            SetAmmoInClip(ped, weapon, 1)
-                        end
+                        -- Chambered round from a previous eject - enforce 1 round.
+                        -- Same approach as magazines: our flag is the source of
+                        -- truth, not GTA's ammo value.
+                        SetPedAmmo(ped, weapon, 1)
+                        SetAmmoInClip(ped, weapon, 1)
                     elseif Config.Weapons[weapon] then
                         -- Managed weapon with no tracking - zero it (pool + clip)
                         SetPedAmmo(ped, weapon, 0)
@@ -697,13 +700,10 @@ CreateThread(function()
                 -- left alone.
                 if Config.Weapons[weapon] and not equippedMagazines[weapon] and not equippedSpeedloaders[weapon] then
                     if chamberedRounds[weapon] then
-                        local currentAmmo = GetAmmoInPedWeapon(ped, weapon)
-                        if currentAmmo <= 0 then
-                            chamberedRounds[weapon] = nil
-                        elseif currentAmmo > 1 then
-                            SetPedAmmo(ped, weapon, 1)
-                            SetAmmoInClip(ped, weapon, 1)
-                        end
+                        -- Enforce chambered round - our flag is source of truth.
+                        -- IsPedShooting in per-frame thread clears the flag when fired.
+                        SetPedAmmo(ped, weapon, 1)
+                        SetAmmoInClip(ped, weapon, 1)
                     else
                         if GetAmmoInPedWeapon(ped, weapon) > 0 then
                             SetPedAmmo(ped, weapon, 0)
@@ -872,6 +872,7 @@ function PerformCombatReload(weaponHash, selectedMag)
             ammoType = currentMag.ammoType,
             count = currentMag.count or 0,  -- Tracked count for chambered round calc
         } or nil,
+        hasChamberedRound = chamberedRounds[weaponHash] and true or false,
     })
 
     -- Play reload animation (handled by game, but we set the timing)

@@ -215,9 +215,10 @@ RegisterNetEvent('ammo:equipMagazine', function(data)
         return
     end
 
-    -- Chambered round: if the old magazine had rounds, 1 stays in the chamber
-    -- The returned magazine gets (count - 1) since the chambered round stays in the weapon
-    local hasChamberedRound = false
+    -- Chambered round: either already in the weapon from a prior eject
+    -- (client sends hasChamberedRound), or created now if the old magazine
+    -- had rounds (1 stays in the chamber, returned mag gets count - 1).
+    local hasChamberedRound = data.hasChamberedRound or false
 
     if currentMag and currentMag.item then
         local currentMagInfo = Config.Magazines[currentMag.item]
@@ -343,8 +344,10 @@ RegisterNetEvent('ammo:combatReload', function(data)
         return
     end
 
-    -- Chambered round: if the old magazine had rounds, 1 stays in the chamber
-    local hasChamberedRound = false
+    -- Chambered round: either already in the weapon from a prior eject
+    -- (client sends hasChamberedRound), or created now if the old magazine
+    -- had rounds (1 stays in the chamber, returned mag gets count - 1).
+    local hasChamberedRound = data.hasChamberedRound or false
 
     if currentMag and currentMag.item then
         local currentMagInfo = Config.Magazines[currentMag.item]

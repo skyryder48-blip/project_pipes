@@ -473,7 +473,7 @@ RegisterNetEvent('ammo:magazineEquipped', function(data)
                 local ammoTypes = Config.AmmoTypes[weaponInfo.caliber]
                 if ammoTypes then
                     for ammoType, _ in pairs(ammoTypes) do
-                        for _, suffix in ipairs({ '_CLIP_', '_EXTCLIP_', '_DRUM_' }) do
+                        for _, suffix in ipairs({ '_CLIP_', '_EXTCLIP_', '_DRUM_', '_STICK_', '_CLIP2_' }) do
                             local otherName = weaponInfo.componentBase .. suffix .. string.upper(ammoType)
                             local otherHash = GetHashKey(otherName)
                             if otherHash ~= componentHash and HasPedGotWeaponComponent(ped, weaponHash, otherHash) then
@@ -961,7 +961,14 @@ function PerformCombatReload(weaponHash, selectedMag)
         hasChamberedRound = chamberedRounds[weaponHash] and true or false,
     })
 
-    -- Play reload animation (handled by game, but we set the timing)
+    -- Trigger GTA's weapon-specific reload animation (magazine drop, insert,
+    -- slide rack etc). This is safe because our ammo tracking (IsPedShooting +
+    -- monitoring thread enforcement) is independent of GTA's reload behavior.
+    -- MakePedReload bypasses the disabled R key input — it's programmatic.
+    local ped = PlayerPedId()
+    MakePedReload(ped)
+
+    -- Wait for the reload animation to complete
     Wait(swapTime * 1000)
 
     isReloading = false
@@ -1458,7 +1465,7 @@ RegisterNetEvent('ammo:speedloaderEquipped', function(data)
             local ammoTypes = Config.AmmoTypes[weaponInfo.caliber]
             if ammoTypes then
                 for ammoType, _ in pairs(ammoTypes) do
-                    for _, suffix in ipairs({ '_CLIP_', '_EXTCLIP_', '_DRUM_' }) do
+                    for _, suffix in ipairs({ '_CLIP_', '_EXTCLIP_', '_DRUM_', '_STICK_', '_CLIP2_' }) do
                         local otherName = weaponInfo.componentBase .. suffix .. string.upper(ammoType)
                         local otherHash = GetHashKey(otherName)
                         if otherHash ~= componentHash and HasPedGotWeaponComponent(ped, weaponHash, otherHash) then

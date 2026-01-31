@@ -406,21 +406,18 @@ RegisterNetEvent('ammo:magazineEquipped', function(data)
     SetAmmoInClip(ped, weaponHash, data.count)
 
     -- GTA processes component changes asynchronously and zeros ammo every frame
-    -- during that window. The monitoring thread (100ms) can't keep up with per-frame
-    -- zeroing. Spawn a temporary per-frame thread that fights GTA frame-for-frame
-    -- until the component processing settles and ammo sticks.
-    local applyCount = data.count
+    -- during that window. Enforce our tracked count per-frame until it settles.
+    -- Uses live magData.count (not a snapshot) so IsPedShooting decrements
+    -- are respected if the player fires during this window.
     CreateThread(function()
         for i = 1, 120 do  -- ~2000ms at 60fps
             Wait(0)
             local p = PlayerPedId()
             if GetSelectedPedWeapon(p) ~= weaponHash then break end
-            if not equippedMagazines[weaponHash] then break end
-            -- If ammo is between 1 and applyCount-1, player has fired - stop enforcing
-            local curAmmo = GetAmmoInPedWeapon(p, weaponHash)
-            if curAmmo > 0 and curAmmo < applyCount then break end
-            SetPedAmmo(p, weaponHash, applyCount)
-            SetAmmoInClip(p, weaponHash, applyCount)
+            local magData = equippedMagazines[weaponHash]
+            if not magData then break end
+            SetPedAmmo(p, weaponHash, magData.count)
+            SetAmmoInClip(p, weaponHash, magData.count)
         end
     end)
 
@@ -510,6 +507,19 @@ CreateThread(function()
                     local equipTime = magazineEquipTime[weapon]
                     if not equipTime or (GetGameTimer() - equipTime) > 3000 then
                         ClearPedTasks(ped)
+                    end
+                end
+            end
+
+            -- Per-frame shot detection: IsPedShooting fires on the exact frame
+            -- a round leaves the barrel. Decrement our authoritative tracked
+            -- count so HandleEmptyMagazine is driven by OUR data, not GTA's
+            -- unreliable ammo pool values.
+            if equippedMagazines[weapon] then
+                if IsPedShooting(ped) then
+                    local magData = equippedMagazines[weapon]
+                    if magData then
+                        magData.count = math.max(0, magData.count - 1)
                     end
                 end
             end
@@ -651,58 +661,28 @@ CreateThread(function()
                     end
                 end
 
-                -- Track ammo for weapons with equipped magazines
+                -- Magazine ammo management: our tracked magData.count is the
+                -- sole source of truth. IsPedShooting (per-frame thread) is the
+                -- primary way count gets decremented. Here we just enforce.
                 if equippedMagazines[weapon] then
-                    local currentAmmo = GetAmmoInPedWeapon(ped, weapon)
                     local magData = equippedMagazines[weapon]
+                    local currentAmmo = GetAmmoInPedWeapon(ped, weapon)
 
-                    if currentAmmo > magData.count then
-                        -- GTA re-applied default ammo above tracked count - correct it
+                    -- Backup shot detection: if GTA reports a non-zero value below
+                    -- our tracked count, real shots were fired that the per-frame
+                    -- IsPedShooting check might have missed. Trust non-zero
+                    -- decreases only — GTA's zeroing is always to 0, never to a
+                    -- random low number.
+                    if currentAmmo > 0 and currentAmmo < magData.count then
+                        magData.count = currentAmmo
+                    end
+
+                    -- Handle empty magazine or enforce tracked count
+                    if magData.count <= 0 and not isReloading then
+                        HandleEmptyMagazine(weapon)
+                    else
                         SetPedAmmo(ped, weapon, magData.count)
                         SetAmmoInClip(ped, weapon, magData.count)
-                    elseif currentAmmo < magData.count then
-                        -- During reload animations, GTA zeros ammo as part of
-                        -- the swap. Skip count updates while reloading to avoid
-                        -- corrupting the tracked count.
-                        if isReloading then
-                            -- Do nothing - reload in progress, ammo will be
-                            -- re-applied when the new magazine is equipped
-                        elseif IsPedReloading(ped) and magazineEquipTime[weapon] and (GetGameTimer() - magazineEquipTime[weapon]) < 3000 then
-                            -- GTA is performing its native reload animation after
-                            -- a component change. Ammo is zeroed during the animation.
-                            -- Re-apply tracked count so we don't false-detect empty.
-                            SetPedAmmo(ped, weapon, magData.count)
-                            SetAmmoInClip(ped, weapon, magData.count)
-                        elseif currentAmmo == 0 and magazineEquipTime[weapon] and (GetGameTimer() - magazineEquipTime[weapon]) < 500 then
-                            -- GTA zeroes ammo when processing clip component changes
-                            -- (e.g. switching ammo types). Re-apply within grace period.
-                            SetPedAmmo(ped, weapon, magData.count)
-                            SetAmmoInClip(ped, weapon, magData.count)
-                        else
-                            if currentAmmo > 0 then
-                                -- Rounds consumed by firing - update tracking
-                                magData.count = currentAmmo
-                                magData.emptyVerified = nil
-                            elseif magData.count <= 1 then
-                                -- Last round fired (count was 0 or 1) - genuine empty
-                                magData.count = 0
-                                magData.emptyVerified = nil
-                                HandleEmptyMagazine(weapon)
-                            elseif not magData.emptyVerified then
-                                -- Ammo dropped to 0 but tracked count was > 1.
-                                -- GTA can transiently zero ammo (component reprocessing,
-                                -- streaming, animation states). Re-apply once and verify
-                                -- on the next cycle - if still 0, it's genuine.
-                                magData.emptyVerified = true
-                                SetPedAmmo(ped, weapon, magData.count)
-                                SetAmmoInClip(ped, weapon, magData.count)
-                            else
-                                -- Second consecutive cycle at 0 after re-apply - genuine empty
-                                magData.count = 0
-                                magData.emptyVerified = nil
-                                HandleEmptyMagazine(weapon)
-                            end
-                        end
                     end
                 end
 

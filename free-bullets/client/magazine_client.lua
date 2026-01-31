@@ -175,6 +175,92 @@ function PerformMagazineLoad(args, amount)
 end
 
 -- ============================================================================
+-- MAGAZINE FILL (TOP OFF)
+-- ============================================================================
+
+--[[
+    Fill a partially loaded magazine to capacity using the same ammo type.
+    Pulls loose rounds from inventory to top off.
+]]
+function FillMagazine(magazineItem, magazineSlot, metadata)
+    local magInfo = Config.Magazines[magazineItem]
+    if not magInfo then return end
+
+    local currentCount = metadata and tonumber(metadata.count) or 0
+    local ammoType = metadata and metadata.ammoType
+    if currentCount <= 0 or not ammoType then
+        lib.notify({ title = 'Error', description = 'Magazine has no ammo type set', type = 'error' })
+        return
+    end
+
+    if currentCount >= magInfo.capacity then
+        lib.notify({ title = 'Full', description = 'Magazine is already at full capacity', type = 'inform' })
+        return
+    end
+
+    -- Find the ammo item for this ammo type
+    local caliber = nil
+    for _, weaponName in ipairs(magInfo.weapons) do
+        local wHash = Config._WeaponNameToHash[weaponName]
+        local weaponInfo = wHash and Config.Weapons[wHash]
+        if weaponInfo then
+            caliber = weaponInfo.caliber
+            break
+        end
+    end
+
+    if not caliber then
+        lib.notify({ title = 'Error', description = 'Cannot determine caliber', type = 'error' })
+        return
+    end
+
+    local ammoConfig = Config.AmmoTypes[caliber] and Config.AmmoTypes[caliber][ammoType]
+    if not ammoConfig then
+        lib.notify({ title = 'Error', description = 'Unknown ammo type', type = 'error' })
+        return
+    end
+
+    local available = exports.ox_inventory:Search('count', ammoConfig.item)
+    if available <= 0 then
+        lib.notify({ title = 'No Ammo', description = string.format('No %s rounds available', string.upper(ammoType)), type = 'error' })
+        return
+    end
+
+    local needed = magInfo.capacity - currentCount
+    local toLoad = math.min(needed, available)
+    local loadTime = toLoad * Config.MagazineSystem.loadTimePerRound * 1000
+
+    if lib.progressCircle({
+        duration = loadTime,
+        label = 'Filling magazine...',
+        position = 'bottom',
+        useWhileDead = false,
+        canCancel = true,
+        disable = {
+            car = true,
+            move = false,
+            combat = true,
+        },
+        anim = {
+            dict = 'weapons@pistol@',
+            clip = 'reload_aim',
+        },
+    }) then
+        TriggerServerEvent('ammo:fillMagazine', {
+            magazineItem = magazineItem,
+            magazineSlot = magazineSlot,
+            ammoItem = ammoConfig.item,
+            ammoType = ammoType,
+            currentCount = currentCount,
+            fillAmount = toLoad,
+            maxCapacity = magInfo.capacity,
+        })
+    else
+        lib.notify({ title = 'Cancelled', description = 'Magazine fill cancelled', type = 'error' })
+    end
+end
+
+-- ============================================================================
 -- MAGAZINE UNLOADING
 -- ============================================================================
 
@@ -387,7 +473,7 @@ RegisterNetEvent('ammo:magazineEquipped', function(data)
                 local ammoTypes = Config.AmmoTypes[weaponInfo.caliber]
                 if ammoTypes then
                     for ammoType, _ in pairs(ammoTypes) do
-                        for _, suffix in ipairs({ '_CLIP_', '_EXTCLIP_', '_DRUM_' }) do
+                        for _, suffix in ipairs({ '_CLIP_', '_EXTCLIP_', '_DRUM_', '_STICK_', '_CLIP2_' }) do
                             local otherName = weaponInfo.componentBase .. suffix .. string.upper(ammoType)
                             local otherHash = GetHashKey(otherName)
                             if otherHash ~= componentHash and HasPedGotWeaponComponent(ped, weaponHash, otherHash) then
@@ -452,8 +538,25 @@ AddEventHandler('ox_inventory:currentWeapon', function(weapon)
 
     local weaponHash = weapon.hash
 
-    -- Tracked weapons are handled by the monitoring thread on weapon change
-    if equippedMagazines[weaponHash] or equippedSpeedloaders[weaponHash] or chamberedRounds[weaponHash] then
+    -- Tracked weapons: re-apply clip component immediately on draw.
+    -- ox_inventory re-gives the weapon fresh, stripping all components.
+    -- The monitoring thread also re-applies on weapon-switch but this
+    -- fires first, giving immediate visual feedback.
+    if equippedMagazines[weaponHash] then
+        local magData = equippedMagazines[weaponHash]
+        local componentName = GetMagazineComponentName(weaponHash, magData.item, magData.ammoType)
+        if componentName then
+            GiveWeaponComponentToPed(PlayerPedId(), weaponHash, GetHashKey(componentName))
+        end
+        return
+    elseif equippedSpeedloaders[weaponHash] then
+        local slData = equippedSpeedloaders[weaponHash]
+        local componentName = GetMagazineComponentName(weaponHash, slData.item, slData.ammoType)
+        if componentName then
+            GiveWeaponComponentToPed(PlayerPedId(), weaponHash, GetHashKey(componentName))
+        end
+        return
+    elseif chamberedRounds[weaponHash] then
         return
     end
 
@@ -644,15 +747,24 @@ CreateThread(function()
                     lastMonitoredWeapon = weapon
 
                     if equippedMagazines[weapon] then
-                        -- Re-apply tracked ammo when re-drawing weapon with magazine.
-                        -- GTA resets ammo to weapon-meta defaults during draw, which
-                        -- corrupts our count and causes eject to return empty mags.
+                        -- Re-apply tracked ammo AND clip component when re-drawing.
+                        -- ox_inventory re-gives the weapon fresh on each draw,
+                        -- stripping all components. Without re-applying, the
+                        -- magazine model won't be visible on the weapon.
                         local magData = equippedMagazines[weapon]
+                        local componentName = GetMagazineComponentName(weapon, magData.item, magData.ammoType)
+                        if componentName then
+                            GiveWeaponComponentToPed(ped, weapon, GetHashKey(componentName))
+                        end
                         SetPedAmmo(ped, weapon, magData.count)
                         SetAmmoInClip(ped, weapon, magData.count)
                     elseif equippedSpeedloaders[weapon] then
                         -- Same re-apply for speedloader-loaded revolvers
                         local slData = equippedSpeedloaders[weapon]
+                        local componentName = GetMagazineComponentName(weapon, slData.item, slData.ammoType)
+                        if componentName then
+                            GiveWeaponComponentToPed(ped, weapon, GetHashKey(componentName))
+                        end
                         SetPedAmmo(ped, weapon, slData.count)
                         SetAmmoInClip(ped, weapon, slData.count)
                     elseif chamberedRounds[weapon] then
@@ -875,7 +987,14 @@ function PerformCombatReload(weaponHash, selectedMag)
         hasChamberedRound = chamberedRounds[weaponHash] and true or false,
     })
 
-    -- Play reload animation (handled by game, but we set the timing)
+    -- Trigger GTA's weapon-specific reload animation (magazine drop, insert,
+    -- slide rack etc). This is safe because our ammo tracking (IsPedShooting +
+    -- monitoring thread enforcement) is independent of GTA's reload behavior.
+    -- MakePedReload bypasses the disabled R key input — it's programmatic.
+    local ped = PlayerPedId()
+    MakePedReload(ped)
+
+    -- Wait for the reload animation to complete
     Wait(swapTime * 1000)
 
     isReloading = false
@@ -1040,6 +1159,18 @@ exports('magazineContextMenu', function(data)
                 UnloadMagazine(item.name, item.slot, item.metadata, true)
             end
         })
+
+        -- Fill option: show only if magazine is not already full
+        if count < magInfo.capacity then
+            table.insert(options, {
+                title = 'Fill Magazine',
+                description = string.format('Top off to %d/%d (%d needed)', magInfo.capacity, magInfo.capacity, magInfo.capacity - count),
+                icon = 'fill-drip',
+                onSelect = function()
+                    FillMagazine(item.name, item.slot, item.metadata)
+                end
+            })
+        end
     else
         table.insert(options, {
             title = 'Full Load',
@@ -1360,7 +1491,7 @@ RegisterNetEvent('ammo:speedloaderEquipped', function(data)
             local ammoTypes = Config.AmmoTypes[weaponInfo.caliber]
             if ammoTypes then
                 for ammoType, _ in pairs(ammoTypes) do
-                    for _, suffix in ipairs({ '_CLIP_', '_EXTCLIP_', '_DRUM_' }) do
+                    for _, suffix in ipairs({ '_CLIP_', '_EXTCLIP_', '_DRUM_', '_STICK_', '_CLIP2_' }) do
                         local otherName = weaponInfo.componentBase .. suffix .. string.upper(ammoType)
                         local otherHash = GetHashKey(otherName)
                         if otherHash ~= componentHash and HasPedGotWeaponComponent(ped, weaponHash, otherHash) then

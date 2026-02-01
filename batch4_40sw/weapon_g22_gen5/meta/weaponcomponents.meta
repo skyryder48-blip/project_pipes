@@ -5,155 +5,336 @@
     Standard mag: 15 rounds, Mag2: 31rds, Mag3: 50rds, Mag4: 100rds, Mag5: 27rds
 -->
 <CWeaponComponentInfoBlob>
-  <Infos>
-    <!-- FMJ MAGAZINE - Standard 15 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G22_GEN5_CLIP_FMJ</Name>
-      <Model>w_pi_g22_gen5_mag1</Model>
-      <LocName>WCT_CLIP_FMJ</LocName>
-      <LocDesc>WCD_CLIP_FMJ</LocDesc>
-      <ClipSize value="15" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+	<Infos>
+		<!-- FMJ MAGAZINE - Standard 15 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G22_GEN5_CLIP_FMJ</Name>
+			<Model>w_pi_g22_gen5_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="15"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- HOLLOW POINT MAGAZINE - Standard 15 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G22_GEN5_CLIP_HP</Name>
-      <Model>w_pi_g22_gen5_mag1</Model>
-      <LocName>WCT_CLIP_HP</LocName>
-      <LocDesc>WCD_CLIP_HP</LocDesc>
-      <ClipSize value="15" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- HOLLOW POINT MAGAZINE - Standard 15 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G22_GEN5_CLIP_HP</Name>
+			<Model>w_pi_g22_gen5_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="15"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- ARMOR PIERCING MAGAZINE - Standard 15 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G22_GEN5_CLIP_AP</Name>
-      <Model>w_pi_g22_gen5_mag1</Model>
-      <LocName>WCT_CLIP_AP</LocName>
-      <LocDesc>WCD_CLIP_AP</LocDesc>
-      <ClipSize value="15" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- ARMOR PIERCING MAGAZINE - Standard 15 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G22_GEN5_CLIP_AP</Name>
+			<Model>w_pi_g22_gen5_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="15"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- EXTENDED FMJ MAGAZINE (MAG2) - 31 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G22_GEN5_EXTCLIP_FMJ</Name>
-      <Model>w_pi_g22_gen5_mag2</Model>
-      <LocName>WCT_EXTCLIP_FMJ</LocName>
-      <LocDesc>WCD_EXTCLIP_FMJ</LocDesc>
-      <ClipSize value="31" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- EXTENDED FMJ MAGAZINE - 31 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G22_GEN5_EXTCLIP_FMJ</Name>
+			<Model>w_pi_g22_gen5_mag2</Model>
+			<LocName>WCT_CLIP2</LocName>
+			<LocDesc>WCD_CP_CLIP2</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="31"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- EXTENDED HOLLOW POINT MAGAZINE (MAG2) - 31 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G22_GEN5_EXTCLIP_HP</Name>
-      <Model>w_pi_g22_gen5_mag2</Model>
-      <LocName>WCT_EXTCLIP_HP</LocName>
-      <LocDesc>WCD_EXTCLIP_HP</LocDesc>
-      <ClipSize value="31" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- EXTENDED HOLLOW POINT MAGAZINE - 31 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G22_GEN5_EXTCLIP_HP</Name>
+			<Model>w_pi_g22_gen5_mag2</Model>
+			<LocName>WCT_CLIP2</LocName>
+			<LocDesc>WCD_CP_CLIP2</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="31"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- EXTENDED ARMOR PIERCING MAGAZINE (MAG2) - 31 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G22_GEN5_EXTCLIP_AP</Name>
-      <Model>w_pi_g22_gen5_mag2</Model>
-      <LocName>WCT_EXTCLIP_AP</LocName>
-      <LocDesc>WCD_EXTCLIP_AP</LocDesc>
-      <ClipSize value="31" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- EXTENDED ARMOR PIERCING MAGAZINE - 31 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G22_GEN5_EXTCLIP_AP</Name>
+			<Model>w_pi_g22_gen5_mag2</Model>
+			<LocName>WCT_CLIP2</LocName>
+			<LocDesc>WCD_CP_CLIP2</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="31"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- DRUM FMJ MAGAZINE (MAG3) - 50 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G22_GEN5_DRUM_FMJ</Name>
-      <Model>w_pi_g22_gen5_mag3</Model>
-      <LocName>WCT_DRUM_FMJ</LocName>
-      <LocDesc>WCD_DRUM_FMJ</LocDesc>
-      <ClipSize value="50" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- DRUM FMJ MAGAZINE - 50 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G22_GEN5_DRUM_FMJ</Name>
+			<Model>w_pi_g22_gen5_mag3</Model>
+			<LocName>WCT_CLIP2</LocName>
+			<LocDesc>WCD_CP_CLIP2</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="50"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- DRUM HOLLOW POINT MAGAZINE (MAG3) - 50 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G22_GEN5_DRUM_HP</Name>
-      <Model>w_pi_g22_gen5_mag3</Model>
-      <LocName>WCT_DRUM_HP</LocName>
-      <LocDesc>WCD_DRUM_HP</LocDesc>
-      <ClipSize value="50" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- DRUM HOLLOW POINT MAGAZINE - 50 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G22_GEN5_DRUM_HP</Name>
+			<Model>w_pi_g22_gen5_mag3</Model>
+			<LocName>WCT_CLIP2</LocName>
+			<LocDesc>WCD_CP_CLIP2</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="50"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- DRUM ARMOR PIERCING MAGAZINE (MAG3) - 50 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G22_GEN5_DRUM_AP</Name>
-      <Model>w_pi_g22_gen5_mag3</Model>
-      <LocName>WCT_DRUM_AP</LocName>
-      <LocDesc>WCD_DRUM_AP</LocDesc>
-      <ClipSize value="50" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- DRUM ARMOR PIERCING MAGAZINE - 50 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G22_GEN5_DRUM_AP</Name>
+			<Model>w_pi_g22_gen5_mag3</Model>
+			<LocName>WCT_CLIP2</LocName>
+			<LocDesc>WCD_CP_CLIP2</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="50"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- LARGE DRUM FMJ MAGAZINE (MAG4) - 100 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G22_GEN5_LGDRUM_FMJ</Name>
-      <Model>w_pi_g22_gen5_mag3</Model>
-      <LocName>WCT_LGDRUM_FMJ</LocName>
-      <LocDesc>WCD_LGDRUM_FMJ</LocDesc>
-      <ClipSize value="100" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- LARGE DRUM FMJ MAGAZINE - 100 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G22_GEN5_LGDRUM_FMJ</Name>
+			<Model>w_pi_g22_gen5_mag3</Model>
+			<LocName>WCT_CLIP2</LocName>
+			<LocDesc>WCD_CP_CLIP2</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="100"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- LARGE DRUM HOLLOW POINT MAGAZINE (MAG4) - 100 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G22_GEN5_LGDRUM_HP</Name>
-      <Model>w_pi_g22_gen5_mag3</Model>
-      <LocName>WCT_LGDRUM_HP</LocName>
-      <LocDesc>WCD_LGDRUM_HP</LocDesc>
-      <ClipSize value="100" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- LARGE DRUM HOLLOW POINT MAGAZINE - 100 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G22_GEN5_LGDRUM_HP</Name>
+			<Model>w_pi_g22_gen5_mag3</Model>
+			<LocName>WCT_CLIP2</LocName>
+			<LocDesc>WCD_CP_CLIP2</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="100"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- LARGE DRUM ARMOR PIERCING MAGAZINE (MAG4) - 100 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G22_GEN5_LGDRUM_AP</Name>
-      <Model>w_pi_g22_gen5_mag3</Model>
-      <LocName>WCT_LGDRUM_AP</LocName>
-      <LocDesc>WCD_LGDRUM_AP</LocDesc>
-      <ClipSize value="100" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- LARGE DRUM ARMOR PIERCING MAGAZINE - 100 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G22_GEN5_LGDRUM_AP</Name>
+			<Model>w_pi_g22_gen5_mag3</Model>
+			<LocName>WCT_CLIP2</LocName>
+			<LocDesc>WCD_CP_CLIP2</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="100"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- STICK FMJ MAGAZINE (MAG5) - 27 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G22_GEN5_STICK_FMJ</Name>
-      <Model>w_pi_g22_gen5_mag1</Model>
-      <LocName>WCT_STICK_FMJ</LocName>
-      <LocDesc>WCD_STICK_FMJ</LocDesc>
-      <ClipSize value="27" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- STICK FMJ MAGAZINE - 27 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G22_GEN5_STICK_FMJ</Name>
+			<Model>w_pi_g22_gen5_mag1</Model>
+			<LocName>WCT_CLIP2</LocName>
+			<LocDesc>WCD_CP_CLIP2</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="27"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- STICK HOLLOW POINT MAGAZINE (MAG5) - 27 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G22_GEN5_STICK_HP</Name>
-      <Model>w_pi_g22_gen5_mag5</Model>
-      <LocName>WCT_STICK_HP</LocName>
-      <LocDesc>WCD_STICK_HP</LocDesc>
-      <ClipSize value="27" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- STICK HOLLOW POINT MAGAZINE - 27 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G22_GEN5_STICK_HP</Name>
+			<Model>w_pi_g22_gen5_mag5</Model>
+			<LocName>WCT_CLIP2</LocName>
+			<LocDesc>WCD_CP_CLIP2</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="27"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- STICK ARMOR PIERCING MAGAZINE (MAG5) - 27 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G22_GEN5_STICK_AP</Name>
-      <Model>w_pi_g22_gen5_mag5</Model>
-      <LocName>WCT_STICK_AP</LocName>
-      <LocDesc>WCD_STICK_AP</LocDesc>
-      <ClipSize value="27" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
-  </Infos>
+		<!-- STICK ARMOR PIERCING MAGAZINE - 27 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G22_GEN5_STICK_AP</Name>
+			<Model>w_pi_g22_gen5_mag5</Model>
+			<LocName>WCT_CLIP2</LocName>
+			<LocDesc>WCD_CP_CLIP2</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="27"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
+	</Infos>
+	<InfoBlobName/>
 </CWeaponComponentInfoBlob>

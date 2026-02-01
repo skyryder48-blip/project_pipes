@@ -5,35 +5,72 @@
     Clip Size: 10 rounds
 -->
 <CWeaponComponentInfoBlob>
-  <Infos>
-    <!-- FMJ MAGAZINE - Standard 10 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_SIGP22_CLIP_FMJ</Name>
-      <Model>w_pi_sig_p22_mag1</Model>
-      <LocName>WCT_CLIP_FMJ</LocName>
-      <LocDesc>WCD_CLIP_FMJ</LocDesc>
-      <ClipSize value="10" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+	<Infos>
+		<!-- FMJ MAGAZINE - Standard 10 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_SIGP22_CLIP_FMJ</Name>
+			<Model>w_pi_sig_p22_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="10"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- HOLLOW POINT MAGAZINE - Standard 10 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_SIGP22_CLIP_HP</Name>
-      <Model>w_pi_sig_p22_mag1</Model>
-      <LocName>WCT_CLIP_HP</LocName>
-      <LocDesc>WCD_CLIP_HP</LocDesc>
-      <ClipSize value="10" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- HOLLOW POINT MAGAZINE - Standard 10 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_SIGP22_CLIP_HP</Name>
+			<Model>w_pi_sig_p22_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="10"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- ARMOR PIERCING MAGAZINE - Standard 10 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_SIGP22_CLIP_AP</Name>
-      <Model>w_pi_sig_p22_mag1</Model>
-      <LocName>WCT_CLIP_AP</LocName>
-      <LocDesc>WCD_CLIP_AP</LocDesc>
-      <ClipSize value="10" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
-  </Infos>
+		<!-- ARMOR PIERCING MAGAZINE - Standard 10 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_SIGP22_CLIP_AP</Name>
+			<Model>w_pi_sig_p22_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="10"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
+	</Infos>
+	<InfoBlobName/>
 </CWeaponComponentInfoBlob>

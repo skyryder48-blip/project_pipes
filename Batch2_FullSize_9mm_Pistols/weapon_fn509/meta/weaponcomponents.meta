@@ -5,65 +5,138 @@
     Standard mag: 17 rounds, Extended: 24 rounds
 -->
 <CWeaponComponentInfoBlob>
-  <Infos>
-    <!-- FMJ MAGAZINE - Standard 17 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_FN509_CLIP_FMJ</Name>
-      <Model>w_pi_fn509_mag1</Model>
-      <LocName>WCT_CLIP_FMJ</LocName>
-      <LocDesc>WCD_CLIP_FMJ</LocDesc>
-      <ClipSize value="17" />
-      <AmmoInfo ref="AMMO_9MM_FMJ" />
-    </Item>
+	<Infos>
+		<!-- FMJ MAGAZINE - Standard 17 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_FN509_CLIP_FMJ</Name>
+			<Model>w_pi_fn509_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="17"/>
+			<AmmoInfo ref="AMMO_9MM_FMJ"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- HOLLOW POINT MAGAZINE - Standard 17 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_FN509_CLIP_HP</Name>
-      <Model>w_pi_fn509_mag1</Model>
-      <LocName>WCT_CLIP_HP</LocName>
-      <LocDesc>WCD_CLIP_HP</LocDesc>
-      <ClipSize value="17" />
-      <AmmoInfo ref="AMMO_9MM_HP" />
-    </Item>
+		<!-- HOLLOW POINT MAGAZINE - Standard 17 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_FN509_CLIP_HP</Name>
+			<Model>w_pi_fn509_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="17"/>
+			<AmmoInfo ref="AMMO_9MM_HP"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- ARMOR PIERCING MAGAZINE - Standard 17 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_FN509_CLIP_AP</Name>
-      <Model>w_pi_fn509_mag1</Model>
-      <LocName>WCT_CLIP_AP</LocName>
-      <LocDesc>WCD_CLIP_AP</LocDesc>
-      <ClipSize value="17" />
-      <AmmoInfo ref="AMMO_9MM_AP" />
-    </Item>
+		<!-- ARMOR PIERCING MAGAZINE - Standard 17 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_FN509_CLIP_AP</Name>
+			<Model>w_pi_fn509_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="17"/>
+			<AmmoInfo ref="AMMO_9MM_AP"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- EXTENDED FMJ MAGAZINE - 24 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_FN509_EXTCLIP_FMJ</Name>
-      <Model>w_pi_fn509_mag2</Model>
-      <LocName>WCT_EXTCLIP_FMJ</LocName>
-      <LocDesc>WCD_EXTCLIP_FMJ</LocDesc>
-      <ClipSize value="24" />
-      <AmmoInfo ref="AMMO_9MM_FMJ" />
-    </Item>
+		<!-- EXTENDED FMJ MAGAZINE - 24 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_FN509_EXTCLIP_FMJ</Name>
+			<Model>w_pi_fn509_mag2</Model>
+			<LocName>WCT_CLIP2</LocName>
+			<LocDesc>WCD_CP_CLIP2</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="24"/>
+			<AmmoInfo ref="AMMO_9MM_FMJ"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- EXTENDED HOLLOW POINT MAGAZINE - 24 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_FN509_EXTCLIP_HP</Name>
-      <Model>w_pi_fn509_mag2</Model>
-      <LocName>WCT_EXTCLIP_HP</LocName>
-      <LocDesc>WCD_EXTCLIP_HP</LocDesc>
-      <ClipSize value="24" />
-      <AmmoInfo ref="AMMO_9MM_HP" />
-    </Item>
+		<!-- EXTENDED HOLLOW POINT MAGAZINE - 24 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_FN509_EXTCLIP_HP</Name>
+			<Model>w_pi_fn509_mag2</Model>
+			<LocName>WCT_CLIP2</LocName>
+			<LocDesc>WCD_CP_CLIP2</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="24"/>
+			<AmmoInfo ref="AMMO_9MM_HP"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- EXTENDED ARMOR PIERCING MAGAZINE - 24 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_FN509_EXTCLIP_AP</Name>
-      <Model>w_pi_fn509_mag2</Model>
-      <LocName>WCT_EXTCLIP_AP</LocName>
-      <LocDesc>WCD_EXTCLIP_AP</LocDesc>
-      <ClipSize value="24" />
-      <AmmoInfo ref="AMMO_9MM_AP" />
-    </Item>
-  </Infos>
+		<!-- EXTENDED ARMOR PIERCING MAGAZINE - 24 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_FN509_EXTCLIP_AP</Name>
+			<Model>w_pi_fn509_mag2</Model>
+			<LocName>WCT_CLIP2</LocName>
+			<LocDesc>WCD_CP_CLIP2</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="24"/>
+			<AmmoInfo ref="AMMO_9MM_AP"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
+	</Infos>
+	<InfoBlobName/>
 </CWeaponComponentInfoBlob>

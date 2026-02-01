@@ -5,155 +5,336 @@
     Standard mag: 33 rounds, Mag2: 37 rounds, Mag3: 50 rounds, Mag4: 100 rounds, Mag5: 28 rounds
 -->
 <CWeaponComponentInfoBlob>
-  <Infos>
-    <!-- FMJ MAGAZINE - Standard 33 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G45_TAN_CLIP_FMJ</Name>
-      <Model>w_pi_g45_tan_mag1</Model>
-      <LocName>WCT_CLIP_FMJ</LocName>
-      <LocDesc>WCD_CLIP_FMJ</LocDesc>
-      <ClipSize value="17" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+	<Infos>
+		<!-- FMJ MAGAZINE - Standard 17 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G45_TAN_CLIP_FMJ</Name>
+			<Model>w_pi_g45_tan_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="17"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- HOLLOW POINT MAGAZINE - Standard 33 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G45_TAN_CLIP_HP</Name>
-      <Model>w_pi_g45_tan_mag1</Model>
-      <LocName>WCT_CLIP_HP</LocName>
-      <LocDesc>WCD_CLIP_HP</LocDesc>
-      <ClipSize value="17" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- HOLLOW POINT MAGAZINE - Standard 17 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G45_TAN_CLIP_HP</Name>
+			<Model>w_pi_g45_tan_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="17"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- ARMOR PIERCING MAGAZINE - Standard 33 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G45_TAN_CLIP_AP</Name>
-      <Model>w_pi_g45_tan_mag1</Model>
-      <LocName>WCT_CLIP_AP</LocName>
-      <LocDesc>WCD_CLIP_AP</LocDesc>
-      <ClipSize value="17" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- ARMOR PIERCING MAGAZINE - Standard 17 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G45_TAN_CLIP_AP</Name>
+			<Model>w_pi_g45_tan_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="17"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- MAG2 FMJ MAGAZINE - 37 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G45_TAN_MAG2_FMJ</Name>
-      <Model>w_pi_g45_tan_mag1</Model>
-      <LocName>WCT_MAG2_FMJ</LocName>
-      <LocDesc>WCD_MAG2_FMJ</LocDesc>
-      <ClipSize value="33" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- FMJ MAGAZINE - Standard 33 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G45_TAN_MAG2_FMJ</Name>
+			<Model>w_pi_g45_tan_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="33"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- MAG2 HOLLOW POINT MAGAZINE - 37 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G45_TAN_MAG2_HP</Name>
-      <Model>w_pi_g45_tan_mag1</Model>
-      <LocName>WCT_MAG2_HP</LocName>
-      <LocDesc>WCD_MAG2_HP</LocDesc>
-      <ClipSize value="33" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- HOLLOW POINT MAGAZINE - Standard 33 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G45_TAN_MAG2_HP</Name>
+			<Model>w_pi_g45_tan_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="33"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- MAG2 ARMOR PIERCING MAGAZINE - 37 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G45_TAN_MAG2_AP</Name>
-      <Model>w_pi_g45_tan_mag2</Model>
-      <LocName>WCT_MAG2_AP</LocName>
-      <LocDesc>WCD_MAG2_AP</LocDesc>
-      <ClipSize value="33" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- ARMOR PIERCING MAGAZINE - Standard 33 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G45_TAN_MAG2_AP</Name>
+			<Model>w_pi_g45_tan_mag2</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="33"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- MAG3 FMJ MAGAZINE - 50 round drum -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G45_TAN_MAG3_FMJ</Name>
-      <Model>w_pi_g45_tan_mag3</Model>
-      <LocName>WCT_MAG3_FMJ</LocName>
-      <LocDesc>WCD_MAG3_FMJ</LocDesc>
-      <ClipSize value="50" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- MAG3 FMJ MAGAZINE - 50 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G45_TAN_MAG3_FMJ</Name>
+			<Model>w_pi_g45_tan_mag3</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="50"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- MAG3 HOLLOW POINT MAGAZINE - 50 round drum -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G45_TAN_MAG3_HP</Name>
-      <Model>w_pi_g45_tan_mag3</Model>
-      <LocName>WCT_MAG3_HP</LocName>
-      <LocDesc>WCD_MAG3_HP</LocDesc>
-      <ClipSize value="50" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- MAG3 HOLLOW POINT MAGAZINE - 50 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G45_TAN_MAG3_HP</Name>
+			<Model>w_pi_g45_tan_mag3</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="50"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- MAG3 ARMOR PIERCING MAGAZINE - 50 round drum -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G45_TAN_MAG3_AP</Name>
-      <Model>w_pi_g45_tan_mag3</Model>
-      <LocName>WCT_MAG3_AP</LocName>
-      <LocDesc>WCD_MAG3_AP</LocDesc>
-      <ClipSize value="50" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- MAG3 ARMOR PIERCING MAGAZINE - 50 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G45_TAN_MAG3_AP</Name>
+			<Model>w_pi_g45_tan_mag3</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="50"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- MAG4 FMJ MAGAZINE - 100 round drum -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G45_TAN_MAG4_FMJ</Name>
-      <Model>w_pi_g45_tan_mag4</Model>
-      <LocName>WCT_MAG4_FMJ</LocName>
-      <LocDesc>WCD_MAG4_FMJ</LocDesc>
-      <ClipSize value="100" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- FMJ MAGAZINE - Standard 100 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G45_TAN_MAG4_FMJ</Name>
+			<Model>w_pi_g45_tan_mag4</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="100"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- MAG4 HOLLOW POINT MAGAZINE - 100 round drum -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G45_TAN_MAG4_HP</Name>
-      <Model>w_pi_g45_tan_mag4</Model>
-      <LocName>WCT_MAG4_HP</LocName>
-      <LocDesc>WCD_MAG4_HP</LocDesc>
-      <ClipSize value="100" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- HOLLOW POINT MAGAZINE - Standard 100 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G45_TAN_MAG4_HP</Name>
+			<Model>w_pi_g45_tan_mag4</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="100"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- MAG4 ARMOR PIERCING MAGAZINE - 100 round drum -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G45_TAN_MAG4_AP</Name>
-      <Model>w_pi_g45_tan_mag4</Model>
-      <LocName>WCT_MAG4_AP</LocName>
-      <LocDesc>WCD_MAG4_AP</LocDesc>
-      <ClipSize value="100" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- ARMOR PIERCING MAGAZINE - Standard 100 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G45_TAN_MAG4_AP</Name>
+			<Model>w_pi_g45_tan_mag4</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="100"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- MAG5 FMJ MAGAZINE - 28 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G45_TAN_MAG5_FMJ</Name>
-      <Model>w_pi_g45_tan_mag5</Model>
-      <LocName>WCT_MAG5_FMJ</LocName>
-      <LocDesc>WCD_MAG5_FMJ</LocDesc>
-      <ClipSize value="27" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- FMJ MAGAZINE - Standard 27 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G45_TAN_MAG5_FMJ</Name>
+			<Model>w_pi_g45_tan_mag5</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="27"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- MAG5 HOLLOW POINT MAGAZINE - 28 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G45_TAN_MAG5_HP</Name>
-      <Model>w_pi_g45_tan_mag5</Model>
-      <LocName>WCT_MAG5_HP</LocName>
-      <LocDesc>WCD_MAG5_HP</LocDesc>
-      <ClipSize value="27" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- HOLLOW POINT MAGAZINE - Standard 27 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G45_TAN_MAG5_HP</Name>
+			<Model>w_pi_g45_tan_mag5</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="27"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- MAG5 ARMOR PIERCING MAGAZINE - 28 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_G45_TAN_MAG5_AP</Name>
-      <Model>w_pi_g45_tan_mag5</Model>
-      <LocName>WCT_MAG5_AP</LocName>
-      <LocDesc>WCD_MAG5_AP</LocDesc>
-      <ClipSize value="27" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
-  </Infos>
+		<!-- ARMOR PIERCING MAGAZINE - Standard 27 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_G45_TAN_MAG5_AP</Name>
+			<Model>w_pi_g45_tan_mag5</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="27"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
+	</Infos>
+	<InfoBlobName/>
 </CWeaponComponentInfoBlob>

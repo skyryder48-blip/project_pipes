@@ -605,13 +605,16 @@ CreateThread(function()
             if Config.MagazineSystem.disableNativeReload then
                 DisableControlAction(0, reloadKey, true)
 
-                if IsPedReloading(ped) then
+                if IsPedReloading(ped) and not isReloading then
                     -- After a magazine equip, GTA starts a native reload to
                     -- process the component change.  If we cancel it every
                     -- frame, GTA retries every frame and zeros ammo each
                     -- time — an infinite loop that drains the magazine.
                     -- Allow GTA to finish its internal reload during the
                     -- grace window after equip.
+                    -- Skip entirely when isReloading is true — that means
+                    -- we called MakePedReload intentionally and must not
+                    -- cancel our own programmatic reload animation.
                     local equipTime = magazineEquipTime[weapon]
                     if not equipTime or (GetGameTimer() - equipTime) > 3000 then
                         ClearPedTasks(ped)

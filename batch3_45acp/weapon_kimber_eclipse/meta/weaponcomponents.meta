@@ -5,65 +5,138 @@
     Standard mag: 8 rounds, Extended: 11 rounds
 -->
 <CWeaponComponentInfoBlob>
-  <Infos>
-    <!-- FMJ MAGAZINE - Standard 8 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_KIMBER_ECLIPSE_CLIP_FMJ</Name>
-      <Model>w_pi_kimber_eclipse_mag1</Model>
-      <LocName>WCT_CLIP_FMJ</LocName>
-      <LocDesc>WCD_CLIP_FMJ</LocDesc>
-      <ClipSize value="8" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+	<Infos>
+		<!-- FMJ MAGAZINE - Standard 8 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_KIMBER_ECLIPSE_CLIP_FMJ</Name>
+			<Model>w_pi_kimber_eclipse_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="8"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- HOLLOW POINT MAGAZINE - Standard 8 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_KIMBER_ECLIPSE_CLIP_HP</Name>
-      <Model>w_pi_kimber_eclipse_mag1</Model>
-      <LocName>WCT_CLIP_HP</LocName>
-      <LocDesc>WCD_CLIP_HP</LocDesc>
-      <ClipSize value="8" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- HOLLOW POINT MAGAZINE - Standard 8 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_KIMBER_ECLIPSE_CLIP_HP</Name>
+			<Model>w_pi_kimber_eclipse_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="8"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- ARMOR PIERCING MAGAZINE - Standard 8 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_KIMBER_ECLIPSE_CLIP_AP</Name>
-      <Model>w_pi_kimber_eclipse_mag1</Model>
-      <LocName>WCT_CLIP_AP</LocName>
-      <LocDesc>WCD_CLIP_AP</LocDesc>
-      <ClipSize value="8" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- ARMOR PIERCING MAGAZINE - Standard 8 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_KIMBER_ECLIPSE_CLIP_AP</Name>
+			<Model>w_pi_kimber_eclipse_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="8"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- EXTENDED FMJ MAGAZINE - 11 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_KIMBER_ECLIPSE_EXTCLIP_FMJ</Name>
-      <Model>w_pi_kimber_eclipse_mag2</Model>
-      <LocName>WCT_EXTCLIP_FMJ</LocName>
-      <LocDesc>WCD_EXTCLIP_FMJ</LocDesc>
-      <ClipSize value="11" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- EXTENDED FMJ MAGAZINE - 11 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_KIMBER_ECLIPSE_EXTCLIP_FMJ</Name>
+			<Model>w_pi_kimber_eclipse_mag2</Model>
+			<LocName>WCT_CLIP2</LocName>
+			<LocDesc>WCD_CP_CLIP2</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="11"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- EXTENDED HOLLOW POINT MAGAZINE - 11 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_KIMBER_ECLIPSE_EXTCLIP_HP</Name>
-      <Model>w_pi_kimber_eclipse_mag2</Model>
-      <LocName>WCT_EXTCLIP_HP</LocName>
-      <LocDesc>WCD_EXTCLIP_HP</LocDesc>
-      <ClipSize value="11" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
+		<!-- EXTENDED HOLLOW POINT MAGAZINE - 11 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_KIMBER_ECLIPSE_EXTCLIP_HP</Name>
+			<Model>w_pi_kimber_eclipse_mag2</Model>
+			<LocName>WCT_CLIP2</LocName>
+			<LocDesc>WCD_CP_CLIP2</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="11"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- EXTENDED ARMOR PIERCING MAGAZINE - 11 round -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_KIMBER_ECLIPSE_EXTCLIP_AP</Name>
-      <Model>w_pi_kimber_eclipse_mag2</Model>
-      <LocName>WCT_EXTCLIP_AP</LocName>
-      <LocDesc>WCD_EXTCLIP_AP</LocDesc>
-      <ClipSize value="11" />
-      <AmmoInfo ref="AMMO_PISTOL" />
-    </Item>
-  </Infos>
+		<!-- EXTENDED ARMOR PIERCING MAGAZINE - 11 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_KIMBER_ECLIPSE_EXTCLIP_AP</Name>
+			<Model>w_pi_kimber_eclipse_mag2</Model>
+			<LocName>WCT_CLIP2</LocName>
+			<LocDesc>WCD_CP_CLIP2</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="11"/>
+			<AmmoInfo ref="AMMO_PISTOL"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
+	</Infos>
+	<InfoBlobName/>
 </CWeaponComponentInfoBlob>

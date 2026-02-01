@@ -5,85 +5,182 @@
     Standard: 10 rounds, Mag2: 40 rounds, Mag3: 50 rounds, Mag4: 30 rounds
 -->
 <CWeaponComponentInfoBlob>
-  <Infos>
-    <!-- STANDARD MAGAZINE - 10 round Subsonic -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_BLUEARP_CLIP_SUBSONIC</Name>
-      <Model>w_pi_bluearp_mag1</Model>
-      <LocName>WCT_CLIP_SUBSONIC</LocName>
-      <LocDesc>WCD_CLIP_300SUB</LocDesc>
-      <ClipSize value="10" />
-      <AmmoInfo ref="AMMO_300BLK_SUBSONIC" />
-    </Item>
+	<Infos>
+		<!-- STANDARD MAGAZINE - Standard 10 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_BLUEARP_CLIP_SUBSONIC</Name>
+			<Model>w_pi_bluearp_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="10"/>
+			<AmmoInfo ref="AMMO_300BLK_SUBSONIC"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- STANDARD MAGAZINE - 10 round Hunting -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_BLUEARP_CLIP_HUNTING</Name>
-      <Model>w_pi_bluearp_mag1</Model>
-      <LocName>WCT_CLIP_HUNTING</LocName>
-      <LocDesc>WCD_CLIP_300HUNT</LocDesc>
-      <ClipSize value="10" />
-      <AmmoInfo ref="AMMO_300BLK_HUNTING" />
-    </Item>
+		<!-- STANDARD MAGAZINE - Standard 10 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_BLUEARP_CLIP_HUNTING</Name>
+			<Model>w_pi_bluearp_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="10"/>
+			<AmmoInfo ref="AMMO_300BLK_HUNTING"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- MAG2 - 40 round Subsonic -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_BLUEARP_CLIP2_SUBSONIC</Name>
-      <Model>w_pi_bluearp_mag1</Model>
-      <LocName>WCT_CLIP2_SUBSONIC</LocName>
-      <LocDesc>WCD_CLIP2_300SUB</LocDesc>
-      <ClipSize value="40" />
-      <AmmoInfo ref="AMMO_300BLK_SUBSONIC" />
-    </Item>
+		<!-- STANDARD MAGAZINE - Standard 40 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_BLUEARP_CLIP2_SUBSONIC</Name>
+			<Model>w_pi_bluearp_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="40"/>
+			<AmmoInfo ref="AMMO_300BLK_SUBSONIC"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- MAG2 - 40 round Hunting -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_BLUEARP_CLIP2_HUNTING</Name>
-      <Model>w_pi_bluearp_mag1</Model>
-      <LocName>WCT_CLIP2_HUNTING</LocName>
-      <LocDesc>WCD_CLIP2_300HUNT</LocDesc>
-      <ClipSize value="40" />
-      <AmmoInfo ref="AMMO_300BLK_HUNTING" />
-    </Item>
+		<!-- STANDARD MAGAZINE - Standard 40 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_BLUEARP_CLIP2_HUNTING</Name>
+			<Model>w_pi_bluearp_mag1</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="40"/>
+			<AmmoInfo ref="AMMO_300BLK_HUNTING"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- MAG3 - 50 round Subsonic -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_BLUEARP_CLIP3_SUBSONIC</Name>
-      <Model>w_pi_bluearp_mag3</Model>
-      <LocName>WCT_CLIP3_SUBSONIC</LocName>
-      <LocDesc>WCD_CLIP3_300SUB</LocDesc>
-      <ClipSize value="50" />
-      <AmmoInfo ref="AMMO_300BLK_SUBSONIC" />
-    </Item>
+		<!-- STANDARD MAGAZINE - Standard 50 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_BLUEARP_CLIP3_SUBSONIC</Name>
+			<Model>w_pi_bluearp_mag3</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="50"/>
+			<AmmoInfo ref="AMMO_300BLK_SUBSONIC"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- MAG3 - 50 round Hunting -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_BLUEARP_CLIP3_HUNTING</Name>
-      <Model>w_pi_bluearp_mag3</Model>
-      <LocName>WCT_CLIP3_HUNTING</LocName>
-      <LocDesc>WCD_CLIP3_300HUNT</LocDesc>
-      <ClipSize value="50" />
-      <AmmoInfo ref="AMMO_300BLK_HUNTING" />
-    </Item>
+		<!-- STANDARD MAGAZINE - Standard 50 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_BLUEARP_CLIP3_HUNTING</Name>
+			<Model>w_pi_bluearp_mag3</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="50"/>
+			<AmmoInfo ref="AMMO_300BLK_HUNTING"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- MAG4 - 30 round Subsonic -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_BLUEARP_CLIP4_SUBSONIC</Name>
-      <Model>w_pi_bluearp_mag4</Model>
-      <LocName>WCT_CLIP4_SUBSONIC</LocName>
-      <LocDesc>WCD_CLIP4_300SUB</LocDesc>
-      <ClipSize value="30" />
-      <AmmoInfo ref="AMMO_300BLK_SUBSONIC" />
-    </Item>
+		<!-- STANDARD MAGAZINE - Standard 30 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_BLUEARP_CLIP4_SUBSONIC</Name>
+			<Model>w_pi_bluearp_mag4</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="30"/>
+			<AmmoInfo ref="AMMO_300BLK_SUBSONIC"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
 
-    <!-- MAG4 - 30 round Hunting -->
-    <Item type="CWeaponComponentClipInfo">
-      <Name>COMPONENT_BLUEARP_CLIP4_HUNTING</Name>
-      <Model>w_pi_bluearp_mag4</Model>
-      <LocName>WCT_CLIP4_HUNTING</LocName>
-      <LocDesc>WCD_CLIP4_300HUNT</LocDesc>
-      <ClipSize value="30" />
-      <AmmoInfo ref="AMMO_300BLK_HUNTING" />
-    </Item>
-  </Infos>
+		<!-- STANDARD MAGAZINE - Standard 30 round -->
+		<Item type="CWeaponComponentClipInfo">
+			<Name>COMPONENT_BLUEARP_CLIP4_HUNTING</Name>
+			<Model>w_pi_bluearp_mag4</Model>
+			<LocName>WCT_CLIP1</LocName>
+			<LocDesc>WCD_CP_CLIP1</LocDesc>
+			<AttachBone>AAPClip</AttachBone>
+			<WeaponAttachBone>WAPClip</WeaponAttachBone>
+			<AccuracyModifier type="NULL"/>
+			<DamageModifier type="NULL"/>
+			<bShownOnWheel value="false"/>
+			<CreateObject value="true"/>
+			<HudDamage value="0"/>
+			<HudSpeed value="0"/>
+			<HudCapacity value="0"/>
+			<HudAccuracy value="0"/>
+			<HudRange value="0"/>
+			<ClipSize value="30"/>
+			<AmmoInfo ref="AMMO_300BLK_HUNTING"/>
+			<ReloadData ref="RELOAD_DEFAULT_WITH_EMPTIES"/>
+		</Item>
+	</Infos>
+	<InfoBlobName/>
 </CWeaponComponentInfoBlob>

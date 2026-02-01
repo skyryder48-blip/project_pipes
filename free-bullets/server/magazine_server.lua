@@ -13,6 +13,89 @@
 local ox_inventory = exports.ox_inventory
 
 -- ============================================================================
+-- EQUIPPED STATE PERSISTENCE
+-- ============================================================================
+-- When a magazine/speedloader is removed from inventory and equipped to a
+-- weapon, it's tracked here so it can be returned on disconnect or resource
+-- stop. The client syncs updated ammo counts periodically.
+
+local playerEquippedMags = {}         -- [playerId] = { [weaponHash] = { item, ammoType, count, maxCount } }
+local playerEquippedSpeedloaders = {} -- [playerId] = { [weaponHash] = { item, ammoType, count } }
+
+local function TrackEquippedMagazine(playerId, weaponHash, data)
+    if not playerEquippedMags[playerId] then
+        playerEquippedMags[playerId] = {}
+    end
+    playerEquippedMags[playerId][weaponHash] = data
+end
+
+local function UntrackEquippedMagazine(playerId, weaponHash)
+    if playerEquippedMags[playerId] then
+        playerEquippedMags[playerId][weaponHash] = nil
+    end
+end
+
+local function TrackEquippedSpeedloader(playerId, weaponHash, data)
+    if not playerEquippedSpeedloaders[playerId] then
+        playerEquippedSpeedloaders[playerId] = {}
+    end
+    playerEquippedSpeedloaders[playerId][weaponHash] = data
+end
+
+local function UntrackEquippedSpeedloader(playerId, weaponHash)
+    if playerEquippedSpeedloaders[playerId] then
+        playerEquippedSpeedloaders[playerId][weaponHash] = nil
+    end
+end
+
+-- Return all equipped magazines and speedloader rounds to a player's inventory.
+-- Called on disconnect and resource stop.
+local function ReturnEquippedToInventory(playerId)
+    local mags = playerEquippedMags[playerId]
+    if mags then
+        for weaponHash, magData in pairs(mags) do
+            local magInfo = Config.Magazines[magData.item]
+            if magData.count and magData.count > 0 then
+                local metadata = {
+                    ammoType = magData.ammoType,
+                    count = magData.count,
+                    maxCount = magData.maxCount or (magInfo and magInfo.capacity) or magData.count,
+                    label = string.format('%s (%d/%d %s)',
+                        magInfo and magInfo.label or magData.item,
+                        magData.count,
+                        magData.maxCount or (magInfo and magInfo.capacity) or magData.count,
+                        string.upper(magData.ammoType or 'fmj')
+                    ),
+                }
+                ox_inventory:AddItem(playerId, magData.item, 1, metadata)
+            else
+                -- Empty magazine - no metadata (stackable)
+                ox_inventory:AddItem(playerId, magData.item, 1)
+            end
+        end
+        playerEquippedMags[playerId] = nil
+    end
+
+    local sls = playerEquippedSpeedloaders[playerId]
+    if sls then
+        for weaponHash, slData in pairs(sls) do
+            if slData.count and slData.count > 0 then
+                -- Return remaining cylinder rounds as loose ammo
+                local weaponInfo = Config.Weapons[weaponHash]
+                if weaponInfo then
+                    local ammoConfig = Config.AmmoTypes[weaponInfo.caliber]
+                        and Config.AmmoTypes[weaponInfo.caliber][slData.ammoType]
+                    if ammoConfig and ammoConfig.item then
+                        ox_inventory:AddItem(playerId, ammoConfig.item, slData.count)
+                    end
+                end
+            end
+        end
+        playerEquippedSpeedloaders[playerId] = nil
+    end
+end
+
+-- ============================================================================
 -- MAGAZINE LOADING
 -- ============================================================================
 
@@ -393,6 +476,14 @@ RegisterNetEvent('ammo:equipMagazine', function(data)
         -- It only comes back when player reloads/swaps magazines.
     end
 
+    -- Track equipped magazine for disconnect persistence
+    TrackEquippedMagazine(source, data.weaponHash, {
+        item = newMag.item,
+        ammoType = newMag.metadata.ammoType,
+        count = actualLoad,
+        maxCount = magInfo and magInfo.capacity or actualLoad,
+    })
+
     -- Tell client to apply the new magazine (with clamped count)
     TriggerClientEvent('ammo:magazineEquipped', source, {
         weaponHash = data.weaponHash,
@@ -503,6 +594,14 @@ RegisterNetEvent('ammo:combatReload', function(data)
         end
     end
 
+    -- Track equipped magazine for disconnect persistence
+    TrackEquippedMagazine(source, data.weaponHash, {
+        item = newMag.item,
+        ammoType = newMag.metadata.ammoType,
+        count = actualLoad,
+        maxCount = magInfo and magInfo.capacity or actualLoad,
+    })
+
     -- Apply new magazine (with clamped count, includes chambered round)
     TriggerClientEvent('ammo:magazineEquipped', source, {
         weaponHash = data.weaponHash,
@@ -523,6 +622,11 @@ RegisterNetEvent('ammo:returnEmptyMagazine', function(data)
     local source = source
 
     if not data.magazineItem then return end
+
+    -- Untrack: empty magazine is being returned to inventory
+    if data.weaponHash then
+        UntrackEquippedMagazine(source, data.weaponHash)
+    end
 
     -- Add empty magazine (no metadata = stackable)
     ox_inventory:AddItem(source, data.magazineItem, 1)
@@ -547,6 +651,11 @@ RegisterNetEvent('ammo:ejectMagazine', function(data)
     local source = source
 
     if not data.magazineItem then return end
+
+    -- Untrack: magazine is being returned to inventory
+    if data.weaponHash then
+        UntrackEquippedMagazine(source, data.weaponHash)
+    end
 
     local magInfo = Config.Magazines[data.magazineItem]
     local roundCount = data.count or 0
@@ -749,6 +858,13 @@ RegisterNetEvent('ammo:equipSpeedloader', function(data)
     -- Return empty speedloader to inventory (no metadata = stackable)
     ox_inventory:AddItem(source, sl.item, 1)
 
+    -- Track equipped speedloader rounds for disconnect persistence
+    TrackEquippedSpeedloader(source, data.weaponHash, {
+        item = sl.item,
+        ammoType = sl.metadata.ammoType,
+        count = actualLoad,
+    })
+
     -- Tell client to apply the ammo
     TriggerClientEvent('ammo:speedloaderEquipped', source, {
         weaponHash = data.weaponHash,
@@ -788,6 +904,13 @@ RegisterNetEvent('ammo:combatReloadSpeedloader', function(data)
     -- Return empty speedloader
     ox_inventory:AddItem(source, sl.item, 1)
 
+    -- Track equipped speedloader rounds for disconnect persistence
+    TrackEquippedSpeedloader(source, data.weaponHash, {
+        item = sl.item,
+        ammoType = sl.metadata.ammoType,
+        count = actualLoad,
+    })
+
     -- Apply new ammo
     TriggerClientEvent('ammo:speedloaderEquipped', source, {
         weaponHash = data.weaponHash,
@@ -795,6 +918,62 @@ RegisterNetEvent('ammo:combatReloadSpeedloader', function(data)
         ammoType = sl.metadata.ammoType,
         count = actualLoad,
     })
+end)
+
+-- ============================================================================
+-- EQUIPPED STATE SYNC AND PERSISTENCE
+-- ============================================================================
+
+--[[
+    Cylinder emptied with no speedloaders available - untrack so disconnect
+    doesn't return phantom ammo.
+]]
+RegisterNetEvent('ammo:clearEquippedSpeedloader', function(data)
+    local source = source
+    if data.weaponHash then
+        UntrackEquippedSpeedloader(source, data.weaponHash)
+    end
+end)
+
+--[[
+    Client periodically syncs its tracked ammo counts so the server has
+    up-to-date data for disconnect persistence.
+]]
+RegisterNetEvent('ammo:syncEquippedState', function(data)
+    local source = source
+
+    if data.magazines then
+        playerEquippedMags[source] = data.magazines
+    end
+
+    if data.speedloaders then
+        playerEquippedSpeedloaders[source] = data.speedloaders
+    end
+end)
+
+--[[
+    Return all equipped magazines/ammo to inventory when player disconnects.
+]]
+AddEventHandler('playerDropped', function()
+    local source = source
+    ReturnEquippedToInventory(source)
+end)
+
+--[[
+    Return all equipped items for ALL players on resource stop (server restart).
+]]
+AddEventHandler('onResourceStop', function(resourceName)
+    if GetCurrentResourceName() ~= resourceName then return end
+
+    for playerId, _ in pairs(playerEquippedMags) do
+        ReturnEquippedToInventory(playerId)
+    end
+    -- Also catch any players only in speedloader table
+    for playerId, _ in pairs(playerEquippedSpeedloaders) do
+        if not playerEquippedMags[playerId] then
+            ReturnEquippedToInventory(playerId)
+        end
+    end
 end)
 
 -- ============================================================================

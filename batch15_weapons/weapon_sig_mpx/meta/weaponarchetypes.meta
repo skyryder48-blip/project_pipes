@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponModelInfo__InitDataList>
-  <InitDatas />
+	<InitDatas>
+		<Item>
+			<modelName>w_sb_sig_mpx</modelName>
+			<txdName>w_sb_sig_mpx</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="500"/>
+		</Item>
+	</InitDatas>
 </CWeaponModelInfo__InitDataList>

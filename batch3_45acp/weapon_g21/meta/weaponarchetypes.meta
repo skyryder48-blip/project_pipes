@@ -3,6 +3,18 @@
 <CWeaponModelInfo__InitDataList>
 	<InitDatas>
 		<Item>
+			<modelName>w_pi_g21_mag1</modelName>
+			<txdName>w_pi_g21_mag1</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="300"/>
+		</Item>
+		<Item>
+			<modelName>w_pi_g21_mag2</modelName>
+			<txdName>w_pi_g21_mag2</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="300"/>
+		</Item>
+		<Item>
 			<modelName>w_pi_g21</modelName>
 			<txdName>w_pi_g21</txdName>
 			<ptfxAssetName>NULL</ptfxAssetName>

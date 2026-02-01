@@ -33,7 +33,6 @@ end
 local equippedMagazines = HashKeyTable() -- Per-weapon equipped magazine tracking
 local chamberedRounds = HashKeyTable()   -- Tracks weapons with a chambered round after eject
 local equippedSpeedloaders = HashKeyTable() -- Per-weapon equipped speedloader tracking
-local magazineEquipTime = HashKeyTable()   -- Timestamp of last magazine/speedloader equip per weapon
 
 -- Get weapon's physical clip size from Config.Weapons
 function GetWeaponClipSize(weaponHash)
@@ -453,7 +452,6 @@ RegisterNetEvent('ammo:magazineEquipped', function(data)
         magazineCapacity = magInfo.capacity,  -- Keep magazine's capacity for reference
     }
     chamberedRounds[weaponHash] = nil  -- Magazine supersedes any chambered round
-    magazineEquipTime[weaponHash] = GetGameTimer()  -- Mark equip time for component-swap grace period
 
     -- Build and apply the correct weapon component.
     -- Add the new component first, then remove only OTHER clip components.
@@ -601,25 +599,13 @@ CreateThread(function()
         local weapon = GetSelectedPedWeapon(ped)
 
         if weapon ~= `WEAPON_UNARMED` then
-            -- Always block native reload when disableNativeReload is on
+            -- Block native reload key only — let GTA handle reload
+            -- animations naturally. GiveWeaponComponentToPed triggers
+            -- GTA's component-change reload animation automatically.
+            -- Our enforcement threads maintain the correct ammo count
+            -- throughout, so GTA's internal ammo changes are harmless.
             if Config.MagazineSystem.disableNativeReload then
                 DisableControlAction(0, reloadKey, true)
-
-                if IsPedReloading(ped) and not isReloading then
-                    -- After a magazine equip, GTA starts a native reload to
-                    -- process the component change.  If we cancel it every
-                    -- frame, GTA retries every frame and zeros ammo each
-                    -- time — an infinite loop that drains the magazine.
-                    -- Allow GTA to finish its internal reload during the
-                    -- grace window after equip.
-                    -- Skip entirely when isReloading is true — that means
-                    -- we called MakePedReload intentionally and must not
-                    -- cancel our own programmatic reload animation.
-                    local equipTime = magazineEquipTime[weapon]
-                    if not equipTime or (GetGameTimer() - equipTime) > 3000 then
-                        ClearPedTasks(ped)
-                    end
-                end
             end
 
             -- Per-frame shot detection: IsPedShooting fires on the exact frame
@@ -631,6 +617,13 @@ CreateThread(function()
                     local magData = equippedMagazines[weapon]
                     if magData then
                         magData.count = math.max(0, magData.count - 1)
+                    end
+                end
+            elseif equippedSpeedloaders[weapon] then
+                if IsPedShooting(ped) then
+                    local slData = equippedSpeedloaders[weapon]
+                    if slData then
+                        slData.count = math.max(0, slData.count - 1)
                     end
                 end
             elseif chamberedRounds[weapon] then
@@ -990,25 +983,13 @@ function PerformCombatReload(weaponHash, selectedMag)
         hasChamberedRound = chamberedRounds[weaponHash] and true or false,
     })
 
-    -- Trigger GTA's weapon-specific reload animation (magazine drop, insert,
-    -- slide rack etc). This is safe because our ammo tracking (IsPedShooting +
-    -- monitoring thread enforcement) is independent of GTA's reload behavior.
-    -- MakePedReload bypasses the disabled R key input — it's programmatic.
-    local ped = PlayerPedId()
-    MakePedReload(ped)
-
-    -- Wait for the reload animation to complete
+    -- GTA plays the reload animation automatically when the server responds
+    -- with ammo:magazineEquipped and GiveWeaponComponentToPed is called.
+    -- We just wait for the swap duration then clear isReloading so the
+    -- monitoring thread resumes normal empty-magazine detection.
     Wait(swapTime * 1000)
 
     isReloading = false
-
-    -- Refresh grace period: ammo:magazineEquipped set magazineEquipTime during
-    -- the Wait (while isReloading blocked the monitoring thread). By now the
-    -- original grace period has expired. Give the monitoring thread a fresh
-    -- window to handle any remaining GTA ammo resets from component changes.
-    if equippedMagazines[weaponHash] then
-        magazineEquipTime[weaponHash] = GetGameTimer()
-    end
 end
 
 --[[
@@ -1479,7 +1460,6 @@ RegisterNetEvent('ammo:speedloaderEquipped', function(data)
         count = data.count,
         maxCount = slInfo.capacity,
     }
-    magazineEquipTime[weaponHash] = GetGameTimer()  -- Mark equip time for component-swap grace period
 
     -- Build and apply the correct weapon component
     -- For revolvers, use weapon's componentBase directly with ammo type suffix
@@ -1537,20 +1517,19 @@ CreateThread(function()
                     -- GTA re-applied default ammo above tracked count - correct it
                     SetPedAmmo(ped, weapon, slData.count)
                     SetAmmoInClip(ped, weapon, slData.count)
-                elseif currentAmmo < slData.count then
-                    -- Same component-swap grace period as magazines
-                    local equipTime = magazineEquipTime[weapon]
-                    if currentAmmo == 0 and equipTime and (GetGameTimer() - equipTime) < 500 then
-                        SetPedAmmo(ped, weapon, slData.count)
-                        SetAmmoInClip(ped, weapon, slData.count)
-                    else
-                        slData.count = currentAmmo
+                elseif currentAmmo > 0 and currentAmmo < slData.count then
+                    -- Backup shot detection: trust non-zero decreases only.
+                    -- GTA's component-swap zeroing always goes to 0, never to
+                    -- a random low number, so non-zero means real shots fired.
+                    slData.count = currentAmmo
+                end
 
-                        -- Cylinder empty - auto-reload with speedloader if available
-                        if currentAmmo <= 0 and not isReloading and Config.SpeedloaderSystem.autoReloadFromInventory then
-                            HandleEmptyCylinder(weapon)
-                        end
-                    end
+                -- Cylinder empty - auto-reload with speedloader if available
+                if slData.count <= 0 and not isReloading and Config.SpeedloaderSystem.autoReloadFromInventory then
+                    HandleEmptyCylinder(weapon)
+                else
+                    SetPedAmmo(ped, weapon, slData.count)
+                    SetAmmoInClip(ped, weapon, slData.count)
                 end
             end
         end

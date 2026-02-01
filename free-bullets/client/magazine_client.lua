@@ -454,35 +454,22 @@ RegisterNetEvent('ammo:magazineEquipped', function(data)
     chamberedRounds[weaponHash] = nil  -- Magazine supersedes any chambered round
 
     -- Build and apply the correct weapon component.
-    -- Add the new component first, then remove only OTHER clip components.
-    -- This ensures the weapon always has a valid clip (never zero components).
+    -- Remove ALL clip components first, then give the new one.
+    -- This forces GTA to process it as a fresh component addition, which:
+    -- 1) Triggers the reload animation (even when same ammo type)
+    -- 2) Properly attaches the 3D magazine model
+    -- Without removal, re-giving the same component (e.g., FMJ→FMJ) is
+    -- silently ignored by GTA — no animation, no model refresh.
     local componentName = GetMagazineComponentName(weaponHash, data.magazineItem, data.ammoType)
     local ped = PlayerPedId()
     if componentName then
         local componentHash = GetHashKey(componentName)
 
-        -- Add new component (GTA auto-replaces clips in some weapon models)
-        GiveWeaponComponentToPed(ped, weaponHash, componentHash)
+        -- Remove all existing clip components first
+        RemoveAllClipComponents(weaponHash)
 
-        if HasPedGotWeaponComponent(ped, weaponHash, componentHash) then
-            -- New component applied - remove only OTHER clip components
-            local weaponInfo = Config.Weapons[weaponHash]
-            if weaponInfo and weaponInfo.caliber then
-                local ammoTypes = Config.AmmoTypes[weaponInfo.caliber]
-                if ammoTypes then
-                    for ammoType, _ in pairs(ammoTypes) do
-                        for _, suffix in ipairs({ '_CLIP_', '_EXTCLIP_', '_DRUM_', '_STICK_', '_CLIP2_' }) do
-                            local otherName = weaponInfo.componentBase .. suffix .. string.upper(ammoType)
-                            local otherHash = GetHashKey(otherName)
-                            if otherHash ~= componentHash and HasPedGotWeaponComponent(ped, weaponHash, otherHash) then
-                                RemoveWeaponComponentFromPed(ped, weaponHash, otherHash)
-                            end
-                        end
-                    end
-                end
-            end
-        end
-        -- If component doesn't exist, keep whatever clip is already on the weapon
+        -- Give the new component (GTA sees fresh addition → plays animation)
+        GiveWeaponComponentToPed(ped, weaponHash, componentHash)
     end
 
     -- Always set ammo count regardless of component success
@@ -538,12 +525,13 @@ AddEventHandler('ox_inventory:currentWeapon', function(weapon)
 
     -- Tracked weapons: re-apply clip component immediately on draw.
     -- ox_inventory re-gives the weapon fresh, stripping all components.
-    -- The monitoring thread also re-applies on weapon-switch but this
-    -- fires first, giving immediate visual feedback.
+    -- Remove any default/auto-applied clips first so GTA processes
+    -- our component as a fresh addition (proper model attachment).
     if equippedMagazines[weaponHash] then
         local magData = equippedMagazines[weaponHash]
         local componentName = GetMagazineComponentName(weaponHash, magData.item, magData.ammoType)
         if componentName then
+            RemoveAllClipComponents(weaponHash)
             GiveWeaponComponentToPed(PlayerPedId(), weaponHash, GetHashKey(componentName))
         end
         return
@@ -551,6 +539,7 @@ AddEventHandler('ox_inventory:currentWeapon', function(weapon)
         local slData = equippedSpeedloaders[weaponHash]
         local componentName = GetMagazineComponentName(weaponHash, slData.item, slData.ammoType)
         if componentName then
+            RemoveAllClipComponents(weaponHash)
             GiveWeaponComponentToPed(PlayerPedId(), weaponHash, GetHashKey(componentName))
         end
         return
@@ -745,11 +734,12 @@ CreateThread(function()
                     if equippedMagazines[weapon] then
                         -- Re-apply tracked ammo AND clip component when re-drawing.
                         -- ox_inventory re-gives the weapon fresh on each draw,
-                        -- stripping all components. Without re-applying, the
-                        -- magazine model won't be visible on the weapon.
+                        -- stripping all components. Remove default/auto clips
+                        -- first so GTA processes our component as fresh.
                         local magData = equippedMagazines[weapon]
                         local componentName = GetMagazineComponentName(weapon, magData.item, magData.ammoType)
                         if componentName then
+                            RemoveAllClipComponents(weapon)
                             GiveWeaponComponentToPed(ped, weapon, GetHashKey(componentName))
                         end
                         SetPedAmmo(ped, weapon, magData.count)
@@ -759,6 +749,7 @@ CreateThread(function()
                         local slData = equippedSpeedloaders[weapon]
                         local componentName = GetMagazineComponentName(weapon, slData.item, slData.ammoType)
                         if componentName then
+                            RemoveAllClipComponents(weapon)
                             GiveWeaponComponentToPed(ped, weapon, GetHashKey(componentName))
                         end
                         SetPedAmmo(ped, weapon, slData.count)
@@ -1463,28 +1454,13 @@ RegisterNetEvent('ammo:speedloaderEquipped', function(data)
 
     -- Build and apply the correct weapon component
     -- For revolvers, use weapon's componentBase directly with ammo type suffix
+    -- Remove all clips first to force GTA to process as fresh addition.
     local revolverComponent = weaponInfo.componentBase .. '_CLIP_' .. string.upper(data.ammoType)
     local componentHash = GetHashKey(revolverComponent)
     local ped = PlayerPedId()
 
-    -- Add new component first, then remove only others (never leave weapon clip-less)
+    RemoveAllClipComponents(weaponHash)
     GiveWeaponComponentToPed(ped, weaponHash, componentHash)
-    if HasPedGotWeaponComponent(ped, weaponHash, componentHash) then
-        if weaponInfo.caliber then
-            local ammoTypes = Config.AmmoTypes[weaponInfo.caliber]
-            if ammoTypes then
-                for ammoType, _ in pairs(ammoTypes) do
-                    for _, suffix in ipairs({ '_CLIP_', '_EXTCLIP_', '_DRUM_', '_STICK_', '_CLIP2_' }) do
-                        local otherName = weaponInfo.componentBase .. suffix .. string.upper(ammoType)
-                        local otherHash = GetHashKey(otherName)
-                        if otherHash ~= componentHash and HasPedGotWeaponComponent(ped, weaponHash, otherHash) then
-                            RemoveWeaponComponentFromPed(ped, weaponHash, otherHash)
-                        end
-                    end
-                end
-            end
-        end
-    end
 
     -- Set ammo count (total + clip)
     SetPedAmmo(ped, weaponHash, data.count)

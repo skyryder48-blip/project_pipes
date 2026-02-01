@@ -995,6 +995,7 @@ function ReturnEmptyMagazine(weaponHash)
     local currentMag = equippedMagazines[weaponHash]
     if currentMag then
         TriggerServerEvent('ammo:returnEmptyMagazine', {
+            weaponHash = weaponHash,
             magazineItem = currentMag.item,
             ammoType = currentMag.ammoType,
         })
@@ -1534,6 +1535,8 @@ function HandleEmptyCylinder(weaponHash)
             type = 'error'
         })
         equippedSpeedloaders[weaponHash] = nil
+        -- Notify server to untrack (cylinder emptied, no auto-reload)
+        TriggerServerEvent('ammo:clearEquippedSpeedloader', { weaponHash = weaponHash })
         isReloading = false
         return
     end
@@ -1667,4 +1670,63 @@ exports('UnloadSpeedloader', UnloadSpeedloader)
 exports('EquipSpeedloader', EquipSpeedloader)
 exports('GetEquippedSpeedloader', function(weaponHash)
     return equippedSpeedloaders[weaponHash]
+end)
+
+-- ============================================================================
+-- EQUIPPED STATE SYNC (Persistence)
+-- ============================================================================
+
+--[[
+    Periodically sync equipped magazine/speedloader state to the server.
+    This ensures the server has up-to-date ammo counts for disconnect
+    persistence. Without this, a disconnect would return magazines with
+    their initial load count, ignoring any rounds fired since equip.
+]]
+local function SyncEquippedStateToServer()
+    local magState = {}
+    local slState = {}
+    local hasData = false
+
+    for weaponHash, magData in pairs(equippedMagazines) do
+        if magData then
+            magState[weaponHash] = {
+                item = magData.item,
+                ammoType = magData.ammoType,
+                count = magData.count,
+                maxCount = magData.maxCount,
+            }
+            hasData = true
+        end
+    end
+
+    for weaponHash, slData in pairs(equippedSpeedloaders) do
+        if slData then
+            slState[weaponHash] = {
+                item = slData.item,
+                ammoType = slData.ammoType,
+                count = slData.count,
+            }
+            hasData = true
+        end
+    end
+
+    if hasData then
+        TriggerServerEvent('ammo:syncEquippedState', {
+            magazines = magState,
+            speedloaders = slState,
+        })
+    end
+end
+
+CreateThread(function()
+    while true do
+        Wait(30000) -- Sync every 30 seconds
+        SyncEquippedStateToServer()
+    end
+end)
+
+-- Sync state before resource stops (server restart, resource restart)
+AddEventHandler('onResourceStop', function(resourceName)
+    if GetCurrentResourceName() ~= resourceName then return end
+    SyncEquippedStateToServer()
 end)

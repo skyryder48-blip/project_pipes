@@ -468,8 +468,13 @@ RegisterNetEvent('ammo:magazineEquipped', function(data)
         -- Remove all existing clip components first
         RemoveAllClipComponents(weaponHash)
 
+        -- Yield one frame so GTA fully processes the removal before
+        -- we add the new component. Without this, GTA can merge the
+        -- remove+add into a no-op for certain component hashes.
+        Wait(0)
+
         -- Give the new component (GTA sees fresh addition → plays animation)
-        GiveWeaponComponentToPed(ped, weaponHash, componentHash)
+        GiveWeaponComponentToPed(PlayerPedId(), weaponHash, componentHash)
     end
 
     -- Always set ammo count regardless of component success
@@ -1460,11 +1465,13 @@ RegisterNetEvent('ammo:speedloaderEquipped', function(data)
     local ped = PlayerPedId()
 
     RemoveAllClipComponents(weaponHash)
-    GiveWeaponComponentToPed(ped, weaponHash, componentHash)
+    Wait(0)
+    GiveWeaponComponentToPed(PlayerPedId(), weaponHash, componentHash)
 
     -- Set ammo count (total + clip)
-    SetPedAmmo(ped, weaponHash, data.count)
-    SetAmmoInClip(ped, weaponHash, data.count)
+    local ped2 = PlayerPedId()
+    SetPedAmmo(ped2, weaponHash, data.count)
+    SetAmmoInClip(ped2, weaponHash, data.count)
 
     lib.notify({
         title = 'Cylinder Loaded',

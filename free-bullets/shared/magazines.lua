@@ -26,9 +26,9 @@ Config.MagazineSystem = {
     enabled = true,
     loadTimePerRound = 0.5,
     swapTime = {
-        standard = 1.5,
-        extended = 2.0,
-        drum = 3.0,
+        standard = 2.5,
+        extended = 3.0,
+        drum = 4.0,
     },
     allowPartialLoad = true,
     autoReloadFromInventory = false,

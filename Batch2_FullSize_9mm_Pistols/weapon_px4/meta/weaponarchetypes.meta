@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponModelInfo__InitDataList>
-  <InitDatas>
-    <!-- Beretta PX4 Storm - Full-Size 9mm Pistol -->
-    <Item>
-      <modelName>w_pi_px4</modelName>
-      <txdName>w_pi_px4</txdName>
-      <ptfxAssetName>NULL</ptfxAssetName>
-      <lodDist value="500"/>
-    </Item>
-  </InitDatas>
+	<InitDatas>
+		<Item>
+			<modelName>w_pi_px4_mag1</modelName>
+			<txdName>w_pi_px4_mag1</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="300"/>
+		</Item>
+		<Item>
+			<modelName>w_pi_px4_mag2</modelName>
+			<txdName>w_pi_px4_mag2</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="300"/>
+		</Item>
+		<Item>
+			<modelName>w_pi_px4</modelName>
+			<txdName>w_pi_px4</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="500"/>
+		</Item>
+	</InitDatas>
 </CWeaponModelInfo__InitDataList>

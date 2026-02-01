@@ -6,5 +6,12 @@
     Same file can be used for all pistols.
 -->
 <CWeaponModelInfo__InitDataList>
-  <InitDatas />
+	<InitDatas>
+		<Item>
+			<modelName>w_pi_g17</modelName>
+			<txdName>w_pi_g17</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="500"/>
+		</Item>
+	</InitDatas>
 </CWeaponModelInfo__InitDataList>

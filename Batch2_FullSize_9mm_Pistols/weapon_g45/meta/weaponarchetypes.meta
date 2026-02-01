@@ -1,12 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CWeaponModelInfo__InitDataList>
-  <InitDatas>
-    <!-- Glock 45 - Full-Size 9mm Pistol -->
-    <Item>
-      <modelName>w_pi_g45</modelName>
-      <txdName>w_pi_g45</txdName>
-      <ptfxAssetName>NULL</ptfxAssetName>
-      <lodDist value="500"/>
-    </Item>
-  </InitDatas>
+	<InitDatas>
+		<Item>
+			<modelName>w_pi_g45_mag1</modelName>
+			<txdName>w_pi_g45_mag1</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="300"/>
+		</Item>
+		<Item>
+			<modelName>w_pi_g45_mag2</modelName>
+			<txdName>w_pi_g45_mag2</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="300"/>
+		</Item>
+		<Item>
+			<modelName>w_pi_g45_mag3</modelName>
+			<txdName>w_pi_g45_mag3</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="300"/>
+		</Item>
+		<Item>
+			<modelName>w_pi_g45_mag4</modelName>
+			<txdName>w_pi_g45_mag4</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="300"/>
+		</Item>
+		<Item>
+			<modelName>w_pi_g45_mag5</modelName>
+			<txdName>w_pi_g45_mag5</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="300"/>
+		</Item>
+		<Item>
+			<modelName>w_pi_g45</modelName>
+			<txdName>w_pi_g45</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="500"/>
+		</Item>
+	</InitDatas>
 </CWeaponModelInfo__InitDataList>

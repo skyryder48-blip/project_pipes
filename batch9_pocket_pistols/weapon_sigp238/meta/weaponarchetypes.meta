@@ -4,5 +4,18 @@
     Universal boilerplate - texture embedded in .ytd
 -->
 <CWeaponModelInfo__InitDataList>
-  <InitDatas />
+	<InitDatas>
+		<Item>
+			<modelName>w_pi_sigp238_mag1</modelName>
+			<txdName>w_pi_sigp238_mag1</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="300"/>
+		</Item>
+		<Item>
+			<modelName>w_pi_sigp238</modelName>
+			<txdName>w_pi_sigp238</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="500"/>
+		</Item>
+	</InitDatas>
 </CWeaponModelInfo__InitDataList>

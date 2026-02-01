@@ -3,19 +3,19 @@
 <CWeaponModelInfo__InitDataList>
 	<InitDatas>
 		<Item>
-			<modelName>w_pi_g26_switch</modelName>
-			<txdName>w_pi_g26_switch</txdName>
-			<ptfxAssetName>NULL</ptfxAssetName>
-			<lodDist value="500"/>
-		</Item>
-		<Item>
 			<modelName>w_pi_g26_switch_mag1</modelName>
-			<txdName>w_pi_g26_switch</txdName>
+			<txdName>w_pi_g26_switch_mag1</txdName>
 			<ptfxAssetName>NULL</ptfxAssetName>
-			<lodDist value="500"/>
+			<lodDist value="300"/>
 		</Item>
 		<Item>
 			<modelName>w_pi_g26_switch_mag2</modelName>
+			<txdName>w_pi_g26_switch_mag2</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="300"/>
+		</Item>
+		<Item>
+			<modelName>w_pi_g26_switch</modelName>
 			<txdName>w_pi_g26_switch</txdName>
 			<ptfxAssetName>NULL</ptfxAssetName>
 			<lodDist value="500"/>

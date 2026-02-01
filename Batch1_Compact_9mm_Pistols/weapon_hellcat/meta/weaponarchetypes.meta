@@ -3,13 +3,13 @@
 <CWeaponModelInfo__InitDataList>
 	<InitDatas>
 		<Item>
-			<modelName>w_pi_hellcat</modelName>
-			<txdName>w_pi_hellcat</txdName>
+			<modelName>w_pi_hellcat_mag1</modelName>
+			<txdName>w_pi_hellcat_mag1</txdName>
 			<ptfxAssetName>NULL</ptfxAssetName>
-			<lodDist value="500"/>
+			<lodDist value="300"/>
 		</Item>
 		<Item>
-			<modelName>w_pi_hellcat_mag1</modelName>
+			<modelName>w_pi_hellcat</modelName>
 			<txdName>w_pi_hellcat</txdName>
 			<ptfxAssetName>NULL</ptfxAssetName>
 			<lodDist value="500"/>

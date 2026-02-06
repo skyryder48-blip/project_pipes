@@ -10,6 +10,8 @@
 ]]
 
 local currentMagazine = nil -- Currently equipped magazine data
+local currentWeaponSlot = nil -- Current weapon's inventory slot (from ox_inventory)
+local weaponSlots = {}        -- Per-weapon slot tracking: [weaponHash] = inventorySlot
 
 -- Hash-keyed table that normalizes number keys to unsigned 32-bit integers.
 -- Fixes two Lua 5.4 issues with weapon hashes used as table keys:
@@ -409,6 +411,7 @@ function EquipMagazine(magazineItem, magazineSlot, metadata)
         TriggerServerEvent('ammo:equipMagazine', {
             weaponHash = currentWeapon,
             weaponClipSize = weaponClipSize,  -- Send weapon's physical capacity limit
+            weaponSlot = currentWeaponSlot,
             newMagazine = {
                 item = magazineItem,
                 slot = magazineSlot,
@@ -524,9 +527,45 @@ end)
 ]]
 AddEventHandler('ox_inventory:currentWeapon', function(weapon)
     if not Config.MagazineSystem.enabled then return end
-    if not weapon then return end
+    if not weapon then
+        currentWeaponSlot = nil
+        return
+    end
 
     local weaponHash = weapon.hash
+    currentWeaponSlot = weapon.slot
+    weaponSlots[weaponHash] = weapon.slot
+
+    -- Restore persisted magazine data from weapon metadata (survives server restart).
+    -- If the weapon has equippedMag in its metadata but no client-side tracking,
+    -- the server restarted while a magazine was equipped. Restore tracking.
+    if weapon.metadata and weapon.metadata.equippedMag
+       and not equippedMagazines[weaponHash]
+       and not equippedSpeedloaders[weaponHash] then
+        local savedMag = weapon.metadata.equippedMag
+        if savedMag.kind == 'speedloader' then
+            equippedSpeedloaders[weaponHash] = {
+                item = savedMag.item,
+                ammoType = savedMag.ammoType,
+                count = savedMag.count,
+                maxCount = savedMag.maxCount or savedMag.count,
+            }
+        else
+            equippedMagazines[weaponHash] = {
+                item = savedMag.item,
+                ammoType = savedMag.ammoType,
+                count = savedMag.count,
+                maxCount = GetWeaponClipSize(weaponHash),
+                magazineCapacity = savedMag.maxCount,
+            }
+        end
+        -- Notify server to restore tracking
+        TriggerServerEvent('ammo:restoreEquippedState', {
+            weaponHash = weaponHash,
+            weaponSlot = weapon.slot,
+            equippedMag = savedMag,
+        })
+    end
 
     -- Tracked weapons: re-apply clip component immediately on draw.
     -- ox_inventory re-gives the weapon fresh, stripping all components.
@@ -678,6 +717,7 @@ function KeybindReload(weaponHash)
             TriggerServerEvent('ammo:combatReloadSpeedloader', {
                 weaponHash = weaponHash,
                 weaponClipSize = weaponClipSize,
+                weaponSlot = weaponSlots[weaponHash] or currentWeaponSlot,
                 newSpeedloader = selected,
             })
             Wait(Config.SpeedloaderSystem.equipTime * 1000)
@@ -970,6 +1010,7 @@ function PerformCombatReload(weaponHash, selectedMag)
     TriggerServerEvent('ammo:combatReload', {
         weaponHash = weaponHash,
         weaponClipSize = weaponClipSize,  -- Send weapon's physical capacity limit
+        weaponSlot = weaponSlots[weaponHash] or currentWeaponSlot,
         newMagazine = selectedMag,
         currentMagazine = currentMag and {
             item = currentMag.item,
@@ -996,6 +1037,7 @@ function ReturnEmptyMagazine(weaponHash)
     if currentMag then
         TriggerServerEvent('ammo:returnEmptyMagazine', {
             weaponHash = weaponHash,
+            weaponSlot = weaponSlots[weaponHash] or currentWeaponSlot,
             magazineItem = currentMag.item,
             ammoType = currentMag.ammoType,
         })
@@ -1042,6 +1084,7 @@ function EjectMagazine()
     -- Trigger server to return magazine to inventory
     TriggerServerEvent('ammo:ejectMagazine', {
         weaponHash = currentWeapon,
+        weaponSlot = weaponSlots[currentWeapon] or currentWeaponSlot,
         magazineItem = currentMag.item,
         ammoType = currentMag.ammoType,
         count = magReturnCount,
@@ -1431,6 +1474,7 @@ function EquipSpeedloader(speedloaderItem, speedloaderSlot, metadata)
         TriggerServerEvent('ammo:equipSpeedloader', {
             weaponHash = currentWeapon,
             weaponClipSize = weaponClipSize,
+            weaponSlot = currentWeaponSlot,
             speedloader = {
                 item = speedloaderItem,
                 slot = speedloaderSlot,
@@ -1536,7 +1580,10 @@ function HandleEmptyCylinder(weaponHash)
         })
         equippedSpeedloaders[weaponHash] = nil
         -- Notify server to untrack (cylinder emptied, no auto-reload)
-        TriggerServerEvent('ammo:clearEquippedSpeedloader', { weaponHash = weaponHash })
+        TriggerServerEvent('ammo:clearEquippedSpeedloader', {
+            weaponHash = weaponHash,
+            weaponSlot = weaponSlots[weaponHash] or currentWeaponSlot,
+        })
         isReloading = false
         return
     end
@@ -1558,6 +1605,7 @@ function HandleEmptyCylinder(weaponHash)
     TriggerServerEvent('ammo:combatReloadSpeedloader', {
         weaponHash = weaponHash,
         weaponClipSize = weaponClipSize,
+        weaponSlot = weaponSlots[weaponHash] or currentWeaponSlot,
         newSpeedloader = selected,
     })
 
@@ -1694,6 +1742,7 @@ local function SyncEquippedStateToServer()
                 ammoType = magData.ammoType,
                 count = magData.count,
                 maxCount = magData.maxCount,
+                weaponSlot = weaponSlots[weaponHash],
             }
             hasData = true
         end
@@ -1705,6 +1754,7 @@ local function SyncEquippedStateToServer()
                 item = slData.item,
                 ammoType = slData.ammoType,
                 count = slData.count,
+                weaponSlot = weaponSlots[weaponHash],
             }
             hasData = true
         end

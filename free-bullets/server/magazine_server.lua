@@ -19,18 +19,82 @@ local ox_inventory = exports.ox_inventory
 -- weapon, it's tracked here so it can be returned on disconnect or resource
 -- stop. The client syncs updated ammo counts periodically.
 
-local playerEquippedMags = {}         -- [playerId] = { [weaponHash] = { item, ammoType, count, maxCount } }
-local playerEquippedSpeedloaders = {} -- [playerId] = { [weaponHash] = { item, ammoType, count } }
+local playerEquippedMags = {}         -- [playerId] = { [weaponHash] = { item, ammoType, count, maxCount, weaponSlot } }
+local playerEquippedSpeedloaders = {} -- [playerId] = { [weaponHash] = { item, ammoType, count, weaponSlot } }
+
+-- ============================================================================
+-- WEAPON METADATA PERSISTENCE
+-- ============================================================================
+-- Persist equipped magazine/speedloader data into the weapon item's ox_inventory
+-- metadata so it survives server restarts and crashes. The weapon's metadata is
+-- saved to the database by ox_inventory, so even if the server crashes without
+-- running onResourceStop, the data is preserved.
+
+local function PersistMagToWeapon(playerId, weaponHash, weaponSlot, magData)
+    if not weaponSlot then return false end
+
+    local weaponInfo = Config.Weapons[weaponHash]
+    if not weaponInfo or not weaponInfo.componentBase then return false end
+
+    local weaponItemName = string.lower(weaponInfo.componentBase:gsub('COMPONENT_', 'WEAPON_'))
+
+    local ok, result = pcall(function()
+        return ox_inventory:Search(playerId, 'slots', weaponItemName)
+    end)
+
+    if not ok or not result then return false end
+
+    -- Find the item at the specific inventory slot
+    for _, slotData in pairs(result) do
+        if slotData.slot == weaponSlot then
+            local meta = slotData.metadata or {}
+            if magData then
+                meta.equippedMag = {
+                    item = magData.item,
+                    ammoType = magData.ammoType,
+                    count = magData.count,
+                    maxCount = magData.maxCount,
+                    kind = magData.kind or 'magazine',
+                }
+            else
+                meta.equippedMag = nil
+            end
+
+            local setOk = pcall(function()
+                ox_inventory:SetMetadata(playerId, weaponSlot, meta)
+            end)
+            return setOk
+        end
+    end
+
+    return false
+end
+
+local function ClearMagFromWeapon(playerId, weaponHash, weaponSlot)
+    PersistMagToWeapon(playerId, weaponHash, weaponSlot, nil)
+end
+
+-- ============================================================================
+-- TRACKING FUNCTIONS
+-- ============================================================================
 
 local function TrackEquippedMagazine(playerId, weaponHash, data)
     if not playerEquippedMags[playerId] then
         playerEquippedMags[playerId] = {}
     end
     playerEquippedMags[playerId][weaponHash] = data
+    -- Persist to weapon metadata for crash/restart safety
+    if data.weaponSlot then
+        PersistMagToWeapon(playerId, weaponHash, data.weaponSlot, data)
+    end
 end
 
 local function UntrackEquippedMagazine(playerId, weaponHash)
     if playerEquippedMags[playerId] then
+        local data = playerEquippedMags[playerId][weaponHash]
+        if data and data.weaponSlot then
+            ClearMagFromWeapon(playerId, weaponHash, data.weaponSlot)
+        end
         playerEquippedMags[playerId][weaponHash] = nil
     end
 end
@@ -40,10 +104,24 @@ local function TrackEquippedSpeedloader(playerId, weaponHash, data)
         playerEquippedSpeedloaders[playerId] = {}
     end
     playerEquippedSpeedloaders[playerId][weaponHash] = data
+    -- Persist to weapon metadata for crash/restart safety
+    if data.weaponSlot then
+        PersistMagToWeapon(playerId, weaponHash, data.weaponSlot, {
+            item = data.item,
+            ammoType = data.ammoType,
+            count = data.count,
+            maxCount = data.count,
+            kind = 'speedloader',
+        })
+    end
 end
 
 local function UntrackEquippedSpeedloader(playerId, weaponHash)
     if playerEquippedSpeedloaders[playerId] then
+        local data = playerEquippedSpeedloaders[playerId][weaponHash]
+        if data and data.weaponSlot then
+            ClearMagFromWeapon(playerId, weaponHash, data.weaponSlot)
+        end
         playerEquippedSpeedloaders[playerId][weaponHash] = nil
     end
 end
@@ -54,6 +132,12 @@ local function ReturnEquippedToInventory(playerId)
     local mags = playerEquippedMags[playerId]
     if mags then
         for weaponHash, magData in pairs(mags) do
+            -- Clear persisted state from weapon metadata since magazine is
+            -- being returned to inventory as a separate item
+            if magData.weaponSlot then
+                ClearMagFromWeapon(playerId, weaponHash, magData.weaponSlot)
+            end
+
             local magInfo = Config.Magazines[magData.item]
             if magData.count and magData.count > 0 then
                 local metadata = {
@@ -79,6 +163,11 @@ local function ReturnEquippedToInventory(playerId)
     local sls = playerEquippedSpeedloaders[playerId]
     if sls then
         for weaponHash, slData in pairs(sls) do
+            -- Clear persisted state from weapon metadata
+            if slData.weaponSlot then
+                ClearMagFromWeapon(playerId, weaponHash, slData.weaponSlot)
+            end
+
             if slData.count and slData.count > 0 then
                 -- Return remaining cylinder rounds as loose ammo
                 local weaponInfo = Config.Weapons[weaponHash]
@@ -482,6 +571,7 @@ RegisterNetEvent('ammo:equipMagazine', function(data)
         ammoType = newMag.metadata.ammoType,
         count = actualLoad,
         maxCount = magInfo and magInfo.capacity or actualLoad,
+        weaponSlot = data.weaponSlot,
     })
 
     -- Tell client to apply the new magazine (with clamped count)
@@ -600,6 +690,7 @@ RegisterNetEvent('ammo:combatReload', function(data)
         ammoType = newMag.metadata.ammoType,
         count = actualLoad,
         maxCount = magInfo and magInfo.capacity or actualLoad,
+        weaponSlot = data.weaponSlot,
     })
 
     -- Apply new magazine (with clamped count, includes chambered round)
@@ -863,6 +954,7 @@ RegisterNetEvent('ammo:equipSpeedloader', function(data)
         item = sl.item,
         ammoType = sl.metadata.ammoType,
         count = actualLoad,
+        weaponSlot = data.weaponSlot,
     })
 
     -- Tell client to apply the ammo
@@ -909,6 +1001,7 @@ RegisterNetEvent('ammo:combatReloadSpeedloader', function(data)
         item = sl.item,
         ammoType = sl.metadata.ammoType,
         count = actualLoad,
+        weaponSlot = data.weaponSlot,
     })
 
     -- Apply new ammo
@@ -938,16 +1031,68 @@ end)
 --[[
     Client periodically syncs its tracked ammo counts so the server has
     up-to-date data for disconnect persistence.
+    Also persists updated counts to weapon metadata for crash safety.
 ]]
 RegisterNetEvent('ammo:syncEquippedState', function(data)
     local source = source
 
     if data.magazines then
         playerEquippedMags[source] = data.magazines
+        -- Persist updated counts to weapon metadata
+        for weaponHash, magData in pairs(data.magazines) do
+            if magData.weaponSlot then
+                PersistMagToWeapon(source, weaponHash, magData.weaponSlot, magData)
+            end
+        end
     end
 
     if data.speedloaders then
         playerEquippedSpeedloaders[source] = data.speedloaders
+        -- Persist updated counts to weapon metadata
+        for weaponHash, slData in pairs(data.speedloaders) do
+            if slData.weaponSlot then
+                PersistMagToWeapon(source, weaponHash, slData.weaponSlot, {
+                    item = slData.item,
+                    ammoType = slData.ammoType,
+                    count = slData.count,
+                    maxCount = slData.count,
+                    kind = 'speedloader',
+                })
+            end
+        end
+    end
+end)
+
+--[[
+    Client detected persisted magazine data in weapon metadata after a
+    server restart. Restore server-side tracking so disconnect persistence
+    and ammo management continue to work correctly.
+]]
+RegisterNetEvent('ammo:restoreEquippedState', function(data)
+    local source = source
+
+    if not data.weaponHash or not data.equippedMag then return end
+
+    local savedMag = data.equippedMag
+    if savedMag.kind == 'speedloader' then
+        TrackEquippedSpeedloader(source, data.weaponHash, {
+            item = savedMag.item,
+            ammoType = savedMag.ammoType,
+            count = savedMag.count,
+            weaponSlot = data.weaponSlot,
+        })
+    else
+        TrackEquippedMagazine(source, data.weaponHash, {
+            item = savedMag.item,
+            ammoType = savedMag.ammoType,
+            count = savedMag.count,
+            maxCount = savedMag.maxCount,
+            weaponSlot = data.weaponSlot,
+        })
+    end
+
+    if Config.Debug then
+        print(('[AMMO] Restored equipped state for player %s weapon %s from weapon metadata'):format(source, data.weaponHash))
     end
 end)
 
